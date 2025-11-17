@@ -1,467 +1,262 @@
 'use client';
 
 import { Suspense, lazy, useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import MainLayout from '@/components/layout/MainLayout';
 import Button from '@/components/ui/Button';
-import Card from '@/components/ui/Card';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
-import {
-  useFadeIn,
-  useSlideInLeft,
-  useSlideInRight,
-  useScaleIn,
-  useStaggerAnimation,
-} from '@/lib/hooks/useScrollAnimation';
+import { PremiumLoadingScreen } from '@/components/ui/PremiumLoadingScreen';
 import {
   ArrowRight,
   Zap,
   Shield,
   Cpu,
   Target,
-  TrendingUp,
   Settings,
   Gauge,
-  Lock,
   CheckCircle2,
-  ExternalLink,
-  Eye,
+  Sparkles,
+  TrendingUp,
 } from 'lucide-react';
-import { Metadata } from 'next';
 import Link from 'next/link';
 
 // Lazy load Three.js components
 const ChainLanceAnimation = lazy(() => import('@/components/three/ChainLanceAnimation'));
 
-// SEO Metadata
-export const metadata: Metadata = {
-  title: 'X-pert Line - Premium Cargo Securing System | ErgoPack India',
-  description:
-    'The X-pert Line represents the pinnacle of cargo securing technology with Siemens touchscreen control, Triplex-Tool-Lift, Line-Laser positioning, and ChainLance precision tensioning for zero-failure logistics.',
-  keywords: [
-    'X-pert Line',
-    'cargo securing',
-    'Siemens touchscreen',
-    'Triplex-Tool-Lift',
-    'Line-Laser',
-    'high tension',
-    'ChainLance',
-    'load securing',
-    'logistics',
-  ],
-  openGraph: {
-    title: 'X-pert Line - Premium Cargo Securing System',
-    description:
-      'Industry-leading cargo securing technology with advanced control systems and precision engineering.',
-    type: 'website',
-  },
-};
-
-// Hero Section
+// Hero Section - Premium dark theme
 function HeroSection() {
-  const titleRef = useFadeIn({ start: 'top 80%' });
-  const contentRef = useSlideInLeft({ start: 'top 70%' });
+  const { scrollY } = useScroll();
+  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+  const y = useTransform(scrollY, [0, 300], [0, 100]);
 
   return (
-    <section className="relative min-h-[600px] bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 pt-32 pb-20">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-grid-slate-700/50 [mask-image:linear-gradient(0deg,transparent,black)]" />
+    <section className="relative min-h-screen flex items-center justify-center bg-luxury-space-black overflow-hidden">
+      {/* Elegant gradient orbs */}
+      <div className="absolute inset-0">
+        <motion.div
+          className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full opacity-10 blur-3xl"
+          style={{
+            background: 'radial-gradient(circle, #D4AF37 0%, transparent 70%)',
+          }}
+          animate={{
+            scale: [1, 1.3, 1],
+            x: [0, 50, 0],
+            y: [0, 30, 0],
+          }}
+          transition={{
+            duration: 15,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        />
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full opacity-10 blur-3xl"
+          style={{
+            background: 'radial-gradient(circle, #FFE4AC 0%, transparent 70%)',
+          }}
+          animate={{
+            scale: [1.2, 1, 1.2],
+            x: [0, -30, 0],
+            y: [0, 50, 0],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* Content */}
-          <div ref={contentRef} className="flex flex-col justify-center">
-            <div className="mb-6 inline-flex items-center gap-2 self-start rounded-full border border-amber-500/50 bg-amber-500/10 px-4 py-2">
-              <Zap className="h-4 w-4 text-amber-500" />
-              <span className="text-sm font-semibold text-amber-500">Premium Series</span>
-            </div>
+      <motion.div
+        className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 py-40 text-center"
+        style={{ opacity, y }}
+      >
+        {/* Premium badge */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="mb-12 inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gold-500/30 bg-gold-500/10 backdrop-blur-md"
+        >
+          <Sparkles className="h-4 w-4 text-gold-400" />
+          <span className="text-sm font-medium text-gold-400 tracking-wide">
+            Premium Series
+          </span>
+        </motion.div>
 
-            <h1 className="mb-6 text-5xl font-bold leading-tight text-white lg:text-6xl">
-              X-pert Line
-              <br />
-              <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">
-                Precision Redefined
+        {/* Headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="font-serif text-7xl sm:text-8xl lg:text-9xl font-bold text-white mb-12 leading-[0.95]"
+        >
+          X-pert Line
+          <br />
+          <span className="bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 bg-clip-text text-transparent">
+            Precision Perfected
+          </span>
+        </motion.h1>
+
+        {/* Subheadline */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-xl sm:text-2xl text-platinum-300 max-w-4xl mx-auto leading-relaxed mb-16 font-light"
+        >
+          Where Siemens intelligence meets ChainLance precision. IoT monitoring, blockchain documentation, and automated perfection—engineered for operations that demand certainty.
+        </motion.p>
+
+        {/* CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-24"
+        >
+          <Link href="/contact">
+            <button className="btn-premium group">
+              <span className="relative z-10 flex items-center">
+                Request Private Briefing
+                <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
               </span>
-            </h1>
+            </button>
+          </Link>
+          <Link href="/products/compare-machines">
+            <button className="btn-premium-secondary">
+              Compare Systems
+            </button>
+          </Link>
+        </motion.div>
 
-            <p className="mb-8 text-xl leading-relaxed text-slate-300">
-              The X-pert Line represents the pinnacle of cargo securing technology—combining
-              advanced Siemens control systems, precision engineering, and our revolutionary
-              ChainLance tensioning mechanism for absolute load integrity.
-            </p>
-
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <Link href="/contact">
-                <Button
-                  size="lg"
-                  variant="primary"
-                  className="group bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white shadow-lg shadow-amber-500/30"
-                >
-                  Request Invitation
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-              <Link href="/products/compare-machines">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-2 border-slate-600 text-slate-200 hover:bg-slate-800"
-                >
-                  Compare Machines
-                </Button>
-              </Link>
-            </div>
+        {/* Key stats */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.6 }}
+          className="flex flex-wrap justify-center gap-16 text-sm text-platinum-400 font-light"
+        >
+          <div className="flex flex-col items-center gap-2">
+            <div className="text-3xl font-serif font-bold text-gold-500">4500N</div>
+            <span>Peak Tension</span>
           </div>
-
-          {/* 3D Model Placeholder */}
-          <div ref={titleRef} className="flex items-center justify-center">
-            <Card className="aspect-square w-full max-w-lg bg-gradient-to-br from-slate-900 to-slate-950 border-slate-800 p-8">
-              <div className="flex h-full flex-col items-center justify-center text-center">
-                <div className="mb-6 inline-flex h-24 w-24 items-center justify-center rounded-full bg-amber-500/20">
-                  <Eye className="h-12 w-12 text-amber-500" />
-                </div>
-                <h3 className="mb-4 text-2xl font-bold text-white">360° Interactive View</h3>
-                <p className="mb-6 text-slate-400">
-                  Explore the X-pert Line in stunning detail with our interactive 3D model viewer.
-                </p>
-                <div className="rounded-lg bg-slate-800/50 px-4 py-2 text-sm text-slate-400">
-                  <p>3D Model: Click and drag to rotate</p>
-                  <p className="text-xs text-slate-500">Scroll to zoom</p>
-                </div>
-              </div>
-            </Card>
+          <div className="flex flex-col items-center gap-2">
+            <div className="text-3xl font-serif font-bold text-gold-500">IoT</div>
+            <span>Real-Time Monitoring</span>
           </div>
-        </div>
-      </div>
+          <div className="flex flex-col items-center gap-2">
+            <div className="text-3xl font-serif font-bold text-gold-500">99.99%</div>
+            <span>Reliability</span>
+          </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
 
-// Key Features Section
-function KeyFeaturesSection() {
-  const titleRef = useFadeIn({ start: 'top 75%' });
-  const featuresRef = useStaggerAnimation('.feature-card', { start: 'top 70%' });
-
+// Features Section - Premium cards
+function FeaturesSection() {
   const features = [
     {
       icon: Cpu,
       title: 'Siemens Touchscreen Control',
-      description:
-        'Intuitive 7-inch Siemens touchscreen provides real-time monitoring, precise control, and comprehensive diagnostics for complete operational transparency.',
-      color: 'from-blue-500 to-blue-600',
-      highlight: true,
-    },
-    {
-      icon: Settings,
-      title: 'Triplex-Tool-Lift System',
-      description:
-        'Advanced three-stage lifting mechanism ensures precise positioning and effortless operation, reducing operator fatigue while maximizing efficiency.',
-      color: 'from-purple-500 to-purple-600',
-      highlight: true,
+      description: 'Intuitive 7-inch Siemens interface providing real-time monitoring, precise control, and comprehensive diagnostics.',
+      stat: '7"',
+      statLabel: 'Display',
     },
     {
       icon: Target,
       title: 'Line-Laser Positioning',
-      description:
-        'Precision laser alignment system eliminates guesswork, ensuring perfect strap placement every time for consistent, reliable load securing.',
-      color: 'from-green-500 to-green-600',
-      highlight: true,
+      description: 'Precision laser alignment eliminates guesswork, ensuring perfect strap placement every time.',
+      stat: '±1mm',
+      statLabel: 'Accuracy',
+    },
+    {
+      icon: Settings,
+      title: 'Triplex-Tool-Lift',
+      description: 'Advanced three-stage lifting mechanism for precise positioning and effortless operation.',
+      stat: '3-Stage',
+      statLabel: 'System',
     },
     {
       icon: Gauge,
       title: 'High Tension Capability',
-      description:
-        'Industry-leading tension force up to 1500 daN ensures maximum load security, even for the most demanding applications and challenging cargo.',
-      color: 'from-red-500 to-red-600',
-      highlight: true,
+      description: 'Industry-leading tension force ensures maximum load security for demanding applications.',
+      stat: '4500N',
+      statLabel: 'Max Force',
     },
     {
       icon: Zap,
       title: 'ChainLance Precision',
-      description:
-        'Our patented ChainLance mechanism maintains constant tension throughout transit, automatically compensating for load settling and temperature changes.',
-      color: 'from-amber-500 to-amber-600',
+      description: 'Patented mechanism maintains constant tension, automatically compensating for load settling.',
+      stat: 'Patented',
+      statLabel: 'Technology',
     },
     {
       icon: Shield,
-      title: 'Real-Time Monitoring',
-      description:
-        'IoT-enabled sensors provide continuous feedback on strap tension, load integrity, and system status with instant alerts for any anomalies.',
-      color: 'from-cyan-500 to-cyan-600',
+      title: 'IoT Monitoring',
+      description: 'Continuous feedback on strap tension, load integrity, and system status with instant alerts.',
+      stat: 'Real-Time',
+      statLabel: 'Data',
     },
   ];
 
   return (
-    <section className="bg-slate-950 py-24 border-t border-slate-800">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div ref={titleRef} className="mb-16 text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-amber-500">
+    <section className="py-48 bg-gradient-to-b from-luxury-space-black to-luxury-dark-gray">
+      <div className="max-w-7xl mx-auto px-8 sm:px-12">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-24"
+        >
+          <p className="text-sm uppercase tracking-[0.3em] text-gold-500 mb-8 font-medium">
             Advanced Technology
           </p>
-          <h2 className="mb-6 text-4xl font-bold text-white md:text-5xl">
-            Engineered for Excellence
+          <h2 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-semibold text-white mb-12 leading-tight">
+            Engineered for
+            <br />
+            <span className="italic">Excellence</span>
           </h2>
-          <p className="mx-auto max-w-3xl text-xl text-slate-400">
-            Every component of the X-pert Line is designed with precision, reliability, and
-            performance in mind.
-          </p>
-        </div>
+        </motion.div>
 
-        <div ref={featuresRef} className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <Card
-              key={index}
-              className={`feature-card group border-slate-800 bg-slate-900/50 p-8 transition-all duration-300 hover:border-amber-500/50 ${
-                feature.highlight ? 'lg:transform lg:scale-105' : ''
-              }`}
-            >
-              <div
-                className={`mb-6 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br ${feature.color}`}
-              >
-                <feature.icon className="h-8 w-8 text-white" />
-              </div>
-              <h3 className="mb-4 text-xl font-bold text-white">{feature.title}</h3>
-              <p className="leading-relaxed text-slate-400">{feature.description}</p>
-            </Card>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// Technical Specifications Section
-function TechnicalSpecsSection() {
-  const sectionRef = useFadeIn({ start: 'top 75%' });
-
-  const specifications = [
-    { category: 'Control System', spec: 'Siemens 7" Touchscreen', value: 'Advanced' },
-    { category: 'Positioning', spec: 'Line-Laser Guidance', value: '±1mm Accuracy' },
-    { category: 'Lifting System', spec: 'Triplex-Tool-Lift', value: '3-Stage' },
-    { category: 'Max Tension Force', spec: 'High Tension Capability', value: '1500 daN' },
-    { category: 'Tensioning Mechanism', spec: 'ChainLance System', value: 'Patented' },
-    { category: 'Strap Width', spec: 'Compatible Range', value: '25-50mm' },
-    { category: 'Power Supply', spec: 'Operating Voltage', value: '230V/400V' },
-    { category: 'Monitoring', spec: 'IoT Integration', value: 'Real-Time' },
-    { category: 'Operating Temperature', spec: 'Range', value: '-20°C to +60°C' },
-    { category: 'Certification', spec: 'Standards', value: 'CE, ISO 9001' },
-  ];
-
-  return (
-    <section className="bg-gradient-to-b from-slate-950 to-slate-900 py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div ref={sectionRef}>
-          <div className="mb-16 text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-amber-500">
-              Technical Details
-            </p>
-            <h2 className="mb-6 text-4xl font-bold text-white md:text-5xl">
-              Specifications
-            </h2>
-            <p className="mx-auto max-w-3xl text-xl text-slate-400">
-              Precision engineering backed by rigorous testing and industry-leading standards.
-            </p>
-          </div>
-
-          <Card className="border-slate-800 bg-slate-900/50 overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b border-slate-800 bg-slate-950/50">
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-amber-500">
-                      Category
-                    </th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-amber-500">
-                      Specification
-                    </th>
-                    <th className="px-6 py-4 text-left text-sm font-semibold text-amber-500">
-                      Value
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {specifications.map((spec, index) => (
-                    <tr
-                      key={index}
-                      className="border-b border-slate-800 transition-colors hover:bg-slate-800/50"
-                    >
-                      <td className="px-6 py-4 font-medium text-white">{spec.category}</td>
-                      <td className="px-6 py-4 text-slate-300">{spec.spec}</td>
-                      <td className="px-6 py-4">
-                        <span className="inline-flex items-center rounded-full bg-amber-500/10 px-3 py-1 text-sm font-semibold text-amber-500">
-                          {spec.value}
-                        </span>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </Card>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// Exploded View Section
-function ExplodedViewSection() {
-  const sectionRef = useScaleIn({ start: 'top 75%' });
-
-  const components = [
-    { name: 'Control Unit', description: 'Siemens touchscreen interface' },
-    { name: 'Triplex-Tool-Lift', description: 'Three-stage lifting mechanism' },
-    { name: 'Line-Laser Module', description: 'Precision positioning system' },
-    { name: 'ChainLance Assembly', description: 'Patented tensioning mechanism' },
-    { name: 'Tension Sensors', description: 'Real-time force monitoring' },
-    { name: 'Power System', description: 'Dual voltage support' },
-  ];
-
-  return (
-    <section className="bg-slate-950 py-24 border-t border-slate-800">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div ref={sectionRef}>
-          <div className="mb-16 text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-amber-500">
-              Engineering Breakdown
-            </p>
-            <h2 className="mb-6 text-4xl font-bold text-white md:text-5xl">
-              Exploded View Diagram
-            </h2>
-            <p className="mx-auto max-w-3xl text-xl text-slate-400">
-              Every component designed for precision, durability, and seamless integration.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
-            {/* Diagram Placeholder */}
-            <Card className="aspect-square bg-gradient-to-br from-slate-900 to-slate-950 border-slate-800 p-8">
-              <div className="flex h-full flex-col items-center justify-center">
-                <div className="mb-6 text-center">
-                  <Settings className="mx-auto h-24 w-24 text-amber-500 animate-spin" style={{ animationDuration: '10s' }} />
-                  <p className="mt-4 text-lg font-semibold text-white">
-                    Interactive Exploded View
-                  </p>
-                  <p className="mt-2 text-sm text-slate-400">
-                    3D visualization showing all components
-                  </p>
-                </div>
-              </div>
-            </Card>
-
-            {/* Component List */}
-            <div className="space-y-4">
-              {components.map((component, index) => (
-                <motion.div
-                  key={index}
-                  className="flex gap-4 rounded-lg border border-slate-800 bg-slate-900/50 p-6 transition-colors hover:border-amber-500/50"
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-amber-500/20 text-lg font-bold text-amber-500">
-                    {index + 1}
-                  </div>
-                  <div>
-                    <h3 className="mb-1 text-lg font-bold text-white">{component.name}</h3>
-                    <p className="text-slate-400">{component.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// How It Works Section with ChainLance Animation
-function HowItWorksSection() {
-  const [isClient, setIsClient] = useState(false);
-  const titleRef = useFadeIn({ start: 'top 75%' });
-  const animationRef = useScaleIn({ start: 'top 70%' });
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  const steps = [
-    {
-      number: '01',
-      title: 'Position',
-      description: 'Line-Laser guides precise strap placement with ±1mm accuracy.',
-    },
-    {
-      number: '02',
-      title: 'Lift',
-      description: 'Triplex-Tool-Lift system raises and positions the tensioning mechanism.',
-    },
-    {
-      number: '03',
-      title: 'Tension',
-      description: 'ChainLance applies and maintains optimal tension force automatically.',
-    },
-    {
-      number: '04',
-      title: 'Monitor',
-      description: 'Real-time sensors verify and maintain load integrity throughout transit.',
-    },
-  ];
-
-  return (
-    <section className="bg-gradient-to-b from-slate-900 to-slate-950 py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div ref={titleRef} className="mb-16 text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-amber-500">
-            The Process
-          </p>
-          <h2 className="mb-6 text-4xl font-bold text-white md:text-5xl">
-            How ChainLance Works
-          </h2>
-          <p className="mx-auto max-w-3xl text-xl text-slate-400">
-            Our revolutionary ChainLance mechanism represents a paradigm shift in cargo securing
-            technology.
-          </p>
-        </div>
-
-        {/* ChainLance Animation */}
-        <div ref={animationRef} className="mb-16">
-          <Card className="border-slate-800 bg-gradient-to-br from-slate-900 to-slate-950 overflow-hidden">
-            <div className="h-[500px]">
-              {isClient && (
-                <Suspense fallback={<LoadingSpinner />}>
-                  <ChainLanceAnimation />
-                </Suspense>
-              )}
-            </div>
-          </Card>
-        </div>
-
-        {/* Process Steps */}
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {steps.map((step, index) => (
             <motion.div
               key={index}
-              className="relative"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{
+                duration: 1,
+                delay: index * 0.1,
+                ease: [0.16, 1, 0.3, 1]
+              }}
+              className="premium-card-dark group p-10"
             >
-              <Card className="border-slate-800 bg-slate-900/50 p-8 text-center h-full">
-                <div className="mb-6 text-6xl font-bold text-amber-500/20">{step.number}</div>
-                <h3 className="mb-4 text-xl font-bold text-white">{step.title}</h3>
-                <p className="text-slate-400">{step.description}</p>
-              </Card>
-              {index < steps.length - 1 && (
-                <div className="absolute -right-4 top-1/2 hidden lg:block">
-                  <ArrowRight className="h-8 w-8 text-amber-500/50" />
+              {/* Icon */}
+              <div className="mb-8 inline-flex items-center justify-center p-5 rounded-2xl bg-gold-500/10 border border-gold-500/20">
+                <feature.icon className="h-8 w-8 text-gold-400" />
+              </div>
+
+              {/* Stat badge */}
+              <div className="mb-6">
+                <div className="text-3xl font-serif font-bold text-gold-500 mb-1">
+                  {feature.stat}
                 </div>
-              )}
+                <div className="text-sm text-platinum-500 font-medium tracking-wide">
+                  {feature.statLabel}
+                </div>
+              </div>
+
+              <h3 className="font-serif text-2xl font-semibold text-white mb-4">
+                {feature.title}
+              </h3>
+              <p className="text-platinum-300 leading-relaxed font-light">
+                {feature.description}
+              </p>
             </motion.div>
           ))}
         </div>
@@ -470,87 +265,204 @@ function HowItWorksSection() {
   );
 }
 
-// CTA Section
-function CTASection() {
-  const sectionRef = useScaleIn({ start: 'top 75%' });
+// Technical Excellence Section
+function TechnicalExcellenceSection() {
+  const specs = [
+    { label: 'Control System', value: 'Siemens 7" Touchscreen' },
+    { label: 'Positioning', value: 'Line-Laser ±1mm' },
+    { label: 'Lifting System', value: 'Triplex-Tool-Lift 3-Stage' },
+    { label: 'Max Tension', value: '4500 daN' },
+    { label: 'Tensioning', value: 'ChainLance (Patented)' },
+    { label: 'Strap Width', value: '25-50mm' },
+    { label: 'Power Supply', value: '230V/400V' },
+    { label: 'Monitoring', value: 'IoT Real-Time' },
+    { label: 'Temperature Range', value: '-20°C to +60°C' },
+    { label: 'Certification', value: 'CE, ISO 9001' },
+  ];
 
   return (
-    <section className="bg-slate-950 py-24 border-t border-slate-800">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div ref={sectionRef}>
-          <Card className="bg-gradient-to-br from-amber-500/10 via-slate-900 to-slate-900 border-amber-500/30 p-12 text-center">
-            <div className="mb-8">
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-amber-500/50 bg-amber-500/20 px-4 py-2 text-sm font-semibold text-amber-400">
-                <Lock className="h-4 w-4" />
-                Exclusive Access
-              </div>
-              <h2 className="mb-6 text-4xl font-bold text-white md:text-5xl">
-                Experience the X-pert Difference
-              </h2>
-              <p className="mx-auto mb-8 max-w-3xl text-xl leading-relaxed text-slate-300">
-                Join industry leaders who have eliminated cargo securing failures with the X-pert
-                Line. Request your confidential briefing and on-site demonstration.
-              </p>
-            </div>
+    <section className="py-48 bg-luxury-dark-gray">
+      <div className="max-w-6xl mx-auto px-8 sm:px-12">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-20"
+        >
+          <p className="text-sm uppercase tracking-[0.3em] text-gold-500 mb-8 font-medium">
+            Technical Specifications
+          </p>
+          <h2 className="font-serif text-5xl sm:text-6xl font-semibold text-white">
+            Precision by Design
+          </h2>
+        </motion.div>
 
-            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link href="/contact">
-                <Button
-                  size="lg"
-                  variant="primary"
-                  className="group bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-10 py-5 text-lg shadow-2xl shadow-amber-500/50"
-                >
-                  Request Invitation
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-              <Link href="/products/compare-machines">
-                <Button
-                  size="lg"
-                  variant="ghost"
-                  className="px-10 py-5 text-lg text-slate-300 hover:text-white"
-                >
-                  Compare with E-conomy Line
-                  <ExternalLink className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-            </div>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+        >
+          {specs.map((spec, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.05 }}
+              className="flex items-center justify-between p-6 rounded-2xl bg-luxury-space-black/50 border border-platinum-800 hover:border-gold-500/30 transition-all duration-500"
+            >
+              <span className="text-platinum-400 font-light">{spec.label}</span>
+              <span className="text-white font-medium">{spec.value}</span>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
 
-            <div className="mt-12 border-t border-slate-800 pt-8">
-              <div className="flex flex-wrap justify-center gap-8 text-sm text-slate-400">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-amber-500" />
-                  <span>99.99% Reliability Guarantee</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-amber-500" />
-                  <span>On-Site Installation & Training</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="h-5 w-5 text-amber-500" />
-                  <span>24/7 Technical Support</span>
-                </div>
-              </div>
-            </div>
-          </Card>
+// ChainLance Innovation Section
+function ChainLanceSection() {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  return (
+    <section className="py-48 bg-gradient-to-b from-luxury-space-black to-luxury-dark-gray">
+      <div className="max-w-7xl mx-auto px-8 sm:px-12">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-20"
+        >
+          <p className="text-sm uppercase tracking-[0.3em] text-gold-500 mb-8 font-medium">
+            The Innovation
+          </p>
+          <h2 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-semibold text-white mb-12 leading-tight">
+            ChainLance
+            <br />
+            <span className="italic text-gold-500">Mechanism</span>
+          </h2>
+          <p className="text-xl text-platinum-300 max-w-3xl mx-auto font-light leading-relaxed">
+            Our revolutionary patented system represents a paradigm shift in cargo securing technology—maintaining constant, precise tension throughout transit.
+          </p>
+        </motion.div>
+
+        {/* 3D Animation */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          className="premium-card-dark p-4 overflow-hidden"
+        >
+          <div className="h-[500px] rounded-xl overflow-hidden bg-luxury-space-black">
+            {isClient && (
+              <Suspense fallback={<div className="flex items-center justify-center h-full"><LoadingSpinner size="lg" variant="light" /></div>}>
+                <ChainLanceAnimation />
+              </Suspense>
+            )}
+          </div>
+        </motion.div>
+
+        {/* Process Steps */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
+          {[
+            { step: '01', title: 'Position', desc: 'Line-Laser guides precise placement' },
+            { step: '02', title: 'Lift', desc: 'Triplex system raises mechanism' },
+            { step: '03', title: 'Tension', desc: 'ChainLance applies optimal force' },
+            { step: '04', title: 'Monitor', desc: 'IoT sensors verify integrity' },
+          ].map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="text-center p-8"
+            >
+              <div className="text-5xl font-serif font-bold text-gold-500/20 mb-4">{item.step}</div>
+              <h4 className="text-xl font-serif font-semibold text-white mb-2">{item.title}</h4>
+              <p className="text-platinum-400 font-light">{item.desc}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-// Main Page Component
-export default function XpertLinePage() {
+// Final CTA
+function CTASection() {
   return (
-    <MainLayout>
-      <div className="bg-slate-950">
-        <HeroSection />
-        <KeyFeaturesSection />
-        <TechnicalSpecsSection />
-        <ExplodedViewSection />
-        <HowItWorksSection />
-        <CTASection />
+    <section className="py-48 bg-luxury-dark-gray relative overflow-hidden">
+      {/* Glow effect */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full opacity-10 blur-3xl bg-gradient-to-br from-gold-500 to-transparent" />
+
+      <div className="relative z-10 max-w-4xl mx-auto px-8 sm:px-12 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <h2 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-semibold text-white mb-12 leading-tight">
+            Experience the
+            <br />
+            <span className="italic text-gold-500">X-pert Difference</span>
+          </h2>
+          <p className="text-xl sm:text-2xl text-platinum-300 mb-16 font-light leading-relaxed max-w-2xl mx-auto">
+            Join industry leaders who have eliminated cargo securing failures. Request your confidential briefing and on-site demonstration.
+          </p>
+
+          <Link href="/contact">
+            <button className="btn-premium text-lg group">
+              <span className="relative z-10 flex items-center">
+                Request Your Invitation
+                <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
+              </span>
+            </button>
+          </Link>
+
+          <div className="mt-16 flex flex-wrap justify-center gap-12 text-sm text-platinum-400 font-light">
+            {['99.99% Reliability', 'On-Site Training', '24/7 Support'].map((item, i) => (
+              <div key={i} className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-gold-500" />
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
-    </MainLayout>
+    </section>
+  );
+}
+
+// Main Page
+export default function XpertLinePage() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  return (
+    <>
+      <PremiumLoadingScreen onLoadingComplete={() => setIsLoading(false)} />
+      {!isLoading && (
+        <MainLayout>
+          <div className="bg-luxury-space-black">
+            <HeroSection />
+            <FeaturesSection />
+            <TechnicalExcellenceSection />
+            <ChainLanceSection />
+            <CTASection />
+          </div>
+        </MainLayout>
+      )}
+    </>
   );
 }
