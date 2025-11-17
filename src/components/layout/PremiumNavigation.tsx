@@ -13,11 +13,14 @@ const navLinks = [
     submenu: [
       { href: '/products/xpert-line', label: 'X-pert Line', desc: 'Premium Series' },
       { href: '/products/economy-line', label: 'E-conomy Line', desc: 'Professional Series' },
-      { href: '/products/compare-machines', label: 'Compare', desc: 'Find Your Perfect Fit' },
+      { href: '/products/compare', label: 'Compare', desc: 'Find Your Perfect Fit' },
     ],
   },
   { href: '/industries', label: 'Industries' },
+  { href: '/testimonials', label: 'Testimonials' },
+  { href: '/about', label: 'About Us' },
   { href: '/blog', label: 'Insights' },
+  { href: '/support', label: 'Support' },
   { href: '/contact', label: 'Contact' },
 ];
 
