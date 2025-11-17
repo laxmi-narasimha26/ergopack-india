@@ -77,11 +77,11 @@ export default function PremiumNavigation() {
               >
                 {/* Logo Icon */}
                 <div className="relative">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-500 to-gold-600 flex items-center justify-center shadow-lg shadow-gold-500/30">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-crimson-500 to-crimson-600 flex items-center justify-center shadow-lg shadow-crimson-500/30">
                     <span className="text-white font-serif font-bold text-xl">E</span>
                   </div>
                   <motion.div
-                    className="absolute inset-0 rounded-xl bg-gold-400 blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500"
+                    className="absolute inset-0 rounded-xl bg-crimson-400 blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500"
                     animate={{
                       scale: [1, 1.1, 1],
                     }}
@@ -122,7 +122,7 @@ export default function PremiumNavigation() {
                     >
                       <button
                         className={`flex items-center gap-1 text-sm font-medium transition-colors duration-300 ${
-                          isActive ? 'text-gold-600' : 'text-platinum-700 hover:text-gold-600'
+                          isActive ? 'text-crimson-600' : 'text-platinum-700 hover:text-crimson-600'
                         }`}
                       >
                         {link.label}
@@ -145,7 +145,7 @@ export default function PremiumNavigation() {
                           >
                             <div className="bg-white/95 backdrop-blur-xl rounded-2xl border border-platinum-200/50 shadow-2xl shadow-black/10 p-3 overflow-hidden">
                               {/* Glow effect */}
-                              <div className="absolute inset-0 bg-gradient-to-br from-gold-500/5 to-transparent pointer-events-none" />
+                              <div className="absolute inset-0 bg-gradient-to-br from-crimson-500/5 to-transparent pointer-events-none" />
 
                               {link.submenu.map((item, subIndex) => (
                                 <Link
@@ -155,9 +155,9 @@ export default function PremiumNavigation() {
                                 >
                                   <motion.div
                                     whileHover={{ x: 4 }}
-                                    className="px-4 py-3 rounded-xl hover:bg-gold-50/50 transition-colors duration-300"
+                                    className="px-4 py-3 rounded-xl hover:bg-crimson-50/50 transition-colors duration-300"
                                   >
-                                    <div className="text-sm font-medium text-luxury-dark-gray group-hover:text-gold-600 transition-colors">
+                                    <div className="text-sm font-medium text-luxury-dark-gray group-hover:text-crimson-600 transition-colors">
                                       {item.label}
                                     </div>
                                     <div className="text-xs text-platinum-500 mt-0.5">
@@ -179,12 +179,12 @@ export default function PremiumNavigation() {
                     key={index}
                     href={link.href!}
                     className={`relative text-sm font-medium transition-colors duration-300 group ${
-                      isActive ? 'text-gold-600' : 'text-platinum-700 hover:text-gold-600'
+                      isActive ? 'text-crimson-600' : 'text-platinum-700 hover:text-crimson-600'
                     }`}
                   >
                     {link.label}
                     <span
-                      className={`absolute -bottom-1 left-0 h-px bg-gold-600 transition-all duration-300 ${
+                      className={`absolute -bottom-1 left-0 h-px bg-crimson-600 transition-all duration-300 ${
                         isActive ? 'w-full' : 'w-0 group-hover:w-full'
                       }`}
                     />
@@ -279,7 +279,7 @@ export default function PremiumNavigation() {
                                 initial={{ x: -20, opacity: 0 }}
                                 animate={{ x: 0, opacity: 1 }}
                                 transition={{ delay: subIndex * 0.1 }}
-                                className="px-4 py-3 rounded-xl hover:bg-gold-50 transition-colors"
+                                className="px-4 py-3 rounded-xl hover:bg-crimson-50 transition-colors"
                               >
                                 <div className="text-sm font-medium text-luxury-dark-gray">
                                   {item.label}
@@ -300,7 +300,7 @@ export default function PremiumNavigation() {
                           initial={{ x: -20, opacity: 0 }}
                           animate={{ x: 0, opacity: 1 }}
                           transition={{ delay: index * 0.1 }}
-                          className="px-4 py-4 rounded-xl hover:bg-gold-50 transition-colors"
+                          className="px-4 py-4 rounded-xl hover:bg-crimson-50 transition-colors"
                         >
                           <span className="font-serif text-lg font-semibold text-luxury-dark-gray">
                             {link.label}

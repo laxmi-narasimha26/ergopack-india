@@ -12,7 +12,7 @@ interface Premium3DCardProps {
 export function Premium3DCard({
   children,
   className = '',
-  glowColor = 'rgba(212, 175, 55, 0.3)'
+  glowColor = 'rgba(155, 28, 28, 0.3)'
 }: Premium3DCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);

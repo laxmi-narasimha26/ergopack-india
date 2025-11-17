@@ -44,10 +44,10 @@ export function PremiumLoadingScreen({ onLoadingComplete }: PremiumLoadingScreen
               className="absolute inset-0 opacity-20"
               animate={{
                 background: [
-                  'radial-gradient(circle at 20% 50%, #D4AF37 0%, transparent 50%)',
-                  'radial-gradient(circle at 80% 50%, #D4AF37 0%, transparent 50%)',
-                  'radial-gradient(circle at 50% 80%, #D4AF37 0%, transparent 50%)',
-                  'radial-gradient(circle at 20% 50%, #D4AF37 0%, transparent 50%)',
+                  'radial-gradient(circle at 20% 50%, #9B1C1C 0%, transparent 50%)',
+                  'radial-gradient(circle at 80% 50%, #9B1C1C 0%, transparent 50%)',
+                  'radial-gradient(circle at 50% 80%, #9B1C1C 0%, transparent 50%)',
+                  'radial-gradient(circle at 20% 50%, #9B1C1C 0%, transparent 50%)',
                 ],
               }}
               transition={{
@@ -83,7 +83,7 @@ export function PremiumLoadingScreen({ onLoadingComplete }: PremiumLoadingScreen
                     cx="40"
                     cy="40"
                     r="38"
-                    stroke="url(#goldGradient)"
+                    stroke="url(#crimsonGradient)"
                     strokeWidth="1"
                     fill="none"
                     initial={{ pathLength: 0, opacity: 0 }}
@@ -94,7 +94,7 @@ export function PremiumLoadingScreen({ onLoadingComplete }: PremiumLoadingScreen
                   {/* Inner geometric pattern */}
                   <motion.path
                     d="M40 10 L65 30 L65 50 L40 70 L15 50 L15 30 Z"
-                    stroke="url(#goldGradient)"
+                    stroke="url(#crimsonGradient)"
                     strokeWidth="1.5"
                     fill="none"
                     initial={{ pathLength: 0 }}
@@ -107,7 +107,7 @@ export function PremiumLoadingScreen({ onLoadingComplete }: PremiumLoadingScreen
                     x="40"
                     y="48"
                     textAnchor="middle"
-                    className="font-serif text-2xl font-bold fill-gold-500"
+                    className="font-serif text-2xl font-bold fill-crimson-500"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 1.2 }}
@@ -116,10 +116,10 @@ export function PremiumLoadingScreen({ onLoadingComplete }: PremiumLoadingScreen
                   </motion.text>
 
                   <defs>
-                    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#D4AF37" />
-                      <stop offset="50%" stopColor="#FFE4AC" />
-                      <stop offset="100%" stopColor="#D4AF37" />
+                    <linearGradient id="crimsonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#9B1C1C" />
+                      <stop offset="50%" stopColor="#CC0000" />
+                      <stop offset="100%" stopColor="#9B1C1C" />
                     </linearGradient>
                   </defs>
                 </svg>
@@ -128,7 +128,7 @@ export function PremiumLoadingScreen({ onLoadingComplete }: PremiumLoadingScreen
                 <motion.div
                   className="absolute inset-0 blur-xl opacity-40"
                   style={{
-                    background: 'radial-gradient(circle, #D4AF37 0%, transparent 70%)',
+                    background: 'radial-gradient(circle, #9B1C1C 0%, transparent 70%)',
                   }}
                   animate={{
                     scale: [1, 1.2, 1],
@@ -152,7 +152,7 @@ export function PremiumLoadingScreen({ onLoadingComplete }: PremiumLoadingScreen
                 <h1 className="font-serif text-3xl font-bold tracking-wider text-luxury-off-white">
                   ERGOPACK
                 </h1>
-                <div className="h-px w-32 bg-gradient-to-r from-transparent via-gold-500 to-transparent" />
+                <div className="h-px w-32 bg-gradient-to-r from-transparent via-crimson-500 to-transparent" />
                 <p className="font-sans text-xs tracking-[0.2em] text-platinum-400">
                   INDIA
                 </p>
@@ -168,7 +168,7 @@ export function PremiumLoadingScreen({ onLoadingComplete }: PremiumLoadingScreen
             >
               <div className="h-px overflow-hidden bg-platinum-800">
                 <motion.div
-                  className="h-full bg-gradient-to-r from-gold-500 via-gold-300 to-gold-500"
+                  className="h-full bg-gradient-to-r from-crimson-500 via-ruby-500 to-crimson-600"
                   initial={{ width: '0%' }}
                   animate={{ width: `${progress}%` }}
                   transition={{ duration: 0.3, ease: 'easeOut' }}

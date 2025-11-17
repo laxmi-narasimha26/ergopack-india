@@ -61,7 +61,7 @@ export function LuxuryCursor() {
         <div
           className={`transition-all duration-150 ease-luxury ${
             isPointer
-              ? 'h-3 w-3 bg-gold-500 opacity-100'
+              ? 'h-3 w-3 bg-crimson-500 opacity-100'
               : 'h-1 w-1 bg-white opacity-80'
           } rounded-full`}
         />
@@ -79,7 +79,7 @@ export function LuxuryCursor() {
         <div
           className={`rounded-full border transition-all duration-300 ease-luxury ${
             isPointer
-              ? 'h-12 w-12 border-gold-500 opacity-50'
+              ? 'h-12 w-12 border-crimson-500 opacity-50'
               : 'h-8 w-8 border-white opacity-30'
           }`}
         />

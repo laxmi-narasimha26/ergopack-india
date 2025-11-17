@@ -18,20 +18,20 @@ const config: Config = {
           'dark-gray': '#1D1D1F',
           'space-black': '#0A0A0A',
         },
-        // Champagne gold - inspired by Rolex, Cartier
-        gold: {
-          50: '#FFF9ED',
-          100: '#FFF3D6',
-          200: '#FFE4AC',
-          300: '#FFCD77',
-          400: '#FFB03A',
-          500: '#D4AF37', // Classic champagne gold
-          600: '#B8941F',
-          700: '#927418',
-          800: '#785C19',
-          900: '#664D1A',
+        // Premium Red - Deep Crimson & Ruby (replacing gold)
+        crimson: {
+          50: '#FEF2F2',
+          100: '#FEE2E2',
+          200: '#FEC9C9',
+          300: '#FCA5A5',
+          400: '#F87171',
+          500: '#9B1C1C', // Deep premium crimson - main brand color
+          600: '#7F1D1D',
+          700: '#6B1717',
+          800: '#5A1414',
+          900: '#4A1111',
         },
-        // Deep burgundy - premium accent
+        // Deep burgundy - premium dark accent
         burgundy: {
           50: '#FDF2F4',
           100: '#FCE7EB',
@@ -44,18 +44,18 @@ const config: Config = {
           800: '#4E0D20',
           900: '#450C1F',
         },
-        // Emerald - inspired by Rolex green
-        emerald: {
-          50: '#F0FDF5',
-          100: '#DCFCE8',
-          200: '#BBF7D1',
-          300: '#86EFAD',
-          400: '#4ADE80',
-          500: '#006039', // Rolex green
-          600: '#004D2E',
-          700: '#003D25',
-          800: '#00331F',
-          900: '#002B1A',
+        // Ruby - vibrant premium red
+        ruby: {
+          50: '#FFF1F1',
+          100: '#FFE1E1',
+          200: '#FFC7C7',
+          300: '#FFA0A0',
+          400: '#FF6B6B',
+          500: '#CC0000', // Rich ruby red
+          600: '#B00000',
+          700: '#940000',
+          800: '#7A0000',
+          900: '#660000',
         },
         // Platinum - subtle luxury
         platinum: {
