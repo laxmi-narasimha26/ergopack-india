@@ -14,6 +14,7 @@ const navLinks = [
   { href: '/products/compare-machines', label: 'Compare Machines' },
   { href: '/industries', label: 'Industries' },
   { href: '/blog', label: 'Insights' },
+  { href: '/premium-features', label: 'Premium Features', highlight: true },
 ];
 
 export default function Navigation() {
@@ -65,15 +66,23 @@ export default function Navigation() {
                 href={link.href}
                 className={cn(
                   'relative text-sm font-medium transition-colors duration-300 group',
-                  pathname === link.href
+                  (link as any).highlight
+                    ? 'text-amber-400 hover:text-amber-300'
+                    : pathname === link.href
                     ? 'text-white'
                     : 'text-dark-300 hover:text-white'
                 )}
               >
                 {link.label}
+                {(link as any).highlight && (
+                  <span className="absolute -top-1 -right-2 w-2 h-2 bg-amber-500 rounded-full animate-pulse" />
+                )}
                 <span
                   className={cn(
-                    'absolute -bottom-1 left-0 h-px bg-accent-500 transition-all duration-300',
+                    'absolute -bottom-1 left-0 h-px transition-all duration-300',
+                    (link as any).highlight
+                      ? 'bg-amber-500'
+                      : 'bg-accent-500',
                     pathname === link.href ? 'w-full' : 'w-0 group-hover:w-full'
                   )}
                 />
