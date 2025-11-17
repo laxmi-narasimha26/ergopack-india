@@ -93,13 +93,13 @@ function HeroSection() {
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
-              <Link href="/products/compare">
+              <Link href="/products/compare-machines">
                 <Button
                   size="lg"
                   variant="outline"
                   className="border-2 border-slate-600 text-slate-200 hover:bg-slate-800"
                 >
-                  Compare with X-pert Line
+                  Compare Machines
                 </Button>
               </Link>
             </div>
@@ -385,13 +385,13 @@ function ComparisonCTASection() {
                   Compare the E-conomy Line with our premium X-pert Line to understand which
                   solution best fits your operational requirements and budget.
                 </p>
-                <Link href="/products/compare">
+                <Link href="/products/compare-machines">
                   <Button
                     size="lg"
                     variant="primary"
                     className="group bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white"
                   >
-                    Compare Product Lines
+                    Compare All Machines
                     <ExternalLink className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </Link>
@@ -457,13 +457,13 @@ function CTASection() {
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
-              <Link href="/products/compare">
+              <Link href="/products/compare-machines">
                 <Button
                   size="lg"
                   variant="ghost"
                   className="px-10 py-5 text-lg text-slate-300 hover:text-white"
                 >
-                  Compare Products
+                  Compare All Machines
                 </Button>
               </Link>
             </div>

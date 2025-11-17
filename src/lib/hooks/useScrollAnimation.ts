@@ -44,7 +44,7 @@ export function useScrollAnimation<T extends HTMLElement>(
     const animation = animationFn(element);
 
     // Configure ScrollTrigger
-    const scrollTriggerConfig: ScrollTrigger.Vars = {
+    ScrollTrigger.create({
       trigger: config.trigger || element,
       start: config.start || 'top 80%',
       end: config.end || 'bottom 20%',
@@ -52,13 +52,18 @@ export function useScrollAnimation<T extends HTMLElement>(
       markers: config.markers || false,
       pin: config.pin || false,
       toggleActions: config.toggleActions || 'play none none reverse',
-      onEnter: config.onEnter,
+      onEnter: () => {
+        animation.play();
+        config.onEnter?.();
+      },
       onLeave: config.onLeave,
-      onEnterBack: config.onEnterBack,
+      onEnterBack: () => {
+        animation.restart();
+        config.onEnterBack?.();
+      },
       onLeaveBack: config.onLeaveBack,
-    };
+    });
 
-    animation.scrollTrigger = scrollTriggerConfig;
     animationRef.current = animation;
 
     return () => {

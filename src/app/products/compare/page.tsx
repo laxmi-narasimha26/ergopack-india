@@ -469,23 +469,23 @@ function CTASection() {
             </p>
 
             <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link href="/contact">
+              <Link href="/products/compare-machines">
                 <Button
                   size="lg"
                   variant="primary"
-                  className="group bg-gradient-to-r from-slate-700 to-slate-800 hover:from-slate-800 hover:to-slate-900 text-white px-10 py-5 text-lg"
+                  className="group bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-10 py-5 text-lg shadow-2xl shadow-amber-500/50"
                 >
-                  Schedule Consultation
+                  Compare All Machines
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
-              <Link href="/industries">
+              <Link href="/contact">
                 <Button
                   size="lg"
                   variant="outline"
                   className="border-2 border-slate-600 px-10 py-5 text-lg text-slate-300 hover:bg-slate-800"
                 >
-                  View Industry Solutions
+                  Schedule Consultation
                 </Button>
               </Link>
             </div>
