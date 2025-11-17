@@ -16,6 +16,7 @@ export function Premium3DCard({
 }: Premium3DCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -34,6 +35,8 @@ export function Premium3DCard({
     const height = rect.height;
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
+
+    setMousePos({ x: mouseX, y: mouseY });
 
     const xPct = mouseX / width - 0.5;
     const yPct = mouseY / height - 0.5;
@@ -70,7 +73,7 @@ export function Premium3DCard({
       <motion.div
         className="absolute inset-0 rounded-2xl pointer-events-none"
         style={{
-          background: `radial-gradient(circle at ${mouseXSpring}px ${mouseYSpring}px, ${glowColor}, transparent 50%)`,
+          background: `radial-gradient(circle at ${mousePos.x}px ${mousePos.y}px, ${glowColor}, transparent 50%)`,
           opacity: isHovered ? 0.8 : 0,
         }}
         transition={{ duration: 0.3 }}
