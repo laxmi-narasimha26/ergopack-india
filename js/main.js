@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initNavigation();
     initScrollEffects();
     initSmoothScroll();
+    // Trigger fade-in for elements already in viewport on page load
+    fadeInOnScroll();
 });
 
 /**
