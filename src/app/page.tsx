@@ -60,16 +60,13 @@ function HeroSection() {
         />
       </ParallaxLayer>
 
-      <motion.div
-        className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 py-40 text-center"
-        style={{ opacity, scale, y }}
-      >
+      <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12 lg:px-16 py-40">
         {/* Premium badge with magnetic effect */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-16 flex justify-center"
+          className="mb-16 flex justify-center lg:justify-start"
         >
           <div className="inline-flex items-center gap-3 px-8 py-4 rounded-full border border-crimson-500/30 bg-gradient-to-r from-crimson-50/80 to-white/80 backdrop-blur-xl shadow-2xl shadow-crimson-500/10">
             <motion.div
@@ -90,93 +87,144 @@ function HeroSection() {
           </div>
         </motion.div>
 
-        {/* Main headline with text reveal */}
-        <div className="mb-16">
-          <LineReveal delay={0.4}>
-            <h1 className="font-serif text-7xl sm:text-8xl lg:text-[10rem] font-bold text-luxury-dark-gray leading-[0.9] tracking-tighter mb-6">
-              Where Precision
-            </h1>
-          </LineReveal>
-          <LineReveal delay={0.6}>
-            <h1 className="font-serif text-7xl sm:text-8xl lg:text-[10rem] font-bold leading-[0.9] tracking-tighter">
-              <span className="bg-gradient-to-r from-crimson-600 via-crimson-500 to-crimson-600 bg-clip-text text-transparent">
-                Meets Certainty
-              </span>
-            </h1>
-          </LineReveal>
-        </div>
+        {/* Hero Grid: Text on left, Video on right */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-24">
+          {/* Left Column: Headline & Text */}
+          <motion.div style={{ opacity, scale, y }}>
+            {/* Main headline with text reveal */}
+            <div className="mb-12">
+              <LineReveal delay={0.4}>
+                <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold text-luxury-dark-gray leading-[0.9] tracking-tighter mb-6">
+                  Where Precision
+                </h1>
+              </LineReveal>
+              <LineReveal delay={0.6}>
+                <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold leading-[0.9] tracking-tighter">
+                  <span className="bg-gradient-to-r from-crimson-600 via-crimson-500 to-crimson-600 bg-clip-text text-transparent">
+                    Meets Certainty
+                  </span>
+                </h1>
+              </LineReveal>
+            </div>
 
-        {/* Subheadline with word reveal */}
-        <TextReveal
-          text="Every pallet. Every strap. Every time. Engineered for those who refuse compromise."
-          className="text-2xl sm:text-3xl text-platinum-600 max-w-4xl mx-auto leading-relaxed mb-20 font-light"
-          delay={0.8}
-        />
+            {/* Subheadline with word reveal */}
+            <TextReveal
+              text="Every pallet. Every strap. Every time. Engineered for those who refuse compromise."
+              className="text-xl sm:text-2xl text-platinum-600 leading-relaxed mb-12 font-light"
+              delay={0.8}
+            />
 
-        {/* CTAs with magnetic buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-24"
-        >
-          <MagneticButton href="/contact">
-            <button className="btn-premium group text-lg px-12 py-6">
-              <span className="relative z-10 flex items-center">
-                Begin Your Journey
-                <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-2 transition-transform duration-500" />
-              </span>
-            </button>
-          </MagneticButton>
-
-          <MagneticButton href="/products/xpert-line">
-            <button className="btn-premium-secondary text-lg px-12 py-6">
-              Discover Excellence
-            </button>
-          </MagneticButton>
-        </motion.div>
-
-        {/* Stats with animated counters */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.6 }}
-          className="flex flex-wrap justify-center gap-20 text-sm text-platinum-500 font-light"
-        >
-          {[
-            { value: '99.99%', label: 'Reliability' },
-            { value: '10M+', label: 'Loads Secured' },
-            { value: 'Made in', label: 'Germany' },
-          ].map((stat, index) => (
+            {/* CTAs with magnetic buttons */}
             <motion.div
-              key={index}
-              className="flex flex-col items-center gap-3"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.8 + index * 0.1 }}
+              transition={{ duration: 1, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-col sm:flex-row gap-6 mb-16"
             >
-              <div className="relative">
-                <div className="text-4xl font-serif font-bold text-luxury-dark-gray">
-                  {stat.value}
-                </div>
-                <motion.div
-                  className="absolute -inset-4 rounded-full bg-crimson-400/20 blur-xl"
-                  animate={{
-                    scale: [1, 1.2, 1],
-                    opacity: [0.3, 0.5, 0.3],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                    delay: index * 0.5,
-                  }}
-                />
-              </div>
-              <span>{stat.label}</span>
+              <MagneticButton href="/contact">
+                <button className="btn-premium group text-lg px-12 py-6">
+                  <span className="relative z-10 flex items-center">
+                    Begin Your Journey
+                    <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-2 transition-transform duration-500" />
+                  </span>
+                </button>
+              </MagneticButton>
+
+              <MagneticButton href="/products/xpert-line">
+                <button className="btn-premium-secondary text-lg px-12 py-6">
+                  Discover Excellence
+                </button>
+              </MagneticButton>
             </motion.div>
-          ))}
-        </motion.div>
-      </motion.div>
+
+            {/* Stats with animated counters */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 1.6 }}
+              className="flex flex-wrap gap-12 text-sm text-platinum-500 font-light"
+            >
+              {[
+                { value: '99.99%', label: 'Reliability' },
+                { value: '10M+', label: 'Loads Secured' },
+                { value: 'Made in', label: 'Germany' },
+              ].map((stat, index) => (
+                <motion.div
+                  key={index}
+                  className="flex flex-col gap-2"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1.8 + index * 0.1 }}
+                >
+                  <div className="relative">
+                    <div className="text-3xl font-serif font-bold text-luxury-dark-gray">
+                      {stat.value}
+                    </div>
+                    <motion.div
+                      className="absolute -inset-4 rounded-full bg-crimson-400/20 blur-xl"
+                      animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.3, 0.5, 0.3],
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        delay: index * 0.5,
+                      }}
+                    />
+                  </div>
+                  <span>{stat.label}</span>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
+
+          {/* Right Column: Video Placeholder */}
+          <motion.div
+            initial={{ opacity: 0, x: 60 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.2, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="relative"
+          >
+            <div className="premium-card overflow-hidden aspect-video bg-gradient-to-br from-luxury-dark-gray to-luxury-space-black relative group">
+              {/* Video placeholder content */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 text-white">
+                <motion.div
+                  className="w-20 h-20 rounded-full bg-crimson-500/20 backdrop-blur-sm flex items-center justify-center border border-crimson-500/30 group-hover:bg-crimson-500/30 transition-all duration-500"
+                  whileHover={{ scale: 1.1 }}
+                >
+                  <div className="w-0 h-0 border-t-[12px] border-t-transparent border-l-[20px] border-l-white border-b-[12px] border-b-transparent ml-1" />
+                </motion.div>
+                <div className="text-center">
+                  <p className="text-lg font-serif font-semibold mb-2">Watch ErgoPack in Action</p>
+                  <p className="text-sm text-platinum-400 font-light">See precision engineering at work</p>
+                </div>
+              </div>
+
+              {/* Animated gradient overlay */}
+              <motion.div
+                className="absolute inset-0 opacity-30"
+                animate={{
+                  background: [
+                    'radial-gradient(circle at 20% 50%, rgba(155, 28, 28, 0.3) 0%, transparent 50%)',
+                    'radial-gradient(circle at 80% 50%, rgba(155, 28, 28, 0.3) 0%, transparent 50%)',
+                    'radial-gradient(circle at 50% 80%, rgba(155, 28, 28, 0.3) 0%, transparent 50%)',
+                    'radial-gradient(circle at 20% 50%, rgba(155, 28, 28, 0.3) 0%, transparent 50%)',
+                  ],
+                }}
+                transition={{
+                  duration: 10,
+                  ease: 'easeInOut',
+                  repeat: Infinity,
+                }}
+              />
+
+              {/* Premium glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-crimson-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            </div>
+          </motion.div>
+        </div>
+      </div>
 
       {/* Scroll indicator */}
       <motion.div
