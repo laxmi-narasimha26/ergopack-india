@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter } from 'next/font/google';
+import { Playfair_Display, Montserrat } from 'next/font/google';
 import '../styles/globals.css';
 import { Toaster } from 'react-hot-toast';
 import Providers from '@/components/Providers';
@@ -8,13 +8,27 @@ import { OrganizationSchema, WebsiteSchema } from '@/components/JsonLd';
 import { SkipNav } from '@/components/accessibility/SkipNav';
 import { FocusManager } from '@/components/accessibility/FocusManager';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
+import { LuxuryCursor } from '@/components/ui/LuxuryCursor';
 
-const inter = Inter({
+// Premium serif font for headings - inspired by Rolex, Cartier
+const playfair = Playfair_Display({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-playfair',
   display: 'swap',
   preload: true,
-  fallback: ['system-ui', 'arial'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+  style: ['normal', 'italic'],
+  fallback: ['Georgia', 'serif'],
+});
+
+// Refined sans-serif for body text - inspired by Prada, Burberry
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  variable: '--font-montserrat',
+  display: 'swap',
+  preload: true,
+  weight: ['300', '400', '500', '600', '700'],
+  fallback: ['system-ui', '-apple-system', 'sans-serif'],
 });
 
 export const viewport: Viewport = {
@@ -116,7 +130,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={inter.variable}>
+    <html lang="en" className={`${playfair.variable} ${montserrat.variable}`}>
       <head>
         {/* DNS Prefetch for performance */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
@@ -130,7 +144,7 @@ export default function RootLayout({
         <OrganizationSchema />
         <WebsiteSchema />
       </head>
-      <body className="bg-white text-gray-900 antialiased">
+      <body className="bg-white text-gray-900 antialiased font-sans">
         <ErrorBoundary>
           {/* Accessibility: Skip to main content */}
           <SkipNav />
@@ -141,6 +155,9 @@ export default function RootLayout({
           {/* Web Vitals and Performance Monitoring */}
           <WebVitals />
           <PerformanceMonitor />
+
+          {/* Premium Luxury Cursor */}
+          <LuxuryCursor />
 
           <Providers>
             {children}
