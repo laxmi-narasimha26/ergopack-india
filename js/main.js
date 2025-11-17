@@ -1,79 +1,130 @@
 /**
- * ErgoPack India - Main JavaScript
- * Handles navigation, scroll effects, and general interactions
+ * ErgoPack India - Premium Optimized JavaScript
+ * Performance-optimized with RAF throttling, Intersection Observer, and efficient DOM operations
  */
 
-// DOM Ready
-document.addEventListener('DOMContentLoaded', function() {
+// DOM Ready with performance optimizations
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+} else {
+    init();
+}
+
+function init() {
     initNavigation();
     initScrollEffects();
     initSmoothScroll();
-    // Trigger fade-in for elements already in viewport on page load
-    fadeInOnScroll();
-});
+    initIntersectionObserver();
+    initParallax();
+}
 
 /**
- * Navigation Toggle (Mobile)
+ * Navigation Toggle (Mobile) - Optimized
  */
 function initNavigation() {
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
+    const nav = document.querySelector('.nav');
 
-    if (navToggle) {
-        navToggle.addEventListener('click', function() {
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
             navMenu.classList.toggle('active');
             navToggle.classList.toggle('active');
+        }, { passive: true });
+
+        // Close menu when clicking outside - optimized with event delegation
+        document.addEventListener('click', (event) => {
+            if (!event.target.closest('.nav-container')) {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            }
+        }, { passive: true });
+
+        // Close menu when clicking nav links
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            }, { passive: true });
         });
     }
-
-    // Close menu when clicking outside
-    document.addEventListener('click', function(event) {
-        if (!event.target.closest('.nav-container')) {
-            if (navMenu) navMenu.classList.remove('active');
-            if (navToggle) navToggle.classList.remove('active');
-        }
-    });
 }
 
 /**
- * Scroll Effects
+ * Scroll Effects - Throttled with RAF for 60fps performance
  */
 function initScrollEffects() {
     const nav = document.querySelector('.nav');
+    if (!nav) return;
+
+    let ticking = false;
     let lastScroll = 0;
 
-    window.addEventListener('scroll', function() {
-        const currentScroll = window.pageYOffset;
-
-        // Add shadow to nav on scroll
-        if (currentScroll > 50) {
-            nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+    function updateNav(scrollPos) {
+        // Add scrolled class and shadow
+        if (scrollPos > 50) {
+            nav.classList.add('scrolled');
         } else {
-            nav.style.boxShadow = 'none';
+            nav.classList.remove('scrolled');
         }
+        lastScroll = scrollPos;
+    }
 
-        // Fade in elements on scroll
-        fadeInOnScroll();
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                updateNav(window.pageYOffset);
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
 
-        lastScroll = currentScroll;
-    });
+    // Initial check
+    updateNav(window.pageYOffset);
 }
 
 /**
- * Fade in elements on scroll
+ * Intersection Observer for Fade-in Animations
+ * Much more performant than scroll events
  */
-function fadeInOnScroll() {
-    const elements = document.querySelectorAll('.risk-card, .feature-item, .spec-category');
+function initIntersectionObserver() {
+    // Check if browser supports Intersection Observer
+    if (!('IntersectionObserver' in window)) {
+        // Fallback: just show all elements
+        document.querySelectorAll('.risk-card, .feature-item').forEach(el => {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+        });
+        return;
+    }
 
-    elements.forEach(element => {
-        const elementTop = element.getBoundingClientRect().top;
-        const elementBottom = element.getBoundingClientRect().bottom;
-        const windowHeight = window.innerHeight;
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -100px 0px',
+        threshold: 0.1
+    };
 
-        if (elementTop < windowHeight * 0.85 && elementBottom > 0) {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        }
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                // Stop observing after animation
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe elements with fade-in animation
+    document.querySelectorAll('.risk-card, .feature-item').forEach(element => {
+        // Set initial state
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(30px)';
+        element.style.transition = 'opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+
+        observer.observe(element);
     });
 }
 
@@ -88,53 +139,78 @@ function initSmoothScroll() {
             // Skip if it's just "#"
             if (href === '#') return;
 
-            e.preventDefault();
             const target = document.querySelector(href);
+            if (!target) return;
 
-            if (target) {
-                const offsetTop = target.offsetTop - 80; // Account for fixed nav
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
+            e.preventDefault();
+
+            const navHeight = document.querySelector('.nav')?.offsetHeight || 80;
+            const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - navHeight;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
         });
     });
 }
 
 /**
- * Initialize subtle parallax effect for hero section
+ * Parallax Effect for Hero - RAF throttled for smooth 60fps
  */
-window.addEventListener('scroll', function() {
+function initParallax() {
     const heroVisual = document.querySelector('.hero-visual');
-    if (heroVisual) {
-        const scrolled = window.pageYOffset;
-        const parallax = scrolled * 0.3;
-        heroVisual.style.transform = `translateY(${parallax}px)`;
+    if (!heroVisual) return;
+
+    let ticking = false;
+
+    function updateParallax(scrollPos) {
+        // Only apply parallax if element is in viewport
+        const rect = heroVisual.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+            const parallax = scrollPos * 0.3;
+            heroVisual.style.transform = `translateY(${parallax}px)`;
+        }
     }
-});
 
-/**
- * Add hover effect to client logos
- */
-const logoBoxes = document.querySelectorAll('.logo-box');
-logoBoxes.forEach(box => {
-    box.addEventListener('mouseenter', function() {
-        this.style.transition = 'all 0.3s ease';
-    });
-});
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(() => {
+                updateParallax(window.pageYOffset);
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
 
-/**
- * Preload critical styles
- */
-function preloadStyles() {
-    const elements = document.querySelectorAll('.risk-card, .feature-item, .spec-category');
-    elements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
+    // Initial position
+    updateParallax(window.pageYOffset);
 }
 
-// Initialize preload
-preloadStyles();
+/**
+ * Preload and optimize images (if needed)
+ */
+function preloadCriticalImages() {
+    // Add any critical images here for preloading
+    // Example:
+    // const images = ['path/to/critical/image.jpg'];
+    // images.forEach(src => {
+    //     const img = new Image();
+    //     img.src = src;
+    // });
+}
+
+// Optional: Add loading state removal
+window.addEventListener('load', () => {
+    document.body.classList.add('loaded');
+}, { passive: true });
+
+// Optional: Debounced resize handler for responsive adjustments
+let resizeTimeout;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        // Add any resize-specific logic here
+        console.log('Window resized');
+    }, 250);
+}, { passive: true });
