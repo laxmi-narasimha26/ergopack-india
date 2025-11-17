@@ -116,7 +116,7 @@ export async function POST(request: NextRequest) {
       excerpt: data.excerpt,
       content: data.content,
       coverImage: data.coverImage,
-      author: data.author || session.user?.name,
+      author: data.author || session?.user?.name || 'Admin',
       category: data.category,
       tags: data.tags || [],
       published: data.published || false,

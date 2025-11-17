@@ -103,13 +103,13 @@ function HeroSection() {
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
-              <Link href="/products/compare">
+              <Link href="/products/compare-machines">
                 <Button
                   size="lg"
                   variant="outline"
                   className="border-2 border-slate-600 text-slate-200 hover:bg-slate-800"
                 >
-                  Compare Products
+                  Compare Machines
                 </Button>
               </Link>
             </div>
@@ -504,7 +504,7 @@ function CTASection() {
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
-              <Link href="/products/compare">
+              <Link href="/products/compare-machines">
                 <Button
                   size="lg"
                   variant="ghost"

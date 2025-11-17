@@ -5,19 +5,19 @@ import { ContactRequest } from '@/types';
 import { format } from 'date-fns';
 import { Eye, MoreVertical } from 'lucide-react';
 import Badge from '@/components/ui/Badge';
-import Modal from '@/components/ui/Modal';
+import { Modal, ModalContent, ModalHeader, ModalTitle, ModalFooter } from '@/components/ui/Modal';
 
 interface RequestsTableProps {
   requests: ContactRequest[];
   onStatusUpdate?: (id: string, status: ContactRequest['status']) => void;
 }
 
-const statusColors: Record<ContactRequest['status'], 'default' | 'info' | 'success' | 'warning' | 'error'> = {
+const statusColors: Record<ContactRequest['status'], 'default' | 'info' | 'success' | 'warning' | 'danger'> = {
   new: 'info',
   contacted: 'warning',
   qualified: 'default',
   converted: 'success',
-  rejected: 'error',
+  rejected: 'danger',
 };
 
 export default function RequestsTable({ requests, onStatusUpdate }: RequestsTableProps) {
@@ -121,10 +121,13 @@ export default function RequestsTable({ requests, onStatusUpdate }: RequestsTabl
 
       {/* Details Modal */}
       <Modal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        title="Request Details"
+        open={isModalOpen}
+        onOpenChange={(open) => setIsModalOpen(open)}
       >
+        <ModalContent>
+          <ModalHeader>
+            <ModalTitle>Request Details</ModalTitle>
+          </ModalHeader>
         {selectedRequest && (
           <div className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
@@ -178,6 +181,7 @@ export default function RequestsTable({ requests, onStatusUpdate }: RequestsTabl
             </div>
           </div>
         )}
+        </ModalContent>
       </Modal>
     </>
   );

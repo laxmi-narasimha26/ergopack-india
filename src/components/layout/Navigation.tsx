@@ -11,7 +11,7 @@ import Button from '../ui/Button';
 const navLinks = [
   { href: '/products/xpert-line', label: 'X-pert Line' },
   { href: '/products/economy-line', label: 'E-conomy Line' },
-  { href: '/products/compare', label: 'Compare' },
+  { href: '/products/compare-machines', label: 'Compare Machines' },
   { href: '/industries', label: 'Industries' },
   { href: '/blog', label: 'Insights' },
 ];
