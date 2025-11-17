@@ -1,99 +1,174 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
 import MainLayout from '@/components/layout/MainLayout';
 import Button from '@/components/ui/Button';
-import { ArrowRight, CheckCircle2, Shield, Award, TrendingUp, Zap, Package, Building2 } from 'lucide-react';
+import { PremiumLoadingScreen } from '@/components/ui/PremiumLoadingScreen';
+import { ArrowRight, CheckCircle2, Shield, Award, Sparkles } from 'lucide-react';
 
-// Hero Section
+// Hero Section - Apple/Rolex inspired minimalism
 function HeroSection() {
-  return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-white via-red-50/20 to-white overflow-hidden">
-      {/* Subtle geometric background */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 right-20 w-96 h-96 bg-red-600 rounded-full mix-blend-multiply filter blur-3xl animate-float" />
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-red-400 rounded-full mix-blend-multiply filter blur-3xl animate-float" style={{ animationDelay: '2s' }} />
-      </div>
+  const { scrollY } = useScroll();
+  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+  const scale = useTransform(scrollY, [0, 300], [1, 0.95]);
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-32 text-center">
-        {/* Headline */}
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-luxury-white">
+      {/* Elegant gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-luxury-off-white via-white to-platinum-50" />
+
+      {/* Subtle animated orb */}
+      <motion.div
+        className="absolute top-1/4 right-1/4 w-96 h-96 rounded-full opacity-10 blur-3xl"
+        style={{
+          background: 'radial-gradient(circle, #D4AF37 0%, transparent 70%)',
+        }}
+        animate={{
+          scale: [1, 1.2, 1],
+          opacity: [0.1, 0.15, 0.1],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: 'easeInOut',
+        }}
+      />
+
+      <motion.div
+        className="relative z-10 max-w-6xl mx-auto px-8 sm:px-12 lg:px-16 py-40 text-center"
+        style={{ opacity, scale }}
+      >
+        {/* Premium badge */}
         <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="mb-12 inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gold-500/20 bg-gold-50/50 backdrop-blur-sm"
+        >
+          <Sparkles className="h-4 w-4 text-gold-600" />
+          <span className="text-sm font-medium text-gold-700 tracking-wide">
+            German Precision. Indian Excellence.
+          </span>
+        </motion.div>
+
+        {/* Main headline - use premium serif font */}
+        <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="mb-8"
+          transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="font-serif text-7xl sm:text-8xl lg:text-9xl font-bold text-luxury-dark-gray mb-12 leading-[0.95] tracking-tight"
         >
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight tracking-tight mb-6">
-            Where Tension Becomes
-            <br />
-            <span className="bg-gradient-to-r from-red-600 to-red-800 bg-clip-text text-transparent">
-              Certainty
-            </span>
-            {' '}in Every Load
-            <br />
-            We Secure.
-          </h1>
-        </motion.div>
+          Where Precision
+          <br />
+          <span className="bg-gradient-to-r from-gold-600 via-gold-500 to-gold-600 bg-clip-text text-transparent">
+            Meets Certainty
+          </span>
+        </motion.h1>
 
         {/* Subheadline */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-xl sm:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-12"
+          transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-xl sm:text-2xl text-platinum-600 max-w-3xl mx-auto leading-relaxed mb-16 font-light"
         >
-          German-engineered precision for India's most demanding logistics operations.
-          When your reputation depends on every pallet arriving exactly as it left,
-          there is no margin for approximation.
+          Every pallet. Every strap. Every time.
+          <br />
+          <span className="text-luxury-dark-gray font-normal">
+            Engineered for those who refuse compromise.
+          </span>
         </motion.p>
 
         {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          transition={{ duration: 1, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col sm:flex-row gap-6 justify-center items-center"
         >
           <Link href="/contact">
-            <Button
-              size="lg"
-              variant="primary"
-              className="group bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-10 py-5 text-lg shadow-lg shadow-red-600/30 transition-all duration-300"
-            >
-              Request Private Briefing
-              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <button className="btn-premium group">
+              <span className="relative z-10 flex items-center">
+                Begin Your Journey
+                <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </span>
+            </button>
           </Link>
           <Link href="/products/xpert-line">
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-2 border-gray-300 text-gray-700 hover:border-red-600 hover:text-red-600 px-10 py-5 text-lg transition-all duration-300"
-            >
-              Explore the System
-            </Button>
+            <button className="btn-premium-secondary">
+              Discover Excellence
+            </button>
           </Link>
         </motion.div>
 
-        {/* Trust indicators */}
+        {/* Minimal trust indicators */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-20 flex flex-wrap justify-center gap-12 text-sm text-gray-500"
+          transition={{ duration: 1, delay: 1.6 }}
+          className="mt-24 flex flex-wrap justify-center gap-16 text-sm text-platinum-500 font-light"
         >
-          <div className="flex items-center gap-2">
-            <Shield className="h-5 w-5 text-red-600" />
-            <span>Made in Germany</span>
+          <div className="flex flex-col items-center gap-2">
+            <div className="text-2xl font-serif font-semibold text-luxury-dark-gray">99.99%</div>
+            <span>Reliability</span>
           </div>
-          <div className="flex items-center gap-2">
-            <Award className="h-5 w-5 text-red-600" />
-            <span>99.99% Reliability</span>
+          <div className="flex flex-col items-center gap-2">
+            <div className="text-2xl font-serif font-semibold text-luxury-dark-gray">10M+</div>
+            <span>Loads Secured</span>
           </div>
-          <div className="flex items-center gap-2">
-            <TrendingUp className="h-5 w-5 text-red-600" />
-            <span>10M+ Loads Secured</span>
+          <div className="flex flex-col items-center gap-2">
+            <div className="text-2xl font-serif font-semibold text-luxury-dark-gray">Made in</div>
+            <span>Germany</span>
+          </div>
+        </motion.div>
+      </motion.div>
+
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 2 }}
+        className="absolute bottom-12 left-1/2 -translate-x-1/2"
+      >
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+          className="w-px h-16 bg-gradient-to-b from-transparent via-platinum-400 to-transparent"
+        />
+      </motion.div>
+    </section>
+  );
+}
+
+// Philosophy Section - Storytelling over specs
+function PhilosophySection() {
+  return (
+    <section className="py-48 bg-white">
+      <div className="max-w-5xl mx-auto px-8 sm:px-12">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center"
+        >
+          <p className="text-sm uppercase tracking-[0.3em] text-gold-600 mb-8 font-medium">
+            Our Philosophy
+          </p>
+          <h2 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-semibold text-luxury-dark-gray mb-12 leading-tight">
+            Crafted for the
+            <br />
+            <span className="italic">Uncompromising</span>
+          </h2>
+          <div className="space-y-8 text-lg sm:text-xl text-platinum-600 leading-relaxed font-light max-w-4xl mx-auto">
+            <p>
+              In a world obsessed with speed, we obsess over precision. Because when pharmaceutical shipments cross continents, when automotive parts arrive at just-in-time production lines, when electronics must reach markets pristine—there is no room for approximation.
+            </p>
+            <p className="text-luxury-dark-gray font-normal">
+              ErgoPack isn't merely a tool. It's a commitment to excellence that transforms uncertainty into documented, verifiable certainty.
+            </p>
           </div>
         </motion.div>
       </div>
@@ -101,143 +176,64 @@ function HeroSection() {
   );
 }
 
-// What is ErgoPack Section
-function WhatIsErgoPackSection() {
+// Feature Showcase - Visual storytelling
+function FeatureShowcaseSection() {
+  const features = [
+    {
+      title: 'ChainLance Precision',
+      description: 'Our patented mechanism maintains exact tension across every strap, eliminating human error and delivering consistent, documented results.',
+      stat: '1500 daN',
+      statLabel: 'Peak Tension',
+    },
+    {
+      title: 'German Engineering',
+      description: 'Designed in the same workshops that supply Mercedes and BMW logistics. Adapted for the demanding realities of global supply chains.',
+      stat: 'Made in',
+      statLabel: 'Germany',
+    },
+    {
+      title: 'Zero Compromise',
+      description: 'Join pharmaceutical exporters, automotive operations, and electronics manufacturers who refuse to accept "good enough."',
+      stat: 'Elite',
+      statLabel: 'Operations',
+    },
+  ];
+
   return (
-    <section className="py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left: Visual representation */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative"
-          >
-            <div className="aspect-square bg-gradient-to-br from-gray-100 to-gray-50 rounded-2xl flex items-center justify-center relative overflow-hidden border border-gray-200">
-              {/* Animated strap visualization */}
-              <div className="relative w-3/4 h-3/4">
-                <div className="absolute inset-0 border-4 border-gray-300 rounded-lg" />
-                <motion.div
-                  className="absolute inset-0 border-4 border-red-600 rounded-lg"
-                  initial={{ clipPath: 'polygon(0 0, 0% 0, 0% 100%, 0 100%)' }}
-                  animate={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' }}
-                  transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-                />
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
-                  <Package className="h-16 w-16 text-gray-400 mx-auto mb-3" />
-                  <div className="text-sm font-semibold text-gray-700">360° Precision Securing</div>
+    <section className="py-48 bg-gradient-to-b from-luxury-off-white to-white">
+      <div className="max-w-7xl mx-auto px-8 sm:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{
+                duration: 1,
+                delay: index * 0.2,
+                ease: [0.16, 1, 0.3, 1]
+              }}
+              className="group"
+            >
+              {/* Stat badge */}
+              <div className="mb-8">
+                <div className="inline-flex flex-col items-center justify-center p-8 rounded-3xl bg-gradient-to-br from-gold-50 to-white border border-gold-200/50 transition-all duration-700 group-hover:border-gold-400/50 group-hover:shadow-2xl group-hover:shadow-gold-200/20">
+                  <div className="text-4xl font-serif font-bold text-gold-600 mb-2">
+                    {feature.stat}
+                  </div>
+                  <div className="text-sm text-platinum-600 font-medium tracking-wide">
+                    {feature.statLabel}
+                  </div>
                 </div>
               </div>
-              {/* Corner accent */}
-              <div className="absolute top-4 right-4 w-16 h-16 bg-red-600 opacity-10 rounded-full" />
-            </div>
-          </motion.div>
 
-          {/* Right: Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-              Think of it as the{' '}
-              <span className="text-red-600">invisible fortress</span>{' '}
-              around your most valuable cargo.
-            </h2>
-            <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
-              <p>
-                ErgoPack isn't another strapping tool. It's a complete load integrity system
-                that transforms uncertainty into verifiable control.
+              <h3 className="font-serif text-3xl font-semibold text-luxury-dark-gray mb-6">
+                {feature.title}
+              </h3>
+              <p className="text-lg text-platinum-600 leading-relaxed font-light">
+                {feature.description}
               </p>
-              <p>
-                Like an orchestra conductor ensuring every note is perfect, our patented
-                ChainLance mechanism maintains precise, consistent tension across every strap,
-                every time—eliminating the guesswork that costs millions in damaged goods
-                and compliance failures.
-              </p>
-              <p className="text-gray-900 font-semibold">
-                The result? Every pallet leaves your facility with documented, repeatable
-                precision that your insurance auditors, regulatory bodies, and premium
-                clients demand.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// The Difference Section
-function DifferenceSection() {
-  const differences = [
-    {
-      icon: Zap,
-      title: 'Speed as Competitive Weapon',
-      description: 'While competitors fumble with manual adjustments, ErgoPack secures a full pallet in 45 seconds—with higher reliability. Time saved compounds into competitive advantage.',
-    },
-    {
-      icon: Shield,
-      title: 'German Engineering, Indian Operations',
-      description: 'Designed in the same workshops that supply Mercedes and BMW logistics, adapted for the demanding conditions of Indian supply chains. No compromises.',
-    },
-    {
-      icon: Award,
-      title: 'Built for the Elite',
-      description: 'Not positioned as cost-saving. Positioned as transformation. Join pharmaceutical exporters, automotive JIT operations, and electronics manufacturers who refuse to accept cargo securing as "good enough."',
-    },
-  ];
-
-  return (
-    <section className="py-32 bg-gradient-to-b from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="text-center mb-20">
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-red-600 font-semibold text-sm uppercase tracking-wider mb-4"
-          >
-            The ErgoPack Difference
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
-          >
-            Precision at Every Turn
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
-          >
-            What sets operations apart isn't just equipment—it's the transformation
-            from risk management to certainty.
-          </motion.p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {differences.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-xl hover:border-red-600 transition-all duration-300"
-            >
-              <div className="w-14 h-14 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center mb-6">
-                <item.icon className="h-7 w-7 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">{item.title}</h3>
-              <p className="text-gray-600 leading-relaxed">{item.description}</p>
             </motion.div>
           ))}
         </div>
@@ -246,205 +242,195 @@ function DifferenceSection() {
   );
 }
 
-// Product Range Section
-function ProductRangeSection() {
-  const models = [
-    {
-      name: 'X-pert Line',
-      tagline: 'For Operations That Demand Certainty',
-      features: ['IoT Monitoring', 'Siemens Control', 'Up to 4500N Tension', 'Blockchain Documentation'],
-      href: '/products/xpert-line',
-    },
-    {
-      name: 'E-conomy Line',
-      tagline: 'Proven Performance, Accessible Entry',
-      features: ['Reliable Tension Control', 'Manual Operation', 'Up to 3500N Tension', 'Documented Quality'],
-      href: '/products/economy-line',
-    },
-  ];
-
+// Product Lines - Elegant presentation
+function ProductLinesSection() {
   return (
-    <section className="py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="text-center mb-20">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
-          >
-            Two Philosophies.{' '}
-            <span className="text-red-600">One Standard.</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
-          >
-            Whether you choose automation or prefer hands-on control,
-            German engineering ensures uncompromising reliability.
-          </motion.p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {models.map((model, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.15 }}
-              className="group bg-gradient-to-br from-gray-50 to-white border border-gray-200 rounded-2xl p-10 hover:shadow-2xl hover:border-red-600 transition-all duration-500"
-            >
-              <h3 className="text-3xl font-bold text-gray-900 mb-2">{model.name}</h3>
-              <p className="text-lg text-gray-600 mb-8">{model.tagline}</p>
-
-              <ul className="space-y-4 mb-10">
-                {model.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-6 w-6 text-red-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <Link href={model.href}>
-                <Button
-                  variant="outline"
-                  className="w-full border-2 border-gray-300 group-hover:border-red-600 group-hover:text-red-600 transition-all duration-300"
-                >
-                  Explore {model.name}
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-            </motion.div>
-          ))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <Link href="/products/compare-machines">
-            <Button
-              variant="ghost"
-              className="text-red-600 hover:text-red-700 text-lg"
-            >
-              Compare All Models →
-            </Button>
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// Client Success Section
-function ClientSuccessSection() {
-  return (
-    <section className="py-32 bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <div className="text-center mb-20">
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-red-400 font-semibold text-sm uppercase tracking-wider mb-4"
-          >
-            Join the Circle
-          </motion.p>
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl lg:text-5xl font-bold mb-6"
-          >
-            Trusted by India's Elite Operations
-          </motion.h2>
-        </div>
-
-        {/* Client logos placeholder */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
-          {[1, 2, 3, 4].map((i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="aspect-video bg-gray-800 rounded-lg flex items-center justify-center border border-gray-700 hover:border-red-600 transition-colors"
-            >
-              <Building2 className="h-12 w-12 text-gray-600" />
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-gray-800 pt-16">
-          <div className="text-center">
-            <div className="text-5xl font-bold text-red-600 mb-2">99.99%</div>
-            <div className="text-gray-400">Success Rate</div>
-          </div>
-          <div className="text-center">
-            <div className="text-5xl font-bold text-red-600 mb-2">10M+</div>
-            <div className="text-gray-400">Loads Secured</div>
-          </div>
-          <div className="text-center">
-            <div className="text-5xl font-bold text-red-600 mb-2">Zero</div>
-            <div className="text-gray-400">Compliance Failures</div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// Final CTA Section
-function FinalCTASection() {
-  return (
-    <section className="py-32 bg-gradient-to-br from-red-600 to-red-800 text-white relative overflow-hidden">
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
-
-      <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
+    <section className="py-48 bg-white">
+      <div className="max-w-7xl mx-auto px-8 sm:px-12">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-24"
         >
-          <h2 className="text-4xl lg:text-6xl font-bold mb-8 leading-tight">
-            Your First ErgoPack Day
+          <p className="text-sm uppercase tracking-[0.3em] text-gold-600 mb-8 font-medium">
+            Our Collection
+          </p>
+          <h2 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-semibold text-luxury-dark-gray">
+            Two Philosophies.
             <br />
-            Is a Ceremony, Not a Delivery.
+            One Standard.
           </h2>
-          <p className="text-xl text-red-100 mb-12 max-w-3xl mx-auto leading-relaxed">
-            Join the exclusive group of operations that demand verifiable precision.
-            Request a private briefing to discover how the world's most demanding
-            logistics leaders engineer certainty into every load.
+        </motion.div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* X-pert Line */}
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <Link href="/products/xpert-line">
+              <div className="premium-card-dark group p-12 min-h-[600px] flex flex-col justify-between">
+                <div>
+                  <div className="inline-block px-4 py-2 rounded-full bg-gold-500/10 border border-gold-500/20 mb-8">
+                    <span className="text-sm font-medium text-gold-400 tracking-wide">
+                      Premium Series
+                    </span>
+                  </div>
+                  <h3 className="font-serif text-5xl font-bold text-white mb-6">
+                    X-pert Line
+                  </h3>
+                  <p className="text-xl text-platinum-300 font-light leading-relaxed mb-12">
+                    For operations that demand certainty. IoT monitoring, Siemens control, and blockchain documentation in a system engineered for perfection.
+                  </p>
+
+                  <div className="space-y-4">
+                    {['IoT Real-Time Monitoring', 'Up to 4500N Tension', 'Blockchain Documentation', 'Siemens Touchscreen'].map((feature, i) => (
+                      <div key={i} className="flex items-center gap-3 text-platinum-200">
+                        <div className="w-1.5 h-1.5 rounded-full bg-gold-500" />
+                        <span className="font-light">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-12">
+                  <div className="inline-flex items-center gap-3 text-gold-400 font-medium group-hover:gap-5 transition-all duration-500">
+                    <span>Explore X-pert Line</span>
+                    <ArrowRight className="h-5 w-5" />
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </motion.div>
+
+          {/* E-conomy Line */}
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <Link href="/products/economy-line">
+              <div className="premium-card group p-12 min-h-[600px] flex flex-col justify-between bg-gradient-to-br from-white to-platinum-50">
+                <div>
+                  <div className="inline-block px-4 py-2 rounded-full bg-platinum-100 border border-platinum-200 mb-8">
+                    <span className="text-sm font-medium text-platinum-700 tracking-wide">
+                      Professional Series
+                    </span>
+                  </div>
+                  <h3 className="font-serif text-5xl font-bold text-luxury-dark-gray mb-6">
+                    E-conomy Line
+                  </h3>
+                  <p className="text-xl text-platinum-600 font-light leading-relaxed mb-12">
+                    Proven performance. Reliable tension control. The same German engineering in a format that emphasizes hands-on precision.
+                  </p>
+
+                  <div className="space-y-4">
+                    {['Reliable Tension Control', 'Up to 3500N Tension', 'Manual Operation', 'Documented Quality'].map((feature, i) => (
+                      <div key={i} className="flex items-center gap-3 text-platinum-700">
+                        <div className="w-1.5 h-1.5 rounded-full bg-platinum-500" />
+                        <span className="font-light">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-12">
+                  <div className="inline-flex items-center gap-3 text-luxury-dark-gray font-medium group-hover:gap-5 transition-all duration-500">
+                    <span>Explore E-conomy Line</span>
+                    <ArrowRight className="h-5 w-5" />
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// Social Proof - Minimal and elegant
+function SocialProofSection() {
+  return (
+    <section className="py-48 bg-luxury-space-black text-white">
+      <div className="max-w-6xl mx-auto px-8 sm:px-12 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <p className="text-sm uppercase tracking-[0.3em] text-gold-500 mb-8 font-medium">
+            Trusted Worldwide
+          </p>
+          <h2 className="font-serif text-5xl sm:text-6xl font-semibold mb-20">
+            Join India's Elite Operations
+          </h2>
+
+          <div className="grid grid-cols-3 gap-24 max-w-3xl mx-auto">
+            <div>
+              <div className="text-6xl font-serif font-bold text-gold-500 mb-4">99.99%</div>
+              <div className="text-platinum-400 font-light">Success Rate</div>
+            </div>
+            <div>
+              <div className="text-6xl font-serif font-bold text-gold-500 mb-4">10M+</div>
+              <div className="text-platinum-400 font-light">Loads Secured</div>
+            </div>
+            <div>
+              <div className="text-6xl font-serif font-bold text-gold-500 mb-4">Zero</div>
+              <div className="text-platinum-400 font-light">Failures</div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+// Final CTA - Invitation style
+function FinalCTASection() {
+  return (
+    <section className="py-48 bg-gradient-to-br from-gold-50 via-white to-platinum-50 relative overflow-hidden">
+      {/* Elegant glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full opacity-20 blur-3xl bg-gradient-to-br from-gold-300 to-transparent" />
+
+      <div className="relative z-10 max-w-4xl mx-auto px-8 sm:px-12 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <h2 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-semibold text-luxury-dark-gray mb-12 leading-tight">
+            Your Journey to
+            <br />
+            <span className="italic">Excellence</span> Begins Here
+          </h2>
+          <p className="text-xl sm:text-2xl text-platinum-600 mb-16 font-light leading-relaxed max-w-2xl mx-auto">
+            Request a private briefing and discover how the world's most demanding operations engineer certainty into every load.
           </p>
 
           <Link href="/contact">
-            <Button
-              size="lg"
-              className="bg-white text-red-600 hover:bg-gray-100 px-12 py-6 text-xl font-semibold shadow-2xl"
-            >
-              Request Your Invitation
-              <ArrowRight className="ml-2 h-6 w-6" />
-            </Button>
+            <button className="btn-premium text-lg group">
+              <span className="relative z-10 flex items-center">
+                Request Your Invitation
+                <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
+              </span>
+            </button>
           </Link>
 
-          <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-red-100">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="h-5 w-5" />
-              <span>No obligation briefing</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="h-5 w-5" />
-              <span>Custom ROI analysis</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="h-5 w-5" />
-              <span>Dedicated specialist</span>
-            </div>
+          <div className="mt-16 flex flex-wrap justify-center gap-12 text-sm text-platinum-500 font-light">
+            {['No Obligation Briefing', 'Custom ROI Analysis', 'Dedicated Specialist'].map((item, i) => (
+              <div key={i} className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-gold-600" />
+                <span>{item}</span>
+              </div>
+            ))}
           </div>
         </motion.div>
       </div>
@@ -454,16 +440,23 @@ function FinalCTASection() {
 
 // Main Homepage
 export default function HomePage() {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
-    <MainLayout>
-      <div className="bg-white">
-        <HeroSection />
-        <WhatIsErgoPackSection />
-        <DifferenceSection />
-        <ProductRangeSection />
-        <ClientSuccessSection />
-        <FinalCTASection />
-      </div>
-    </MainLayout>
+    <>
+      <PremiumLoadingScreen onLoadingComplete={() => setIsLoading(false)} />
+      {!isLoading && (
+        <MainLayout>
+          <div className="bg-luxury-white">
+            <HeroSection />
+            <PhilosophySection />
+            <FeatureShowcaseSection />
+            <ProductLinesSection />
+            <SocialProofSection />
+            <FinalCTASection />
+          </div>
+        </MainLayout>
+      )}
+    </>
   );
 }
