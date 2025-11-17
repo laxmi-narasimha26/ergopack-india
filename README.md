@@ -1,243 +1,476 @@
-# ErgoPack India - Premium B2B Website
+# ErgoPack India - Premium Full-Stack Website
 
-A "quiet luxury" premium B2B website for ErgoPack India, featuring precision engineering solutions for zero-failure logistics.
+A comprehensive, premium full-stack website for ErgoPack India featuring advanced Three.js animations, complete admin panel, blog system, and AI chatbot.
 
-## Overview
+![ErgoPack India](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=three.js&logoColor=white)
 
-This website represents a strategic repositioning for ErgoPack India, targeting C-suite executives at India's Elite 60 export firms in pharmaceuticals, automotive, and electronics industries.
+## 🌟 Features
 
-## Design Philosophy
+### **Frontend**
+- ✨ Premium homepage with Three.js hero animations and WebGL effects
+- 🎯 Interactive 3D product visualizations (ChainLance mechanism with glowing pathways)
+- 📱 Fully responsive design optimized for all devices
+- 🎨 Quiet luxury aesthetic with dark theme and gold/amber accents
+- ⚡ Advanced GSAP scroll animations throughout
+- 🤖 AI-powered chatbot for real-time visitor engagement
+- 🔍 Fully SEO optimized with meta tags, JSON-LD, sitemap, and robots.txt
 
-### "Quiet Luxury" Aesthetic
-- **Color Palette**: Deep charcoal (#1a1a1a), crisp white (#ffffff), silver (#c0c0c0), with ErgoPack red accent (#c41e3a)
-- **Typography**: Inter font family, emphasizing clarity and premium feel
-- **Spacing**: Generous whitespace creating sophisticated visual breathing room
-- **Interactions**: Subtle, tactile microinteractions that feel premium and precise
+### **Product Pages**
+- **X-pert Line:** Interactive 360° 3D model viewer with clickable hotspots
+- **E-conomy Line:** 3D visualizations highlighting reliability
+- **Comparison:** Side-by-side product comparison with detailed specs
+- **Industries:** Targeted pages for Pharmaceuticals, Automotive, and Electronics
 
-### Strategic Positioning
-- **Focus**: Operational risk mitigation and verifiable load integrity
-- **Target**: C-suite executives (CEO, COO, VP Supply Chain, Heads of Operations)
-- **Value Proposition**: The intelligent risk-mitigation system for zero-failure logistics
+### **Blog System**
+- Full-featured blog with Markdown/MDX support
+- Search and category filtering
+- Featured posts section
+- Related posts suggestions
+- Social share buttons (Twitter, Facebook, LinkedIn)
+- View counter and automatic read time calculation
+- SEO optimization for each post
 
-## Website Structure
+### **Admin Panel** 🔐
+- 📊 Comprehensive dashboard with real-time analytics
+- 📝 Blog management (create, edit, delete, publish/unpublish, featured toggle)
+- 📧 Contact request tracking with status workflow
+- 🖼️ Media library with multi-file upload support
+- 👥 User management system
+- 🔐 Secure authentication with NextAuth.js
+- 📈 Visual analytics (requests by industry, monthly trends)
 
-### Pages
+### **Backend**
+- RESTful API endpoints for all CRUD operations
+- MongoDB database with Mongoose ODM
+- NextAuth authentication with bcrypt password hashing
+- Email notification system (configurable via SMTP)
+- Secure file upload handling
+- Input validation with Zod
+- Protected admin routes
 
-1. **Homepage** (`index.html`)
-   - Hero section with animated ChainLance visualization
-   - Social proof section for client logos
-   - Problem articulation (risk scenarios)
-   - Solution showcase (X-pert Line)
-   - Exclusive CTA
+## 🛠️ Tech Stack
 
-2. **X-pert Line Product Page** (`xpert-line.html`)
-   - Interactive 3D model with clickable hotspots
-   - Exploded view diagram
-   - ChainLance cutaway animation
-   - Technical specifications
-   - Feature modals (Siemens touchscreen, Triplex-Tool-Lift, sealing head)
+### **Core Framework**
+- **Next.js 14** - React framework with App Router
+- **TypeScript** - Type-safe JavaScript
+- **Tailwind CSS** - Utility-first CSS framework
+- **MongoDB** - NoSQL database
+- **Mongoose** - MongoDB ODM
 
-3. **E-conomy Line Product Page** (`economy-line.html`)
-   - Product overview and highlights
-   - Technical specifications
-   - Comparison CTA
+### **3D Graphics & Animations**
+- **Three.js** - WebGL 3D graphics library
+- **@react-three/fiber** - React renderer for Three.js
+- **@react-three/drei** - Useful helpers and abstractions
+- **GSAP** - Professional animation library with ScrollTrigger
+- **Framer Motion** - React animation library
 
-4. **Product Comparison** (`compare.html`)
-   - Side-by-side feature comparison
-   - Decision guide
-   - Differentiated CTAs
+### **UI Components**
+- **Radix UI** - Accessible, unstyled component primitives
+- **Lucide React** - Beautiful & consistent icon set
+- **Class Variance Authority** - Component variant management
+- **Tailwind Merge** - Utility class merging
 
-5. **Industries** (`industries.html`)
-   - Pharmaceuticals & Life Sciences
-   - Automotive Components
-   - Electronics & High-Value Machinery
-   - Industry-specific risk profiles and solutions
+### **Forms & Validation**
+- **React Hook Form** - Performant form state management
+- **Zod** - TypeScript-first schema validation
 
-6. **Contact/Invitation** (`contact.html`)
-   - High-value qualification form
-   - C-Suite Risk Assessment request
-   - Exclusive partnership messaging
-   - Form validation and success states
+### **Authentication**
+- **NextAuth.js** - Complete authentication solution
+- **bcryptjs** - Secure password hashing
 
-## Features
+### **Content & Markdown**
+- **MDX** - Markdown with JSX components
+- **React Markdown** - Markdown rendering
+- **Gray Matter** - Front matter parsing
+- **Reading Time** - Automatic read time estimation
 
-### Interactive Elements
-- **3D Model Rotation**: Click and drag to rotate the X-pert Line model
-- **Hotspot Modals**: Click numbered hotspots to view detailed feature information
-- **Smooth Animations**: ChainLance path animation, seal pulse, component float
-- **Form Validation**: Real-time validation with error/warning messages
+### **Utilities**
+- **Axios** - HTTP client
+- **SWR** - React hooks for data fetching
+- **React Hot Toast** - Toast notifications
+- **date-fns** - Date utility library
 
-### Responsive Design
-- Fully responsive across desktop, tablet, and mobile devices
-- Mobile-optimized navigation with hamburger menu
-- Fluid typography and spacing
-- Touch-friendly interactions
+## 📦 Installation & Setup
 
-### Premium UX Details
-- Smooth scroll behavior
-- Parallax effects on hero section
-- Fade-in animations on scroll
-- Hover states with subtle transforms
-- Premium button interactions with elevation changes
+### **Prerequisites**
+- Node.js 18+ and npm
+- MongoDB database (local or MongoDB Atlas)
+- Git
 
-## Technical Stack
+### **1. Clone the Repository**
+```bash
+git clone <repository-url>
+cd ergopack-india
+```
 
-- **HTML5**: Semantic markup
-- **CSS3**: Custom properties, Grid, Flexbox, animations
-- **JavaScript**: Vanilla JS for interactions (no framework dependencies)
-- **Fonts**: Google Fonts (Inter)
+### **2. Install Dependencies**
+```bash
+npm install
+```
 
-## File Structure
+### **3. Environment Setup**
+
+Create `.env.local` in the root directory:
+
+```env
+# Database
+MONGODB_URI=mongodb://localhost:27017/ergopack-india
+MONGODB_DB=ergopack-india
+
+# NextAuth Configuration
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your-secret-key-generate-with-openssl
+
+# Admin Credentials (CHANGE THESE!)
+ADMIN_EMAIL=admin@ergopack-india.com
+ADMIN_PASSWORD=SecurePassword123!
+
+# Email (Optional - for contact form notifications)
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your-email@gmail.com
+SMTP_PASSWORD=your-app-specific-password
+EMAIL_FROM=noreply@ergopack-india.com
+EMAIL_TO=contact@ergopack-india.com
+
+# Application URLs
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+NEXT_PUBLIC_API_URL=http://localhost:3000/api
+```
+
+**Generate a secure NEXTAUTH_SECRET:**
+```bash
+openssl rand -base64 32
+```
+
+### **4. Database Setup**
+
+**Option A: Local MongoDB**
+```bash
+# Install MongoDB (macOS)
+brew install mongodb-community@7.0
+brew services start mongodb-community@7.0
+
+# Verify it's running
+mongosh
+```
+
+**Option B: MongoDB Atlas (Cloud - Free Tier)**
+1. Create account at https://www.mongodb.com/cloud/atlas
+2. Create a new cluster (free M0 tier available)
+3. Whitelist your IP address
+4. Create database user
+5. Get connection string and update `MONGODB_URI`
+
+### **5. Seed Admin User**
+```bash
+npm run seed:admin
+```
+
+This creates an admin user with credentials from `.env.local`.
+
+### **6. Start Development Server**
+```bash
+npm run dev
+```
+
+**Access the application:**
+- **Website:** http://localhost:3000
+- **Admin Panel:** http://localhost:3000/admin/login
+
+## 🚀 Available Scripts
+
+```bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm start            # Start production server
+npm run lint         # Run ESLint
+npm run type-check   # TypeScript type checking
+npm run seed:admin   # Create/reset admin user
+```
+
+## 📁 Project Structure
 
 ```
 ergopack-india/
-├── index.html                 # Homepage
-├── xpert-line.html           # X-pert Line product page
-├── economy-line.html         # E-conomy Line product page
-├── compare.html              # Product comparison
-├── industries.html           # Target industries
-├── contact.html              # Contact/invitation form
-├── css/
-│   ├── main.css             # Core styles and design system
-│   └── product.css          # Product-specific styles
-├── js/
-│   ├── main.js              # Core JavaScript
-│   ├── product.js           # Product interactions
-│   └── contact.js           # Form handling
-├── assets/                   # Images and media files
-├── CLAUDE.md                # AI assistant guide
-├── instructions.md          # Strategic blueprint
-└── README.md               # This file
+├── public/                    # Static assets
+│   ├── images/               # Image files
+│   ├── videos/               # Video files
+│   ├── models/               # 3D model files
+│   └── fonts/                # Custom fonts
+├── scripts/
+│   └── seed-admin.js         # Admin user seed script
+├── src/
+│   ├── app/                  # Next.js 14 App Router
+│   │   ├── admin/            # Admin panel routes
+│   │   │   ├── layout.tsx    # Admin layout with auth
+│   │   │   ├── page.tsx      # Dashboard
+│   │   │   ├── blogs/        # Blog management
+│   │   │   ├── media/        # Media library
+│   │   │   ├── requests/     # Request tracking
+│   │   │   └── login/        # Admin login
+│   │   ├── api/              # API routes
+│   │   │   ├── auth/         # NextAuth endpoints
+│   │   │   ├── blog/         # Blog CRUD
+│   │   │   ├── contact/      # Contact requests
+│   │   │   ├── media/        # Media upload
+│   │   │   └── stats/        # Analytics
+│   │   ├── blog/             # Public blog pages
+│   │   │   ├── page.tsx      # Blog listing
+│   │   │   └── [slug]/       # Individual posts
+│   │   ├── contact/          # Contact page
+│   │   ├── industries/       # Industries page
+│   │   ├── products/         # Product pages
+│   │   │   ├── xpert-line/
+│   │   │   ├── economy-line/
+│   │   │   └── compare/
+│   │   ├── layout.tsx        # Root layout
+│   │   ├── page.tsx          # Homepage
+│   │   ├── not-found.tsx     # 404 page
+│   │   ├── error.tsx         # Error boundary
+│   │   ├── sitemap.ts        # Dynamic sitemap
+│   │   └── robots.ts         # Robots.txt
+│   ├── components/
+│   │   ├── admin/            # Admin components
+│   │   ├── forms/            # Form components
+│   │   ├── layout/           # Layout components
+│   │   │   ├── Navigation.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   └── MainLayout.tsx
+│   │   ├── three/            # Three.js components
+│   │   │   ├── HeroScene.tsx
+│   │   │   └── ChainLanceAnimation.tsx
+│   │   ├── ui/               # Reusable UI components
+│   │   ├── Chatbot.tsx       # AI chatbot
+│   │   └── Providers.tsx     # Context providers
+│   ├── lib/
+│   │   ├── auth.ts           # NextAuth config
+│   │   ├── db/               # Database
+│   │   │   ├── mongodb.ts    # Connection
+│   │   │   └── models/       # Mongoose models
+│   │   ├── hooks/            # Custom hooks
+│   │   │   └── useScrollAnimation.ts
+│   │   └── utils/            # Utility functions
+│   ├── styles/
+│   │   └── globals.css       # Global styles
+│   └── types/
+│       └── index.ts          # TypeScript types
+├── .env.example              # Environment template
+├── .gitignore
+├── next.config.js            # Next.js config
+├── package.json
+├── postcss.config.js
+├── tailwind.config.ts        # Tailwind config
+├── tsconfig.json             # TypeScript config
+└── README.md
 ```
 
-## Key Messaging Points
+## 🎨 Design System
 
-### Forbidden Concepts (DO NOT USE)
-- ❌ "Ergonomics" or "Healthy Backs"
-- ❌ "Employee Safety" or "Preventing Back Strain"
-- ❌ "Saving Labor Costs" or "Time Savings"
-- ❌ "Fun at Work"
-- ❌ Imagery of workers bending or in pain
-
-### Required Messaging (MUST USE)
-- ✓ "Premium Necessity" - Strategic system, not just a tool
-- ✓ "Operational Risk Mitigation" - Core value proposition
-- ✓ "German Precision Engineering" - Proof of reliability
-- ✓ "Verifiable Load Integrity" - C-suite language
-- ✓ "Exclusivity & Status" - High-touch, invitation-only
-
-## Color Palette
-
+### **Color Palette**
 ```css
---color-charcoal: #1a1a1a
---color-charcoal-light: #2a2a2a
---color-charcoal-medium: #3a3a3a
---color-white: #ffffff
---color-off-white: #f8f8f8
---color-silver: #c0c0c0
---color-silver-light: #e8e8e8
---color-accent: #c41e3a
---color-accent-hover: #a01828
+/* Dark Backgrounds */
+--dark-950: #0a0a15
+--dark-900: #1a1a2e
+--dark-800: #2c2c3d
+
+/* Accent Colors */
+--accent-600: #dc2626  /* Primary red */
+--accent-500: #ef4444
+--amber-600: #d97706   /* Gold accent */
+--amber-500: #f59e0b
 ```
 
-## Typography Scale
+### **Typography**
+- **Font:** Inter (Google Fonts)
+- **Heading Scale:** text-7xl → text-5xl → text-4xl
+- **Body:** text-base (16px) to text-lg (18px)
 
-- **Hero Headline**: 3.5rem / 56px
-- **H2**: 2.5rem / 40px
-- **H3**: 1.75rem / 28px
-- **Body**: 1.125rem / 18px
-- **Small**: 0.95rem / 15px
+### **Spacing**
+- **Container:** max-w-7xl with px-6
+- **Section Padding:** py-16 to py-24
+- **Element Spacing:** space-y-4, space-y-8
 
-## Browser Support
+## 📖 Usage Guide
 
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Mobile browsers (iOS Safari, Chrome Mobile)
+### **Admin Panel Workflow**
 
-## Development Notes
+**1. Login**
+- Navigate to `/admin/login`
+- Use credentials from `.env.local`
+- Session persists across browser refreshes
 
-### To Add Images/Media
-1. Place images in the `assets/` directory
-2. Update image paths in HTML files
-3. Optimize images for web (WebP recommended)
-4. Ensure high-resolution images for retina displays
+**2. Dashboard**
+- View key metrics (total requests, blogs, views)
+- See recent activity
+- Charts showing trends
 
-### To Integrate Backend
-1. Update form submission in `js/contact.js`
-2. Replace the simulated API call with actual endpoint
-3. Add proper error handling
-4. Implement CSRF protection
+**3. Managing Contact Requests**
+- View all form submissions
+- Filter by status: New, Contacted, Qualified, Converted, Rejected
+- Search by name, company, or email
+- Update status inline
+- Add internal notes
 
-### To Add Client Logos
-1. Update `.logo-placeholder` elements in `index.html`
-2. Replace `.logo-box` divs with actual `<img>` tags
-3. Ensure logos are in SVG or high-res PNG format
-4. Maintain consistent sizing and spacing
+**4. Blog Management**
+- Create: Rich editor, cover image, SEO fields
+- Edit: Update existing posts
+- Publish/Unpublish: Toggle visibility
+- Feature: Mark posts for homepage
+- Delete: Remove posts
 
-## Performance Optimization
+**5. Media Library**
+- Upload images, videos, 3D models, documents
+- View all uploaded files
+- Delete unused media
 
-- ✓ Minimal JavaScript dependencies
-- ✓ CSS custom properties for efficient theming
-- ✓ Lazy-loading ready (add as needed)
-- ✓ Font subsetting recommended for production
-- ⚠ Add image optimization before deployment
-- ⚠ Consider CDN for static assets
+### **Creating Blog Posts**
 
-## Accessibility
+1. Go to **Admin → Blogs → New Blog**
+2. Fill in fields:
+   - **Title:** Post headline
+   - **Slug:** URL-friendly identifier (auto-generated from title)
+   - **Excerpt:** Short summary (150-200 chars)
+   - **Content:** Full markdown content
+   - **Cover Image:** URL to header image
+   - **Author:** Your name
+   - **Category:** e.g., "Industry News", "Product Updates"
+   - **Tags:** Comma-separated keywords
+   - **SEO Title/Description:** For search engines
+3. Toggle **Published** to make live
+4. Toggle **Featured** to show on homepage
+5. Click **Create Blog Post**
 
-- Semantic HTML structure
-- ARIA labels on interactive elements
-- Keyboard navigation support
-- Focus states on all interactive elements
-- Sufficient color contrast ratios
-- Alt text placeholders (to be filled with actual descriptions)
+### **Chatbot Customization**
 
-## Future Enhancements
+Edit `/src/components/Chatbot.tsx` to:
+- Add more response patterns
+- Customize quick reply buttons
+- Integrate with live chat service (optional)
+- Connect to backend chat API
 
-1. **Real 3D Models**: Integrate Three.js for actual 3D product visualization
-2. **Video Content**: Add product demonstration videos
-3. **Case Studies**: Partner testimonials and success stories
-4. **Analytics**: Google Analytics or privacy-friendly alternative
-5. **A/B Testing**: Test CTAs and messaging variations
-6. **Multi-language**: Add support for regional Indian languages
-7. **Partner Portal**: Password-protected area for existing clients
+## 🔒 Security Best Practices
 
-## Deployment Checklist
+- ✅ All passwords hashed with bcrypt (10 rounds)
+- ✅ Admin routes protected by NextAuth middleware
+- ✅ API routes validate input with Zod
+- ✅ Environment variables for sensitive data
+- ✅ CSRF protection via NextAuth
+- ✅ MongoDB injection prevention via Mongoose
+- ✅ XSS protection via React (auto-escaping)
+- ⚠️ Add rate limiting in production
+- ⚠️ Use HTTPS in production
+- ⚠️ Whitelist MongoDB IP addresses
 
-- [ ] Optimize all images
-- [ ] Minify CSS and JavaScript
-- [ ] Add meta tags and Open Graph images
-- [ ] Set up SSL certificate
-- [ ] Configure caching headers
-- [ ] Test on all target browsers
-- [ ] Verify mobile responsiveness
-- [ ] Set up analytics
-- [ ] Configure form backend
-- [ ] Add sitemap.xml
-- [ ] Add robots.txt
-- [ ] Test page load speeds
-- [ ] Security audit
+## 🚢 Deployment
 
-## Brand Guidelines Compliance
+### **Vercel (Recommended)**
 
-This website adheres to the strategic positioning outlined in `instructions.md`:
-- Premium B2B lexicon throughout
-- Risk-mitigation focused messaging
-- C-suite targeted language
-- Exclusivity and high-value positioning
-- German engineering heritage emphasized
-- Feynman simplification for complex concepts
+1. **Install Vercel CLI:**
+```bash
+npm i -g vercel
+```
 
-## Support & Contact
+2. **Deploy:**
+```bash
+vercel
+```
 
-For questions about this codebase or implementation details, refer to:
-- `CLAUDE.md` - AI assistant development guide
-- `instructions.md` - Strategic blueprint and requirements
+3. **Set Environment Variables in Vercel Dashboard:**
+- Go to Project Settings → Environment Variables
+- Add all variables from `.env.local`
+- Don't forget to change production values!
+
+4. **Connect MongoDB Atlas**
+
+### **Other Platforms**
+
+- **Netlify:** Supports Next.js with `next export` (limitations apply)
+- **AWS/DigitalOcean:** Deploy as Docker container or Node.js app
+- **Railway/Render:** One-click deployments with environment config
+
+### **Production Checklist**
+
+- [ ] Update `NEXTAUTH_SECRET` to secure random string
+- [ ] Change `NEXTAUTH_URL` to production domain
+- [ ] Update admin email/password
+- [ ] Configure production MongoDB URI
+- [ ] Set up SMTP for email notifications
+- [ ] Test all pages and functionality
+- [ ] Run `npm run build` to check for errors
+- [ ] Configure CDN for static assets
+- [ ] Set up monitoring (Sentry, LogRocket, etc.)
+- [ ] Add Google Analytics or privacy-friendly alternative
+- [ ] Test SEO with Google Search Console
+- [ ] Set up SSL certificate (auto with Vercel)
+
+## 🐛 Troubleshooting
+
+### **"Cannot connect to MongoDB"**
+```bash
+# Check MongoDB is running
+mongosh
+
+# Check connection string in .env.local
+# For Atlas, verify IP whitelist
+```
+
+### **"Admin login not working"**
+```bash
+# Reset admin credentials
+npm run seed:admin
+
+# Verify NEXTAUTH_SECRET is set
+# Clear browser cookies/storage
+```
+
+### **Build Errors**
+```bash
+# Clear cache
+rm -rf .next
+
+# Reinstall dependencies
+rm -rf node_modules package-lock.json
+npm install
+
+# Check types
+npm run type-check
+```
+
+### **Three.js Performance Issues**
+- Three.js scenes automatically simplify on mobile
+- Reduce particle count if needed
+- Check browser console for WebGL errors
+
+## 📊 Analytics & Monitoring
+
+Integrate analytics:
+```javascript
+// Add to src/app/layout.tsx
+<Script src="https://www.googletagmanager.com/gtag/js?id=GA_ID" />
+```
+
+## 🤝 Contributing
+
+This is a commercial project. For questions or support:
+- Email: dev@ergopack-india.com
+
+## 📄 License
+
+Copyright © 2024 ErgoPack India. All rights reserved.
+
+## 🙏 Acknowledgments
+
+- **ErgoPack Germany** for product information
+- **Design Inspiration:** Porsche Consulting, Vonova, Fictiv
+- **Technologies:** Next.js, Three.js, GSAP, Tailwind CSS
+- **Strategic Blueprint:** See `instructions.md` for positioning details
 
 ---
 
-**Version**: 1.0.0
-**Last Updated**: 2025-11-17
-**Built With**: Precision and excellence, like the products we represent.
+**Version:** 2.0.0
+**Last Updated:** 2024-11-17
+**Built With:** Precision engineering, like the products we represent.
