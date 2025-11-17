@@ -36,7 +36,7 @@ function HeroSection() {
         <motion.div
           className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full opacity-10 blur-3xl"
           style={{
-            background: 'radial-gradient(circle, #D4AF37 0%, transparent 70%)',
+            background: 'radial-gradient(circle, #9B1C1C 0%, transparent 70%)',
           }}
           animate={{
             scale: [1, 1.3, 1],
@@ -52,7 +52,7 @@ function HeroSection() {
         <motion.div
           className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full opacity-10 blur-3xl"
           style={{
-            background: 'radial-gradient(circle, #FFE4AC 0%, transparent 70%)',
+            background: 'radial-gradient(circle, #FEC9C9 0%, transparent 70%)',
           }}
           animate={{
             scale: [1.2, 1, 1.2],
@@ -76,10 +76,10 @@ function HeroSection() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="mb-12 inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gold-500/30 bg-gold-500/10 backdrop-blur-md"
+          className="mb-12 inline-flex items-center gap-2 px-6 py-3 rounded-full border border-crimson-500/30 bg-crimson-500/10 backdrop-blur-md"
         >
-          <Sparkles className="h-4 w-4 text-gold-400" />
-          <span className="text-sm font-medium text-gold-400 tracking-wide">
+          <Sparkles className="h-4 w-4 text-crimson-400" />
+          <span className="text-sm font-medium text-crimson-400 tracking-wide">
             Premium Series
           </span>
         </motion.div>
@@ -93,7 +93,7 @@ function HeroSection() {
         >
           X-pert Line
           <br />
-          <span className="bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-crimson-400 via-crimson-500 to-crimson-600 bg-clip-text text-transparent">
             Precision Perfected
           </span>
         </motion.h1>
@@ -138,15 +138,15 @@ function HeroSection() {
           className="flex flex-wrap justify-center gap-16 text-sm text-platinum-400 font-light"
         >
           <div className="flex flex-col items-center gap-2">
-            <div className="text-3xl font-serif font-bold text-gold-500">4500N</div>
+            <div className="text-3xl font-serif font-bold text-crimson-500">4500N</div>
             <span>Peak Tension</span>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <div className="text-3xl font-serif font-bold text-gold-500">IoT</div>
+            <div className="text-3xl font-serif font-bold text-crimson-500">IoT</div>
             <span>Real-Time Monitoring</span>
           </div>
           <div className="flex flex-col items-center gap-2">
-            <div className="text-3xl font-serif font-bold text-gold-500">99.99%</div>
+            <div className="text-3xl font-serif font-bold text-crimson-500">99.99%</div>
             <span>Reliability</span>
           </div>
         </motion.div>
@@ -212,7 +212,7 @@ function FeaturesSection() {
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-24"
         >
-          <p className="text-sm uppercase tracking-[0.3em] text-gold-500 mb-8 font-medium">
+          <p className="text-sm uppercase tracking-[0.3em] text-crimson-500 mb-8 font-medium">
             Advanced Technology
           </p>
           <h2 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-semibold text-white mb-12 leading-tight">
@@ -237,13 +237,13 @@ function FeaturesSection() {
               className="premium-card-dark group p-10"
             >
               {/* Icon */}
-              <div className="mb-8 inline-flex items-center justify-center p-5 rounded-2xl bg-gold-500/10 border border-gold-500/20">
-                <feature.icon className="h-8 w-8 text-gold-400" />
+              <div className="mb-8 inline-flex items-center justify-center p-5 rounded-2xl bg-crimson-500/10 border border-crimson-500/20">
+                <feature.icon className="h-8 w-8 text-crimson-400" />
               </div>
 
               {/* Stat badge */}
               <div className="mb-6">
-                <div className="text-3xl font-serif font-bold text-gold-500 mb-1">
+                <div className="text-3xl font-serif font-bold text-crimson-500 mb-1">
                   {feature.stat}
                 </div>
                 <div className="text-sm text-platinum-500 font-medium tracking-wide">
@@ -290,7 +290,7 @@ function TechnicalExcellenceSection() {
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-20"
         >
-          <p className="text-sm uppercase tracking-[0.3em] text-gold-500 mb-8 font-medium">
+          <p className="text-sm uppercase tracking-[0.3em] text-crimson-500 mb-8 font-medium">
             Technical Specifications
           </p>
           <h2 className="font-serif text-5xl sm:text-6xl font-semibold text-white">
@@ -312,7 +312,7 @@ function TechnicalExcellenceSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.05 }}
-              className="flex items-center justify-between p-6 rounded-2xl bg-luxury-space-black/50 border border-platinum-800 hover:border-gold-500/30 transition-all duration-500"
+              className="flex items-center justify-between p-6 rounded-2xl bg-luxury-space-black/50 border border-platinum-800 hover:border-crimson-500/30 transition-all duration-500"
             >
               <span className="text-platinum-400 font-light">{spec.label}</span>
               <span className="text-white font-medium">{spec.value}</span>
@@ -342,13 +342,13 @@ function ChainLanceSection() {
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-20"
         >
-          <p className="text-sm uppercase tracking-[0.3em] text-gold-500 mb-8 font-medium">
+          <p className="text-sm uppercase tracking-[0.3em] text-crimson-500 mb-8 font-medium">
             The Innovation
           </p>
           <h2 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-semibold text-white mb-12 leading-tight">
             ChainLance
             <br />
-            <span className="italic text-gold-500">Mechanism</span>
+            <span className="italic text-crimson-500">Mechanism</span>
           </h2>
           <p className="text-xl text-platinum-300 max-w-3xl mx-auto font-light leading-relaxed">
             Our revolutionary patented system represents a paradigm shift in cargo securing technology—maintaining constant, precise tension throughout transit.
@@ -388,7 +388,7 @@ function ChainLanceSection() {
               transition={{ delay: index * 0.1 }}
               className="text-center p-8"
             >
-              <div className="text-5xl font-serif font-bold text-gold-500/20 mb-4">{item.step}</div>
+              <div className="text-5xl font-serif font-bold text-crimson-500/20 mb-4">{item.step}</div>
               <h4 className="text-xl font-serif font-semibold text-white mb-2">{item.title}</h4>
               <p className="text-platinum-400 font-light">{item.desc}</p>
             </motion.div>
@@ -404,7 +404,7 @@ function CTASection() {
   return (
     <section className="py-48 bg-luxury-dark-gray relative overflow-hidden">
       {/* Glow effect */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full opacity-10 blur-3xl bg-gradient-to-br from-gold-500 to-transparent" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full opacity-10 blur-3xl bg-gradient-to-br from-crimson-500 to-transparent" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-8 sm:px-12 text-center">
         <motion.div
@@ -416,7 +416,7 @@ function CTASection() {
           <h2 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-semibold text-white mb-12 leading-tight">
             Experience the
             <br />
-            <span className="italic text-gold-500">X-pert Difference</span>
+            <span className="italic text-crimson-500">X-pert Difference</span>
           </h2>
           <p className="text-xl sm:text-2xl text-platinum-300 mb-16 font-light leading-relaxed max-w-2xl mx-auto">
             Join industry leaders who have eliminated cargo securing failures. Request your confidential briefing and on-site demonstration.
@@ -434,7 +434,7 @@ function CTASection() {
           <div className="mt-16 flex flex-wrap justify-center gap-12 text-sm text-platinum-400 font-light">
             {['99.99% Reliability', 'On-Site Training', '24/7 Support'].map((item, i) => (
               <div key={i} className="flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-gold-500" />
+                <CheckCircle2 className="h-4 w-4 text-crimson-500" />
                 <span>{item}</span>
               </div>
             ))}
