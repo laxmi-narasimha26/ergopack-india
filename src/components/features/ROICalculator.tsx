@@ -32,22 +32,22 @@ export default function ROICalculator() {
   const [showResults, setShowResults] = useState(false);
 
   const calculateROI = () => {
-    // ErgoLance system cost per load
+    // ErgoPack system cost per load
     const systemCostPerLoad = 150;
-    const ergoLanceFailureRate = 0.0001; // 99.99% success rate
+    const ergopackFailureRate = 0.0001; // 99.99% success rate
 
     // Current scenario
     const currentMonthlyFailures = loadsPerMonth * currentFailureRate;
     const currentMonthlyCost = currentMonthlyFailures * averageLossPerFailure;
 
-    // With ErgoLance
-    const ergoLanceMonthlyFailures = loadsPerMonth * ergoLanceFailureRate;
-    const ergoLanceMonthlyCost =
-      ergoLanceMonthlyFailures * averageLossPerFailure +
+    // With ErgoPack
+    const ergopackMonthlyFailures = loadsPerMonth * ergopackFailureRate;
+    const ergopackMonthlyCost =
+      ergopackMonthlyFailures * averageLossPerFailure +
       loadsPerMonth * systemCostPerLoad;
 
     // Savings
-    const monthlySavings = currentMonthlyCost - ergoLanceMonthlyCost;
+    const monthlySavings = currentMonthlyCost - ergopackMonthlyCost;
     const annualSavings = monthlySavings * 12;
 
     // System investment
@@ -58,7 +58,7 @@ export default function ROICalculator() {
       totalSavings: monthlySavings,
       monthlyROI: (monthlySavings / systemInvestment) * 100,
       paybackPeriod: paybackMonths,
-      reductionInFailures: ((currentMonthlyFailures - ergoLanceMonthlyFailures) / currentMonthlyFailures) * 100,
+      reductionInFailures: ((currentMonthlyFailures - ergopackMonthlyFailures) / currentMonthlyFailures) * 100,
       annualSavings: annualSavings,
     };
 
@@ -83,7 +83,7 @@ export default function ROICalculator() {
           <div className="mb-8">
             <h3 className="text-2xl font-bold text-white mb-2">Calculate Your ROI</h3>
             <p className="text-slate-400">
-              See how much you could save with ErgoLance precision securing systems
+              See how much you could save with ErgoPack precision securing systems
             </p>
           </div>
 

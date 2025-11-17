@@ -3,17 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
+  --foreground-rgb: 26, 26, 26;
   --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 10, 10, 10;
-    --background-end-rgb: 10, 10, 10;
-  }
 }
 
 * {
@@ -56,16 +48,16 @@ a {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1a1a1a;
+  background: #f5f5f5;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3d3d3d;
+  background: #d32f2f;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #b71c1c;
 }
 
 /* Selection */
@@ -101,11 +93,11 @@ a {
   }
 
   .premium-shadow {
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 60px rgba(211, 47, 47, 0.15);
   }
 
   .premium-shadow-sm {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   }
 }
 
@@ -132,13 +124,13 @@ a {
 
 /* Premium Button Styles */
 .btn-premium {
-  @apply relative overflow-hidden px-8 py-4 text-white font-semibold rounded-none transition-all duration-300;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+  @apply relative overflow-hidden px-8 py-4 text-white font-semibold rounded-sm transition-all duration-300;
+  background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
 }
 
 .btn-premium::before {
   content: '';
-  @apply absolute inset-0 bg-gradient-to-r from-accent-600 to-accent-400 opacity-0 transition-opacity duration-300;
+  @apply absolute inset-0 bg-gradient-to-r from-red-700 to-red-900 opacity-0 transition-opacity duration-300;
 }
 
 .btn-premium:hover::before {
@@ -151,11 +143,11 @@ a {
 
 /* Premium Card */
 .premium-card {
-  @apply bg-dark-950 border border-dark-800 rounded-none overflow-hidden transition-all duration-300;
+  @apply bg-white border border-gray-200 rounded-sm overflow-hidden transition-all duration-300;
 }
 
 .premium-card:hover {
-  @apply border-accent-600 premium-shadow;
+  @apply border-red-600 premium-shadow;
 }
 
 /* Grid Background Effect */
@@ -200,11 +192,11 @@ canvas {
 
 /* Admin Panel Styles */
 .admin-layout {
-  @apply min-h-screen bg-dark-950 text-white;
+  @apply min-h-screen bg-gray-50 text-gray-900;
 }
 
 .admin-sidebar {
-  @apply w-64 bg-dark-900 border-r border-dark-800 fixed h-full;
+  @apply w-64 bg-white border-r border-gray-200 fixed h-full shadow-sm;
 }
 
 .admin-content {
@@ -213,15 +205,15 @@ canvas {
 
 /* Form Styles */
 .form-input {
-  @apply w-full px-4 py-3 bg-dark-900 border border-dark-700 rounded-none text-white placeholder-dark-400 focus:border-accent-600 focus:outline-none focus:ring-1 focus:ring-accent-600 transition-colors;
+  @apply w-full px-4 py-3 bg-white border border-gray-300 rounded-sm text-gray-900 placeholder-gray-400 focus:border-red-600 focus:outline-none focus:ring-1 focus:ring-red-600 transition-colors;
 }
 
 .form-label {
-  @apply block text-sm font-medium text-dark-200 mb-2;
+  @apply block text-sm font-medium text-gray-700 mb-2;
 }
 
 .form-error {
-  @apply text-accent-500 text-sm mt-1;
+  @apply text-red-600 text-sm mt-1;
 }
 
 /* Table Styles */
@@ -230,19 +222,19 @@ canvas {
 }
 
 .table thead {
-  @apply bg-dark-900 border-b border-dark-800;
+  @apply bg-gray-50 border-b border-gray-200;
 }
 
 .table th {
-  @apply px-6 py-4 text-left text-xs font-semibold text-dark-300 uppercase tracking-wider;
+  @apply px-6 py-4 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider;
 }
 
 .table td {
-  @apply px-6 py-4 text-sm text-dark-100 border-b border-dark-800;
+  @apply px-6 py-4 text-sm text-gray-900 border-b border-gray-200;
 }
 
 .table tbody tr {
-  @apply hover:bg-dark-900 transition-colors;
+  @apply hover:bg-gray-50 transition-colors;
 }
 
 /* Badge Styles */
@@ -268,11 +260,11 @@ canvas {
 
 /* Modal Overlay */
 .modal-overlay {
-  @apply fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center;
+  @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center;
 }
 
 .modal-content {
-  @apply bg-dark-900 border border-dark-800 rounded-none max-w-2xl w-full max-h-[90vh] overflow-auto premium-shadow;
+  @apply bg-white border border-gray-200 rounded-sm max-w-2xl w-full max-h-[90vh] overflow-auto premium-shadow;
 }
 
 /* Responsive Typography */

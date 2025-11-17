@@ -11,10 +11,9 @@ import Button from '../ui/Button';
 const navLinks = [
   { href: '/products/xpert-line', label: 'X-pert Line' },
   { href: '/products/economy-line', label: 'E-conomy Line' },
-  { href: '/products/compare-machines', label: 'Compare Machines' },
+  { href: '/products/compare-machines', label: 'Compare' },
   { href: '/industries', label: 'Industries' },
   { href: '/blog', label: 'Insights' },
-  { href: '/premium-features', label: 'Premium Features', highlight: true },
 ];
 
 export default function Navigation() {
@@ -40,8 +39,8 @@ export default function Navigation() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
         isScrolled
-          ? 'bg-dark-950/95 backdrop-blur-md border-b border-white/5 py-4'
-          : 'bg-transparent py-6'
+          ? 'bg-white/98 backdrop-blur-md border-b border-gray-200 py-4 shadow-sm'
+          : 'bg-white/95 py-6'
       )}
     >
       <nav className="container mx-auto px-6">
@@ -53,8 +52,8 @@ export default function Navigation() {
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2 }}
             >
-              <span className="text-white">ErgoPack</span>
-              <span className="text-accent-500">India</span>
+              <span className="text-gray-900">ErgoPack</span>
+              <span className="text-red-600">India</span>
             </motion.div>
           </Link>
 
@@ -66,23 +65,15 @@ export default function Navigation() {
                 href={link.href}
                 className={cn(
                   'relative text-sm font-medium transition-colors duration-300 group',
-                  (link as any).highlight
-                    ? 'text-amber-400 hover:text-amber-300'
-                    : pathname === link.href
-                    ? 'text-white'
-                    : 'text-dark-300 hover:text-white'
+                  pathname === link.href
+                    ? 'text-red-600'
+                    : 'text-gray-700 hover:text-red-600'
                 )}
               >
                 {link.label}
-                {(link as any).highlight && (
-                  <span className="absolute -top-1 -right-2 w-2 h-2 bg-amber-500 rounded-full animate-pulse" />
-                )}
                 <span
                   className={cn(
-                    'absolute -bottom-1 left-0 h-px transition-all duration-300',
-                    (link as any).highlight
-                      ? 'bg-amber-500'
-                      : 'bg-accent-500',
+                    'absolute -bottom-1 left-0 h-px transition-all duration-300 bg-red-600',
                     pathname === link.href ? 'w-full' : 'w-0 group-hover:w-full'
                   )}
                 />
@@ -102,7 +93,7 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden relative z-50 p-2 text-white"
+            className="lg:hidden relative z-50 p-2 text-gray-900"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
@@ -121,7 +112,7 @@ export default function Navigation() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden overflow-hidden"
+              className="lg:hidden overflow-hidden bg-white border-t border-gray-200 mt-4"
             >
               <div className="pt-6 pb-4 space-y-4">
                 {navLinks.map((link, index) => (
@@ -136,8 +127,8 @@ export default function Navigation() {
                       className={cn(
                         'block py-2 text-lg font-medium transition-colors',
                         pathname === link.href
-                          ? 'text-accent-500'
-                          : 'text-dark-300 hover:text-white'
+                          ? 'text-red-600'
+                          : 'text-gray-700 hover:text-red-600'
                       )}
                     >
                       {link.label}
