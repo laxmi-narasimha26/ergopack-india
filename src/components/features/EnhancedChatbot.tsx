@@ -33,7 +33,7 @@ interface Message {
 
 const initialBotMessage: Message = {
   id: '1',
-  text: "👋 Hello! I'm your AI-powered ErgoLance assistant. I can help you calculate ROI, compare products, configure solutions, or answer technical questions. What brings you here today?",
+  text: "👋 Hello! I'm your ErgoPack India assistant. I can help you calculate ROI, compare products, configure solutions, or answer technical questions. What brings you here today?",
   sender: 'bot',
   timestamp: new Date(),
   suggestions: [
@@ -236,7 +236,7 @@ export default function EnhancedChatbot() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-8 right-8 z-50 w-20 h-20 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white rounded-full shadow-2xl flex items-center justify-center transition-all group"
+            className="fixed bottom-8 right-8 z-50 w-20 h-20 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-full shadow-2xl flex items-center justify-center transition-all group"
             aria-label="Open AI chat"
           >
             <MessageCircle className="w-9 h-9 group-hover:scale-110 transition-transform" />
@@ -262,17 +262,17 @@ export default function EnhancedChatbot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 100, scale: 0.8 }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="fixed bottom-8 right-8 z-50 w-[440px] h-[680px] bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
+            className="fixed bottom-8 right-8 z-50 w-[440px] h-[680px] bg-white border border-gray-200 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-amber-500 to-amber-600 p-5 flex items-center justify-between">
+            <div className="bg-gradient-to-r from-red-500 to-red-600 p-5 flex items-center justify-between">
               <div className="flex items-center space-x-4">
                 <motion.div
                   className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg"
                   animate={{ rotate: [0, 360] }}
                   transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
                 >
-                  <Bot className="w-7 h-7 text-amber-600" />
+                  <Bot className="w-7 h-7 text-red-600" />
                 </motion.div>
                 <div>
                   <h3 className="font-bold text-white flex items-center gap-2">
@@ -295,7 +295,7 @@ export default function EnhancedChatbot() {
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-5 space-y-4 bg-gradient-to-b from-slate-900 to-slate-950">
+            <div className="flex-1 overflow-y-auto p-5 space-y-4 bg-gray-50">
               {messages.map((message, index) => (
                 <motion.div
                   key={message.id}
@@ -308,7 +308,7 @@ export default function EnhancedChatbot() {
                   )}
                 >
                   {message.sender === 'bot' && (
-                    <div className="w-8 h-8 bg-gradient-to-r from-amber-500 to-amber-600 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
+                    <div className="w-8 h-8 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
                       <Bot className="w-5 h-5 text-white" />
                     </div>
                   )}
@@ -318,8 +318,8 @@ export default function EnhancedChatbot() {
                       className={cn(
                         'rounded-2xl p-4 shadow-lg',
                         message.sender === 'user'
-                          ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-white rounded-tr-none'
-                          : 'bg-slate-800 text-slate-100 rounded-tl-none border border-slate-700'
+                          ? 'bg-gradient-to-r from-red-500 to-red-600 text-white rounded-tr-none'
+                          : 'bg-white text-gray-900 rounded-tl-none border border-gray-200'
                       )}
                     >
                       <p className="text-sm leading-relaxed">{message.text}</p>
@@ -338,7 +338,7 @@ export default function EnhancedChatbot() {
                           <motion.button
                             key={i}
                             onClick={() => handleSuggestionClick(suggestion)}
-                            className="text-xs px-4 py-2 bg-slate-800 hover:bg-amber-500 hover:text-white border border-slate-700 hover:border-amber-500 text-slate-300 rounded-full transition-all shadow-sm hover:shadow-lg group"
+                            className="text-xs px-4 py-2 bg-white hover:bg-red-500 hover:text-white border border-gray-300 hover:border-red-500 text-gray-700 rounded-full transition-all shadow-sm hover:shadow-lg group"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                           >
@@ -362,7 +362,7 @@ export default function EnhancedChatbot() {
                   </div>
 
                   {message.sender === 'user' && (
-                    <div className="w-8 h-8 bg-gradient-to-r from-slate-600 to-slate-700 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
+                    <div className="w-8 h-8 bg-gradient-to-r from-gray-600 to-gray-700 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg">
                       <User className="w-5 h-5 text-white" />
                     </div>
                   )}
@@ -376,15 +376,15 @@ export default function EnhancedChatbot() {
                   animate={{ opacity: 1, scale: 1 }}
                   className="flex gap-3 justify-start"
                 >
-                  <div className="w-8 h-8 bg-gradient-to-r from-amber-500 to-amber-600 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 bg-gradient-to-r from-red-500 to-red-600 rounded-full flex items-center justify-center flex-shrink-0">
                     <Bot className="w-5 h-5 text-white" />
                   </div>
-                  <div className="bg-slate-800 border border-slate-700 rounded-2xl rounded-tl-none p-4 shadow-lg">
+                  <div className="bg-white border border-gray-200 rounded-2xl rounded-tl-none p-4 shadow-lg">
                     <div className="flex space-x-2">
                       {[0, 150, 300].map((delay, i) => (
                         <motion.div
                           key={i}
-                          className="w-2.5 h-2.5 bg-amber-500 rounded-full"
+                          className="w-2.5 h-2.5 bg-red-500 rounded-full"
                           animate={{ y: [0, -8, 0], opacity: [0.5, 1, 0.5] }}
                           transition={{
                             duration: 1,
@@ -402,7 +402,7 @@ export default function EnhancedChatbot() {
             </div>
 
             {/* Quick Actions Bar */}
-            <div className="bg-slate-900 border-t border-slate-800 p-3">
+            <div className="bg-white border-t border-gray-200 p-3">
               <div className="grid grid-cols-4 gap-2">
                 {[
                   { icon: Calculator, label: 'ROI', action: '💰 Calculate my ROI' },
@@ -413,10 +413,10 @@ export default function EnhancedChatbot() {
                   <button
                     key={item.label}
                     onClick={() => sendMessage(item.action)}
-                    className="flex flex-col items-center gap-1 p-2 bg-slate-800 hover:bg-slate-750 rounded-lg transition-colors group"
+                    className="flex flex-col items-center gap-1 p-2 bg-gray-50 hover:bg-red-50 rounded-lg transition-colors group"
                   >
-                    <item.icon className="w-4 h-4 text-slate-400 group-hover:text-amber-500 transition-colors" />
-                    <span className="text-xs text-slate-400 group-hover:text-white transition-colors">
+                    <item.icon className="w-4 h-4 text-gray-600 group-hover:text-red-500 transition-colors" />
+                    <span className="text-xs text-gray-600 group-hover:text-gray-900 transition-colors">
                       {item.label}
                     </span>
                   </button>
@@ -425,7 +425,7 @@ export default function EnhancedChatbot() {
             </div>
 
             {/* Input */}
-            <div className="p-4 bg-slate-900 border-t border-slate-800">
+            <div className="p-4 bg-white border-t border-gray-200">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -445,19 +445,19 @@ export default function EnhancedChatbot() {
                     }}
                     placeholder="Ask me anything..."
                     rows={1}
-                    className="w-full px-4 py-3 pr-24 bg-slate-800 border border-slate-700 rounded-xl text-white placeholder-slate-400 focus:border-amber-500 focus:ring-1 focus:ring-amber-500 resize-none text-sm"
+                    className="w-full px-4 py-3 pr-24 bg-gray-50 border border-gray-300 rounded-xl text-gray-900 placeholder-gray-400 focus:border-red-500 focus:ring-1 focus:ring-red-500 resize-none text-sm"
                   />
                   <div className="absolute right-2 bottom-2 flex gap-1">
                     <button
                       type="button"
-                      className="p-2 text-slate-400 hover:text-amber-500 transition-colors"
+                      className="p-2 text-gray-400 hover:text-red-500 transition-colors"
                       aria-label="Attach file"
                     >
                       <Paperclip className="w-4 h-4" />
                     </button>
                     <button
                       type="button"
-                      className="p-2 text-slate-400 hover:text-amber-500 transition-colors"
+                      className="p-2 text-gray-400 hover:text-red-500 transition-colors"
                       aria-label="Voice input"
                     >
                       <Mic className="w-4 h-4" />
@@ -467,7 +467,7 @@ export default function EnhancedChatbot() {
                 <motion.button
                   type="submit"
                   disabled={!input.trim()}
-                  className="p-3 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 disabled:from-slate-800 disabled:to-slate-800 disabled:text-slate-500 text-white rounded-xl transition-all shadow-lg disabled:shadow-none"
+                  className="p-3 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 disabled:from-gray-200 disabled:to-gray-200 disabled:text-gray-400 text-white rounded-xl transition-all shadow-lg disabled:shadow-none"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label="Send message"
@@ -475,7 +475,7 @@ export default function EnhancedChatbot() {
                   <Send className="w-5 h-5" />
                 </motion.button>
               </form>
-              <p className="text-xs text-slate-500 mt-2 text-center">
+              <p className="text-xs text-gray-500 mt-2 text-center">
                 Powered by AI • Instant responses • Human handoff available
               </p>
             </div>

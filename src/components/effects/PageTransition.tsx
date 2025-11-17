@@ -34,7 +34,7 @@ export default function PageTransition({ children }: { children: React.ReactNode
           <>
             {/* Top curtain */}
             <motion.div
-              className="fixed top-0 left-0 right-0 h-screen bg-gradient-to-b from-slate-950 to-amber-900/20 z-[9999] origin-top"
+              className="fixed top-0 left-0 right-0 h-screen bg-gradient-to-b from-white via-red-50/30 to-transparent z-[9999] origin-top"
               initial={{ scaleY: 0 }}
               animate={{ scaleY: 1 }}
               exit={{ scaleY: 0 }}
@@ -43,7 +43,7 @@ export default function PageTransition({ children }: { children: React.ReactNode
 
             {/* Bottom curtain */}
             <motion.div
-              className="fixed bottom-0 left-0 right-0 h-screen bg-gradient-to-t from-slate-950 to-amber-900/20 z-[9999] origin-bottom"
+              className="fixed bottom-0 left-0 right-0 h-screen bg-gradient-to-t from-white via-red-50/30 to-transparent z-[9999] origin-bottom"
               initial={{ scaleY: 0 }}
               animate={{ scaleY: 1 }}
               exit={{ scaleY: 0 }}
@@ -60,7 +60,7 @@ export default function PageTransition({ children }: { children: React.ReactNode
             >
               <div className="text-center">
                 <motion.div
-                  className="text-6xl font-bold bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent"
+                  className="text-6xl font-bold bg-gradient-to-r from-red-600 to-red-800 bg-clip-text text-transparent"
                   animate={{
                     opacity: [0.5, 1, 0.5],
                   }}
@@ -70,7 +70,7 @@ export default function PageTransition({ children }: { children: React.ReactNode
                     ease: 'easeInOut',
                   }}
                 >
-                  ErgoLance
+                  ErgoPack India
                 </motion.div>
               </div>
             </motion.div>

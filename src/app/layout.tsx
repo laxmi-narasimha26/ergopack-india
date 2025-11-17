@@ -3,7 +3,6 @@ import { Inter } from 'next/font/google';
 import '../styles/globals.css';
 import { Toaster } from 'react-hot-toast';
 import Providers from '@/components/Providers';
-import Chatbot from '@/components/Chatbot';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -80,18 +79,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className="bg-dark-950 text-white antialiased">
+      <body className="bg-white text-gray-900 antialiased">
         <Providers>
           {children}
-          <Chatbot />
           <Toaster
             position="top-right"
             toastOptions={{
               duration: 4000,
               style: {
-                background: '#1a1a1a',
-                color: '#fff',
-                border: '1px solid #3d3d3d',
+                background: '#ffffff',
+                color: '#1a1a1a',
+                border: '1px solid #e8e8e8',
               },
               success: {
                 iconTheme: {
@@ -101,7 +99,7 @@ export default function RootLayout({
               },
               error: {
                 iconTheme: {
-                  primary: '#ef4444',
+                  primary: '#d32f2f',
                   secondary: '#fff',
                 },
               },
