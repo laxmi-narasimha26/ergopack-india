@@ -1,17 +1,38 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
 import '../styles/globals.css';
 import { Toaster } from 'react-hot-toast';
 import Providers from '@/components/Providers';
+import { WebVitals, PerformanceMonitor } from '@/components/WebVitals';
+import { OrganizationSchema, WebsiteSchema } from '@/components/JsonLd';
+import { SkipNav } from '@/components/accessibility/SkipNav';
+import { FocusManager } from '@/components/accessibility/FocusManager';
+import { ErrorBoundary } from '@/components/ErrorBoundary';
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'arial'],
 });
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#1a1a1a' },
+  ],
+};
+
 export const metadata: Metadata = {
-  title: 'ErgoPack India | Verifiable Load Integrity',
+  title: {
+    default: 'ErgoPack India | Verifiable Load Integrity',
+    template: '%s | ErgoPack India',
+  },
   description: "ErgoPack India delivers the 'Made in Germany' precision required to mitigate catastrophic shipment risk and protect your brand's reputation at the final, critical checkpoint of your supply chain.",
   keywords: [
     'ErgoPack',
@@ -32,6 +53,9 @@ export const metadata: Metadata = {
     telephone: false,
   },
   metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'),
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_IN',
@@ -66,10 +90,24 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png' },
+    ],
     shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
   },
+  manifest: '/manifest.json',
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'default',
+    title: 'ErgoPack India',
+  },
+  applicationName: 'ErgoPack India',
+  category: 'business',
 };
 
 export default function RootLayout({
@@ -79,33 +117,58 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.variable}>
+      <head>
+        {/* DNS Prefetch for performance */}
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+        {/* Preconnect for critical resources */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* JSON-LD Structured Data */}
+        <OrganizationSchema />
+        <WebsiteSchema />
+      </head>
       <body className="bg-white text-gray-900 antialiased">
-        <Providers>
-          {children}
-          <Toaster
-            position="top-right"
-            toastOptions={{
-              duration: 4000,
-              style: {
-                background: '#ffffff',
-                color: '#1a1a1a',
-                border: '1px solid #e8e8e8',
-              },
-              success: {
-                iconTheme: {
-                  primary: '#10b981',
-                  secondary: '#fff',
+        <ErrorBoundary>
+          {/* Accessibility: Skip to main content */}
+          <SkipNav />
+
+          {/* Focus management for route changes */}
+          <FocusManager />
+
+          {/* Web Vitals and Performance Monitoring */}
+          <WebVitals />
+          <PerformanceMonitor />
+
+          <Providers>
+            {children}
+            <Toaster
+              position="top-right"
+              toastOptions={{
+                duration: 4000,
+                style: {
+                  background: '#ffffff',
+                  color: '#1a1a1a',
+                  border: '1px solid #e8e8e8',
                 },
-              },
-              error: {
-                iconTheme: {
-                  primary: '#d32f2f',
-                  secondary: '#fff',
+                success: {
+                  iconTheme: {
+                    primary: '#10b981',
+                    secondary: '#fff',
+                  },
                 },
-              },
-            }}
-          />
-        </Providers>
+                error: {
+                  iconTheme: {
+                    primary: '#d32f2f',
+                    secondary: '#fff',
+                  },
+                },
+              }}
+            />
+          </Providers>
+        </ErrorBoundary>
       </body>
     </html>
   );
