@@ -9,9 +9,43 @@ import { cn } from '@/lib/utils';
 import Button from '../ui/Button';
 
 const navLinks = [
-  { href: '/products/xpert-line', label: 'X-pert Line' },
-  { href: '/products/economy-line', label: 'E-conomy Line' },
-  { href: '/products/compare-machines', label: 'Compare' },
+  {
+    href: '/products/xpert-line',
+    label: 'X-pert Line',
+    submenu: [
+      { href: '/products/745x', label: '745X Li' },
+      { href: '/products/726x', label: '726X Li' },
+      { href: '/products/713x', label: '713X Li' },
+      { href: '/products/700x', label: '700X Li' },
+      { href: '/products/re', label: 'RE Mobile' },
+    ]
+  },
+  {
+    href: '/products/economy-line',
+    label: 'E-conomy Line',
+    submenu: [
+      { href: '/products/745e', label: '745E' },
+      { href: '/products/726e', label: '726E' },
+      { href: '/products/713e', label: '713E' },
+      { href: '/products/700e', label: '700E' },
+      { href: '/products/700', label: '700 Manual' },
+      { href: '/products/go', label: 'GO Portable' },
+    ]
+  },
+  {
+    href: '/products/find-your-model',
+    label: 'Find Your Model',
+    highlight: true,
+  },
+  {
+    href: '/products/compare-all',
+    label: 'Compare All',
+    submenu: [
+      { href: '/products/compare-machines', label: 'Quick Compare' },
+      { href: '/products/compare', label: 'Line Comparison' },
+    ]
+  },
+  { href: '/elite', label: 'Elite Experience' },
   { href: '/industries', label: 'Industries' },
   { href: '/blog', label: 'Insights' },
 ];
