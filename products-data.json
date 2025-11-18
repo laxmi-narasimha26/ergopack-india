@@ -1,0 +1,457 @@
+{
+  "products": {
+    "745E": {
+      "model": "745E",
+      "fullName": "ErgoPack 745E",
+      "line": "Economy Line",
+      "generation": 2,
+      "tariffNumber": "842240",
+      "description": "Mobile and Ergonomic Pallet Strapping System",
+      "system": {
+        "dimensions": {
+          "length": 630,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 92.9,
+        "weightUnit": "kg"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 30,
+          "max": 255,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 40,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m"
+      },
+      "sealingHead": {
+        "weight": { "min": 3.8, "max": 4.3, "unit": "kg" },
+        "dimensions": { "length": 335, "width": 140, "height": 180, "unit": "mm" },
+        "tensionPower": { "min": 400, "max": 4500, "unit": "N" },
+        "currentNominal": 10,
+        "currentUnit": "A",
+        "strapWidth": { "min": 16, "max": 19, "unit": "mm" },
+        "strapThickness": { "min": 0.80, "max": 1.30, "unit": "mm" },
+        "strapMaterials": ["Polypropylene (PP)", "Polyester (PET)"],
+        "coilDiameters": [406, 400, 200],
+        "mounting": "Mounted on Tool-Lift"
+      },
+      "battery": {
+        "type": "24V lead-fleece battery",
+        "weight": 12.3,
+        "weightUnit": "kg",
+        "loadingTime": { "min": 8, "max": 10, "unit": "hours" },
+        "voltageNominal": 24,
+        "voltageUnit": "V",
+        "strappingCycles": 350
+      },
+      "chargingStation": {
+        "type": "3-stage lead loader",
+        "operatingVoltage": "100-240 V - 50/60 Hz",
+        "powerConsumption": 60,
+        "powerUnit": "W",
+        "powerSupply": "2x 12 V DC/2A"
+      },
+      "control": {
+        "type": "Electrically via joystick",
+        "settingsChange": "With pin"
+      },
+      "includedFeatures": [
+        { "name": "Standard Tool-Lift", "description": "Standard for pallets >80cm with sealing head quick release included" },
+        { "name": "Sledge 85", "description": "Standard sledge 85 included for clearance height >95mm" },
+        { "name": "Pallet Width Adjustment", "description": "Easy adjustment with pin system. Set to pallet width + 20cm" },
+        { "name": "Electric Joystick Control", "description": "Precise electrical control via ergonomic joystick" },
+        { "name": "Sealing Head Pre-Installed", "description": "Sealing head installed and mounted on system" },
+        { "name": "6m Standard Chain", "description": "6-meter standard chain length with 40m/min speed" }
+      ],
+      "optionalAccessories": [
+        { "name": "Triplex-Tool-Lift (TTL)", "description": "Ideal for pallets lower than 80cm. Suitable for pallets as low as 10cm" },
+        { "name": "Alternative Sledges", "description": "Sledge 47 (55-95mm), 47S (narrow 160mm), 47L (up to 40mm)" },
+        { "name": "Strap-Brake-Relief", "description": "Essential for pallets higher than 120cm" },
+        { "name": "Headpiece with Bumper", "description": "For pallets with overhang of max. 40mm" },
+        { "name": "Line Laser Type 2", "description": "Precision positioning system for optimal alignment" },
+        { "name": "Additional Chain Length", "description": "Add up to 2m extra chain (8m total)" },
+        { "name": "Spare Battery Pack", "description": "24V lead-fleece battery for multiple shifts" },
+        { "name": "Mobile Overheight Module (MOHM)", "description": "For pallets higher than 230cm, up to 305cm" },
+        { "name": "Mobile Sledge Tunnel", "description": "For goods strapped on scantlings. One pair includes two tunnels" },
+        { "name": "Stationary Sledge Tunnel", "description": "Adjustable sledge tunnel for different widths" },
+        { "name": "Sealing Head Quick Release", "description": "Adapter to release sealing head from Tool-Lift" }
+      ],
+      "certifications": [
+        "ISO 12100:2010",
+        "EU Declaration of Conformity",
+        "AGR Certified"
+      ]
+    },
+    "745X": {
+      "model": "745X Li",
+      "fullName": "ErgoPack 745X Li",
+      "line": "X-pert Line",
+      "generation": 2,
+      "tariffNumber": "842240",
+      "description": "Professional Mobile Pallet Strapping System with Advanced Lithium-Ion Technology",
+      "system": {
+        "dimensions": {
+          "length": 665,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 104,
+        "weightUnit": "kg"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 40,
+          "max": 270,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 66,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m"
+      },
+      "sealingHead": {
+        "weight": { "min": 3.8, "max": 4.3, "unit": "kg" },
+        "dimensions": { "length": 335, "width": 140, "height": 180, "unit": "mm" },
+        "tensionPower": { "min": 400, "max": 4500, "unit": "N" },
+        "currentNominal": 10,
+        "currentUnit": "A",
+        "strapWidth": { "min": 16, "max": 19, "unit": "mm" },
+        "strapThickness": { "min": 0.80, "max": 1.30, "unit": "mm" },
+        "strapMaterials": ["Polypropylene (PP)", "Polyester (PET)"],
+        "coilDiameters": [406, 400, 200],
+        "mounting": "Mounted on Tool-Lift"
+      },
+      "battery": {
+        "type": "Lithium-Ion",
+        "dimensions": { "length": 393, "width": 153, "height": 82, "unit": "mm" },
+        "weight": 5,
+        "weightUnit": "kg",
+        "loadingTime": 3.5,
+        "loadingTimeUnit": "hours",
+        "voltageNominal": 36.3,
+        "voltageUnit": "V",
+        "capacityNominal": 24.15,
+        "capacityUnit": "Ah",
+        "strappingCycles": 1200
+      },
+      "chargingStation": {
+        "type": "Wide-range charger",
+        "dimensions": { "length": 225, "width": 156, "height": 69, "unit": "mm" },
+        "weight": 8.8,
+        "weightUnit": "kg",
+        "operatingVoltage": "100-240 V - 50/60 Hz",
+        "powerConsumption": 650,
+        "powerUnit": "W",
+        "currentNominal": 10,
+        "currentUnit": "A"
+      },
+      "control": {
+        "type": "Electrically via joystick",
+        "settingsChange": "Siemens industry touchscreen"
+      },
+      "includedFeatures": [
+        { "name": "Standard Tool-Lift", "description": "Standard for pallets >80cm with sealing head quick release included" },
+        { "name": "Line Laser Type 2", "description": "Precision positioning system INCLUDED in X-pert Line" },
+        { "name": "Siemens Industry Touchscreen", "description": "Professional-grade touchscreen for easy settings and pallet width configuration" },
+        { "name": "Sledge 85", "description": "Standard sledge 85 included for clearance height >95mm" },
+        { "name": "Electric Joystick Control", "description": "Precise electrical control via ergonomic joystick" },
+        { "name": "Sealing Head Pre-Installed", "description": "Sealing head installed and mounted with professional-grade precision" },
+        { "name": "6m High-Speed Chain", "description": "6-meter chain with ultra-fast 66m/min speed for maximum productivity" },
+        { "name": "Lithium-Ion Battery & Charger", "description": "Advanced Lithium-Ion battery (5kg, 1200 cycles) with wide-range fast charger (3.5h)" }
+      ],
+      "optionalAccessories": [
+        { "name": "Triplex-Tool-Lift (TTL)", "description": "Ideal for pallets lower than 80cm. Suitable for pallets as low as 10cm" },
+        { "name": "Alternative Sledges", "description": "Sledge 47 (55-95mm), 47S (narrow 160mm), 47L (up to 40mm)" },
+        { "name": "Strap-Brake-Relief", "description": "Essential for pallets higher than 120cm" },
+        { "name": "Headpiece with Bumper", "description": "For pallets with overhang of max. 40mm" },
+        { "name": "Easy Move Assistant", "description": "Premium X-pert feature for easier handling and longer distances" },
+        { "name": "Additional Chain Length", "description": "Add up to 2m extra chain (8m total)" },
+        { "name": "Spare Lithium-Ion Battery", "description": "Additional battery pack for 24/7 operation" },
+        { "name": "Screen Protector", "description": "Protect the Siemens touchscreen from industrial damage" },
+        { "name": "Mobile Overheight Module (MOHM)", "description": "For pallets higher than 230cm, up to 305cm" },
+        { "name": "Mobile Sledge Tunnel", "description": "For goods strapped on scantlings. One pair includes two tunnels" },
+        { "name": "Stationary Sledge Tunnel", "description": "Adjustable sledge tunnel for different widths" },
+        { "name": "Sealing Head Quick Release", "description": "Adapter to release sealing head from Tool-Lift" }
+      ],
+      "certifications": [
+        "ISO 12100:2010",
+        "EU Declaration of Conformity",
+        "AGR Certified"
+      ],
+      "comparisonVs745E": {
+        "speedIncrease": "65%",
+        "cyclesMultiplier": "3.4x",
+        "batteryWeightReduction": "60%",
+        "chargingTimeReduction": "60%",
+        "advantages": [
+          "65% FASTER: 66m/min vs 40m/min chain speed",
+          "3.4x MORE CYCLES: 1200 vs 350 strapping cycles per charge",
+          "3x LIGHTER BATTERY: 5kg Lithium-Ion vs 12.3kg Lead-fleece",
+          "2.5x FASTER CHARGING: 3.5 hours vs 8-10 hours",
+          "SIEMENS TOUCHSCREEN: Easy digital settings vs manual pin adjustment",
+          "LINE LASER INCLUDED: Precision positioning system standard"
+        ]
+      }
+    },
+    "726E": {
+      "model": "726E",
+      "fullName": "ErgoPack 726E",
+      "line": "Economy Line",
+      "generation": 2,
+      "tariffNumber": "842240",
+      "description": "Mobile and Ergonomic Pallet Strapping System for Light-Duty Applications",
+      "applicationType": "Light-Duty",
+      "system": {
+        "dimensions": {
+          "length": 630,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 92.9,
+        "weightUnit": "kg"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 40,
+          "max": 255,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 40,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m"
+      },
+      "sealingHead": {
+        "weight": { "min": 3.8, "max": 4.3, "unit": "kg" },
+        "dimensions": { "length": 335, "width": 140, "height": 180, "unit": "mm" },
+        "tensionPower": { "min": 400, "max": 2500, "unit": "N" },
+        "currentNominal": 10,
+        "currentUnit": "A",
+        "strapWidth": { "min": 13, "max": 16, "unit": "mm" },
+        "strapThickness": { "min": 0.40, "max": 0.80, "unit": "mm" },
+        "strapMaterials": ["Polypropylene (PP)", "Polyester (PET)"],
+        "coilDiameters": [406, 400, 200],
+        "mounting": "Mounted on Tool-Lift"
+      },
+      "battery": {
+        "type": "24V lead-fleece battery",
+        "weight": 12.3,
+        "weightUnit": "kg",
+        "loadingTime": { "min": 8, "max": 10, "unit": "hours" },
+        "voltageNominal": 24,
+        "voltageUnit": "V",
+        "strappingCycles": 350
+      },
+      "chargingStation": {
+        "type": "3-stage lead loader",
+        "operatingVoltage": "100-240 V - 50/60 Hz",
+        "powerConsumption": 60,
+        "powerUnit": "W",
+        "powerSupply": "2x 12 V DC/2A"
+      },
+      "control": {
+        "type": "Electrically via joystick",
+        "settingsChange": "With pin"
+      },
+      "includedFeatures": [
+        { "name": "Standard Tool-Lift", "description": "Standard for pallets >80cm with sealing head quick release included" },
+        { "name": "Sledge 85", "description": "Standard sledge 85 included for clearance height >95mm" },
+        { "name": "Pallet Width Adjustment", "description": "Easy adjustment with pin system. Set to pallet width + 20cm" },
+        { "name": "Electric Joystick Control", "description": "Precise electrical control via ergonomic joystick" },
+        { "name": "Sealing Head Pre-Installed", "description": "Sealing head installed and mounted on system" },
+        { "name": "6m Standard Chain", "description": "6-meter standard chain length with 40m/min speed" }
+      ],
+      "optionalAccessories": [
+        { "name": "Triplex-Tool-Lift (TTL)", "description": "Ideal for pallets lower than 80cm. Suitable for pallets as low as 10cm" },
+        { "name": "Alternative Sledges", "description": "Sledge 47 (55-95mm), 47S (narrow 160mm), 47L (up to 40mm)" },
+        { "name": "Strap-Brake-Relief", "description": "Essential for pallets higher than 120cm" },
+        { "name": "Headpiece with Bumper", "description": "For pallets with overhang of max. 40mm" },
+        { "name": "Line Laser Type 2", "description": "Precision positioning system for optimal alignment" },
+        { "name": "Additional Chain Length", "description": "Add up to 2m extra chain (8m total)" },
+        { "name": "Spare Battery Pack", "description": "24V lead-fleece battery for multiple shifts" },
+        { "name": "Mobile Overheight Module (MOHM)", "description": "For pallets higher than 230cm, up to 305cm" },
+        { "name": "Mobile Sledge Tunnel", "description": "For goods strapped on scantlings. One pair includes two tunnels" },
+        { "name": "Stationary Sledge Tunnel", "description": "Adjustable sledge tunnel for different widths" }
+      ],
+      "certifications": [
+        "ISO 12100:2010",
+        "EU Declaration of Conformity",
+        "AGR Certified"
+      ],
+      "comparisonVs745E": {
+        "tensionDifference": "44% LOWER tension (2500N vs 4500N max)",
+        "strapDifference": "NARROWER straps (13-16mm vs 16-19mm)",
+        "thicknessDifference": "THINNER straps (0.40-0.80mm vs 0.80-1.30mm)",
+        "application": "726E is for LIGHT-DUTY applications vs 745E for MEDIUM/HEAVY-DUTY"
+      }
+    },
+    "726X": {
+      "model": "726X Li",
+      "fullName": "ErgoPack 726X Li",
+      "line": "X-pert Line",
+      "generation": 2,
+      "tariffNumber": "842240",
+      "description": "Professional Mobile Pallet Strapping System with Lithium-Ion for Light-Duty Applications",
+      "applicationType": "Light-Duty",
+      "system": {
+        "dimensions": {
+          "length": 665,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 104,
+        "weightUnit": "kg"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 40,
+          "max": 270,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 66,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m"
+      },
+      "sealingHead": {
+        "weight": { "min": 3.8, "max": 4.3, "unit": "kg" },
+        "dimensions": { "length": 335, "width": 140, "height": 180, "unit": "mm" },
+        "tensionPower": { "min": 400, "max": 2500, "unit": "N" },
+        "currentNominal": 10,
+        "currentUnit": "A",
+        "strapWidth": { "min": 13, "max": 16, "unit": "mm" },
+        "strapThickness": { "min": 0.40, "max": 0.80, "unit": "mm" },
+        "strapMaterials": ["Polypropylene (PP)", "Polyester (PET)"],
+        "coilDiameters": [406, 400, 200],
+        "mounting": "Mounted on Tool-Lift"
+      },
+      "battery": {
+        "type": "Lithium-Ion",
+        "dimensions": { "length": 393, "width": 153, "height": 82, "unit": "mm" },
+        "weight": 5,
+        "weightUnit": "kg",
+        "loadingTime": 3.5,
+        "loadingTimeUnit": "hours",
+        "voltageNominal": 36.3,
+        "voltageUnit": "V",
+        "capacityNominal": 24.15,
+        "capacityUnit": "Ah",
+        "strappingCycles": 1200
+      },
+      "chargingStation": {
+        "type": "Wide-range charger",
+        "dimensions": { "length": 225, "width": 156, "height": 69, "unit": "mm" },
+        "weight": 8.8,
+        "weightUnit": "kg",
+        "operatingVoltage": "100-240 V - 50/60 Hz",
+        "powerConsumption": 650,
+        "powerUnit": "W",
+        "currentNominal": 10,
+        "currentUnit": "A"
+      },
+      "control": {
+        "type": "Electrically via joystick",
+        "settingsChange": "Siemens industry touchscreen"
+      },
+      "includedFeatures": [
+        { "name": "Standard Tool-Lift", "description": "Standard for pallets >80cm with sealing head quick release included" },
+        { "name": "Line Laser Type 2", "description": "Precision positioning system INCLUDED in X-pert Line" },
+        { "name": "Siemens Industry Touchscreen", "description": "Professional-grade touchscreen for easy settings and pallet width configuration" },
+        { "name": "Sledge 85", "description": "Standard sledge 85 included for clearance height >95mm" },
+        { "name": "Electric Joystick Control", "description": "Precise electrical control via ergonomic joystick" },
+        { "name": "Sealing Head Pre-Installed", "description": "Sealing head installed and mounted with professional-grade precision" },
+        { "name": "6m High-Speed Chain", "description": "6-meter chain with ultra-fast 66m/min speed for maximum productivity" },
+        { "name": "Lithium-Ion Battery & Charger", "description": "Advanced Lithium-Ion battery (5kg, 1200 cycles) with wide-range fast charger (3.5h)" }
+      ],
+      "optionalAccessories": [
+        { "name": "Triplex-Tool-Lift (TTL)", "description": "Ideal for pallets lower than 80cm. Suitable for pallets as low as 10cm" },
+        { "name": "Alternative Sledges", "description": "Sledge 47 (55-95mm), 47S (narrow 160mm), 47L (up to 40mm)" },
+        { "name": "Strap-Brake-Relief", "description": "Essential for pallets higher than 120cm" },
+        { "name": "Headpiece with Bumper", "description": "For pallets with overhang of max. 40mm" },
+        { "name": "Easy Move Assistant", "description": "Premium X-pert feature for easier handling and longer distances" },
+        { "name": "Additional Chain Length", "description": "Add up to 2m extra chain (8m total)" },
+        { "name": "Spare Lithium-Ion Battery", "description": "Additional battery pack for 24/7 operation" },
+        { "name": "Screen Protector", "description": "Protect the Siemens touchscreen from industrial damage" },
+        { "name": "Mobile Overheight Module (MOHM)", "description": "For pallets higher than 230cm, up to 305cm" },
+        { "name": "Mobile Sledge Tunnel", "description": "For goods strapped on scantlings. One pair includes two tunnels" },
+        { "name": "Stationary Sledge Tunnel", "description": "Adjustable sledge tunnel for different widths" },
+        { "name": "Sealing Head Quick Release", "description": "Adapter to release sealing head from Tool-Lift" }
+      ],
+      "certifications": [
+        "ISO 12100:2010",
+        "EU Declaration of Conformity",
+        "AGR Certified"
+      ],
+      "comparisonVs726E": {
+        "speedIncrease": "65%",
+        "cyclesMultiplier": "3.4x",
+        "batteryWeightReduction": "60%",
+        "chargingTimeReduction": "60%",
+        "advantages": [
+          "65% FASTER: 66m/min vs 40m/min chain speed",
+          "3.4x MORE CYCLES: 1200 vs 350 strapping cycles per charge",
+          "3x LIGHTER BATTERY: 5kg Lithium-Ion vs 12.3kg Lead-fleece",
+          "2.5x FASTER CHARGING: 3.5 hours vs 8-10 hours",
+          "SIEMENS TOUCHSCREEN: Easy digital settings vs manual pin adjustment",
+          "LINE LASER INCLUDED: Precision positioning system standard"
+        ]
+      }
+    }
+  },
+  "productFamilies": {
+    "745Series": {
+      "name": "745 Series - Medium/Heavy-Duty",
+      "models": ["745E", "745X"],
+      "tensionRange": "400-4500N",
+      "strapWidth": "16-19mm",
+      "strapThickness": "0.80-1.30mm",
+      "application": "Medium to Heavy-Duty packaging applications"
+    },
+    "726Series": {
+      "name": "726 Series - Light-Duty",
+      "models": ["726E", "726X"],
+      "tensionRange": "400-2500N",
+      "strapWidth": "13-16mm",
+      "strapThickness": "0.40-0.80mm",
+      "application": "Light-Duty packaging applications"
+    }
+  },
+  "dataSource": "Official ErgoPack Model Overview and Technical Datasheet PDFs",
+  "lastUpdated": "2025-11-18"
+}
