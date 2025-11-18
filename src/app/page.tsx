@@ -9,7 +9,8 @@ import { MagneticButton } from '@/components/ui/MagneticButton';
 import { Premium3DCard } from '@/components/ui/Premium3DCard';
 import { TextReveal, LineReveal } from '@/components/ui/TextReveal';
 import { ParallaxLayer } from '@/components/ui/ParallaxSection';
-import { ArrowRight, CheckCircle2, Sparkles, Zap, Shield, Award } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Sparkles, Zap, Shield, Award, Package, Battery, Gauge } from 'lucide-react';
+import productsData from '@/../../products-data.json';
 
 // Hero Section - Ultra Premium with Parallax
 function HeroSection() {
@@ -493,6 +494,289 @@ function ProductLinesSection() {
   );
 }
 
+// Product Showcase - All 11 Models
+function ProductShowcaseSection() {
+  const productSeries = [
+    {
+      name: '745 Series',
+      subtitle: 'Heavy-Duty Champions',
+      description: 'Maximum power for your toughest packaging challenges',
+      models: ['745E', '745X'],
+      gradient: 'from-red-600 to-crimson-600',
+      bgGradient: 'from-red-50 to-crimson-50',
+    },
+    {
+      name: '726 Series',
+      subtitle: 'Light-Duty Performers',
+      description: 'Perfect balance for everyday applications',
+      models: ['726E', '726X'],
+      gradient: 'from-orange-600 to-amber-600',
+      bgGradient: 'from-orange-50 to-amber-50',
+    },
+    {
+      name: '713 Series',
+      subtitle: 'Ultra-Light Precision',
+      description: 'Delicate handling meets professional results',
+      models: ['713E', '713X'],
+      gradient: 'from-yellow-600 to-orange-600',
+      bgGradient: 'from-yellow-50 to-orange-50',
+    },
+    {
+      name: '700 Series',
+      subtitle: 'Complete Flexibility',
+      description: 'Manual, Economy, or X-pert - your choice',
+      models: ['700', '700E', '700X'],
+      gradient: 'from-blue-600 to-indigo-600',
+      bgGradient: 'from-blue-50 to-indigo-50',
+    },
+    {
+      name: 'Mobile Systems',
+      subtitle: 'Portable Power',
+      description: 'Take precision anywhere with RE & GO',
+      models: ['RE', 'GO'],
+      gradient: 'from-green-600 to-emerald-600',
+      bgGradient: 'from-green-50 to-emerald-50',
+    },
+  ];
+
+  return (
+    <section className="py-48 bg-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-8 sm:px-12">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-24"
+        >
+          <p className="text-sm uppercase tracking-[0.3em] text-crimson-600 mb-8 font-medium">
+            Complete Product Range
+          </p>
+          <h2 className="font-serif text-6xl sm:text-7xl lg:text-8xl font-semibold text-luxury-dark-gray leading-tight mb-8">
+            All 11 Models.
+            <br />
+            <span className="text-crimson-600">Every Need Covered.</span>
+          </h2>
+          <p className="text-xl text-platinum-600 max-w-3xl mx-auto font-light">
+            From ultra-light to heavy-duty, manual to IoT-enabled - discover the perfect ErgoPack for your operation.
+          </p>
+        </motion.div>
+
+        {/* Series Grid */}
+        <div className="space-y-24">
+          {productSeries.map((series, seriesIndex) => (
+            <motion.div
+              key={series.name}
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: seriesIndex * 0.1 }}
+            >
+              {/* Series Header */}
+              <div className={`mb-12 p-8 rounded-3xl bg-gradient-to-br ${series.bgGradient} border border-platinum-200`}>
+                <h3 className={`font-serif text-4xl sm:text-5xl font-bold bg-gradient-to-r ${series.gradient} bg-clip-text text-transparent mb-3`}>
+                  {series.name}
+                </h3>
+                <p className="text-2xl text-luxury-dark-gray font-semibold mb-2">
+                  {series.subtitle}
+                </p>
+                <p className="text-lg text-platinum-600 font-light">
+                  {series.description}
+                </p>
+              </div>
+
+              {/* Model Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {series.models.map((modelKey, modelIndex) => {
+                  const product = productsData.products[modelKey];
+                  if (!product) return null;
+
+                  const isXpert = product.line === 'X-pert Line';
+                  const cardClass = isXpert
+                    ? 'premium-card-dark'
+                    : 'premium-card bg-gradient-to-br from-white to-platinum-50';
+
+                  // Create slug from model
+                  const slug = modelKey.toLowerCase().replace(/\s+/g, '-');
+
+                  // Get max tension from sealingHead
+                  const maxTension = product.sealingHead?.tensionPower
+                    ? `${product.sealingHead.tensionPower.max} ${product.sealingHead.tensionPower.unit}`
+                    : null;
+
+                  // Get chain speed from performance
+                  const chainSpeed = product.performance?.chainSpeed
+                    ? `${product.performance.chainSpeed} ${product.performance.chainSpeedUnit || 'm/min'}`
+                    : product.performance?.operationType || null;
+
+                  // Get battery type
+                  const batteryType = product.battery?.type;
+                  const isLithium = batteryType === 'Lithium-Ion';
+
+                  return (
+                    <motion.div
+                      key={modelKey}
+                      initial={{ opacity: 0, y: 40 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: modelIndex * 0.1 }}
+                    >
+                      <Premium3DCard glowColor={isXpert ? "rgba(155, 28, 28, 0.3)" : "rgba(113, 113, 122, 0.2)"}>
+                        <Link href={`/products/${slug}`} className="block group">
+                          <div className={`${cardClass} p-8 min-h-[520px] flex flex-col justify-between`}>
+                            <div>
+                              {/* Badge */}
+                              <div className="flex items-center justify-between mb-6">
+                                <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${
+                                  isXpert
+                                    ? 'bg-crimson-500/20 border border-crimson-500/30'
+                                    : 'bg-platinum-100 border border-platinum-200'
+                                }`}>
+                                  <span className={`text-xs font-medium tracking-wide ${
+                                    isXpert ? 'text-crimson-400' : 'text-platinum-700'
+                                  }`}>
+                                    {product.line}
+                                  </span>
+                                </div>
+                                {isLithium && (
+                                  <div className="p-2 rounded-lg bg-amber-500/20 border border-amber-500/30">
+                                    <Battery className="h-4 w-4 text-amber-400" />
+                                  </div>
+                                )}
+                              </div>
+
+                              {/* Model Name */}
+                              <h4 className={`font-serif text-4xl font-bold mb-4 ${
+                                isXpert
+                                  ? 'text-white group-hover:text-crimson-400'
+                                  : 'text-luxury-dark-gray group-hover:text-platinum-700'
+                              } transition-colors duration-500`}>
+                                {product.model}
+                              </h4>
+                              <p className={`text-lg mb-8 ${
+                                isXpert ? 'text-platinum-300' : 'text-platinum-600'
+                              } font-light`}>
+                                {product.fullName}
+                              </p>
+
+                              {/* Key Specs */}
+                              <div className="space-y-4 mb-8">
+                                <div className="flex items-center justify-between">
+                                  <span className={`text-sm ${isXpert ? 'text-platinum-400' : 'text-platinum-500'}`}>
+                                    Application
+                                  </span>
+                                  <span className={`text-sm font-medium ${isXpert ? 'text-white' : 'text-luxury-dark-gray'}`}>
+                                    {product.applicationType}
+                                  </span>
+                                </div>
+                                {maxTension && (
+                                  <div className="flex items-center justify-between">
+                                    <span className={`text-sm ${isXpert ? 'text-platinum-400' : 'text-platinum-500'}`}>
+                                      Max Tension
+                                    </span>
+                                    <span className={`text-sm font-medium ${isXpert ? 'text-white' : 'text-luxury-dark-gray'}`}>
+                                      {maxTension}
+                                    </span>
+                                  </div>
+                                )}
+                                {chainSpeed && (
+                                  <div className="flex items-center justify-between">
+                                    <span className={`text-sm ${isXpert ? 'text-platinum-400' : 'text-platinum-500'}`}>
+                                      {product.performance?.operationType ? 'Operation' : 'Chain Speed'}
+                                    </span>
+                                    <span className={`text-sm font-medium ${isXpert ? 'text-white' : 'text-luxury-dark-gray'}`}>
+                                      {chainSpeed}
+                                    </span>
+                                  </div>
+                                )}
+                                {batteryType && batteryType !== 'None - Manual Operation' && (
+                                  <div className="flex items-center justify-between">
+                                    <span className={`text-sm ${isXpert ? 'text-platinum-400' : 'text-platinum-500'}`}>
+                                      Battery
+                                    </span>
+                                    <span className={`text-sm font-medium ${isXpert ? 'text-white' : 'text-luxury-dark-gray'}`}>
+                                      {batteryType.includes('lead') ? '24V Lead' : batteryType}
+                                    </span>
+                                  </div>
+                                )}
+                              </div>
+
+                              {/* Top Features */}
+                              <div className="space-y-3">
+                                {product.includedFeatures?.slice(0, 3).map((feature: string, i: number) => (
+                                  <div
+                                    key={i}
+                                    className={`flex items-start gap-2 text-sm ${
+                                      isXpert ? 'text-platinum-300' : 'text-platinum-600'
+                                    }`}
+                                  >
+                                    <CheckCircle2 className={`h-4 w-4 flex-shrink-0 mt-0.5 ${
+                                      isXpert ? 'text-crimson-500' : 'text-platinum-600'
+                                    }`} />
+                                    <span className="font-light">{feature}</span>
+                                  </div>
+                                ))}
+                                {!product.includedFeatures && product.certifications?.slice(0, 2).map((cert: string, i: number) => (
+                                  <div
+                                    key={i}
+                                    className={`flex items-start gap-2 text-sm ${
+                                      isXpert ? 'text-platinum-300' : 'text-platinum-600'
+                                    }`}
+                                  >
+                                    <CheckCircle2 className={`h-4 w-4 flex-shrink-0 mt-0.5 ${
+                                      isXpert ? 'text-crimson-500' : 'text-platinum-600'
+                                    }`} />
+                                    <span className="font-light">{cert}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+
+                            {/* CTA */}
+                            <motion.div
+                              className={`mt-8 pt-6 border-t ${
+                                isXpert ? 'border-platinum-700' : 'border-platinum-200'
+                              } inline-flex items-center gap-3 ${
+                                isXpert ? 'text-crimson-400' : 'text-luxury-dark-gray'
+                              } font-medium`}
+                              whileHover={{ x: 8 }}
+                              transition={{ duration: 0.3 }}
+                            >
+                              <span>View Details</span>
+                              <ArrowRight className="h-5 w-5" />
+                            </motion.div>
+                          </div>
+                        </Link>
+                      </Premium3DCard>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* View All CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-24 text-center"
+        >
+          <MagneticButton href="/products/compare-all">
+            <button className="btn-premium-secondary text-lg px-12 py-6 group">
+              <span className="flex items-center">
+                Compare All Models
+                <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-2 transition-transform duration-500" />
+              </span>
+            </button>
+          </MagneticButton>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 // Social Proof Section
 function SocialProofSection() {
   return (
@@ -640,6 +924,7 @@ export default function HomePage() {
             <HeroSection />
             <PhilosophySection />
             <ProductLinesSection />
+            <ProductShowcaseSection />
             <SocialProofSection />
             <FinalCTASection />
           </div>

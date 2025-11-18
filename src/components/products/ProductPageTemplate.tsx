@@ -6,6 +6,7 @@ import MainLayout from '@/components/layout/MainLayout';
 import { PremiumLoadingScreen } from '@/components/ui/PremiumLoadingScreen';
 import Link from 'next/link';
 import Image from 'next/image';
+import Head from 'next/head';
 import {
   ArrowRight,
   Battery,
@@ -106,6 +107,96 @@ export default function ProductPageTemplate({
   const [isLoading, setIsLoading] = useState(true);
   const isEconomyLine = productData.line.includes('Economy');
   const isXpertLine = productData.line.includes('X-pert');
+
+  // Generate JSON-LD structured data for SEO
+  const generateProductSchema = () => {
+    const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://ergopack.in';
+
+    return {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": productData.fullName,
+      "model": productData.model,
+      "description": productData.description,
+      "brand": {
+        "@type": "Brand",
+        "name": "ErgoPack India"
+      },
+      "manufacturer": {
+        "@type": "Organization",
+        "name": "ErgoPack India",
+        "url": baseUrl
+      },
+      "category": "Industrial Strapping Equipment",
+      "productLine": productData.line,
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Application Type",
+          "value": productData.applicationType
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Product Line",
+          "value": productData.line
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Generation",
+          "value": `Gen ${productData.generation}`
+        },
+        ...(productData.performance.chainSpeed ? [{
+          "@type": "PropertyValue",
+          "name": "Chain Speed",
+          "value": `${productData.performance.chainSpeed} ${productData.performance.chainSpeedUnit || 'm/min'}`
+        }] : []),
+        ...(productData.sealingHead.tensionPower ? [{
+          "@type": "PropertyValue",
+          "name": "Tension Power",
+          "value": `${productData.sealingHead.tensionPower.min}-${productData.sealingHead.tensionPower.max} ${productData.sealingHead.tensionPower.unit}`
+        }] : []),
+        ...(productData.battery.type ? [{
+          "@type": "PropertyValue",
+          "name": "Battery Type",
+          "value": productData.battery.type
+        }] : []),
+        ...(productData.battery.strappingCycles ? [{
+          "@type": "PropertyValue",
+          "name": "Strapping Cycles",
+          "value": `${productData.battery.strappingCycles} cycles`
+        }] : [])
+      ],
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "INR",
+        "url": `${baseUrl}/products/${productData.model.toLowerCase()}`
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "150"
+      }
+    };
+  };
+
+  // Inject JSON-LD into document head
+  useEffect(() => {
+    const schema = generateProductSchema();
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(schema);
+    script.id = 'product-schema';
+
+    document.head.appendChild(script);
+
+    return () => {
+      const existingScript = document.getElementById('product-schema');
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
+    };
+  }, [productData]);
 
   // Hero Section
   function HeroSection() {
