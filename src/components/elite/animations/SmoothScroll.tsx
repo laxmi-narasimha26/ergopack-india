@@ -26,36 +26,54 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
-    // Initialize Lenis smooth scroll
+    // Initialize Lenis with OPTIMIZED settings for perfect sync
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Custom easing
+      duration: 1.8, // Luxurious, controlled movement
+      easing: (t) => {
+        // Cubic ease-out for ultra-smooth deceleration
+        return 1 - Math.pow(1 - t, 3);
+      },
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 1,
-      smoothTouch: false,
-      touchMultiplier: 2,
+      wheelMultiplier: 1.5, // More responsive
+      smoothTouch: true, // Enable smooth touch
+      touchMultiplier: 3, // Touch sensitivity
       infinite: false,
+      autoResize: true,
+      syncTouch: true, // Perfect touch sync
+      syncTouchLerp: 0.075, // Smooth touch lerp
+      touchInertiaMultiplier: 25, // Touch momentum
     });
 
     lenisRef.current = lenis;
 
-    // Connect Lenis with GSAP ScrollTrigger
-    lenis.on('scroll', ScrollTrigger.update);
-
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
+    // Perfect GSAP ScrollTrigger integration
+    lenis.on('scroll', (e: any) => {
+      ScrollTrigger.update();
     });
 
+    // Use RAF for perfect 60fps sync
+    const raf = (time: number) => {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    };
+
+    requestAnimationFrame(raf);
+
+    // Disable lag smoothing for consistent performance
     gsap.ticker.lagSmoothing(0);
+
+    // Update ScrollTrigger on resize
+    const handleResize = () => {
+      ScrollTrigger.refresh();
+    };
+    window.addEventListener('resize', handleResize);
 
     // Cleanup
     return () => {
       lenis.destroy();
-      gsap.ticker.remove((time) => {
-        lenis.raf(time * 1000);
-      });
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 

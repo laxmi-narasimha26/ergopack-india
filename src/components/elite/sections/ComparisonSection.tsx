@@ -3,16 +3,17 @@
 import React from 'react';
 import SectionWrapper from '../shared/SectionWrapper';
 import { motion } from 'framer-motion';
+import { X, Check } from 'lucide-react';
 
 export default function ComparisonSection({ sectionNumber }: { sectionNumber: number }) {
   return (
     <SectionWrapper sectionNumber={sectionNumber}>
       <motion.h2
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 1 }}
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
         viewport={{ once: true }}
-        className="text-6xl md:text-8xl font-black text-white text-center mb-16"
+        className="text-4xl md:text-5xl lg:text-6xl font-black text-white text-center mb-16 tracking-tight"
       >
         THE DIFFERENCE
       </motion.h2>
@@ -22,7 +23,7 @@ export default function ComparisonSection({ sectionNumber }: { sectionNumber: nu
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
           className="bg-gradient-to-br from-gray-900 to-black border border-gray-700 p-8 rounded-lg"
         >
@@ -36,10 +37,17 @@ export default function ComparisonSection({ sectionNumber }: { sectionNumber: nu
               'Variable quality',
               'Limited scalability',
             ].map((item, idx) => (
-              <li key={idx} className="flex items-center gap-3">
-                <span className="text-red-500 text-xl">✕</span>
+              <motion.li
+                key={idx}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 2, delay: 0.5 + idx * 0.1 }}
+                viewport={{ once: true }}
+                className="flex items-center gap-3"
+              >
+                <X className="w-5 h-5 text-red-500 flex-shrink-0" strokeWidth={2} />
                 <span>{item}</span>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </motion.div>
@@ -48,7 +56,7 @@ export default function ComparisonSection({ sectionNumber }: { sectionNumber: nu
         <motion.div
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
           className="bg-gradient-to-br from-[#1A0000] to-black border border-[#C8102E] p-8 rounded-lg"
         >
@@ -62,10 +70,17 @@ export default function ComparisonSection({ sectionNumber }: { sectionNumber: nu
               '100% consistency',
               'Infinitely scalable',
             ].map((item, idx) => (
-              <li key={idx} className="flex items-center gap-3">
-                <span className="text-[#FFB81C] text-xl">✓</span>
+              <motion.li
+                key={idx}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 2, delay: 0.5 + idx * 0.1 }}
+                viewport={{ once: true }}
+                className="flex items-center gap-3"
+              >
+                <Check className="w-5 h-5 text-[#FFB81C] flex-shrink-0" strokeWidth={2} />
                 <span>{item}</span>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </motion.div>

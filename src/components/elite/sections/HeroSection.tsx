@@ -1,51 +1,102 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
-import SectionWrapper from '../shared/SectionWrapper';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { ChevronDown, Sparkles } from 'lucide-react';
 
 export default function HeroSection({ sectionNumber }: { sectionNumber: number }) {
+  const { scrollYProgress } = useScroll();
+
+  // Gentle parallax effects
+  const yTitle = useTransform(scrollYProgress, [0, 0.3], [0, -80]);
+  const ySubtitle = useTransform(scrollYProgress, [0, 0.3], [0, -40]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.3], [1, 0.8, 0]);
+
   return (
-    <SectionWrapper sectionNumber={sectionNumber}>
-      <div className="text-center space-y-8">
-        {/* Main Headline */}
+    <section data-section className="relative min-h-screen flex items-center justify-center px-8 py-32">
+      <div className="text-center max-w-6xl mx-auto">
+        {/* Premium Badge */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 2, delay: 0.3 }}
+          className="mb-12 flex justify-center"
         >
-          <h1 className="text-8xl md:text-9xl lg:text-[12rem] font-black text-white leading-none tracking-tighter">
-            ERGOPACK
-            <br />
-            <span className="text-[#C8102E]">ELITE</span>
-          </h1>
+          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full border border-[#C8102E]/30 bg-[#C8102E]/5">
+            <Sparkles className="w-4 h-4 text-[#FFB81C]" />
+            <span className="text-xs text-gray-400 uppercase tracking-[0.2em] font-medium">
+              Industry 4.0 Ready
+            </span>
+          </div>
         </motion.div>
 
-        {/* Subheadline */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed"
-        >
-          Operational excellence infrastructure.
-        </motion.p>
+        {/* Main Headline - PROFESSIONAL SIZE */}
+        <motion.div style={{ y: yTitle, opacity }}>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
+            className="relative"
+          >
+            <span className="block text-5xl md:text-7xl lg:text-8xl font-black leading-none tracking-tight text-white mb-4">
+              ERGOPACK
+            </span>
+            <span className="block text-5xl md:text-7xl lg:text-8xl font-black leading-none tracking-tight bg-gradient-to-r from-[#C8102E] via-[#FF4444] to-[#FFB81C] bg-clip-text text-transparent">
+              ELITE
+            </span>
+          </motion.h1>
+        </motion.div>
 
-        {/* Context Text */}
-        <motion.p
+        {/* Elegant Divider */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 2.5, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="h-px bg-gradient-to-r from-transparent via-[#C8102E] to-transparent mx-auto max-w-md my-12"
+        />
+
+        {/* Subheadline */}
+        <motion.div style={{ y: ySubtitle }}>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2, delay: 1.2 }}
+            className="text-xl md:text-2xl lg:text-3xl text-gray-400 font-light tracking-wide mb-8"
+          >
+            Automated Strapping Excellence
+          </motion.p>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 2, delay: 1.6 }}
+            className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed font-light"
+          >
+            25 years of German precision engineering, now empowering India's category leaders
+            with world-class automated strapping solutions.
+          </motion.p>
+        </motion.div>
+
+        {/* Scroll Indicator */}
+        <motion.div
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          viewport={{ once: true }}
-          className="text-base md:text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed"
+          animate={{ opacity: 1 }}
+          transition={{ duration: 2, delay: 2.2 }}
+          className="mt-24"
         >
-          Ergopack Elite represents 25 years of German precision engineering,
-          now empowering India&apos;s category-leading manufacturers to achieve
-          operational excellence through automated strapping infrastructure.
-        </motion.p>
+          <div className="flex flex-col items-center gap-3">
+            <span className="text-xs text-gray-700 uppercase tracking-[0.3em] font-mono">
+              Scroll to Explore
+            </span>
+            <motion.div
+              animate={{ y: [0, 12, 0] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <ChevronDown className="w-6 h-6 text-[#C8102E]" strokeWidth={1.5} />
+            </motion.div>
+          </div>
+        </motion.div>
       </div>
-    </SectionWrapper>
+    </section>
   );
 }
