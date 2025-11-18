@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ErgoPack 700 - Manual hand-crank strapping tool for reliable, quiet operation. Perfect for environments where battery-free operation is preferred.">
+    <title>ErgoPack 700 - Manual Hand-Crank Strapping Tool | Economy Line</title>
+    <style>
+        :root {
+            --primary-red: #E31E24;
+            --dark-red: #B71C1C;
+            --light-red: #FFEBEE;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --border-color: #e0e0e0;
+            --success-green: #28a745;
+            --warning-amber: #ffc107;
+            --white: #ffffff;
+            --shadow: 0 2px 8px rgba(0,0,0,0.1);
+            --shadow-lg: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--dark-red) 0%, var(--primary-red) 100%);
+            color: var(--white);
+            padding: 2rem 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: var(--white);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 0.8;
+        }
+
+        .product-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+
+        .product-title-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .product-line-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .product-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 1.5rem;
+        }
+
+        .quick-specs {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .quick-spec-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .quick-spec-label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin-bottom: 0.25rem;
+        }
+
+        .quick-spec-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .hero-image {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+        }
+
+        .main-content {
+            padding: 4rem 0;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--primary-red);
+            display: inline-block;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, var(--light-red) 0%, #fff5f5 100%);
+            border-left: 4px solid var(--primary-red);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .highlight-box h3 {
+            color: var(--primary-red);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-red);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--light-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            color: var(--primary-red);
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .specs-table {
+            width: 100%;
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .specs-table tr {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .specs-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .specs-table td {
+            padding: 1rem 1.5rem;
+        }
+
+        .specs-table td:first-child {
+            font-weight: 600;
+            color: var(--text-dark);
+            width: 40%;
+            background: var(--bg-light);
+        }
+
+        .specs-table td:last-child {
+            color: var(--text-light);
+        }
+
+        .specs-highlight {
+            color: var(--primary-red);
+            font-weight: 700;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .badge-included {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .badge-optional {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .compatibility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .compatibility-item {
+            background: var(--white);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .compatibility-item:hover {
+            border-color: var(--primary-red);
+            transform: scale(1.05);
+        }
+
+        .compatibility-item strong {
+            display: block;
+            color: var(--primary-red);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark-red) 0%, var(--primary-red) 100%);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-red);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            border-color: var(--white);
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-red);
+        }
+
+        .footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .comparison-note {
+            background: var(--bg-light);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .comparison-note h4 {
+            color: var(--primary-red);
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .product-header {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .product-title-section h1 {
+                font-size: 2rem;
+            }
+
+            .quick-specs {
+                gap: 1rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .specs-table td {
+                padding: 0.75rem 1rem;
+            }
+
+            .specs-table td:first-child {
+                width: 50%;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        .checkmark {
+            color: var(--success-green);
+            font-weight: bold;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .info-box h4 {
+            color: #1976D2;
+            margin-bottom: 0.75rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> / <a href="products.html">Products</a> / <span>ErgoPack 700</span>
+            </div>
+            <div class="product-header">
+                <div class="product-title-section">
+                    <div class="product-line-badge">Economy Line</div>
+                    <h1>ErgoPack 700</h1>
+                    <p class="product-subtitle">Manual Hand-Crank Strapping Tool</p>
+                    <div class="quick-specs">
+                        <div class="quick-spec-item">
+                            <span class="quick-spec-label">Operation</span>
+                            <span class="quick-spec-value">Hand Crank</span>
+                        </div>
+                        <div class="quick-spec-item">
+                            <span class="quick-spec-label">Weight</span>
+                            <span class="quick-spec-value">64.4 kg</span>
+                        </div>
+                        <div class="quick-spec-item">
+                            <span class="quick-spec-label">Chain Length</span>
+                            <span class="quick-spec-value">6 m</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="images/ergopack-700.png" alt="ErgoPack 700 Manual Strapping Tool" onerror="this.src='images/placeholder-product.png'">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="section">
+                <h2 class="section-title">Battery-Free Reliability</h2>
+                <div class="highlight-box">
+                    <h3>Manual Hand-Crank Operation</h3>
+                    <p>The ErgoPack 700 offers a reliable, battery-free strapping solution perfect for environments where quiet operation and zero battery maintenance are priorities. Hand-crank operation provides consistent tension control without the need for charging or battery replacement.</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔇</div>
+                        <h3>Quiet Operation</h3>
+                        <p>Manual hand-crank operation ensures whisper-quiet strapping, ideal for noise-sensitive environments and indoor applications.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💰</div>
+                        <h3>Cost-Effective</h3>
+                        <p>No battery costs, no charging infrastructure needed, and minimal maintenance requirements reduce total cost of ownership.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔧</div>
+                        <h3>Always Ready</h3>
+                        <p>No charging downtime. The 700 is always ready to work, making it perfect for occasional use or backup strapping operations.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">♻️</div>
+                        <h3>Eco-Friendly</h3>
+                        <p>Zero battery waste and no electricity consumption make this the most environmentally sustainable strapping option.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Precise Control</h3>
+                        <p>Hand-crank operation gives operators direct tactile feedback and precise tension control for delicate loads.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌍</div>
+                        <h3>Universal Use</h3>
+                        <p>Works anywhere without power requirements. Perfect for remote locations, outdoor use, or areas without electrical access.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Multi-Material Compatibility</h2>
+                <div class="info-box">
+                    <h4>Versatile Strap Acceptance</h4>
+                    <p>The ErgoPack 700 accepts a wide variety of strap materials, making it one of the most versatile strapping tools in the Economy Line. From traditional plastic straps to eco-friendly paper and composite materials, the 700 handles them all.</p>
+                </div>
+
+                <div class="compatibility-grid">
+                    <div class="compatibility-item">
+                        <strong>PP</strong>
+                        <p>Polypropylene</p>
+                    </div>
+                    <div class="compatibility-item">
+                        <strong>PET</strong>
+                        <p>Polyester</p>
+                    </div>
+                    <div class="compatibility-item">
+                        <strong>Paper</strong>
+                        <p>Eco-Friendly</p>
+                    </div>
+                    <div class="compatibility-item">
+                        <strong>Cord</strong>
+                        <p>Corded Straps</p>
+                    </div>
+                    <div class="compatibility-item">
+                        <strong>Composite</strong>
+                        <p>Hybrid Materials</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Technical Specifications</h2>
+                <table class="specs-table">
+                    <tr>
+                        <td>Model</td>
+                        <td><strong>ErgoPack 700</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Product Line</td>
+                        <td><span class="specs-highlight">Economy Line</span></td>
+                    </tr>
+                    <tr>
+                        <td>Operation Type</td>
+                        <td><span class="specs-highlight">Manual Hand Crank</span></td>
+                    </tr>
+                    <tr>
+                        <td>Weight</td>
+                        <td>64.4 kg</td>
+                    </tr>
+                    <tr>
+                        <td>Package Width</td>
+                        <td>30-255 cm</td>
+                    </tr>
+                    <tr>
+                        <td>Package Height</td>
+                        <td>10-230 cm</td>
+                    </tr>
+                    <tr>
+                        <td>Chain Length</td>
+                        <td>6 m (standard)</td>
+                    </tr>
+                    <tr>
+                        <td>Power Source</td>
+                        <td><span class="specs-highlight">Manual (No Battery Required)</span></td>
+                    </tr>
+                    <tr>
+                        <td>Strap Material Compatibility</td>
+                        <td>PP, PET, Paper, Cord, Composite</td>
+                    </tr>
+                    <tr>
+                        <td>Sealing Head</td>
+                        <td>Optional <span class="badge badge-optional">Sold Separately</span></td>
+                    </tr>
+                    <tr>
+                        <td>Noise Level</td>
+                        <td>Ultra-quiet (manual operation)</td>
+                    </tr>
+                    <tr>
+                        <td>Certifications</td>
+                        <td>AGR Certification, ISO 12100:2010, EU Declaration of Conformity</td>
+                    </tr>
+                    <tr>
+                        <td>Warranty</td>
+                        <td>Standard manufacturer warranty</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Ideal Applications</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Noise-Sensitive Environments</h3>
+                        <p>Hospitals, libraries, museums, offices, and residential areas where quiet operation is essential.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Remote Locations</h3>
+                        <p>Construction sites, outdoor events, and areas without reliable electrical infrastructure.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Occasional Use</h3>
+                        <p>Facilities with intermittent strapping needs where battery-powered tools would sit unused and require maintenance.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Backup Operations</h3>
+                        <p>Secondary strapping station as a reliable backup when primary battery-powered tools are charging or under maintenance.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Delicate Products</h3>
+                        <p>Applications requiring precise tension control and gentle handling of fragile or sensitive goods.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Eco-Conscious Operations</h3>
+                        <p>Businesses committed to sustainability seeking to minimize battery waste and energy consumption.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Compare with Battery Models</h2>
+                <div class="comparison-note">
+                    <h4>Upgrade Options Available</h4>
+                    <p>Looking for faster, automated operation? Consider upgrading to battery-powered models:</p>
+                    <ul style="margin-top: 1rem; margin-left: 1.5rem; color: var(--text-light);">
+                        <li><strong style="color: var(--primary-red);">ErgoPack 700E</strong> - Economy Line with 24V lead-fleece battery, 40 m/min speed, 350 cycles per charge</li>
+                        <li><strong style="color: #1E3A8A);">ErgoPack 700X Li</strong> - X-pert Line with Li-Ion battery, 66 m/min speed (65% faster), 1200 cycles, Siemens touchscreen</li>
+                    </ul>
+                    <p style="margin-top: 1rem; color: var(--text-light);">The manual 700 model offers the most affordable entry point with zero operating costs, while battery models provide faster throughput for high-volume operations.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Optional Accessories</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Sealing Heads</h3>
+                        <p>Available as optional accessories to complete the strapping process. Multiple sealing head types available for different strap materials.</p>
+                        <span class="badge badge-optional">Optional</span>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Extended Chain</h3>
+                        <p>Optional longer chain lengths available for extra-large package dimensions beyond the standard 6m configuration.</p>
+                        <span class="badge badge-optional">Optional</span>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Strap Dispensers</h3>
+                        <p>Organized strap dispensing systems compatible with all supported strap materials (PP, PET, Paper, Cord, Composite).</p>
+                        <span class="badge badge-optional">Optional</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Safety & Certifications</h2>
+                <div class="info-box">
+                    <h4>Certified Ergonomic Design</h4>
+                    <p><span class="checkmark">✓</span> <strong>AGR Certification:</strong> Certified by Aktion Gesunder Rücken (Campaign for Healthier Backs) for back-friendly ergonomic design.</p>
+                    <p><span class="checkmark">✓</span> <strong>ISO 12100:2010:</strong> Compliant with international safety standards for machinery.</p>
+                    <p><span class="checkmark">✓</span> <strong>EU Declaration of Conformity:</strong> Meets all European safety and quality directives.</p>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 2rem;">
+                    <h3>Manual Operation Benefits</h3>
+                    <p>Hand-crank operation eliminates electrical hazards and moving motor parts, providing inherently safer operation in wet environments, explosive atmospheres, or areas with strict electrical safety requirements.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready for Battery-Free Strapping?</h2>
+            <p>Experience reliable, quiet operation with zero battery maintenance.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-primary">Request a Quote</a>
+                <a href="products.html" class="btn btn-secondary">View All Models</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 ErgoPack India. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
