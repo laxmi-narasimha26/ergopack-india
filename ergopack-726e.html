@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ErgoPack 726E - Light-Duty Mobile Pallet Strapping System | Economy Line</title>
+    <meta name="description" content="ErgoPack 726E Economy Line - Professional light-duty mobile pallet strapping system. 400-2500N tension, 13-16mm straps, 40m/min speed. Perfect for lighter packaging applications with ergonomic design and AGR certification.">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-red: #C8102E;
+            --dark-red: #9D0D23;
+            --light-gray: #F5F5F5;
+            --medium-gray: #E0E0E0;
+            --dark-gray: #333333;
+            --text-dark: #1A1A1A;
+            --text-medium: #4A4A4A;
+            --text-light: #666666;
+            --economy-green: #2E7D32;
+            --light-duty-orange: #F57C00;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--white);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+            color: var(--white);
+            padding: 2rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .product-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .light-duty-badge {
+            background: var(--light-duty-orange);
+            color: var(--white);
+            padding: 0.4rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-left: 1rem;
+            display: inline-block;
+            border: none;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            opacity: 0.95;
+            margin-top: 0.5rem;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to bottom, var(--light-gray), var(--white));
+            padding: 4rem 0;
+            border-bottom: 4px solid var(--primary-red);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h2 {
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-medium);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+            border-left: 4px solid var(--light-duty-orange);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .highlight-box h3 {
+            color: var(--light-duty-orange);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .highlight-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .highlight-box ul li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .highlight-box ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--light-duty-orange);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .hero-image {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Key Features Grid */
+        .key-features {
+            padding: 4rem 0;
+            background: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 3rem;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-red);
+            border-radius: 2px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 2px solid var(--medium-gray);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(200, 16, 46, 0.15);
+            border-color: var(--primary-red);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-red);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: var(--text-medium);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .feature-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            display: block;
+            margin: 0.5rem 0;
+        }
+
+        /* Specifications Section */
+        .specifications {
+            padding: 4rem 0;
+            background: var(--light-gray);
+        }
+
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .spec-category {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid var(--primary-red);
+        }
+
+        .spec-category h3 {
+            font-size: 1.5rem;
+            color: var(--primary-red);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .spec-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+
+        .spec-row:last-child {
+            border-bottom: none;
+        }
+
+        .spec-label {
+            font-weight: 600;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        .spec-value {
+            color: var(--text-medium);
+            font-weight: 500;
+            text-align: right;
+        }
+
+        /* Included Features */
+        .included-features {
+            padding: 4rem 0;
+            background: var(--white);
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--economy-green);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateX(8px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .feature-item h4 {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .feature-item p {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Optional Accessories */
+        .accessories {
+            padding: 4rem 0;
+            background: var(--light-gray);
+        }
+
+        .accessories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .accessory-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 2px solid var(--medium-gray);
+            transition: all 0.3s ease;
+        }
+
+        .accessory-card:hover {
+            border-color: var(--primary-red);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .accessory-card h4 {
+            color: var(--primary-red);
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .accessory-card p {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* Certifications */
+        .certifications {
+            padding: 4rem 0;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .cert-badges {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .cert-badge {
+            background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+            padding: 2rem 3rem;
+            border-radius: 12px;
+            border: 2px solid var(--medium-gray);
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .cert-badge:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            border-color: var(--economy-green);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--white);
+            color: var(--primary-red);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            background: var(--light-gray);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-gray);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .features-grid,
+            .specs-grid,
+            .features-list,
+            .accessories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cert-badges {
+                gap: 1.5rem;
+            }
+
+            .light-duty-badge {
+                margin-left: 0;
+                margin-top: 0.5rem;
+                display: block;
+                width: fit-content;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="product-badge">ECONOMY LINE</div>
+            <h1>ErgoPack 726E<span class="light-duty-badge">LIGHT-DUTY</span></h1>
+            <p class="subtitle">Mobile and Ergonomic Pallet Strapping System for Light-Duty Applications</p>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h2>Professional Light-Duty Strapping Solution</h2>
+                    <p>The ErgoPack 726E is specifically engineered for light-duty packaging applications, offering optimal performance with narrower straps and controlled tension for delicate products and lighter loads.</p>
+
+                    <p>Featuring 400-2500N tension power and 13-16mm strap width, the 726E delivers cost-effective strapping for applications that don't require heavy-duty capabilities, while maintaining ErgoPack's renowned ergonomic design and reliability.</p>
+
+                    <div class="highlight-box">
+                        <h3>Light-Duty Advantages</h3>
+                        <ul>
+                            <li>Optimized for lighter loads and delicate products</li>
+                            <li>Narrower straps (13-16mm) reduce material costs</li>
+                            <li>Controlled tension (400-2500N) prevents product damage</li>
+                            <li>Cost-effective solution for light-duty operations</li>
+                            <li>Same ergonomic design as heavy-duty models</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='500' viewBox='0 0 400 500'%3E%3Crect fill='%23F5F5F5' width='400' height='500'/%3E%3Ctext x='50%25' y='50%25' font-family='Arial' font-size='18' fill='%23C8102E' text-anchor='middle' dominant-baseline='middle'%3EErgoPack 726E%3C/text%3E%3C/svg%3E" alt="ErgoPack 726E - Light-Duty Mobile Pallet Strapping System">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="key-features">
+        <div class="container">
+            <h2 class="section-title">Key Performance Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Tension Power</h3>
+                    <span class="feature-value">400-2500N</span>
+                    <p>Controlled tension range ideal for light-duty applications and delicate products</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📏</div>
+                    <h3>Strap Dimensions</h3>
+                    <span class="feature-value">13-16mm</span>
+                    <p>Narrower strap width reduces material costs while maintaining security for lighter loads</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Chain Speed</h3>
+                    <span class="feature-value">40m/min</span>
+                    <p>Efficient strapping speed for optimal productivity in light-duty operations</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔋</div>
+                    <h3>Battery Cycles</h3>
+                    <span class="feature-value">350</span>
+                    <p>24V lead-fleece battery delivers up to 350 strapping cycles per charge</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📦</div>
+                    <h3>Pallet Width Range</h3>
+                    <span class="feature-value">40-255cm</span>
+                    <p>Flexible width adjustment accommodates various pallet sizes</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">📐</div>
+                    <h3>Pallet Height Range</h3>
+                    <span class="feature-value">10-230cm</span>
+                    <p>Versatile height range from very low to standard tall pallets</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section class="specifications">
+        <div class="container">
+            <h2 class="section-title">Technical Specifications</h2>
+            <div class="specs-grid">
+                <!-- System Specifications -->
+                <div class="spec-category">
+                    <h3>⚙️ System Specifications</h3>
+                    <div class="spec-row">
+                        <span class="spec-label">Model</span>
+                        <span class="spec-value">726E</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Product Line</span>
+                        <span class="spec-value">Economy Line</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Application Type</span>
+                        <span class="spec-value">Light-Duty</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Generation</span>
+                        <span class="spec-value">2nd Generation</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Dimensions (L×W×H)</span>
+                        <span class="spec-value">630×770×1200 mm</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">System Weight</span>
+                        <span class="spec-value">~92.9 kg</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Tariff Number</span>
+                        <span class="spec-value">842240</span>
+                    </div>
+                </div>
+
+                <!-- Sealing Head Specifications -->
+                <div class="spec-category">
+                    <h3>🔧 Sealing Head</h3>
+                    <div class="spec-row">
+                        <span class="spec-label">Tension Power</span>
+                        <span class="spec-value">400-2500 N</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Strap Width</span>
+                        <span class="spec-value">13-16 mm</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Strap Thickness</span>
+                        <span class="spec-value">0.40-0.80 mm</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Strap Materials</span>
+                        <span class="spec-value">PP, PET</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Dimensions (L×W×H)</span>
+                        <span class="spec-value">335×140×180 mm</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Weight</span>
+                        <span class="spec-value">3.8-4.3 kg</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Current (Nominal)</span>
+                        <span class="spec-value">Up to 10 A</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Coil Diameters</span>
+                        <span class="spec-value">406, 400, 200 mm</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Mounting</span>
+                        <span class="spec-value">On Tool-Lift</span>
+                    </div>
+                </div>
+
+                <!-- Flexibility Specifications -->
+                <div class="spec-category">
+                    <h3>📏 Flexibility & Performance</h3>
+                    <div class="spec-row">
+                        <span class="spec-label">Pallet Width Range</span>
+                        <span class="spec-value">40-255 cm</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Pallet Height Range</span>
+                        <span class="spec-value">10-230 cm</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Chain Speed</span>
+                        <span class="spec-value">40 m/min</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Standard Chain Length</span>
+                        <span class="spec-value">6 meters</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Maximum Chain Length</span>
+                        <span class="spec-value">8 meters (optional)</span>
+                    </div>
+                </div>
+
+                <!-- Battery & Charging -->
+                <div class="spec-category">
+                    <h3>🔋 Battery & Charging</h3>
+                    <div class="spec-row">
+                        <span class="spec-label">Battery Type</span>
+                        <span class="spec-value">24V Lead-Fleece</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Battery Weight</span>
+                        <span class="spec-value">12.3 kg</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Strapping Cycles</span>
+                        <span class="spec-value">350 cycles</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Voltage (Nominal)</span>
+                        <span class="spec-value">24 V</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Charging Time</span>
+                        <span class="spec-value">8-10 hours</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Charger Type</span>
+                        <span class="spec-value">3-Stage Lead Loader</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Operating Voltage</span>
+                        <span class="spec-value">100-240V 50/60Hz</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Power Consumption</span>
+                        <span class="spec-value">Max. 60 W</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Power Supply</span>
+                        <span class="spec-value">2× 12V DC/2A</span>
+                    </div>
+                </div>
+
+                <!-- Control System -->
+                <div class="spec-category">
+                    <h3>🎮 Control System</h3>
+                    <div class="spec-row">
+                        <span class="spec-label">Control Type</span>
+                        <span class="spec-value">Electrical via Joystick</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Settings Adjustment</span>
+                        <span class="spec-value">Pin System</span>
+                    </div>
+                    <div class="spec-row">
+                        <span class="spec-label">Pallet Width Setting</span>
+                        <span class="spec-value">Pin (Width + 20cm)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Included Features -->
+    <section class="included-features">
+        <div class="container">
+            <h2 class="section-title">Standard Features Included</h2>
+            <div class="features-list">
+                <div class="feature-item">
+                    <h4>Standard Tool-Lift</h4>
+                    <p>Standard Tool-Lift for pallets higher than 80cm with integrated sealing head quick release mechanism included</p>
+                </div>
+
+                <div class="feature-item">
+                    <h4>Standard Sledge 85</h4>
+                    <p>Standard sledge 85 included for EPAL and equivalent pallets with clearance height greater than 95mm</p>
+                </div>
+
+                <div class="feature-item">
+                    <h4>Easy Pallet Width Adjustment</h4>
+                    <p>Simple pin-based system for adjusting pallet width. Set to pallet width plus 20cm for optimal performance</p>
+                </div>
+
+                <div class="feature-item">
+                    <h4>Electric Joystick Control</h4>
+                    <p>Precise electrical control via ergonomic joystick for effortless operation and reduced operator fatigue</p>
+                </div>
+
+                <div class="feature-item">
+                    <h4>Pre-Installed Sealing Head</h4>
+                    <p>Sealing head comes fully installed and mounted on the system, ready for immediate operation</p>
+                </div>
+
+                <div class="feature-item">
+                    <h4>6-Meter Standard Chain</h4>
+                    <p>High-quality 6-meter chain with 40m/min speed for efficient strapping operations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Optional Accessories -->
+    <section class="accessories">
+        <div class="container">
+            <h2 class="section-title">Optional Accessories</h2>
+            <div class="accessories-grid">
+                <div class="accessory-card">
+                    <h4>Triplex-Tool-Lift (TTL)</h4>
+                    <p>Ideal for pallets lower than 80cm. Suitable for pallets as low as 10cm in height for maximum versatility</p>
+                </div>
+
+                <div class="accessory-card">
+                    <h4>Alternative Sledges</h4>
+                    <p>Sledge 47 (55-95mm clearance), 47S (narrow 160mm entry), 47L (extended for up to 40mm runner heights)</p>
+                </div>
+
+                <div class="accessory-card">
+                    <h4>Strap-Brake-Relief</h4>
+                    <p>Essential accessory for pallets higher than 120cm, providing relief when pulling out strap</p>
+                </div>
+
+                <div class="accessory-card">
+                    <h4>Headpiece with Bumper</h4>
+                    <p>Designed for pallets with overhang of maximum 40mm. Bumper allows the system to pass the overhang smoothly</p>
+                </div>
+
+                <div class="accessory-card">
+                    <h4>Line Laser Type 2</h4>
+                    <p>Precision positioning system for optimal alignment and consistent strapping placement</p>
+                </div>
+
+                <div class="accessory-card">
+                    <h4>Additional Chain Length</h4>
+                    <p>Extend your chain by up to 2 meters for a total of 8 meters to accommodate larger pallet configurations</p>
+                </div>
+
+                <div class="accessory-card">
+                    <h4>Spare Battery Pack</h4>
+                    <p>Additional 24V lead-fleece battery optimal for multiple shift operations and continuous productivity</p>
+                </div>
+
+                <div class="accessory-card">
+                    <h4>Mobile Overheight Module (MOHM)</h4>
+                    <p>For pallets higher than 230cm, extending capability up to 305cm for exceptional height flexibility</p>
+                </div>
+
+                <div class="accessory-card">
+                    <h4>Mobile Sledge Tunnel</h4>
+                    <p>For goods strapped on scantlings. One pair includes two tunnels for complete flexibility</p>
+                </div>
+
+                <div class="accessory-card">
+                    <h4>Stationary Sledge Tunnel</h4>
+                    <p>Adjustable sledge tunnel system for different widths, perfect for fixed-position applications</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications & Compliance</h2>
+            <div class="cert-badges">
+                <div class="cert-badge">
+                    ✓ ISO 12100:2010
+                </div>
+                <div class="cert-badge">
+                    ✓ EU Declaration of Conformity
+                </div>
+                <div class="cert-badge">
+                    ✓ AGR Certified
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Optimize Your Light-Duty Strapping?</h2>
+            <p>Experience the perfect balance of performance and economy with the ErgoPack 726E</p>
+            <a href="#contact" class="cta-button">Request a Quote</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 ErgoPack India. All rights reserved. | Professional Pallet Strapping Solutions</p>
+        </div>
+    </footer>
+</body>
+</html>
