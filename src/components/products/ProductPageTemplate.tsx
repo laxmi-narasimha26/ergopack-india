@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import MainLayout from '@/components/layout/MainLayout';
-import PremiumPreloader from '@/components/elite/ui/PremiumPreloader';
+import { MinimalLoadingScreen } from '@/components/ui/MinimalLoadingScreen';
 import Link from 'next/link';
 import Image from 'next/image';
 import Head from 'next/head';
@@ -877,7 +877,7 @@ export default function ProductPageTemplate({
 
   return (
     <>
-      <PremiumPreloader />
+      <MinimalLoadingScreen />
       <MainLayout>
         <div className="bg-luxury-space-black">
           <HeroSection />
