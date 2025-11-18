@@ -1,23 +1,24 @@
 import type { Metadata } from 'next';
-import CustomCursor from '@/components/elite/ui/CustomCursor';
 
 export const metadata: Metadata = {
-  title: 'Ergopack Elite - Premium Automated Strapping Infrastructure',
+  title: 'Ergopack Elite - Ultra-Premium Automated Strapping Infrastructure',
   description:
-    'Experience operational excellence with Ergopack Elite. German precision engineering delivering 900 straps/hour with 0.1mm tolerance. Join India\'s category-leading manufacturers.',
+    'Experience operational excellence with Ergopack Elite. German precision engineering delivering 900 straps/hour with 0.1mm tolerance. Join India\'s category-leading manufacturers in the Elite Network.',
   keywords: [
     'automated strapping',
     'packaging automation',
-    'ergopack',
+    'ergopack elite',
     'industrial automation',
     'german engineering',
     'strapping machine',
     'packaging equipment',
     'industry 4.0',
+    'precision engineering',
+    'operational excellence',
   ],
   authors: [{ name: 'Ergopack India' }],
   openGraph: {
-    title: 'Ergopack Elite - Premium Automated Strapping Infrastructure',
+    title: 'Ergopack Elite - Ultra-Premium Automated Strapping Infrastructure',
     description: 'German precision engineering. 900 straps/hour. 0.1mm tolerance. Transform your packaging operation.',
     type: 'website',
     locale: 'en_IN',
@@ -35,10 +36,5 @@ export const metadata: Metadata = {
 };
 
 export default function EliteLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <>
-      <CustomCursor />
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }

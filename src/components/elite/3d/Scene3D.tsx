@@ -19,36 +19,115 @@ if (typeof window !== 'undefined') {
  */
 function ErgopackMachine() {
   const groupRef = useRef<THREE.Group>(null);
+  const rotationRef = useRef({ x: 0, y: 0, z: 0 });
+
+  useEffect(() => {
+    // GSAP ScrollTrigger for full 3D rotation (X, Y, Z axes)
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: 'body',
+        start: 'top top',
+        end: 'bottom bottom',
+        scrub: 1,
+      },
+    });
+
+    // Full rotation journey through sections
+    tl.to(rotationRef.current, {
+      y: Math.PI * 0.5, // 90° Y rotation
+      x: 0,
+      duration: 2,
+    })
+      .to(rotationRef.current, {
+        y: Math.PI, // 180° Y rotation
+        x: -0.2,
+        duration: 2,
+      })
+      .to(rotationRef.current, {
+        y: Math.PI * 1.5, // 270° Y rotation
+        x: 0,
+        z: 0.1,
+        duration: 2,
+      })
+      .to(rotationRef.current, {
+        y: Math.PI * 2, // 360° Y rotation (full circle)
+        x: 0.2,
+        z: 0,
+        duration: 3,
+      })
+      .to(rotationRef.current, {
+        y: Math.PI * 2 + 0.3,
+        x: 0,
+        z: 0,
+        duration: 2,
+      });
+
+    return () => {
+      tl.kill();
+    };
+  }, []);
 
   useFrame((state) => {
     if (groupRef.current) {
-      // Subtle rotation
-      groupRef.current.rotation.y = Math.sin(state.clock.getElapsedTime() * 0.1) * 0.1;
+      // Apply scroll-controlled rotation + subtle idle animation
+      groupRef.current.rotation.y = rotationRef.current.y + Math.sin(state.clock.getElapsedTime() * 0.5) * 0.05;
+      groupRef.current.rotation.x = rotationRef.current.x + Math.sin(state.clock.getElapsedTime() * 0.3) * 0.02;
+      groupRef.current.rotation.z = rotationRef.current.z + Math.sin(state.clock.getElapsedTime() * 0.4) * 0.02;
     }
   });
 
   return (
     <group ref={groupRef}>
       {/* Machine Body */}
-      <mesh position={[0, 0, 0]}>
+      <mesh position={[0, 0, 0]} castShadow>
         <boxGeometry args={[3, 4, 2]} />
-        <meshStandardMaterial color="#C8102E" roughness={0.3} metalness={0.8} />
+        <meshStandardMaterial
+          color="#C8102E"
+          roughness={0.3}
+          metalness={0.8}
+          emissive="#C8102E"
+          emissiveIntensity={0.1}
+        />
       </mesh>
 
       {/* Strapping Mechanism */}
-      <mesh position={[0, 1.5, 1.2]}>
+      <mesh position={[0, 1.5, 1.2]} castShadow>
         <cylinderGeometry args={[0.2, 0.2, 2, 16]} />
         <meshStandardMaterial color="#666666" roughness={0.2} metalness={0.9} />
       </mesh>
 
       {/* Control Panel */}
-      <mesh position={[0, 0.5, 1.05]}>
+      <mesh position={[0, 0.5, 1.05]} castShadow>
         <boxGeometry args={[1.5, 1, 0.1]} />
-        <meshStandardMaterial color="#1A1A1A" roughness={0.1} metalness={0.5} />
+        <meshStandardMaterial
+          color="#1A1A1A"
+          roughness={0.1}
+          metalness={0.5}
+          emissive="#FFB81C"
+          emissiveIntensity={0.2}
+        />
+      </mesh>
+
+      {/* Side Details */}
+      <mesh position={[-1.6, 0, 0]} castShadow>
+        <boxGeometry args={[0.2, 3.5, 1.8]} />
+        <meshStandardMaterial color="#8B0000" roughness={0.4} metalness={0.7} />
+      </mesh>
+
+      <mesh position={[1.6, 0, 0]} castShadow>
+        <boxGeometry args={[0.2, 3.5, 1.8]} />
+        <meshStandardMaterial color="#8B0000" roughness={0.4} metalness={0.7} />
+      </mesh>
+
+      {/* Base */}
+      <mesh position={[0, -2.2, 0]} receiveShadow>
+        <boxGeometry args={[3.5, 0.4, 2.5]} />
+        <meshStandardMaterial color="#333333" roughness={0.7} metalness={0.3} />
       </mesh>
 
       {/* Ambient Glow */}
       <pointLight position={[0, 0, 0]} color="#C8102E" intensity={2} distance={8} />
+      <pointLight position={[0, 2, 2]} color="#FFB81C" intensity={1} distance={6} />
     </group>
   );
 }
