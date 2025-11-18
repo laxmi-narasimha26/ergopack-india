@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ErgoPack 700E - Battery-powered Economy Line strapping tool with 40 m/min speed and 350 cycles per charge. Reliable automation at an affordable price.">
+    <title>ErgoPack 700E - Battery-Powered Strapping Tool | Economy Line</title>
+    <style>
+        :root {
+            --primary-red: #E31E24;
+            --dark-red: #B71C1C;
+            --light-red: #FFEBEE;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --bg-light: #f8f9fa;
+            --border-color: #e0e0e0;
+            --success-green: #28a745;
+            --warning-amber: #ffc107;
+            --white: #ffffff;
+            --shadow: 0 2px 8px rgba(0,0,0,0.1);
+            --shadow-lg: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--dark-red) 0%, var(--primary-red) 100%);
+            color: var(--white);
+            padding: 2rem 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: var(--white);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 0.8;
+        }
+
+        .product-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+
+        .product-title-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .product-line-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .product-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 1.5rem;
+        }
+
+        .quick-specs {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .quick-spec-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .quick-spec-label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin-bottom: 0.25rem;
+        }
+
+        .quick-spec-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .hero-image {
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 10px 30px rgba(0,0,0,0.3));
+        }
+
+        .main-content {
+            padding: 4rem 0;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid var(--primary-red);
+            display: inline-block;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, var(--light-red) 0%, #fff5f5 100%);
+            border-left: 4px solid var(--primary-red);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            box-shadow: var(--shadow);
+        }
+
+        .highlight-box h3 {
+            color: var(--primary-red);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-red);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--light-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            color: var(--primary-red);
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        .specs-table {
+            width: 100%;
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .specs-table tr {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .specs-table tr:last-child {
+            border-bottom: none;
+        }
+
+        .specs-table td {
+            padding: 1rem 1.5rem;
+        }
+
+        .specs-table td:first-child {
+            font-weight: 600;
+            color: var(--text-dark);
+            width: 40%;
+            background: var(--bg-light);
+        }
+
+        .specs-table td:last-child {
+            color: var(--text-light);
+        }
+
+        .specs-highlight {
+            color: var(--primary-red);
+            font-weight: 700;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        .badge-included {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .badge-optional {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .compatibility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .compatibility-item {
+            background: var(--white);
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .compatibility-item:hover {
+            border-color: var(--primary-red);
+            transform: scale(1.05);
+        }
+
+        .compatibility-item strong {
+            display: block;
+            color: var(--primary-red);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--dark-red) 0%, var(--primary-red) 100%);
+            color: var(--white);
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-red);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            border-color: var(--white);
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-red);
+        }
+
+        .footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .comparison-table {
+            width: 100%;
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            margin-top: 2rem;
+        }
+
+        .comparison-table th {
+            background: var(--primary-red);
+            color: var(--white);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table .model-name {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        @media (max-width: 768px) {
+            .product-header {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .product-title-section h1 {
+                font-size: 2rem;
+            }
+
+            .quick-specs {
+                gap: 1rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .specs-table td {
+                padding: 0.75rem 1rem;
+            }
+
+            .specs-table td:first-child {
+                width: 50%;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+
+        .checkmark {
+            color: var(--success-green);
+            font-weight: bold;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .info-box h4 {
+            color: #1976D2;
+            margin-bottom: 0.75rem;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: var(--white);
+            border: 2px solid var(--primary-red);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> / <a href="products.html">Products</a> / <span>ErgoPack 700E</span>
+            </div>
+            <div class="product-header">
+                <div class="product-title-section">
+                    <div class="product-line-badge">Economy Line</div>
+                    <h1>ErgoPack 700E</h1>
+                    <p class="product-subtitle">Battery-Powered Automated Strapping</p>
+                    <div class="quick-specs">
+                        <div class="quick-spec-item">
+                            <span class="quick-spec-label">Speed</span>
+                            <span class="quick-spec-value">40 m/min</span>
+                        </div>
+                        <div class="quick-spec-item">
+                            <span class="quick-spec-label">Battery Cycles</span>
+                            <span class="quick-spec-value">350</span>
+                        </div>
+                        <div class="quick-spec-item">
+                            <span class="quick-spec-label">Battery Type</span>
+                            <span class="quick-spec-value">24V Lead</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="images/ergopack-700e.png" alt="ErgoPack 700E Battery-Powered Strapping Tool" onerror="this.src='images/placeholder-product.png'">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="section">
+                <h2 class="section-title">Affordable Automation</h2>
+                <div class="highlight-box">
+                    <h3>Economy Line Battery Power</h3>
+                    <p>The ErgoPack 700E brings battery-powered automation to the Economy Line, offering a significant productivity boost over manual operation at an accessible price point. With 40 m/min strapping speed and 350 cycles per charge, the 700E delivers reliable performance for medium-volume strapping operations.</p>
+                </div>
+
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">40</div>
+                        <div class="stat-label">m/min Strapping Speed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">350</div>
+                        <div class="stat-label">Cycles Per Charge</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">24V</div>
+                        <div class="stat-label">Lead-Fleece Battery</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Key Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3>Battery-Powered</h3>
+                        <p>24V lead-fleece battery provides 350 strapping cycles per charge, eliminating manual cranking and significantly increasing throughput.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🚀</div>
+                        <h3>40 m/min Speed</h3>
+                        <p>Automated strapping at 40 meters per minute delivers consistent, fast performance for medium to high-volume operations.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💰</div>
+                        <h3>Economy Pricing</h3>
+                        <p>Entry-level pricing for battery-powered automation. Get the benefits of powered strapping without X-pert Line premium costs.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔋</div>
+                        <h3>Proven Battery Tech</h3>
+                        <p>Reliable 24V lead-fleece battery technology with 8-10 hour charging time. Simple, field-tested battery system.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Multi-Material</h3>
+                        <p>Accepts PP, PET, Paper, Cord, and Composite straps. One tool for all your strapping material needs.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">✓</div>
+                        <h3>AGR Certified</h3>
+                        <p>Certified ergonomic design by Aktion Gesunder Rücken. Back-friendly operation reduces operator fatigue.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Optional Enhancements</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Tool-Lift <span class="badge badge-optional">Optional</span></h3>
+                        <p>Automatic tool lifting mechanism reduces physical strain and speeds up the strapping process. Highly recommended for high-volume operations.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Line Laser <span class="badge badge-optional">Optional</span></h3>
+                        <p>Precision laser alignment guides for perfect strap placement every time. Ideal for applications requiring exact strap positioning.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Sealing Head <span class="badge badge-optional">Optional</span></h3>
+                        <p>Complete the strapping process with optional sealing heads. Multiple types available for different strap materials and applications.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Multi-Material Compatibility</h2>
+                <div class="info-box">
+                    <h4>Versatile Strap Acceptance</h4>
+                    <p>The ErgoPack 700E handles a wide variety of strap materials, making it adaptable to diverse packaging requirements and sustainability initiatives.</p>
+                </div>
+
+                <div class="compatibility-grid">
+                    <div class="compatibility-item">
+                        <strong>PP</strong>
+                        <p>Polypropylene</p>
+                    </div>
+                    <div class="compatibility-item">
+                        <strong>PET</strong>
+                        <p>Polyester</p>
+                    </div>
+                    <div class="compatibility-item">
+                        <strong>Paper</strong>
+                        <p>Eco-Friendly</p>
+                    </div>
+                    <div class="compatibility-item">
+                        <strong>Cord</strong>
+                        <p>Corded Straps</p>
+                    </div>
+                    <div class="compatibility-item">
+                        <strong>Composite</strong>
+                        <p>Hybrid Materials</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Technical Specifications</h2>
+                <table class="specs-table">
+                    <tr>
+                        <td>Model</td>
+                        <td><strong>ErgoPack 700E</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Product Line</td>
+                        <td><span class="specs-highlight">Economy Line</span></td>
+                    </tr>
+                    <tr>
+                        <td>Strapping Speed</td>
+                        <td><span class="specs-highlight">40 m/min</span></td>
+                    </tr>
+                    <tr>
+                        <td>Battery Type</td>
+                        <td>24V Lead-Fleece</td>
+                    </tr>
+                    <tr>
+                        <td>Battery Weight</td>
+                        <td>12.3 kg</td>
+                    </tr>
+                    <tr>
+                        <td>Cycles Per Charge</td>
+                        <td><span class="specs-highlight">350 cycles</span></td>
+                    </tr>
+                    <tr>
+                        <td>Charging Time</td>
+                        <td>8-10 hours</td>
+                    </tr>
+                    <tr>
+                        <td>Total Weight</td>
+                        <td>88.1 kg</td>
+                    </tr>
+                    <tr>
+                        <td>Package Width Range</td>
+                        <td>30-255 cm</td>
+                    </tr>
+                    <tr>
+                        <td>Package Height Range</td>
+                        <td>10-230 cm</td>
+                    </tr>
+                    <tr>
+                        <td>Strap Material Compatibility</td>
+                        <td>PP, PET, Paper, Cord, Composite</td>
+                    </tr>
+                    <tr>
+                        <td>Tool-Lift</td>
+                        <td>Optional <span class="badge badge-optional">Accessory</span></td>
+                    </tr>
+                    <tr>
+                        <td>Line Laser</td>
+                        <td>Optional <span class="badge badge-optional">Accessory</span></td>
+                    </tr>
+                    <tr>
+                        <td>Sealing Head</td>
+                        <td>Optional <span class="badge badge-optional">Sold Separately</span></td>
+                    </tr>
+                    <tr>
+                        <td>Certifications</td>
+                        <td>AGR Certification, ISO 12100:2010, EU Declaration of Conformity</td>
+                    </tr>
+                    <tr>
+                        <td>Warranty</td>
+                        <td>Standard manufacturer warranty</td>
+                    </tr>
+                </table>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Model Comparison</h2>
+                <div class="info-box">
+                    <h4>Choose Your 700 Series Model</h4>
+                    <p>The 700 series offers three configurations to match your operational needs and budget:</p>
+                </div>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>700 Manual</th>
+                            <th>700E (Current)</th>
+                            <th>700X Li</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="model-name">Product Line</td>
+                            <td>Economy</td>
+                            <td><strong style="color: var(--primary-red);">Economy</strong></td>
+                            <td>X-pert</td>
+                        </tr>
+                        <tr>
+                            <td class="model-name">Operation</td>
+                            <td>Hand Crank</td>
+                            <td><strong style="color: var(--primary-red);">Battery Powered</strong></td>
+                            <td>Battery Powered</td>
+                        </tr>
+                        <tr>
+                            <td class="model-name">Speed</td>
+                            <td>Manual</td>
+                            <td><strong style="color: var(--primary-red);">40 m/min</strong></td>
+                            <td>66 m/min (65% faster)</td>
+                        </tr>
+                        <tr>
+                            <td class="model-name">Battery</td>
+                            <td>None</td>
+                            <td><strong style="color: var(--primary-red);">24V Lead (12.3kg)</strong></td>
+                            <td>Li-Ion (5kg - 60% lighter)</td>
+                        </tr>
+                        <tr>
+                            <td class="model-name">Cycles/Charge</td>
+                            <td>N/A</td>
+                            <td><strong style="color: var(--primary-red);">350</strong></td>
+                            <td>1,200 (3.4x more)</td>
+                        </tr>
+                        <tr>
+                            <td class="model-name">Charging Time</td>
+                            <td>N/A</td>
+                            <td><strong style="color: var(--primary-red);">8-10 hours</strong></td>
+                            <td>3.5 hours (65% faster)</td>
+                        </tr>
+                        <tr>
+                            <td class="model-name">Weight</td>
+                            <td>64.4 kg</td>
+                            <td><strong style="color: var(--primary-red);">88.1 kg</strong></td>
+                            <td>95 kg</td>
+                        </tr>
+                        <tr>
+                            <td class="model-name">Touchscreen</td>
+                            <td>No</td>
+                            <td>No</td>
+                            <td>Siemens Touchscreen</td>
+                        </tr>
+                        <tr>
+                            <td class="model-name">Best For</td>
+                            <td>Low volume, quiet environments</td>
+                            <td><strong style="color: var(--primary-red);">Medium volume, cost-conscious</strong></td>
+                            <td>High volume, maximum performance</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box" style="margin-top: 2rem;">
+                    <h3>700E: The Sweet Spot</h3>
+                    <p>The 700E offers the perfect balance of automation and affordability. You get battery-powered convenience and 350 cycles per charge at Economy Line pricing - ideal for operations that have outgrown manual strapping but don't require the maximum performance of the X-pert Line.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Ideal Applications</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <h3>Distribution Centers</h3>
+                        <p>Medium-volume shipping operations that need reliable battery-powered strapping without premium investment costs.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Manufacturing</h3>
+                        <p>Production lines with moderate strapping requirements. 350 cycles covers a full shift for many operations.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Warehouses</h3>
+                        <p>Multi-shift operations can rotate batteries between charging and use, maintaining continuous productivity.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Regional Logistics</h3>
+                        <p>Local and regional logistics hubs that need efficient strapping for diverse package sizes and strap materials.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>E-Commerce Fulfillment</h3>
+                        <p>Online retail fulfillment centers with variable daily volumes. Battery power handles peak periods efficiently.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Mixed Material Operations</h3>
+                        <p>Facilities using multiple strap types (PP, PET, Paper, Cord, Composite) benefit from universal compatibility.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Safety & Certifications</h2>
+                <div class="info-box">
+                    <h4>Certified Ergonomic Design</h4>
+                    <p><span class="checkmark">✓</span> <strong>AGR Certification:</strong> Certified by Aktion Gesunder Rücken (Campaign for Healthier Backs) for back-friendly ergonomic design.</p>
+                    <p><span class="checkmark">✓</span> <strong>ISO 12100:2010:</strong> Compliant with international safety standards for machinery.</p>
+                    <p><span class="checkmark">✓</span> <strong>EU Declaration of Conformity:</strong> Meets all European safety and quality directives.</p>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 2rem;">
+                    <h3>Operator-Friendly Design</h3>
+                    <p>Battery-powered automation reduces repetitive strain from manual cranking, while AGR certification ensures proper ergonomic posture throughout operation. The 700E protects your workforce while boosting productivity.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready for Affordable Automation?</h2>
+            <p>Get Economy Line battery power with 350 cycles per charge.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-primary">Request a Quote</a>
+                <a href="products.html" class="btn btn-secondary">Compare All Models</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 ErgoPack India. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
