@@ -591,10 +591,27 @@ function ProductShowcaseSection() {
                   const product = productsData.products[modelKey];
                   if (!product) return null;
 
-                  const isXpert = product.productLine === 'X-pert Line';
+                  const isXpert = product.line === 'X-pert Line';
                   const cardClass = isXpert
                     ? 'premium-card-dark'
                     : 'premium-card bg-gradient-to-br from-white to-platinum-50';
+
+                  // Create slug from model
+                  const slug = modelKey.toLowerCase().replace(/\s+/g, '-');
+
+                  // Get max tension from sealingHead
+                  const maxTension = product.sealingHead?.tensionPower
+                    ? `${product.sealingHead.tensionPower.max} ${product.sealingHead.tensionPower.unit}`
+                    : null;
+
+                  // Get chain speed from performance
+                  const chainSpeed = product.performance?.chainSpeed
+                    ? `${product.performance.chainSpeed} ${product.performance.chainSpeedUnit || 'm/min'}`
+                    : product.performance?.operationType || null;
+
+                  // Get battery type
+                  const batteryType = product.battery?.type;
+                  const isLithium = batteryType === 'Lithium-Ion';
 
                   return (
                     <motion.div
@@ -605,7 +622,7 @@ function ProductShowcaseSection() {
                       transition={{ delay: modelIndex * 0.1 }}
                     >
                       <Premium3DCard glowColor={isXpert ? "rgba(155, 28, 28, 0.3)" : "rgba(113, 113, 122, 0.2)"}>
-                        <Link href={`/products/${product.slug}`} className="block group">
+                        <Link href={`/products/${slug}`} className="block group">
                           <div className={`${cardClass} p-8 min-h-[520px] flex flex-col justify-between`}>
                             <div>
                               {/* Badge */}
@@ -618,10 +635,10 @@ function ProductShowcaseSection() {
                                   <span className={`text-xs font-medium tracking-wide ${
                                     isXpert ? 'text-crimson-400' : 'text-platinum-700'
                                   }`}>
-                                    {product.productLine}
+                                    {product.line}
                                   </span>
                                 </div>
-                                {product.batteryTechnology === 'Lithium-Ion' && (
+                                {isLithium && (
                                   <div className="p-2 rounded-lg bg-amber-500/20 border border-amber-500/30">
                                     <Battery className="h-4 w-4 text-amber-400" />
                                   </div>
@@ -634,7 +651,7 @@ function ProductShowcaseSection() {
                                   ? 'text-white group-hover:text-crimson-400'
                                   : 'text-luxury-dark-gray group-hover:text-platinum-700'
                               } transition-colors duration-500`}>
-                                {product.modelNumber}
+                                {product.model}
                               </h4>
                               <p className={`text-lg mb-8 ${
                                 isXpert ? 'text-platinum-300' : 'text-platinum-600'
@@ -652,33 +669,33 @@ function ProductShowcaseSection() {
                                     {product.applicationType}
                                   </span>
                                 </div>
-                                {product.maxTension && (
+                                {maxTension && (
                                   <div className="flex items-center justify-between">
                                     <span className={`text-sm ${isXpert ? 'text-platinum-400' : 'text-platinum-500'}`}>
                                       Max Tension
                                     </span>
                                     <span className={`text-sm font-medium ${isXpert ? 'text-white' : 'text-luxury-dark-gray'}`}>
-                                      {product.maxTension}
+                                      {maxTension}
                                     </span>
                                   </div>
                                 )}
-                                {product.chainSpeed && (
+                                {chainSpeed && (
                                   <div className="flex items-center justify-between">
                                     <span className={`text-sm ${isXpert ? 'text-platinum-400' : 'text-platinum-500'}`}>
-                                      Chain Speed
+                                      {product.performance?.operationType ? 'Operation' : 'Chain Speed'}
                                     </span>
                                     <span className={`text-sm font-medium ${isXpert ? 'text-white' : 'text-luxury-dark-gray'}`}>
-                                      {product.chainSpeed}
+                                      {chainSpeed}
                                     </span>
                                   </div>
                                 )}
-                                {product.batteryTechnology && (
+                                {batteryType && batteryType !== 'None - Manual Operation' && (
                                   <div className="flex items-center justify-between">
                                     <span className={`text-sm ${isXpert ? 'text-platinum-400' : 'text-platinum-500'}`}>
                                       Battery
                                     </span>
                                     <span className={`text-sm font-medium ${isXpert ? 'text-white' : 'text-luxury-dark-gray'}`}>
-                                      {product.batteryTechnology}
+                                      {batteryType.includes('lead') ? '24V Lead' : batteryType}
                                     </span>
                                   </div>
                                 )}
@@ -697,6 +714,19 @@ function ProductShowcaseSection() {
                                       isXpert ? 'text-crimson-500' : 'text-platinum-600'
                                     }`} />
                                     <span className="font-light">{feature}</span>
+                                  </div>
+                                ))}
+                                {!product.includedFeatures && product.certifications?.slice(0, 2).map((cert: string, i: number) => (
+                                  <div
+                                    key={i}
+                                    className={`flex items-start gap-2 text-sm ${
+                                      isXpert ? 'text-platinum-300' : 'text-platinum-600'
+                                    }`}
+                                  >
+                                    <CheckCircle2 className={`h-4 w-4 flex-shrink-0 mt-0.5 ${
+                                      isXpert ? 'text-crimson-500' : 'text-platinum-600'
+                                    }`} />
+                                    <span className="font-light">{cert}</span>
                                   </div>
                                 ))}
                               </div>

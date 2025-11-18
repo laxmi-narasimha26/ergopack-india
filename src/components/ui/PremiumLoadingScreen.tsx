@@ -12,7 +12,7 @@ export function PremiumLoadingScreen({ onLoadingComplete }: PremiumLoadingScreen
   const [isComplete, setIsComplete] = useState(false);
 
   useEffect(() => {
-    // Simulate loading progress
+    // Simulate loading progress (sped up by 20%)
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
@@ -20,12 +20,12 @@ export function PremiumLoadingScreen({ onLoadingComplete }: PremiumLoadingScreen
           setTimeout(() => {
             setIsComplete(true);
             onLoadingComplete?.();
-          }, 800);
+          }, 640); // Sped up by 20% (was 800ms)
           return 100;
         }
         return prev + Math.random() * 15;
       });
-    }, 150);
+    }, 120); // Sped up by 20% (was 150ms)
 
     return () => clearInterval(interval);
   }, [onLoadingComplete]);

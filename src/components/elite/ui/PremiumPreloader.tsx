@@ -36,9 +36,9 @@ export default function PremiumPreloader() {
         currentStage++;
       } else {
         clearInterval(interval);
-        setTimeout(() => setLoading(false), 500);
+        setTimeout(() => setLoading(false), 400);
       }
-    }, 400);
+    }, 320); // Sped up by 20% (was 400ms)
 
     return () => clearInterval(interval);
   }, []);
