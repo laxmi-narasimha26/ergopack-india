@@ -5,15 +5,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import MainLayout from '@/components/layout/MainLayout';
 import Button from '@/components/ui/Button';
-import Card from '@/components/ui/Card';
 import {
   CheckCircle2,
   ArrowRight,
   Package,
   Settings,
   Shield,
-  Zap,
-  Info,
   ChevronRight,
 } from 'lucide-react';
 import { ComprehensiveProduct } from '@/data/comprehensive-products';
@@ -24,7 +21,6 @@ interface PremiumProductPageProps {
 
 export default function PremiumProductPage({ product }: PremiumProductPageProps) {
   const isXpert = product.line === 'xpert';
-  const primaryColor = isXpert ? 'crimson' : 'blue';
   const gradientFrom = isXpert ? 'from-red-900' : 'from-blue-900';
   const gradientTo = isXpert ? 'to-red-950' : 'to-blue-950';
   const accentColor = isXpert ? 'text-red-400' : 'text-blue-400';
@@ -148,6 +144,52 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
           </div>
         </section>
 
+        {/* Product Gallery - Premium showcase */}
+        {product.images.gallery && product.images.gallery.length > 0 && (
+          <section className="py-24 bg-gradient-to-b from-slate-900 to-slate-950">
+            <div className="max-w-7xl mx-auto px-6 sm:px-12">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-center mb-16"
+              >
+                <p className={`text-sm uppercase tracking-widest ${accentColor} mb-4`}>
+                  Visual Tour
+                </p>
+                <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+                  Product Gallery
+                </h2>
+                <p className="text-slate-400 max-w-2xl mx-auto">
+                  Explore the {product.name} from every angle. Premium engineering meets practical design.
+                </p>
+              </motion.div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {product.images.gallery.map((image, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="group relative aspect-square rounded-2xl overflow-hidden bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all duration-300"
+                  >
+                    <div className={`absolute inset-0 bg-gradient-to-br ${isXpert ? 'from-red-500/10' : 'from-blue-500/10'} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10`} />
+                    <Image
+                      src={image}
+                      alt={`${product.name} - View ${index + 1}`}
+                      fill
+                      className="object-contain p-6 group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
         {/* Features Grid - Premium flowing design */}
         <section className="py-24 bg-slate-950">
           <div className="max-w-7xl mx-auto px-6 sm:px-12">
@@ -230,6 +272,52 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
             </motion.div>
           </div>
         </section>
+
+        {/* Accessories Visual Showcase */}
+        {product.images.accessories && product.images.accessories.length > 0 && (
+          <section className="py-24 bg-gradient-to-b from-slate-950 to-slate-900">
+            <div className="max-w-7xl mx-auto px-6 sm:px-12">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-center mb-16"
+              >
+                <p className={`text-sm uppercase tracking-widest ${accentColor} mb-4`}>
+                  Accessories & Add-ons
+                </p>
+                <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+                  Enhanced Functionality
+                </h2>
+                <p className="text-slate-400 max-w-2xl mx-auto">
+                  Customize your {product.name} with premium accessories designed for maximum versatility.
+                </p>
+              </motion.div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {product.images.accessories.map((image, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="group relative aspect-square rounded-2xl overflow-hidden bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all duration-300"
+                  >
+                    <div className={`absolute inset-0 bg-gradient-to-br ${isXpert ? 'from-red-500/5' : 'from-blue-500/5'} to-transparent`} />
+                    <Image
+                      src={image}
+                      alt={`${product.name} Accessory ${index + 1}`}
+                      fill
+                      className="object-contain p-6 group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Included Accessories */}
         <section className="py-24 bg-slate-950">
@@ -334,7 +422,53 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
           </div>
         </section>
 
-        {/* Applications */}
+        {/* Applications Visual Gallery */}
+        {product.images.applications && product.images.applications.length > 0 && (
+          <section className="py-24 bg-gradient-to-b from-slate-950 to-slate-900">
+            <div className="max-w-7xl mx-auto px-6 sm:px-12">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="text-center mb-16"
+              >
+                <p className={`text-sm uppercase tracking-widest ${accentColor} mb-4`}>
+                  Real-World Solutions
+                </p>
+                <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+                  Applications in Action
+                </h2>
+                <p className="text-slate-400 max-w-2xl mx-auto">
+                  See how the {product.name} delivers exceptional results across diverse packaging scenarios.
+                </p>
+              </motion.div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {product.images.applications.map((image, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all duration-300"
+                  >
+                    <div className={`absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent z-10`} />
+                    <Image
+                      src={image}
+                      alt={`${product.name} Application ${index + 1}`}
+                      fill
+                      className="object-cover group-hover:scale-110 transition-transform duration-700"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Applications List */}
         <section className="py-24 bg-slate-950">
           <div className="max-w-7xl mx-auto px-6 sm:px-12">
             <motion.div
@@ -347,7 +481,7 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
                 Perfect For
               </p>
               <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-                Applications
+                Industry Applications
               </h2>
             </motion.div>
 

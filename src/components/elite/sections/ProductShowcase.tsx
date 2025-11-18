@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import {
   Battery,
@@ -24,62 +25,113 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
   const isXpert = productData.line === 'X-pert Line';
   const isLithium = productData.battery?.type === 'Lithium-Ion';
 
+  // Helper function to get product image path
+  const getProductImagePath = () => {
+    // Map model names to folder names
+    const modelMap: { [key: string]: string } = {
+      '745E': '745E',
+      '745X Li': '745X',
+      '726E': '726E',
+      '726X Li': '726X',
+      '713E': '713E',
+      '713X Li': '713X',
+      '700E': '700E',
+      '700X Li': '700X',
+      '700': '700',
+      '700 Go!': '700',
+      '700 Go! Li': '700'
+    };
+
+    const folderName = modelMap[productData.model] || '700';
+    return `/images/products/${folderName}/0.jpg`; // Use the main product image (0.jpg)
+  };
+
   return (
     <div className="space-y-0">
       {/* Slide 1: Product Hero */}
       <section data-section className="min-h-screen flex items-center justify-center relative">
-        <div className="max-w-7xl mx-auto px-8 sm:px-12 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          >
-            {/* Badge */}
-            <div className={`inline-flex items-center gap-3 px-8 py-4 rounded-full mb-8 ${
-              isXpert
-                ? 'bg-[#C8102E]/20 border-2 border-[#C8102E]/50'
-                : 'bg-white/10 border-2 border-white/20'
-            }`}>
-              <Package className={`h-6 w-6 ${isXpert ? 'text-[#FFB81C]' : 'text-white'}`} />
-              <span className={`font-bold tracking-wide ${isXpert ? 'text-[#FFB81C]' : 'text-white'}`}>
-                {productData.line}
-              </span>
-            </div>
-
-            {/* Model Name */}
-            <h1 className="text-8xl sm:text-9xl font-black tracking-tighter mb-6">
-              <span className="text-white">{productData.model}</span>
-            </h1>
-
-            {/* Full Name */}
-            <p className="text-3xl sm:text-4xl text-gray-400 font-light mb-8 max-w-4xl mx-auto">
-              {productData.fullName}
-            </p>
-
-            {/* Application Type */}
-            <div className={`inline-block px-6 py-3 rounded-full text-xl font-semibold ${
-              isXpert
-                ? 'bg-gradient-to-r from-[#C8102E] to-red-700 text-white'
-                : 'bg-white/10 text-gray-300'
-            }`}>
-              {productData.applicationType}
-            </div>
-
-            {/* Description */}
-            <p className="text-xl text-gray-500 mt-12 max-w-3xl mx-auto leading-relaxed">
-              {productData.description}
-            </p>
-
-            {/* Arrow Symbols */}
+        <div className="max-w-7xl mx-auto px-8 sm:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Text Content */}
             <motion.div
-              animate={{ opacity: [0.3, 1, 0.3] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="mt-16 text-[#C8102E] text-4xl"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="text-center lg:text-left"
             >
-              ↘ ► ↘
+              {/* Badge */}
+              <div className={`inline-flex items-center gap-3 px-8 py-4 rounded-full mb-8 ${
+                isXpert
+                  ? 'bg-[#C8102E]/20 border-2 border-[#C8102E]/50'
+                  : 'bg-white/10 border-2 border-white/20'
+              }`}>
+                <Package className={`h-6 w-6 ${isXpert ? 'text-[#FFB81C]' : 'text-white'}`} />
+                <span className={`font-bold tracking-wide ${isXpert ? 'text-[#FFB81C]' : 'text-white'}`}>
+                  {productData.line}
+                </span>
+              </div>
+
+              {/* Model Name */}
+              <h1 className="text-7xl sm:text-8xl lg:text-9xl font-black tracking-tighter mb-6">
+                <span className="text-white">{productData.model}</span>
+              </h1>
+
+              {/* Full Name */}
+              <p className="text-2xl sm:text-3xl text-gray-400 font-light mb-8">
+                {productData.fullName}
+              </p>
+
+              {/* Application Type */}
+              <div className={`inline-block px-6 py-3 rounded-full text-lg font-semibold ${
+                isXpert
+                  ? 'bg-gradient-to-r from-[#C8102E] to-red-700 text-white'
+                  : 'bg-white/10 text-gray-300'
+              }`}>
+                {productData.applicationType}
+              </div>
+
+              {/* Description */}
+              <p className="text-lg text-gray-500 mt-8 max-w-2xl leading-relaxed">
+                {productData.description}
+              </p>
+
+              {/* Arrow Symbols */}
+              <motion.div
+                animate={{ opacity: [0.3, 1, 0.3] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="mt-12 text-[#C8102E] text-3xl"
+              >
+                ↓ SCROLL FOR SPECS ↓
+              </motion.div>
             </motion.div>
-          </motion.div>
+
+            {/* Right: Product Image */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="relative"
+            >
+              {/* Glow effect behind image */}
+              <div className={`absolute inset-0 blur-3xl opacity-20 rounded-full ${
+                isXpert ? 'bg-[#C8102E]' : 'bg-white'
+              }`} />
+
+              {/* Image Container */}
+              <div className="relative aspect-square rounded-3xl overflow-hidden bg-white/5 border border-white/10 backdrop-blur-sm p-8">
+                <Image
+                  src={getProductImagePath()}
+                  alt={`${productData.fullName} - Industrial Strapping Machine`}
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
+                />
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
