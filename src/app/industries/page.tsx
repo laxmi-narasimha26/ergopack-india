@@ -22,26 +22,9 @@ import {
   Target,
   AlertTriangle,
 } from 'lucide-react';
-import { Metadata } from 'next';
 import Link from 'next/link';
 
-// SEO Metadata
-export const metadata: Metadata = {
-  title: 'Industry Solutions - Pharmaceuticals, Automotive, Electronics | ErgoPack India',
-  description:
-    'Specialized cargo securing solutions for pharmaceuticals, automotive, and electronics industries. Learn how ErgoPack systems solve industry-specific challenges.',
-  keywords: [
-    'pharmaceutical cargo securing',
-    'automotive logistics',
-    'electronics shipping',
-    'industry solutions',
-  ],
-  openGraph: {
-    title: 'Industry Solutions - ErgoPack India',
-    description: 'Specialized cargo securing solutions tailored to your industry needs.',
-    type: 'website',
-  },
-};
+// Note: Metadata export removed for client component compatibility
 
 // Hero Section
 function HeroSection() {

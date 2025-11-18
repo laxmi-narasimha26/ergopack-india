@@ -16,25 +16,7 @@ import {
   Award,
   Zap,
 } from 'lucide-react';
-import { Metadata } from 'next';
-
-// SEO Metadata
-export const metadata: Metadata = {
-  title: 'Request Invitation - Contact ErgoPack India',
-  description:
-    'Request an exclusive invitation to experience the X-pert Line and E-conomy Line cargo securing systems. Contact our team for a consultation and demonstration.',
-  keywords: [
-    'contact ErgoPack',
-    'request invitation',
-    'cargo securing consultation',
-    'product demonstration',
-  ],
-  openGraph: {
-    title: 'Request Invitation - ErgoPack India',
-    description: 'Join industry leaders with exclusive access to premium cargo securing solutions.',
-    type: 'website',
-  },
-};
+// Note: Metadata export removed for client component compatibility
 
 // Hero Section
 function HeroSection() {

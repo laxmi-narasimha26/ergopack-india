@@ -19,26 +19,9 @@ import {
   TrendingUp,
   DollarSign,
 } from 'lucide-react';
-import { Metadata } from 'next';
 import Link from 'next/link';
 
-// SEO Metadata
-export const metadata: Metadata = {
-  title: 'Product Comparison - X-pert vs E-conomy Line | ErgoPack India',
-  description:
-    'Compare the X-pert Line and E-conomy Line cargo securing systems. Understand the differences in features, specifications, and capabilities to choose the right solution for your needs.',
-  keywords: [
-    'product comparison',
-    'X-pert Line vs E-conomy',
-    'cargo securing comparison',
-    'ErgoPack comparison',
-  ],
-  openGraph: {
-    title: 'Product Comparison - X-pert vs E-conomy Line',
-    description: 'Compare our cargo securing systems and find the perfect solution for your needs.',
-    type: 'website',
-  },
-};
+// Note: Metadata export removed for client component compatibility
 
 // Hero Section
 function HeroSection() {

@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import MainLayout from '@/components/layout/MainLayout';
-import { PremiumLoadingScreen } from '@/components/ui/PremiumLoadingScreen';
+import PremiumPreloader from '@/components/elite/ui/PremiumPreloader';
 import Link from 'next/link';
 import Image from 'next/image';
 import Head from 'next/head';
@@ -104,7 +104,6 @@ export default function ProductPageTemplate({
   applicationImages = [],
   comparisonLink,
 }: ProductPageTemplateProps) {
-  const [isLoading, setIsLoading] = useState(true);
   const isEconomyLine = productData.line.includes('Economy');
   const isXpertLine = productData.line.includes('X-pert');
 
@@ -878,20 +877,18 @@ export default function ProductPageTemplate({
 
   return (
     <>
-      <PremiumLoadingScreen onLoadingComplete={() => setIsLoading(false)} />
-      {!isLoading && (
-        <MainLayout>
-          <div className="bg-luxury-space-black">
-            <HeroSection />
-            <SystemSpecsSection />
-            <SealingHeadSection />
-            <FeaturesSection />
-            <CertificationsSection />
-            <ApplicationsSection />
-            <CTASection />
-          </div>
-        </MainLayout>
-      )}
+      <PremiumPreloader />
+      <MainLayout>
+        <div className="bg-luxury-space-black">
+          <HeroSection />
+          <SystemSpecsSection />
+          <SealingHeadSection />
+          <FeaturesSection />
+          <CertificationsSection />
+          <ApplicationsSection />
+          <CTASection />
+        </div>
+      </MainLayout>
     </>
   );
 }
