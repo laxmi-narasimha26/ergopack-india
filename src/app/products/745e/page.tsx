@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
-import ProductPageTemplate from '@/components/products/ProductPageTemplate';
-import productsData from '@/../../products-data.json';
+import PremiumProductPage from '@/components/products/PremiumProductPage';
+import { ergoPack745E } from '@/data/comprehensive-products';
 
 export const metadata: Metadata = {
   title: 'ErgoPack 745E - Mobile & Ergonomic Pallet Strapping System | Economy Line',
@@ -18,30 +18,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'ErgoPack 745E - Economy Line Mobile Pallet Strapping System',
     description: 'Professional mobile pallet strapping with 400-4500N tension power and 350 cycles per charge. AGR certified ergonomic design.',
-    images: ['/images/products/745E/hero.jpg'],
+    images: ['/images/products/745E/1.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'ErgoPack 745E - Mobile Pallet Strapping System',
     description: 'Economy Line mobile strapping with 4500N max tension and AGR certified ergonomic design.',
-    images: ['/images/products/745E/hero.jpg'],
+    images: ['/images/products/745E/1.png'],
   },
 };
 
 export default function ErgoPack745EPage() {
-  const productData = productsData.products['745E'];
-
-  return (
-    <ProductPageTemplate
-      productData={productData}
-      heroImage="/images/products/745E/hero.jpg"
-      applicationImages={[
-        '/images/products/745E/application-1.jpg',
-        '/images/products/745E/application-2.jpg',
-        '/images/products/745E/application-3.jpg',
-      ]}
-      comparisonLink="/products/compare-machines?models=745E,745X"
-    />
-  );
+  return <PremiumProductPage product={ergoPack745E} />;
 }

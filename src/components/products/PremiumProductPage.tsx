@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import MainLayout from '@/components/layout/MainLayout';
 import Button from '@/components/ui/Button';
+import { MinimalLoadingScreen } from '@/components/ui/MinimalLoadingScreen';
 import {
   CheckCircle2,
   ArrowRight,
@@ -28,10 +29,12 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
   const bgAccent = isXpert ? 'bg-red-500/10' : 'bg-blue-500/10';
 
   return (
-    <MainLayout>
-      <div className="bg-slate-950 min-h-screen">
-        {/* Hero Section - Premium, not boxy */}
-        <section className={`relative min-h-[90vh] bg-gradient-to-br ${gradientFrom} via-slate-900 ${gradientTo} overflow-hidden`}>
+    <>
+      <MinimalLoadingScreen />
+      <MainLayout>
+        <div className="bg-slate-950 min-h-screen">
+          {/* Hero Section - Premium, not boxy */}
+          <section className={`relative min-h-[90vh] bg-gradient-to-br ${gradientFrom} via-slate-900 ${gradientTo} overflow-hidden`}>
           {/* Animated background orbs */}
           <div className="absolute inset-0">
             <motion.div
@@ -566,7 +569,8 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
             </motion.div>
           </div>
         </section>
-      </div>
-    </MainLayout>
+        </div>
+      </MainLayout>
+    </>
   );
 }

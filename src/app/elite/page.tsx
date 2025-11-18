@@ -25,6 +25,7 @@ import MachineOperation from '@/components/elite/animations/MachineOperation';
 
 // Common Intro Sections
 import HeroSection from '@/components/elite/sections/HeroSection';
+import PartnershipIntroSection from '@/components/elite/sections/PartnershipIntroSection';
 import PrecisionSection from '@/components/elite/sections/PrecisionSection';
 import EngineeringSection from '@/components/elite/sections/EngineeringSection';
 
@@ -149,16 +150,19 @@ export default function ElitePage() {
             {/* Section 1: Hero Introduction */}
             <HeroSection sectionNumber={1} />
 
-            {/* Section 2: Precision Engineering */}
-            <PrecisionSection sectionNumber={2} />
+            {/* Section 2: Partnership Story - Benz + ErgoPack Germany */}
+            <PartnershipIntroSection sectionNumber={2} />
 
-            {/* Section 3: Machine Operation Animation */}
+            {/* Section 3: Precision Engineering */}
+            <PrecisionSection sectionNumber={3} />
+
+            {/* Section 4: Machine Operation Animation */}
             <section data-section className="relative">
               <MachineOperation />
             </section>
 
-            {/* Section 4: German Engineering */}
-            <EngineeringSection sectionNumber={3} />
+            {/* Section 5: German Engineering */}
+            <EngineeringSection sectionNumber={5} />
 
             {/* ========== PRODUCT SELECTION TRIGGER ========== */}
             {!selectedProduct && (
