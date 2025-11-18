@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: 'ErgoPack GO - Economy Portable Mobile Strapping System',
     description: 'Portable mobile strapping with multi-material compatibility and flexible operation.',
     images: ['/images/products/GO/hero.jpg'],
-    type: 'product',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',

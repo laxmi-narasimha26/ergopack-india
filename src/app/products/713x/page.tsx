@@ -1,46 +1,33 @@
 import { Metadata } from 'next';
-import ProductPageTemplate from '@/components/products/ProductPageTemplate';
-import productsData from '@/../../products-data.json';
+import PremiumProductPage from '@/components/products/PremiumProductPage';
+import { ergoPack713X } from '@/data/comprehensive-products';
 
 export const metadata: Metadata = {
-  title: 'ErgoPack 713X Li - Premium Ultra-Light Strapping System | X-pert Line',
-  description: 'ErgoPack 713X Li X-pert Line with Lithium-Ion power, 66 m/min speed, 1200 cycles, Siemens touchscreen. Premium ultra-light-duty strapping for delicate applications.',
+  title: 'ErgoPack 713X Li - Ultimate Complete System | X-pert Line',
+  description: 'ErgoPack 713X Li X-pert Line with sealing head, tool-lift, AND line-laser ALL INCLUDED. Lithium-Ion 1200 cycles, 66m/min speed, Siemens touchscreen control.',
   keywords: [
     'ErgoPack 713X',
-    'lithium ultra-light',
-    'X-pert 713',
-    'premium delicate strapping',
-    'Siemens touchscreen',
+    'complete strapping system',
+    'sealing head included',
+    'line-laser included',
+    'tool-lift included',
     '1200 cycles',
-    'precision strapping',
+    'Siemens touchscreen',
   ],
   openGraph: {
-    title: 'ErgoPack 713X Li - X-pert Line Ultra-Light Strapping System',
-    description: 'Premium ultra-light strapping with Li-Ion technology and Siemens touchscreen for delicate packaging.',
-    images: ['/images/products/713X/hero.jpg'],
-    type: 'product',
+    title: 'ErgoPack 713X Li - Ultimate Complete Strapping & Sealing System',
+    description: 'X-pert Line with sealing head + tool-lift + line-laser ALL INCLUDED for professional packaging.',
+    images: ['/images/products/713X/1.png'],
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ErgoPack 713X Li - Premium Ultra-Light Strapping',
-    description: 'X-pert performance for ultra-light-duty applications with precision control.',
-    images: ['/images/products/713X/hero.jpg'],
+    title: 'ErgoPack 713X Li - Ultimate Complete System',
+    description: 'Sealing head, tool-lift, and line-laser ALL INCLUDED in premium X-pert package.',
+    images: ['/images/products/713X/1.png'],
   },
 };
 
 export default function ErgoPack713XPage() {
-  const productData = productsData.products['713X'];
-
-  return (
-    <ProductPageTemplate
-      productData={productData}
-      heroImage="/images/products/713X/hero.jpg"
-      applicationImages={[
-        '/images/products/713X/application-1.jpg',
-        '/images/products/713X/application-2.jpg',
-        '/images/products/713X/application-3.jpg',
-      ]}
-      comparisonLink="/products/compare-machines?models=713E,713X"
-    />
-  );
+  return <PremiumProductPage product={ergoPack713X} />;
 }

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     title: 'ErgoPack 745X Li - X-pert Line Lithium-Ion Strapping System',
     description: 'Premium mobile strapping with Li-Ion technology, 66 m/min speed, 1200 cycles, and Siemens touchscreen control.',
     images: ['/images/products/745X/hero.jpg'],
-    type: 'product',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',

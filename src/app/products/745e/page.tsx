@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: 'ErgoPack 745E - Economy Line Mobile Pallet Strapping System',
     description: 'Professional mobile pallet strapping with 400-4500N tension power and 350 cycles per charge. AGR certified ergonomic design.',
     images: ['/images/products/745E/hero.jpg'],
-    type: 'product',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
