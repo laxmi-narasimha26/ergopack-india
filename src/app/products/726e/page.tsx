@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: 'ErgoPack 726E - Economy Line Light-Duty Strapping System',
     description: 'Light-duty mobile pallet strapping with 400-2500N tension power. Perfect for lighter packaging applications.',
     images: ['/images/products/726E/hero.jpg'],
-    type: 'product',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',

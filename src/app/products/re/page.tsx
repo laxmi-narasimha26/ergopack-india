@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: 'ErgoPack RE - Premium Mobile Retracting Strapping System',
     description: 'Premium mobile retracting system with Li-Ion power, automatic rewinder, and Siemens control.',
     images: ['/images/products/RE/hero.jpg'],
-    type: 'product',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',

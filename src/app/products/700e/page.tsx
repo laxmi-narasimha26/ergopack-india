@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
-import ProductPageTemplate from '@/components/products/ProductPageTemplate';
-import productsData from '@/../../products-data.json';
+import PremiumProductPage from '@/components/products/PremiumProductPage';
+import { ergoPack700E } from '@/data/comprehensive-products';
 
 export const metadata: Metadata = {
   title: 'ErgoPack 700E - Multi-Material Battery Strapping System | Economy Line',
@@ -17,30 +17,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'ErgoPack 700E - Economy Multi-Material Strapping System',
     description: 'Battery-powered multi-material strapping for PP, PET, Paper, Cord, and Composite materials.',
-    images: ['/images/products/700E/hero.jpg'],
-    type: 'product',
+    images: ['/images/products/700E/18.png'],
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'ErgoPack 700E - Multi-Material Strapping',
     description: 'Versatile strapping solution for all material types with battery automation.',
-    images: ['/images/products/700E/hero.jpg'],
+    images: ['/images/products/700E/18.png'],
   },
 };
 
 export default function ErgoPack700EPage() {
-  const productData = productsData.products['700E'];
-
-  return (
-    <ProductPageTemplate
-      productData={productData}
-      heroImage="/images/products/700E/hero.jpg"
-      applicationImages={[
-        '/images/products/700E/application-1.jpg',
-        '/images/products/700E/application-2.jpg',
-        '/images/products/700E/application-3.jpg',
-      ]}
-      comparisonLink="/products/compare-machines?models=700,700E,700X"
-    />
-  );
+  return <PremiumProductPage product={ergoPack700E} />;
 }

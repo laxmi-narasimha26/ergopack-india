@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: 'ErgoPack 713X Li - X-pert Line Ultra-Light Strapping System',
     description: 'Premium ultra-light strapping with Li-Ion technology and Siemens touchscreen for delicate packaging.',
     images: ['/images/products/713X/hero.jpg'],
-    type: 'product',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',

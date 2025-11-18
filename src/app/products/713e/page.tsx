@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: 'ErgoPack 713E - Economy Line Ultra-Light-Duty Strapping',
     description: 'Ultra-light-duty mobile strapping with 150-1200N tension for delicate packaging applications.',
     images: ['/images/products/713E/hero.jpg'],
-    type: 'product',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: 'ErgoPack 726X Li - X-pert Line Light-Duty Strapping System',
     description: 'Premium light-duty strapping with Li-Ion technology, 66 m/min speed, and advanced Siemens touchscreen control.',
     images: ['/images/products/726X/hero.jpg'],
-    type: 'product',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',

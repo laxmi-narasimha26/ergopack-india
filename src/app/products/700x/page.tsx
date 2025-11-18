@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: 'ErgoPack 700X Li - X-pert Multi-Material Strapping System',
     description: 'Premium multi-material strapping with Li-Ion technology and universal material compatibility.',
     images: ['/images/products/700X/hero.jpg'],
-    type: 'product',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
