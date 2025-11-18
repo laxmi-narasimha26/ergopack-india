@@ -1,46 +1,34 @@
 import { Metadata } from 'next';
-import ProductPageTemplate from '@/components/products/ProductPageTemplate';
-import productsData from '@/../../products-data.json';
+import PremiumProductPage from '@/components/products/PremiumProductPage';
+import { ergoPack726X } from '@/data/comprehensive-products';
 
 export const metadata: Metadata = {
-  title: 'ErgoPack 726X Li - Premium Light-Duty Pallet Strapping | X-pert Line',
-  description: 'ErgoPack 726X Li X-pert Line with Lithium-Ion battery, 66 m/min speed, 1200 cycles, Siemens touchscreen, and line laser for professional light-duty strapping applications.',
+  title: 'ErgoPack 726X Li - Premium Mobile Complete System | X-pert Line',
+  description: 'ErgoPack 726X Li X-pert Line with sealing head, tool-lift, AND line-laser ALL INCLUDED. Premium Lithium-Ion with 1200 cycles, 66m/min speed, and Siemens touchscreen control.',
   keywords: [
     'ErgoPack 726X',
-    'lithium-ion light-duty',
-    'X-pert line 726',
-    'premium light strapping',
-    'Siemens control',
+    'sealing head included',
+    'tool-lift included',
+    'line-laser included',
+    'Siemens touchscreen',
     '1200 cycles',
-    'line laser strapping',
+    'premium mobile strapping',
+    'lithium-ion',
   ],
   openGraph: {
-    title: 'ErgoPack 726X Li - X-pert Line Light-Duty Strapping System',
-    description: 'Premium light-duty strapping with Li-Ion technology, 66 m/min speed, and advanced Siemens touchscreen control.',
-    images: ['/images/products/726X/hero.jpg'],
+    title: 'ErgoPack 726X Li - Premium Mobile Complete System',
+    description: 'X-pert Line with sealing head + tool-lift + line-laser ALL INCLUDED. Siemens touchscreen and 1200 cycles for premium mobile operations.',
+    images: ['/images/products/726X/1.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ErgoPack 726X Li - Premium Light-Duty Strapping',
-    description: 'X-pert Line performance for light-duty applications with lithium-ion power.',
-    images: ['/images/products/726X/hero.jpg'],
+    title: 'ErgoPack 726X Li - Premium Mobile Complete System',
+    description: 'Complete X-pert package with sealing head, tool-lift, and line-laser ALL INCLUDED.',
+    images: ['/images/products/726X/1.png'],
   },
 };
 
 export default function ErgoPack726XPage() {
-  const productData = productsData.products['726X'];
-
-  return (
-    <ProductPageTemplate
-      productData={productData}
-      heroImage="/images/products/726X/hero.jpg"
-      applicationImages={[
-        '/images/products/726X/application-1.jpg',
-        '/images/products/726X/application-2.jpg',
-        '/images/products/726X/application-3.jpg',
-      ]}
-      comparisonLink="/products/compare-machines?models=726E,726X"
-    />
-  );
+  return <PremiumProductPage product={ergoPack726X} />;
 }

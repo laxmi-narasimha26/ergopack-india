@@ -1,46 +1,34 @@
 import { Metadata } from 'next';
-import ProductPageTemplate from '@/components/products/ProductPageTemplate';
-import productsData from '@/../../products-data.json';
+import PremiumProductPage from '@/components/products/PremiumProductPage';
+import { ergoPack726E } from '@/data/comprehensive-products';
 
 export const metadata: Metadata = {
-  title: 'ErgoPack 726E - Light-Duty Mobile Pallet Strapping System | Economy Line',
-  description: 'ErgoPack 726E Economy Line for light-duty applications with 400-2500N tension, 13-16mm strap width, 350 cycles per charge. Cost-effective ergonomic pallet strapping solution.',
+  title: 'ErgoPack 726E - Mobile Complete Strapping & Sealing System | Economy Line',
+  description: 'ErgoPack 726E Economy Line mobile system with sealing head and tool-lift included. Complete strapping and sealing solution with 350 cycles, 40m/min speed, PP and PET compatibility.',
   keywords: [
     'ErgoPack 726E',
-    'light-duty strapping',
-    'economy strapping',
-    'mobile pallet strapping',
-    '2500N tension',
-    'cost-effective strapping',
+    'sealing head included',
+    'tool-lift included',
+    'mobile strapping system',
+    'complete strapping solution',
+    'PP PET sealing',
+    '350 cycles',
     'AGR certified',
   ],
   openGraph: {
-    title: 'ErgoPack 726E - Economy Line Light-Duty Strapping System',
-    description: 'Light-duty mobile pallet strapping with 400-2500N tension power. Perfect for lighter packaging applications.',
-    images: ['/images/products/726E/hero.jpg'],
+    title: 'ErgoPack 726E - Mobile Complete Strapping & Sealing System',
+    description: 'Economy Line mobile system with sealing head and tool-lift included for professional pallet strapping and sealing.',
+    images: ['/images/products/726E/1.png'],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ErgoPack 726E - Light-Duty Pallet Strapping',
-    description: 'Economical light-duty strapping solution with AGR certified ergonomic design.',
-    images: ['/images/products/726E/hero.jpg'],
+    title: 'ErgoPack 726E - Mobile Strapping & Sealing',
+    description: 'Complete mobile solution with sealing head and tool-lift included for professional packaging.',
+    images: ['/images/products/726E/1.png'],
   },
 };
 
 export default function ErgoPack726EPage() {
-  const productData = productsData.products['726E'];
-
-  return (
-    <ProductPageTemplate
-      productData={productData}
-      heroImage="/images/products/726E/hero.jpg"
-      applicationImages={[
-        '/images/products/726E/application-1.jpg',
-        '/images/products/726E/application-2.jpg',
-        '/images/products/726E/application-3.jpg',
-      ]}
-      comparisonLink="/products/compare-machines?models=726E,726X"
-    />
-  );
+  return <PremiumProductPage product={ergoPack726E} />;
 }
