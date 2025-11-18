@@ -3,6 +3,7 @@
 import React from 'react';
 import SectionWrapper from '../shared/SectionWrapper';
 import { motion } from 'framer-motion';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 export default function FinalCTASection({ sectionNumber }: { sectionNumber: number }) {
   return (
@@ -12,10 +13,10 @@ export default function FinalCTASection({ sectionNumber }: { sectionNumber: numb
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
         >
-          <h2 className="text-7xl md:text-9xl lg:text-[12rem] font-black text-white leading-none mb-8">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-8 tracking-tight">
             JOIN INDIA&apos;S
             <br />
             <span className="text-[#C8102E]">ELITE OPERATORS</span>
@@ -25,9 +26,9 @@ export default function FinalCTASection({ sectionNumber }: { sectionNumber: numb
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.3 }}
+          transition={{ duration: 2, delay: 0.5 }}
           viewport={{ once: true }}
-          className="text-2xl text-gray-400 max-w-3xl mx-auto"
+          className="text-xl text-gray-400 max-w-3xl mx-auto"
         >
           Transform your packaging operation. Apply for Elite Partnership today.
         </motion.p>
@@ -36,7 +37,7 @@ export default function FinalCTASection({ sectionNumber }: { sectionNumber: numb
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6 }}
+          transition={{ duration: 2, delay: 1 }}
           viewport={{ once: true }}
           className="flex flex-col md:flex-row items-center justify-center gap-6 mt-12"
         >
@@ -65,26 +66,29 @@ export default function FinalCTASection({ sectionNumber }: { sectionNumber: numb
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.9 }}
+          transition={{ duration: 2, delay: 1.5 }}
           viewport={{ once: true }}
           className="mt-16 pt-12 border-t border-gray-800"
         >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto text-gray-500">
-            <div>
-              <h5 className="text-white font-semibold mb-2">Email</h5>
-              <a href="mailto:elite@ergopack.in" className="hover:text-[#FFB81C] transition-colors">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="flex flex-col items-center gap-3">
+              <Mail className="w-6 h-6 text-[#C8102E]" strokeWidth={1.5} />
+              <h5 className="text-white font-semibold">Email</h5>
+              <a href="mailto:elite@ergopack.in" className="text-gray-400 hover:text-[#FFB81C] transition-colors">
                 elite@ergopack.in
               </a>
             </div>
-            <div>
-              <h5 className="text-white font-semibold mb-2">Phone</h5>
-              <a href="tel:+911234567890" className="hover:text-[#FFB81C] transition-colors">
+            <div className="flex flex-col items-center gap-3">
+              <Phone className="w-6 h-6 text-[#C8102E]" strokeWidth={1.5} />
+              <h5 className="text-white font-semibold">Phone</h5>
+              <a href="tel:+911234567890" className="text-gray-400 hover:text-[#FFB81C] transition-colors">
                 +91 123 456 7890
               </a>
             </div>
-            <div>
-              <h5 className="text-white font-semibold mb-2">Location</h5>
-              <p>Mumbai, India</p>
+            <div className="flex flex-col items-center gap-3">
+              <MapPin className="w-6 h-6 text-[#C8102E]" strokeWidth={1.5} />
+              <h5 className="text-white font-semibold">Location</h5>
+              <p className="text-gray-400">Mumbai, India</p>
             </div>
           </div>
         </motion.div>
@@ -93,7 +97,7 @@ export default function FinalCTASection({ sectionNumber }: { sectionNumber: numb
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.2 }}
+          transition={{ duration: 2, delay: 2 }}
           viewport={{ once: true }}
           className="text-gray-600 text-sm mt-16 pb-12"
         >

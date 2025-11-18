@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import MassiveText from '../shared/MassiveText';
+import { BarChart3, Link2, Smartphone, Bell } from 'lucide-react';
 
 export default function IntelligenceSection({ sectionNumber }: { sectionNumber: number }) {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -13,93 +13,91 @@ export default function IntelligenceSection({ sectionNumber }: { sectionNumber: 
 
   const features = [
     {
-      icon: '📊',
+      icon: BarChart3,
       title: 'Real-Time Analytics',
-      description: 'Live production metrics. Performance dashboards. Predictive insights.',
+      description: 'Live production metrics with performance dashboards and predictive insights for data-driven decision making.',
       delay: 0,
     },
     {
-      icon: '🔗',
+      icon: Link2,
       title: 'ERP Integration',
-      description: 'Seamless SAP, Oracle integration. Bi-directional data flow. API-first architecture.',
-      delay: 0.2,
+      description: 'Seamless SAP and Oracle integration with bi-directional data flow and API-first architecture.',
+      delay: 0.3,
     },
     {
-      icon: '📱',
+      icon: Smartphone,
       title: 'Remote Monitoring',
-      description: '24/7 access anywhere. Mobile-first interface. Cloud-synchronized.',
-      delay: 0.4,
+      description: '24/7 access from anywhere with mobile-first interface and cloud-synchronized operations.',
+      delay: 0.6,
     },
     {
-      icon: '🔔',
+      icon: Bell,
       title: 'Predictive Maintenance',
-      description: 'AI-powered alerts. Prevent downtime before it happens. Smart diagnostics.',
-      delay: 0.6,
+      description: 'AI-powered alerts to prevent downtime before it happens with smart diagnostics and scheduling.',
+      delay: 0.9,
     },
   ];
 
   return (
     <section ref={sectionRef} data-section className="relative min-h-screen py-32 px-8">
-      <MassiveText text="INDUSTRY 4.0" />
+      {/* Section Header */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
+        viewport={{ once: true }}
+        className="text-center mb-24"
+      >
+        <div className="inline-block mb-6">
+          <span className="text-xs text-[#FFB81C] uppercase tracking-[0.3em] font-mono">
+            Industry 4.0
+          </span>
+        </div>
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
+          Intelligent Connectivity
+        </h2>
+      </motion.div>
 
-      <div className="mt-20 max-w-7xl mx-auto">
-        {/* Flowing Diagonal Layout - NO GRID */}
-        <div className="relative space-y-24">
+      <div className="mt-20 max-w-6xl mx-auto">
+        {/* Clean Grid Layout - 2x2 with proper spacing */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
           {features.map((feature, idx) => {
-            const isEven = idx % 2 === 0;
-            const y = useTransform(scrollYProgress, [0, 1], [idx * 50, -idx * 50]);
+            const Icon = feature.icon;
 
             return (
               <motion.div
                 key={idx}
-                style={{ y }}
-                initial={{ opacity: 0, x: isEven ? -100 : 100 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1.2, delay: feature.delay, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 2.5, delay: feature.delay, ease: [0.16, 1, 0.3, 1] }}
                 viewport={{ once: true }}
-                className={`flex items-start gap-8 ${isEven ? 'flex-row' : 'flex-row-reverse'} max-w-4xl ${isEven ? '' : 'ml-auto'}`}
+                className="group"
               >
-                {/* Icon with Glow */}
-                <motion.div
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="flex-shrink-0"
-                >
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-[#C8102E] blur-2xl opacity-30" />
-                    <div className="relative text-8xl">{feature.icon}</div>
+                <div className="relative">
+                  {/* Icon with subtle glow */}
+                  <div className="mb-6">
+                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl border border-[#C8102E]/30 bg-[#C8102E]/5 transition-all duration-500 group-hover:border-[#C8102E]/50 group-hover:bg-[#C8102E]/10">
+                      <Icon className="w-8 h-8 text-[#C8102E]" strokeWidth={1.5} />
+                    </div>
                   </div>
-                </motion.div>
 
-                {/* Content */}
-                <div className={`flex-1 ${isEven ? 'text-left' : 'text-right'}`}>
-                  <motion.div
-                    className={`mb-4 h-px bg-gradient-to-${isEven ? 'r' : 'l'} from-[#C8102E] via-[#FFB81C] to-transparent`}
-                    initial={{ scaleX: 0 }}
-                    whileInView={{ scaleX: 1 }}
-                    transition={{ duration: 1, delay: feature.delay + 0.3 }}
-                    viewport={{ once: true }}
-                    style={{ transformOrigin: isEven ? 'left' : 'right' }}
-                  />
-
-                  <h3 className="text-3xl md:text-4xl font-black text-white mb-4 tracking-tight">
+                  {/* Content */}
+                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight">
                     {feature.title}
                   </h3>
 
-                  <p className="text-gray-500 text-lg leading-relaxed font-light max-w-md">
+                  <p className="text-gray-500 text-base md:text-lg leading-relaxed font-light">
                     {feature.description}
                   </p>
 
+                  {/* Subtle bottom accent */}
                   <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: feature.delay + 0.6 }}
+                    initial={{ scaleX: 0 }}
+                    whileInView={{ scaleX: 1 }}
+                    transition={{ duration: 2, delay: feature.delay + 0.5 }}
                     viewport={{ once: true }}
-                    className={`mt-6 inline-block`}
-                  >
-                    <span className="text-[#FFB81C] text-sm font-mono uppercase tracking-wider">
-                      ► Learn More
-                    </span>
-                  </motion.div>
+                    className="mt-6 h-px bg-gradient-to-r from-[#C8102E]/50 to-transparent origin-left"
+                  />
                 </div>
               </motion.div>
             );

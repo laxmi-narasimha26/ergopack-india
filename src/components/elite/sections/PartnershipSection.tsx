@@ -3,17 +3,18 @@
 import React from 'react';
 import SectionWrapper from '../shared/SectionWrapper';
 import { motion } from 'framer-motion';
+import { Check } from 'lucide-react';
 
 export default function PartnershipSection({ sectionNumber }: { sectionNumber: number }) {
   return (
     <SectionWrapper sectionNumber={sectionNumber}>
       <div className="text-center space-y-12">
         <motion.h2
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="text-6xl md:text-8xl font-black text-white"
+          className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight"
         >
           PARTNERSHIP PROCESS
         </motion.h2>
@@ -21,7 +22,7 @@ export default function PartnershipSection({ sectionNumber }: { sectionNumber: n
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.2 }}
+          transition={{ duration: 2, delay: 0.5 }}
           viewport={{ once: true }}
           className="text-xl text-gray-400 max-w-3xl mx-auto"
         >
@@ -66,7 +67,7 @@ export default function PartnershipSection({ sectionNumber }: { sectionNumber: n
               key={idx}
               initial={{ opacity: 0, x: -40 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: idx * 0.1 }}
+              transition={{ duration: 2, delay: 1 + idx * 0.2 }}
               viewport={{ once: true }}
               className="flex items-start gap-6 mb-8 bg-gradient-to-r from-[#1A0000] to-transparent border-l-4 border-[#C8102E] p-6 rounded-r-lg"
             >
@@ -85,7 +86,13 @@ export default function PartnershipSection({ sectionNumber }: { sectionNumber: n
         </div>
 
         {/* Eligibility Criteria */}
-        <div className="bg-black/60 border border-[#4A0000] p-8 rounded-lg max-w-3xl mx-auto text-left">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 2, delay: 2 }}
+          viewport={{ once: true }}
+          className="bg-black/60 border border-[#4A0000] p-8 rounded-lg max-w-3xl mx-auto text-left"
+        >
           <h4 className="text-white font-bold text-xl mb-4 text-center">Eligibility Criteria</h4>
           <ul className="space-y-2 text-gray-400">
             {[
@@ -94,13 +101,20 @@ export default function PartnershipSection({ sectionNumber }: { sectionNumber: n
               'Facility infrastructure suitable for automation',
               'Dedicated team for operator training',
             ].map((criterion, idx) => (
-              <li key={idx} className="flex items-start gap-3">
-                <span className="text-[#FFB81C] mt-1">✓</span>
+              <motion.li
+                key={idx}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 2, delay: 2.3 + idx * 0.1 }}
+                viewport={{ once: true }}
+                className="flex items-start gap-3"
+              >
+                <Check className="w-5 h-5 text-[#FFB81C] flex-shrink-0 mt-0.5" strokeWidth={2} />
                 <span>{criterion}</span>
-              </li>
+              </motion.li>
             ))}
           </ul>
-        </div>
+        </motion.div>
       </div>
     </SectionWrapper>
   );
