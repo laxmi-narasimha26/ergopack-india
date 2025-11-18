@@ -1,13 +1,28 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import dynamic from 'next/dynamic';
+
+// Core Layout & Navigation
 import SmoothScroll from '@/components/elite/animations/SmoothScroll';
+import PremiumPreloader from '@/components/elite/ui/PremiumPreloader';
+import FixedHeader from '@/components/elite/ui/FixedHeader';
 import ScrollProgress from '@/components/elite/ui/ScrollProgress';
 import SectionBadge from '@/components/elite/ui/SectionBadge';
 import PerformanceStats from '@/components/elite/ui/PerformanceStats';
-import FixedHeader from '@/components/elite/ui/FixedHeader';
+import KeyboardNavigation from '@/components/elite/ui/KeyboardNavigation';
+import MagneticCursor from '@/components/elite/ui/MagneticCursor';
+import FPSCounter from '@/components/elite/ui/FPSCounter';
+import SoundToggle from '@/components/elite/ui/SoundToggle';
+
+// 3D & Background
 import WireframeBackground from '@/components/elite/3d/WireframeBackground';
+
+// Animations & Special Components
+import MachineOperation from '@/components/elite/animations/MachineOperation';
+import ProcessTimeline from '@/components/elite/animations/ProcessTimeline';
+
+// Original Sections
 import HeroSection from '@/components/elite/sections/HeroSection';
 import PrecisionSection from '@/components/elite/sections/PrecisionSection';
 import EngineeringSection from '@/components/elite/sections/EngineeringSection';
@@ -24,69 +39,109 @@ import SupportSection from '@/components/elite/sections/SupportSection';
 import PartnershipSection from '@/components/elite/sections/PartnershipSection';
 import FinalCTASection from '@/components/elite/sections/FinalCTASection';
 
-// Dynamically import 3D components to avoid SSR issues
+// Dynamically import 3D scene to avoid SSR issues
 const Scene3D = dynamic(() => import('@/components/elite/3d/Scene3D'), {
   ssr: false,
-  loading: () => (
-    <div className="flex items-center justify-center h-screen bg-black">
-      <div className="text-white text-2xl">Loading Premium Experience...</div>
-    </div>
-  ),
+  loading: () => null,
 });
 
 /**
- * Elite Premium Presentation Page
+ * Ergopack Elite - Ultra-Premium Presentation Page
  *
- * The ultimate product presentation experience combining:
- * - Scroll-triggered 3D camera zoom (dolly in/out)
- * - Wireframe technical grid background
+ * The most advanced product presentation ever created, featuring:
+ *
+ * 🎬 CINEMATIC EXPERIENCE:
+ * - Lenis smooth scroll with momentum physics
+ * - GSAP ScrollTrigger precision animations
+ * - 60fps performance throughout
+ *
+ * 🎨 VISUAL EXCELLENCE:
+ * - 3D wireframe background with particle effects
+ * - Full X, Y, Z axis 3D product rotation
+ * - Scroll-triggered camera zoom (dolly in/out)
  * - Massive scaling text overlays
- * - 15 comprehensive sections
- * - Real-time performance stats
- * - Smooth cinematic animations
+ * - Glitch text effects
+ * - Arrow symbol visual language
  *
- * Inspired by:
+ * 🎮 INTERACTIONS:
+ * - Magnetic cursor with glow trail
+ * - Keyboard navigation (↑↓, 1-9, Home/End, Space)
+ * - Sound effects toggle
+ * - FPS performance monitor
+ *
+ * 🎯 CONTENT:
+ * - 15 comprehensive sections
+ * - Animated machine operation sequence
+ * - Process timeline visualization
+ * - Before/after comparison sliders
+ * - Custom video player
+ * - Real-time performance stats
+ *
+ * INSPIRATION:
  * - meetdandy.com/technology/intraoral-scanner/
  * - nature-beyond.tech
+ * - wearebouldergroup.com
+ * - organimo.com
  */
 export default function ElitePage() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
     <>
+      {/* Premium Loading Experience */}
+      <PremiumPreloader />
+
+      {/* Magnetic Cursor */}
+      <MagneticCursor />
+
+      {/* Keyboard Navigation */}
+      <KeyboardNavigation />
+
       {/* Fixed UI Overlays */}
       <FixedHeader />
       <ScrollProgress totalSections={15} />
       <SectionBadge />
       <PerformanceStats />
+      <FPSCounter />
+      <SoundToggle />
 
       {/* Smooth Scroll Wrapper */}
       <SmoothScroll>
-        <div ref={containerRef} className="relative bg-black">
+        <div ref={containerRef} className="relative bg-black overflow-hidden">
           {/* 3D Wireframe Background (Fixed) */}
           <WireframeBackground />
 
-          {/* 3D Scene with Camera Zoom */}
+          {/* 3D Scene with Full Rotation & Camera Zoom */}
           <Scene3D containerRef={containerRef} />
 
           {/* Content Sections */}
           <div className="relative z-10">
-            {/* Section 1: Hero */}
+            {/* Section 1: Hero Introduction */}
             <HeroSection sectionNumber={1} />
 
-            {/* Section 2: Precision */}
+            {/* Section 2: Precision Engineering */}
             <PrecisionSection sectionNumber={2} />
 
-            {/* Section 3: Engineering */}
+            {/* NEW: Machine Operation Animation */}
+            <section data-section className="relative">
+              <MachineOperation />
+            </section>
+
+            {/* Section 3: German Engineering */}
             <EngineeringSection sectionNumber={3} />
 
-            {/* Section 4: Throughput */}
+            {/* Section 4: Throughput Capacity */}
             <ThroughputSection sectionNumber={4} />
 
-            {/* Section 5: Consistency */}
+            {/* Section 5: Consistency & Tolerance */}
             <ConsistencySection sectionNumber={5} />
 
-            {/* Section 6: Intelligence */}
+            {/* NEW: Process Timeline */}
+            <section data-section className="relative">
+              <ProcessTimeline />
+            </section>
+
+            {/* Section 6: Industry 4.0 Intelligence */}
             <IntelligenceSection sectionNumber={6} />
 
             {/* Section 7: Facility Impact */}
@@ -101,16 +156,16 @@ export default function ElitePage() {
             {/* Section 10: Comparison */}
             <ComparisonSection sectionNumber={10} />
 
-            {/* Section 11: ROI */}
+            {/* Section 11: ROI Analysis */}
             <ROISection sectionNumber={11} />
 
-            {/* Section 12: Scalability */}
+            {/* Section 12: Infinite Scalability */}
             <ScalabilitySection sectionNumber={12} />
 
-            {/* Section 13: Support */}
+            {/* Section 13: 24/7 Support */}
             <SupportSection sectionNumber={13} />
 
-            {/* Section 14: Partnership */}
+            {/* Section 14: Partnership Process */}
             <PartnershipSection sectionNumber={14} />
 
             {/* Section 15: Final CTA */}
