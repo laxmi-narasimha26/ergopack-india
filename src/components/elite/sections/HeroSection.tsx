@@ -4,7 +4,7 @@ import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronDown, Sparkles } from 'lucide-react';
 
-export default function HeroSection({ sectionNumber }: { sectionNumber: number }) {
+export default function HeroSection({ sectionNumber: _sectionNumber }: { sectionNumber: number }) {
   const { scrollYProgress } = useScroll();
 
   // Gentle parallax effects
@@ -30,7 +30,7 @@ export default function HeroSection({ sectionNumber }: { sectionNumber: number }
           </div>
         </motion.div>
 
-        {/* Main Headline - PROFESSIONAL SIZE */}
+        {/* Main Headline - REFINED PREMIUM SIZE */}
         <motion.div style={{ y: yTitle, opacity }}>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -38,10 +38,10 @@ export default function HeroSection({ sectionNumber }: { sectionNumber: number }
             transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
             className="relative"
           >
-            <span className="block text-5xl md:text-7xl lg:text-8xl font-black leading-none tracking-tight text-white mb-4">
+            <span className="block text-4xl md:text-5xl lg:text-6xl font-black leading-none tracking-tight text-white mb-3">
               ERGOPACK
             </span>
-            <span className="block text-5xl md:text-7xl lg:text-8xl font-black leading-none tracking-tight bg-gradient-to-r from-[#C8102E] via-[#FF4444] to-[#FFB81C] bg-clip-text text-transparent">
+            <span className="block text-4xl md:text-5xl lg:text-6xl font-black leading-none tracking-tight bg-gradient-to-r from-[#C8102E] via-[#FF4444] to-[#FFB81C] bg-clip-text text-transparent">
               ELITE
             </span>
           </motion.h1>
@@ -61,7 +61,7 @@ export default function HeroSection({ sectionNumber }: { sectionNumber: number }
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 2, delay: 1.2 }}
-            className="text-xl md:text-2xl lg:text-3xl text-gray-400 font-light tracking-wide mb-8"
+            className="text-lg md:text-xl text-gray-400 font-light tracking-wide mb-6"
           >
             Automated Strapping Excellence
           </motion.p>
@@ -70,7 +70,7 @@ export default function HeroSection({ sectionNumber }: { sectionNumber: number }
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 2, delay: 1.6 }}
-            className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed font-light"
+            className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed font-light"
           >
             25 years of German precision engineering, now empowering India's category leaders
             with world-class automated strapping solutions.

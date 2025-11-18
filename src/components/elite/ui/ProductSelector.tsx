@@ -28,8 +28,9 @@ export default function ProductSelector({ onSelect, onClose }: ProductSelectorPr
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 backdrop-blur-xl"
+      className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/90 backdrop-blur-xl cursor-auto"
       onClick={onClose}
+      style={{ cursor: 'auto' }}
     >
       <motion.div
         initial={{ scale: 0.9, opacity: 0, y: 20 }}
@@ -37,12 +38,14 @@ export default function ProductSelector({ onSelect, onClose }: ProductSelectorPr
         exit={{ scale: 0.9, opacity: 0, y: 20 }}
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
         onClick={(e) => e.stopPropagation()}
-        className="relative max-w-7xl w-full mx-4 max-h-[85vh] overflow-y-auto bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-3xl border border-[#C8102E]/30 shadow-2xl"
+        className="relative max-w-7xl w-full mx-4 max-h-[85vh] overflow-y-auto bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-3xl border border-[#C8102E]/30 shadow-2xl cursor-auto"
+        style={{ cursor: 'auto' }}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-6 right-6 z-10 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors group"
+          className="absolute top-6 right-6 z-10 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors group cursor-pointer"
+          style={{ cursor: 'pointer' }}
         >
           <X className="h-6 w-6 text-white group-hover:rotate-90 transition-transform duration-300" />
         </button>
@@ -54,12 +57,12 @@ export default function ProductSelector({ onSelect, onClose }: ProductSelectorPr
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.1 }}
           >
-            <h2 className="text-6xl sm:text-7xl font-black tracking-tight mb-6">
+            <h2 className="text-4xl sm:text-5xl font-black tracking-tight mb-4">
               <span className="text-white">SELECT YOUR</span>
               <br />
               <span className="text-[#C8102E]">MACHINE</span>
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto font-light">
+            <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto font-light">
               Choose a model to see its complete specifications, features, and capabilities in stunning detail
             </p>
           </motion.div>
@@ -109,11 +112,12 @@ export default function ProductSelector({ onSelect, onClose }: ProductSelectorPr
                         whileHover={{ scale: 1.05, y: -8 }}
                         whileTap={{ scale: 0.95 }}
                         onClick={() => onSelect(product.key)}
-                        className={`relative p-6 rounded-2xl border-2 transition-all duration-300 group ${
+                        className={`relative p-6 rounded-2xl border-2 transition-all duration-300 group cursor-pointer ${
                           isXpert
                             ? 'bg-gradient-to-br from-[#C8102E]/20 to-red-900/20 border-[#C8102E]/50 hover:border-[#C8102E] hover:shadow-2xl hover:shadow-[#C8102E]/30'
                             : 'bg-white/5 border-white/10 hover:border-white/30 hover:bg-white/10'
                         }`}
+                        style={{ cursor: 'pointer' }}
                       >
                         {/* Model Badge */}
                         <div className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4 ${

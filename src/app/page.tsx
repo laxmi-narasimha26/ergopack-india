@@ -3,12 +3,12 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
 import MainLayout from '@/components/layout/MainLayout';
-import PremiumPreloader from '@/components/elite/ui/PremiumPreloader';
+import StandardPreloader from '@/components/ui/StandardPreloader';
 import { MagneticButton } from '@/components/ui/MagneticButton';
 import { Premium3DCard } from '@/components/ui/Premium3DCard';
 import { TextReveal, LineReveal } from '@/components/ui/TextReveal';
 import { ParallaxLayer } from '@/components/ui/ParallaxSection';
-import { ArrowRight, CheckCircle2, Sparkles, Zap, Shield, Award, Package, Battery, Gauge } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Sparkles, Zap, Shield, Award, Battery } from 'lucide-react';
 import productsData from '@/../../products-data.json';
 
 // Hero Section - Ultra Premium with Parallax
@@ -914,7 +914,7 @@ function FinalCTASection() {
 export default function HomePage() {
   return (
     <>
-      <PremiumPreloader />
+      <StandardPreloader />
       <MainLayout>
         <div className="bg-luxury-white">
           <HeroSection />
