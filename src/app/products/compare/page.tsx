@@ -1,508 +1,595 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import MainLayout from '@/components/layout/MainLayout';
-import Button from '@/components/ui/Button';
-import Card from '@/components/ui/Card';
-import { useFadeIn, useScaleIn } from '@/lib/hooks/useScrollAnimation';
+import StandardPreloader from '@/components/ui/StandardPreloader';
 import {
   ArrowRight,
+  X,
+  Plus,
   CheckCircle2,
-  XCircle,
   Zap,
-  Award,
-  Cpu,
-  Settings,
-  Target,
-  Gauge,
-  Shield,
-  TrendingUp,
   DollarSign,
+  Battery,
+  Gauge,
+  Award,
+  Shield,
+  Package,
+  TrendingUp,
+  Sparkles,
 } from 'lucide-react';
 import Link from 'next/link';
+import productsData from '@/../../products-data.json';
 
-// Note: Metadata export removed for client component compatibility
-
-// Hero Section
-function HeroSection() {
-  const titleRef = useFadeIn({ start: 'top 80%' });
-
-  return (
-    <section className="relative bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 pt-32 pb-20">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-grid-slate-700/50 [mask-image:linear-gradient(0deg,transparent,black)]" />
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div ref={titleRef} className="text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-400">
-            Product Comparison
-          </p>
-          <h1 className="mb-6 text-5xl font-bold leading-tight text-white lg:text-6xl">
-            Choose Your
-            <br />
-            <span className="bg-gradient-to-r from-amber-400 via-blue-400 to-amber-400 bg-clip-text text-transparent">
-              Perfect Solution
-            </span>
-          </h1>
-          <p className="mx-auto max-w-3xl text-xl leading-relaxed text-slate-300">
-            Both the X-pert Line and E-conomy Line deliver professional cargo securing results.
-            The difference is in the features, automation level, and precision capabilities.
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// Quick Comparison Cards
-function QuickComparisonSection() {
-  const sectionRef = useScaleIn({ start: 'top 75%' });
-
-  return (
-    <section className="bg-slate-950 py-16 border-t border-slate-800">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div ref={sectionRef} className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-          {/* X-pert Line Card */}
-          <Card className="group border-2 border-amber-500/50 bg-gradient-to-br from-amber-500/10 via-slate-900 to-slate-900 p-8 transition-all duration-300 hover:border-amber-500">
-            <div className="mb-6 flex items-center justify-between">
-              <div>
-                <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-amber-500/50 bg-amber-500/10 px-3 py-1">
-                  <Zap className="h-4 w-4 text-amber-500" />
-                  <span className="text-xs font-semibold text-amber-500">Premium</span>
-                </div>
-                <h3 className="text-3xl font-bold text-white">X-pert Line</h3>
-              </div>
-            </div>
-
-            <p className="mb-6 text-lg text-slate-300">
-              The ultimate in cargo securing precision—advanced automation, real-time monitoring, and
-              zero-failure reliability for mission-critical applications.
-            </p>
-
-            <div className="mb-8 space-y-3">
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-amber-500" />
-                <span className="text-slate-300">Siemens Touchscreen Control</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-amber-500" />
-                <span className="text-slate-300">Triplex-Tool-Lift System</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-amber-500" />
-                <span className="text-slate-300">Line-Laser Positioning (±1mm)</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-amber-500" />
-                <span className="text-slate-300">ChainLance Precision (1500 daN)</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-amber-500" />
-                <span className="text-slate-300">Real-Time IoT Monitoring</span>
-              </div>
-            </div>
-
-            <Link href="/products/xpert-line">
-              <Button
-                size="lg"
-                variant="primary"
-                className="group w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white"
-              >
-                View X-pert Line
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-          </Card>
-
-          {/* E-conomy Line Card */}
-          <Card className="group border-2 border-blue-500/50 bg-gradient-to-br from-blue-500/10 via-slate-900 to-slate-900 p-8 transition-all duration-300 hover:border-blue-500">
-            <div className="mb-6 flex items-center justify-between">
-              <div>
-                <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-blue-500/50 bg-blue-500/10 px-3 py-1">
-                  <Award className="h-4 w-4 text-blue-500" />
-                  <span className="text-xs font-semibold text-blue-500">Professional</span>
-                </div>
-                <h3 className="text-3xl font-bold text-white">E-conomy Line</h3>
-              </div>
-            </div>
-
-            <p className="mb-6 text-lg text-slate-300">
-              Proven reliability and consistent performance—time-tested technology that professionals
-              trust for standard cargo securing applications.
-            </p>
-
-            <div className="mb-8 space-y-3">
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-blue-500" />
-                <span className="text-slate-300">Manual/Semi-Automatic Control</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-blue-500" />
-                <span className="text-slate-300">Standard Lift System</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-blue-500" />
-                <span className="text-slate-300">Visual Guide Positioning</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-blue-500" />
-                <span className="text-slate-300">Reliable Ratchet System (1000 daN)</span>
-              </div>
-              <div className="flex items-start gap-3">
-                <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-blue-500" />
-                <span className="text-slate-300">Proven Field Performance</span>
-              </div>
-            </div>
-
-            <Link href="/products/economy-line">
-              <Button
-                size="lg"
-                variant="primary"
-                className="group w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white"
-              >
-                View E-conomy Line
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-          </Card>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// Detailed Comparison Table
-function DetailedComparisonSection() {
-  const sectionRef = useFadeIn({ start: 'top 75%' });
-
-  const comparisonData = [
-    {
-      category: 'Control Interface',
-      icon: Cpu,
-      xpert: 'Siemens 7" Color Touchscreen',
-      economy: 'Manual/Semi-Automatic Controls',
-      xpertHighlight: true,
-    },
-    {
-      category: 'Engineering',
-      icon: Settings,
-      xpert: 'Triplex-Tool-Lift (3-Stage)',
-      economy: 'Standard Mechanical Lift',
-      xpertHighlight: true,
-    },
-    {
-      category: 'Positioning System',
-      icon: Target,
-      xpert: 'Line-Laser (±1mm accuracy)',
-      economy: 'Visual Guide Marks',
-      xpertHighlight: true,
-    },
-    {
-      category: 'Tension Force',
-      icon: Gauge,
-      xpert: '1500 daN (High Tension)',
-      economy: '1000 daN (Standard)',
-      xpertHighlight: true,
-    },
-    {
-      category: 'Tensioning Mechanism',
-      icon: Zap,
-      xpert: 'ChainLance Patented System',
-      economy: 'Proven Ratchet System',
-      xpertHighlight: true,
-    },
-    {
-      category: 'Monitoring',
-      icon: Shield,
-      xpert: 'Real-Time IoT Sensors',
-      economy: 'Manual Inspection',
-      xpertHighlight: true,
-    },
-    {
-      category: 'Automation Level',
-      icon: TrendingUp,
-      xpert: 'Fully Automated',
-      economy: 'Manual/Semi-Automatic',
-      xpertHighlight: true,
-    },
-    {
-      category: 'Compliance Documentation',
-      icon: Award,
-      xpert: 'Automatic Digital Records',
-      economy: 'Manual Documentation',
-      xpertHighlight: true,
-    },
-    {
-      category: 'Training Required',
-      icon: Settings,
-      xpert: '1-2 Days',
-      economy: 'Few Hours',
-      xpertHighlight: false,
-    },
-    {
-      category: 'Ideal For',
-      icon: Target,
-      xpert: 'Mission-Critical, High-Value Cargo',
-      economy: 'Standard Logistics Operations',
-      xpertHighlight: false,
-    },
-    {
-      category: 'Investment Level',
-      icon: DollarSign,
-      xpert: 'Premium',
-      economy: 'Value-Focused',
-      xpertHighlight: false,
-    },
-    {
-      category: 'ROI Timeline',
-      icon: TrendingUp,
-      xpert: '90 Days',
-      economy: '6-12 Months',
-      xpertHighlight: true,
-    },
-  ];
-
-  return (
-    <section className="bg-gradient-to-b from-slate-950 to-slate-900 py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div ref={sectionRef}>
-          <div className="mb-16 text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-400">
-              Feature by Feature
-            </p>
-            <h2 className="mb-6 text-4xl font-bold text-white md:text-5xl">
-              Detailed Comparison
-            </h2>
-            <p className="mx-auto max-w-3xl text-xl text-slate-400">
-              See exactly how the two product lines compare across all major features and
-              specifications.
-            </p>
-          </div>
-
-          <Card className="border-slate-800 bg-slate-900/50 overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr className="border-b-2 border-slate-800 bg-slate-950/50">
-                    <th className="px-6 py-5 text-left text-sm font-semibold uppercase tracking-wider text-slate-400">
-                      Feature
-                    </th>
-                    <th className="px-6 py-5 text-left">
-                      <div className="flex items-center gap-2">
-                        <Zap className="h-5 w-5 text-amber-500" />
-                        <span className="text-sm font-semibold uppercase tracking-wider text-amber-500">
-                          X-pert Line
-                        </span>
-                      </div>
-                    </th>
-                    <th className="px-6 py-5 text-left">
-                      <div className="flex items-center gap-2">
-                        <Award className="h-5 w-5 text-blue-500" />
-                        <span className="text-sm font-semibold uppercase tracking-wider text-blue-500">
-                          E-conomy Line
-                        </span>
-                      </div>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {comparisonData.map((item, index) => (
-                    <motion.tr
-                      key={index}
-                      className="border-b border-slate-800 transition-colors hover:bg-slate-800/30"
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.05 }}
-                    >
-                      <td className="px-6 py-5">
-                        <div className="flex items-center gap-3">
-                          <item.icon className="h-5 w-5 text-slate-500" />
-                          <span className="font-medium text-white">{item.category}</span>
-                        </div>
-                      </td>
-                      <td className="px-6 py-5">
-                        <div className="flex items-center gap-2">
-                          {item.xpertHighlight && (
-                            <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-amber-500" />
-                          )}
-                          <span className="text-slate-300">{item.xpert}</span>
-                        </div>
-                      </td>
-                      <td className="px-6 py-5">
-                        <div className="flex items-center gap-2">
-                          {!item.xpertHighlight && (
-                            <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-blue-500" />
-                          )}
-                          <span className="text-slate-300">{item.economy}</span>
-                        </div>
-                      </td>
-                    </motion.tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </Card>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// Use Cases Section
-function UseCasesSection() {
-  const sectionRef = useFadeIn({ start: 'top 75%' });
-
-  const xpertUseCases = [
-    'Pharmaceutical and medical supplies',
-    'High-value electronics and semiconductors',
-    'Precision machinery and equipment',
-    'Time-sensitive perishable goods',
-    'Aerospace and defense components',
-    'Regulatory-critical shipments',
-  ];
-
-  const economyUseCases = [
-    'Standard manufacturing goods',
-    'Consumer products and retail',
-    'Construction materials',
-    'General freight and LTL',
-    'Seasonal inventory distribution',
-    'Growing fleet operations',
-  ];
-
-  return (
-    <section className="bg-slate-950 py-24 border-t border-slate-800">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div ref={sectionRef}>
-          <div className="mb-16 text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-400">
-              Which is Right for You?
-            </p>
-            <h2 className="mb-6 text-4xl font-bold text-white md:text-5xl">
-              Ideal Use Cases
-            </h2>
-            <p className="mx-auto max-w-3xl text-xl text-slate-400">
-              Choose based on your cargo type, industry requirements, and operational needs.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-            {/* X-pert Line Use Cases */}
-            <Card className="border-amber-500/50 bg-gradient-to-br from-amber-500/5 to-slate-900 p-8">
-              <div className="mb-6 flex items-center gap-3">
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-amber-600">
-                  <Zap className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-white">X-pert Line</h3>
-              </div>
-              <p className="mb-6 text-slate-300">Best suited for:</p>
-              <ul className="space-y-3">
-                {xpertUseCases.map((useCase, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-amber-500 mt-0.5" />
-                    <span className="text-slate-300">{useCase}</span>
-                  </li>
-                ))}
-              </ul>
-            </Card>
-
-            {/* E-conomy Line Use Cases */}
-            <Card className="border-blue-500/50 bg-gradient-to-br from-blue-500/5 to-slate-900 p-8">
-              <div className="mb-6 flex items-center gap-3">
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-blue-500 to-blue-600">
-                  <Award className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-white">E-conomy Line</h3>
-              </div>
-              <p className="mb-6 text-slate-300">Best suited for:</p>
-              <ul className="space-y-3">
-                {economyUseCases.map((useCase, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-blue-500 mt-0.5" />
-                    <span className="text-slate-300">{useCase}</span>
-                  </li>
-                ))}
-              </ul>
-            </Card>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// CTA Section
-function CTASection() {
-  const sectionRef = useScaleIn({ start: 'top 75%' });
-
-  return (
-    <section className="bg-gradient-to-b from-slate-900 to-slate-950 py-24">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div ref={sectionRef}>
-          <Card className="border-slate-800 bg-slate-900/50 p-12 text-center">
-            <h2 className="mb-6 text-4xl font-bold text-white md:text-5xl">
-              Still Not Sure Which to Choose?
-            </h2>
-            <p className="mx-auto mb-8 max-w-3xl text-xl leading-relaxed text-slate-300">
-              Our cargo securing specialists can help you evaluate your specific requirements and
-              recommend the optimal solution for your operation.
-            </p>
-
-            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Link href="/products/compare-machines">
-                <Button
-                  size="lg"
-                  variant="primary"
-                  className="group bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-10 py-5 text-lg shadow-2xl shadow-amber-500/50"
-                >
-                  Compare All Machines
-                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-              <Link href="/contact">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="border-2 border-slate-600 px-10 py-5 text-lg text-slate-300 hover:bg-slate-800"
-                >
-                  Schedule Consultation
-                </Button>
-              </Link>
-            </div>
-
-            <div className="mt-12 border-t border-slate-800 pt-8">
-              <p className="text-sm text-slate-400">
-                Questions? Contact our team at{' '}
-                <a href="mailto:sales@ergopack.in" className="text-amber-500 hover:underline">
-                  sales@ergopack.in
-                </a>{' '}
-                or call{' '}
-                <a href="tel:+911234567890" className="text-amber-500 hover:underline">
-                  +91 123 456 7890
-                </a>
-              </p>
-            </div>
-          </Card>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// Main Page Component
 export default function ComparePage() {
+  const [selectedProducts, setSelectedProducts] = useState<string[]>([]);
+  const [showSelector, setShowSelector] = useState(false);
+  const maxSelections = 3;
+
+  const allProducts = Object.entries(productsData.products).map(([key, product]) => ({
+    key,
+    ...product,
+  }));
+
+  const productsByLine = {
+    'X-pert Line': allProducts.filter(p => p.line === 'X-pert Line'),
+    'Economy Line': allProducts.filter(p => p.line === 'Economy Line'),
+    'RE Line - Mobile Retracting': allProducts.filter(p => p.line === 'RE Line - Mobile Retracting'),
+    'GO Line - Economy Portable': allProducts.filter(p => p.line === 'GO Line - Economy Portable'),
+  };
+
+  const handleProductToggle = (productKey: string) => {
+    if (selectedProducts.includes(productKey)) {
+      setSelectedProducts(selectedProducts.filter(k => k !== productKey));
+    } else if (selectedProducts.length < maxSelections) {
+      setSelectedProducts([...selectedProducts, productKey]);
+    }
+  };
+
+  const handleRemove = (productKey: string) => {
+    setSelectedProducts(selectedProducts.filter(k => k !== productKey));
+  };
+
+  const getProductData = (key: string) => {
+    return allProducts.find(p => p.key === key);
+  };
+
   return (
-    <MainLayout>
-      <div className="bg-slate-950">
-        <HeroSection />
-        <QuickComparisonSection />
-        <DetailedComparisonSection />
-        <UseCasesSection />
-        <CTASection />
-      </div>
-    </MainLayout>
+    <>
+      <StandardPreloader />
+      <MainLayout>
+        <div className="bg-gradient-to-b from-white via-crimson-50/20 to-white min-h-screen">
+          {/* Hero Section */}
+          <section className="relative bg-gradient-to-br from-crimson-50 via-white to-crimson-100/40 pt-32 pb-20">
+            <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                className="text-center"
+              >
+                <div className="inline-flex items-center gap-3 px-8 py-4 rounded-full border border-crimson-500/30 bg-gradient-to-r from-crimson-50/80 to-white/80 backdrop-blur-xl shadow-2xl shadow-crimson-500/10 mb-12">
+                  <Gauge className="h-5 w-5 text-crimson-600" />
+                  <span className="text-sm font-semibold text-crimson-700 tracking-wide">
+                    Side-by-Side Comparison
+                  </span>
+                </div>
+
+                <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-luxury-dark-gray leading-tight mb-6">
+                  Compare ErgoPack Models
+                </h1>
+                <p className="text-lg sm:text-xl text-platinum-600 font-light leading-relaxed max-w-3xl mx-auto mb-8">
+                  Select up to {maxSelections} models to compare their specifications, features, and capabilities side by side
+                </p>
+
+                {/* Selection Counter */}
+                <div className="flex items-center justify-center gap-3 mb-8">
+                  {[...Array(maxSelections)].map((_, i) => (
+                    <div
+                      key={i}
+                      className={`w-12 h-12 rounded-full border-2 flex items-center justify-center transition-all ${
+                        i < selectedProducts.length
+                          ? 'bg-crimson-600 border-crimson-600 text-white'
+                          : 'bg-white border-platinum-300 text-platinum-400'
+                      }`}
+                    >
+                      {i < selectedProducts.length ? (
+                        <CheckCircle2 className="h-6 w-6" />
+                      ) : (
+                        <span className="text-sm font-bold">{i + 1}</span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                <button
+                  onClick={() => setShowSelector(true)}
+                  className="btn-premium group text-lg px-12 py-6"
+                >
+                  <span className="relative z-10 flex items-center">
+                    <Plus className="mr-2 h-6 w-6" />
+                    {selectedProducts.length === 0 ? 'Select Products to Compare' : 'Add More Products'}
+                    <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-2 transition-transform duration-500" />
+                  </span>
+                </button>
+              </motion.div>
+            </div>
+          </section>
+
+          {/* Selected Products Pills */}
+          {selectedProducts.length > 0 && (
+            <section className="py-8 bg-white border-b border-platinum-200">
+              <div className="max-w-7xl mx-auto px-8 sm:px-12">
+                <div className="flex flex-wrap items-center gap-4">
+                  <span className="text-sm font-medium text-platinum-600">Comparing:</span>
+                  {selectedProducts.map((key) => {
+                    const product = getProductData(key);
+                    if (!product) return null;
+                    const isXpert = product.line === 'X-pert Line';
+
+                    return (
+                      <motion.div
+                        key={key}
+                        initial={{ scale: 0.8, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0.8, opacity: 0 }}
+                        className={`flex items-center gap-2 px-4 py-2 rounded-full ${
+                          isXpert
+                            ? 'bg-crimson-500/10 border border-crimson-500/30'
+                            : 'bg-platinum-100 border border-platinum-200'
+                        }`}
+                      >
+                        <span className={`font-medium ${isXpert ? 'text-crimson-700' : 'text-platinum-700'}`}>
+                          {product.model}
+                        </span>
+                        <button
+                          onClick={() => handleRemove(key)}
+                          className="p-1 rounded-full hover:bg-white/50 transition-colors"
+                        >
+                          <X className="h-4 w-4" />
+                        </button>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* Comparison Table */}
+          {selectedProducts.length > 0 ? (
+            <section className="py-16 bg-gradient-to-b from-white to-crimson-50/20">
+              <div className="max-w-7xl mx-auto px-8 sm:px-12">
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse">
+                    <thead>
+                      <tr className="border-b-2 border-platinum-200">
+                        <th className="px-6 py-6 text-left text-sm font-semibold uppercase tracking-wider text-platinum-600 bg-white sticky left-0 z-10">
+                          Specification
+                        </th>
+                        {selectedProducts.map((key) => {
+                          const product = getProductData(key);
+                          if (!product) return null;
+                          const isXpert = product.line === 'X-pert Line';
+
+                          return (
+                            <th
+                              key={key}
+                              className={`px-6 py-6 text-center min-w-[280px] ${
+                                isXpert
+                                  ? 'bg-gradient-to-br from-crimson-50 to-red-50'
+                                  : 'bg-platinum-50'
+                              }`}
+                            >
+                              <div className="flex flex-col items-center gap-2">
+                                {isXpert ? (
+                                  <Zap className="h-6 w-6 text-crimson-600" />
+                                ) : (
+                                  <Package className="h-6 w-6 text-platinum-600" />
+                                )}
+                                <div className="font-serif text-2xl font-bold text-luxury-dark-gray">
+                                  {product.model}
+                                </div>
+                                <div className={`text-xs font-medium ${isXpert ? 'text-crimson-600' : 'text-platinum-600'}`}>
+                                  {product.line}
+                                </div>
+                              </div>
+                            </th>
+                          );
+                        })}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {/* Model Name */}
+                      <ComparisonRow
+                        label="Full Name"
+                        icon={Award}
+                        values={selectedProducts.map(key => {
+                          const product = getProductData(key);
+                          return product?.fullName || '-';
+                        })}
+                        selectedProducts={selectedProducts}
+                      />
+
+                      {/* Application Type */}
+                      <ComparisonRow
+                        label="Application"
+                        icon={Package}
+                        values={selectedProducts.map(key => {
+                          const product = getProductData(key);
+                          return product?.applicationType || '-';
+                        })}
+                        selectedProducts={selectedProducts}
+                      />
+
+                      {/* Max Tension */}
+                      <ComparisonRow
+                        label="Max Tension"
+                        icon={Gauge}
+                        values={selectedProducts.map(key => {
+                          const product = getProductData(key);
+                          return product?.sealingHead?.tensionPower
+                            ? `${product.sealingHead.tensionPower.max} ${product.sealingHead.tensionPower.unit}`
+                            : '-';
+                        })}
+                        selectedProducts={selectedProducts}
+                        highlight={true}
+                      />
+
+                      {/* Chain Speed */}
+                      <ComparisonRow
+                        label="Chain Speed"
+                        icon={TrendingUp}
+                        values={selectedProducts.map(key => {
+                          const product = getProductData(key);
+                          return product?.performance?.chainSpeed
+                            ? `${product.performance.chainSpeed} ${product.performance.chainSpeedUnit || 'm/min'}`
+                            : product?.performance?.operationType || '-';
+                        })}
+                        selectedProducts={selectedProducts}
+                      />
+
+                      {/* Battery Type */}
+                      <ComparisonRow
+                        label="Battery"
+                        icon={Battery}
+                        values={selectedProducts.map(key => {
+                          const product = getProductData(key);
+                          return product?.battery?.type || '-';
+                        })}
+                        selectedProducts={selectedProducts}
+                        highlight={true}
+                      />
+
+                      {/* System Weight */}
+                      <ComparisonRow
+                        label="System Weight"
+                        icon={Shield}
+                        values={selectedProducts.map(key => {
+                          const product = getProductData(key);
+                          return product?.system?.weight
+                            ? `${product.system.weight} ${product.system.weightUnit}`
+                            : '-';
+                        })}
+                        selectedProducts={selectedProducts}
+                      />
+
+                      {/* Key Features */}
+                      <tr className="border-b border-platinum-200 bg-white">
+                        <td className="px-6 py-6 font-semibold text-luxury-dark-gray sticky left-0 z-10 bg-white border-r border-platinum-200">
+                          <div className="flex items-center gap-2">
+                            <Sparkles className="h-5 w-5 text-platinum-500" />
+                            Key Features
+                          </div>
+                        </td>
+                        {selectedProducts.map((key, index) => {
+                          const product = getProductData(key);
+                          if (!product) return <td key={key}>-</td>;
+                          const isXpert = product.line === 'X-pert Line';
+
+                          return (
+                            <td
+                              key={key}
+                              className={`px-6 py-6 ${
+                                isXpert ? 'bg-crimson-50/30' : 'bg-white'
+                              } ${index < selectedProducts.length - 1 ? 'border-r border-platinum-200' : ''}`}
+                            >
+                              <div className="space-y-2">
+                                {product.includedFeatures?.slice(0, 5).map((feature: string, i: number) => (
+                                  <div key={i} className="flex items-start gap-2 text-sm">
+                                    <CheckCircle2 className={`h-4 w-4 flex-shrink-0 mt-0.5 ${
+                                      isXpert ? 'text-crimson-500' : 'text-platinum-600'
+                                    }`} />
+                                    <span className="text-platinum-700">{feature}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            </td>
+                          );
+                        })}
+                      </tr>
+
+                      {/* CTA Row */}
+                      <tr className="bg-platinum-50">
+                        <td className="px-6 py-8 sticky left-0 z-10 bg-platinum-50"></td>
+                        {selectedProducts.map((key) => {
+                          const product = getProductData(key);
+                          if (!product) return null;
+                          const slug = key.toLowerCase().replace(/\s+/g, '-');
+
+                          return (
+                            <td key={key} className="px-6 py-8 text-center">
+                              <Link href={`/products/${slug}`}>
+                                <button className="btn-premium text-sm px-8 py-4 w-full">
+                                  <span className="relative z-10 flex items-center justify-center">
+                                    View Details
+                                    <ArrowRight className="ml-2 h-4 w-4" />
+                                  </span>
+                                </button>
+                              </Link>
+                            </td>
+                          );
+                        })}
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </section>
+          ) : (
+            /* Empty State */
+            <section className="py-32 bg-gradient-to-b from-white to-crimson-50/20">
+              <div className="max-w-3xl mx-auto px-8 text-center">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="mb-12"
+                >
+                  <div className="w-24 h-24 mx-auto mb-8 rounded-full bg-crimson-100 flex items-center justify-center">
+                    <Gauge className="h-12 w-12 text-crimson-600" />
+                  </div>
+                  <h2 className="font-serif text-3xl font-semibold text-luxury-dark-gray mb-4">
+                    Select Products to Start Comparing
+                  </h2>
+                  <p className="text-lg text-platinum-600 font-light mb-8">
+                    Choose up to {maxSelections} ErgoPack models to see a detailed side-by-side comparison of their features and specifications.
+                  </p>
+                  <button
+                    onClick={() => setShowSelector(true)}
+                    className="btn-premium-secondary text-lg px-12 py-6"
+                  >
+                    Browse All Models
+                  </button>
+                </motion.div>
+              </div>
+            </section>
+          )}
+
+          {/* Product Selector Modal */}
+          <AnimatePresence>
+            {showSelector && (
+              <ProductSelectorModal
+                selectedProducts={selectedProducts}
+                onToggle={handleProductToggle}
+                onClose={() => setShowSelector(false)}
+                maxSelections={maxSelections}
+                productsByLine={productsByLine}
+              />
+            )}
+          </AnimatePresence>
+        </div>
+      </MainLayout>
+    </>
+  );
+}
+
+// Comparison Row Component
+function ComparisonRow({
+  label,
+  icon: Icon,
+  values,
+  selectedProducts,
+  highlight = false,
+}: {
+  label: string;
+  icon: any;
+  values: string[];
+  selectedProducts: string[];
+  highlight?: boolean;
+}) {
+  const allProducts = Object.entries(productsData.products).map(([key, product]) => ({
+    key,
+    ...product,
+  }));
+
+  const getProductData = (key: string) => {
+    return allProducts.find(p => p.key === key);
+  };
+
+  return (
+    <tr className={`border-b border-platinum-200 ${highlight ? 'bg-white' : 'bg-white'}`}>
+      <td className="px-6 py-6 font-semibold text-luxury-dark-gray sticky left-0 z-10 bg-white border-r border-platinum-200">
+        <div className="flex items-center gap-2">
+          <Icon className="h-5 w-5 text-platinum-500" />
+          {label}
+        </div>
+      </td>
+      {values.map((value, index) => {
+        const product = getProductData(selectedProducts[index]);
+        const isXpert = product?.line === 'X-pert Line';
+
+        return (
+          <td
+            key={index}
+            className={`px-6 py-6 text-center ${
+              isXpert && highlight ? 'bg-crimson-50/30' : isXpert ? 'bg-crimson-50/10' : 'bg-white'
+            } ${index < values.length - 1 ? 'border-r border-platinum-200' : ''}`}
+          >
+            <span className={`${isXpert ? 'text-luxury-dark-gray font-medium' : 'text-platinum-700'}`}>
+              {value}
+            </span>
+          </td>
+        );
+      })}
+    </tr>
+  );
+}
+
+// Product Selector Modal
+function ProductSelectorModal({
+  selectedProducts,
+  onToggle,
+  onClose,
+  maxSelections,
+  productsByLine,
+}: {
+  selectedProducts: string[];
+  onToggle: (key: string) => void;
+  onClose: () => void;
+  maxSelections: number;
+  productsByLine: any;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/80 backdrop-blur-md cursor-auto"
+      onClick={onClose}
+      style={{ cursor: 'auto' }}
+    >
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.9, opacity: 0 }}
+        onClick={(e) => e.stopPropagation()}
+        className="relative max-w-7xl w-full mx-4 max-h-[85vh] overflow-y-auto bg-white rounded-3xl shadow-2xl"
+      >
+        {/* Close Button */}
+        <button
+          onClick={onClose}
+          className="absolute top-6 right-6 z-10 p-3 rounded-full bg-platinum-100 hover:bg-platinum-200 transition-colors group"
+        >
+          <X className="h-6 w-6 text-luxury-dark-gray group-hover:rotate-90 transition-transform duration-300" />
+        </button>
+
+        {/* Header */}
+        <div className="text-center pt-16 pb-12 px-8 border-b border-platinum-200 bg-gradient-to-br from-crimson-50 to-white">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-4 text-luxury-dark-gray">
+            Select Products to Compare
+          </h2>
+          <p className="text-base text-platinum-600 max-w-2xl mx-auto">
+            Choose up to {maxSelections} models • {selectedProducts.length} / {maxSelections} selected
+          </p>
+        </div>
+
+        {/* Products Grid */}
+        <div className="p-8 sm:p-12 space-y-12">
+          {Object.entries(productsByLine).map(([lineName, products]: [string, any]) => {
+            if (products.length === 0) return null;
+
+            const isXpert = lineName === 'X-pert Line';
+
+            return (
+              <div key={lineName}>
+                <div className="flex items-center gap-3 mb-6">
+                  {isXpert ? (
+                    <Zap className="h-6 w-6 text-crimson-600" />
+                  ) : (
+                    <DollarSign className="h-6 w-6 text-platinum-600" />
+                  )}
+                  <h3 className={`text-xl font-bold ${isXpert ? 'text-crimson-600' : 'text-luxury-dark-gray'}`}>
+                    {lineName}
+                  </h3>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+                  {products.map((product: any) => {
+                    const isSelected = selectedProducts.includes(product.key);
+                    const canSelect = selectedProducts.length < maxSelections || isSelected;
+
+                    return (
+                      <button
+                        key={product.key}
+                        onClick={() => canSelect && onToggle(product.key)}
+                        disabled={!canSelect}
+                        className={`relative p-6 rounded-2xl border-2 transition-all duration-300 text-left ${
+                          isSelected
+                            ? 'bg-crimson-600 border-crimson-600 text-white scale-105'
+                            : canSelect
+                            ? isXpert
+                              ? 'bg-crimson-50 border-crimson-200 hover:border-crimson-400 hover:shadow-lg'
+                              : 'bg-white border-platinum-200 hover:border-platinum-400 hover:shadow-lg'
+                            : 'bg-platinum-50 border-platinum-100 opacity-50 cursor-not-allowed'
+                        }`}
+                      >
+                        {/* Selection Badge */}
+                        {isSelected && (
+                          <div className="absolute top-3 right-3">
+                            <div className="w-6 h-6 rounded-full bg-white text-crimson-600 flex items-center justify-center">
+                              <CheckCircle2 className="h-4 w-4" />
+                            </div>
+                          </div>
+                        )}
+
+                        <div className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3 ${
+                          isSelected
+                            ? 'bg-white/20 text-white'
+                            : isXpert
+                            ? 'bg-crimson-100 text-crimson-700'
+                            : 'bg-platinum-100 text-platinum-700'
+                        }`}>
+                          {product.applicationType}
+                        </div>
+
+                        <h4 className={`text-xl font-black mb-1 ${
+                          isSelected ? 'text-white' : isXpert ? 'text-crimson-700' : 'text-luxury-dark-gray'
+                        }`}>
+                          {product.model}
+                        </h4>
+
+                        <p className={`text-xs mb-3 ${
+                          isSelected ? 'text-white/80' : 'text-platinum-600'
+                        }`}>
+                          {product.fullName}
+                        </p>
+
+                        <div className="space-y-1 text-xs">
+                          {product.sealingHead?.tensionPower && (
+                            <div className="flex justify-between">
+                              <span className={isSelected ? 'text-white/70' : 'text-platinum-500'}>
+                                Max Tension:
+                              </span>
+                              <span className={isSelected ? 'text-white font-medium' : 'text-platinum-700'}>
+                                {product.sealingHead.tensionPower.max} {product.sealingHead.tensionPower.unit}
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Footer */}
+        <div className="text-center py-8 px-8 border-t border-platinum-200 bg-platinum-50">
+          <button
+            onClick={onClose}
+            className="btn-premium text-base px-12 py-4"
+            disabled={selectedProducts.length === 0}
+          >
+            <span className="relative z-10 flex items-center">
+              Compare Selected Products
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </span>
+          </button>
+        </div>
+      </motion.div>
+    </motion.div>
   );
 }

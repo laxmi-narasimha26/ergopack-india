@@ -3,9 +3,10 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import MainLayout from '@/components/layout/MainLayout';
+import StandardPreloader from '@/components/ui/StandardPreloader';
 import { Premium3DCard } from '@/components/ui/Premium3DCard';
 import { MagneticButton } from '@/components/ui/MagneticButton';
-import { ArrowRight, CheckCircle2, Battery, Package, Gauge, Zap } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Battery, Package, Zap } from 'lucide-react';
 import productsData from '@/../../products-data.json';
 
 export default function ProductsPage() {
@@ -22,10 +23,12 @@ export default function ProductsPage() {
   };
 
   return (
-    <MainLayout>
-      <div className="bg-luxury-white min-h-screen">
-        {/* Hero Section */}
-        <section className="relative bg-gradient-to-br from-luxury-off-white via-white to-crimson-50/30 pt-32 pb-20">
+    <>
+      <StandardPreloader />
+      <MainLayout>
+        <div className="bg-gradient-to-b from-white via-crimson-50/20 to-white min-h-screen">
+          {/* Hero Section */}
+        <section className="relative bg-gradient-to-br from-crimson-50 via-white to-crimson-100/40 pt-32 pb-20">
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0 bg-grid-slate-700/50 [mask-image:linear-gradient(0deg,transparent,black)]" />
           </div>
@@ -71,7 +74,7 @@ export default function ProductsPage() {
         </section>
 
         {/* Products by Line */}
-        <section className="py-24 bg-white">
+        <section className="py-24 bg-gradient-to-b from-white to-crimson-50/30">
           <div className="max-w-7xl mx-auto px-8 sm:px-12">
             {Object.entries(productsByLine).map(([lineName, products], lineIndex) => {
               if (products.length === 0) return null;
@@ -274,7 +277,7 @@ export default function ProductsPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-24 bg-gradient-to-br from-crimson-50 via-white to-platinum-50">
+        <section className="py-24 bg-gradient-to-br from-crimson-100 via-crimson-50 to-white">
           <div className="max-w-5xl mx-auto px-8 sm:px-12 text-center">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -307,7 +310,8 @@ export default function ProductsPage() {
             </motion.div>
           </div>
         </section>
-      </div>
-    </MainLayout>
+        </div>
+      </MainLayout>
+    </>
   );
 }

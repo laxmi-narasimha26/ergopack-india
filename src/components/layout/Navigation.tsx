@@ -32,6 +32,7 @@ const productsDropdown = {
 
 const navLinks = [
   { href: '/products', label: 'Products', hasDropdown: true },
+  { href: '/products/compare', label: 'Compare' },
   { href: '/elite', label: 'Elite Experience' },
   { href: '/industries', label: 'Industries' },
   { href: '/blog', label: 'Insights' },
