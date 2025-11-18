@@ -8,18 +8,18 @@ Since the GitHub CLI is not available, please create the PR manually using one o
 2. Click on "Pull requests" tab
 3. Click "New pull request" button
 4. Set the branches:
-   - **Base**: `main`
+   - **Base**: `claude/claude-md-mi1qvph9rykr5wq5-01G1U7ppVBuGFxKpX1iE1aaL` (your default branch)
    - **Compare**: `claude/rebuild-product-pages-01GX7S8B9vgucCNeZuiwB3oE`
 5. Click "Create pull request"
 6. Copy the content from `PR_DESCRIPTION.md` and paste it into the description
 7. Set the title: **Elite Page Redesign with Product Selection & Premium Navigation Enhancements**
 8. Click "Create pull request"
 
-## Method 2: Direct Link
+## Method 2: Direct Link (UPDATED - USE THIS ONE!)
 
 Use this direct link to create the PR:
 ```
-https://github.com/laxmi-narasimha26/ergopack-india/compare/main...claude/rebuild-product-pages-01GX7S8B9vgucCNeZuiwB3oE
+https://github.com/laxmi-narasimha26/ergopack-india/compare/claude/claude-md-mi1qvph9rykr5wq5-01G1U7ppVBuGFxKpX1iE1aaL...claude/rebuild-product-pages-01GX7S8B9vgucCNeZuiwB3oE
 ```
 
 Then:
@@ -33,7 +33,7 @@ Then:
 gh pr create \
   --title "Elite Page Redesign with Product Selection & Premium Navigation Enhancements" \
   --body-file PR_DESCRIPTION.md \
-  --base main \
+  --base claude/claude-md-mi1qvph9rykr5wq5-01G1U7ppVBuGFxKpX1iE1aaL \
   --head claude/rebuild-product-pages-01GX7S8B9vgucCNeZuiwB3oE
 ```
 
