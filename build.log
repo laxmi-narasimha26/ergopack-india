@@ -1,0 +1,207 @@
+ ⚠ Invalid next.config.js options detected: 
+ ⚠     Expected object, received boolean at "experimental.serverActions"
+ ⚠ See more info here: https://nextjs.org/docs/messages/invalid-next-config
+ ⚠ Server Actions are available by default now, `experimental.serverActions` option can be safely removed.
+  ▲ Next.js 14.2.15
+
+   Creating an optimized production build ...
+> [PWA] Compile server
+> [PWA] Compile server
+> [PWA] Compile client (static)
+> [PWA] Auto register service worker with: /home/user/ergopack-india/node_modules/next-pwa/register.js
+> [PWA] Service worker: /home/user/ergopack-india/public/sw.js
+> [PWA]   url: /sw.js
+> [PWA]   scope: /
+Failed to fetch font `Playfair Display`.
+URL: https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap
+
+Please check if the network is available.
+
+Retrying 1/3...
+Failed to fetch font `Montserrat`.
+URL: https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap
+
+Please check if the network is available.
+
+Retrying 1/3...
+Failed to fetch font `Playfair Display`.
+URL: https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap
+
+Please check if the network is available.
+
+Retrying 2/3...
+Failed to fetch font `Montserrat`.
+URL: https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap
+
+Please check if the network is available.
+
+Retrying 2/3...
+Failed to fetch font `Playfair Display`.
+URL: https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap
+
+Please check if the network is available.
+
+Retrying 3/3...
+Failed to fetch font `Montserrat`.
+URL: https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap
+
+Please check if the network is available.
+
+Retrying 3/3...
+Error [NextFontError]: Failed to fetch font `Playfair Display`.
+URL: https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap
+
+Please check if the network is available.
+    at nextFontError (/home/user/ergopack-india/node_modules/next/dist/compiled/@next/font/dist/next-font-error.js:8:17)
+    at /home/user/ergopack-india/node_modules/next/dist/compiled/@next/font/dist/google/fetch-css-from-google-fonts.js:58:53
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async retry (/home/user/ergopack-india/node_modules/next/dist/compiled/@next/font/dist/google/retry.js:11:12)
+    at async fetchCSSFromGoogleFonts (/home/user/ergopack-india/node_modules/next/dist/compiled/@next/font/dist/google/fetch-css-from-google-fonts.js:38:23)
+    at async nextFontGoogleFontLoader (/home/user/ergopack-india/node_modules/next/dist/compiled/@next/font/dist/google/loader.js:76:15)
+    at async Span.traceAsyncFn (/home/user/ergopack-india/node_modules/next/dist/trace/trace.js:154:20)
+    at async /home/user/ergopack-india/node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js:76:87
+    at async Span.traceAsyncFn (/home/user/ergopack-india/node_modules/next/dist/trace/trace.js:154:20)
+Error [NextFontError]: Failed to fetch font `Montserrat`.
+URL: https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap
+
+Please check if the network is available.
+    at nextFontError (/home/user/ergopack-india/node_modules/next/dist/compiled/@next/font/dist/next-font-error.js:8:17)
+    at /home/user/ergopack-india/node_modules/next/dist/compiled/@next/font/dist/google/fetch-css-from-google-fonts.js:58:53
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async retry (/home/user/ergopack-india/node_modules/next/dist/compiled/@next/font/dist/google/retry.js:11:12)
+    at async fetchCSSFromGoogleFonts (/home/user/ergopack-india/node_modules/next/dist/compiled/@next/font/dist/google/fetch-css-from-google-fonts.js:38:23)
+    at async nextFontGoogleFontLoader (/home/user/ergopack-india/node_modules/next/dist/compiled/@next/font/dist/google/loader.js:76:15)
+    at async Span.traceAsyncFn (/home/user/ergopack-india/node_modules/next/dist/trace/trace.js:154:20)
+    at async /home/user/ergopack-india/node_modules/next/dist/build/webpack/loaders/next-font-loader/index.js:76:87
+    at async Span.traceAsyncFn (/home/user/ergopack-india/node_modules/next/dist/trace/trace.js:154:20)
+Failed to compile.
+
+src/app/layout.tsx
+`next/font` error:
+Failed to fetch `Montserrat` from Google Fonts.
+
+src/app/layout.tsx
+`next/font` error:
+Failed to fetch `Playfair Display` from Google Fonts.
+
+./src/app/products/economy-line/page.tsx
+Error: 
+  [31mx[0m You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/
+  [31m|[0m docs/getting-started/react-essentials#the-use-client-directive
+  [31m|[0m 
+  [31m|[0m 
+    ,-[[36;1;4m/home/user/ergopack-india/src/app/products/economy-line/page.tsx[0m:26:1]
+ [2m26[0m | import Link from 'next/link';
+ [2m27[0m | 
+ [2m28[0m | // SEO Metadata
+ [2m29[0m | export const metadata: Metadata = {
+    : [31;1m             ^^^^^^^^[0m
+ [2m30[0m |   title: 'E-conomy Line - Reliable Cargo Securing System | ErgoPack India',
+ [2m31[0m |   description:
+ [2m32[0m |     'The E-conomy Line delivers proven performance and reliability for professional cargo securing. Time-tested technology, robust construction, and consistent results at exceptional value.',
+    `----
+
+Stack backtrace:
+   0: <unknown>
+   1: <unknown>
+   2: <unknown>
+   3: <unknown>
+   4: _ZZN4node14ThreadPoolWork12ScheduleWorkEvENUlP9uv_work_sE_4_FUNES2_
+   5: worker
+             at /home/iojs/build/ws/out/../deps/uv/src/threadpool.c:123:5
+   6: start_thread
+             at ./nptl/pthread_create.c:447:8
+   7: __GI___clone3
+             at ./misc/../sysdeps/unix/sysv/linux/x86_64/clone3.S:78
+
+Import trace for requested module:
+./src/app/products/economy-line/page.tsx
+
+./src/components/features/ROICalculator.tsx
+Error: 
+  [31mx[0m Expected ',', got 'loading'
+    ,-[[36;1;4m/home/user/ergopack-india/src/components/features/ROICalculator.tsx[0m:26:1]
+ [2m26[0m | 
+ [2m27[0m | export default function ROICalculator() {
+ [2m28[0m |   const [loadsPerMonth, setLoadsPerMonth] = useState(500);
+ [2m29[0m |   const [averageLoss loading, setAverageLossPerFailure] = useState(25000);
+    : [31;1m                     ^^^^^^^[0m
+ [2m30[0m |   const [currentFailureRate, setCurrentFailureRate] = useState(0.05);
+ [2m31[0m |   const [metrics, setMetrics] = useState<ROIMetrics | null>(null);
+ [2m32[0m |   const [showResults, setShowResults] = useState(false);
+    `----
+
+Caused by:
+    Syntax Error
+
+Stack backtrace:
+   0: <unknown>
+   1: <unknown>
+   2: <unknown>
+   3: <unknown>
+   4: <unknown>
+   5: <unknown>
+   6: <unknown>
+   7: <unknown>
+   8: <unknown>
+   9: <unknown>
+  10: <unknown>
+  11: <unknown>
+  12: <unknown>
+  13: _ZZN4node14ThreadPoolWork12ScheduleWorkEvENUlP9uv_work_sE_4_FUNES2_
+  14: worker
+             at /home/iojs/build/ws/out/../deps/uv/src/threadpool.c:123:5
+  15: start_thread
+             at ./nptl/pthread_create.c:447:8
+  16: __GI___clone3
+             at ./misc/../sysdeps/unix/sysv/linux/x86_64/clone3.S:78
+
+Import trace for requested module:
+./src/components/features/ROICalculator.tsx
+./src/app/premium-features/page.tsx
+
+./src/components/features/Virtual360Showroom.tsx
+Error: 
+  [31mx[0m Expected ',', got 'In'
+    ,-[[36;1;4m/home/user/ergopack-india/src/components/features/Virtual360Showroom.tsx[0m:10:1]
+ [2m10[0m |   Minimize2,
+ [2m11[0m |   RotateCcw,
+ [2m12[0m |   Info,
+ [2m13[0m |   Zap In,
+    : [31;1m      ^^[0m
+ [2m14[0m |   Volume2,
+ [2m15[0m |   VolumeX,
+ [2m16[0m |   Play,
+    `----
+
+Caused by:
+    Syntax Error
+
+Stack backtrace:
+   0: <unknown>
+   1: <unknown>
+   2: <unknown>
+   3: <unknown>
+   4: <unknown>
+   5: <unknown>
+   6: <unknown>
+   7: <unknown>
+   8: <unknown>
+   9: <unknown>
+  10: <unknown>
+  11: <unknown>
+  12: <unknown>
+  13: _ZZN4node14ThreadPoolWork12ScheduleWorkEvENUlP9uv_work_sE_4_FUNES2_
+  14: worker
+             at /home/iojs/build/ws/out/../deps/uv/src/threadpool.c:123:5
+  15: start_thread
+             at ./nptl/pthread_create.c:447:8
+  16: __GI___clone3
+             at ./misc/../sysdeps/unix/sysv/linux/x86_64/clone3.S:78
+
+Import trace for requested module:
+./src/components/features/Virtual360Showroom.tsx
+./src/app/premium-features/page.tsx
+
+
+> Build failed because of webpack errors

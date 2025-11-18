@@ -1,11 +1,11 @@
 'use client';
 
-import { Suspense, lazy, useState, useEffect } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import MainLayout from '@/components/layout/MainLayout';
 import Button from '@/components/ui/Button';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
-import { PremiumLoadingScreen } from '@/components/ui/PremiumLoadingScreen';
+import PremiumPreloader from '@/components/elite/ui/PremiumPreloader';
 import {
   ArrowRight,
   Zap,
@@ -447,22 +447,18 @@ function CTASection() {
 
 // Main Page
 export default function XpertLinePage() {
-  const [isLoading, setIsLoading] = useState(true);
-
   return (
     <>
-      <PremiumLoadingScreen onLoadingComplete={() => setIsLoading(false)} />
-      {!isLoading && (
-        <MainLayout>
-          <div className="bg-luxury-space-black">
-            <HeroSection />
-            <FeaturesSection />
-            <TechnicalExcellenceSection />
-            <ChainLanceSection />
-            <CTASection />
-          </div>
-        </MainLayout>
-      )}
+      <PremiumPreloader />
+      <MainLayout>
+        <div className="bg-luxury-space-black">
+          <HeroSection />
+          <FeaturesSection />
+          <TechnicalExcellenceSection />
+          <ChainLanceSection />
+          <CTASection />
+        </div>
+      </MainLayout>
     </>
   );
 }

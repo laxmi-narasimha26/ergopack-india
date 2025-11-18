@@ -1,10 +1,9 @@
 'use client';
 
-import { useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Link from 'next/link';
 import MainLayout from '@/components/layout/MainLayout';
-import { PremiumLoadingScreen } from '@/components/ui/PremiumLoadingScreen';
+import PremiumPreloader from '@/components/elite/ui/PremiumPreloader';
 import { MagneticButton } from '@/components/ui/MagneticButton';
 import { Premium3DCard } from '@/components/ui/Premium3DCard';
 import { TextReveal, LineReveal } from '@/components/ui/TextReveal';
@@ -913,23 +912,19 @@ function FinalCTASection() {
 
 // Main Homepage
 export default function HomePage() {
-  const [isLoading, setIsLoading] = useState(true);
-
   return (
     <>
-      <PremiumLoadingScreen onLoadingComplete={() => setIsLoading(false)} />
-      {!isLoading && (
-        <MainLayout>
-          <div className="bg-luxury-white">
-            <HeroSection />
-            <PhilosophySection />
-            <ProductLinesSection />
-            <ProductShowcaseSection />
-            <SocialProofSection />
-            <FinalCTASection />
-          </div>
-        </MainLayout>
-      )}
+      <PremiumPreloader />
+      <MainLayout>
+        <div className="bg-luxury-white">
+          <HeroSection />
+          <PhilosophySection />
+          <ProductLinesSection />
+          <ProductShowcaseSection />
+          <SocialProofSection />
+          <FinalCTASection />
+        </div>
+      </MainLayout>
     </>
   );
 }
