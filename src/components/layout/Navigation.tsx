@@ -9,6 +9,7 @@ import { cn } from '@/lib/utils';
 import Button from '../ui/Button';
 
 const navLinks = [
+  { href: '/products', label: 'Products' },
   {
     href: '/products/xpert-line',
     label: 'X-pert Line',
