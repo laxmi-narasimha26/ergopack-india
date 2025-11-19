@@ -78,12 +78,12 @@ export default function PartnershipIntroSection({ sectionNumber: _sectionNumber 
         >
           <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full border border-[#FFB81C]/30 bg-[#FFB81C]/5 mb-8">
             <Handshake className="w-5 h-5 text-[#FFB81C]" />
-            <span className="text-xs text-gray-400 uppercase tracking-[0.25em] font-medium">
+            <span className="text-xs text-theme-secondary uppercase tracking-[0.25em] font-medium">
               A Strategic Alliance
             </span>
           </div>
 
-          <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-8 leading-tight">
+          <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-theme-primary mb-8 leading-tight">
             German Precision
             <br />
             <span className="bg-gradient-to-r from-[#C8102E] via-[#FF4444] to-[#FFB81C] bg-clip-text text-transparent">
@@ -91,7 +91,7 @@ export default function PartnershipIntroSection({ sectionNumber: _sectionNumber 
             </span>
           </h2>
 
-          <p className="text-xl md:text-2xl text-gray-400 max-w-4xl mx-auto leading-relaxed font-light">
+          <p className="text-xl md:text-2xl text-theme-secondary max-w-4xl mx-auto leading-relaxed font-light">
             The fusion of Benz Packaging Solutions' deep market expertise with ErgoPack Germany's
             cutting-edge engineering excellence, delivering world-class strapping solutions without compromise.
           </p>
@@ -114,11 +114,11 @@ export default function PartnershipIntroSection({ sectionNumber: _sectionNumber 
                 <Factory className="w-8 h-8 text-[#FFB81C]" />
               </div>
 
-              <h3 className="text-3xl font-bold text-white mb-4">
+              <h3 className="text-3xl font-bold text-theme-primary mb-4">
                 Benz Packaging Solutions
               </h3>
 
-              <p className="text-gray-400 text-lg leading-relaxed mb-6">
+              <p className="text-theme-secondary text-lg leading-relaxed mb-6">
                 India's trusted partner in packaging excellence, bringing decades of industry expertise,
                 market understanding, and unwavering commitment to customer success.
               </p>
@@ -132,7 +132,7 @@ export default function PartnershipIntroSection({ sectionNumber: _sectionNumber 
                 ].map((feature, index) => (
                   <div key={index} className="flex items-center gap-3">
                     <ChevronRight className="w-4 h-4 text-[#FFB81C] flex-shrink-0" />
-                    <span className="text-sm text-gray-500">{feature}</span>
+                    <span className="text-sm text-theme-secondary">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -154,11 +154,11 @@ export default function PartnershipIntroSection({ sectionNumber: _sectionNumber 
                 <Award className="w-8 h-8 text-[#C8102E]" />
               </div>
 
-              <h3 className="text-3xl font-bold text-white mb-4">
+              <h3 className="text-3xl font-bold text-theme-primary mb-4">
                 ErgoPack Germany
               </h3>
 
-              <p className="text-gray-400 text-lg leading-relaxed mb-6">
+              <p className="text-theme-secondary text-lg leading-relaxed mb-6">
                 25+ years of pioneering innovation in strapping technology, engineering solutions that
                 set global benchmarks for precision, reliability, and ergonomic excellence.
               </p>
@@ -172,7 +172,7 @@ export default function PartnershipIntroSection({ sectionNumber: _sectionNumber 
                 ].map((feature, index) => (
                   <div key={index} className="flex items-center gap-3">
                     <ChevronRight className="w-4 h-4 text-[#C8102E] flex-shrink-0" />
-                    <span className="text-sm text-gray-500">{feature}</span>
+                    <span className="text-sm text-theme-secondary">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -191,16 +191,16 @@ export default function PartnershipIntroSection({ sectionNumber: _sectionNumber 
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full border border-gray-700/50 bg-black/30 mb-6">
               <Zap className="w-4 h-4 text-[#FFB81C]" />
-              <span className="text-xs text-gray-400 uppercase tracking-[0.25em] font-medium">
+              <span className="text-xs text-theme-secondary uppercase tracking-[0.25em] font-medium">
                 The Result
               </span>
             </div>
 
-            <h3 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h3 className="text-4xl md:text-5xl font-bold text-theme-primary mb-6">
               ErgoPack India
             </h3>
 
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-theme-secondary max-w-3xl mx-auto leading-relaxed">
               World-class German precision engineering and hi-tech automation technology,
               delivered to Indian industries with local expertise, support, and understanding—
               <span className="text-[#FFB81C] font-medium"> without any compromises</span>.
@@ -227,10 +227,10 @@ export default function PartnershipIntroSection({ sectionNumber: _sectionNumber 
             ].map((item, index) => (
               <div key={index} className="text-center">
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700/50 mb-4">
-                  <item.icon className="w-6 h-6 text-gray-400" />
+                  <item.icon className="w-6 h-6 text-theme-secondary" />
                 </div>
-                <h4 className="text-lg font-semibold text-white mb-2">{item.label}</h4>
-                <p className="text-sm text-gray-500">{item.description}</p>
+                <h4 className="text-lg font-semibold text-theme-primary mb-2">{item.label}</h4>
+                <p className="text-sm text-theme-secondary">{item.description}</p>
               </div>
             ))}
           </div>

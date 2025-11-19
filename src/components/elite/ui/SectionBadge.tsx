@@ -51,7 +51,7 @@ export default function SectionBadge() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="text-white text-3xl font-bold font-mono relative z-10"
+          className="text-theme-primary text-3xl font-bold font-mono relative z-10"
         >
           {currentSection}
         </motion.span>

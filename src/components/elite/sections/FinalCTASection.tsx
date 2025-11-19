@@ -16,7 +16,7 @@ export default function FinalCTASection({ sectionNumber }: { sectionNumber: numb
           transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-8 tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-theme-primary leading-tight mb-8 tracking-tight">
             JOIN INDIA&apos;S
             <br />
             <span className="text-[#C8102E]">ELITE OPERATORS</span>
@@ -28,7 +28,7 @@ export default function FinalCTASection({ sectionNumber }: { sectionNumber: numb
           whileInView={{ opacity: 1 }}
           transition={{ duration: 2, delay: 0.5 }}
           viewport={{ once: true }}
-          className="text-xl text-gray-400 max-w-3xl mx-auto"
+          className="text-xl text-theme-secondary max-w-3xl mx-auto"
         >
           Transform your packaging operation. Apply for Elite Partnership today.
         </motion.p>
@@ -56,7 +56,7 @@ export default function FinalCTASection({ sectionNumber }: { sectionNumber: numb
             whileHover={{ scale: 1.05, borderColor: '#FFB81C' }}
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.3 }}
-            className="px-12 py-6 bg-transparent border-2 border-[#C8102E] text-white font-bold text-xl rounded-full hover:border-[#FFB81C] transition-colors min-w-[300px]"
+            className="px-12 py-6 bg-transparent border-2 border-[#C8102E] text-theme-primary font-bold text-xl rounded-full hover:border-[#FFB81C] transition-colors min-w-[300px]"
           >
             Schedule Site Visit
           </motion.button>
@@ -73,22 +73,22 @@ export default function FinalCTASection({ sectionNumber }: { sectionNumber: numb
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="flex flex-col items-center gap-3">
               <Mail className="w-6 h-6 text-[#C8102E]" strokeWidth={1.5} />
-              <h5 className="text-white font-semibold">Email</h5>
-              <a href="mailto:elite@ergopack.in" className="text-gray-400 hover:text-[#FFB81C] transition-colors">
+              <h5 className="text-theme-primary font-semibold">Email</h5>
+              <a href="mailto:elite@ergopack.in" className="text-theme-secondary hover:text-[#FFB81C] transition-colors">
                 elite@ergopack.in
               </a>
             </div>
             <div className="flex flex-col items-center gap-3">
               <Phone className="w-6 h-6 text-[#C8102E]" strokeWidth={1.5} />
-              <h5 className="text-white font-semibold">Phone</h5>
-              <a href="tel:+911234567890" className="text-gray-400 hover:text-[#FFB81C] transition-colors">
+              <h5 className="text-theme-primary font-semibold">Phone</h5>
+              <a href="tel:+911234567890" className="text-theme-secondary hover:text-[#FFB81C] transition-colors">
                 +91 123 456 7890
               </a>
             </div>
             <div className="flex flex-col items-center gap-3">
               <MapPin className="w-6 h-6 text-[#C8102E]" strokeWidth={1.5} />
-              <h5 className="text-white font-semibold">Location</h5>
-              <p className="text-gray-400">Mumbai, India</p>
+              <h5 className="text-theme-primary font-semibold">Location</h5>
+              <p className="text-theme-secondary">Mumbai, India</p>
             </div>
           </div>
         </motion.div>
@@ -99,7 +99,7 @@ export default function FinalCTASection({ sectionNumber }: { sectionNumber: numb
           whileInView={{ opacity: 1 }}
           transition={{ duration: 2, delay: 2 }}
           viewport={{ once: true }}
-          className="text-gray-600 text-sm mt-16 pb-12"
+          className="text-theme-secondary text-sm mt-16 pb-12"
         >
           © 2024 Ergopack India. Elite Partnership Program.
           <br />

@@ -14,7 +14,7 @@ export default function PartnershipSection({ sectionNumber }: { sectionNumber: n
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight"
+          className="text-4xl md:text-5xl lg:text-6xl font-black text-theme-primary tracking-tight"
         >
           PARTNERSHIP PROCESS
         </motion.h2>
@@ -24,7 +24,7 @@ export default function PartnershipSection({ sectionNumber }: { sectionNumber: n
           whileInView={{ opacity: 1 }}
           transition={{ duration: 2, delay: 0.5 }}
           viewport={{ once: true }}
-          className="text-xl text-gray-400 max-w-3xl mx-auto"
+          className="text-xl text-theme-secondary max-w-3xl mx-auto"
         >
           Elite Partnership is by application. Here&apos;s how it works:
         </motion.p>
@@ -72,14 +72,14 @@ export default function PartnershipSection({ sectionNumber }: { sectionNumber: n
               className="flex items-start gap-6 mb-8 bg-gradient-to-r from-[#1A0000] to-transparent border-l-4 border-[#C8102E] p-6 rounded-r-lg"
             >
               <div className="flex-shrink-0 w-16 h-16 bg-[#C8102E] rounded-full flex items-center justify-center">
-                <span className="text-white font-black text-xl">{phase.step}</span>
+                <span className="text-theme-primary font-black text-xl">{phase.step}</span>
               </div>
               <div className="flex-grow text-left">
                 <div className="flex items-baseline justify-between mb-2">
-                  <h4 className="text-white font-bold text-2xl">{phase.title}</h4>
+                  <h4 className="text-theme-primary font-bold text-2xl">{phase.title}</h4>
                   <span className="text-[#FFB81C] text-sm font-semibold">{phase.time}</span>
                 </div>
-                <p className="text-gray-400">{phase.desc}</p>
+                <p className="text-theme-secondary">{phase.desc}</p>
               </div>
             </motion.div>
           ))}
@@ -93,8 +93,8 @@ export default function PartnershipSection({ sectionNumber }: { sectionNumber: n
           viewport={{ once: true }}
           className="bg-black/60 border border-[#4A0000] p-8 rounded-lg max-w-3xl mx-auto text-left"
         >
-          <h4 className="text-white font-bold text-xl mb-4 text-center">Eligibility Criteria</h4>
-          <ul className="space-y-2 text-gray-400">
+          <h4 className="text-theme-primary font-bold text-xl mb-4 text-center">Eligibility Criteria</h4>
+          <ul className="space-y-2 text-theme-secondary">
             {[
               'Minimum 1,000 packages/day production volume',
               'Commitment to quality and operational excellence',

@@ -28,7 +28,7 @@ export default function ProductSelector({ onSelect, onClose }: ProductSelectorPr
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/90 backdrop-blur-xl cursor-auto"
+      className="fixed inset-0 z-[99999] flex items-center justify-center bg-theme-primary/90 backdrop-blur-xl cursor-auto"
       onClick={onClose}
       style={{ cursor: 'auto' }}
     >
@@ -38,7 +38,7 @@ export default function ProductSelector({ onSelect, onClose }: ProductSelectorPr
         exit={{ scale: 0.9, opacity: 0, y: 20 }}
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
         onClick={(e) => e.stopPropagation()}
-        className="relative max-w-7xl w-full mx-4 max-h-[85vh] overflow-y-auto bg-gradient-to-br from-gray-900 via-black to-gray-900 rounded-3xl border border-[#C8102E]/30 shadow-2xl cursor-auto"
+        className="relative max-w-7xl w-full mx-4 max-h-[85vh] overflow-y-auto bg-gradient-to-br from-theme-secondary via-theme-primary to-theme-secondary rounded-3xl border border-[#C8102E]/30 shadow-2xl cursor-auto"
         style={{ cursor: 'auto' }}
       >
         {/* Close Button */}
@@ -47,7 +47,7 @@ export default function ProductSelector({ onSelect, onClose }: ProductSelectorPr
           className="absolute top-6 right-6 z-10 p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors group cursor-pointer"
           style={{ cursor: 'pointer' }}
         >
-          <X className="h-6 w-6 text-white group-hover:rotate-90 transition-transform duration-300" />
+          <X className="h-6 w-6 text-theme-primary group-hover:rotate-90 transition-transform duration-300" />
         </button>
 
         {/* Header */}
@@ -58,11 +58,11 @@ export default function ProductSelector({ onSelect, onClose }: ProductSelectorPr
             transition={{ delay: 0.1 }}
           >
             <h2 className="text-4xl sm:text-5xl font-black tracking-tight mb-4">
-              <span className="text-white">SELECT YOUR</span>
+              <span className="text-theme-primary">SELECT YOUR</span>
               <br />
               <span className="text-[#C8102E]">MACHINE</span>
             </h2>
-            <p className="text-base sm:text-lg text-gray-400 max-w-2xl mx-auto font-light">
+            <p className="text-base sm:text-lg text-theme-secondary max-w-2xl mx-auto font-light">
               Choose a model to see its complete specifications, features, and capabilities in stunning detail
             </p>
           </motion.div>
@@ -87,13 +87,13 @@ export default function ProductSelector({ onSelect, onClose }: ProductSelectorPr
                   {isXpert ? (
                     <Zap className="h-8 w-8 text-[#C8102E]" />
                   ) : lineName.includes('RE Line') ? (
-                    <Truck className="h-8 w-8 text-gray-400" />
+                    <Truck className="h-8 w-8 text-theme-secondary" />
                   ) : lineName.includes('GO Line') ? (
-                    <Package className="h-8 w-8 text-gray-400" />
+                    <Package className="h-8 w-8 text-theme-secondary" />
                   ) : (
-                    <DollarSign className="h-8 w-8 text-gray-400" />
+                    <DollarSign className="h-8 w-8 text-theme-secondary" />
                   )}
-                  <h3 className={`text-3xl font-bold ${isXpert ? 'text-[#C8102E]' : 'text-white'}`}>
+                  <h3 className={`text-3xl font-bold ${isXpert ? 'text-[#C8102E]' : 'text-theme-primary'}`}>
                     {lineName}
                   </h3>
                 </div>
@@ -123,20 +123,20 @@ export default function ProductSelector({ onSelect, onClose }: ProductSelectorPr
                         <div className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4 ${
                           isXpert
                             ? 'bg-[#C8102E]/30 text-[#FFB81C]'
-                            : 'bg-white/10 text-gray-300'
+                            : 'bg-white/10 text-theme-secondary'
                         }`}>
                           {product.applicationType}
                         </div>
 
                         {/* Model Name */}
                         <h4 className={`text-2xl sm:text-3xl font-black mb-2 ${
-                          isXpert ? 'text-white' : 'text-gray-200'
+                          isXpert ? 'text-theme-primary' : 'text-theme-primary'
                         }`}>
                           {product.model}
                         </h4>
 
                         {/* Full Name */}
-                        <p className="text-sm text-gray-400 mb-4 font-light">
+                        <p className="text-sm text-theme-secondary mb-4 font-light">
                           {product.fullName}
                         </p>
 
@@ -144,24 +144,24 @@ export default function ProductSelector({ onSelect, onClose }: ProductSelectorPr
                         <div className="space-y-2 text-xs text-left">
                           {product.sealingHead?.tensionPower && (
                             <div className="flex justify-between">
-                              <span className="text-gray-500">Max Tension:</span>
-                              <span className="text-gray-300 font-medium">
+                              <span className="text-theme-secondary">Max Tension:</span>
+                              <span className="text-theme-primary font-medium">
                                 {product.sealingHead.tensionPower.max} {product.sealingHead.tensionPower.unit}
                               </span>
                             </div>
                           )}
                           {product.performance?.chainSpeed && (
                             <div className="flex justify-between">
-                              <span className="text-gray-500">Speed:</span>
-                              <span className="text-gray-300 font-medium">
+                              <span className="text-theme-secondary">Speed:</span>
+                              <span className="text-theme-primary font-medium">
                                 {product.performance.chainSpeed} {product.performance.chainSpeedUnit || 'm/min'}
                               </span>
                             </div>
                           )}
                           {product.battery?.type && product.battery.type !== 'None - Manual Operation' && (
                             <div className="flex justify-between">
-                              <span className="text-gray-500">Battery:</span>
-                              <span className={`font-medium ${isLithium ? 'text-amber-400' : 'text-gray-300'}`}>
+                              <span className="text-theme-secondary">Battery:</span>
+                              <span className={`font-medium ${isLithium ? 'text-amber-400' : 'text-theme-primary'}`}>
                                 {isLithium ? 'Li-Ion' : 'Lead'}
                               </span>
                             </div>
@@ -170,7 +170,7 @@ export default function ProductSelector({ onSelect, onClose }: ProductSelectorPr
 
                         {/* Hover Arrow */}
                         <div className={`absolute bottom-4 right-4 transition-all duration-300 ${
-                          isXpert ? 'text-[#FFB81C]' : 'text-white'
+                          isXpert ? 'text-[#FFB81C]' : 'text-theme-primary'
                         } opacity-0 group-hover:opacity-100 group-hover:translate-x-1`}>
                           ↘
                         </div>
@@ -185,7 +185,7 @@ export default function ProductSelector({ onSelect, onClose }: ProductSelectorPr
 
         {/* Footer */}
         <div className="text-center py-8 px-8 border-t border-white/10">
-          <p className="text-gray-500 text-sm">
+          <p className="text-theme-secondary text-sm">
             Click on any model to explore its complete specifications in the Elite presentation
           </p>
         </div>

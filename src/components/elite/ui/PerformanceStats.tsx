@@ -39,9 +39,9 @@ export default function PerformanceStats() {
       initial={{ opacity: 0, x: 20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed bottom-12 right-12 z-50 font-mono text-xs text-gray-400"
+      className="fixed bottom-12 right-12 z-50 font-mono text-xs text-theme-secondary"
     >
-      <div className="space-y-2 bg-black/40 backdrop-blur-md p-4 rounded border border-[#4A0000]">
+      <div className="space-y-2 glass-theme p-4 rounded border border-[#4A0000]">
         <StatRow label="Throughput" value={`${stats.throughput}/hr`} />
         <StatRow label="Uptime" value={`${stats.uptime.toFixed(1)}%`} />
         <StatRow label="Precision" value={`±${stats.precision}mm`} />
@@ -60,8 +60,8 @@ function StatRow({ label, value }: { label: string; value: string }) {
       transition={{ duration: 0.3 }}
       className="flex justify-between gap-6"
     >
-      <span className="text-gray-500">{label}:</span>
-      <span className="text-white font-semibold">{value}</span>
+      <span className="text-theme-secondary">{label}:</span>
+      <span className="text-theme-primary font-semibold">{value}</span>
     </motion.div>
   );
 }

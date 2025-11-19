@@ -268,7 +268,7 @@ export default function CompanyJourneySection({ sectionNumber }: { sectionNumber
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl md:text-5xl font-black mb-3"
           >
-            <span className="text-white">THE ERGOPACK </span>
+            <span className="text-theme-primary">THE ERGOPACK </span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C8102E] to-[#FFB81C]">
               JOURNEY
             </span>
@@ -278,7 +278,7 @@ export default function CompanyJourneySection({ sectionNumber }: { sectionNumber
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-sm md:text-base text-gray-400 max-w-3xl mx-auto leading-relaxed"
+            className="text-sm md:text-base text-theme-secondary max-w-3xl mx-auto leading-relaxed"
           >
             Over 15,000 sold systems in more than 60 countries - 27 years of innovation
           </motion.p>
@@ -288,7 +288,7 @@ export default function CompanyJourneySection({ sectionNumber }: { sectionNumber
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-4 flex items-center justify-center gap-6 text-xs text-gray-500 font-mono"
+            className="mt-4 flex items-center justify-center gap-6 text-xs text-theme-secondary font-mono"
           >
             <div className="flex items-center gap-2">
               <ChevronLeft className="h-4 w-4" />
@@ -351,7 +351,7 @@ export default function CompanyJourneySection({ sectionNumber }: { sectionNumber
                       {currentMilestone.year}
                     </div>
 
-                    <h3 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+                    <h3 className="text-3xl md:text-4xl font-bold text-theme-primary mb-6 leading-tight">
                       {currentMilestone.title}
                     </h3>
 
@@ -374,7 +374,7 @@ export default function CompanyJourneySection({ sectionNumber }: { sectionNumber
 
                   {/* Right: Story & Achievements */}
                   <div className="flex flex-col justify-center">
-                    <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-8">
+                    <p className="text-lg md:text-xl text-theme-secondary leading-relaxed mb-8">
                       {currentMilestone.detailedStory}
                     </p>
 
@@ -398,7 +398,7 @@ export default function CompanyJourneySection({ sectionNumber }: { sectionNumber
                             className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
                             style={{ backgroundColor: currentMilestone.color }}
                           />
-                          <span className="text-gray-300 leading-relaxed">{achievement}</span>
+                          <span className="text-theme-secondary leading-relaxed">{achievement}</span>
                         </motion.div>
                       ))}
                     </div>
@@ -445,7 +445,7 @@ export default function CompanyJourneySection({ sectionNumber }: { sectionNumber
               <div className="text-2xl md:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#C8102E] to-[#FFB81C]">
                 {stat.value}
               </div>
-              <div className="text-xs text-gray-400 font-medium uppercase tracking-wider mt-1">
+              <div className="text-xs text-theme-secondary font-medium uppercase tracking-wider mt-1">
                 {stat.label}
               </div>
             </div>

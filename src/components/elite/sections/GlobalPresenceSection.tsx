@@ -81,7 +81,7 @@ export default function GlobalPresenceSection({ sectionNumber }: { sectionNumber
             Worldwide Excellence
           </span>
           <h2 className="text-6xl md:text-8xl font-black mb-8">
-            <span className="text-white">GLOBAL</span>
+            <span className="text-theme-primary">GLOBAL</span>
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C8102E] to-[#FFB81C]">
               PRESENCE
@@ -106,7 +106,7 @@ export default function GlobalPresenceSection({ sectionNumber }: { sectionNumber
               <div className="text-5xl font-black mb-2" style={{ color: stat.color }}>
                 {stat.value}
               </div>
-              <div className="text-gray-400 uppercase tracking-wider text-sm">
+              <div className="text-theme-secondary uppercase tracking-wider text-sm">
                 {stat.label}
               </div>
               <div className="mt-4 h-1 w-0 group-hover:w-full bg-gradient-to-r from-[#C8102E] to-[#FFB81C] transition-all duration-500 mx-auto" />
@@ -122,7 +122,7 @@ export default function GlobalPresenceSection({ sectionNumber }: { sectionNumber
           viewport={{ once: true }}
           className="mb-24"
         >
-          <h3 className="text-4xl md:text-5xl font-black text-white mb-12 text-center">
+          <h3 className="text-4xl md:text-5xl font-black text-theme-primary mb-12 text-center">
             Industry Certifications
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -145,10 +145,10 @@ export default function GlobalPresenceSection({ sectionNumber }: { sectionNumber
                         <CertificateIcon size={40} color="#FFB81C" />
                       </div>
                       <div>
-                        <h4 className="text-xl font-bold text-white mb-2 group-hover:text-[#FFB81C] transition-colors duration-300">
+                        <h4 className="text-xl font-bold text-theme-primary mb-2 group-hover:text-[#FFB81C] transition-colors duration-300">
                           {cert.name}
                         </h4>
-                        <p className="text-sm text-gray-400 leading-relaxed">
+                        <p className="text-sm text-theme-secondary leading-relaxed">
                           {cert.description}
                         </p>
                       </div>
@@ -168,7 +168,7 @@ export default function GlobalPresenceSection({ sectionNumber }: { sectionNumber
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h3 className="text-4xl md:text-5xl font-black text-white mb-12 text-center">
+          <h3 className="text-4xl md:text-5xl font-black text-theme-primary mb-12 text-center">
             Regional Coverage
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -184,10 +184,10 @@ export default function GlobalPresenceSection({ sectionNumber }: { sectionNumber
                 <div className="mb-4">
                   <GlobalIcon size={48} color="#C8102E" className="mx-auto" />
                 </div>
-                <h4 className="text-2xl font-bold text-white mb-3 group-hover:text-[#FFB81C] transition-colors duration-300">
+                <h4 className="text-2xl font-bold text-theme-primary mb-3 group-hover:text-[#FFB81C] transition-colors duration-300">
                   {region.region}
                 </h4>
-                <p className="text-gray-400 text-sm mb-4">{region.countries}</p>
+                <p className="text-theme-secondary text-sm mb-4">{region.countries}</p>
                 <div className="inline-block px-4 py-2 bg-[#C8102E]/20 border border-[#C8102E]/30 rounded-full">
                   <span className="text-xs text-[#FFB81C] font-bold uppercase tracking-wider">
                     {region.highlight}
