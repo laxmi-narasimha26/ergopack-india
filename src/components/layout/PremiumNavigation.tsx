@@ -140,7 +140,7 @@ export default function PremiumNavigation() {
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 10 }}
-                            transition={{ duration: 0.2 }}
+                            transition={{ duration: 0.08, ease: 'easeOut' }}
                             className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-72"
                           >
                             <div className="bg-white/95 backdrop-blur-xl rounded-2xl border border-platinum-200/50 shadow-2xl shadow-black/10 p-3 overflow-hidden">

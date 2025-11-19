@@ -77,24 +77,32 @@ export default function HeroSection({ sectionNumber }: { sectionNumber: number }
           </motion.p>
         </motion.div>
 
-        {/* Scroll Indicator */}
+        {/* Scroll Indicator - Clickable */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2, delay: 2.2 }}
           className="mt-24"
         >
-          <div className="flex flex-col items-center gap-3">
-            <span className="text-xs text-gray-700 uppercase tracking-[0.3em] font-mono">
+          <button
+            onClick={() => {
+              const nextSection = document.querySelectorAll('[data-section]')[1];
+              nextSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }}
+            className="flex flex-col items-center gap-3 cursor-pointer group transition-all hover:scale-110"
+            aria-label="Scroll to next section"
+          >
+            <span className="text-xs text-gray-700 uppercase tracking-[0.3em] font-mono group-hover:text-[#C8102E] transition-colors">
               Scroll to Explore
             </span>
             <motion.div
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              className="group-hover:text-[#FF4444] transition-colors"
             >
               <ChevronDown className="w-6 h-6 text-[#C8102E]" strokeWidth={1.5} />
             </motion.div>
-          </div>
+          </button>
         </motion.div>
       </div>
     </section>
