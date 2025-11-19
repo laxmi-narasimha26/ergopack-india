@@ -69,7 +69,8 @@ export default function CompanyJourneySection({ sectionNumber }: { sectionNumber
     <section
       ref={containerRef}
       data-section={sectionNumber}
-      className="relative min-h-screen flex items-center justify-center py-32 px-8 overflow-hidden"
+      className="relative flex items-center justify-center py-20 px-8 overflow-hidden"
+      style={{ minHeight: '100vh', maxHeight: '200vh' }}
     >
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-[#1A0000] to-black opacity-90" />
@@ -93,13 +94,13 @@ export default function CompanyJourneySection({ sectionNumber }: { sectionNumber
         className="relative z-10 max-w-7xl mx-auto w-full"
       >
         {/* Section Header */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-12">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="mb-6"
+            className="mb-4"
           >
             <span className="text-[#FFB81C] font-mono text-sm tracking-[0.3em] uppercase">
               Since 1985
@@ -107,11 +108,11 @@ export default function CompanyJourneySection({ sectionNumber }: { sectionNumber
           </motion.div>
 
           <motion.h2
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             viewport={{ once: true }}
-            className="text-6xl md:text-8xl font-black mb-8"
+            className="text-5xl md:text-7xl font-black mb-6"
           >
             <span className="text-white">THE ERGOPACK</span>
             <br />
@@ -121,11 +122,11 @@ export default function CompanyJourneySection({ sectionNumber }: { sectionNumber
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed"
           >
             40 years of German engineering excellence, pushing the boundaries of
             packaging automation and setting global standards for quality and innovation
@@ -137,42 +138,42 @@ export default function CompanyJourneySection({ sectionNumber }: { sectionNumber
           {/* Vertical line */}
           <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-[#C8102E] to-transparent" />
 
-          {/* Milestones */}
-          <div className="space-y-32">
+          {/* Milestones - Condensed */}
+          <div className="space-y-16">
             {MILESTONES.map((milestone, index) => (
               <motion.div
                 key={milestone.year}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true, margin: '-100px' }}
+                transition={{ duration: 0.6, delay: index * 0.05 }}
+                viewport={{ once: true, margin: '-50px' }}
                 className={`relative flex items-center ${
                   index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'
                 }`}
               >
                 {/* Content */}
-                <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-16' : 'text-left pl-16'}`}>
-                  <div className="bg-gradient-to-br from-black/80 to-[#1A0000]/80 backdrop-blur-xl border-2 border-[#4A0000] rounded-2xl p-8 hover:border-[#C8102E] transition-all duration-500 group">
-                    <div className="mb-4 flex justify-between items-center">
+                <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-12' : 'text-left pl-12'}`}>
+                  <div className="bg-gradient-to-br from-black/80 to-[#1A0000]/80 backdrop-blur-xl border border-[#4A0000] rounded-xl p-6 hover:border-[#C8102E] transition-all duration-300 group">
+                    <div className="mb-3 flex justify-between items-center">
                       <span
-                        className="text-5xl font-black tracking-tighter"
+                        className="text-3xl font-black tracking-tighter"
                         style={{ color: milestone.color }}
                       >
                         {milestone.year}
                       </span>
                       <div className={index % 2 === 0 ? 'order-first' : ''}>
-                        <milestone.icon size={48} color={milestone.color} />
+                        <milestone.icon size={32} color={milestone.color} />
                       </div>
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#FFB81C] transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-[#FFB81C] transition-colors duration-300">
                       {milestone.title}
                     </h3>
-                    <p className="text-gray-400 leading-relaxed">
+                    <p className="text-sm text-gray-400 leading-relaxed">
                       {milestone.description}
                     </p>
 
                     {/* Hover accent line */}
-                    <div className="mt-4 h-1 w-0 group-hover:w-full bg-gradient-to-r from-[#C8102E] to-[#FFB81C] transition-all duration-500" />
+                    <div className="mt-3 h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-[#C8102E] to-[#FFB81C] transition-all duration-500" />
                   </div>
                 </div>
 
@@ -181,12 +182,12 @@ export default function CompanyJourneySection({ sectionNumber }: { sectionNumber
                   <motion.div
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
-                    transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
+                    transition={{ duration: 0.4, delay: index * 0.05 + 0.2 }}
                     viewport={{ once: true }}
                     className="relative"
                   >
                     <div
-                      className="w-6 h-6 rounded-full border-4 border-black z-10 relative"
+                      className="w-4 h-4 rounded-full border-2 border-black z-10 relative"
                       style={{ backgroundColor: milestone.color }}
                     />
                     {/* Pulse effect */}
@@ -213,13 +214,13 @@ export default function CompanyJourneySection({ sectionNumber }: { sectionNumber
           </div>
         </div>
 
-        {/* Stats Section */}
+        {/* Stats Section - More Compact */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mt-32 grid grid-cols-2 md:grid-cols-4 gap-8"
+          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
         >
           {[
             { value: '40+', label: 'Years of Innovation', suffix: 'Years' },
@@ -229,20 +230,20 @@ export default function CompanyJourneySection({ sectionNumber }: { sectionNumber
           ].map((stat, index) => (
             <motion.div
               key={stat.label}
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.4, delay: index * 0.05 }}
               viewport={{ once: true }}
-              className="text-center p-8 bg-gradient-to-br from-black/60 to-[#1A0000]/60 backdrop-blur-xl border border-[#4A0000] rounded-xl hover:border-[#C8102E] transition-all duration-500 group"
+              className="text-center p-6 bg-gradient-to-br from-black/60 to-[#1A0000]/60 backdrop-blur-xl border border-[#4A0000] rounded-lg hover:border-[#C8102E] transition-all duration-300 group"
             >
-              <div className="text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#C8102E] to-[#FFB81C] mb-3">
+              <div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#C8102E] to-[#FFB81C] mb-2">
                 {stat.value}
               </div>
-              <div className="text-sm md:text-base text-gray-400 font-medium uppercase tracking-wider">
+              <div className="text-xs md:text-sm text-gray-400 font-medium uppercase tracking-wider">
                 {stat.label}
               </div>
               {/* Accent bar */}
-              <div className="mt-4 h-1 w-0 group-hover:w-full bg-gradient-to-r from-[#C8102E] to-[#FFB81C] transition-all duration-500 mx-auto" />
+              <div className="mt-3 h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-[#C8102E] to-[#FFB81C] transition-all duration-500 mx-auto" />
             </motion.div>
           ))}
         </motion.div>
