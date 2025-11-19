@@ -1,46 +1,33 @@
 import { Metadata } from 'next';
-import ProductPageTemplate from '@/components/products/ProductPageTemplate';
-import productsData from '@/../../products-data.json';
+import PremiumProductPage from '@/components/products/PremiumProductPage';
+import { ergoPack713E } from '@/data/comprehensive-products';
 
 export const metadata: Metadata = {
-  title: 'ErgoPack 713E - Ultra-Light-Duty Mobile Strapping System | Economy Line',
-  description: 'ErgoPack 713E Economy Line for ultra-light-duty applications with 150-1200N tension, 9-13mm strap width. Ideal for delicate packaging with AGR certified ergonomic design.',
+  title: 'ErgoPack 713E - Complete Strapping & Sealing System | Economy Line',
+  description: 'ErgoPack 713E Economy Line with integrated sealing head and tool-lift included. Professional sealing for PP and PET straps with 40m/min speed and 350 cycles.',
   keywords: [
     'ErgoPack 713E',
-    'ultra-light strapping',
-    'delicate packaging',
-    'economy strapping',
-    '1200N tension',
-    'narrow strap',
-    'AGR certified',
+    'sealing head included',
+    'complete strapping system',
+    'PP PET sealing',
+    'tool-lift included',
+    '350 cycles',
+    'professional sealing',
   ],
   openGraph: {
-    title: 'ErgoPack 713E - Economy Line Ultra-Light-Duty Strapping',
-    description: 'Ultra-light-duty mobile strapping with 150-1200N tension for delicate packaging applications.',
-    images: ['/images/products/713E/hero.jpg'],
-    type: 'product',
+    title: 'ErgoPack 713E - Complete Strapping & Sealing System',
+    description: 'Economy Line system with sealing head and tool-lift included for professional PP and PET strapping.',
+    images: ['/images/products/713E/1.png'],
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ErgoPack 713E - Ultra-Light Strapping Solution',
-    description: 'Perfect for delicate packaging with precise tension control and ergonomic design.',
-    images: ['/images/products/713E/hero.jpg'],
+    title: 'ErgoPack 713E - Strapping & Sealing',
+    description: 'Complete solution with sealing head included for professional packaging.',
+    images: ['/images/products/713E/1.png'],
   },
 };
 
 export default function ErgoPack713EPage() {
-  const productData = productsData.products['713E'];
-
-  return (
-    <ProductPageTemplate
-      productData={productData}
-      heroImage="/images/products/713E/hero.jpg"
-      applicationImages={[
-        '/images/products/713E/application-1.jpg',
-        '/images/products/713E/application-2.jpg',
-        '/images/products/713E/application-3.jpg',
-      ]}
-      comparisonLink="/products/compare-machines?models=713E,713X"
-    />
-  );
+  return <PremiumProductPage product={ergoPack713E} />;
 }

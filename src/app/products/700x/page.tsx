@@ -1,46 +1,34 @@
 import { Metadata } from 'next';
-import ProductPageTemplate from '@/components/products/ProductPageTemplate';
-import productsData from '@/../../products-data.json';
+import PremiumProductPage from '@/components/products/PremiumProductPage';
+import { ergoPack700X } from '@/data/comprehensive-products';
 
 export const metadata: Metadata = {
-  title: 'ErgoPack 700X Li - Premium Multi-Material Strapping System | X-pert Line',
-  description: 'ErgoPack 700X Li X-pert Line with Lithium-Ion power, 66 m/min speed, 1200 cycles, Siemens touchscreen. Universal material compatibility (PP, PET, Paper, Cord, Composite).',
+  title: 'ErgoPack 700X Li - Premium Lithium-Ion Strapping System | X-pert Line',
+  description: 'ErgoPack 700X Li X-pert Line with advanced Lithium-Ion battery delivering 1200 cycles and 66m/min speed. Siemens touchscreen control, multi-material compatibility.',
   keywords: [
     'ErgoPack 700X',
-    'lithium multi-material',
-    'X-pert 700',
-    'premium versatile strapping',
-    'Siemens control',
+    'lithium-ion strapping',
+    'X-pert Line',
+    'Siemens touchscreen',
     '1200 cycles',
-    'universal compatibility',
+    '66m/min speed',
+    'premium strapping',
+    'multi-material',
   ],
   openGraph: {
-    title: 'ErgoPack 700X Li - X-pert Multi-Material Strapping System',
-    description: 'Premium multi-material strapping with Li-Ion technology and universal material compatibility.',
-    images: ['/images/products/700X/hero.jpg'],
-    type: 'product',
+    title: 'ErgoPack 700X Li - Premium X-pert Line Strapping System',
+    description: 'Advanced lithium-ion strapping with 1200 cycles, Siemens touchscreen, and 66m/min speed.',
+    images: ['/images/products/700X/1.png'],
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ErgoPack 700X Li - Premium Multi-Material',
-    description: 'X-pert Line versatility with lithium-ion power for all strapping materials.',
-    images: ['/images/products/700X/hero.jpg'],
+    title: 'ErgoPack 700X Li - Premium Lithium-Ion Strapping',
+    description: 'X-pert Line premium performance with up to 1200 cycles per charge.',
+    images: ['/images/products/700X/1.png'],
   },
 };
 
 export default function ErgoPack700XPage() {
-  const productData = productsData.products['700X'];
-
-  return (
-    <ProductPageTemplate
-      productData={productData}
-      heroImage="/images/products/700X/hero.jpg"
-      applicationImages={[
-        '/images/products/700X/application-1.jpg',
-        '/images/products/700X/application-2.jpg',
-        '/images/products/700X/application-3.jpg',
-      ]}
-      comparisonLink="/products/compare-machines?models=700,700E,700X"
-    />
-  );
+  return <PremiumProductPage product={ergoPack700X} />;
 }

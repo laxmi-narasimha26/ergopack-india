@@ -8,6 +8,137 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+/* ========== DARK/LIGHT MODE THEME SYSTEM ========== */
+/* Dark Mode (Default for Elite Page) */
+[data-theme="dark"] {
+  /* Primary Colors */
+  --color-primary: 200, 16, 46; /* #C8102E */
+  --color-primary-dark: 139, 0, 0; /* #8B0000 */
+  --color-accent: 255, 184, 28; /* #FFB81C */
+  --color-accent-secondary: 0, 217, 255; /* #00D9FF */
+  --color-success: 0, 255, 136; /* #00FF88 */
+
+  /* Backgrounds */
+  --bg-primary: 0, 0, 0; /* Pure black */
+  --bg-secondary: 26, 0, 0; /* Deep red-black */
+  --bg-tertiary: 18, 18, 18; /* Dark gray */
+  --bg-card: 20, 20, 22; /* Card background */
+  --bg-elevated: 30, 30, 32; /* Elevated elements */
+
+  /* Text Colors */
+  --text-primary: 255, 255, 255; /* White */
+  --text-secondary: 156, 163, 175; /* Gray-400 */
+  --text-tertiary: 107, 114, 128; /* Gray-500 */
+  --text-muted: 75, 85, 99; /* Gray-600 */
+
+  /* Borders */
+  --border-primary: 74, 0, 0; /* #4A0000 */
+  --border-secondary: 255, 255, 255, 0.1;
+  --border-hover: 200, 16, 46, 0.5; /* Primary with opacity */
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.7);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.8);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.9);
+  --shadow-glow: 0 0 20px rgba(200, 16, 46, 0.3);
+
+  /* Glass Effect */
+  --glass-bg: rgba(0, 0, 0, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: 20px;
+}
+
+/* Light Mode */
+[data-theme="light"] {
+  /* Primary Colors */
+  --color-primary: 200, 16, 46; /* #C8102E */
+  --color-primary-dark: 139, 0, 0; /* #8B0000 */
+  --color-accent: 255, 184, 28; /* #FFB81C */
+  --color-accent-secondary: 0, 150, 199; /* Darker cyan for light mode */
+  --color-success: 0, 200, 100; /* Darker green for light mode */
+
+  /* Backgrounds */
+  --bg-primary: 255, 255, 255; /* Pure white */
+  --bg-secondary: 249, 250, 251; /* Gray-50 */
+  --bg-tertiary: 243, 244, 246; /* Gray-100 */
+  --bg-card: 255, 255, 255; /* White cards */
+  --bg-elevated: 248, 248, 250; /* Elevated white */
+
+  /* Text Colors */
+  --text-primary: 17, 24, 39; /* Gray-900 */
+  --text-secondary: 75, 85, 99; /* Gray-600 */
+  --text-tertiary: 107, 114, 128; /* Gray-500 */
+  --text-muted: 156, 163, 175; /* Gray-400 */
+
+  /* Borders */
+  --border-primary: 229, 231, 235; /* Gray-200 */
+  --border-secondary: 209, 213, 219; /* Gray-300 */
+  --border-hover: 200, 16, 46, 0.3; /* Primary with opacity */
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+  --shadow-glow: 0 0 20px rgba(200, 16, 46, 0.15);
+
+  /* Glass Effect */
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --glass-blur: 20px;
+}
+
+/* Theme-aware utility classes */
+.bg-theme-primary {
+  background-color: rgb(var(--bg-primary));
+}
+
+.bg-theme-secondary {
+  background-color: rgb(var(--bg-secondary));
+}
+
+.bg-theme-card {
+  background-color: rgb(var(--bg-card));
+  box-shadow: var(--shadow-md);
+  border: 1px solid rgba(var(--border-secondary));
+}
+
+.text-theme-primary {
+  color: rgb(var(--text-primary));
+}
+
+.text-theme-secondary {
+  color: rgb(var(--text-secondary));
+}
+
+.text-theme-accent {
+  color: rgb(var(--color-accent));
+}
+
+.border-theme-primary {
+  border-color: rgba(var(--border-primary));
+}
+
+.glass-theme {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+}
+
+.shadow-theme-glow {
+  box-shadow: var(--shadow-glow);
+}
+
+/* Smooth theme transitions */
+[data-theme] {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+[data-theme] * {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;

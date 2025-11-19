@@ -4,6 +4,9 @@ import React, { useRef, useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { AnimatePresence } from 'framer-motion';
 
+// Theme Provider
+import { ThemeProvider } from '@/contexts/ThemeContext';
+
 // Core Layout & Navigation
 import SmoothScroll from '@/components/elite/animations/SmoothScroll';
 import PremiumPreloader from '@/components/elite/ui/PremiumPreloader';
@@ -15,6 +18,7 @@ import KeyboardNavigation from '@/components/elite/ui/KeyboardNavigation';
 import MagneticCursor from '@/components/elite/ui/MagneticCursor';
 import FPSCounter from '@/components/elite/ui/FPSCounter';
 import SoundToggle from '@/components/elite/ui/SoundToggle';
+import ThemeToggle from '@/components/elite/ui/ThemeToggle';
 import ProductSelector from '@/components/elite/ui/ProductSelector';
 
 // 3D & Background
@@ -25,8 +29,11 @@ import MachineOperation from '@/components/elite/animations/MachineOperation';
 
 // Common Intro Sections
 import HeroSection from '@/components/elite/sections/HeroSection';
+import CompanyJourneySection from '@/components/elite/sections/CompanyJourneySection';
+import PartnershipIntroSection from '@/components/elite/sections/PartnershipIntroSection';
 import PrecisionSection from '@/components/elite/sections/PrecisionSection';
 import EngineeringSection from '@/components/elite/sections/EngineeringSection';
+import GlobalPresenceSection from '@/components/elite/sections/GlobalPresenceSection';
 
 // Product Specific
 import ProductShowcase from '@/components/elite/sections/ProductShowcase';
@@ -47,30 +54,45 @@ const Scene3D = dynamic(() => import('@/components/elite/3d/Scene3D'), {
 /**
  * Ergopack Elite - Ultra-Premium Product Presentation
  *
- * REDESIGNED STRUCTURE:
- * 1. Common Intro (Hero, Precision, Engineering, Machine Operation)
- * 2. Product Selector Popup
- * 3. Product-Specific Slides (Dynamic based on selection)
- * 4. Common Outro (Partnership, Final CTA)
+ * REDESIGNED STRUCTURE WITH COMPREHENSIVE COMPANY STORY:
+ *
+ * PHASE 1: Company Introduction (5 sections)
+ * 1. Hero - Brand introduction
+ * 2. Company Journey - 40 years of ErgopackGermany history
+ * 3. Partnership Story - Benz + ErgopackGermany collaboration
+ * 4. Precision Engineering - Technical excellence showcase
+ * 5. Machine Operation - How it works (all 5 steps visualized)
+ *
+ * PHASE 2: Global Presence (2 sections)
+ * 6. Engineering Excellence - German standards
+ * 7. Global Presence & Certifications - Worldwide reach
+ *
+ * PHASE 3: Product Selection & Detailed Showcase
+ * 8. Product Selector - Choose from 11 models
+ * 9-14. Product-Specific Slides with 3D viewer and detailed specs
+ *
+ * PHASE 4: Closing Excellence (2 sections)
+ * 15. Partnership & Support - Long-term commitment
+ * 16. Final CTA - Contact and next steps
  *
  * Features:
- * - Select any of the 11 ErgoPack models
- * - Each product gets 5 dedicated slides with complete specs
- * - Smooth transitions between all sections
- * - Consistent scroll speed throughout
- * - Premium loading animation (20% faster)
+ * - Dark/Light mode toggle
+ * - Advanced 3D product visualization
+ * - Interactive tooltips for complex features
+ * - Premium icons (no emojis)
+ * - Comprehensive company story before products
+ * - All 11 ErgopackGermany models with complete specs
  */
-export default function ElitePage() {
+
+function ElitePageContent() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
   const [showProductSelector, setShowProductSelector] = useState(false);
 
   // Calculate total sections based on selection
   const getTotalSections = () => {
-    // 4 common intro + 1 product selector trigger
-    // 5 product-specific slides
-    // 2 common outro
-    return selectedProduct ? 12 : 5;
+    // 7 intro sections + 1 selector + (5 product sections if selected) + 2 outro
+    return selectedProduct ? 15 : 10;
   };
 
   // Show product selector after scrolling past intro sections
@@ -78,8 +100,8 @@ export default function ElitePage() {
     const handleScroll = () => {
       const scrollY = window.scrollY || window.pageYOffset;
 
-      // Show selector after first 3 sections (~3 viewport heights)
-      if (!selectedProduct && scrollY > window.innerHeight * 3 && scrollY < window.innerHeight * 4) {
+      // Show selector after first 7 sections (~7 viewport heights) - after company story
+      if (!selectedProduct && scrollY > window.innerHeight * 7 && scrollY < window.innerHeight * 8) {
         setShowProductSelector(true);
       }
     };
@@ -117,6 +139,7 @@ export default function ElitePage() {
 
       {/* Fixed UI Overlays */}
       <FixedHeader />
+      <ThemeToggle />
       <ScrollProgress totalSections={getTotalSections()} />
       <SectionBadge />
       <PerformanceStats />
@@ -144,21 +167,32 @@ export default function ElitePage() {
 
           {/* Content Sections */}
           <div className="relative z-10">
-            {/* ========== COMMON INTRO SECTION ========== */}
+            {/* ========== PHASE 1: COMPANY INTRODUCTION ========== */}
 
             {/* Section 1: Hero Introduction */}
             <HeroSection sectionNumber={1} />
 
-            {/* Section 2: Precision Engineering */}
-            <PrecisionSection sectionNumber={2} />
+            {/* Section 2: Company Journey - 40 years of history */}
+            <CompanyJourneySection sectionNumber={2} />
 
-            {/* Section 3: Machine Operation Animation */}
+            {/* Section 3: Partnership Story - Benz + ErgoPack Germany */}
+            <PartnershipIntroSection sectionNumber={3} />
+
+            {/* Section 4: Precision Engineering */}
+            <PrecisionSection sectionNumber={4} />
+
+            {/* Section 5: Machine Operation Animation - All 5 steps */}
             <section data-section className="relative">
               <MachineOperation />
             </section>
 
-            {/* Section 4: German Engineering */}
-            <EngineeringSection sectionNumber={3} />
+            {/* ========== PHASE 2: GLOBAL EXCELLENCE ========== */}
+
+            {/* Section 6: German Engineering */}
+            <EngineeringSection sectionNumber={6} />
+
+            {/* Section 7: Global Presence & Certifications */}
+            <GlobalPresenceSection sectionNumber={7} />
 
             {/* ========== PRODUCT SELECTION TRIGGER ========== */}
             {!selectedProduct && (
@@ -223,16 +257,25 @@ export default function ElitePage() {
               </div>
             )}
 
-            {/* ========== COMMON OUTRO SECTION ========== */}
+            {/* ========== PHASE 4: CLOSING EXCELLENCE ========== */}
 
-            {/* Partnership Process */}
-            <PartnershipSection sectionNumber={selectedProduct ? 11 : 5} />
+            {/* Partnership Process & Support */}
+            <PartnershipSection sectionNumber={selectedProduct ? 14 : 8} />
 
-            {/* Final CTA */}
-            <FinalCTASection sectionNumber={selectedProduct ? 12 : 6} />
+            {/* Final CTA - Contact */}
+            <FinalCTASection sectionNumber={selectedProduct ? 15 : 9} />
           </div>
         </div>
       </SmoothScroll>
     </>
+  );
+}
+
+// Main export with ThemeProvider wrapper
+export default function ElitePage() {
+  return (
+    <ThemeProvider>
+      <ElitePageContent />
+    </ThemeProvider>
   );
 }
