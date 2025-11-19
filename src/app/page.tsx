@@ -305,7 +305,7 @@ function PhilosophySection() {
               <div className="space-y-8">
                 {[
                   { icon: Zap, label: 'Speed as Weapon', value: '45s' },
-                  { icon: Shield, label: 'German Engineering', value: 'Mercedes-Grade' },
+                  { icon: Shield, label: 'German Engineering', value: 'Precision Excellence' },
                   { icon: Award, label: 'Elite Operations', value: 'Zero Failures' },
                 ].map((item, index) => (
                   <motion.div
