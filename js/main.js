@@ -4,15 +4,23 @@
  */
 
 // ====================================
-// DOM READY
+// DOM READY - Optimized for Instant Response
 // ====================================
 document.addEventListener('DOMContentLoaded', function() {
-    initNavigation();
-    initScrollEffects();
-    initSmoothScroll();
-    initFloatingButtons();
-    initParallax();
-    fadeInOnScroll();
+    // Use requestAnimationFrame for smooth initialization
+    requestAnimationFrame(() => {
+        initNavigation();
+        initSmoothScroll();
+        fadeInOnScroll();
+
+        // Defer non-critical animations
+        setTimeout(() => {
+            initScrollEffects();
+            initFloatingButtons();
+            initParallax();
+            initProductCardAnimations();
+        }, 100);
+    });
 });
 
 // ====================================
@@ -383,19 +391,46 @@ if ('IntersectionObserver' in window) {
 }
 
 // ====================================
+// PRODUCT CARD INSTANT INTERACTIONS
+// ====================================
+function initProductCardAnimations() {
+    const productCards = document.querySelectorAll('.product-card');
+
+    productCards.forEach((card, index) => {
+        // Instant click response
+        card.addEventListener('click', function(e) {
+            // Add instant visual feedback
+            this.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
+
+        // Smooth hover effects with transform
+        card.addEventListener('mouseenter', function() {
+            this.style.willChange = 'transform';
+        });
+
+        card.addEventListener('mouseleave', function() {
+            this.style.willChange = 'auto';
+        });
+    });
+}
+
+// ====================================
 // PERFORMANCE OPTIMIZATIONS
 // ====================================
 
-// Debounce scroll events
-let scrollTimeout;
+// Throttled scroll handler for better performance
+let scrollTicking = false;
 window.addEventListener('scroll', function() {
-    if (scrollTimeout) {
-        window.cancelAnimationFrame(scrollTimeout);
+    if (!scrollTicking) {
+        window.requestAnimationFrame(function() {
+            updateFloatingButtons();
+            scrollTicking = false;
+        });
+        scrollTicking = true;
     }
-    scrollTimeout = window.requestAnimationFrame(function() {
-        // Optimized scroll handling
-        updateFloatingButtons();
-    });
 }, { passive: true });
 
 // Throttle resize events
