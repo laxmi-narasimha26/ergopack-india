@@ -23,73 +23,183 @@ interface JourneyMilestone {
 
 const MILESTONES: JourneyMilestone[] = [
   {
-    year: '1985',
-    title: 'Foundation in Germany',
-    description: 'ErgopackGermany founded with vision to revolutionize packaging automation',
-    detailedStory: 'In the heart of Germany\'s industrial region, a team of packaging engineers identified a critical gap in the market - existing strapping solutions were either too complex, unreliable, or lacked the precision demanded by modern logistics. ErgopackGermany was born from the vision to create the world\'s most reliable, user-friendly pallet strapping systems.',
+    year: '1998',
+    title: 'The Beginning - First Prototype',
+    description: 'First prototype of a strapping device based on a double scissors system',
+    detailedStory: 'The ErgoPack journey began with a revolutionary idea - a strapping device based on a double scissors system similar to a scissors lifting table. This innovative approach would lay the foundation for decades of engineering excellence and transform pallet strapping forever.',
     icon: IndustryIcon,
     color: '#FFB81C',
     achievements: [
-      'Established R&D facility in Stuttgart',
-      'Developed first prototype strapping system',
-      'Secured key automotive industry partnerships',
+      'First prototype developed with scissors lifting mechanism',
+      'Innovative double scissors system design',
+      'Foundation for future ErgoPack innovations',
     ],
   },
   {
-    year: '1995',
-    title: 'First Mobile Strapping System',
-    description: 'Pioneered mobile pallet strapping technology, setting industry standards',
-    detailedStory: 'A decade of intensive research culminated in a breakthrough - the world\'s first truly mobile, battery-powered pallet strapping machine. This innovation freed warehouses from fixed strapping stations and revolutionized workflow efficiency. The patented ChainLance® system ensured perfect strap placement regardless of operator skill level.',
+    year: '1999',
+    title: 'ChainLance Innovation',
+    description: 'Invention and patenting of the world\'s first ChainLance',
+    detailedStory: 'A groundbreaking invention that would define ErgoPack\'s future - the world\'s first ChainLance system was invented and patented. This revolutionary technology enabled precise strap placement and became the hallmark of ErgoPack systems worldwide.',
     icon: InnovationIcon,
     color: '#00D9FF',
     achievements: [
-      'Launched revolutionary mobile strapping technology',
-      'Patent granted for ChainLance® guidance system',
-      'Expanded into 12 European markets',
-      'Achieved ISO 9001 certification',
+      'World\'s first ChainLance invented and patented',
+      'Revolutionary strap guidance system',
+      'Set new standards for strapping precision',
     ],
   },
   {
-    year: '2005',
-    title: 'Global Expansion',
-    description: 'Established presence across 45+ countries, serving Fortune 500 companies',
-    detailedStory: 'ErgopackGermany\'s reputation for uncompromising quality attracted global attention. Major logistics providers and manufacturing giants adopted our systems worldwide. Strategic partnerships in Asia, Americas, and Africa established ErgopackGermany as the global standard for premium strapping solutions.',
-    icon: GlobalIcon,
+    year: '2000',
+    title: 'First Production Model',
+    description: 'ErgoPack 300 - First serial model with crank operation',
+    detailedStory: 'The ErgoPack 300 marked the transition from prototype to production. Designed for composite straps with a 75mm core diameter and operated by a crank, this model brought ErgoPack technology to the market and established the brand\'s reputation for reliability.',
+    icon: IndustryIcon,
     color: '#C8102E',
     achievements: [
-      'Presence established in 45+ countries',
-      'Partnership with Fortune 500 companies',
-      '100,000th machine delivered globally',
-      'Launched 24/7 international support network',
+      'First serial model ErgoPack 300 launched',
+      'Crank-operated system for composite straps',
+      '75mm core diameter compatibility',
+      'Market entry with proven technology',
     ],
   },
   {
-    year: '2015',
-    title: 'Lithium-Ion Revolution',
-    description: 'Launched X-pert Line with advanced Li-Ion technology - 3.4x performance boost',
-    detailedStory: 'Recognizing the limitations of traditional battery technology, ErgopackGermany invested heavily in lithium-ion R&D. The breakthrough X-pert Line delivered unprecedented performance - 65% faster operation, 3.4x more cycles per charge, and 60% weight reduction. Siemens touchscreen integration brought Industry 4.0 capabilities to pallet strapping.',
+    year: '2001',
+    title: 'Heavy-Duty Innovation',
+    description: 'ErgoPack 500 - 5m ChainLance for larger pallets',
+    detailedStory: 'Meeting the demands of larger applications, the ErgoPack 500 introduced a 5-meter long ChainLance to strap larger pallets with PP and PET straps. Supporting 406mm core diameter, this model expanded ErgoPack\'s capabilities into heavy-duty applications.',
     icon: InnovationIcon,
     color: '#FFB81C',
     achievements: [
-      'X-pert Line launched with Li-Ion technology',
-      'Siemens industrial touchscreen integration',
-      '240% improvement in battery cycles',
-      'Winner of German Innovation Award',
+      'ErgoPack 500 with 5m ChainLance introduced',
+      '406mm core diameter support',
+      'PP and PET strap compatibility',
+      'Expanded into large pallet applications',
+    ],
+  },
+  {
+    year: '2002',
+    title: 'Award-Winning Excellence',
+    description: 'ErgoPack 600 wins Gold Medal and German Inventor\'s Award',
+    detailedStory: 'The ErgoPack 600 represented a quantum leap in ergonomics and functionality. Winning the gold medal at the International Exhibition of Inventions in Geneva and the German Inventor\'s Award, it introduced the revolutionary strap lifter - eliminating the need for operators to bend down.',
+    icon: GlobalIcon,
+    color: '#C8102E',
+    achievements: [
+      'Gold Medal at International Exhibition of Inventions, Geneva',
+      'German Inventor\'s Award winner',
+      'Revolutionary strap lifter technology',
+      'Zero-bend operation for perfect ergonomics',
+    ],
+  },
+  {
+    year: '2003',
+    title: 'Electronic Revolution',
+    description: 'Battery-powered operation and Tool-Lift system introduced',
+    detailedStory: 'The industry took notice as ErgoPack transitioned from manual crank operation to electronic drive powered by battery. The innovative Tool-Lift system made side strapping of high pallets even easier, allowing different sealing tools to be attached without manual holding.',
+    icon: InnovationIcon,
+    color: '#00D9FF',
+    achievements: [
+      'Electronic battery drive replaces manual crank',
+      'ErgoPack Tool-Lift system launched',
+      'Enhanced capability for high pallet strapping',
+      'Improved operator comfort and efficiency',
+    ],
+  },
+  {
+    year: '2008',
+    title: 'Integrated Sealing Systems',
+    description: 'ErgoPack 720E & 730E - First complete strapping systems',
+    detailedStory: 'A new era began with the 720E and 730E models - the first complete strapping systems with integrated sealing heads and centralized battery power supply. These all-in-one solutions simplified operations and set new standards for integrated strapping technology.',
+    icon: InnovationIcon,
+    color: '#FFB81C',
+    achievements: [
+      'First integrated sealing head systems',
+      'Centralized battery power supply',
+      'Complete strapping solution in one unit',
+      'Enhanced operational efficiency',
+    ],
+  },
+  {
+    year: '2011',
+    title: 'State-of-the-Art Sealing',
+    description: 'ErgoPack 725E & 740E with advanced sealing technology',
+    detailedStory: 'Continuous innovation led to the 725E and 740E models, featuring a totally new state-of-the-art sealing head. This generation combined proven reliability with cutting-edge sealing technology for superior performance.',
+    icon: InnovationIcon,
+    color: '#C8102E',
+    achievements: [
+      'Advanced state-of-the-art sealing head',
+      'Enhanced sealing reliability and speed',
+      'Improved strap quality and strength',
+      'Refined user interface and controls',
+    ],
+  },
+  {
+    year: '2014',
+    title: 'ErgoPack Air Milestone',
+    description: 'World\'s only mobile system for elevated pallets',
+    detailedStory: 'The ErgoPack Air became a true milestone in pallet strapping history. As the worldwide one and only mobile system capable of strapping elevated pallets, it opened entirely new applications and demonstrated ErgoPack\'s commitment to solving unique industry challenges.',
+    icon: GlobalIcon,
+    color: '#00FF88',
+    achievements: [
+      'World\'s first mobile system for elevated pallets',
+      'Unique capability for raised pallet strapping',
+      'Industry milestone achievement',
+      'Expanded application possibilities',
+    ],
+  },
+  {
+    year: '2016',
+    title: 'Complete Redesign - Model 2017',
+    description: 'Revolutionary Model 2017 with over 40 new features',
+    detailedStory: 'A completely revised design introduced the Model 2017 with over 40 new features. This comprehensive update represented years of customer feedback, engineering refinement, and technological advancement in a single transformative release.',
+    icon: InnovationIcon,
+    color: '#FFB81C',
+    achievements: [
+      'Complete redesign with 40+ new features',
+      'Enhanced reliability and performance',
+      'Improved ergonomics and user experience',
+      'Next-generation engineering excellence',
+    ],
+  },
+  {
+    year: '2018',
+    title: 'Touchscreen Innovation',
+    description: 'Model 2017 enhanced with ergonomic touchscreen control',
+    detailedStory: 'The Model 2017 received significant enhancements with a new sealing head featuring touchscreen control. The ergonomic design and intuitive interface impressed operators worldwide, making ErgoPack systems even more user-friendly while maintaining nearly 20 years of reliable and safe strapping performance.',
+    icon: InnovationIcon,
+    color: '#00D9FF',
+    achievements: [
+      'New sealing head with touchscreen interface',
+      'Ergonomic fit for operator comfort',
+      'Intuitive touchscreen controls',
+      '20 years of proven reliability',
+    ],
+  },
+  {
+    year: '2019',
+    title: 'X-pert Line - New Benchmark',
+    description: 'Advanced electronics and dual touchscreens set new standards',
+    detailedStory: 'The X-pert Line established a new benchmark in strapping technology. With advanced electronics, newly designed touchscreens on both the sealing head and strapping system, the X-pert Line delivered an intuitive user interface and set a new high standard for ergonomics and performance.',
+    icon: InnovationIcon,
+    color: '#C8102E',
+    achievements: [
+      'X-pert Line sets new industry benchmark',
+      'Advanced electronics and dual touchscreens',
+      'Intuitive user interface across system',
+      'Highest ergonomic standards achieved',
     ],
   },
   {
     year: '2025',
-    title: 'AI-Powered Precision & India Partnership',
-    description: 'Next-generation smart strapping with predictive maintenance and Industry 4.0 integration. Strategic partnership brings German excellence to India',
-    detailedStory: 'The latest generation integrates artificial intelligence for predictive maintenance, adaptive tension control, and seamless integration with warehouse management systems. Real-time data analytics optimize strapping parameters automatically. Through our partnership with Benz Packaging, we bring 40 years of German engineering excellence to India\'s rapidly growing manufacturing and logistics sectors.',
-    icon: InnovationIcon,
+    title: 'Global Excellence & India Partnership',
+    description: 'Over 15,000 systems sold in 60+ countries - Now in India',
+    detailedStory: 'With over 15,000 ErgoPack systems sold in more than 60 countries worldwide, ErgoPack represents decades of proven excellence. Through our strategic partnership with Benz Packaging, we bring this legacy of German engineering and innovation to India\'s rapidly growing manufacturing and logistics sectors.',
+    icon: GlobalIcon,
     color: '#00FF88',
     achievements: [
-      'AI-powered predictive maintenance launched',
-      'Industry 4.0 full integration capability',
+      '15,000+ systems sold worldwide',
+      'Presence in 60+ countries',
       'Strategic India partnership with Benz Packaging',
-      '500,000+ machines deployed worldwide',
-      'Expansion into emerging markets across Asia',
+      'Bringing German excellence to Indian market',
     ],
   },
 ];
@@ -148,7 +258,7 @@ export default function CompanyJourneySection({ sectionNumber }: { sectionNumber
             className="mb-3"
           >
             <span className="text-[#FFB81C] font-mono text-xs tracking-[0.3em] uppercase">
-              Since 1985
+              Since 1998
             </span>
           </motion.div>
 
@@ -170,7 +280,7 @@ export default function CompanyJourneySection({ sectionNumber }: { sectionNumber
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-sm md:text-base text-gray-400 max-w-3xl mx-auto leading-relaxed"
           >
-            40 years of German engineering excellence
+            Over 15,000 sold systems in more than 60 countries - 27 years of innovation
           </motion.p>
 
           {/* Navigation Instructions */}
@@ -323,9 +433,9 @@ export default function CompanyJourneySection({ sectionNumber }: { sectionNumber
           className="mt-auto pt-8 grid grid-cols-2 md:grid-cols-4 gap-4"
         >
           {[
-            { value: '40+', label: 'Years Innovation' },
-            { value: '45+', label: 'Countries' },
-            { value: '500K+', label: 'Machines' },
+            { value: '27+', label: 'Years Innovation' },
+            { value: '60+', label: 'Countries' },
+            { value: '15K+', label: 'Systems Sold' },
             { value: '99.8%', label: 'Satisfaction' },
           ].map((stat) => (
             <div
