@@ -26,30 +26,30 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
   const lenisRef = useRef<Lenis | null>(null);
 
   useEffect(() => {
-    // Initialize Lenis with OPTIMIZED settings for perfect sync
+    // Initialize Lenis with PERFORMANCE-OPTIMIZED settings
     const lenis = new Lenis({
-      duration: 1.8, // Luxurious, controlled movement
+      duration: 0.8, // Fast, responsive movement (was 1.8s - way too slow!)
       easing: (t) => {
-        // Cubic ease-out for ultra-smooth deceleration
-        return 1 - Math.pow(1 - t, 3);
+        // Lighter cubic ease-out for snappy response
+        return 1 - Math.pow(1 - t, 2);
       },
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 1.5, // More responsive
-      smoothTouch: true, // Enable smooth touch
-      touchMultiplier: 3, // Touch sensitivity
+      wheelMultiplier: 1.0, // Standard responsiveness
+      smoothTouch: false, // Disable for better mobile performance
+      touchMultiplier: 2,
       infinite: false,
       autoResize: true,
-      syncTouch: true, // Perfect touch sync
-      syncTouchLerp: 0.075, // Smooth touch lerp
-      touchInertiaMultiplier: 25, // Touch momentum
+      syncTouch: false, // Disable for better performance
+      syncTouchLerp: 0.1,
+      touchInertiaMultiplier: 15,
     });
 
     lenisRef.current = lenis;
 
     // Perfect GSAP ScrollTrigger integration
-    lenis.on('scroll', (e: any) => {
+    lenis.on('scroll', () => {
       ScrollTrigger.update();
     });
 

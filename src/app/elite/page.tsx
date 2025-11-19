@@ -158,7 +158,7 @@ function ElitePageContent() {
 
       {/* Smooth Scroll Wrapper */}
       <SmoothScroll>
-        <div ref={containerRef} className="relative bg-black overflow-hidden">
+        <div ref={containerRef} className="relative bg-theme-primary overflow-hidden">
           {/* 3D Wireframe Background (Fixed) */}
           <WireframeBackground />
 
@@ -200,11 +200,11 @@ function ElitePageContent() {
                 <div className="max-w-5xl mx-auto px-8 sm:px-12 text-center">
                   <div className="mb-12">
                     <h2 className="text-7xl sm:text-8xl font-black tracking-tighter mb-8">
-                      <span className="text-white">CHOOSE YOUR</span>
+                      <span className="text-theme-primary">CHOOSE YOUR</span>
                       <br />
                       <span className="text-[#C8102E]">MACHINE</span>
                     </h2>
-                    <p className="text-2xl sm:text-3xl text-gray-400 font-light leading-relaxed max-w-3xl mx-auto mb-12">
+                    <p className="text-2xl sm:text-3xl text-theme-secondary font-light leading-relaxed max-w-3xl mx-auto mb-12">
                       Select from 11 premium ErgoPack models to explore complete specifications
                     </p>
                   </div>
@@ -220,7 +220,7 @@ function ElitePageContent() {
                     <div className="absolute inset-0 bg-gradient-to-r from-red-700 to-[#C8102E] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </button>
 
-                  <div className="mt-16 text-gray-600 text-sm font-mono">
+                  <div className="mt-16 text-theme-secondary text-sm font-mono">
                     ↓ SCROLL TO SELECT OR CLICK BUTTON ↓
                   </div>
                 </div>
@@ -237,10 +237,10 @@ function ElitePageContent() {
                 {/* Change Product Button */}
                 <section data-section className="min-h-screen flex items-center justify-center relative">
                   <div className="max-w-5xl mx-auto px-8 sm:px-12 text-center">
-                    <h2 className="text-6xl sm:text-7xl font-black text-white mb-8">
+                    <h2 className="text-6xl sm:text-7xl font-black text-theme-primary mb-8">
                       Explore Another Model?
                     </h2>
-                    <p className="text-2xl text-gray-400 font-light mb-12">
+                    <p className="text-2xl text-theme-secondary font-light mb-12">
                       Compare features across our complete range of 11 models
                     </p>
                     <button

@@ -4,7 +4,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Shield, Gauge, Boxes } from 'lucide-react';
 
-export default function EngineeringSection({ sectionNumber }: { sectionNumber: number }) {
+export default function EngineeringSection({ sectionNumber: _sectionNumber }: { sectionNumber: number }) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -53,7 +53,7 @@ export default function EngineeringSection({ sectionNumber }: { sectionNumber: n
             Engineering Excellence
           </span>
         </div>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-theme-primary tracking-tight">
           German Precision
         </h2>
       </motion.div>
@@ -92,11 +92,11 @@ export default function EngineeringSection({ sectionNumber }: { sectionNumber: n
                     </div>
 
                     {/* Content */}
-                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight">
+                    <h3 className="text-2xl md:text-3xl font-bold text-theme-primary mb-4 tracking-tight">
                       {feature.title}
                     </h3>
 
-                    <p className="text-gray-500 text-base leading-relaxed font-light mb-6">
+                    <p className="text-theme-secondary text-base leading-relaxed font-light mb-6">
                       {feature.description}
                     </p>
 

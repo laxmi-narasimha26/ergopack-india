@@ -1,6 +1,6 @@
 'use client';
 
-import { Suspense, lazy, useEffect, useState } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import MainLayout from '@/components/layout/MainLayout';
 import Button from '@/components/ui/Button';

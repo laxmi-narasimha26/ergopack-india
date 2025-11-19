@@ -73,7 +73,7 @@ export default function ProcessTimeline() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-5xl md:text-7xl font-black text-white text-center mb-20"
+          className="text-5xl md:text-7xl font-black text-theme-primary text-center mb-20"
         >
           PROCESS TIMELINE
         </motion.h3>
@@ -81,7 +81,7 @@ export default function ProcessTimeline() {
         {/* Timeline Container */}
         <div className="relative">
           {/* Central Line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-gray-800">
+          <div className="absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 bg-theme-secondary">
             {/* Progress Line */}
             <motion.div
               style={{ height: `${timelineProgress}%` }}
@@ -116,10 +116,10 @@ export default function ProcessTimeline() {
                   </div>
 
                   {/* Title */}
-                  <h4 className="text-white font-bold text-xl mb-2">{step.title}</h4>
+                  <h4 className="text-theme-primary font-bold text-xl mb-2">{step.title}</h4>
 
                   {/* Description */}
-                  <p className="text-gray-500 text-sm">{step.description}</p>
+                  <p className="text-theme-secondary text-sm">{step.description}</p>
                 </div>
 
                 {/* Timeline Node */}
@@ -148,8 +148,8 @@ export default function ProcessTimeline() {
           className="mt-20 text-center bg-gradient-to-r from-[#1A0000] via-black to-[#1A0000] border-2 border-[#C8102E] rounded-lg p-8"
         >
           <div className="text-6xl font-black text-[#FFB81C] mb-2">1.8s</div>
-          <div className="text-xl text-white font-semibold mb-1">Total Cycle Time</div>
-          <div className="text-sm text-gray-500">From entry to exit</div>
+          <div className="text-xl text-theme-primary font-semibold mb-1">Total Cycle Time</div>
+          <div className="text-sm text-theme-secondary">From entry to exit</div>
         </motion.div>
       </div>
     </div>

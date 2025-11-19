@@ -102,7 +102,7 @@ export default function MachineOperation() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-5xl md:text-7xl font-black text-white text-center mb-20"
+          className="text-5xl md:text-7xl font-black text-theme-primary text-center mb-20"
         >
           HOW IT WORKS
         </motion.h3>
@@ -112,7 +112,7 @@ export default function MachineOperation() {
           {/* Animated Machine Visualization */}
           <div className="absolute inset-0 flex items-center justify-center">
             {/* Conveyor Belt */}
-            <div className="absolute bottom-1/3 left-0 right-0 h-20 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800">
+            <div className="absolute bottom-1/3 left-0 right-0 h-20 bg-gradient-to-r from-theme-secondary via-gray-700 to-theme-secondary">
               <motion.div
                 animate={{ x: ['0%', '100%'] }}
                 transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
@@ -227,7 +227,7 @@ export default function MachineOperation() {
           </div>
 
           {/* Current Step Indicator */}
-          <div className="absolute top-8 left-8 bg-black/60 backdrop-blur-md px-6 py-3 rounded-full border border-[#C8102E]">
+          <div className="absolute top-8 left-8 bg-theme-primary/60 backdrop-blur-md px-6 py-3 rounded-full border border-[#C8102E]">
             <span className="text-[#FFB81C] font-mono text-sm font-bold">
               STEP {activeStep + 1}/5
             </span>
@@ -246,7 +246,7 @@ export default function MachineOperation() {
               className={`relative p-6 rounded-lg border-2 transition-all duration-500 ${
                 activeStep === index
                   ? 'bg-gradient-to-br from-[#1A0000] to-black border-[#C8102E] scale-105 shadow-2xl shadow-[#C8102E]/20'
-                  : 'bg-black/40 border-[#4A0000]'
+                  : 'bg-theme-primary/40 border-[#4A0000]'
               }`}
             >
               {/* Step Number */}
@@ -254,7 +254,7 @@ export default function MachineOperation() {
                 className={`absolute -top-4 -left-4 w-10 h-10 rounded-full flex items-center justify-center font-black text-lg ${
                   activeStep >= index
                     ? 'bg-[#C8102E] text-white'
-                    : 'bg-gray-800 text-gray-600'
+                    : 'bg-theme-secondary text-theme-secondary'
                 }`}
               >
                 {step.id}
@@ -270,12 +270,12 @@ export default function MachineOperation() {
               </div>
 
               {/* Title */}
-              <h4 className="text-white font-bold text-lg mb-2 text-center">
+              <h4 className="text-theme-primary font-bold text-lg mb-2 text-center">
                 {step.title}
               </h4>
 
               {/* Description */}
-              <p className="text-gray-500 text-sm text-center leading-relaxed">
+              <p className="text-theme-secondary text-sm text-center leading-relaxed">
                 {step.description}
               </p>
 
@@ -306,12 +306,12 @@ export default function MachineOperation() {
             { label: 'Seal Strength', value: '>500N', Icon: StrengthIcon },
             { label: 'Energy Usage', value: '0.8kW', Icon: EnergyIcon },
           ].map((spec, idx) => (
-            <div key={idx} className="bg-black/40 border border-[#4A0000] p-6 rounded-lg">
+            <div key={idx} className="bg-theme-primary/40 border border-[#4A0000] p-6 rounded-lg">
               <div className="flex justify-center mb-3">
                 <spec.Icon size={36} color="#FFB81C" />
               </div>
               <div className="text-2xl font-bold text-[#FFB81C] mb-1">{spec.value}</div>
-              <div className="text-sm text-gray-500 uppercase tracking-wider">{spec.label}</div>
+              <div className="text-sm text-theme-secondary uppercase tracking-wider">{spec.label}</div>
             </div>
           ))}
         </motion.div>

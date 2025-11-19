@@ -31,7 +31,7 @@ export default function FixedHeader() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'backdrop-blur-xl bg-black/40' : 'bg-transparent'
+        scrolled ? 'backdrop-blur-xl bg-theme-primary/40' : 'bg-transparent'
       }`}
     >
       <div className="max-w-[1800px] mx-auto px-8 py-6 flex items-center justify-between">
@@ -40,11 +40,11 @@ export default function FixedHeader() {
           <motion.div
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}
-            className="text-white font-bold text-2xl tracking-tight"
+            className="text-theme-primary font-bold text-2xl tracking-tight"
           >
             <span className="text-[#C8102E]">ERGO</span>
             <span>PACK</span>
-            <span className="ml-2 text-sm font-normal text-gray-400">ELITE</span>
+            <span className="ml-2 text-sm font-normal text-theme-secondary">ELITE</span>
           </motion.div>
         </Link>
 

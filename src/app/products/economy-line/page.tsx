@@ -22,7 +22,30 @@ import {
   ExternalLink,
   DollarSign,
 } from 'lucide-react';
+import { Metadata } from 'next';
 import Link from 'next/link';
+
+// SEO Metadata
+export const metadata: Metadata = {
+  title: 'E-conomy Line - Reliable Cargo Securing System | ErgoPack India',
+  description:
+    'The E-conomy Line delivers proven performance and reliability for professional cargo securing. Time-tested technology, robust construction, and consistent results at exceptional value.',
+  keywords: [
+    'E-conomy Line',
+    'cargo securing',
+    'reliable',
+    'proven technology',
+    'cost-effective',
+    'load securing',
+    'logistics',
+  ],
+  openGraph: {
+    title: 'E-conomy Line - Reliable Cargo Securing System',
+    description:
+      'Proven performance and reliability for professional cargo securing at exceptional value.',
+    type: 'website',
+  },
+};
 
 // Hero Section
 function HeroSection() {

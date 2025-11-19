@@ -349,9 +349,6 @@ export default function CompareMachinesPage() {
                           <tbody>
                             {category.specs.map((specKey, specIndex) => {
                               const firstMachine = selectedMachineData[0];
-
-                              if (!firstMachine || !firstMachine.specifications) return null;
-
                               const spec = (firstMachine.specifications as any)[specKey];
 
                               if (!spec) return null;
