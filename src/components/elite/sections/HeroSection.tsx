@@ -24,7 +24,7 @@ export default function HeroSection({ sectionNumber: _sectionNumber }: { section
         >
           <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full border border-[#C8102E]/30 bg-[#C8102E]/5">
             <Sparkles className="w-4 h-4 text-[#FFB81C]" />
-            <span className="text-xs text-gray-400 uppercase tracking-[0.2em] font-medium">
+            <span className="text-xs text-theme-secondary uppercase tracking-[0.2em] font-medium">
               Industry 4.0 Ready
             </span>
           </div>
@@ -38,7 +38,7 @@ export default function HeroSection({ sectionNumber: _sectionNumber }: { section
             transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
             className="relative"
           >
-            <span className="block text-4xl md:text-5xl lg:text-6xl font-black leading-none tracking-tight text-white mb-3">
+            <span className="block text-4xl md:text-5xl lg:text-6xl font-black leading-none tracking-tight text-theme-primary mb-3">
               ERGOPACK
             </span>
             <span className="block text-4xl md:text-5xl lg:text-6xl font-black leading-none tracking-tight bg-gradient-to-r from-[#C8102E] via-[#FF4444] to-[#FFB81C] bg-clip-text text-transparent">
@@ -61,7 +61,7 @@ export default function HeroSection({ sectionNumber: _sectionNumber }: { section
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 2, delay: 1.2 }}
-            className="text-lg md:text-xl text-gray-400 font-light tracking-wide mb-6"
+            className="text-lg md:text-xl text-theme-secondary font-light tracking-wide mb-6"
           >
             Automated Strapping Excellence
           </motion.p>
@@ -70,7 +70,7 @@ export default function HeroSection({ sectionNumber: _sectionNumber }: { section
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 2, delay: 1.6 }}
-            className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed font-light"
+            className="text-sm md:text-base text-theme-secondary max-w-2xl mx-auto leading-relaxed font-light"
           >
             25 years of German precision engineering, now empowering India's category leaders
             with world-class automated strapping solutions.
@@ -85,7 +85,7 @@ export default function HeroSection({ sectionNumber: _sectionNumber }: { section
           className="mt-24"
         >
           <div className="flex flex-col items-center gap-3">
-            <span className="text-xs text-gray-700 uppercase tracking-[0.3em] font-mono">
+            <span className="text-xs text-theme-secondary uppercase tracking-[0.3em] font-mono">
               Scroll to Explore
             </span>
             <motion.div

@@ -24,7 +24,6 @@ import {
 } from 'lucide-react';
 
 interface ProductShowcaseProps {
-  productKey: string;
   productData: any;
 }
 
@@ -55,32 +54,34 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
   return (
     <div className="space-y-0">
       {/* Hero Section - Full viewport with split design */}
-      <section data-section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black">
+      <section data-section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-theme-primary">
         {/* Animated background */}
-        <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 opacity-10 dark:opacity-20">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#C8102E_0%,transparent_50%)]" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-8 sm:px-12 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left: Premium Product Image */}
+            {/* Left: Premium Product Image - OPTIMIZED SIZE */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative"
+              className="relative max-w-lg mx-auto"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-[#C8102E]/30 to-transparent rounded-3xl blur-3xl" />
-              <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 backdrop-blur-sm p-8 bg-gradient-to-br from-white/5 to-transparent">
-                <Image
-                  src={getProductImagePath()}
-                  alt={`${productData.fullName} - Industrial Strapping Machine`}
-                  fill
-                  className="object-contain drop-shadow-2xl"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority
-                />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#C8102E]/20 to-transparent rounded-3xl blur-3xl" />
+              <div className="relative rounded-3xl overflow-hidden border border-white/10 dark:border-white/10 border-gray-200 backdrop-blur-sm p-8 bg-gradient-to-br from-white/10 to-transparent dark:from-white/5">
+                <div className="relative w-full h-[400px]">
+                  <Image
+                    src={getProductImagePath()}
+                    alt={`${productData.fullName} - Industrial Strapping Machine`}
+                    fill
+                    className="object-contain drop-shadow-2xl"
+                    sizes="(max-width: 1024px) 100vw, 500px"
+                    priority
+                  />
+                </div>
               </div>
             </motion.div>
 
@@ -98,18 +99,18 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                   ? 'bg-gradient-to-r from-[#C8102E]/20 to-red-900/20 border-[#C8102E]'
                   : 'bg-white/10 border-white/30'
               }`}>
-                <Package className={`h-6 w-6 ${isXpert ? 'text-[#FFB81C]' : 'text-white'}`} />
-                <span className={`font-bold tracking-wide text-lg ${isXpert ? 'text-[#FFB81C]' : 'text-white'}`}>
+                <Package className={`h-6 w-6 ${isXpert ? 'text-[#FFB81C]' : 'text-theme-primary'}`} />
+                <span className={`font-bold tracking-wide text-lg ${isXpert ? 'text-[#FFB81C]' : 'text-theme-primary'}`}>
                   {productData.line}
                 </span>
               </div>
 
               {/* Model Name */}
               <div>
-                <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black tracking-tighter mb-4 text-white">
+                <h1 className="text-6xl sm:text-7xl lg:text-8xl font-black tracking-tighter mb-4 text-theme-primary">
                   {productData.model}
                 </h1>
-                <p className="text-2xl sm:text-3xl text-gray-300 font-light leading-relaxed">
+                <p className="text-2xl sm:text-3xl text-theme-secondary font-light leading-relaxed">
                   {productData.fullName}
                 </p>
               </div>
@@ -117,38 +118,38 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
               {/* Application Type */}
               <div className={`inline-block px-8 py-4 rounded-2xl text-xl font-bold ${
                 isXpert
-                  ? 'bg-gradient-to-r from-[#C8102E] to-red-700 text-white'
+                  ? 'bg-gradient-to-r from-[#C8102E] to-red-700 text-theme-primary'
                   : 'bg-white/20 text-gray-200'
               }`}>
                 {productData.applicationType}
               </div>
 
               {/* Description */}
-              <p className="text-xl text-gray-400 leading-relaxed">
+              <p className="text-xl text-theme-secondary leading-relaxed">
                 {productData.description}
               </p>
 
               {/* Quick Specs Grid */}
               <div className="grid grid-cols-2 gap-6">
                 {productData.performance?.chainSpeed && (
-                  <div className="p-6 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/20 backdrop-blur-sm">
+                  <div className="p-6 rounded-2xl glass-theme">
                     <Zap className="h-8 w-8 text-[#FFB81C] mb-3" />
-                    <div className="text-sm text-gray-400 mb-1">Chain Speed</div>
-                    <div className="text-3xl font-black text-white">
+                    <div className="text-sm text-theme-secondary mb-1">Chain Speed</div>
+                    <div className="text-3xl font-black text-theme-primary">
                       {productData.performance.chainSpeed}
                     </div>
-                    <div className="text-sm text-gray-500">{productData.performance.chainSpeedUnit}</div>
+                    <div className="text-sm text-theme-secondary">{productData.performance.chainSpeedUnit}</div>
                   </div>
                 )}
 
                 {productData.battery?.strappingCycles && (
-                  <div className="p-6 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/20 backdrop-blur-sm">
+                  <div className="p-6 rounded-2xl glass-theme">
                     <Battery className="h-8 w-8 text-[#FFB81C] mb-3" />
-                    <div className="text-sm text-gray-400 mb-1">Cycles/Charge</div>
-                    <div className="text-3xl font-black text-white">
+                    <div className="text-sm text-theme-secondary mb-1">Cycles/Charge</div>
+                    <div className="text-3xl font-black text-theme-primary">
                       {productData.battery.strappingCycles}
                     </div>
-                    <div className="text-sm text-gray-500">cycles</div>
+                    <div className="text-sm text-theme-secondary">cycles</div>
                   </div>
                 )}
               </div>
@@ -180,10 +181,10 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 <Gauge className="h-6 w-6 text-[#FFB81C]" />
                 <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">Performance Metrics</span>
               </div>
-              <h2 className="text-5xl sm:text-6xl font-black text-white mb-6 leading-tight">
+              <h2 className="text-5xl sm:text-6xl font-black text-theme-primary mb-6 leading-tight">
                 Engineered For Maximum Efficiency
               </h2>
-              <p className="text-2xl text-gray-400 font-light max-w-3xl mx-auto leading-relaxed">
+              <p className="text-2xl text-theme-secondary font-light max-w-3xl mx-auto leading-relaxed">
                 Precision engineering delivers consistent, reliable performance across all operational parameters
               </p>
             </div>
@@ -201,12 +202,12 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 >
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[#C8102E]/10 rounded-full blur-3xl group-hover:bg-[#C8102E]/20 transition-all duration-500" />
                   <Zap className="h-12 w-12 text-[#FFB81C] mb-6" />
-                  <h3 className="text-lg text-gray-400 mb-3 font-medium">Chain Speed</h3>
+                  <h3 className="text-lg text-theme-secondary mb-3 font-medium">Chain Speed</h3>
                   <div className="flex items-baseline gap-2">
-                    <p className="text-6xl font-black text-white">
+                    <p className="text-6xl font-black text-theme-primary">
                       {productData.performance.chainSpeed}
                     </p>
-                    <p className="text-2xl text-gray-500 font-light">
+                    <p className="text-2xl text-theme-secondary font-light">
                       {productData.performance.chainSpeedUnit || 'm/min'}
                     </p>
                   </div>
@@ -225,18 +226,18 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 >
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[#C8102E]/10 rounded-full blur-3xl group-hover:bg-[#C8102E]/20 transition-all duration-500" />
                   <Target className="h-12 w-12 text-[#FFB81C] mb-6" />
-                  <h3 className="text-lg text-gray-400 mb-3 font-medium">Tension Power Range</h3>
+                  <h3 className="text-lg text-theme-secondary mb-3 font-medium">Tension Power Range</h3>
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-gray-500">Minimum</span>
-                      <span className="text-2xl font-bold text-white">
+                      <span className="text-sm text-theme-secondary">Minimum</span>
+                      <span className="text-2xl font-bold text-theme-primary">
                         {productData.sealingHead.tensionPower.min} {productData.sealingHead.tensionPower.unit}
                       </span>
                     </div>
                     <div className="h-1 bg-gradient-to-r from-[#C8102E]/50 to-[#FFB81C]/50 rounded-full" />
                     <div className="flex justify-between items-center">
-                      <span className="text-sm text-gray-500">Maximum</span>
-                      <span className="text-2xl font-bold text-white">
+                      <span className="text-sm text-theme-secondary">Maximum</span>
+                      <span className="text-2xl font-bold text-theme-primary">
                         {productData.sealingHead.tensionPower.max} {productData.sealingHead.tensionPower.unit}
                       </span>
                     </div>
@@ -256,12 +257,12 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 >
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[#C8102E]/10 rounded-full blur-3xl group-hover:bg-[#C8102E]/20 transition-all duration-500" />
                   <Ruler className="h-12 w-12 text-[#FFB81C] mb-6" />
-                  <h3 className="text-lg text-gray-400 mb-3 font-medium">Standard Chain Length</h3>
+                  <h3 className="text-lg text-theme-secondary mb-3 font-medium">Standard Chain Length</h3>
                   <div className="flex items-baseline gap-2">
-                    <p className="text-6xl font-black text-white">
+                    <p className="text-6xl font-black text-theme-primary">
                       {productData.performance.standardChainLength}
                     </p>
-                    <p className="text-2xl text-gray-500 font-light">
+                    <p className="text-2xl text-theme-secondary font-light">
                       {productData.performance.chainLengthUnit}
                     </p>
                   </div>
@@ -280,12 +281,12 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 >
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[#C8102E]/10 rounded-full blur-3xl group-hover:bg-[#C8102E]/20 transition-all duration-500" />
                   <Weight className="h-12 w-12 text-[#FFB81C] mb-6" />
-                  <h3 className="text-lg text-gray-400 mb-3 font-medium">Total System Weight</h3>
+                  <h3 className="text-lg text-theme-secondary mb-3 font-medium">Total System Weight</h3>
                   <div className="flex items-baseline gap-2">
-                    <p className="text-6xl font-black text-white">
+                    <p className="text-6xl font-black text-theme-primary">
                       {productData.system.weight}
                     </p>
-                    <p className="text-2xl text-gray-500 font-light">
+                    <p className="text-2xl text-theme-secondary font-light">
                       {productData.system.weightUnit}
                     </p>
                   </div>
@@ -304,12 +305,12 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 >
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[#C8102E]/10 rounded-full blur-3xl group-hover:bg-[#C8102E]/20 transition-all duration-500" />
                   <Layers className="h-12 w-12 text-[#FFB81C] mb-6" />
-                  <h3 className="text-lg text-gray-400 mb-3 font-medium">Strap Width Range</h3>
+                  <h3 className="text-lg text-theme-secondary mb-3 font-medium">Strap Width Range</h3>
                   <div className="flex items-baseline gap-2">
-                    <p className="text-5xl font-black text-white">
+                    <p className="text-5xl font-black text-theme-primary">
                       {productData.sealingHead.strapWidth.min}-{productData.sealingHead.strapWidth.max}
                     </p>
-                    <p className="text-2xl text-gray-500 font-light">
+                    <p className="text-2xl text-theme-secondary font-light">
                       {productData.sealingHead.strapWidth.unit}
                     </p>
                   </div>
@@ -328,12 +329,12 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 >
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[#C8102E]/10 rounded-full blur-3xl group-hover:bg-[#C8102E]/20 transition-all duration-500" />
                   <Activity className="h-12 w-12 text-[#FFB81C] mb-6" />
-                  <h3 className="text-lg text-gray-400 mb-3 font-medium">Strap Thickness Range</h3>
+                  <h3 className="text-lg text-theme-secondary mb-3 font-medium">Strap Thickness Range</h3>
                   <div className="flex items-baseline gap-2">
-                    <p className="text-5xl font-black text-white">
+                    <p className="text-5xl font-black text-theme-primary">
                       {productData.sealingHead.strapThickness.min}-{productData.sealingHead.strapThickness.max}
                     </p>
-                    <p className="text-2xl text-gray-500 font-light">
+                    <p className="text-2xl text-theme-secondary font-light">
                       {productData.sealingHead.strapThickness.unit}
                     </p>
                   </div>
@@ -362,17 +363,17 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                     ? 'bg-amber-500/20 border border-amber-500'
                     : 'bg-white/10 border border-white/30'
                 }`}>
-                  <Battery className={`h-6 w-6 ${isLithium ? 'text-amber-400' : 'text-gray-300'}`} />
+                  <Battery className={`h-6 w-6 ${isLithium ? 'text-amber-400' : 'text-theme-secondary'}`} />
                   <span className={`text-sm font-bold tracking-wider uppercase ${
-                    isLithium ? 'text-amber-400' : 'text-gray-300'
+                    isLithium ? 'text-amber-400' : 'text-theme-secondary'
                   }`}>
                     {isLithium ? 'Advanced Lithium-Ion Technology' : 'Reliable Power System'}
                   </span>
                 </div>
-                <h2 className="text-5xl sm:text-6xl font-black text-white mb-6 leading-tight">
+                <h2 className="text-5xl sm:text-6xl font-black text-theme-primary mb-6 leading-tight">
                   {isLithium ? 'Next-Generation Battery Performance' : 'Proven Battery Technology'}
                 </h2>
-                <p className="text-2xl text-gray-400 font-light max-w-3xl mx-auto leading-relaxed">
+                <p className="text-2xl text-theme-secondary font-light max-w-3xl mx-auto leading-relaxed">
                   {isLithium
                     ? 'Advanced lithium-ion technology delivers 3.4x more cycles, 65% faster operation, and 60% weight reduction'
                     : 'Dependable lead-fleece battery technology ensures consistent, reliable power for all-day operation'
@@ -394,8 +395,8 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                       : 'bg-white/5 border-white/20'
                   }`}
                 >
-                  <h3 className="text-sm text-gray-400 mb-3 uppercase tracking-wider">Battery Type</h3>
-                  <p className={`text-3xl font-bold leading-tight ${isLithium ? 'text-amber-400' : 'text-white'}`}>
+                  <h3 className="text-sm text-theme-secondary mb-3 uppercase tracking-wider">Battery Type</h3>
+                  <p className={`text-3xl font-bold leading-tight ${isLithium ? 'text-amber-400' : 'text-theme-primary'}`}>
                     {isLithium ? 'Lithium-Ion' : 'Lead-Fleece'}
                   </p>
                 </motion.div>
@@ -413,8 +414,8 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                         : 'bg-white/5 border-white/20'
                     }`}
                   >
-                    <h3 className="text-sm text-gray-400 mb-3 uppercase tracking-wider">Cycles per Charge</h3>
-                    <p className={`text-4xl font-bold ${isLithium ? 'text-amber-400' : 'text-white'}`}>
+                    <h3 className="text-sm text-theme-secondary mb-3 uppercase tracking-wider">Cycles per Charge</h3>
+                    <p className={`text-4xl font-bold ${isLithium ? 'text-amber-400' : 'text-theme-primary'}`}>
                       {productData.battery.strappingCycles}
                     </p>
                   </motion.div>
@@ -433,14 +434,14 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                         : 'bg-white/5 border-white/20'
                     }`}
                   >
-                    <h3 className="text-sm text-gray-400 mb-3 uppercase tracking-wider">Charge Time</h3>
-                    <p className={`text-3xl font-bold ${isLithium ? 'text-amber-400' : 'text-white'}`}>
+                    <h3 className="text-sm text-theme-secondary mb-3 uppercase tracking-wider">Charge Time</h3>
+                    <p className={`text-3xl font-bold ${isLithium ? 'text-amber-400' : 'text-theme-primary'}`}>
                       {typeof productData.battery.loadingTime === 'object'
                         ? `${productData.battery.loadingTime.min}-${productData.battery.loadingTime.max}`
                         : productData.battery.loadingTime
                       }
                     </p>
-                    <p className="text-sm text-gray-500 mt-1">
+                    <p className="text-sm text-theme-secondary mt-1">
                       {typeof productData.battery.loadingTime === 'object' ? productData.battery.loadingTime.unit || 'hours' : 'hours'}
                     </p>
                   </motion.div>
@@ -459,8 +460,8 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                         : 'bg-white/5 border-white/20'
                     }`}
                   >
-                    <h3 className="text-sm text-gray-400 mb-3 uppercase tracking-wider">Battery Weight</h3>
-                    <p className={`text-4xl font-bold ${isLithium ? 'text-amber-400' : 'text-white'}`}>
+                    <h3 className="text-sm text-theme-secondary mb-3 uppercase tracking-wider">Battery Weight</h3>
+                    <p className={`text-4xl font-bold ${isLithium ? 'text-amber-400' : 'text-theme-primary'}`}>
                       {productData.battery.weight} <span className="text-2xl">{productData.battery.weightUnit}</span>
                     </p>
                   </motion.div>
@@ -478,20 +479,20 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                   <div className="text-center">
                     <TrendingUp className="h-12 w-12 text-amber-400 mx-auto mb-4" />
                     <div className="text-6xl font-black text-amber-400 mb-2">65%</div>
-                    <p className="text-lg text-gray-300 font-medium">Faster Chain Speed</p>
-                    <p className="text-sm text-gray-500 mt-2">vs. lead-fleece technology</p>
+                    <p className="text-lg text-theme-secondary font-medium">Faster Chain Speed</p>
+                    <p className="text-sm text-theme-secondary mt-2">vs. lead-fleece technology</p>
                   </div>
                   <div className="text-center">
                     <Battery className="h-12 w-12 text-amber-400 mx-auto mb-4" />
                     <div className="text-6xl font-black text-amber-400 mb-2">60%</div>
-                    <p className="text-lg text-gray-300 font-medium">Lighter Battery</p>
-                    <p className="text-sm text-gray-500 mt-2">Enhanced maneuverability</p>
+                    <p className="text-lg text-theme-secondary font-medium">Lighter Battery</p>
+                    <p className="text-sm text-theme-secondary mt-2">Enhanced maneuverability</p>
                   </div>
                   <div className="text-center">
                     <Clock className="h-12 w-12 text-amber-400 mx-auto mb-4" />
                     <div className="text-6xl font-black text-amber-400 mb-2">70%</div>
-                    <p className="text-lg text-gray-300 font-medium">Faster Charging</p>
-                    <p className="text-sm text-gray-500 mt-2">Minimize downtime</p>
+                    <p className="text-lg text-theme-secondary font-medium">Faster Charging</p>
+                    <p className="text-sm text-theme-secondary mt-2">Minimize downtime</p>
                   </div>
                 </motion.div>
               )}
@@ -515,10 +516,10 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 <Box className="h-6 w-6 text-[#FFB81C]" />
                 <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">Operational Flexibility</span>
               </div>
-              <h2 className="text-5xl sm:text-6xl font-black text-white mb-6 leading-tight">
+              <h2 className="text-5xl sm:text-6xl font-black text-theme-primary mb-6 leading-tight">
                 Versatile Pallet Coverage
               </h2>
-              <p className="text-2xl text-gray-400 font-light max-w-3xl mx-auto leading-relaxed">
+              <p className="text-2xl text-theme-secondary font-light max-w-3xl mx-auto leading-relaxed">
                 Engineered to handle a wide range of pallet sizes with precision and consistency
               </p>
             </div>
@@ -531,16 +532,16 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                   initial={{ opacity: 0, x: -30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  className="p-10 rounded-3xl bg-gradient-to-br from-white/10 to-white/5 border border-white/20 backdrop-blur-sm"
+                  className="p-10 rounded-3xl glass-theme"
                 >
                   <Ruler className="h-12 w-12 text-[#FFB81C] mb-6" />
-                  <h3 className="text-2xl font-bold text-white mb-8">Pallet Width Coverage</h3>
+                  <h3 className="text-2xl font-bold text-theme-primary mb-8">Pallet Width Coverage</h3>
                   <div className="space-y-6">
                     <div className="flex items-center justify-between p-6 rounded-2xl bg-white/5">
                       <div>
-                        <p className="text-sm text-gray-500 mb-1">Minimum Width</p>
-                        <p className="text-4xl font-black text-white">
-                          {productData.flexibility.palletWidth.min} <span className="text-2xl text-gray-400">{productData.flexibility.palletWidth.unit}</span>
+                        <p className="text-sm text-theme-secondary mb-1">Minimum Width</p>
+                        <p className="text-4xl font-black text-theme-primary">
+                          {productData.flexibility.palletWidth.min} <span className="text-2xl text-theme-secondary">{productData.flexibility.palletWidth.unit}</span>
                         </p>
                       </div>
                       <div className="text-4xl text-[#C8102E]">←</div>
@@ -549,9 +550,9 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                     <div className="flex items-center justify-between p-6 rounded-2xl bg-white/5">
                       <div className="text-4xl text-[#C8102E]">→</div>
                       <div className="text-right">
-                        <p className="text-sm text-gray-500 mb-1">Maximum Width</p>
-                        <p className="text-4xl font-black text-white">
-                          {productData.flexibility.palletWidth.max} <span className="text-2xl text-gray-400">{productData.flexibility.palletWidth.unit}</span>
+                        <p className="text-sm text-theme-secondary mb-1">Maximum Width</p>
+                        <p className="text-4xl font-black text-theme-primary">
+                          {productData.flexibility.palletWidth.max} <span className="text-2xl text-theme-secondary">{productData.flexibility.palletWidth.unit}</span>
                         </p>
                       </div>
                     </div>
@@ -565,16 +566,16 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                   initial={{ opacity: 0, x: 30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  className="p-10 rounded-3xl bg-gradient-to-br from-white/10 to-white/5 border border-white/20 backdrop-blur-sm"
+                  className="p-10 rounded-3xl glass-theme"
                 >
                   <BarChart className="h-12 w-12 text-[#FFB81C] mb-6" />
-                  <h3 className="text-2xl font-bold text-white mb-8">Pallet Height Coverage</h3>
+                  <h3 className="text-2xl font-bold text-theme-primary mb-8">Pallet Height Coverage</h3>
                   <div className="space-y-6">
                     <div className="flex items-center justify-between p-6 rounded-2xl bg-white/5">
                       <div>
-                        <p className="text-sm text-gray-500 mb-1">Minimum Height</p>
-                        <p className="text-4xl font-black text-white">
-                          {productData.flexibility.palletHeight.min} <span className="text-2xl text-gray-400">{productData.flexibility.palletHeight.unit}</span>
+                        <p className="text-sm text-theme-secondary mb-1">Minimum Height</p>
+                        <p className="text-4xl font-black text-theme-primary">
+                          {productData.flexibility.palletHeight.min} <span className="text-2xl text-theme-secondary">{productData.flexibility.palletHeight.unit}</span>
                         </p>
                       </div>
                       <div className="text-4xl text-[#C8102E]">↓</div>
@@ -583,9 +584,9 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                     <div className="flex items-center justify-between p-6 rounded-2xl bg-white/5">
                       <div className="text-4xl text-[#C8102E]">↑</div>
                       <div className="text-right">
-                        <p className="text-sm text-gray-500 mb-1">Maximum Height</p>
-                        <p className="text-4xl font-black text-white">
-                          {productData.flexibility.palletHeight.max} <span className="text-2xl text-gray-400">{productData.flexibility.palletHeight.unit}</span>
+                        <p className="text-sm text-theme-secondary mb-1">Maximum Height</p>
+                        <p className="text-4xl font-black text-theme-primary">
+                          {productData.flexibility.palletHeight.max} <span className="text-2xl text-theme-secondary">{productData.flexibility.palletHeight.unit}</span>
                         </p>
                       </div>
                     </div>
@@ -604,25 +605,25 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
               >
                 <div className="flex items-center gap-4 mb-8">
                   <Settings className="h-12 w-12 text-[#FFB81C]" />
-                  <h3 className="text-3xl font-bold text-white">Machine Dimensions</h3>
+                  <h3 className="text-3xl font-bold text-theme-primary">Machine Dimensions</h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
-                    <p className="text-sm text-gray-400 mb-2 uppercase tracking-wider">Length</p>
-                    <p className="text-4xl font-black text-white">
-                      {productData.system.dimensions.length} <span className="text-xl text-gray-500">{productData.system.dimensions.unit}</span>
+                    <p className="text-sm text-theme-secondary mb-2 uppercase tracking-wider">Length</p>
+                    <p className="text-4xl font-black text-theme-primary">
+                      {productData.system.dimensions.length} <span className="text-xl text-theme-secondary">{productData.system.dimensions.unit}</span>
                     </p>
                   </div>
                   <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
-                    <p className="text-sm text-gray-400 mb-2 uppercase tracking-wider">Width</p>
-                    <p className="text-4xl font-black text-white">
-                      {productData.system.dimensions.width} <span className="text-xl text-gray-500">{productData.system.dimensions.unit}</span>
+                    <p className="text-sm text-theme-secondary mb-2 uppercase tracking-wider">Width</p>
+                    <p className="text-4xl font-black text-theme-primary">
+                      {productData.system.dimensions.width} <span className="text-xl text-theme-secondary">{productData.system.dimensions.unit}</span>
                     </p>
                   </div>
                   <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
-                    <p className="text-sm text-gray-400 mb-2 uppercase tracking-wider">Height</p>
-                    <p className="text-4xl font-black text-white">
-                      {productData.system.dimensions.height} <span className="text-xl text-gray-500">{productData.system.dimensions.unit}</span>
+                    <p className="text-sm text-theme-secondary mb-2 uppercase tracking-wider">Height</p>
+                    <p className="text-4xl font-black text-theme-primary">
+                      {productData.system.dimensions.height} <span className="text-xl text-theme-secondary">{productData.system.dimensions.unit}</span>
                     </p>
                   </div>
                 </div>
@@ -647,10 +648,10 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 <CheckCircle2 className="h-6 w-6 text-[#FFB81C]" />
                 <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">Materials & Features</span>
               </div>
-              <h2 className="text-5xl sm:text-6xl font-black text-white mb-6 leading-tight">
+              <h2 className="text-5xl sm:text-6xl font-black text-theme-primary mb-6 leading-tight">
                 Premium Construction & Compatibility
               </h2>
-              <p className="text-2xl text-gray-400 font-light max-w-3xl mx-auto leading-relaxed">
+              <p className="text-2xl text-theme-secondary font-light max-w-3xl mx-auto leading-relaxed">
                 Built with professional-grade materials and comprehensive feature set for demanding industrial applications
               </p>
             </div>
@@ -665,13 +666,13 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
               >
                 <div className="flex items-center gap-4 mb-8">
                   <Layers className="h-12 w-12 text-[#FFB81C]" />
-                  <h3 className="text-3xl font-bold text-white">Compatible Strap Materials</h3>
+                  <h3 className="text-3xl font-bold text-theme-primary">Compatible Strap Materials</h3>
                 </div>
                 <div className="flex flex-wrap gap-4">
                   {productData.sealingHead.strapMaterials.map((material: string, index: number) => (
                     <div
                       key={index}
-                      className="px-8 py-4 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/20 text-white text-lg font-semibold"
+                      className="px-8 py-4 rounded-2xl glass-theme text-theme-primary text-lg font-semibold"
                     >
                       {material}
                     </div>
@@ -688,7 +689,7 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 viewport={{ once: true }}
                 className="mb-16"
               >
-                <h3 className="text-3xl font-bold text-white mb-8">Included Features</h3>
+                <h3 className="text-3xl font-bold text-theme-primary mb-8">Included Features</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {productData.includedFeatures.map((feature: string, index: number) => (
                     <motion.div
@@ -717,7 +718,7 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
               >
                 <div className="flex items-center gap-4 mb-8">
                   <Award className="h-12 w-12 text-[#FFB81C]" />
-                  <h3 className="text-3xl font-bold text-white">Certifications & Standards</h3>
+                  <h3 className="text-3xl font-bold text-theme-primary">Certifications & Standards</h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {productData.certifications.map((cert: string, index: number) => (
@@ -731,8 +732,8 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                     >
                       <Shield className="h-10 w-10 text-amber-400 flex-shrink-0" />
                       <div>
-                        <p className="text-xl font-bold text-white">{cert}</p>
-                        <p className="text-sm text-gray-400 mt-1">Certified Standard</p>
+                        <p className="text-xl font-bold text-theme-primary">{cert}</p>
+                        <p className="text-sm text-theme-secondary mt-1">Certified Standard</p>
                       </div>
                     </motion.div>
                   ))}
@@ -758,10 +759,10 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 <Settings className="h-6 w-6 text-[#FFB81C]" />
                 <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">Advanced Technology</span>
               </div>
-              <h2 className="text-5xl sm:text-6xl font-black text-white mb-6 leading-tight">
+              <h2 className="text-5xl sm:text-6xl font-black text-theme-primary mb-6 leading-tight">
                 Cutting-Edge Engineering Innovation
               </h2>
-              <p className="text-2xl text-gray-400 font-light max-w-3xl mx-auto leading-relaxed">
+              <p className="text-2xl text-theme-secondary font-light max-w-3xl mx-auto leading-relaxed">
                 German precision engineering meets advanced automation for unmatched reliability and performance
               </p>
             </div>
@@ -775,8 +776,8 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 className="p-10 rounded-3xl bg-gradient-to-br from-[#C8102E]/10 to-transparent border border-[#C8102E]/30"
               >
                 <Zap className="h-16 w-16 text-[#FFB81C] mb-6" />
-                <h3 className="text-3xl font-bold text-white mb-4">Intelligent Control System</h3>
-                <p className="text-lg text-gray-300 leading-relaxed mb-6">
+                <h3 className="text-3xl font-bold text-theme-primary mb-4">Intelligent Control System</h3>
+                <p className="text-lg text-theme-secondary leading-relaxed mb-6">
                   {isXpert
                     ? 'Siemens touchscreen interface provides intuitive control with programmable settings for different load types, tension requirements, and operational modes. Save up to 99 programs for instant recall.'
                     : 'Precision electromechanical control system ensures consistent strapping quality with reliable, repeatable performance across all operational parameters.'
@@ -785,34 +786,34 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 <div className="space-y-3">
                   {isXpert ? (
                     <>
-                      <div className="flex items-center gap-3 text-gray-300">
+                      <div className="flex items-center gap-3 text-theme-secondary">
                         <CheckCircle2 className="h-5 w-5 text-[#C8102E]" />
                         <span>7-inch color touchscreen display</span>
                       </div>
-                      <div className="flex items-center gap-3 text-gray-300">
+                      <div className="flex items-center gap-3 text-theme-secondary">
                         <CheckCircle2 className="h-5 w-5 text-[#C8102E]" />
                         <span>Multi-language support (12+ languages)</span>
                       </div>
-                      <div className="flex items-center gap-3 text-gray-300">
+                      <div className="flex items-center gap-3 text-theme-secondary">
                         <CheckCircle2 className="h-5 w-5 text-[#C8102E]" />
                         <span>Real-time diagnostics & error reporting</span>
                       </div>
-                      <div className="flex items-center gap-3 text-gray-300">
+                      <div className="flex items-center gap-3 text-theme-secondary">
                         <CheckCircle2 className="h-5 w-5 text-[#C8102E]" />
                         <span>Production counter & statistics tracking</span>
                       </div>
                     </>
                   ) : (
                     <>
-                      <div className="flex items-center gap-3 text-gray-300">
+                      <div className="flex items-center gap-3 text-theme-secondary">
                         <CheckCircle2 className="h-5 w-5 text-[#C8102E]" />
                         <span>LED status indicators</span>
                       </div>
-                      <div className="flex items-center gap-3 text-gray-300">
+                      <div className="flex items-center gap-3 text-theme-secondary">
                         <CheckCircle2 className="h-5 w-5 text-[#C8102E]" />
                         <span>Simple tactile controls</span>
                       </div>
-                      <div className="flex items-center gap-3 text-gray-300">
+                      <div className="flex items-center gap-3 text-theme-secondary">
                         <CheckCircle2 className="h-5 w-5 text-[#C8102E]" />
                         <span>Reliable mechanical systems</span>
                       </div>
@@ -828,24 +829,24 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 className="p-10 rounded-3xl bg-gradient-to-br from-[#C8102E]/10 to-transparent border border-[#C8102E]/30"
               >
                 <Shield className="h-16 w-16 text-[#FFB81C] mb-6" />
-                <h3 className="text-3xl font-bold text-white mb-4">Precision Sealing Technology</h3>
-                <p className="text-lg text-gray-300 leading-relaxed mb-6">
+                <h3 className="text-3xl font-bold text-theme-primary mb-4">Precision Sealing Technology</h3>
+                <p className="text-lg text-theme-secondary leading-relaxed mb-6">
                   Advanced friction welding technology ensures 100% hermetic seals with consistent quality, creating tamper-evident closures that maintain their integrity throughout the entire supply chain journey.
                 </p>
                 <div className="space-y-3">
-                  <div className="flex items-center gap-3 text-gray-300">
+                  <div className="flex items-center gap-3 text-theme-secondary">
                     <CheckCircle2 className="h-5 w-5 text-[#C8102E]" />
                     <span>Friction welding for maximum seal strength</span>
                   </div>
-                  <div className="flex items-center gap-3 text-gray-300">
+                  <div className="flex items-center gap-3 text-theme-secondary">
                     <CheckCircle2 className="h-5 w-5 text-[#C8102E]" />
                     <span>Adjustable sealing temperature control</span>
                   </div>
-                  <div className="flex items-center gap-3 text-gray-300">
+                  <div className="flex items-center gap-3 text-theme-secondary">
                     <CheckCircle2 className="h-5 w-5 text-[#C8102E]" />
                     <span>Multi-layer seal verification</span>
                   </div>
-                  <div className="flex items-center gap-3 text-gray-300">
+                  <div className="flex items-center gap-3 text-theme-secondary">
                     <CheckCircle2 className="h-5 w-5 text-[#C8102E]" />
                     <span>Tamper-evident closure system</span>
                   </div>
@@ -859,24 +860,24 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 className="p-10 rounded-3xl bg-gradient-to-br from-[#C8102E]/10 to-transparent border border-[#C8102E]/30"
               >
                 <Target className="h-16 w-16 text-[#FFB81C] mb-6" />
-                <h3 className="text-3xl font-bold text-white mb-4">Precision Tensioning System</h3>
-                <p className="text-lg text-gray-300 leading-relaxed mb-6">
+                <h3 className="text-3xl font-bold text-theme-primary mb-4">Precision Tensioning System</h3>
+                <p className="text-lg text-theme-secondary leading-relaxed mb-6">
                   Electronically controlled tension adjustment ensures optimal strap tightness for every load type, from fragile electronics to heavy machinery components, preventing damage while ensuring secure transport.
                 </p>
                 <div className="space-y-3">
-                  <div className="flex items-center gap-3 text-gray-300">
+                  <div className="flex items-center gap-3 text-theme-secondary">
                     <CheckCircle2 className="h-5 w-5 text-[#C8102E]" />
                     <span>Digital tension force monitoring</span>
                   </div>
-                  <div className="flex items-center gap-3 text-gray-300">
+                  <div className="flex items-center gap-3 text-theme-secondary">
                     <CheckCircle2 className="h-5 w-5 text-[#C8102E]" />
                     <span>Load-adaptive tension control</span>
                   </div>
-                  <div className="flex items-center gap-3 text-gray-300">
+                  <div className="flex items-center gap-3 text-theme-secondary">
                     <CheckCircle2 className="h-5 w-5 text-[#C8102E]" />
                     <span>Programmable tension presets</span>
                   </div>
-                  <div className="flex items-center gap-3 text-gray-300">
+                  <div className="flex items-center gap-3 text-theme-secondary">
                     <CheckCircle2 className="h-5 w-5 text-[#C8102E]" />
                     <span>Anti-damage protection algorithms</span>
                   </div>
@@ -890,24 +891,24 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 className="p-10 rounded-3xl bg-gradient-to-br from-[#C8102E]/10 to-transparent border border-[#C8102E]/30"
               >
                 <Activity className="h-16 w-16 text-[#FFB81C] mb-6" />
-                <h3 className="text-3xl font-bold text-white mb-4">Ergonomic Design Excellence</h3>
-                <p className="text-lg text-gray-300 leading-relaxed mb-6">
+                <h3 className="text-3xl font-bold text-theme-primary mb-4">Ergonomic Design Excellence</h3>
+                <p className="text-lg text-theme-secondary leading-relaxed mb-6">
                   Thoughtfully engineered for operator comfort and efficiency, reducing fatigue during extended operations while maximizing productivity and maintaining consistent strapping quality throughout shifts.
                 </p>
                 <div className="space-y-3">
-                  <div className="flex items-center gap-3 text-gray-300">
+                  <div className="flex items-center gap-3 text-theme-secondary">
                     <CheckCircle2 className="h-5 w-5 text-[#C8102E]" />
                     <span>Optimized weight distribution</span>
                   </div>
-                  <div className="flex items-center gap-3 text-gray-300">
+                  <div className="flex items-center gap-3 text-theme-secondary">
                     <CheckCircle2 className="h-5 w-5 text-[#C8102E]" />
                     <span>Intuitive control placement</span>
                   </div>
-                  <div className="flex items-center gap-3 text-gray-300">
+                  <div className="flex items-center gap-3 text-theme-secondary">
                     <CheckCircle2 className="h-5 w-5 text-[#C8102E]" />
                     <span>Reduced vibration technology</span>
                   </div>
-                  <div className="flex items-center gap-3 text-gray-300">
+                  <div className="flex items-center gap-3 text-theme-secondary">
                     <CheckCircle2 className="h-5 w-5 text-[#C8102E]" />
                     <span>Easy-access maintenance points</span>
                   </div>
@@ -924,27 +925,27 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
             >
               <div className="text-center mb-12">
                 <Award className="h-16 w-16 text-amber-400 mx-auto mb-6" />
-                <h3 className="text-4xl font-bold text-white mb-4">Proprietary German Engineering</h3>
-                <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+                <h3 className="text-4xl font-bold text-theme-primary mb-4">Proprietary German Engineering</h3>
+                <p className="text-xl text-theme-secondary max-w-3xl mx-auto">
                   40+ years of innovation with multiple patented technologies exclusive to ErgopackGermany
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div className="text-center p-8 rounded-2xl bg-white/5">
                   <div className="text-5xl font-black text-amber-400 mb-3">ChainLance®</div>
-                  <p className="text-gray-300 leading-relaxed">
+                  <p className="text-theme-secondary leading-relaxed">
                     Patented chain guidance system for perfectly aligned strap placement every time
                   </p>
                 </div>
                 <div className="text-center p-8 rounded-2xl bg-white/5">
                   <div className="text-5xl font-black text-amber-400 mb-3">TrippleTool™</div>
-                  <p className="text-gray-300 leading-relaxed">
+                  <p className="text-theme-secondary leading-relaxed">
                     Revolutionary three-position tool head for versatile strapping angles and positions
                   </p>
                 </div>
                 <div className="text-center p-8 rounded-2xl bg-white/5">
                   <div className="text-5xl font-black text-amber-400 mb-3">SafeSeal®</div>
-                  <p className="text-gray-300 leading-relaxed">
+                  <p className="text-theme-secondary leading-relaxed">
                     Advanced seal verification technology ensuring tamper-evident load security
                   </p>
                 </div>
