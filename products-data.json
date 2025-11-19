@@ -1,0 +1,718 @@
+{
+  "products": {
+    "745E": {
+      "model": "745E",
+      "fullName": "ErgoPack 745E",
+      "line": "Economy Line",
+      "generation": 2,
+      "tariffNumber": "842240",
+      "description": "Mobile and Ergonomic Pallet Strapping System",
+      "applicationType": "Medium/Heavy-Duty",
+      "htmlPage": "ergopack-745e.html",
+      "system": {
+        "dimensions": {
+          "length": 630,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 92.9,
+        "weightUnit": "kg"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 30,
+          "max": 255,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 40,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m"
+      },
+      "sealingHead": {
+        "tensionPower": { "min": 400, "max": 4500, "unit": "N" },
+        "strapWidth": { "min": 16, "max": 19, "unit": "mm" },
+        "strapThickness": { "min": 0.80, "max": 1.30, "unit": "mm" },
+        "strapMaterials": ["Polypropylene (PP)", "Polyester (PET)"],
+        "mounting": "Mounted on Tool-Lift"
+      },
+      "battery": {
+        "type": "24V lead-fleece battery",
+        "weight": 12.3,
+        "weightUnit": "kg",
+        "loadingTime": { "min": 8, "max": 10, "unit": "hours" },
+        "voltageNominal": 24,
+        "voltageUnit": "V",
+        "strappingCycles": 350
+      },
+      "certifications": [
+        "ISO 12100:2010",
+        "EU Declaration of Conformity",
+        "AGR Certified"
+      ]
+    },
+    "745X": {
+      "model": "745X Li",
+      "fullName": "ErgoPack 745X Li",
+      "line": "X-pert Line",
+      "generation": 2,
+      "tariffNumber": "842240",
+      "description": "Professional Mobile Pallet Strapping System with Advanced Lithium-Ion Technology",
+      "applicationType": "Medium/Heavy-Duty",
+      "htmlPage": "ergopack-745x-li.html",
+      "system": {
+        "dimensions": {
+          "length": 665,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 104,
+        "weightUnit": "kg"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 40,
+          "max": 270,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 66,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m"
+      },
+      "sealingHead": {
+        "tensionPower": { "min": 400, "max": 4500, "unit": "N" },
+        "strapWidth": { "min": 16, "max": 19, "unit": "mm" },
+        "strapThickness": { "min": 0.80, "max": 1.30, "unit": "mm" },
+        "strapMaterials": ["Polypropylene (PP)", "Polyester (PET)"],
+        "mounting": "Mounted on Tool-Lift"
+      },
+      "battery": {
+        "type": "Lithium-Ion",
+        "weight": 5,
+        "weightUnit": "kg",
+        "loadingTime": 3.5,
+        "loadingTimeUnit": "hours",
+        "voltageNominal": 36.3,
+        "voltageUnit": "V",
+        "capacityNominal": 24.15,
+        "capacityUnit": "Ah",
+        "strappingCycles": 1200
+      },
+      "includedFeatures": ["Siemens Touchscreen", "Line Laser Type 2"],
+      "certifications": [
+        "ISO 12100:2010",
+        "EU Declaration of Conformity",
+        "AGR Certified"
+      ]
+    },
+    "726E": {
+      "model": "726E",
+      "fullName": "ErgoPack 726E",
+      "line": "Economy Line",
+      "generation": 2,
+      "tariffNumber": "842240",
+      "description": "Mobile and Ergonomic Pallet Strapping System for Light-Duty Applications",
+      "applicationType": "Light-Duty",
+      "htmlPage": "ergopack-726e.html",
+      "system": {
+        "dimensions": {
+          "length": 630,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 92.9,
+        "weightUnit": "kg"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 40,
+          "max": 255,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 40,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m"
+      },
+      "sealingHead": {
+        "tensionPower": { "min": 400, "max": 2500, "unit": "N" },
+        "strapWidth": { "min": 13, "max": 16, "unit": "mm" },
+        "strapThickness": { "min": 0.40, "max": 0.80, "unit": "mm" },
+        "strapMaterials": ["Polypropylene (PP)", "Polyester (PET)"],
+        "mounting": "Mounted on Tool-Lift"
+      },
+      "battery": {
+        "type": "24V lead-fleece battery",
+        "weight": 12.3,
+        "weightUnit": "kg",
+        "loadingTime": { "min": 8, "max": 10, "unit": "hours" },
+        "voltageNominal": 24,
+        "voltageUnit": "V",
+        "strappingCycles": 350
+      },
+      "certifications": [
+        "ISO 12100:2010",
+        "EU Declaration of Conformity",
+        "AGR Certified"
+      ]
+    },
+    "726X": {
+      "model": "726X Li",
+      "fullName": "ErgoPack 726X Li",
+      "line": "X-pert Line",
+      "generation": 2,
+      "tariffNumber": "842240",
+      "description": "Professional Mobile Pallet Strapping System with Lithium-Ion for Light-Duty Applications",
+      "applicationType": "Light-Duty",
+      "htmlPage": "ergopack-726x-li.html",
+      "system": {
+        "dimensions": {
+          "length": 665,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 104,
+        "weightUnit": "kg"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 40,
+          "max": 270,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 66,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m"
+      },
+      "sealingHead": {
+        "tensionPower": { "min": 400, "max": 2500, "unit": "N" },
+        "strapWidth": { "min": 13, "max": 16, "unit": "mm" },
+        "strapThickness": { "min": 0.40, "max": 0.80, "unit": "mm" },
+        "strapMaterials": ["Polypropylene (PP)", "Polyester (PET)"],
+        "mounting": "Mounted on Tool-Lift"
+      },
+      "battery": {
+        "type": "Lithium-Ion",
+        "weight": 5,
+        "weightUnit": "kg",
+        "loadingTime": 3.5,
+        "loadingTimeUnit": "hours",
+        "voltageNominal": 36.3,
+        "voltageUnit": "V",
+        "capacityNominal": 24.15,
+        "capacityUnit": "Ah",
+        "strappingCycles": 1200
+      },
+      "includedFeatures": ["Siemens Touchscreen", "Line Laser Type 2"],
+      "certifications": [
+        "ISO 12100:2010",
+        "EU Declaration of Conformity",
+        "AGR Certified"
+      ]
+    },
+    "713E": {
+      "model": "713E",
+      "fullName": "ErgoPack 713E",
+      "line": "Economy Line",
+      "generation": 2,
+      "tariffNumber": "842240",
+      "description": "Mobile and Ergonomic Pallet Strapping System for Ultra-Light-Duty Applications",
+      "applicationType": "Ultra-Light-Duty",
+      "htmlPage": "ergopack-713e.html",
+      "system": {
+        "dimensions": {
+          "length": 630,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 92.9,
+        "weightUnit": "kg"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 40,
+          "max": 255,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 40,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m"
+      },
+      "sealingHead": {
+        "tensionPower": { "min": 150, "max": 1200, "unit": "N" },
+        "strapWidth": { "min": 9, "max": 13, "unit": "mm" },
+        "strapThickness": { "min": 0.40, "max": 0.63, "unit": "mm" },
+        "strapMaterials": ["Polypropylene (PP)", "Polyester (PET)"],
+        "mounting": "Mounted on Tool-Lift"
+      },
+      "battery": {
+        "type": "24V lead-fleece battery",
+        "weight": 12.3,
+        "weightUnit": "kg",
+        "loadingTime": { "min": 8, "max": 10, "unit": "hours" },
+        "voltageNominal": 24,
+        "voltageUnit": "V",
+        "strappingCycles": 350
+      },
+      "certifications": [
+        "ISO 12100:2010",
+        "EU Declaration of Conformity",
+        "AGR Certified"
+      ]
+    },
+    "713X": {
+      "model": "713X Li",
+      "fullName": "ErgoPack 713X Li",
+      "line": "X-pert Line",
+      "generation": 2,
+      "tariffNumber": "842240",
+      "description": "Professional Mobile Pallet Strapping System with Lithium-Ion for Ultra-Light-Duty Applications",
+      "applicationType": "Ultra-Light-Duty",
+      "htmlPage": "ergopack-713x-li.html",
+      "system": {
+        "dimensions": {
+          "length": 665,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 104,
+        "weightUnit": "kg"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 40,
+          "max": 270,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 66,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m"
+      },
+      "sealingHead": {
+        "tensionPower": { "min": 150, "max": 1200, "unit": "N" },
+        "strapWidth": { "min": 9, "max": 13, "unit": "mm" },
+        "strapThickness": { "min": 0.40, "max": 0.63, "unit": "mm" },
+        "strapMaterials": ["Polypropylene (PP)", "Polyester (PET)"],
+        "mounting": "Mounted on Tool-Lift"
+      },
+      "battery": {
+        "type": "Lithium-Ion",
+        "weight": 5,
+        "weightUnit": "kg",
+        "loadingTime": 3.5,
+        "loadingTimeUnit": "hours",
+        "voltageNominal": 36.3,
+        "voltageUnit": "V",
+        "capacityNominal": 24.15,
+        "capacityUnit": "Ah",
+        "strappingCycles": 1200
+      },
+      "includedFeatures": ["Siemens Touchscreen", "Line Laser Type 2"],
+      "certifications": [
+        "ISO 12100:2010",
+        "EU Declaration of Conformity",
+        "AGR Certified"
+      ]
+    },
+    "700": {
+      "model": "700",
+      "fullName": "ErgoPack 700",
+      "line": "Economy Line",
+      "generation": 2,
+      "tariffNumber": "842240",
+      "description": "Manual Hand-Crank Strapping Tool",
+      "applicationType": "Manual Operation",
+      "htmlPage": "ergopack-700.html",
+      "system": {
+        "dimensions": {
+          "length": 630,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 64.4,
+        "weightUnit": "kg"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 30,
+          "max": 255,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "operationType": "Manual Hand Crank",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m"
+      },
+      "sealingHead": {
+        "availability": "Optional (sold separately)",
+        "strapMaterials": ["Polypropylene (PP)", "Polyester (PET)", "Paper", "Cord", "Composite"]
+      },
+      "battery": {
+        "type": "None - Manual Operation"
+      },
+      "certifications": [
+        "ISO 12100:2010",
+        "EU Declaration of Conformity",
+        "AGR Certified"
+      ]
+    },
+    "700E": {
+      "model": "700E",
+      "fullName": "ErgoPack 700E",
+      "line": "Economy Line",
+      "generation": 2,
+      "tariffNumber": "842240",
+      "description": "Battery-Powered Automated Strapping with Multi-Material Compatibility",
+      "applicationType": "Multi-Material",
+      "htmlPage": "ergopack-700e.html",
+      "system": {
+        "dimensions": {
+          "length": 630,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 88.1,
+        "weightUnit": "kg"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 30,
+          "max": 255,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 40,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m"
+      },
+      "sealingHead": {
+        "availability": "Optional (sold separately)",
+        "strapMaterials": ["Polypropylene (PP)", "Polyester (PET)", "Paper", "Cord", "Composite"]
+      },
+      "battery": {
+        "type": "24V lead-fleece battery",
+        "weight": 12.3,
+        "weightUnit": "kg",
+        "loadingTime": { "min": 8, "max": 10, "unit": "hours" },
+        "voltageNominal": 24,
+        "voltageUnit": "V",
+        "strappingCycles": 350
+      },
+      "optionalAccessories": ["Tool-Lift", "Line Laser"],
+      "certifications": [
+        "ISO 12100:2010",
+        "EU Declaration of Conformity",
+        "AGR Certified"
+      ]
+    },
+    "700X": {
+      "model": "700X Li",
+      "fullName": "ErgoPack 700X Li",
+      "line": "X-pert Line",
+      "generation": 2,
+      "tariffNumber": "842240",
+      "description": "Premium Lithium-Ion Powered Strapping with Universal Material Compatibility",
+      "applicationType": "Multi-Material X-pert",
+      "htmlPage": "ergopack-700x-li.html",
+      "system": {
+        "dimensions": {
+          "length": 665,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 95,
+        "weightUnit": "kg"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 40,
+          "max": 270,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 66,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m"
+      },
+      "sealingHead": {
+        "availability": "Optional (sold separately)",
+        "strapMaterials": ["Polypropylene (PP)", "Polyester (PET)", "Paper", "Cord", "Composite"]
+      },
+      "battery": {
+        "type": "Lithium-Ion",
+        "weight": 5,
+        "weightUnit": "kg",
+        "loadingTime": 3.5,
+        "loadingTimeUnit": "hours",
+        "voltageNominal": 36.3,
+        "voltageUnit": "V",
+        "capacityNominal": 24.15,
+        "capacityUnit": "Ah",
+        "strappingCycles": 1200
+      },
+      "includedFeatures": ["Siemens Touchscreen"],
+      "optionalAccessories": ["Tool-Lift", "Line Laser"],
+      "certifications": [
+        "ISO 12100:2010",
+        "EU Declaration of Conformity",
+        "AGR Certified"
+      ]
+    },
+    "RE": {
+      "model": "RE",
+      "fullName": "ErgoPack RE",
+      "line": "RE Line - Mobile Retracting",
+      "generation": 1,
+      "tariffNumber": "84224000",
+      "description": "Mobile & Ergonomic Retracting Pallet Strapping System",
+      "applicationType": "Premium Mobile",
+      "htmlPage": "ergopack-re.html",
+      "system": {
+        "dimensions": {
+          "length": 665,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 90,
+        "weightUnit": "kg"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 40,
+          "max": 270,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 66,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m"
+      },
+      "sealingHead": {
+        "mounting": "Mounted on Tool-Lift",
+        "included": true
+      },
+      "battery": {
+        "type": "Lithium-Ion",
+        "dimensions": { "length": 393, "width": 153, "height": 82, "unit": "mm" },
+        "weight": 5,
+        "weightUnit": "kg",
+        "loadingTime": 3.5,
+        "loadingTimeUnit": "hours",
+        "voltageNominal": 36.3,
+        "voltageUnit": "V",
+        "capacityNominal": 24.15,
+        "capacityUnit": "Ah",
+        "strappingCycles": 1200
+      },
+      "includedFeatures": ["Siemens Touchscreen", "Line Laser Type 2", "Tool-Lift with Sealing Head", "Sledge 47", "Rewinder"],
+      "optionalAccessories": ["Automatic Rewinder", "Spare Battery", "Extended Chain", "Mobile Overheight Module", "Mobile Sledge Tunnel"],
+      "certifications": [
+        "ISO 12100:2010",
+        "EU Declaration of Conformity",
+        "AGR Certified"
+      ]
+    },
+    "GO": {
+      "model": "GO",
+      "fullName": "ErgoPack GO",
+      "line": "GO Line - Economy Portable",
+      "generation": 1,
+      "tariffNumber": "842240",
+      "description": "Mobile & Ergonomic Portable Pallet Strapping System",
+      "applicationType": "Economy Portable",
+      "htmlPage": "ergopack-go.html",
+      "system": {
+        "dimensions": {
+          "length": 630,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 90,
+        "weightUnit": "kg"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 30,
+          "max": 240,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 80,
+          "max": 190,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 40,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 5,
+        "chainLengthUnit": "m"
+      },
+      "sealingHead": {
+        "mounting": "Flexible mounting with adapter",
+        "strapMaterials": ["Polypropylene (PP)", "Polyester (PET)", "Paper", "Cord", "Composite"]
+      },
+      "battery": {
+        "type": "24V lead-fleece battery",
+        "weight": 12.3,
+        "weightUnit": "kg",
+        "loadingTime": { "min": 8, "max": 10, "unit": "hours" },
+        "voltageNominal": 24,
+        "voltageUnit": "V",
+        "strappingCycles": 350
+      },
+      "includedFeatures": ["Standard Tool-Lift", "Sledge 85", "Joystick Control"],
+      "optionalAccessories": ["Alternative Sledges (47, 47S, 47L)", "Headpiece with Bumper", "Spare Battery", "Additional Chain"],
+      "notAvailable": ["Line Laser", "Triplex-Tool-Lift", "Safety Cutter", "Strap-Brake-Relief"],
+      "certifications": [
+        "ISO 12100:2010",
+        "EU Declaration of Conformity",
+        "AGR Certified"
+      ]
+    }
+  },
+  "productFamilies": {
+    "745Series": {
+      "name": "745 Series - Medium/Heavy-Duty",
+      "models": ["745E", "745X"],
+      "tensionRange": "400-4500N",
+      "strapWidth": "16-19mm",
+      "strapThickness": "0.80-1.30mm",
+      "application": "Medium to Heavy-Duty packaging applications"
+    },
+    "726Series": {
+      "name": "726 Series - Light-Duty",
+      "models": ["726E", "726X"],
+      "tensionRange": "400-2500N",
+      "strapWidth": "13-16mm",
+      "strapThickness": "0.40-0.80mm",
+      "application": "Light-Duty packaging applications"
+    },
+    "713Series": {
+      "name": "713 Series - Ultra-Light-Duty",
+      "models": ["713E", "713X"],
+      "tensionRange": "150-1200N",
+      "strapWidth": "9-13mm",
+      "strapThickness": "0.40-0.63mm",
+      "application": "Ultra-Light-Duty packaging applications"
+    },
+    "700Series": {
+      "name": "700 Series - Multi-Material Versatility",
+      "models": ["700", "700E", "700X"],
+      "materials": ["PP", "PET", "Paper", "Cord", "Composite"],
+      "application": "Versatile multi-material strapping from manual to Li-Ion powered"
+    },
+    "MobileSystems": {
+      "name": "Mobile Systems - RE & GO",
+      "models": ["RE", "GO"],
+      "application": "Complete mobile strapping solutions from economy to premium"
+    }
+  },
+  "productLines": {
+    "EconomyLine": {
+      "name": "Economy Line",
+      "models": ["745E", "726E", "713E", "700", "700E", "GO"],
+      "batteryType": "24V Lead-Fleece (except 700 manual)",
+      "speed": "40 m/min",
+      "cycles": 350,
+      "chargingTime": "8-10 hours",
+      "description": "Affordable automated strapping with proven battery technology"
+    },
+    "XpertLine": {
+      "name": "X-pert Line",
+      "models": ["745X", "726X", "713X", "700X"],
+      "batteryType": "Lithium-Ion",
+      "speed": "66 m/min",
+      "cycles": 1200,
+      "chargingTime": "3.5 hours",
+      "includedFeatures": ["Siemens Touchscreen", "Line Laser (except 700X)"],
+      "description": "Premium performance with Li-Ion technology - 65% faster, 3.4x more cycles"
+    }
+  },
+  "dataSource": "Official ErgoPack Model Overview and Technical Datasheet PDFs",
+  "lastUpdated": "2025-11-18"
+}
