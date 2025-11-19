@@ -22,19 +22,17 @@ interface PremiumProductPageProps {
 
 export default function PremiumProductPage({ product }: PremiumProductPageProps) {
   const isXpert = product.line === 'xpert';
-  const gradientFrom = isXpert ? 'from-red-900' : 'from-blue-900';
-  const gradientTo = isXpert ? 'to-red-950' : 'to-blue-950';
-  const accentColor = isXpert ? 'text-red-400' : 'text-blue-400';
-  const borderColor = isXpert ? 'border-red-500/30' : 'border-blue-500/30';
-  const bgAccent = isXpert ? 'bg-red-500/10' : 'bg-blue-500/10';
+  const accentColor = isXpert ? 'text-crimson-600' : 'text-crimson-600';
+  const borderColor = isXpert ? 'border-crimson-500/30' : 'border-crimson-500/30';
+  const bgAccent = isXpert ? 'bg-crimson-500/10' : 'bg-crimson-500/10';
 
   return (
     <>
       <MinimalLoadingScreen />
       <MainLayout>
-        <div className="bg-slate-950 min-h-screen">
+        <div className="bg-gradient-to-b from-white via-crimson-50/20 to-white min-h-screen">
           {/* Hero Section - Premium, not boxy */}
-          <section className={`relative min-h-[90vh] bg-gradient-to-br ${gradientFrom} via-slate-900 ${gradientTo} overflow-hidden`}>
+          <section className="relative min-h-[90vh] bg-gradient-to-br from-crimson-100 via-crimson-50 to-white overflow-hidden">
           {/* Animated background orbs */}
           <div className="absolute inset-0">
             <motion.div
@@ -66,37 +64,37 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
                   </span>
                 </div>
 
-                <h1 className="text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                <h1 className="text-6xl lg:text-7xl font-bold text-luxury-dark-gray mb-6 leading-tight">
                   {product.name}
                 </h1>
 
-                <p className="text-2xl text-slate-300 mb-8 leading-relaxed">
+                <p className="text-2xl text-platinum-700 mb-8 leading-relaxed">
                   {product.tagline}
                 </p>
 
-                <p className="text-lg text-slate-400 mb-10 leading-relaxed max-w-2xl">
+                <p className="text-lg text-platinum-600 mb-10 leading-relaxed max-w-2xl">
                   {product.description}
                 </p>
 
                 {/* Key Specs Pills */}
                 <div className="flex flex-wrap gap-4 mb-10">
-                  <div className="px-6 py-3 rounded-xl bg-slate-800/50 border border-slate-700">
-                    <div className={`text-sm ${accentColor} mb-1`}>Chain Speed</div>
-                    <div className="text-xl font-bold text-white">
+                  <div className="px-6 py-3 rounded-xl bg-white/80 backdrop-blur-sm border border-crimson-200 shadow-lg">
+                    <div className={`text-sm ${accentColor} mb-1 font-semibold`}>Chain Speed</div>
+                    <div className="text-xl font-bold text-luxury-dark-gray">
                       {product.specifications.chainSpeed}
                     </div>
                   </div>
                   {product.battery && (
-                    <div className="px-6 py-3 rounded-xl bg-slate-800/50 border border-slate-700">
-                      <div className={`text-sm ${accentColor} mb-1`}>Cycles/Charge</div>
-                      <div className="text-xl font-bold text-white">
+                    <div className="px-6 py-3 rounded-xl bg-white/80 backdrop-blur-sm border border-crimson-200 shadow-lg">
+                      <div className={`text-sm ${accentColor} mb-1 font-semibold`}>Cycles/Charge</div>
+                      <div className="text-xl font-bold text-luxury-dark-gray">
                         {product.battery.strappingCycles}
                       </div>
                     </div>
                   )}
-                  <div className="px-6 py-3 rounded-xl bg-slate-800/50 border border-slate-700">
-                    <div className={`text-sm ${accentColor} mb-1`}>Pallet Range</div>
-                    <div className="text-xl font-bold text-white">
+                  <div className="px-6 py-3 rounded-xl bg-white/80 backdrop-blur-sm border border-crimson-200 shadow-lg">
+                    <div className={`text-sm ${accentColor} mb-1 font-semibold`}>Pallet Range</div>
+                    <div className="text-xl font-bold text-luxury-dark-gray">
                       {product.specifications.palletWidth.min}-{product.specifications.palletWidth.max}cm
                     </div>
                   </div>
@@ -107,7 +105,7 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
                     <Button
                       size="lg"
                       variant="primary"
-                      className={`group ${isXpert ? 'bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800' : 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800'} text-white shadow-2xl`}
+                      className="group bg-gradient-to-r from-crimson-600 to-crimson-700 hover:from-crimson-700 hover:to-crimson-800 text-white shadow-2xl"
                     >
                       Request Quote
                       <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -117,7 +115,7 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
                     <Button
                       size="lg"
                       variant="outline"
-                      className="border-2 border-slate-600 text-slate-200 hover:bg-slate-800"
+                      className="border-2 border-crimson-500 text-crimson-700 hover:bg-crimson-50"
                     >
                       Compare Models
                     </Button>
@@ -132,8 +130,8 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="relative"
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${isXpert ? 'from-red-500/20' : 'from-blue-500/20'} to-transparent rounded-3xl blur-3xl`} />
-                <div className="relative aspect-square rounded-3xl overflow-hidden bg-slate-900/50 border border-slate-800">
+                <div className="absolute inset-0 bg-gradient-to-br from-crimson-500/20 to-transparent rounded-3xl blur-3xl" />
+                <div className="relative aspect-square rounded-3xl overflow-hidden bg-white/50 backdrop-blur-sm border border-crimson-200 shadow-2xl">
                   <Image
                     src={product.images.hero}
                     alt={product.name}
@@ -149,7 +147,7 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
 
         {/* Product Gallery - Premium showcase */}
         {product.images.gallery && product.images.gallery.length > 0 && (
-          <section className="py-24 bg-gradient-to-b from-slate-900 to-slate-950">
+          <section className="py-24 bg-gradient-to-b from-white to-crimson-50/30">
             <div className="max-w-7xl mx-auto px-6 sm:px-12">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -157,13 +155,13 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
                 viewport={{ once: true }}
                 className="text-center mb-16"
               >
-                <p className={`text-sm uppercase tracking-widest ${accentColor} mb-4`}>
+                <p className={`text-sm uppercase tracking-widest ${accentColor} mb-4 font-bold`}>
                   Visual Tour
                 </p>
-                <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+                <h2 className="text-4xl lg:text-5xl font-bold text-luxury-dark-gray mb-6">
                   Product Gallery
                 </h2>
-                <p className="text-slate-400 max-w-2xl mx-auto">
+                <p className="text-platinum-600 max-w-2xl mx-auto text-lg">
                   Explore the {product.name} from every angle. Premium engineering meets practical design.
                 </p>
               </motion.div>
@@ -176,9 +174,9 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="group relative aspect-square rounded-2xl overflow-hidden bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all duration-300"
+                    className="group relative aspect-square rounded-2xl overflow-hidden bg-white/80 backdrop-blur-sm border border-crimson-200 hover:border-crimson-400 hover:shadow-2xl transition-all duration-300"
                   >
-                    <div className={`absolute inset-0 bg-gradient-to-br ${isXpert ? 'from-red-500/10' : 'from-blue-500/10'} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10`} />
+                    <div className="absolute inset-0 bg-gradient-to-br from-crimson-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
                     <Image
                       src={image}
                       alt={`${product.name} - View ${index + 1}`}
@@ -194,7 +192,7 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
         )}
 
         {/* Features Grid - Premium flowing design */}
-        <section className="py-24 bg-slate-950">
+        <section className="py-24 bg-gradient-to-b from-crimson-50/30 to-white">
           <div className="max-w-7xl mx-auto px-6 sm:px-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -202,10 +200,10 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <p className={`text-sm uppercase tracking-widest ${accentColor} mb-4`}>
+              <p className={`text-sm uppercase tracking-widest ${accentColor} mb-4 font-bold`}>
                 Key Features
               </p>
-              <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+              <h2 className="text-4xl lg:text-5xl font-bold text-luxury-dark-gray mb-6">
                 Engineered for Excellence
               </h2>
             </motion.div>
@@ -218,10 +216,10 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
-                  className="group p-6 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 hover:border-slate-700 transition-all duration-300"
+                  className="group p-6 rounded-2xl bg-white border border-crimson-200 hover:border-crimson-400 hover:shadow-xl transition-all duration-300"
                 >
                   <CheckCircle2 className={`h-6 w-6 ${accentColor} mb-4`} />
-                  <p className="text-slate-200 leading-relaxed">{feature}</p>
+                  <p className="text-platinum-700 leading-relaxed">{feature}</p>
                 </motion.div>
               ))}
             </div>
@@ -229,7 +227,7 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
         </section>
 
         {/* Technical Specifications - Modern table design */}
-        <section className="py-24 bg-gradient-to-b from-slate-950 to-slate-900">
+        <section className="py-24 bg-gradient-to-b from-white to-crimson-50/30">
           <div className="max-w-6xl mx-auto px-6 sm:px-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -237,10 +235,10 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <p className={`text-sm uppercase tracking-widest ${accentColor} mb-4`}>
+              <p className={`text-sm uppercase tracking-widest ${accentColor} mb-4 font-bold`}>
                 Technical Details
               </p>
-              <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+              <h2 className="text-4xl lg:text-5xl font-bold text-luxury-dark-gray mb-6">
                 Specifications
               </h2>
             </motion.div>
@@ -249,7 +247,7 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-slate-900/50 rounded-3xl border border-slate-800 overflow-hidden"
+              className="bg-white border-2 border-crimson-200 rounded-3xl shadow-2xl overflow-hidden"
             >
               <div className="p-8 space-y-4">
                 {[
@@ -265,10 +263,10 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
                 ].map((spec, index) => (
                   <div
                     key={index}
-                    className="flex items-center justify-between py-4 border-b border-slate-800 last:border-0"
+                    className="flex items-center justify-between py-4 border-b border-crimson-100 last:border-0"
                   >
-                    <span className="text-slate-400 font-medium">{spec.label}</span>
-                    <span className="text-white font-semibold text-right">{spec.value}</span>
+                    <span className="text-platinum-600 font-medium">{spec.label}</span>
+                    <span className="text-luxury-dark-gray font-semibold text-right">{spec.value}</span>
                   </div>
                 ))}
               </div>
@@ -278,7 +276,7 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
 
         {/* Accessories Visual Showcase */}
         {product.images.accessories && product.images.accessories.length > 0 && (
-          <section className="py-24 bg-gradient-to-b from-slate-950 to-slate-900">
+          <section className="py-24 bg-gradient-to-b from-crimson-50/30 to-white">
             <div className="max-w-7xl mx-auto px-6 sm:px-12">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -286,13 +284,13 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
                 viewport={{ once: true }}
                 className="text-center mb-16"
               >
-                <p className={`text-sm uppercase tracking-widest ${accentColor} mb-4`}>
+                <p className={`text-sm uppercase tracking-widest ${accentColor} mb-4 font-bold`}>
                   Accessories & Add-ons
                 </p>
-                <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+                <h2 className="text-4xl lg:text-5xl font-bold text-luxury-dark-gray mb-6">
                   Enhanced Functionality
                 </h2>
-                <p className="text-slate-400 max-w-2xl mx-auto">
+                <p className="text-platinum-600 max-w-2xl mx-auto text-lg">
                   Customize your {product.name} with premium accessories designed for maximum versatility.
                 </p>
               </motion.div>
@@ -305,9 +303,9 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="group relative aspect-square rounded-2xl overflow-hidden bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all duration-300"
+                    className="group relative aspect-square rounded-2xl overflow-hidden bg-white/80 backdrop-blur-sm border border-crimson-200 hover:border-crimson-400 hover:shadow-xl transition-all duration-300"
                   >
-                    <div className={`absolute inset-0 bg-gradient-to-br ${isXpert ? 'from-red-500/5' : 'from-blue-500/5'} to-transparent`} />
+                    <div className="absolute inset-0 bg-gradient-to-br from-crimson-500/5 to-transparent" />
                     <Image
                       src={image}
                       alt={`${product.name} Accessory ${index + 1}`}
@@ -323,7 +321,7 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
         )}
 
         {/* Included Accessories */}
-        <section className="py-24 bg-slate-950">
+        <section className="py-24 bg-gradient-to-b from-white to-crimson-50/30">
           <div className="max-w-7xl mx-auto px-6 sm:px-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -331,10 +329,10 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <p className={`text-sm uppercase tracking-widest ${accentColor} mb-4`}>
+              <p className={`text-sm uppercase tracking-widest ${accentColor} mb-4 font-bold`}>
                 What's Included
               </p>
-              <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+              <h2 className="text-4xl lg:text-5xl font-bold text-luxury-dark-gray mb-6">
                 Standard Equipment
               </h2>
             </motion.div>
@@ -347,17 +345,17 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="p-8 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800"
+                  className="p-8 rounded-2xl bg-white border border-crimson-200 hover:shadow-xl transition-all duration-300"
                 >
                   <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl ${bgAccent} mb-6`}>
                     <CheckCircle2 className={`h-6 w-6 ${accentColor}`} />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3">{accessory.name}</h3>
-                  <p className="text-slate-400 mb-4 leading-relaxed">{accessory.description}</p>
+                  <h3 className="text-xl font-bold text-luxury-dark-gray mb-3">{accessory.name}</h3>
+                  <p className="text-platinum-600 mb-4 leading-relaxed">{accessory.description}</p>
                   {accessory.details && accessory.details.length > 0 && (
                     <ul className="space-y-2">
                       {accessory.details.map((detail, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-slate-500">
+                        <li key={i} className="flex items-start gap-2 text-sm text-platinum-500">
                           <ChevronRight className={`h-4 w-4 ${accentColor} flex-shrink-0 mt-0.5`} />
                           <span>{detail}</span>
                         </li>
@@ -371,7 +369,7 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
         </section>
 
         {/* Optional Accessories */}
-        <section className="py-24 bg-gradient-to-b from-slate-900 to-slate-950">
+        <section className="py-24 bg-gradient-to-b from-crimson-50/30 to-white">
           <div className="max-w-7xl mx-auto px-6 sm:px-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -379,13 +377,13 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <p className={`text-sm uppercase tracking-widest ${accentColor} mb-4`}>
+              <p className={`text-sm uppercase tracking-widest ${accentColor} mb-4 font-bold`}>
                 Expand Your Capabilities
               </p>
-              <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+              <h2 className="text-4xl lg:text-5xl font-bold text-luxury-dark-gray mb-6">
                 Optional Accessories
               </h2>
-              <p className="text-xl text-slate-400 max-w-3xl mx-auto">
+              <p className="text-xl text-platinum-600 max-w-3xl mx-auto">
                 Customize your {product.name} with these optional accessories to meet your specific needs
               </p>
             </motion.div>
@@ -398,19 +396,19 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
-                  className="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all duration-300"
+                  className="p-6 rounded-2xl bg-white border border-crimson-200 hover:border-crimson-400 hover:shadow-xl transition-all duration-300"
                 >
                   <div className="flex items-start gap-4">
                     <div className={`flex-shrink-0 w-10 h-10 rounded-lg ${bgAccent} flex items-center justify-center`}>
                       <Settings className={`h-5 w-5 ${accentColor}`} />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-bold text-white mb-2">{accessory.name}</h3>
-                      <p className="text-slate-400 text-sm mb-3">{accessory.description}</p>
+                      <h3 className="text-lg font-bold text-luxury-dark-gray mb-2">{accessory.name}</h3>
+                      <p className="text-platinum-600 text-sm mb-3">{accessory.description}</p>
                       {accessory.details && accessory.details.length > 0 && (
                         <ul className="space-y-1">
                           {accessory.details.map((detail, i) => (
-                            <li key={i} className="flex items-start gap-2 text-xs text-slate-500">
+                            <li key={i} className="flex items-start gap-2 text-xs text-platinum-500">
                               <ChevronRight className={`h-3 w-3 ${accentColor} flex-shrink-0 mt-0.5`} />
                               <span>{detail}</span>
                             </li>
@@ -427,7 +425,7 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
 
         {/* Applications Visual Gallery */}
         {product.images.applications && product.images.applications.length > 0 && (
-          <section className="py-24 bg-gradient-to-b from-slate-950 to-slate-900">
+          <section className="py-24 bg-gradient-to-b from-white to-crimson-50/30">
             <div className="max-w-7xl mx-auto px-6 sm:px-12">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -435,13 +433,13 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
                 viewport={{ once: true }}
                 className="text-center mb-16"
               >
-                <p className={`text-sm uppercase tracking-widest ${accentColor} mb-4`}>
+                <p className={`text-sm uppercase tracking-widest ${accentColor} mb-4 font-bold`}>
                   Real-World Solutions
                 </p>
-                <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+                <h2 className="text-4xl lg:text-5xl font-bold text-luxury-dark-gray mb-6">
                   Applications in Action
                 </h2>
-                <p className="text-slate-400 max-w-2xl mx-auto">
+                <p className="text-platinum-600 max-w-2xl mx-auto text-lg">
                   See how the {product.name} delivers exceptional results across diverse packaging scenarios.
                 </p>
               </motion.div>
@@ -454,9 +452,9 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
-                    className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-900/50 border border-slate-800 hover:border-slate-700 transition-all duration-300"
+                    className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-white border border-crimson-200 hover:border-crimson-400 hover:shadow-xl transition-all duration-300"
                   >
-                    <div className={`absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent z-10`} />
+                    <div className="absolute inset-0 bg-gradient-to-t from-crimson-50/60 via-transparent to-transparent z-10" />
                     <Image
                       src={image}
                       alt={`${product.name} Application ${index + 1}`}
@@ -472,7 +470,7 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
         )}
 
         {/* Applications List */}
-        <section className="py-24 bg-slate-950">
+        <section className="py-24 bg-gradient-to-b from-crimson-50/30 to-white">
           <div className="max-w-7xl mx-auto px-6 sm:px-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -480,10 +478,10 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <p className={`text-sm uppercase tracking-widest ${accentColor} mb-4`}>
+              <p className={`text-sm uppercase tracking-widest ${accentColor} mb-4 font-bold`}>
                 Perfect For
               </p>
-              <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+              <h2 className="text-4xl lg:text-5xl font-bold text-luxury-dark-gray mb-6">
                 Industry Applications
               </h2>
             </motion.div>
@@ -496,9 +494,9 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.05 }}
-                  className={`p-6 rounded-xl bg-gradient-to-br from-slate-900 to-slate-950 border ${borderColor} text-center`}
+                  className={`p-6 rounded-xl bg-white border ${borderColor} hover:shadow-lg transition-all duration-300 text-center`}
                 >
-                  <p className="text-slate-200 font-medium">{application}</p>
+                  <p className="text-platinum-700 font-medium">{application}</p>
                 </motion.div>
               ))}
             </div>
@@ -506,8 +504,8 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
         </section>
 
         {/* CTA Section */}
-        <section className={`py-24 bg-gradient-to-br ${gradientFrom} ${gradientTo} relative overflow-hidden`}>
-          <div className={`absolute inset-0 opacity-10 bg-gradient-to-br ${isXpert ? 'from-red-500' : 'from-blue-500'} to-transparent blur-3xl`} />
+        <section className="py-24 bg-gradient-to-br from-crimson-100 via-crimson-50 to-white relative overflow-hidden">
+          <div className="absolute inset-0 opacity-10 bg-gradient-to-br from-crimson-500 to-transparent blur-3xl" />
 
           <div className="relative z-10 max-w-4xl mx-auto px-6 sm:px-12 text-center">
             <motion.div
@@ -515,10 +513,10 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
+              <h2 className="text-4xl lg:text-5xl font-bold text-luxury-dark-gray mb-6">
                 Ready to Get Started?
               </h2>
-              <p className="text-xl text-slate-300 mb-10 leading-relaxed">
+              <p className="text-xl text-platinum-700 mb-10 leading-relaxed">
                 Contact our team for a personalized quote and discover how the {product.name} can transform your operations.
               </p>
 
@@ -527,7 +525,7 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
                   <Button
                     size="lg"
                     variant="primary"
-                    className={`${isXpert ? 'bg-red-600 hover:bg-red-700' : 'bg-blue-600 hover:bg-blue-700'} text-white px-10 py-5 text-lg shadow-2xl`}
+                    className="bg-crimson-600 hover:bg-crimson-700 text-white px-10 py-5 text-lg shadow-2xl"
                   >
                     Request Quote
                     <ArrowRight className="ml-2 h-5 w-5" />
@@ -537,7 +535,7 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-2 border-slate-600 px-10 py-5 text-lg text-slate-200 hover:bg-slate-800"
+                    className="border-2 border-crimson-500 px-10 py-5 text-lg text-crimson-700 hover:bg-crimson-50"
                   >
                     Compare Models
                   </Button>
@@ -545,7 +543,7 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
               </div>
 
               {product.certifications && (
-                <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-slate-400">
+                <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-platinum-600">
                   {product.certifications.iso12100 && (
                     <div className="flex items-center gap-2">
                       <Shield className={`h-5 w-5 ${accentColor}`} />
