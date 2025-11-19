@@ -1,13 +1,24 @@
 'use client';
 
 import React, { useEffect, useState, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll } from 'framer-motion';
+import {
+  PackageEntryIcon,
+  StrapFeedingIcon,
+  PrecisionTensionIcon,
+  HeatSealingIcon,
+  CompleteIcon,
+  TimerIcon,
+  SpeedIcon,
+  StrengthIcon,
+  EnergyIcon,
+} from '@/components/elite/ui/PremiumIcons';
 
 interface OperationStep {
   id: number;
   title: string;
   description: string;
-  icon: string;
+  icon: React.ComponentType<any>;
   color: string;
 }
 
@@ -16,35 +27,35 @@ const OPERATION_STEPS: OperationStep[] = [
     id: 1,
     title: 'Package Entry',
     description: 'Package enters the strapping zone via precision conveyor system',
-    icon: '📦',
+    icon: PackageEntryIcon,
     color: '#FFB81C',
   },
   {
     id: 2,
     title: 'Strap Feeding',
     description: 'Strap material automatically feeds around package perimeter',
-    icon: '🔄',
+    icon: StrapFeedingIcon,
     color: '#00D9FF',
   },
   {
     id: 3,
     title: 'Precision Tensioning',
     description: 'Servo motor applies exact tension - 0.1mm tolerance',
-    icon: '⚡',
+    icon: PrecisionTensionIcon,
     color: '#FFB81C',
   },
   {
     id: 4,
     title: 'Heat Sealing',
     description: 'Ultrasonic sealing creates permanent bond in 0.3 seconds',
-    icon: '🔥',
+    icon: HeatSealingIcon,
     color: '#C8102E',
   },
   {
     id: 5,
     title: 'Package Exit',
     description: 'Secured package exits - ready for shipping',
-    icon: '✓',
+    icon: CompleteIcon,
     color: '#00FF88',
   },
 ];
@@ -63,11 +74,21 @@ export default function MachineOperation() {
     offset: ['start center', 'end center'],
   });
 
-  // Map scroll to step progression
+  // Map scroll to step progression - Fixed to show all 5 steps
   useEffect(() => {
     const unsubscribe = scrollYProgress.on('change', (latest) => {
-      const step = Math.floor(latest * 5);
-      setActiveStep(Math.min(step, 4));
+      // Enhanced mapping for better step progression
+      if (latest < 0.15) {
+        setActiveStep(0);
+      } else if (latest < 0.35) {
+        setActiveStep(1);
+      } else if (latest < 0.55) {
+        setActiveStep(2);
+      } else if (latest < 0.75) {
+        setActiveStep(3);
+      } else {
+        setActiveStep(4);
+      }
     });
     return () => unsubscribe();
   }, [scrollYProgress]);
@@ -240,7 +261,13 @@ export default function MachineOperation() {
               </div>
 
               {/* Icon */}
-              <div className="text-4xl mb-4 text-center">{step.icon}</div>
+              <div className="flex justify-center mb-4">
+                <step.icon
+                  size={48}
+                  color={activeStep === index ? step.color : '#666666'}
+                  className="transition-all duration-500"
+                />
+              </div>
 
               {/* Title */}
               <h4 className="text-white font-bold text-lg mb-2 text-center">
@@ -274,13 +301,15 @@ export default function MachineOperation() {
           className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
         >
           {[
-            { label: 'Cycle Time', value: '<2 sec', icon: '⏱️' },
-            { label: 'Strap Speed', value: '900/hr', icon: '⚡' },
-            { label: 'Seal Strength', value: '>500N', icon: '💪' },
-            { label: 'Energy Usage', value: '0.8kW', icon: '🔋' },
+            { label: 'Cycle Time', value: '<2 sec', Icon: TimerIcon },
+            { label: 'Strap Speed', value: '900/hr', Icon: SpeedIcon },
+            { label: 'Seal Strength', value: '>500N', Icon: StrengthIcon },
+            { label: 'Energy Usage', value: '0.8kW', Icon: EnergyIcon },
           ].map((spec, idx) => (
             <div key={idx} className="bg-black/40 border border-[#4A0000] p-6 rounded-lg">
-              <div className="text-3xl mb-2">{spec.icon}</div>
+              <div className="flex justify-center mb-3">
+                <spec.Icon size={36} color="#FFB81C" />
+              </div>
               <div className="text-2xl font-bold text-[#FFB81C] mb-1">{spec.value}</div>
               <div className="text-sm text-gray-500 uppercase tracking-wider">{spec.label}</div>
             </div>
