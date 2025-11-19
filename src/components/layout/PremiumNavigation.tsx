@@ -9,6 +9,7 @@ import { MagneticButton } from '../ui/MagneticButton';
 
 const navLinks = [
   {
+    href: '/products',
     label: 'Products',
     submenu: [
       { href: '/products/xpert-line', label: 'X-pert Line', desc: 'Premium Series' },
@@ -120,7 +121,8 @@ export default function PremiumNavigation() {
                       onMouseEnter={() => setActiveDropdown(link.label)}
                       onMouseLeave={() => setActiveDropdown(null)}
                     >
-                      <button
+                      <Link
+                        href={link.href!}
                         className={`flex items-center gap-1 text-sm font-medium transition-colors duration-300 ${
                           isActive ? 'text-crimson-600' : 'text-platinum-700 hover:text-crimson-600'
                         }`}
@@ -131,7 +133,7 @@ export default function PremiumNavigation() {
                             activeDropdown === link.label ? 'rotate-180' : ''
                           }`}
                         />
-                      </button>
+                      </Link>
 
                       {/* Dropdown Menu */}
                       <AnimatePresence>
@@ -266,9 +268,11 @@ export default function PremiumNavigation() {
                     if (link.submenu) {
                       return (
                         <div key={index} className="space-y-2">
-                          <div className="px-4 py-3 font-serif text-lg font-semibold text-platinum-500">
-                            {link.label}
-                          </div>
+                          <Link href={link.href!} className="block">
+                            <div className="px-4 py-3 font-serif text-lg font-semibold text-platinum-500 hover:text-crimson-600 transition-colors">
+                              {link.label}
+                            </div>
+                          </Link>
                           {link.submenu.map((item, subIndex) => (
                             <Link
                               key={subIndex}
