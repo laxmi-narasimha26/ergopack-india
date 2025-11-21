@@ -14,6 +14,7 @@ export default function EditBlogPage() {
 
   useEffect(() => {
     fetchBlog();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params.id]);
 
   const fetchBlog = async () => {
