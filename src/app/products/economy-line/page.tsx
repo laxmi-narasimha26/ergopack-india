@@ -1,5 +1,3 @@
-'use client';
-
 import { motion } from 'framer-motion';
 import MainLayout from '@/components/layout/MainLayout';
 import Button from '@/components/ui/Button';

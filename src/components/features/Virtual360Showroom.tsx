@@ -10,7 +10,7 @@ import {
   Minimize2,
   RotateCcw,
   Info,
-  Zap In,
+  Zap,
   Volume2,
   VolumeX,
   Play,

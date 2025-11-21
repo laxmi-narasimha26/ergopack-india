@@ -1,0 +1,57 @@
+Vercel CLI 48.9.0
+Loading scopes…
+Searching for existing projects…
+Auto-detected Project Settings (Next.js):
+- Build Command: next build
+- Development Command: next dev --port $PORT
+- Install Command: `yarn install`, `pnpm install`, `npm install`, or `bun install`
+- Output Directory: Next.js default
+Linked to laxmi-narasimhas-projects/ergopack-india (created .vercel)
+> Connecting GitHub repository: https://github.com/laxmi-narasimha26/ergopack-india
+Error: Failed to connect laxmi-narasimha26/ergopack-india to project. Make sure there aren't any typos and that you have access to the repository if it's private.
+Deploying laxmi-narasimhas-projects/ergopack-india
+Uploading [--------------------] (0.0B/73.6MB)
+Uploading [=====---------------] (18.4MB/73.6MB)
+Uploading [==========----------] (36.8MB/73.6MB)
+Uploading [===============-----] (55.2MB/73.6MB)
+Uploading [====================] (73.6MB/73.6MB)
+Inspect: https://vercel.com/laxmi-narasimhas-projects/ergopack-india/23eQ8xiM7J5ozNPHzs8qApvkNLpp [14s]
+Production: https://ergopack-india-d3lc3fn44-laxmi-narasimhas-projects.vercel.app [14s]
+https://ergopack-india-d3lc3fn44-laxmi-narasimhas-projects.vercel.appQueued
+Building
+2025-11-19T09:53:12.373Z  Running build in Washington, D.C., USA (East) – iad1
+2025-11-19T09:53:12.377Z  Build machine configuration: 2 cores, 8 GB
+2025-11-19T09:53:12.635Z  Retrieving list of deployment files...
+2025-11-19T09:53:12.647Z  Previous build caches not available.
+2025-11-19T09:53:13.255Z  Downloading 636 deployment files...
+2025-11-19T09:53:18.869Z  Running "vercel build"
+2025-11-19T09:53:19.266Z  Vercel CLI 48.10.3
+2025-11-19T09:53:19.688Z  Installing dependencies...
+2025-11-19T09:53:24.151Z  npm error code ERESOLVE
+2025-11-19T09:53:24.152Z  npm error ERESOLVE could not resolve
+2025-11-19T09:53:24.152Z  npm error
+2025-11-19T09:53:24.152Z  npm error While resolving: next-auth@4.24.13
+2025-11-19T09:53:24.153Z  npm error Found: nodemailer@6.10.1
+2025-11-19T09:53:24.153Z  npm error node_modules/nodemailer
+2025-11-19T09:53:24.153Z  npm error   nodemailer@"^6.9.15" from the root project
+2025-11-19T09:53:24.153Z  npm error
+2025-11-19T09:53:24.153Z  npm error Could not resolve dependency:
+2025-11-19T09:53:24.154Z  npm error peerOptional nodemailer@"^7.0.7" from next-auth@4.24.13
+2025-11-19T09:53:24.154Z  npm error node_modules/next-auth
+2025-11-19T09:53:24.154Z  npm error   next-auth@"^4.24.10" from the root project
+2025-11-19T09:53:24.154Z  npm error
+2025-11-19T09:53:24.155Z  npm error Conflicting peer dependency: nodemailer@7.0.10
+2025-11-19T09:53:24.155Z  npm error node_modules/nodemailer
+2025-11-19T09:53:24.155Z  npm error   peerOptional nodemailer@"^7.0.7" from next-auth@4.24.13
+2025-11-19T09:53:24.155Z  npm error   node_modules/next-auth
+2025-11-19T09:53:24.155Z  npm error     next-auth@"^4.24.10" from the root project
+2025-11-19T09:53:24.155Z  npm error
+2025-11-19T09:53:24.155Z  npm error Fix the upstream dependency conflict, or retry
+2025-11-19T09:53:24.155Z  npm error this command with --force or --legacy-peer-deps
+2025-11-19T09:53:24.155Z  npm error to accept an incorrect (and potentially broken) dependency resolution.
+2025-11-19T09:53:24.155Z  npm error
+2025-11-19T09:53:24.155Z  npm error
+2025-11-19T09:53:24.155Z  npm error For a full report see:
+2025-11-19T09:53:24.155Z  npm error /vercel/.npm/_logs/2025-11-19T09_53_19_956Z-eresolve-report.txt
+2025-11-19T09:53:24.155Z  npm error A complete log of this run can be found in: /vercel/.npm/_logs/2025-11-19T09_53_19_956Z-debug-0.log
+2025-11-19T09:53:24.192Z  Error: Command "npm install" exited with 1

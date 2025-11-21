@@ -12,7 +12,11 @@
       "Bash(git checkout:*)",
       "Bash(git config:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git merge:*)",
+      "Bash(vercel deploy:*)",
+      "Bash(tee:*)",
+      "Bash(git push:*)"
     ],
     "deny": [],
     "ask": []

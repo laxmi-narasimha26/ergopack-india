@@ -1,0 +1,208 @@
+Vercel CLI 48.9.0
+Retrieving project…
+Deploying laxmi-narasimhas-projects/ergopack-india
+Uploading [--------------------] (0.0B/106.4KB)
+Uploading [======--------------] (32.1KB/106.4KB)
+Uploading [============--------] (67.2KB/106.4KB)
+Uploading [=================---] (94.6KB/106.4KB)
+Uploading [====================] (106.4KB/106.4KB)
+Inspect: https://vercel.com/laxmi-narasimhas-projects/ergopack-india/9QokxuLTKs2Y1aRykXLGByBR6WsN [5s]
+Production: https://ergopack-india-338r1d9tx-laxmi-narasimhas-projects.vercel.app [5s]
+https://ergopack-india-338r1d9tx-laxmi-narasimhas-projects.vercel.appQueued
+Building
+2025-11-21T07:56:56.334Z  Running build in Washington, D.C., USA (East) – iad1
+2025-11-21T07:56:56.336Z  Build machine configuration: 2 cores, 8 GB
+2025-11-21T07:56:56.948Z  Retrieving list of deployment files...
+2025-11-21T07:56:56.961Z  Previous build caches not available.
+2025-11-21T07:56:57.528Z  Downloading 637 deployment files...
+2025-11-21T07:57:04.215Z  Running "vercel build"
+2025-11-21T07:57:04.967Z  Vercel CLI 48.10.3
+2025-11-21T07:57:05.422Z  Installing dependencies...
+2025-11-21T07:57:15.080Z  npm warn deprecated sourcemap-codec@1.4.8: Please use @jridgewell/sourcemap-codec instead
+2025-11-21T07:57:15.193Z  npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+2025-11-21T07:57:15.344Z  npm warn deprecated rollup-plugin-terser@7.0.2: This package has been deprecated and is no longer maintained. Please use @rollup/plugin-terser
+2025-11-21T07:57:16.946Z  npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+2025-11-21T07:57:18.477Z  npm warn deprecated @types/mongoose@5.11.97: Mongoose publishes its own types, so you do not need to install this package.
+2025-11-21T07:57:20.400Z  npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+2025-11-21T07:57:20.430Z  npm warn deprecated @studio-freight/lenis@1.0.42: The '@studio-freight/lenis' package has been renamed to 'lenis'. Please update your dependencies: npm install lenis and visit the documentation: https://www.npmjs.com/package/lenis
+2025-11-21T07:57:20.436Z  npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+2025-11-21T07:57:21.768Z  npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+2025-11-21T07:57:22.181Z  npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+2025-11-21T07:57:22.184Z  npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+2025-11-21T07:57:22.446Z  npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+2025-11-21T07:57:22.827Z  npm warn deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+2025-11-21T07:57:22.849Z  npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+2025-11-21T07:57:23.011Z  npm warn deprecated source-map@0.8.0-beta.0: The work that was done in this beta branch won't be included in future versions
+2025-11-21T07:57:23.043Z  npm warn deprecated workbox-cacheable-response@6.6.0: workbox-background-sync@6.6.0
+2025-11-21T07:57:23.107Z  npm warn deprecated workbox-google-analytics@6.6.0: It is not compatible with newer versions of GA starting with v4, as long as you are using GAv3 it should be ok, but the package is not longer being maintained
+2025-11-21T07:57:23.155Z  npm warn deprecated source-map@0.8.0-beta.0: The work that was done in this beta branch won't be included in future versions
+2025-11-21T07:57:23.462Z  npm warn deprecated three-mesh-bvh@0.7.8: Deprecated due to three.js version incompatibility. Please use v0.8.0, instead.
+2025-11-21T07:57:27.967Z  npm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+2025-11-21T07:57:39.335Z  
+2025-11-21T07:57:39.336Z  > ergopack-india@1.0.0 postinstall
+2025-11-21T07:57:39.336Z  > playwright install chromium
+2025-11-21T07:57:39.337Z  
+2025-11-21T07:57:40.333Z  BEWARE: your OS is not officially supported by Playwright; downloading fallback build for ubuntu20.04-x64.
+2025-11-21T07:57:40.335Z  Downloading Chromium 141.0.7390.37 (playwright build v1194) from https://cdn.playwright.dev/dbazure/download/playwright/builds/chromium/1194/chromium-linux.zip
+2025-11-21T07:57:40.562Z  |                                                                                |   0% of 173.9 MiB
+2025-11-21T07:57:40.754Z  |■■■■■■■■                                                                        |  10% of 173.9 MiB
+2025-11-21T07:57:40.875Z  |■■■■■■■■■■■■■■■■                                                                |  20% of 173.9 MiB
+2025-11-21T07:57:41.017Z  |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 173.9 MiB
+2025-11-21T07:57:41.108Z  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 173.9 MiB
+2025-11-21T07:57:41.203Z  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 173.9 MiB
+2025-11-21T07:57:41.306Z  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 173.9 MiB
+2025-11-21T07:57:41.394Z  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 173.9 MiB
+2025-11-21T07:57:41.476Z  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 173.9 MiB
+2025-11-21T07:57:41.559Z  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 173.9 MiB
+2025-11-21T07:57:41.632Z  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 173.9 MiB
+2025-11-21T07:57:46.163Z  Chromium 141.0.7390.37 (playwright build v1194) downloaded to /vercel/.cache/ms-playwright/chromium-1194
+2025-11-21T07:57:46.163Z  BEWARE: your OS is not officially supported by Playwright; downloading fallback build for ubuntu20.04-x64.
+2025-11-21T07:57:46.164Z  Downloading FFMPEG playwright build v1011 from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1011/ffmpeg-linux.zip
+2025-11-21T07:57:46.323Z  |                                                                                |   0% of 2.3 MiB
+2025-11-21T07:57:46.332Z  |■■■■■■■■                                                                        |  10% of 2.3 MiB
+2025-11-21T07:57:46.337Z  |■■■■■■■■■■■■■■■■                                                                |  20% of 2.3 MiB
+2025-11-21T07:57:46.339Z  |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.3 MiB
+2025-11-21T07:57:46.342Z  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.3 MiB
+2025-11-21T07:57:46.349Z  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.3 MiB
+2025-11-21T07:57:46.352Z  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.3 MiB
+2025-11-21T07:57:46.354Z  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.3 MiB
+2025-11-21T07:57:46.356Z  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.3 MiB
+2025-11-21T07:57:46.358Z  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.3 MiB
+2025-11-21T07:57:46.363Z  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.3 MiB
+2025-11-21T07:57:46.417Z  FFMPEG playwright build v1011 downloaded to /vercel/.cache/ms-playwright/ffmpeg-1011
+2025-11-21T07:57:46.418Z  BEWARE: your OS is not officially supported by Playwright; downloading fallback build for ubuntu20.04-x64.
+2025-11-21T07:57:46.418Z  Downloading Chromium Headless Shell 141.0.7390.37 (playwright build v1194) from https://cdn.playwright.dev/dbazure/download/playwright/builds/chromium/1194/chromium-headless-shell-linux.zip
+2025-11-21T07:57:46.577Z  |                                                                                |   0% of 104.3 MiB
+2025-11-21T07:57:46.686Z  |■■■■■■■■                                                                        |  10% of 104.3 MiB
+2025-11-21T07:57:46.761Z  |■■■■■■■■■■■■■■■■                                                                |  20% of 104.3 MiB
+2025-11-21T07:57:46.827Z  |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 104.3 MiB
+2025-11-21T07:57:46.887Z  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 104.3 MiB
+2025-11-21T07:57:46.957Z  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 104.3 MiB
+2025-11-21T07:57:47.010Z  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 104.3 MiB
+2025-11-21T07:57:47.057Z  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 104.3 MiB
+2025-11-21T07:57:47.112Z  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 104.3 MiB
+2025-11-21T07:57:47.165Z  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 104.3 MiB
+2025-11-21T07:57:47.213Z  |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 104.3 MiB
+2025-11-21T07:57:49.445Z  Chromium Headless Shell 141.0.7390.37 (playwright build v1194) downloaded to /vercel/.cache/ms-playwright/chromium_headless_shell-1194
+2025-11-21T07:57:49.527Z  Playwright Host validation warning: 
+2025-11-21T07:57:49.527Z  ╔══════════════════════════════════════════════════════╗
+2025-11-21T07:57:49.527Z  ║ Host system is missing dependencies to run browsers. ║
+2025-11-21T07:57:49.528Z  ║ Please install them with the following command:      ║
+2025-11-21T07:57:49.528Z  ║                                                      ║
+2025-11-21T07:57:49.528Z  ║     npx playwright install-deps                      ║
+2025-11-21T07:57:49.528Z  ║                                                      ║
+2025-11-21T07:57:49.528Z  ║ Alternatively, use apt:                              ║
+2025-11-21T07:57:49.528Z  ║     apt-get install libnspr4\                        ║
+2025-11-21T07:57:49.528Z  ║         libnss3\                                     ║
+2025-11-21T07:57:49.528Z  ║         libgbm1                                      ║
+2025-11-21T07:57:49.528Z  ║                                                      ║
+2025-11-21T07:57:49.529Z  ║ <3 Playwright Team                                   ║
+2025-11-21T07:57:49.529Z  ╚══════════════════════════════════════════════════════╝
+2025-11-21T07:57:49.529Z      at validateDependenciesLinux (/vercel/path0/node_modules/playwright-core/lib/server/registry/dependencies.js:269:9)
+2025-11-21T07:57:49.529Z      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+2025-11-21T07:57:49.529Z      at async Registry._validateHostRequirements (/vercel/path0/node_modules/playwright-core/lib/server/registry/index.js:961:14)
+2025-11-21T07:57:49.529Z      at async Registry._validateHostRequirementsForExecutableIfNeeded (/vercel/path0/node_modules/playwright-core/lib/server/registry/index.js:1083:7)
+2025-11-21T07:57:49.529Z      at async Registry.validateHostRequirementsForExecutablesIfNeeded (/vercel/path0/node_modules/playwright-core/lib/server/registry/index.js:1072:7)
+2025-11-21T07:57:49.530Z      at async i.<anonymous> (/vercel/path0/node_modules/playwright-core/lib/cli/program.js:217:7)
+2025-11-21T07:57:49.540Z  
+2025-11-21T07:57:49.540Z  > ergopack-india@1.0.0 prepare
+2025-11-21T07:57:49.540Z  > husky install
+2025-11-21T07:57:49.540Z  
+2025-11-21T07:57:49.591Z  husky - install command is DEPRECATED
+2025-11-21T07:57:49.622Z  .git can't be found
+2025-11-21T07:57:49.622Z  added 1527 packages in 44s
+2025-11-21T07:57:49.622Z  
+2025-11-21T07:57:49.622Z  341 packages are looking for funding
+2025-11-21T07:57:49.622Z    run `npm fund` for details
+2025-11-21T07:57:49.750Z  Detected Next.js version: 14.2.15
+2025-11-21T07:57:49.766Z  Running "npm run build"
+2025-11-21T07:57:49.881Z  
+2025-11-21T07:57:49.882Z  > ergopack-india@1.0.0 build
+2025-11-21T07:57:49.882Z  > next build
+2025-11-21T07:57:49.882Z  
+2025-11-21T07:57:50.921Z   ⚠ Invalid next.config.js options detected: 
+2025-11-21T07:57:50.922Z   ⚠     Expected object, received boolean at "experimental.serverActions"
+2025-11-21T07:57:50.922Z   ⚠ See more info here: https://nextjs.org/docs/messages/invalid-next-config
+2025-11-21T07:57:50.922Z   ⚠ Server Actions are available by default now, `experimental.serverActions` option can be safely removed.
+2025-11-21T07:57:50.940Z  Attention: Next.js now collects completely anonymous telemetry regarding usage.
+2025-11-21T07:57:50.940Z  This information is used to shape Next.js' roadmap and prioritize features.
+2025-11-21T07:57:50.940Z  You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+2025-11-21T07:57:50.940Z  https://nextjs.org/telemetry
+2025-11-21T07:57:50.941Z  
+2025-11-21T07:57:50.996Z    ▲ Next.js 14.2.15
+2025-11-21T07:57:50.996Z  
+2025-11-21T07:57:51.057Z     Creating an optimized production build ...
+2025-11-21T07:57:51.464Z  > [PWA] Compile server
+2025-11-21T07:57:51.466Z  > [PWA] Compile server
+2025-11-21T07:57:51.466Z  > [PWA] Compile client (static)
+2025-11-21T07:57:51.467Z  > [PWA] Auto register service worker with: /vercel/path0/node_modules/next-pwa/register.js
+2025-11-21T07:57:51.471Z  > [PWA] Service worker: /vercel/path0/public/sw.js
+2025-11-21T07:57:51.471Z  > [PWA]   url: /sw.js
+2025-11-21T07:57:51.471Z  > [PWA]   scope: /
+2025-11-21T07:58:15.980Z  Failed to compile.
+2025-11-21T07:58:15.981Z  
+2025-11-21T07:58:15.982Z  ./src/app/products/economy-line/page.tsx
+2025-11-21T07:58:15.982Z  Error: 
+2025-11-21T07:58:15.982Z    [31mx[0m You are attempting to export "metadata" from a component marked with "use client", which is disallowed. Either remove the export, or the "use client" directive. Read more: https://nextjs.org/
+2025-11-21T07:58:15.991Z    [31m|[0m docs/getting-started/react-essentials#the-use-client-directive
+2025-11-21T07:58:15.991Z    [31m|[0m 
+2025-11-21T07:58:15.991Z    [31m|[0m 
+2025-11-21T07:58:15.991Z      ,-[[36;1;4m/vercel/path0/src/app/products/economy-line/page.tsx[0m:26:1]
+2025-11-21T07:58:15.992Z   [2m26[0m | import Link from 'next/link';
+2025-11-21T07:58:15.992Z   [2m27[0m | 
+2025-11-21T07:58:15.992Z   [2m28[0m | // SEO Metadata
+2025-11-21T07:58:15.992Z   [2m29[0m | export const metadata: Metadata = {
+2025-11-21T07:58:15.992Z      : [31;1m             ^^^^^^^^[0m
+2025-11-21T07:58:15.992Z   [2m30[0m |   title: 'E-conomy Line - Reliable Cargo Securing System | ErgoPack India',
+2025-11-21T07:58:15.992Z   [2m31[0m |   description:
+2025-11-21T07:58:15.992Z   [2m31[0m |     'The E-conomy Line delivers proven performance and reliability for professional cargo securing. Time-tested technology, robust construction, and consistent results at exceptional value.',
+2025-11-21T07:58:15.992Z      `----
+2025-11-21T07:58:15.992Z  
+2025-11-21T07:58:15.992Z  Import trace for requested module:
+2025-11-21T07:58:15.993Z  ./src/app/products/economy-line/page.tsx
+2025-11-21T07:58:15.993Z  
+2025-11-21T07:58:15.993Z  ./src/components/features/ROICalculator.tsx
+2025-11-21T07:58:15.993Z  Error: 
+2025-11-21T07:58:15.993Z    [31mx[0m Expected ',', got 'loading'
+2025-11-21T07:58:15.993Z      ,-[[36;1;4m/vercel/path0/src/components/features/ROICalculator.tsx[0m:26:1]
+2025-11-21T07:58:15.993Z   [2m26[0m | 
+2025-11-21T07:58:15.993Z   [2m27[0m | export default function ROICalculator() {
+2025-11-21T07:58:15.993Z   [2m28[0m |   const [loadsPerMonth, setLoadsPerMonth] = useState(500);
+2025-11-21T07:58:15.993Z   [2m29[0m |   const [averageLoss loading, setAverageLossPerFailure] = useState(25000);
+2025-11-21T07:58:15.993Z      : [31;1m                     ^^^^^^^[0m
+2025-11-21T07:58:15.993Z   [2m30[0m |   const [currentFailureRate, setCurrentFailureRate] = useState(0.05);
+2025-11-21T07:58:15.993Z   [2m31[0m |   const [metrics, setMetrics] = useState<ROIMetrics | null>(null);
+2025-11-21T07:58:15.994Z   [2m31[0m |   const [showResults, setShowResults] = useState(false);
+2025-11-21T07:58:15.994Z      `----
+2025-11-21T07:58:15.994Z  
+2025-11-21T07:58:15.994Z  Caused by:
+2025-11-21T07:58:15.994Z      Syntax Error
+2025-11-21T07:58:15.994Z  
+2025-11-21T07:58:15.994Z  Import trace for requested module:
+2025-11-21T07:58:15.994Z  ./src/components/features/ROICalculator.tsx
+2025-11-21T07:58:15.994Z  ./src/app/premium-features/page.tsx
+2025-11-21T07:58:15.994Z  
+2025-11-21T07:58:15.994Z  ./src/components/features/Virtual360Showroom.tsx
+2025-11-21T07:58:15.994Z  Error: 
+2025-11-21T07:58:15.994Z    [31mx[0m Expected ',', got 'In'
+2025-11-21T07:58:15.995Z      ,-[[36;1;4m/vercel/path0/src/components/features/Virtual360Showroom.tsx[0m:10:1]
+2025-11-21T07:58:15.996Z   [2m10[0m |   Minimize2,
+2025-11-21T07:58:15.996Z   [2m11[0m |   RotateCcw,
+2025-11-21T07:58:15.996Z   [2m12[0m |   Info,
+2025-11-21T07:58:15.996Z   [2m13[0m |   Zap In,
+2025-11-21T07:58:15.996Z      : [31;1m      ^^[0m
+2025-11-21T07:58:15.996Z   [2m14[0m |   Volume2,
+2025-11-21T07:58:15.996Z   [2m15[0m |   VolumeX,
+2025-11-21T07:58:15.996Z   [2m15[0m |   Play,
+2025-11-21T07:58:15.996Z      `----
+2025-11-21T07:58:15.996Z  
+2025-11-21T07:58:15.996Z  Caused by:
+2025-11-21T07:58:15.997Z      Syntax Error
+2025-11-21T07:58:15.997Z  
+2025-11-21T07:58:15.997Z  Import trace for requested module:
+2025-11-21T07:58:15.997Z  ./src/components/features/Virtual360Showroom.tsx
+2025-11-21T07:58:15.997Z  ./src/app/premium-features/page.tsx
+2025-11-21T07:58:15.997Z  
+2025-11-21T07:58:15.997Z  
+2025-11-21T07:58:16.002Z  > Build failed because of webpack errors
+2025-11-21T07:58:16.077Z  Error: Command "npm run build" exited with 1
