@@ -137,6 +137,8 @@ const nextConfig = {
       'framer-motion',
       'react-hook-form',
     ],
+    // Force all pages to be dynamic - no static generation
+    isrMemoryCacheSize: 0,
   },
 
   // Security headers

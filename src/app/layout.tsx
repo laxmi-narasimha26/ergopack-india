@@ -14,6 +14,11 @@ import { LuxuryCursor } from '@/components/ui/LuxuryCursor';
 import { ComparisonProvider } from '@/contexts/ComparisonContext';
 import ComparisonWidget from '@/components/comparison/ComparisonWidget';
 
+// Force all routes to render dynamically - prevent static generation errors
+export const dynamic = 'force-dynamic';
+export const dynamicParams = true;
+export const revalidate = 0;
+
 // Ultra-Premium serif for headings - The "Gucci" standard
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
