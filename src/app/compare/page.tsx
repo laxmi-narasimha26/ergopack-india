@@ -1,5 +1,7 @@
 'use client';
 
+export const dynamic = 'force-dynamic';
+
 import React, { useState, useEffect } from 'react';
 import { useComparison, COMPARISON_CONFIG } from '@/contexts/ComparisonContext';
 import ComparisonTable from '@/components/comparison/ComparisonTable';
@@ -166,11 +168,10 @@ export default function ComparePage() {
                   <button
                     onClick={handleStartComparison}
                     disabled={selectedProducts.length < 2}
-                    className={`flex items-center gap-2 px-8 py-3 rounded-lg font-bold text-white transition-all ${
-                      selectedProducts.length >= 2
+                    className={`flex items-center gap-2 px-8 py-3 rounded-lg font-bold text-white transition-all ${selectedProducts.length >= 2
                         ? 'bg-red-600 hover:bg-red-700 shadow-lg shadow-red-600/20 hover:shadow-red-600/30'
                         : 'bg-gray-300 cursor-not-allowed'
-                    }`}
+                      }`}
                   >
                     Compare Now
                     <ArrowRight className="w-4 h-4" />
