@@ -30,7 +30,7 @@ import SmoothScroll from './animations/SmoothScroll';
 import FixedHeader from './ui/FixedHeader';
 import ScrollProgress from './ui/ScrollProgress';
 import MagneticCursor from './ui/MagneticCursor';
-import ThemeToggle from './ui/ThemeToggle';
+// import ThemeToggle from './ui/ThemeToggle'; // Commented out - requires ThemeProvider
 
 interface ProductData {
   model: string;
@@ -133,7 +133,7 @@ export default function EliteProductPageTemplate({ productData }: EliteProductPa
       <FixedHeader />
       <ScrollProgress />
       <MagneticCursor />
-      <ThemeToggle />
+      {/* <ThemeToggle /> - Commented out - requires ThemeProvider */}
 
       <div className="min-h-screen bg-theme-base text-theme-primary">
         {/* Hero Section */}
@@ -185,11 +185,10 @@ export default function EliteProductPageTemplate({ productData }: EliteProductPa
               >
                 {/* Product Line Badge */}
                 <div
-                  className={`inline-flex items-center gap-3 px-6 py-3 rounded-full border-2 ${
-                    isXpert
-                      ? 'bg-gradient-to-r from-[#C8102E]/20 to-red-900/20 border-[#C8102E]'
-                      : 'bg-white/10 dark:bg-white/5 border-white/30'
-                  }`}
+                  className={`inline-flex items-center gap-3 px-6 py-3 rounded-full border-2 ${isXpert
+                    ? 'bg-gradient-to-r from-[#C8102E]/20 to-red-900/20 border-[#C8102E]'
+                    : 'bg-white/10 dark:bg-white/5 border-white/30'
+                    }`}
                 >
                   <Package className={`h-6 w-6 ${isXpert ? 'text-[#FFB81C]' : 'text-[#C8102E]'}`} />
                   <span
@@ -211,11 +210,10 @@ export default function EliteProductPageTemplate({ productData }: EliteProductPa
 
                 {/* Application Type */}
                 <div
-                  className={`inline-block px-8 py-4 rounded-2xl text-xl font-bold ${
-                    isXpert
-                      ? 'bg-gradient-to-r from-[#C8102E] to-red-700 text-white'
-                      : 'bg-white/20 dark:bg-white/10 text-theme-primary'
-                  }`}
+                  className={`inline-block px-8 py-4 rounded-2xl text-xl font-bold ${isXpert
+                    ? 'bg-gradient-to-r from-[#C8102E] to-red-700 text-white'
+                    : 'bg-white/20 dark:bg-white/10 text-theme-primary'
+                    }`}
                 >
                   {productData.applicationType}
                 </div>
