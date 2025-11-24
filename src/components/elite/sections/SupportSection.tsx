@@ -32,10 +32,30 @@ export default function SupportSection({ sectionNumber }: { sectionNumber: numbe
         {/* Support Features */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
           {[
-            { icon: Phone, title: 'Hotline', time: '24/7', desc: 'Dedicated technical support line' },
-            { icon: Wrench, title: 'On-Site Service', time: '<24h', desc: 'Technician dispatch nationwide' },
-            { icon: Package2, title: 'Spare Parts', time: '<48h', desc: 'Critical parts always in stock' },
-            { icon: GraduationCap, title: 'Training', time: 'Ongoing', desc: 'Operator & maintenance training' },
+            {
+              icon: Phone,
+              title: 'Hotline',
+              time: '24/7',
+              desc: 'Dedicated technical support line',
+            },
+            {
+              icon: Wrench,
+              title: 'On-Site Service',
+              time: '<24h',
+              desc: 'Technician dispatch nationwide',
+            },
+            {
+              icon: Package2,
+              title: 'Spare Parts',
+              time: '<48h',
+              desc: 'Critical parts always in stock',
+            },
+            {
+              icon: GraduationCap,
+              title: 'Training',
+              time: 'Ongoing',
+              desc: 'Operator & maintenance training',
+            },
           ].map((item, idx) => (
             <motion.div
               key={idx}

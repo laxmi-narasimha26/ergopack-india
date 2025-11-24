@@ -64,12 +64,7 @@ export default function StandardPreloader() {
             >
               {/* Geometric Logo Mark */}
               <div className="relative">
-                <svg
-                  width="120"
-                  height="120"
-                  viewBox="0 0 120 120"
-                  className="relative z-10"
-                >
+                <svg width="120" height="120" viewBox="0 0 120 120" className="relative z-10">
                   {/* Outer hexagon */}
                   <motion.path
                     d="M60 10 L100 32.5 L100 77.5 L60 100 L20 77.5 L20 32.5 Z"
@@ -110,7 +105,8 @@ export default function StandardPreloader() {
                 <motion.div
                   className="absolute inset-0 blur-2xl opacity-60"
                   style={{
-                    background: 'radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%)',
+                    background:
+                      'radial-gradient(circle, rgba(255,255,255,0.8) 0%, transparent 70%)',
                   }}
                   animate={{
                     scale: [1, 1.3, 1],
@@ -135,9 +131,7 @@ export default function StandardPreloader() {
                   ERGOPACK
                 </h1>
                 <div className="h-px w-40 bg-gradient-to-r from-transparent via-white to-transparent" />
-                <p className="font-sans text-sm tracking-[0.3em] text-white/90">
-                  INDIA
-                </p>
+                <p className="font-sans text-sm tracking-[0.3em] text-white/90">INDIA</p>
               </motion.div>
             </motion.div>
 

@@ -13,7 +13,10 @@ export default function HeroSection({ sectionNumber: _sectionNumber }: { section
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.3], [1, 0.8, 0]);
 
   return (
-    <section data-section className="relative min-h-screen flex items-center justify-center px-8 py-32">
+    <section
+      data-section
+      className="relative min-h-screen flex items-center justify-center px-8 py-32"
+    >
       <div className="text-center max-w-6xl mx-auto">
         {/* Premium Badge */}
         <motion.div
@@ -72,8 +75,8 @@ export default function HeroSection({ sectionNumber: _sectionNumber }: { section
             transition={{ duration: 2, delay: 1.6 }}
             className="text-sm md:text-base text-theme-secondary max-w-2xl mx-auto leading-relaxed font-light"
           >
-            25 years of German precision engineering, now empowering India's category leaders
-            with world-class automated strapping solutions.
+            25 years of German precision engineering, now empowering India's category leaders with
+            world-class automated strapping solutions.
           </motion.p>
         </motion.div>
 
@@ -90,7 +93,7 @@ export default function HeroSection({ sectionNumber: _sectionNumber }: { section
             </span>
             <motion.div
               animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
             >
               <ChevronDown className="w-6 h-6 text-[#C8102E]" strokeWidth={1.5} />
             </motion.div>

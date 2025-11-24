@@ -26,7 +26,8 @@ const MILESTONES: JourneyMilestone[] = [
     year: '1998',
     title: 'The Beginning - First Prototype',
     description: 'First prototype of a strapping device based on a double scissors system',
-    detailedStory: 'The ErgoPack journey began with a revolutionary idea - a strapping device based on a double scissors system similar to a scissors lifting table. This innovative approach would lay the foundation for decades of engineering excellence and transform pallet strapping forever.',
+    detailedStory:
+      'The ErgoPack journey began with a revolutionary idea - a strapping device based on a double scissors system similar to a scissors lifting table. This innovative approach would lay the foundation for decades of engineering excellence and transform pallet strapping forever.',
     icon: IndustryIcon,
     color: '#FFB81C',
     achievements: [
@@ -38,12 +39,13 @@ const MILESTONES: JourneyMilestone[] = [
   {
     year: '1999',
     title: 'ChainLance Innovation',
-    description: 'Invention and patenting of the world\'s first ChainLance',
-    detailedStory: 'A groundbreaking invention that would define ErgoPack\'s future - the world\'s first ChainLance system was invented and patented. This revolutionary technology enabled precise strap placement and became the hallmark of ErgoPack systems worldwide.',
+    description: "Invention and patenting of the world's first ChainLance",
+    detailedStory:
+      "A groundbreaking invention that would define ErgoPack's future - the world's first ChainLance system was invented and patented. This revolutionary technology enabled precise strap placement and became the hallmark of ErgoPack systems worldwide.",
     icon: InnovationIcon,
     color: '#00D9FF',
     achievements: [
-      'World\'s first ChainLance invented and patented',
+      "World's first ChainLance invented and patented",
       'Revolutionary strap guidance system',
       'Set new standards for strapping precision',
     ],
@@ -52,7 +54,8 @@ const MILESTONES: JourneyMilestone[] = [
     year: '2000',
     title: 'First Production Model',
     description: 'ErgoPack 300 - First serial model with crank operation',
-    detailedStory: 'The ErgoPack 300 marked the transition from prototype to production. Designed for composite straps with a 75mm core diameter and operated by a crank, this model brought ErgoPack technology to the market and established the brand\'s reputation for reliability.',
+    detailedStory:
+      "The ErgoPack 300 marked the transition from prototype to production. Designed for composite straps with a 75mm core diameter and operated by a crank, this model brought ErgoPack technology to the market and established the brand's reputation for reliability.",
     icon: IndustryIcon,
     color: '#C8102E',
     achievements: [
@@ -66,7 +69,8 @@ const MILESTONES: JourneyMilestone[] = [
     year: '2001',
     title: 'Heavy-Duty Innovation',
     description: 'ErgoPack 500 - 5m ChainLance for larger pallets',
-    detailedStory: 'Meeting the demands of larger applications, the ErgoPack 500 introduced a 5-meter long ChainLance to strap larger pallets with PP and PET straps. Supporting 406mm core diameter, this model expanded ErgoPack\'s capabilities into heavy-duty applications.',
+    detailedStory:
+      "Meeting the demands of larger applications, the ErgoPack 500 introduced a 5-meter long ChainLance to strap larger pallets with PP and PET straps. Supporting 406mm core diameter, this model expanded ErgoPack's capabilities into heavy-duty applications.",
     icon: InnovationIcon,
     color: '#FFB81C',
     achievements: [
@@ -79,13 +83,14 @@ const MILESTONES: JourneyMilestone[] = [
   {
     year: '2002',
     title: 'Award-Winning Excellence',
-    description: 'ErgoPack 600 wins Gold Medal and German Inventor\'s Award',
-    detailedStory: 'The ErgoPack 600 represented a quantum leap in ergonomics and functionality. Winning the gold medal at the International Exhibition of Inventions in Geneva and the German Inventor\'s Award, it introduced the revolutionary strap lifter - eliminating the need for operators to bend down.',
+    description: "ErgoPack 600 wins Gold Medal and German Inventor's Award",
+    detailedStory:
+      "The ErgoPack 600 represented a quantum leap in ergonomics and functionality. Winning the gold medal at the International Exhibition of Inventions in Geneva and the German Inventor's Award, it introduced the revolutionary strap lifter - eliminating the need for operators to bend down.",
     icon: GlobalIcon,
     color: '#C8102E',
     achievements: [
       'Gold Medal at International Exhibition of Inventions, Geneva',
-      'German Inventor\'s Award winner',
+      "German Inventor's Award winner",
       'Revolutionary strap lifter technology',
       'Zero-bend operation for perfect ergonomics',
     ],
@@ -94,7 +99,8 @@ const MILESTONES: JourneyMilestone[] = [
     year: '2003',
     title: 'Electronic Revolution',
     description: 'Battery-powered operation and Tool-Lift system introduced',
-    detailedStory: 'The industry took notice as ErgoPack transitioned from manual crank operation to electronic drive powered by battery. The innovative Tool-Lift system made side strapping of high pallets even easier, allowing different sealing tools to be attached without manual holding.',
+    detailedStory:
+      'The industry took notice as ErgoPack transitioned from manual crank operation to electronic drive powered by battery. The innovative Tool-Lift system made side strapping of high pallets even easier, allowing different sealing tools to be attached without manual holding.',
     icon: InnovationIcon,
     color: '#00D9FF',
     achievements: [
@@ -108,7 +114,8 @@ const MILESTONES: JourneyMilestone[] = [
     year: '2008',
     title: 'Integrated Sealing Systems',
     description: 'ErgoPack 720E & 730E - First complete strapping systems',
-    detailedStory: 'A new era began with the 720E and 730E models - the first complete strapping systems with integrated sealing heads and centralized battery power supply. These all-in-one solutions simplified operations and set new standards for integrated strapping technology.',
+    detailedStory:
+      'A new era began with the 720E and 730E models - the first complete strapping systems with integrated sealing heads and centralized battery power supply. These all-in-one solutions simplified operations and set new standards for integrated strapping technology.',
     icon: InnovationIcon,
     color: '#FFB81C',
     achievements: [
@@ -122,7 +129,8 @@ const MILESTONES: JourneyMilestone[] = [
     year: '2011',
     title: 'State-of-the-Art Sealing',
     description: 'ErgoPack 725E & 740E with advanced sealing technology',
-    detailedStory: 'Continuous innovation led to the 725E and 740E models, featuring a totally new state-of-the-art sealing head. This generation combined proven reliability with cutting-edge sealing technology for superior performance.',
+    detailedStory:
+      'Continuous innovation led to the 725E and 740E models, featuring a totally new state-of-the-art sealing head. This generation combined proven reliability with cutting-edge sealing technology for superior performance.',
     icon: InnovationIcon,
     color: '#C8102E',
     achievements: [
@@ -135,12 +143,13 @@ const MILESTONES: JourneyMilestone[] = [
   {
     year: '2014',
     title: 'ErgoPack Air Milestone',
-    description: 'World\'s only mobile system for elevated pallets',
-    detailedStory: 'The ErgoPack Air became a true milestone in pallet strapping history. As the worldwide one and only mobile system capable of strapping elevated pallets, it opened entirely new applications and demonstrated ErgoPack\'s commitment to solving unique industry challenges.',
+    description: "World's only mobile system for elevated pallets",
+    detailedStory:
+      "The ErgoPack Air became a true milestone in pallet strapping history. As the worldwide one and only mobile system capable of strapping elevated pallets, it opened entirely new applications and demonstrated ErgoPack's commitment to solving unique industry challenges.",
     icon: GlobalIcon,
     color: '#00FF88',
     achievements: [
-      'World\'s first mobile system for elevated pallets',
+      "World's first mobile system for elevated pallets",
       'Unique capability for raised pallet strapping',
       'Industry milestone achievement',
       'Expanded application possibilities',
@@ -150,7 +159,8 @@ const MILESTONES: JourneyMilestone[] = [
     year: '2016',
     title: 'Complete Redesign - Model 2017',
     description: 'Revolutionary Model 2017 with over 40 new features',
-    detailedStory: 'A completely revised design introduced the Model 2017 with over 40 new features. This comprehensive update represented years of customer feedback, engineering refinement, and technological advancement in a single transformative release.',
+    detailedStory:
+      'A completely revised design introduced the Model 2017 with over 40 new features. This comprehensive update represented years of customer feedback, engineering refinement, and technological advancement in a single transformative release.',
     icon: InnovationIcon,
     color: '#FFB81C',
     achievements: [
@@ -164,7 +174,8 @@ const MILESTONES: JourneyMilestone[] = [
     year: '2018',
     title: 'Touchscreen Innovation',
     description: 'Model 2017 enhanced with ergonomic touchscreen control',
-    detailedStory: 'The Model 2017 received significant enhancements with a new sealing head featuring touchscreen control. The ergonomic design and intuitive interface impressed operators worldwide, making ErgoPack systems even more user-friendly while maintaining nearly 20 years of reliable and safe strapping performance.',
+    detailedStory:
+      'The Model 2017 received significant enhancements with a new sealing head featuring touchscreen control. The ergonomic design and intuitive interface impressed operators worldwide, making ErgoPack systems even more user-friendly while maintaining nearly 20 years of reliable and safe strapping performance.',
     icon: InnovationIcon,
     color: '#00D9FF',
     achievements: [
@@ -178,7 +189,8 @@ const MILESTONES: JourneyMilestone[] = [
     year: '2019',
     title: 'X-pert Line - New Benchmark',
     description: 'Advanced electronics and dual touchscreens set new standards',
-    detailedStory: 'The X-pert Line established a new benchmark in strapping technology. With advanced electronics, newly designed touchscreens on both the sealing head and strapping system, the X-pert Line delivered an intuitive user interface and set a new high standard for ergonomics and performance.',
+    detailedStory:
+      'The X-pert Line established a new benchmark in strapping technology. With advanced electronics, newly designed touchscreens on both the sealing head and strapping system, the X-pert Line delivered an intuitive user interface and set a new high standard for ergonomics and performance.',
     icon: InnovationIcon,
     color: '#C8102E',
     achievements: [
@@ -192,7 +204,8 @@ const MILESTONES: JourneyMilestone[] = [
     year: '2025',
     title: 'Global Excellence & India Partnership',
     description: 'Over 15,000 systems sold in 60+ countries - Now in India',
-    detailedStory: 'With over 15,000 ErgoPack systems sold in more than 60 countries worldwide, ErgoPack represents decades of proven excellence. Through our strategic partnership with Benz Packaging, we bring this legacy of German engineering and innovation to India\'s rapidly growing manufacturing and logistics sectors.',
+    detailedStory:
+      "With over 15,000 ErgoPack systems sold in more than 60 countries worldwide, ErgoPack represents decades of proven excellence. Through our strategic partnership with Benz Packaging, we bring this legacy of German engineering and innovation to India's rapidly growing manufacturing and logistics sectors.",
     icon: GlobalIcon,
     color: '#00FF88',
     achievements: [
@@ -212,9 +225,9 @@ export default function CompanyJourneySection({ sectionNumber }: { sectionNumber
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'ArrowLeft') {
-        setCurrentSlide(prev => Math.max(0, prev - 1));
+        setCurrentSlide((prev) => Math.max(0, prev - 1));
       } else if (e.key === 'ArrowRight') {
-        setCurrentSlide(prev => Math.min(MILESTONES.length - 1, prev + 1));
+        setCurrentSlide((prev) => Math.min(MILESTONES.length - 1, prev + 1));
       }
     };
 
@@ -309,7 +322,7 @@ export default function CompanyJourneySection({ sectionNumber }: { sectionNumber
             {/* Left Navigation */}
             <div className="lg:col-span-1 flex lg:flex-col items-center justify-center gap-4">
               <button
-                onClick={() => setCurrentSlide(prev => Math.max(0, prev - 1))}
+                onClick={() => setCurrentSlide((prev) => Math.max(0, prev - 1))}
                 disabled={currentSlide === 0}
                 className={`p-4 rounded-full transition-all duration-300 ${
                   currentSlide === 0
@@ -381,7 +394,9 @@ export default function CompanyJourneySection({ sectionNumber }: { sectionNumber
                     <div className="space-y-4">
                       <div className="flex items-center gap-3 mb-4">
                         <div className="h-px flex-1 bg-gradient-to-r from-[#C8102E] to-transparent" />
-                        <span className="text-xs font-mono text-[#FFB81C] tracking-wider">KEY ACHIEVEMENTS</span>
+                        <span className="text-xs font-mono text-[#FFB81C] tracking-wider">
+                          KEY ACHIEVEMENTS
+                        </span>
                         <div className="h-px flex-1 bg-gradient-to-l from-[#C8102E] to-transparent" />
                       </div>
 
@@ -398,7 +413,9 @@ export default function CompanyJourneySection({ sectionNumber }: { sectionNumber
                             className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
                             style={{ backgroundColor: currentMilestone.color }}
                           />
-                          <span className="text-theme-secondary leading-relaxed">{achievement}</span>
+                          <span className="text-theme-secondary leading-relaxed">
+                            {achievement}
+                          </span>
                         </motion.div>
                       ))}
                     </div>
@@ -410,7 +427,7 @@ export default function CompanyJourneySection({ sectionNumber }: { sectionNumber
             {/* Right Navigation */}
             <div className="lg:col-span-1 flex lg:flex-col items-center justify-center gap-4">
               <button
-                onClick={() => setCurrentSlide(prev => Math.min(MILESTONES.length - 1, prev + 1))}
+                onClick={() => setCurrentSlide((prev) => Math.min(MILESTONES.length - 1, prev + 1))}
                 disabled={currentSlide === MILESTONES.length - 1}
                 className={`p-4 rounded-full transition-all duration-300 ${
                   currentSlide === MILESTONES.length - 1

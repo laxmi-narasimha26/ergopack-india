@@ -4,7 +4,18 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { format } from 'date-fns';
-import { Calendar, Clock, User, Share2, Facebook, Twitter, Linkedin, Link as LinkIcon, Check, ArrowLeft } from 'lucide-react';
+import {
+  Calendar,
+  Clock,
+  User,
+  Share2,
+  Facebook,
+  Twitter,
+  Linkedin,
+  Link as LinkIcon,
+  Check,
+  ArrowLeft,
+} from 'lucide-react';
 import { Blog } from '@/types';
 import Badge from '@/components/ui/Badge';
 import Card from '@/components/ui/Card';
@@ -116,9 +127,7 @@ export default function BlogPost({ blog, relatedBlogs }: BlogPostProps) {
           </div>
 
           {/* Title */}
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            {blog.title}
-          </h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">{blog.title}</h1>
 
           {/* Excerpt */}
           <p className="text-xl text-neutral-400 mb-8">{blog.excerpt}</p>
@@ -165,12 +174,28 @@ export default function BlogPost({ blog, relatedBlogs }: BlogPostProps) {
         >
           <ReactMarkdown
             components={{
-              h1: ({ children }) => <h1 className="text-3xl font-bold text-white mb-6 mt-8">{children}</h1>,
-              h2: ({ children }) => <h2 className="text-2xl font-bold text-white mb-4 mt-6">{children}</h2>,
-              h3: ({ children }) => <h3 className="text-xl font-bold text-white mb-3 mt-4">{children}</h3>,
-              p: ({ children }) => <p className="text-neutral-300 mb-4 leading-relaxed">{children}</p>,
-              ul: ({ children }) => <ul className="list-disc list-inside mb-4 text-neutral-300 space-y-2">{children}</ul>,
-              ol: ({ children }) => <ol className="list-decimal list-inside mb-4 text-neutral-300 space-y-2">{children}</ol>,
+              h1: ({ children }) => (
+                <h1 className="text-3xl font-bold text-white mb-6 mt-8">{children}</h1>
+              ),
+              h2: ({ children }) => (
+                <h2 className="text-2xl font-bold text-white mb-4 mt-6">{children}</h2>
+              ),
+              h3: ({ children }) => (
+                <h3 className="text-xl font-bold text-white mb-3 mt-4">{children}</h3>
+              ),
+              p: ({ children }) => (
+                <p className="text-neutral-300 mb-4 leading-relaxed">{children}</p>
+              ),
+              ul: ({ children }) => (
+                <ul className="list-disc list-inside mb-4 text-neutral-300 space-y-2">
+                  {children}
+                </ul>
+              ),
+              ol: ({ children }) => (
+                <ol className="list-decimal list-inside mb-4 text-neutral-300 space-y-2">
+                  {children}
+                </ol>
+              ),
               li: ({ children }) => <li className="text-neutral-300">{children}</li>,
               blockquote: ({ children }) => (
                 <blockquote className="border-l-4 border-neutral-700 pl-6 italic text-neutral-400 my-6">
@@ -183,12 +208,15 @@ export default function BlogPost({ blog, relatedBlogs }: BlogPostProps) {
                 </code>
               ),
               pre: ({ children }) => (
-                <pre className="bg-neutral-900 p-4 rounded-lg overflow-x-auto mb-4">
-                  {children}
-                </pre>
+                <pre className="bg-neutral-900 p-4 rounded-lg overflow-x-auto mb-4">{children}</pre>
               ),
               a: ({ href, children }) => (
-                <a href={href} className="text-blue-500 hover:text-blue-400 underline" target="_blank" rel="noopener noreferrer">
+                <a
+                  href={href}
+                  className="text-blue-500 hover:text-blue-400 underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {children}
                 </a>
               ),
@@ -285,9 +313,7 @@ export default function BlogPost({ blog, relatedBlogs }: BlogPostProps) {
                       <h4 className="text-lg font-bold text-white mb-2 line-clamp-2 group-hover:text-neutral-300 transition-colors">
                         {relatedBlog.title}
                       </h4>
-                      <p className="text-neutral-400 text-sm line-clamp-2">
-                        {relatedBlog.excerpt}
-                      </p>
+                      <p className="text-neutral-400 text-sm line-clamp-2">{relatedBlog.excerpt}</p>
                     </div>
                   </Card>
                 </Link>

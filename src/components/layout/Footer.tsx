@@ -43,8 +43,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-dark-300 mb-6 leading-relaxed">
-              Verifiable Load Integrity. The C-Suite's Control System for
-              Zero-Failure Logistics.
+              Verifiable Load Integrity. The C-Suite's Control System for Zero-Failure Logistics.
             </p>
             <div className="space-y-3">
               <a

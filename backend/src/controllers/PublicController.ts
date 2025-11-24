@@ -36,7 +36,8 @@ export class PublicController {
 
       const navigation: Record<string, any> = {};
       navResult.rows.forEach((row: any) => {
-        navigation[row.location] = typeof row.items === 'string' ? JSON.parse(row.items) : row.items;
+        navigation[row.location] =
+          typeof row.items === 'string' ? JSON.parse(row.items) : row.items;
       });
 
       res.json({
@@ -93,7 +94,7 @@ export class PublicController {
       const page = parseInt(req.query.page as string) || 1;
       const limit = parseInt(req.query.limit as string) || 20;
       const offset = (page - 1) * limit;
-      const lang = req.query.lang as string || 'en';
+      const lang = (req.query.lang as string) || 'en';
       const category = req.query.category as string;
 
       let products;
@@ -105,12 +106,15 @@ export class PublicController {
 
       // Apply i18n filtering if needed
       if (lang !== 'en') {
-        const i18nResult = await query(`
+        const i18nResult = await query(
+          `
           SELECT entity_id, field_name, field_value FROM i18n_contents
           WHERE entity_type = 'product' AND language_id IN (
             SELECT id FROM languages WHERE code = $1
           )
-        `, [lang]);
+        `,
+          [lang]
+        );
 
         const i18nMap = new Map();
         i18nResult.rows.forEach((row: any) => {
@@ -120,7 +124,7 @@ export class PublicController {
           i18nMap.get(row.entity_id)[row.field_name] = row.field_value;
         });
 
-        products = products.map(product => ({
+        products = products.map((product) => ({
           ...product,
           i18n_content: i18nMap.get(product.id) || {},
         }));
@@ -153,7 +157,7 @@ export class PublicController {
   async getProduct(req: Request, res: Response): Promise<void> {
     try {
       const { slug } = req.params;
-      const lang = req.query.lang as string || 'en';
+      const lang = (req.query.lang as string) || 'en';
 
       const product = await ProductRepository.findBySlug(slug, true);
       if (!product) {
@@ -166,19 +170,32 @@ export class PublicController {
 
       // Get i18n content if language specified
       if (lang !== 'en') {
-        const i18nResult = await query(`
+        const i18nResult = await query(
+          `
           SELECT field_name, field_value FROM i18n_contents
           WHERE entity_type = 'product' AND entity_id = $1 AND language_id IN (
             SELECT id FROM languages WHERE code = $2
           )
-        `, [product.id, lang]);
+        `,
+          [product.id, lang]
+        );
 
         const i18nContent: Record<string, any> = {};
         i18nResult.rows.forEach((row: any) => {
           i18nContent[row.field_name] = row.field_value;
         });
 
-        product.i18n_content = [{ ...i18nContent, entity_id: product.id, entity_type: 'product', field_name: '', field_value: '', created_at: new Date(), updated_at: new Date() }];
+        product.i18n_content = [
+          {
+            ...i18nContent,
+            entity_id: product.id,
+            entity_type: 'product',
+            field_name: '',
+            field_value: '',
+            created_at: new Date(),
+            updated_at: new Date(),
+          },
+        ];
       }
 
       res.json({
@@ -202,7 +219,7 @@ export class PublicController {
       const page = parseInt(req.query.page as string) || 1;
       const limit = parseInt(req.query.limit as string) || 10;
       const offset = (page - 1) * limit;
-      const lang = req.query.lang as string || 'en';
+      const lang = (req.query.lang as string) || 'en';
       const category = req.query.category as string;
 
       let posts;
@@ -214,12 +231,15 @@ export class PublicController {
 
       // Apply i18n filtering if needed
       if (lang !== 'en') {
-        const i18nResult = await query(`
+        const i18nResult = await query(
+          `
           SELECT entity_id, field_name, field_value FROM i18n_contents
           WHERE entity_type = 'post' AND language_id IN (
             SELECT id FROM languages WHERE code = $1
           )
-        `, [lang]);
+        `,
+          [lang]
+        );
 
         const i18nMap = new Map();
         i18nResult.rows.forEach((row: any) => {
@@ -229,7 +249,7 @@ export class PublicController {
           i18nMap.get(row.entity_id)[row.field_name] = row.field_value;
         });
 
-        posts = posts.map(post => ({
+        posts = posts.map((post) => ({
           ...post,
           i18n_content: i18nMap.get(post.id) || {},
         }));
@@ -262,7 +282,7 @@ export class PublicController {
   async getPost(req: Request, res: Response): Promise<void> {
     try {
       const { slug } = req.params;
-      const lang = req.query.lang as string || 'en';
+      const lang = (req.query.lang as string) || 'en';
 
       const post = await PostRepository.findBySlug(slug, true);
       if (!post) {
@@ -278,19 +298,32 @@ export class PublicController {
 
       // Get i18n content if language specified
       if (lang !== 'en') {
-        const i18nResult = await query(`
+        const i18nResult = await query(
+          `
           SELECT field_name, field_value FROM i18n_contents
           WHERE entity_type = 'post' AND entity_id = $1 AND language_id IN (
             SELECT id FROM languages WHERE code = $2
           )
-        `, [post.id, lang]);
+        `,
+          [post.id, lang]
+        );
 
         const i18nContent: Record<string, any> = {};
         i18nResult.rows.forEach((row: any) => {
           i18nContent[row.field_name] = row.field_value;
         });
 
-        post.i18n_content = [{ ...i18nContent, entity_id: post.id, entity_type: 'post', field_name: '', field_value: '', created_at: new Date(), updated_at: new Date() }];
+        post.i18n_content = [
+          {
+            ...i18nContent,
+            entity_id: post.id,
+            entity_type: 'post',
+            field_name: '',
+            field_value: '',
+            created_at: new Date(),
+            updated_at: new Date(),
+          },
+        ];
       }
 
       res.json({
@@ -333,17 +366,14 @@ export class PublicController {
       }
 
       // Insert form submission
-      const submissionResult = await query(`
+      const submissionResult = await query(
+        `
         INSERT INTO form_submissions (form_id, data, status, ip_address, user_agent)
         VALUES ($1, $2, $3, $4, $5)
         RETURNING id
-      `, [
-        formId,
-        JSON.stringify(data),
-        'new',
-        ipAddress,
-        userAgent,
-      ]);
+      `,
+        [formId, JSON.stringify(data), 'new', ipAddress, userAgent]
+      );
 
       res.status(201).json({
         success: true,
@@ -402,10 +432,13 @@ export class PublicController {
       const userAgent = req.headers['user-agent'] || '';
       const referer = req.headers['referer'] || '';
 
-      await query(`
+      await query(
+        `
         INSERT INTO page_views (entity_type, entity_id, ip_address, user_agent, referer)
         VALUES ($1, $2, $3, $4, $5)
-      `, [entityType, entityId, ipAddress, userAgent, referer]);
+      `,
+        [entityType, entityId, ipAddress, userAgent, referer]
+      );
 
       res.json({
         success: true,

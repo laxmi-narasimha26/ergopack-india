@@ -66,8 +66,8 @@ with the new Indian market strategy.
 >
 > ● **Psychological** **Triggers:**
 >
-> 1\. **Risk** **Aversion:** The C-suite is motivated by the *fear* *of*
-> *catastrophic* *failure*.39 The website must frame the *status* *quo*
+> 1\. **Risk** **Aversion:** The C-suite is motivated by the _fear_ _of_
+> _catastrophic_ _failure_.39 The website must frame the _status_ _quo_
 > (manual strapping) as an unacceptable, unmanaged operational risk.42
 >
 > 2\. **Authority** **&** **Social** **Proof:** These executives trust
@@ -104,7 +104,7 @@ with the new Indian market strategy.
 > ○ **Social** **Proof:** A "Trusted By" section high on the homepage,
 > featuring logos of the "Elite 60" as they are acquired.43
 >
-> ○ **Interactive** **Visuals:** The user must be able to *see* the
+> ○ **Interactive** **Visuals:** The user must be able to _see_ the
 > precision. This is non-negotiable. Deploy high-fidelity, interactive
 > 3D models 51, cinematic 3D animations 63, and "exploded view"
 > diagrams.
@@ -114,25 +114,25 @@ with the new Indian market strategy.
 >
 > ○ **Microinteractions:** All interactive elements (buttons, hovers,
 > transitions) must be subtle, tactile, and responsive. They should
-> *feel* premium and precise, like the "click" of a luxury car door.68
+> _feel_ premium and precise, like the "click" of a luxury car door.68
 
 **5.** **ERGOPACK** **PRODUCT** **INFORMATION** **&** **HIERARCHY**
 
-The website will *exclusively* hero the "X-pert Line" as the flagship.
+The website will _exclusively_ hero the "X-pert Line" as the flagship.
 The "E-conomy Line" will be used as a comparison and entry-point model,
 but not the primary focus.
 
 > ● **Flagship:** **X-pert** **Line**
 >
-> ○ **Key** **Narrative** **Features:** These are the *symbols* of
+> ○ **Key** **Narrative** **Features:** These are the _symbols_ of
 > precision.
 >
-> ○ **Siemens** **Industrial** **Touchscreen:** This is the *visual*
-> *proof* of an intelligent, "Smart Factory" system.73 It implies data,
+> ○ **Siemens** **Industrial** **Touchscreen:** This is the _visual_
+> _proof_ of an intelligent, "Smart Factory" system.73 It implies data,
 > control, and verifiable settings.
 >
-> ○ **Triplex-Tool-Lift:** This is the *proof* *of* *advanced*
-> *engineering*. It allows sealing from the side and top.
+> ○ **Triplex-Tool-Lift:** This is the _proof_ _of_ _advanced_
+> _engineering_. It allows sealing from the side and top.
 >
 > ○ **Line-Laser:** Proof of precision positioning.40
 >
@@ -140,7 +140,7 @@ but not the primary focus.
 > superior load security. ● **Entry-Level:** **E-conomy** **Line**
 >
 > ○ **Narrative:** The reliable, proven workhorse. "The benchmark in
-> ergonomic pallet strapping for almost 20 years". We will *reframe*
+> ergonomic pallet strapping for almost 20 years". We will _reframe_
 > "ergonomic" to mean "eficient and reliable."
 >
 > ○ **Features:** Electronically controlled drive, integrated sealing
@@ -169,7 +169,7 @@ but not the primary focus.
 > your supply chain.\[39\]
 >
 > ● **Hero** **Visual:** A short, cinematic, "Primetals-style" 80 3D
-> animation. It should *not* show a person. It should be a macro-shot of
+> animation. It should _not_ show a person. It should be a macro-shot of
 > the machine, tracing the ChainLance path under a pallet with "glowing
 > pathways" 80 and culminating in a perfect, high-tension friction weld.
 > The visual metaphor is **"The** **360°** **Seal** **of** **Control."**
@@ -261,7 +261,7 @@ but not the primary focus.
 > **It** **Works")** ○ **Headline:** The 'Zero-Failure' ChainLance.
 >
 > ○ **Visual:** A cinematic 3D **Cutaway** **Animation**.63 This shows
-> the ChainLance mechanism *inside* the machine, feeding the strap
+> the ChainLance mechanism _inside_ the machine, feeding the strap
 > through its "glowing pathway" 80 under the pallet. This is the "magic"
 > reveal.
 >
@@ -316,7 +316,7 @@ but not the primary focus.
 87
 
 > ● **Purpose:** To show the "Elite 60" targets that we understand
-> *their* *specific* high-stakes problem.87
+> _their_ _specific_ high-stakes problem.87
 >
 > ● **Layout:** A main landing page with three large, clickable visual
 > sections. ● **Section** **1:** **Pharmaceuticals** **&** **Life**
@@ -377,7 +377,7 @@ but not the primary focus.
 **7.1.** **The** **"Feynman** **Simplification"** **Mandate** 91
 
 This fulfills the "explain to a child" requirement. We must explain the
-product's *purpose* (the "Why") using simple, powerful analogies.
+product's _purpose_ (the "Why") using simple, powerful analogies.
 
 > ● **INSTEAD** **OF:** "Our machine features an innovative ChainLance
 > that goes under the pallet to make strapping ergonomic."
@@ -414,7 +414,7 @@ Language must be authoritative, confident, and exclusive.
 **7.3.** **Strategic** **Storytelling** **(The** **"Why")** 85
 
 The entire website follows a strategic narrative.50 The product is the
-*vehicle* for the C-suite's story.
+_vehicle_ for the C-suite's story.
 
 > 1\. **The** **Protagonist** **(The** **Customer):** The C-suite
 > executive (our "Elite 60" target).
@@ -427,7 +427,7 @@ The entire website follows a strategic narrative.50 The product is the
 > India, the exclusive purveyor of this solution.
 >
 > 4\. **The** **Solution** **(The** **"How"):** The ErgoPack X-pert Line
-> (the *system*). This is the "magic" that provides control.
+> (the _system_). This is the "magic" that provides control.
 >
 > 5\. **The** **Outcome** **(The** **"What"):** Verifiable control,
 > zero-failure logistics, protected reputation, and the "peace of mind"
@@ -436,7 +436,7 @@ The entire website follows a strategic narrative.50 The product is the
 **7.4.** **Visual** **Content** **Mandate** **(The** **"Digital**
 **Craftsmanship")**
 
-The visual assets are the *proof* of the "precision engineering" and
+The visual assets are the _proof_ of the "precision engineering" and
 "craftsmanship" claims.
 
 > ● **3D** **Animations:** Must be cinematic 29, high-fidelity 111, and
@@ -475,14 +475,14 @@ The website is not a "wide net" for mass-market lead generation.154 It
 is a surgical tool for an Account-Based Marketing (ABM) strategy. Its
 purpose is to be the "virtual storefront" 155 and "digital sales call"
 155 for a pre-qualified list of 50-60 target accounts. Its primary goal
-is to *create* *urgency* and *defeat* *the* *status* *quo* (the
+is to _create_ _urgency_ and _defeat_ _the_ _status_ _quo_ (the
 competitor of "doing nothing").42
 
 **8.2.** **Mapping** **the** **Customer** **Journey** 92
 
 > 1\. Awareness/Inspiration (TOFU 161): The Homepage Hero video 29 and
 > "Industry" pages 150 are the first touchpoints.157 The goal is to hook
-> the C-suite by immediately framing *their* problem (Risk).39
+> the C-suite by immediately framing _their_ problem (Risk).39
 >
 > 2\. Discovery/Research (MOFU 161): This is the website's core
 > function. The user is now on the "Product" pages. They are looking for
@@ -490,7 +490,7 @@ competitor of "doing nothing").42
 > Views 53, and minimalist spec infographics 130 are deployed.
 >
 > 3\. Evaluation/Conversion (BOFU 161): The user is convinced of the
-> problem and the solution. The *only* goal now is to move them to the
+> problem and the solution. The _only_ goal now is to move them to the
 > "high-touch" 142 sales team. The **"Request** **an** **Invitation**
 > **for** **a** **C-Suite** **Risk** **Assessment"** CTA 13 is the sole
 > conversion point. This is not a "demo" 7; it is a high-value
@@ -507,7 +507,7 @@ competitor of "doing nothing").42
 > ● **Persona** **Recap:** You are a premium, luxury-focused B2B
 > strategist.
 >
-> ● **Core** **Pivot** **Recap:** All content *must* ladder up to "Risk
+> ● **Core** **Pivot** **Recap:** All content _must_ ladder up to "Risk
 > Mitigation" and "Precision Engineering." All "ergonomic" and
 > "labor-saving" content is forbidden.
 >

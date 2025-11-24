@@ -46,10 +46,12 @@ function getPageName(pathname: string): string {
   const segments = pathname.split('/').filter(Boolean);
   const lastSegment = segments[segments.length - 1];
 
-  return lastSegment
-    .split('-')
-    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ') + ' page';
+  return (
+    lastSegment
+      .split('-')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ') + ' page'
+  );
 }
 
 /**

@@ -6,18 +6,12 @@ import { ContactRequestModel } from '@/lib/db/models/ContactRequest';
 import { ApiResponse } from '@/types';
 
 // PUT /api/contact/[id] - Update contact request status (protected)
-export async function PUT(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function PUT(request: NextRequest, { params }: { params: { id: string } }) {
   try {
     const session = await getServerSession(authOptions);
 
-    if (!await isAuthenticated(session)) {
-      return NextResponse.json(
-        { success: false, error: 'Unauthorized' },
-        { status: 401 }
-      );
+    if (!(await isAuthenticated(session))) {
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
     }
 
     await connectDB();
@@ -58,18 +52,12 @@ export async function PUT(
 }
 
 // DELETE /api/contact/[id] - Delete contact request (protected)
-export async function DELETE(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
   try {
     const session = await getServerSession(authOptions);
 
-    if (!await isAuthenticated(session)) {
-      return NextResponse.json(
-        { success: false, error: 'Unauthorized' },
-        { status: 401 }
-      );
+    if (!(await isAuthenticated(session))) {
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
     }
 
     await connectDB();

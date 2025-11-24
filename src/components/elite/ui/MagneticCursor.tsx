@@ -82,7 +82,8 @@ export default function MagneticCursor() {
   if (!isVisible) return null;
 
   const cursorSize = cursorState === 'magnetic' ? 60 : cursorState === 'hover' ? 50 : 40;
-  const cursorColor = cursorState === 'magnetic' ? '#FFB81C' : cursorState === 'hover' ? '#C8102E' : '#FFFFFF';
+  const cursorColor =
+    cursorState === 'magnetic' ? '#FFB81C' : cursorState === 'hover' ? '#C8102E' : '#FFFFFF';
 
   return (
     <>

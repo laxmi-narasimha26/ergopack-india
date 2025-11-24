@@ -67,10 +67,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json(response);
   } catch (error: any) {
     console.error('Error fetching blogs:', error);
-    return NextResponse.json(
-      { success: false, error: 'Failed to fetch blogs' },
-      { status: 500 }
-    );
+    return NextResponse.json({ success: false, error: 'Failed to fetch blogs' }, { status: 500 });
   }
 }
 
@@ -79,11 +76,8 @@ export async function POST(request: NextRequest) {
   try {
     const session = await getServerSession(authOptions);
 
-    if (!await isAuthenticated(session)) {
-      return NextResponse.json(
-        { success: false, error: 'Unauthorized' },
-        { status: 401 }
-      );
+    if (!(await isAuthenticated(session))) {
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
     }
 
     await connectDB();
@@ -95,10 +89,12 @@ export async function POST(request: NextRequest) {
     const readTimeMinutes = Math.ceil(stats.minutes);
 
     // Create slug if not provided
-    const slug = data.slug || data.title
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/^-+|-+$/g, '');
+    const slug =
+      data.slug ||
+      data.title
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
 
     // Check if slug already exists
     const existingBlog = await BlogModel.findOne({ slug });

@@ -5,17 +5,7 @@ import MainLayout from '@/components/layout/MainLayout';
 import Card from '@/components/ui/Card';
 import ContactForm from '@/components/forms/ContactForm';
 import { useFadeIn, useSlideInLeft, useSlideInRight } from '@/lib/hooks/useScrollAnimation';
-import {
-  Lock,
-  CheckCircle2,
-  Mail,
-  Phone,
-  MapPin,
-  Clock,
-  Shield,
-  Award,
-  Zap,
-} from 'lucide-react';
+import { Lock, CheckCircle2, Mail, Phone, MapPin, Clock, Shield, Award, Zap } from 'lucide-react';
 // Note: Metadata export removed for client component compatibility
 
 // Hero Section
@@ -233,8 +223,7 @@ function WhyChooseSection() {
     {
       icon: Zap,
       title: 'Proven Results',
-      description:
-        '99.99% reliability rate with 10M+ loads secured and zero compliance failures.',
+      description: '99.99% reliability rate with 10M+ loads secured and zero compliance failures.',
     },
     {
       icon: Award,
@@ -299,7 +288,7 @@ function FAQSection() {
     {
       question: 'How long does the consultation process take?',
       answer:
-        'The initial consultation typically takes 60-90 minutes. During this time, we\'ll discuss your requirements, demonstrate our systems, and provide a preliminary assessment.',
+        "The initial consultation typically takes 60-90 minutes. During this time, we'll discuss your requirements, demonstrate our systems, and provide a preliminary assessment.",
     },
     {
       question: 'Is there any cost for the consultation?',

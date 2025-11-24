@@ -1,0 +1,1168 @@
+{
+  "700": {
+    "model": "700",
+    "fullName": "ErgoPack 700",
+    "image": "/images/products/700.png",
+    "line": "Economy Line",
+    "generation": 2,
+    "tariffNumber": "842240",
+    "description": "Cost-effective manual strapping solution with no battery required. Perfect for operations seeking reliable, economical pallet strapping with zero electricity costs.",
+    "applicationType": "Low to medium volume operations",
+    "htmlPage": "/products/700",
+    "pdfPath": "/pdfs/700_Technical_Data.pdf",
+    "overviewPath": "/pdfs/700_Model_Overview.pdf",
+    "comparison": {
+      "systemSpecs": {
+        "dimensions": {
+          "length": 630,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 64.4,
+        "weightUnit": "kg",
+        "construction": "Steel / Aluminum / Plastic"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 30,
+          "max": 255,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 0,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m",
+        "operationType": "Hand Crank"
+      },
+      "powerBattery": {
+        "type": "N/A",
+        "weightUnit": "kg",
+        "loadingTimeUnit": "hours",
+        "voltageUnit": "V"
+      },
+      "sealingStrapping": {
+        "strapMaterials": [
+          "Polypropylene (PP)",
+          "Polyester (PET)",
+          "Paper strap",
+          "Cord strap",
+          "Composite strap"
+        ]
+      },
+      "controlDisplay": {
+        "interfaceType": "Hand Crank",
+        "touchscreen": false,
+        "displayType": "With Pin"
+      },
+      "safetyErgonomics": {
+        "certifications": ["agr"],
+        "agrCertified": true
+      },
+      "featuresAccessories": {
+        "included": ["Standard Sledge 85"],
+        "optional": [
+          "Sledge 47",
+          "Sledge 47S",
+          "Sledge 85L",
+          "Strap-Brake-Relief",
+          "Headpiece with Bumper",
+          "Mobile Overheight Module (MOHM)",
+          "Additional Chain",
+          "Mobile Sledge Tunnel (Pair)",
+          "Stationary Sledge Tunnel"
+        ]
+      },
+      "environmental": {},
+      "maintenance": {}
+    }
+  },
+  "700E": {
+    "model": "700E",
+    "fullName": "ErgoPack 700E",
+    "image": "/images/products/700e.png",
+    "line": "Economy Line",
+    "generation": 2,
+    "tariffNumber": "842240",
+    "description": "Economy Line battery-powered strapping system with 40m/min speed and 350 cycles per charge. Multi-material compatibility for versatile packaging operations.",
+    "applicationType": "Medium to high volume operations",
+    "htmlPage": "/products/700e",
+    "pdfPath": "/pdfs/700E_Technical_Data.pdf",
+    "overviewPath": "/pdfs/700E_Model_Overview.pdf",
+    "comparison": {
+      "systemSpecs": {
+        "dimensions": {
+          "length": 630,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 88.1,
+        "weightUnit": "kg",
+        "construction": "Steel / Aluminum / Plastic"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 30,
+          "max": 255,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 40,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m",
+        "operationType": "Electrically via joystick"
+      },
+      "powerBattery": {
+        "type": "24V lead-fleece battery",
+        "weight": 12.3,
+        "weightUnit": "kg",
+        "loadingTime": 810,
+        "loadingTimeUnit": "hours",
+        "voltageNominal": 24,
+        "voltageUnit": "V",
+        "strappingCycles": 350
+      },
+      "sealingStrapping": {
+        "strapMaterials": [
+          "Polypropylene (PP)",
+          "Polyester (PET)",
+          "Paper strap",
+          "Cord strap",
+          "Composite strap"
+        ]
+      },
+      "controlDisplay": {
+        "interfaceType": "Electrically via joystick",
+        "touchscreen": false,
+        "displayType": "With pin"
+      },
+      "safetyErgonomics": {
+        "certifications": ["iso12100", "euDeclaration", "agr"],
+        "agrCertified": true
+      },
+      "featuresAccessories": {
+        "included": [
+          "Standard Sledge 85",
+          "24V Battery & 3-Stage Charger",
+          "Electric Joystick Control"
+        ],
+        "optional": [
+          "Triplex-Tool-Lift (TTL)",
+          "Standard Tool-Lift",
+          "Sealing Head",
+          "Sealing Head TTL Adapter",
+          "Line-Laser Type 2",
+          "Sledge 47",
+          "Sledge 47S",
+          "Sledge 85L",
+          "Strap-Brake-Relief",
+          "Headpiece with Bumper",
+          "Spare Battery",
+          "Mobile Overheight Module (MOHM)",
+          "Additional Chain",
+          "Mobile Sledge Tunnel (Pair)",
+          "Stationary Sledge Tunnel"
+        ]
+      },
+      "environmental": {},
+      "maintenance": {}
+    }
+  },
+  "700X": {
+    "model": "700X",
+    "fullName": "ErgoPack 700X Li",
+    "image": "/images/placeholder.png",
+    "line": "X-pert Line",
+    "generation": 2,
+    "tariffNumber": "842240",
+    "description": "X-pert Line premium strapping system with advanced Lithium-Ion battery delivering up to 1200 cycles and 66m/min speed. Features Siemens Industry Touchscreen and premium ergonomic design for high-volume operations.",
+    "applicationType": "High-volume operations requiring maximum efficiency",
+    "htmlPage": "/products/700x",
+    "pdfPath": "/pdfs/700X_Technical_Data.pdf",
+    "overviewPath": "/pdfs/700X_Model_Overview.pdf",
+    "comparison": {
+      "systemSpecs": {
+        "dimensions": {
+          "length": 665,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 95,
+        "weightUnit": "kg",
+        "construction": "Steel / Aluminum / Plastic"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 40,
+          "max": 270,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 66,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m",
+        "operationType": "Electrically via joystick"
+      },
+      "powerBattery": {
+        "type": "Lithium-Ion",
+        "weight": 5,
+        "weightUnit": "kg",
+        "loadingTime": 3.5,
+        "loadingTimeUnit": "hours",
+        "voltageNominal": 36.3,
+        "voltageUnit": "V",
+        "strappingCycles": 1200
+      },
+      "sealingStrapping": {
+        "strapMaterials": [
+          "Polypropylene (PP)",
+          "Polyester (PET)",
+          "Paper strap",
+          "Cord strap",
+          "Composite strap"
+        ]
+      },
+      "controlDisplay": {
+        "interfaceType": "Electrically via joystick",
+        "touchscreen": true,
+        "displayType": "Siemens industry touchscreen"
+      },
+      "safetyErgonomics": {
+        "certifications": ["iso12100", "euDeclaration", "agr"],
+        "agrCertified": true
+      },
+      "featuresAccessories": {
+        "included": [
+          "Standard Sledge 85",
+          "Siemens Industry Touchscreen",
+          "Electric Joystick Control",
+          "Lithium-Ion Battery & Wide-Range Charger"
+        ],
+        "optional": [
+          "Triplex-Tool-Lift (TTL)",
+          "Standard Tool-Lift",
+          "Sealing Head",
+          "Sealing Head TTL Adapter",
+          "Line-Laser Type 2",
+          "Sledge 47",
+          "Sledge 47S",
+          "Sledge 85L (47L)",
+          "Strap-Brake-Relief",
+          "Headpiece with Bumper",
+          "Easy Move Assistant",
+          "Spare Lithium-Ion Battery",
+          "Mobile Overheight Module (MOHM)",
+          "Additional Chain",
+          "Mobile Sledge Tunnel (Pair)",
+          "Stationary Sledge Tunnel",
+          "Screen Protector"
+        ]
+      },
+      "environmental": {},
+      "maintenance": {}
+    }
+  },
+  "700X-LFP": {
+    "model": "700X-LFP",
+    "fullName": "ErgoPack 700X-LFP",
+    "image": "/images/products/700x.png",
+    "line": "X-pert Line",
+    "generation": 2,
+    "tariffNumber": "842240",
+    "description": "Designed for demanding, high-volume environments. The 700X-LFP comes with a robust Lead-Fleece power configuration. Ideal for operations valuing proven battery stability.",
+    "applicationType": "High-volume operations",
+    "htmlPage": "/products/700x-lfp",
+    "pdfPath": "/pdfs/700X-LFP_Technical_Data.pdf",
+    "overviewPath": "/pdfs/700X-LFP_Model_Overview.pdf",
+    "comparison": {
+      "systemSpecs": {
+        "dimensions": {
+          "length": 665,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 95,
+        "weightUnit": "kg",
+        "construction": "Steel / Aluminum / Plastic"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 40,
+          "max": 270,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 66,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m",
+        "operationType": "Electrically via joystick"
+      },
+      "powerBattery": {
+        "type": "Lead-Fleece Battery",
+        "weight": 12.3,
+        "weightUnit": "kg",
+        "loadingTime": 8,
+        "loadingTimeUnit": "hours",
+        "voltageNominal": 24,
+        "voltageUnit": "V",
+        "strappingCycles": 600
+      },
+      "sealingStrapping": {
+        "strapMaterials": [
+          "Polypropylene (PP)",
+          "Polyester (PET)",
+          "Paper strap",
+          "Cord strap",
+          "Composite strap"
+        ]
+      },
+      "controlDisplay": {
+        "interfaceType": "Electrically via joystick",
+        "touchscreen": true,
+        "displayType": "Siemens industry touchscreen"
+      },
+      "safetyErgonomics": {
+        "certifications": ["iso12100", "euDeclaration", "agr"],
+        "agrCertified": true
+      },
+      "featuresAccessories": {
+        "included": [
+          "Standard Sledge 85",
+          "Siemens Industry Touchscreen",
+          "24V Battery & 3-Stage Charger"
+        ],
+        "optional": []
+      },
+      "environmental": {},
+      "maintenance": {}
+    }
+  },
+  "713E": {
+    "model": "713E",
+    "fullName": "ErgoPack 713E",
+    "image": "/images/products/713e.png",
+    "line": "Economy Line",
+    "generation": 2,
+    "tariffNumber": "842240",
+    "description": "Economy Line battery-powered system with integrated sealing head and standard tool-lift included. Professional sealing for PP and PET straps with 40m/min speed and 350 cycles per charge.",
+    "applicationType": "Medium to high volume operations requiring sealing",
+    "htmlPage": "/products/713e",
+    "pdfPath": "/pdfs/713E_Technical_Data.pdf",
+    "overviewPath": "/pdfs/713E_Model_Overview.pdf",
+    "comparison": {
+      "systemSpecs": {
+        "dimensions": {
+          "length": 630,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 92.1,
+        "weightUnit": "kg",
+        "construction": "Steel / Aluminum / Plastic"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 30,
+          "max": 255,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 40,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m",
+        "operationType": "Electrically via joystick"
+      },
+      "powerBattery": {
+        "type": "24V lead-fleece battery",
+        "weight": 12.3,
+        "weightUnit": "kg",
+        "loadingTime": 810,
+        "loadingTimeUnit": "hours",
+        "voltageNominal": 24,
+        "voltageUnit": "V",
+        "strappingCycles": 350
+      },
+      "sealingStrapping": {
+        "strapMaterials": ["Polypropylene (PP)", "Polyester (PET)"]
+      },
+      "controlDisplay": {
+        "interfaceType": "Electrically via joystick",
+        "touchscreen": false,
+        "displayType": "With pin"
+      },
+      "safetyErgonomics": {
+        "certifications": ["iso12100", "euDeclaration", "agr"],
+        "agrCertified": true
+      },
+      "featuresAccessories": {
+        "included": [
+          "Standard Tool-Lift",
+          "Professional Sealing Head",
+          "Standard Sledge 85",
+          "24V Battery & 3-Stage Charger",
+          "Electric Joystick Control"
+        ],
+        "optional": [
+          "Triplex-Tool-Lift (TTL)",
+          "Sealing Head TTL Adapter",
+          "Line-Laser Type 2",
+          "Sledge 47",
+          "Sledge 47S",
+          "Sledge 85L (47L)",
+          "Strap-Brake-Relief",
+          "Headpiece with Bumper",
+          "Spare Battery",
+          "Mobile Overheight Module (MOHM)",
+          "Additional Chain",
+          "Mobile Sledge Tunnel (Pair)",
+          "Stationary Sledge Tunnel"
+        ]
+      },
+      "environmental": {},
+      "maintenance": {}
+    }
+  },
+  "713X": {
+    "model": "713X",
+    "fullName": "ErgoPack 713X Li",
+    "image": "/images/placeholder.png",
+    "line": "X-pert Line",
+    "generation": 2,
+    "tariffNumber": "842240",
+    "description": "X-pert Line premium system with sealing head, tool-lift, AND Line-Laser Type 2 ALL INCLUDED. Lithium-Ion battery with 1200 cycles, 66m/min speed, and Siemens touchscreen for professional PP and PET strapping.",
+    "applicationType": "High-volume professional sealing operations",
+    "htmlPage": "/products/713x",
+    "pdfPath": "/pdfs/713X_Technical_Data.pdf",
+    "overviewPath": "/pdfs/713X_Model_Overview.pdf",
+    "comparison": {
+      "systemSpecs": {
+        "dimensions": {
+          "length": 665,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 103,
+        "weightUnit": "kg",
+        "construction": "Steel / Aluminum / Plastic"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 40,
+          "max": 270,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 66,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m",
+        "operationType": "Electrically via joystick"
+      },
+      "powerBattery": {
+        "type": "Lithium-Ion",
+        "weight": 5,
+        "weightUnit": "kg",
+        "loadingTime": 3.5,
+        "loadingTimeUnit": "hours",
+        "voltageNominal": 36.3,
+        "voltageUnit": "V",
+        "strappingCycles": 1200
+      },
+      "sealingStrapping": {
+        "strapMaterials": ["Polypropylene (PP)", "Polyester (PET)"]
+      },
+      "controlDisplay": {
+        "interfaceType": "Electrically via joystick",
+        "touchscreen": true,
+        "displayType": "Siemens industry touchscreen"
+      },
+      "safetyErgonomics": {
+        "certifications": ["iso12100", "euDeclaration", "agr"],
+        "agrCertified": true
+      },
+      "featuresAccessories": {
+        "included": [
+          "Standard Tool-Lift",
+          "Professional Sealing Head",
+          "Line-Laser Type 2",
+          "Standard Sledge 85",
+          "Siemens Industry Touchscreen",
+          "Electric Joystick Control",
+          "Lithium-Ion Battery & Wide-Range Charger"
+        ],
+        "optional": [
+          "Triplex-Tool-Lift (TTL)",
+          "Sealing Head TTL Adapter",
+          "Sledge 47",
+          "Sledge 47S",
+          "Sledge 85L (47L)",
+          "Strap-Brake-Relief",
+          "Headpiece with Bumper",
+          "Easy Move Assistant",
+          "Spare Lithium-Ion Battery",
+          "Mobile Overheight Module (MOHM)",
+          "Additional Chain",
+          "Mobile Sledge Tunnel (Pair)",
+          "Stationary Sledge Tunnel",
+          "Screen Protector"
+        ]
+      },
+      "environmental": {},
+      "maintenance": {}
+    }
+  },
+  "713X-LFP": {
+    "model": "713X-LFP",
+    "fullName": "ErgoPack 713-726X-LFP",
+    "image": "/images/placeholder.png",
+    "line": "X-pert Line",
+    "generation": 2,
+    "tariffNumber": "842240",
+    "description": "Delivers the integrated convenience of the 726 series with a robust Lead-Fleece power configuration. Ideal for operations valuing proven battery stability.",
+    "applicationType": "Moderate volume operations",
+    "htmlPage": "/products/713x-lfp",
+    "pdfPath": "/pdfs/713X-LFP_Technical_Data.pdf",
+    "overviewPath": "/pdfs/713X-LFP_Model_Overview.pdf",
+    "comparison": {
+      "systemSpecs": {
+        "dimensions": {
+          "length": 680,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 110,
+        "weightUnit": "kg",
+        "construction": "Steel / Aluminum / Plastic"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 40,
+          "max": 270,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 66,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m",
+        "operationType": "Electrically via joystick"
+      },
+      "powerBattery": {
+        "type": "Lead-Fleece Battery",
+        "weight": 12.3,
+        "weightUnit": "kg",
+        "loadingTime": 8,
+        "loadingTimeUnit": "hours",
+        "voltageNominal": 24,
+        "voltageUnit": "V",
+        "strappingCycles": 600
+      },
+      "sealingStrapping": {
+        "strapMaterials": ["Polypropylene (PP)", "Polyester (PET)"]
+      },
+      "controlDisplay": {
+        "interfaceType": "Electrically via joystick",
+        "touchscreen": true,
+        "displayType": "Siemens industry touchscreen"
+      },
+      "safetyErgonomics": {
+        "certifications": ["iso12100", "agr"],
+        "agrCertified": true
+      },
+      "featuresAccessories": {
+        "included": ["Integrated Sealing Head & Tool-Lift", "24V Battery & 3-Stage Charger"],
+        "optional": []
+      },
+      "environmental": {},
+      "maintenance": {}
+    }
+  },
+  "726E": {
+    "model": "726E",
+    "fullName": "ErgoPack 726E",
+    "image": "/images/products/726e.png",
+    "line": "Economy Line",
+    "generation": 2,
+    "tariffNumber": "842240",
+    "description": "Economy Line mobile battery-powered system with integrated sealing head and standard tool-lift included. Complete solution for mobile pallet strapping and sealing.",
+    "applicationType": "General",
+    "htmlPage": "/products/726e",
+    "pdfPath": "/pdfs/726E_Technical_Data.pdf",
+    "overviewPath": "/pdfs/726E_Model_Overview.pdf",
+    "comparison": {
+      "systemSpecs": {
+        "dimensions": {
+          "length": 630,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 92.9,
+        "weightUnit": "kg",
+        "construction": "Steel / Aluminum / Plastic"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 30,
+          "max": 255,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 40,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m",
+        "operationType": "Electrically via joystick"
+      },
+      "powerBattery": {
+        "type": "Lead-fleece",
+        "weight": 12.3,
+        "weightUnit": "kg",
+        "loadingTime": 810,
+        "loadingTimeUnit": "hours",
+        "voltageNominal": 24,
+        "voltageUnit": "V",
+        "strappingCycles": 350
+      },
+      "sealingStrapping": {
+        "strapMaterials": [],
+        "strapWidth": {
+          "min": 12,
+          "max": 16,
+          "unit": "mm"
+        }
+      },
+      "controlDisplay": {
+        "interfaceType": "Electrically via joystick",
+        "touchscreen": false,
+        "displayType": "With pin"
+      },
+      "safetyErgonomics": {
+        "certifications": ["iso12100", "euDeclaration", "agr"],
+        "agrCertified": true
+      },
+      "featuresAccessories": {
+        "included": [
+          "Professional Sealing Head",
+          "Standard Tool-Lift",
+          "Standard Sledge 85",
+          "Electrical Joystick Control",
+          "Pin Width Adjustment System",
+          "3-Stage Lead Loader Charging Station"
+        ],
+        "optional": [
+          "Line-Laser Type 2",
+          "Triplex-Tool-Lift (TTL)",
+          "Sledge 47",
+          "Sledge 47S",
+          "Sledge 47L",
+          "Strap-Brake-Relief",
+          "Headpiece with Bumper",
+          "Spare Battery",
+          "MOHM (Mobile Overheight Module)",
+          "Additional Chain",
+          "Sealing Head Removable from TTL",
+          "Mobile Sledge Tunnel",
+          "Stationary Sledge Tunnel"
+        ]
+      },
+      "environmental": {},
+      "maintenance": {}
+    }
+  },
+  "726X": {
+    "model": "726X",
+    "fullName": "ErgoPack 726X Li",
+    "image": "/images/placeholder.png",
+    "line": "X-pert Line",
+    "generation": 2,
+    "tariffNumber": "842240",
+    "description": "X-pert Line premium mobile system with sealing head, tool-lift, AND Line-Laser Type 2 ALL INCLUDED. Advanced Lithium-Ion battery delivering up to 1200 cycles and 66m/min speed with Siemens touchscreen control.",
+    "applicationType": "General",
+    "htmlPage": "/products/726x",
+    "pdfPath": "/pdfs/726X_Technical_Data.pdf",
+    "overviewPath": "/pdfs/726X_Model_Overview.pdf",
+    "comparison": {
+      "systemSpecs": {
+        "dimensions": {
+          "length": 665,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 104,
+        "weightUnit": "kg",
+        "construction": "Steel / Aluminum / Plastic"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 40,
+          "max": 270,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 66,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m",
+        "operationType": "Siemens Touchscreen"
+      },
+      "powerBattery": {
+        "type": "Lithium-Ion",
+        "weight": 5,
+        "weightUnit": "kg",
+        "loadingTime": 3.5,
+        "loadingTimeUnit": "hours",
+        "voltageNominal": 36.3,
+        "voltageUnit": "V",
+        "strappingCycles": 1200
+      },
+      "sealingStrapping": {
+        "strapMaterials": [],
+        "strapWidth": {
+          "min": 12,
+          "max": 16,
+          "unit": "mm"
+        }
+      },
+      "controlDisplay": {
+        "interfaceType": "Siemens Touchscreen",
+        "touchscreen": true,
+        "displayType": "Touchscreen"
+      },
+      "safetyErgonomics": {
+        "certifications": ["iso12100", "euDeclaration", "agr"],
+        "agrCertified": true
+      },
+      "featuresAccessories": {
+        "included": [
+          "Line-Laser Type 2",
+          "Professional Sealing Head",
+          "Standard Tool-Lift",
+          "Standard Sledge 85",
+          "Siemens Industry Touchscreen",
+          "Electrical Joystick Control",
+          "Wide-Range Charger"
+        ],
+        "optional": [
+          "Easy Move Assistant",
+          "Screen Protector",
+          "Triplex-Tool-Lift (TTL)",
+          "Sledge 47",
+          "Sledge 47S",
+          "Sledge 47L",
+          "Strap-Brake-Relief",
+          "Headpiece with Bumper",
+          "Spare Battery",
+          "MOHM (Mobile Overheight Module)",
+          "Additional Chain",
+          "Sealing Head Removable from TTL",
+          "Mobile Sledge Tunnel",
+          "Stationary Sledge Tunnel"
+        ]
+      },
+      "environmental": {},
+      "maintenance": {}
+    }
+  },
+  "726X-LFP": {
+    "model": "726X-LFP",
+    "fullName": "ErgoPack 713-726X-LFP",
+    "image": "/images/placeholder.png",
+    "line": "X-pert Line",
+    "generation": 2,
+    "tariffNumber": "842240",
+    "description": "Delivers the integrated convenience of the 726 series with a robust Lead-Fleece power configuration. Ideal for operations valuing proven battery stability.",
+    "applicationType": "Moderate volume operations",
+    "htmlPage": "/products/726x-lfp",
+    "pdfPath": "/pdfs/726X-LFP_Technical_Data.pdf",
+    "overviewPath": "/pdfs/726X-LFP_Model_Overview.pdf",
+    "comparison": {
+      "systemSpecs": {
+        "dimensions": {
+          "length": 680,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 110,
+        "weightUnit": "kg",
+        "construction": "Steel / Aluminum / Plastic"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 40,
+          "max": 270,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 66,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m",
+        "operationType": "Electrically via joystick"
+      },
+      "powerBattery": {
+        "type": "Lead-Fleece Battery",
+        "weight": 12.3,
+        "weightUnit": "kg",
+        "loadingTime": 8,
+        "loadingTimeUnit": "hours",
+        "voltageNominal": 24,
+        "voltageUnit": "V",
+        "strappingCycles": 600
+      },
+      "sealingStrapping": {
+        "strapMaterials": ["Polypropylene (PP)", "Polyester (PET)"]
+      },
+      "controlDisplay": {
+        "interfaceType": "Electrically via joystick",
+        "touchscreen": true,
+        "displayType": "Siemens industry touchscreen"
+      },
+      "safetyErgonomics": {
+        "certifications": ["iso12100", "agr"],
+        "agrCertified": true
+      },
+      "featuresAccessories": {
+        "included": ["Integrated Sealing Head & Tool-Lift", "24V Battery & 3-Stage Charger"],
+        "optional": []
+      },
+      "environmental": {},
+      "maintenance": {}
+    }
+  },
+  "745E": {
+    "model": "745E",
+    "fullName": "ErgoPack 745E",
+    "image": "/images/products/745e.png",
+    "line": "Economy Line",
+    "generation": 2,
+    "tariffNumber": "842240",
+    "description": "Economy Line mobile battery-powered system with integrated sealing head and standard tool-lift included. Complete mobile solution for ergonomic pallet strapping and sealing with 40m/min speed and 350 cycles per charge.",
+    "applicationType": "Medium to high volume mobile operations requiring sealing",
+    "htmlPage": "/products/745e",
+    "pdfPath": "/pdfs/745E_Technical_Data.pdf",
+    "overviewPath": "/pdfs/745E_Model_Overview.pdf",
+    "comparison": {
+      "systemSpecs": {
+        "dimensions": {
+          "length": 630,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 92.9,
+        "weightUnit": "kg",
+        "construction": "Steel / Aluminum / Plastic"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 30,
+          "max": 255,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 40,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m",
+        "operationType": "Electrically via joystick"
+      },
+      "powerBattery": {
+        "type": "24V lead-fleece battery",
+        "weight": 12.3,
+        "weightUnit": "kg",
+        "loadingTime": 810,
+        "loadingTimeUnit": "hours",
+        "voltageNominal": 24,
+        "voltageUnit": "V",
+        "strappingCycles": 350
+      },
+      "sealingStrapping": {
+        "strapMaterials": ["Polypropylene (PP)", "Polyester (PET)"]
+      },
+      "controlDisplay": {
+        "interfaceType": "Electrically via joystick",
+        "touchscreen": false,
+        "displayType": "With pin"
+      },
+      "safetyErgonomics": {
+        "certifications": ["iso12100", "euDeclaration", "agr"],
+        "agrCertified": true
+      },
+      "featuresAccessories": {
+        "included": [
+          "Standard Tool-Lift",
+          "Professional Sealing Head",
+          "Standard Sledge 85",
+          "24V Battery & 3-Stage Charger",
+          "Electric Joystick Control"
+        ],
+        "optional": [
+          "Triplex-Tool-Lift (TTL)",
+          "Sealing Head TTL Adapter",
+          "Line-Laser Type 2",
+          "Sledge 47",
+          "Sledge 47S",
+          "Sledge 85L (47L)",
+          "Strap-Brake-Relief",
+          "Headpiece with Bumper",
+          "Spare Battery",
+          "Mobile Overheight Module (MOHM)",
+          "Additional Chain",
+          "Mobile Sledge Tunnel (Pair)",
+          "Stationary Sledge Tunnel"
+        ]
+      },
+      "environmental": {},
+      "maintenance": {}
+    }
+  },
+  "745X": {
+    "model": "745X",
+    "fullName": "ErgoPack 745X Li",
+    "image": "/images/placeholder.png",
+    "line": "X-pert Line",
+    "generation": 2,
+    "tariffNumber": "842240",
+    "description": "X-pert Line premium mobile system with sealing head, tool-lift, AND Line-Laser Type 2 ALL INCLUDED. Advanced Lithium-Ion battery delivering up to 1200 cycles and 66m/min speed with Siemens touchscreen control for professional mobile operations.",
+    "applicationType": "High-volume mobile professional sealing operations",
+    "htmlPage": "/products/745x",
+    "pdfPath": "/pdfs/745X_Technical_Data.pdf",
+    "overviewPath": "/pdfs/745X_Model_Overview.pdf",
+    "comparison": {
+      "systemSpecs": {
+        "dimensions": {
+          "length": 665,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 104,
+        "weightUnit": "kg",
+        "construction": "Steel / Aluminum / Plastic"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 40,
+          "max": 270,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 66,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m",
+        "operationType": "Electrically via joystick"
+      },
+      "powerBattery": {
+        "type": "Lithium-Ion",
+        "weight": 5,
+        "weightUnit": "kg",
+        "loadingTime": 3.5,
+        "loadingTimeUnit": "hours",
+        "voltageNominal": 36.3,
+        "voltageUnit": "V",
+        "strappingCycles": 1200
+      },
+      "sealingStrapping": {
+        "strapMaterials": ["Polypropylene (PP)", "Polyester (PET)"]
+      },
+      "controlDisplay": {
+        "interfaceType": "Electrically via joystick",
+        "touchscreen": true,
+        "displayType": "Siemens industry touchscreen"
+      },
+      "safetyErgonomics": {
+        "certifications": ["iso12100", "euDeclaration", "agr"],
+        "agrCertified": true
+      },
+      "featuresAccessories": {
+        "included": [
+          "Line-Laser Type 2",
+          "Standard Tool-Lift",
+          "Professional Sealing Head",
+          "Standard Sledge 85",
+          "Siemens Industry Touchscreen",
+          "Electrical Joystick Control",
+          "Lithium-Ion Battery & Wide-Range Charger"
+        ],
+        "optional": [
+          "Easy Move Assistant",
+          "Screen Protector",
+          "Triplex-Tool-Lift (TTL)",
+          "Sealing Head TTL Adapter",
+          "Sledge 47",
+          "Sledge 47S",
+          "Sledge 47L (85L)",
+          "Strap-Brake-Relief",
+          "Headpiece with Bumper",
+          "Spare Lithium-Ion Battery",
+          "MOHM (Mobile Overheight Module)",
+          "Additional Chain",
+          "Mobile Sledge Tunnel",
+          "Stationary Sledge Tunnel"
+        ]
+      },
+      "environmental": {},
+      "maintenance": {}
+    }
+  },
+  "GO": {
+    "model": "GO",
+    "fullName": "ErgoPack GO",
+    "image": "/images/placeholder.png",
+    "line": "Economy Line",
+    "generation": 1,
+    "tariffNumber": "842240",
+    "description": "GO Line economy portable strapping system. Flexible operation across multiple locations with 24V battery technology.",
+    "applicationType": "Portable strapping operations",
+    "htmlPage": "/products/go",
+    "pdfPath": "/pdfs/GO_Technical_Data.pdf",
+    "overviewPath": "/pdfs/GO_Model_Overview.pdf",
+    "comparison": {
+      "systemSpecs": {
+        "dimensions": {
+          "length": 630,
+          "width": 770,
+          "height": 1200,
+          "unit": "mm"
+        },
+        "weight": 90,
+        "weightUnit": "kg",
+        "construction": "Steel / Aluminum / Plastic"
+      },
+      "flexibility": {
+        "palletWidth": {
+          "min": 30,
+          "max": 240,
+          "unit": "cm"
+        },
+        "palletHeight": {
+          "min": 10,
+          "max": 230,
+          "unit": "cm"
+        }
+      },
+      "performance": {
+        "chainSpeed": 40,
+        "chainSpeedUnit": "m/min",
+        "standardChainLength": 6,
+        "chainLengthUnit": "m",
+        "operationType": "Electrically via joystick"
+      },
+      "powerBattery": {
+        "type": "24V lead-fleece battery",
+        "weight": 12.3,
+        "weightUnit": "kg",
+        "loadingTime": 810,
+        "loadingTimeUnit": "hours",
+        "voltageNominal": 24,
+        "voltageUnit": "V",
+        "strappingCycles": 350
+      },
+      "sealingStrapping": {
+        "strapMaterials": ["Polypropylene (PP)", "Polyester (PET)"]
+      },
+      "controlDisplay": {
+        "interfaceType": "Electrically via joystick",
+        "touchscreen": false,
+        "displayType": "With pin"
+      },
+      "safetyErgonomics": {
+        "certifications": ["iso12100", "euDeclaration", "agr"],
+        "agrCertified": true
+      },
+      "featuresAccessories": {
+        "included": ["Standard Sledge 85", "24V Battery & Charger"],
+        "optional": []
+      },
+      "environmental": {},
+      "maintenance": {}
+    }
+  }
+}

@@ -17,10 +17,7 @@ export async function POST(request: NextRequest) {
     // - Database storage
 
     // For now, we'll just acknowledge receipt
-    return NextResponse.json(
-      { success: true, message: 'Vitals received' },
-      { status: 200 }
-    );
+    return NextResponse.json({ success: true, message: 'Vitals received' }, { status: 200 });
   } catch (error) {
     console.error('Error processing vitals:', error);
     return NextResponse.json(

@@ -15,25 +15,29 @@ export default function IntelligenceSection({ sectionNumber }: { sectionNumber: 
     {
       icon: BarChart3,
       title: 'Real-Time Analytics',
-      description: 'Live production metrics with performance dashboards and predictive insights for data-driven decision making.',
+      description:
+        'Live production metrics with performance dashboards and predictive insights for data-driven decision making.',
       delay: 0,
     },
     {
       icon: Link2,
       title: 'ERP Integration',
-      description: 'Seamless SAP and Oracle integration with bi-directional data flow and API-first architecture.',
+      description:
+        'Seamless SAP and Oracle integration with bi-directional data flow and API-first architecture.',
       delay: 0.3,
     },
     {
       icon: Smartphone,
       title: 'Remote Monitoring',
-      description: '24/7 access from anywhere with mobile-first interface and cloud-synchronized operations.',
+      description:
+        '24/7 access from anywhere with mobile-first interface and cloud-synchronized operations.',
       delay: 0.6,
     },
     {
       icon: Bell,
       title: 'Predictive Maintenance',
-      description: 'AI-powered alerts to prevent downtime before it happens with smart diagnostics and scheduling.',
+      description:
+        'AI-powered alerts to prevent downtime before it happens with smart diagnostics and scheduling.',
       delay: 0.9,
     },
   ];

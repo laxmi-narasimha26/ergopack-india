@@ -8,11 +8,7 @@ export const metadata = {
   description: 'Manage your ErgoPack India website',
 };
 
-export default async function AdminLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   const session = await getServerSession(authOptions);
 
   // Redirect to login if not authenticated (except for login page)
@@ -24,9 +20,7 @@ export default async function AdminLayout({
     <div className="min-h-screen bg-black">
       <Sidebar />
       <main className="lg:pl-64">
-        <div className="p-8">
-          {children}
-        </div>
+        <div className="p-8">{children}</div>
       </main>
     </div>
   );

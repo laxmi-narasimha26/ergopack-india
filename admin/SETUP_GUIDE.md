@@ -12,6 +12,7 @@ npm install
 ```
 
 This installs all required packages including:
+
 - React 18.2.0
 - TypeScript 5.3.3
 - Tailwind CSS 3.4.1
@@ -48,10 +49,11 @@ The admin panel will be available at: **http://localhost:5173**
 ## Demo Login
 
 For testing, use these credentials:
+
 - **Email:** admin@example.com
 - **Password:** password123
 
-*Note: Replace with actual credentials from your backend*
+_Note: Replace with actual credentials from your backend_
 
 ## Project Structure
 
@@ -93,11 +95,13 @@ npm run format           # Format code with Prettier
 ## Features & Modules
 
 ### Dashboard (/dashboard)
+
 - Overview with statistics
 - Recent activities chart
 - Quick action buttons
 
 ### Products (/products)
+
 - List all products
 - Create/edit products
 - Manage product specs (JSONB)
@@ -105,6 +109,7 @@ npm run format           # Format code with Prettier
 - Product status (draft/published)
 
 ### Blog (/blog)
+
 - Create and manage blog posts
 - Rich text content support
 - Featured image support
@@ -112,6 +117,7 @@ npm run format           # Format code with Prettier
 - Publish/draft status
 
 ### Pages (/pages)
+
 - Drag-and-drop page builder
 - Multiple component types:
   - Hero sections
@@ -124,6 +130,7 @@ npm run format           # Format code with Prettier
 - SEO optimization
 
 ### Leads (/leads)
+
 - View form submissions
 - Filter by status
 - Search submissions
@@ -132,19 +139,23 @@ npm run format           # Format code with Prettier
 - Delete submissions
 
 ### Forms (/forms)
+
 - Create custom forms
 - Form builder (coming soon)
 
 ### Settings (/settings)
+
 - Site configuration
 - Email settings
 - General settings
 
 ### Users (/users)
+
 - User management (coming soon)
 - Role-based access control
 
 ### SEO (/seo)
+
 - Site-wide SEO settings (coming soon)
 
 ## Authentication Flow
@@ -162,12 +173,14 @@ npm run format           # Format code with Prettier
 The admin panel communicates with a REST API. Key endpoints:
 
 ### Auth
+
 - `POST /auth/login`
 - `GET /auth/me`
 - `POST /auth/logout`
 - `GET /auth/verify`
 
 ### Products
+
 - `GET /products` - List
 - `POST /products` - Create
 - `GET /products/:id` - Get
@@ -175,6 +188,7 @@ The admin panel communicates with a REST API. Key endpoints:
 - `DELETE /products/:id` - Delete
 
 ### Blog
+
 - `GET /blog/posts`
 - `POST /blog/posts`
 - `GET /blog/posts/:id`
@@ -182,6 +196,7 @@ The admin panel communicates with a REST API. Key endpoints:
 - `DELETE /blog/posts/:id`
 
 ### Pages
+
 - `GET /pages`
 - `POST /pages`
 - `GET /pages/:id`
@@ -189,11 +204,13 @@ The admin panel communicates with a REST API. Key endpoints:
 - `DELETE /pages/:id`
 
 ### Forms
+
 - `GET /forms/submissions`
 - `PATCH /forms/submissions/:id` (status update)
 - `DELETE /forms/submissions/:id`
 
 ### Dashboard
+
 - `GET /dashboard/stats`
 
 ## Styling with Tailwind CSS
@@ -216,9 +233,9 @@ register('email', {
   required: 'Email is required',
   pattern: {
     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-    message: 'Invalid email'
-  }
-})
+    message: 'Invalid email',
+  },
+});
 ```
 
 ## State Management
@@ -250,7 +267,7 @@ export const myService = {
   getData: async () => {
     const response = await api.get('/endpoint');
     return response.data;
-  }
+  },
 };
 ```
 
@@ -268,23 +285,28 @@ const { register, formState: { errors } } = useForm();
 ## Troubleshooting
 
 ### Port Already in Use
+
 If port 5173 is in use:
+
 ```bash
 npm run dev -- --port 3000
 ```
 
 ### API Connection Issues
+
 1. Check `VITE_API_URL` in `.env`
 2. Ensure backend server is running
 3. Check CORS settings on backend
 4. Verify network tab in browser DevTools
 
 ### Styling Not Working
+
 1. Check Tailwind CSS is installed: `npm list tailwindcss`
 2. Verify `src/styles/index.css` is imported in `src/main.tsx`
 3. Rebuild: `npm run dev`
 
 ### TypeScript Errors
+
 1. Run type check: `npx tsc --noEmit`
 2. Ensure all types are defined in `src/types/index.ts`
 3. Check component prop types
@@ -319,17 +341,21 @@ npm run dev -- --port 3000
 ## Support & Debugging
 
 ### Enable Debug Mode
+
 Add to `App.tsx`:
+
 ```typescript
 console.log('API URL:', import.meta.env.VITE_API_URL);
 ```
 
 ### Browser DevTools
+
 - Network tab: Monitor API calls
 - Console: Check for JavaScript errors
 - Application: View localStorage and tokens
 
 ### Terminal Output
+
 Watch for TypeScript errors and warnings during development.
 
 ## Additional Resources
@@ -343,11 +369,13 @@ Watch for TypeScript errors and warnings during development.
 ## Production Deployment
 
 ### Build
+
 ```bash
 npm run build
 ```
 
 ### Deploy to Vercel (Recommended)
+
 ```bash
 # Install Vercel CLI
 npm i -g vercel
@@ -357,6 +385,7 @@ vercel
 ```
 
 ### Deploy to Other Platforms
+
 - **Netlify:** Drag and drop `dist/` folder
 - **AWS S3 + CloudFront:** Upload to S3, configure CloudFront
 - **GitHub Pages:** Configure vite build for `/` path

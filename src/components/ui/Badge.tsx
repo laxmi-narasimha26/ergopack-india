@@ -7,20 +7,13 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        default:
-          'bg-gray-900 text-white dark:bg-gray-100 dark:text-black',
-        primary:
-          'bg-black text-white dark:bg-white dark:text-black',
-        secondary:
-          'bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-gray-100',
-        success:
-          'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100',
-        warning:
-          'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100',
-        danger:
-          'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100',
-        info:
-          'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100',
+        default: 'bg-gray-900 text-white dark:bg-gray-100 dark:text-black',
+        primary: 'bg-black text-white dark:bg-white dark:text-black',
+        secondary: 'bg-gray-200 text-gray-900 dark:bg-gray-800 dark:text-gray-100',
+        success: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100',
+        warning: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-100',
+        danger: 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-100',
+        info: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-100',
         outline:
           'border border-gray-900 bg-transparent text-gray-900 dark:border-gray-100 dark:text-gray-100',
       },
@@ -52,26 +45,9 @@ export interface BadgeProps
 }
 
 const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
-  (
-    {
-      className,
-      variant,
-      size,
-      shape,
-      dot,
-      removable,
-      onRemove,
-      children,
-      ...props
-    },
-    ref
-  ) => {
+  ({ className, variant, size, shape, dot, removable, onRemove, children, ...props }, ref) => {
     return (
-      <div
-        ref={ref}
-        className={cn(badgeVariants({ variant, size, shape }), className)}
-        {...props}
-      >
+      <div ref={ref} className={cn(badgeVariants({ variant, size, shape }), className)} {...props}>
         {dot && (
           <span
             className="mr-1.5 inline-block h-1.5 w-1.5 rounded-full bg-current"

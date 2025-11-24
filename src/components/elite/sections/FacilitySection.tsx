@@ -33,8 +33,16 @@ export default function FacilitySection({ sectionNumber }: { sectionNumber: numb
         {/* Integration Points */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-12">
           {[
-            { icon: Building2, label: 'Facility Integration', desc: 'Seamless fit into existing layout' },
-            { icon: Workflow, label: 'Workflow Optimization', desc: 'End-to-end process enhancement' },
+            {
+              icon: Building2,
+              label: 'Facility Integration',
+              desc: 'Seamless fit into existing layout',
+            },
+            {
+              icon: Workflow,
+              label: 'Workflow Optimization',
+              desc: 'End-to-end process enhancement',
+            },
             { icon: Package, label: 'Output Quality', desc: 'Consistent, reliable results' },
           ].map((item, idx) => (
             <motion.div
@@ -61,7 +69,9 @@ export default function FacilitySection({ sectionNumber }: { sectionNumber: numb
           className="mt-12 max-w-6xl mx-auto aspect-video bg-gradient-to-br from-[#1A0000] to-black rounded-lg border border-[#C8102E] flex items-center justify-center relative overflow-hidden"
         >
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#C8102E33_0%,_transparent_70%)]" />
-          <span className="text-gray-600 text-2xl relative z-10">[ VIDEO: Full Facility Operation ]</span>
+          <span className="text-gray-600 text-2xl relative z-10">
+            [ VIDEO: Full Facility Operation ]
+          </span>
         </motion.div>
       </div>
     </SectionWrapper>

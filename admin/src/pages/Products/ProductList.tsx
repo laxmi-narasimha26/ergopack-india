@@ -25,10 +25,7 @@ export const ProductList: React.FC = () => {
         limit: pageSize,
         ...(searchQuery && { search: searchQuery }),
       };
-      const response = await api.get<PaginatedResponse<Product>>(
-        '/products',
-        { params }
-      );
+      const response = await api.get<PaginatedResponse<Product>>('/products', { params });
       setProducts(response.data.data);
       setTotal(response.data.total);
     } catch (error) {
@@ -144,22 +141,15 @@ export const ProductList: React.FC = () => {
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {products.map((product) => (
-                  <tr
-                    key={product.id}
-                    className="hover:bg-gray-50 transition-colors"
-                  >
+                  <tr key={product.id} className="hover:bg-gray-50 transition-colors">
                     <td className="px-6 py-4">
                       <p className="font-medium text-gray-900">{product.name}</p>
                       {product.description && (
-                        <p className="text-sm text-gray-500 truncate">
-                          {product.description}
-                        </p>
+                        <p className="text-sm text-gray-500 truncate">{product.description}</p>
                       )}
                     </td>
                     <td className="px-6 py-4">
-                      <code className="text-sm bg-gray-100 px-2 py-1 rounded">
-                        {product.slug}
-                      </code>
+                      <code className="text-sm bg-gray-100 px-2 py-1 rounded">{product.slug}</code>
                     </td>
                     <td className="px-6 py-4">
                       <p className="font-medium text-gray-900">

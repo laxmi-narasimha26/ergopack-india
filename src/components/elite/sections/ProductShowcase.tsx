@@ -20,7 +20,7 @@ import {
   Shield,
   Clock,
   BarChart,
-  Activity
+  Activity,
 } from 'lucide-react';
 
 interface ProductShowcaseProps {
@@ -44,7 +44,7 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
       '700X Li': '700X',
       '700': '700',
       '700 Go!': '700',
-      '700 Go! Li': '700'
+      '700 Go! Li': '700',
     };
 
     const folderName = modelMap[productData.model] || '700';
@@ -54,7 +54,10 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
   return (
     <div className="space-y-0">
       {/* Hero Section - Full viewport with split design */}
-      <section data-section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-theme-primary">
+      <section
+        data-section
+        className="min-h-screen flex items-center justify-center relative overflow-hidden bg-theme-primary"
+      >
         {/* Animated background */}
         <div className="absolute inset-0 opacity-10 dark:opacity-20">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,#C8102E_0%,transparent_50%)]" />
@@ -94,13 +97,19 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
               className="space-y-8"
             >
               {/* Product Line Badge */}
-              <div className={`inline-flex items-center gap-3 px-6 py-3 rounded-full border-2 ${
-                isXpert
-                  ? 'bg-gradient-to-r from-[#C8102E]/20 to-red-900/20 border-[#C8102E]'
-                  : 'bg-white/10 border-white/30'
-              }`}>
-                <Package className={`h-6 w-6 ${isXpert ? 'text-[#FFB81C]' : 'text-theme-primary'}`} />
-                <span className={`font-bold tracking-wide text-lg ${isXpert ? 'text-[#FFB81C]' : 'text-theme-primary'}`}>
+              <div
+                className={`inline-flex items-center gap-3 px-6 py-3 rounded-full border-2 ${
+                  isXpert
+                    ? 'bg-gradient-to-r from-[#C8102E]/20 to-red-900/20 border-[#C8102E]'
+                    : 'bg-white/10 border-white/30'
+                }`}
+              >
+                <Package
+                  className={`h-6 w-6 ${isXpert ? 'text-[#FFB81C]' : 'text-theme-primary'}`}
+                />
+                <span
+                  className={`font-bold tracking-wide text-lg ${isXpert ? 'text-[#FFB81C]' : 'text-theme-primary'}`}
+                >
                   {productData.line}
                 </span>
               </div>
@@ -116,11 +125,13 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
               </div>
 
               {/* Application Type */}
-              <div className={`inline-block px-8 py-4 rounded-2xl text-xl font-bold ${
-                isXpert
-                  ? 'bg-gradient-to-r from-[#C8102E] to-red-700 text-theme-primary'
-                  : 'bg-white/20 text-gray-200'
-              }`}>
+              <div
+                className={`inline-block px-8 py-4 rounded-2xl text-xl font-bold ${
+                  isXpert
+                    ? 'bg-gradient-to-r from-[#C8102E] to-red-700 text-theme-primary'
+                    : 'bg-white/20 text-gray-200'
+                }`}
+              >
                 {productData.applicationType}
               </div>
 
@@ -138,7 +149,9 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                     <div className="text-3xl font-black text-theme-primary">
                       {productData.performance.chainSpeed}
                     </div>
-                    <div className="text-sm text-theme-secondary">{productData.performance.chainSpeedUnit}</div>
+                    <div className="text-sm text-theme-secondary">
+                      {productData.performance.chainSpeedUnit}
+                    </div>
                   </div>
                 )}
 
@@ -167,7 +180,10 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
       </section>
 
       {/* Performance & Power Section */}
-      <section data-section className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-black via-gray-900 to-black py-20">
+      <section
+        data-section
+        className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-black via-gray-900 to-black py-20"
+      >
         <div className="max-w-7xl mx-auto px-8 sm:px-12 w-full">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -179,13 +195,16 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#C8102E]/20 border border-[#C8102E] mb-6">
                 <Gauge className="h-6 w-6 text-[#FFB81C]" />
-                <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">Performance Metrics</span>
+                <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">
+                  Performance Metrics
+                </span>
               </div>
               <h2 className="text-5xl sm:text-6xl font-black text-theme-primary mb-6 leading-tight">
                 Engineered For Maximum Efficiency
               </h2>
               <p className="text-2xl text-theme-secondary font-light max-w-3xl mx-auto leading-relaxed">
-                Precision engineering delivers consistent, reliable performance across all operational parameters
+                Precision engineering delivers consistent, reliable performance across all
+                operational parameters
               </p>
             </div>
 
@@ -226,19 +245,23 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 >
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[#C8102E]/10 rounded-full blur-3xl group-hover:bg-[#C8102E]/20 transition-all duration-500" />
                   <Target className="h-12 w-12 text-[#FFB81C] mb-6" />
-                  <h3 className="text-lg text-theme-secondary mb-3 font-medium">Tension Power Range</h3>
+                  <h3 className="text-lg text-theme-secondary mb-3 font-medium">
+                    Tension Power Range
+                  </h3>
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-theme-secondary">Minimum</span>
                       <span className="text-2xl font-bold text-theme-primary">
-                        {productData.sealingHead.tensionPower.min} {productData.sealingHead.tensionPower.unit}
+                        {productData.sealingHead.tensionPower.min}{' '}
+                        {productData.sealingHead.tensionPower.unit}
                       </span>
                     </div>
                     <div className="h-1 bg-gradient-to-r from-[#C8102E]/50 to-[#FFB81C]/50 rounded-full" />
                     <div className="flex justify-between items-center">
                       <span className="text-sm text-theme-secondary">Maximum</span>
                       <span className="text-2xl font-bold text-theme-primary">
-                        {productData.sealingHead.tensionPower.max} {productData.sealingHead.tensionPower.unit}
+                        {productData.sealingHead.tensionPower.max}{' '}
+                        {productData.sealingHead.tensionPower.unit}
                       </span>
                     </div>
                   </div>
@@ -257,7 +280,9 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 >
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[#C8102E]/10 rounded-full blur-3xl group-hover:bg-[#C8102E]/20 transition-all duration-500" />
                   <Ruler className="h-12 w-12 text-[#FFB81C] mb-6" />
-                  <h3 className="text-lg text-theme-secondary mb-3 font-medium">Standard Chain Length</h3>
+                  <h3 className="text-lg text-theme-secondary mb-3 font-medium">
+                    Standard Chain Length
+                  </h3>
                   <div className="flex items-baseline gap-2">
                     <p className="text-6xl font-black text-theme-primary">
                       {productData.performance.standardChainLength}
@@ -281,7 +306,9 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 >
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[#C8102E]/10 rounded-full blur-3xl group-hover:bg-[#C8102E]/20 transition-all duration-500" />
                   <Weight className="h-12 w-12 text-[#FFB81C] mb-6" />
-                  <h3 className="text-lg text-theme-secondary mb-3 font-medium">Total System Weight</h3>
+                  <h3 className="text-lg text-theme-secondary mb-3 font-medium">
+                    Total System Weight
+                  </h3>
                   <div className="flex items-baseline gap-2">
                     <p className="text-6xl font-black text-theme-primary">
                       {productData.system.weight}
@@ -305,10 +332,13 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 >
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[#C8102E]/10 rounded-full blur-3xl group-hover:bg-[#C8102E]/20 transition-all duration-500" />
                   <Layers className="h-12 w-12 text-[#FFB81C] mb-6" />
-                  <h3 className="text-lg text-theme-secondary mb-3 font-medium">Strap Width Range</h3>
+                  <h3 className="text-lg text-theme-secondary mb-3 font-medium">
+                    Strap Width Range
+                  </h3>
                   <div className="flex items-baseline gap-2">
                     <p className="text-5xl font-black text-theme-primary">
-                      {productData.sealingHead.strapWidth.min}-{productData.sealingHead.strapWidth.max}
+                      {productData.sealingHead.strapWidth.min}-
+                      {productData.sealingHead.strapWidth.max}
                     </p>
                     <p className="text-2xl text-theme-secondary font-light">
                       {productData.sealingHead.strapWidth.unit}
@@ -329,10 +359,13 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 >
                   <div className="absolute top-0 right-0 w-32 h-32 bg-[#C8102E]/10 rounded-full blur-3xl group-hover:bg-[#C8102E]/20 transition-all duration-500" />
                   <Activity className="h-12 w-12 text-[#FFB81C] mb-6" />
-                  <h3 className="text-lg text-theme-secondary mb-3 font-medium">Strap Thickness Range</h3>
+                  <h3 className="text-lg text-theme-secondary mb-3 font-medium">
+                    Strap Thickness Range
+                  </h3>
                   <div className="flex items-baseline gap-2">
                     <p className="text-5xl font-black text-theme-primary">
-                      {productData.sealingHead.strapThickness.min}-{productData.sealingHead.strapThickness.max}
+                      {productData.sealingHead.strapThickness.min}-
+                      {productData.sealingHead.strapThickness.max}
                     </p>
                     <p className="text-2xl text-theme-secondary font-light">
                       {productData.sealingHead.strapThickness.unit}
@@ -348,7 +381,10 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
 
       {/* Battery Technology Section */}
       {productData.battery && productData.battery.type !== 'None - Manual Operation' && (
-        <section data-section className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-black via-gray-900 to-black py-20">
+        <section
+          data-section
+          className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-black via-gray-900 to-black py-20"
+        >
           <div className="max-w-7xl mx-auto px-8 sm:px-12 w-full">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -358,15 +394,21 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
             >
               {/* Section Header */}
               <div className="text-center mb-16">
-                <div className={`inline-flex items-center gap-3 px-6 py-3 rounded-full mb-6 ${
-                  isLithium
-                    ? 'bg-amber-500/20 border border-amber-500'
-                    : 'bg-white/10 border border-white/30'
-                }`}>
-                  <Battery className={`h-6 w-6 ${isLithium ? 'text-amber-400' : 'text-theme-secondary'}`} />
-                  <span className={`text-sm font-bold tracking-wider uppercase ${
-                    isLithium ? 'text-amber-400' : 'text-theme-secondary'
-                  }`}>
+                <div
+                  className={`inline-flex items-center gap-3 px-6 py-3 rounded-full mb-6 ${
+                    isLithium
+                      ? 'bg-amber-500/20 border border-amber-500'
+                      : 'bg-white/10 border border-white/30'
+                  }`}
+                >
+                  <Battery
+                    className={`h-6 w-6 ${isLithium ? 'text-amber-400' : 'text-theme-secondary'}`}
+                  />
+                  <span
+                    className={`text-sm font-bold tracking-wider uppercase ${
+                      isLithium ? 'text-amber-400' : 'text-theme-secondary'
+                    }`}
+                  >
                     {isLithium ? 'Advanced Lithium-Ion Technology' : 'Reliable Power System'}
                   </span>
                 </div>
@@ -376,8 +418,7 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 <p className="text-2xl text-theme-secondary font-light max-w-3xl mx-auto leading-relaxed">
                   {isLithium
                     ? 'Advanced lithium-ion technology delivers 3.4x more cycles, 65% faster operation, and 60% weight reduction'
-                    : 'Dependable lead-fleece battery technology ensures consistent, reliable power for all-day operation'
-                  }
+                    : 'Dependable lead-fleece battery technology ensures consistent, reliable power for all-day operation'}
                 </p>
               </div>
 
@@ -395,8 +436,12 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                       : 'bg-white/5 border-white/20'
                   }`}
                 >
-                  <h3 className="text-sm text-theme-secondary mb-3 uppercase tracking-wider">Battery Type</h3>
-                  <p className={`text-3xl font-bold leading-tight ${isLithium ? 'text-amber-400' : 'text-theme-primary'}`}>
+                  <h3 className="text-sm text-theme-secondary mb-3 uppercase tracking-wider">
+                    Battery Type
+                  </h3>
+                  <p
+                    className={`text-3xl font-bold leading-tight ${isLithium ? 'text-amber-400' : 'text-theme-primary'}`}
+                  >
                     {isLithium ? 'Lithium-Ion' : 'Lead-Fleece'}
                   </p>
                 </motion.div>
@@ -414,8 +459,12 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                         : 'bg-white/5 border-white/20'
                     }`}
                   >
-                    <h3 className="text-sm text-theme-secondary mb-3 uppercase tracking-wider">Cycles per Charge</h3>
-                    <p className={`text-4xl font-bold ${isLithium ? 'text-amber-400' : 'text-theme-primary'}`}>
+                    <h3 className="text-sm text-theme-secondary mb-3 uppercase tracking-wider">
+                      Cycles per Charge
+                    </h3>
+                    <p
+                      className={`text-4xl font-bold ${isLithium ? 'text-amber-400' : 'text-theme-primary'}`}
+                    >
                       {productData.battery.strappingCycles}
                     </p>
                   </motion.div>
@@ -434,15 +483,20 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                         : 'bg-white/5 border-white/20'
                     }`}
                   >
-                    <h3 className="text-sm text-theme-secondary mb-3 uppercase tracking-wider">Charge Time</h3>
-                    <p className={`text-3xl font-bold ${isLithium ? 'text-amber-400' : 'text-theme-primary'}`}>
+                    <h3 className="text-sm text-theme-secondary mb-3 uppercase tracking-wider">
+                      Charge Time
+                    </h3>
+                    <p
+                      className={`text-3xl font-bold ${isLithium ? 'text-amber-400' : 'text-theme-primary'}`}
+                    >
                       {typeof productData.battery.loadingTime === 'object'
                         ? `${productData.battery.loadingTime.min}-${productData.battery.loadingTime.max}`
-                        : productData.battery.loadingTime
-                      }
+                        : productData.battery.loadingTime}
                     </p>
                     <p className="text-sm text-theme-secondary mt-1">
-                      {typeof productData.battery.loadingTime === 'object' ? productData.battery.loadingTime.unit || 'hours' : 'hours'}
+                      {typeof productData.battery.loadingTime === 'object'
+                        ? productData.battery.loadingTime.unit || 'hours'
+                        : 'hours'}
                     </p>
                   </motion.div>
                 )}
@@ -460,9 +514,14 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                         : 'bg-white/5 border-white/20'
                     }`}
                   >
-                    <h3 className="text-sm text-theme-secondary mb-3 uppercase tracking-wider">Battery Weight</h3>
-                    <p className={`text-4xl font-bold ${isLithium ? 'text-amber-400' : 'text-theme-primary'}`}>
-                      {productData.battery.weight} <span className="text-2xl">{productData.battery.weightUnit}</span>
+                    <h3 className="text-sm text-theme-secondary mb-3 uppercase tracking-wider">
+                      Battery Weight
+                    </h3>
+                    <p
+                      className={`text-4xl font-bold ${isLithium ? 'text-amber-400' : 'text-theme-primary'}`}
+                    >
+                      {productData.battery.weight}{' '}
+                      <span className="text-2xl">{productData.battery.weightUnit}</span>
                     </p>
                   </motion.div>
                 )}
@@ -502,7 +561,10 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
       )}
 
       {/* Flexibility & Coverage Section */}
-      <section data-section className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-black via-gray-900 to-black py-20">
+      <section
+        data-section
+        className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-black via-gray-900 to-black py-20"
+      >
         <div className="max-w-7xl mx-auto px-8 sm:px-12 w-full">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -514,7 +576,9 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#C8102E]/20 border border-[#C8102E] mb-6">
                 <Box className="h-6 w-6 text-[#FFB81C]" />
-                <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">Operational Flexibility</span>
+                <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">
+                  Operational Flexibility
+                </span>
               </div>
               <h2 className="text-5xl sm:text-6xl font-black text-theme-primary mb-6 leading-tight">
                 Versatile Pallet Coverage
@@ -535,13 +599,18 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                   className="p-10 rounded-3xl glass-theme"
                 >
                   <Ruler className="h-12 w-12 text-[#FFB81C] mb-6" />
-                  <h3 className="text-2xl font-bold text-theme-primary mb-8">Pallet Width Coverage</h3>
+                  <h3 className="text-2xl font-bold text-theme-primary mb-8">
+                    Pallet Width Coverage
+                  </h3>
                   <div className="space-y-6">
                     <div className="flex items-center justify-between p-6 rounded-2xl bg-white/5">
                       <div>
                         <p className="text-sm text-theme-secondary mb-1">Minimum Width</p>
                         <p className="text-4xl font-black text-theme-primary">
-                          {productData.flexibility.palletWidth.min} <span className="text-2xl text-theme-secondary">{productData.flexibility.palletWidth.unit}</span>
+                          {productData.flexibility.palletWidth.min}{' '}
+                          <span className="text-2xl text-theme-secondary">
+                            {productData.flexibility.palletWidth.unit}
+                          </span>
                         </p>
                       </div>
                       <div className="text-4xl text-[#C8102E]">←</div>
@@ -552,7 +621,10 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                       <div className="text-right">
                         <p className="text-sm text-theme-secondary mb-1">Maximum Width</p>
                         <p className="text-4xl font-black text-theme-primary">
-                          {productData.flexibility.palletWidth.max} <span className="text-2xl text-theme-secondary">{productData.flexibility.palletWidth.unit}</span>
+                          {productData.flexibility.palletWidth.max}{' '}
+                          <span className="text-2xl text-theme-secondary">
+                            {productData.flexibility.palletWidth.unit}
+                          </span>
                         </p>
                       </div>
                     </div>
@@ -569,13 +641,18 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                   className="p-10 rounded-3xl glass-theme"
                 >
                   <BarChart className="h-12 w-12 text-[#FFB81C] mb-6" />
-                  <h3 className="text-2xl font-bold text-theme-primary mb-8">Pallet Height Coverage</h3>
+                  <h3 className="text-2xl font-bold text-theme-primary mb-8">
+                    Pallet Height Coverage
+                  </h3>
                   <div className="space-y-6">
                     <div className="flex items-center justify-between p-6 rounded-2xl bg-white/5">
                       <div>
                         <p className="text-sm text-theme-secondary mb-1">Minimum Height</p>
                         <p className="text-4xl font-black text-theme-primary">
-                          {productData.flexibility.palletHeight.min} <span className="text-2xl text-theme-secondary">{productData.flexibility.palletHeight.unit}</span>
+                          {productData.flexibility.palletHeight.min}{' '}
+                          <span className="text-2xl text-theme-secondary">
+                            {productData.flexibility.palletHeight.unit}
+                          </span>
                         </p>
                       </div>
                       <div className="text-4xl text-[#C8102E]">↓</div>
@@ -586,7 +663,10 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                       <div className="text-right">
                         <p className="text-sm text-theme-secondary mb-1">Maximum Height</p>
                         <p className="text-4xl font-black text-theme-primary">
-                          {productData.flexibility.palletHeight.max} <span className="text-2xl text-theme-secondary">{productData.flexibility.palletHeight.unit}</span>
+                          {productData.flexibility.palletHeight.max}{' '}
+                          <span className="text-2xl text-theme-secondary">
+                            {productData.flexibility.palletHeight.unit}
+                          </span>
                         </p>
                       </div>
                     </div>
@@ -609,21 +689,36 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
-                    <p className="text-sm text-theme-secondary mb-2 uppercase tracking-wider">Length</p>
+                    <p className="text-sm text-theme-secondary mb-2 uppercase tracking-wider">
+                      Length
+                    </p>
                     <p className="text-4xl font-black text-theme-primary">
-                      {productData.system.dimensions.length} <span className="text-xl text-theme-secondary">{productData.system.dimensions.unit}</span>
+                      {productData.system.dimensions.length}{' '}
+                      <span className="text-xl text-theme-secondary">
+                        {productData.system.dimensions.unit}
+                      </span>
                     </p>
                   </div>
                   <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
-                    <p className="text-sm text-theme-secondary mb-2 uppercase tracking-wider">Width</p>
+                    <p className="text-sm text-theme-secondary mb-2 uppercase tracking-wider">
+                      Width
+                    </p>
                     <p className="text-4xl font-black text-theme-primary">
-                      {productData.system.dimensions.width} <span className="text-xl text-theme-secondary">{productData.system.dimensions.unit}</span>
+                      {productData.system.dimensions.width}{' '}
+                      <span className="text-xl text-theme-secondary">
+                        {productData.system.dimensions.unit}
+                      </span>
                     </p>
                   </div>
                   <div className="p-6 rounded-2xl bg-white/5 border border-white/10">
-                    <p className="text-sm text-theme-secondary mb-2 uppercase tracking-wider">Height</p>
+                    <p className="text-sm text-theme-secondary mb-2 uppercase tracking-wider">
+                      Height
+                    </p>
                     <p className="text-4xl font-black text-theme-primary">
-                      {productData.system.dimensions.height} <span className="text-xl text-theme-secondary">{productData.system.dimensions.unit}</span>
+                      {productData.system.dimensions.height}{' '}
+                      <span className="text-xl text-theme-secondary">
+                        {productData.system.dimensions.unit}
+                      </span>
                     </p>
                   </div>
                 </div>
@@ -634,7 +729,10 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
       </section>
 
       {/* Materials & Features Section */}
-      <section data-section className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-black via-gray-900 to-black py-20">
+      <section
+        data-section
+        className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-black via-gray-900 to-black py-20"
+      >
         <div className="max-w-7xl mx-auto px-8 sm:px-12 w-full">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -646,13 +744,16 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#C8102E]/20 border border-[#C8102E] mb-6">
                 <CheckCircle2 className="h-6 w-6 text-[#FFB81C]" />
-                <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">Materials & Features</span>
+                <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">
+                  Materials & Features
+                </span>
               </div>
               <h2 className="text-5xl sm:text-6xl font-black text-theme-primary mb-6 leading-tight">
                 Premium Construction & Compatibility
               </h2>
               <p className="text-2xl text-theme-secondary font-light max-w-3xl mx-auto leading-relaxed">
-                Built with professional-grade materials and comprehensive feature set for demanding industrial applications
+                Built with professional-grade materials and comprehensive feature set for demanding
+                industrial applications
               </p>
             </div>
 
@@ -666,7 +767,9 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
               >
                 <div className="flex items-center gap-4 mb-8">
                   <Layers className="h-12 w-12 text-[#FFB81C]" />
-                  <h3 className="text-3xl font-bold text-theme-primary">Compatible Strap Materials</h3>
+                  <h3 className="text-3xl font-bold text-theme-primary">
+                    Compatible Strap Materials
+                  </h3>
                 </div>
                 <div className="flex flex-wrap gap-4">
                   {productData.sealingHead.strapMaterials.map((material: string, index: number) => (
@@ -718,7 +821,9 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
               >
                 <div className="flex items-center gap-4 mb-8">
                   <Award className="h-12 w-12 text-[#FFB81C]" />
-                  <h3 className="text-3xl font-bold text-theme-primary">Certifications & Standards</h3>
+                  <h3 className="text-3xl font-bold text-theme-primary">
+                    Certifications & Standards
+                  </h3>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {productData.certifications.map((cert: string, index: number) => (
@@ -745,7 +850,10 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
       </section>
 
       {/* Advanced Technology & Innovation Section */}
-      <section data-section className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-black via-gray-900 to-black py-20">
+      <section
+        data-section
+        className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-black via-gray-900 to-black py-20"
+      >
         <div className="max-w-7xl mx-auto px-8 sm:px-12 w-full">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -757,13 +865,16 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#C8102E]/20 border border-[#C8102E] mb-6">
                 <Settings className="h-6 w-6 text-[#FFB81C]" />
-                <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">Advanced Technology</span>
+                <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">
+                  Advanced Technology
+                </span>
               </div>
               <h2 className="text-5xl sm:text-6xl font-black text-theme-primary mb-6 leading-tight">
                 Cutting-Edge Engineering Innovation
               </h2>
               <p className="text-2xl text-theme-secondary font-light max-w-3xl mx-auto leading-relaxed">
-                German precision engineering meets advanced automation for unmatched reliability and performance
+                German precision engineering meets advanced automation for unmatched reliability and
+                performance
               </p>
             </div>
 
@@ -776,12 +887,13 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 className="p-10 rounded-3xl bg-gradient-to-br from-[#C8102E]/10 to-transparent border border-[#C8102E]/30"
               >
                 <Zap className="h-16 w-16 text-[#FFB81C] mb-6" />
-                <h3 className="text-3xl font-bold text-theme-primary mb-4">Intelligent Control System</h3>
+                <h3 className="text-3xl font-bold text-theme-primary mb-4">
+                  Intelligent Control System
+                </h3>
                 <p className="text-lg text-theme-secondary leading-relaxed mb-6">
                   {isXpert
                     ? 'Siemens touchscreen interface provides intuitive control with programmable settings for different load types, tension requirements, and operational modes. Save up to 99 programs for instant recall.'
-                    : 'Precision electromechanical control system ensures consistent strapping quality with reliable, repeatable performance across all operational parameters.'
-                  }
+                    : 'Precision electromechanical control system ensures consistent strapping quality with reliable, repeatable performance across all operational parameters.'}
                 </p>
                 <div className="space-y-3">
                   {isXpert ? (
@@ -829,9 +941,13 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 className="p-10 rounded-3xl bg-gradient-to-br from-[#C8102E]/10 to-transparent border border-[#C8102E]/30"
               >
                 <Shield className="h-16 w-16 text-[#FFB81C] mb-6" />
-                <h3 className="text-3xl font-bold text-theme-primary mb-4">Precision Sealing Technology</h3>
+                <h3 className="text-3xl font-bold text-theme-primary mb-4">
+                  Precision Sealing Technology
+                </h3>
                 <p className="text-lg text-theme-secondary leading-relaxed mb-6">
-                  Advanced friction welding technology ensures 100% hermetic seals with consistent quality, creating tamper-evident closures that maintain their integrity throughout the entire supply chain journey.
+                  Advanced friction welding technology ensures 100% hermetic seals with consistent
+                  quality, creating tamper-evident closures that maintain their integrity throughout
+                  the entire supply chain journey.
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 text-theme-secondary">
@@ -860,9 +976,13 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 className="p-10 rounded-3xl bg-gradient-to-br from-[#C8102E]/10 to-transparent border border-[#C8102E]/30"
               >
                 <Target className="h-16 w-16 text-[#FFB81C] mb-6" />
-                <h3 className="text-3xl font-bold text-theme-primary mb-4">Precision Tensioning System</h3>
+                <h3 className="text-3xl font-bold text-theme-primary mb-4">
+                  Precision Tensioning System
+                </h3>
                 <p className="text-lg text-theme-secondary leading-relaxed mb-6">
-                  Electronically controlled tension adjustment ensures optimal strap tightness for every load type, from fragile electronics to heavy machinery components, preventing damage while ensuring secure transport.
+                  Electronically controlled tension adjustment ensures optimal strap tightness for
+                  every load type, from fragile electronics to heavy machinery components,
+                  preventing damage while ensuring secure transport.
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 text-theme-secondary">
@@ -891,9 +1011,13 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 className="p-10 rounded-3xl bg-gradient-to-br from-[#C8102E]/10 to-transparent border border-[#C8102E]/30"
               >
                 <Activity className="h-16 w-16 text-[#FFB81C] mb-6" />
-                <h3 className="text-3xl font-bold text-theme-primary mb-4">Ergonomic Design Excellence</h3>
+                <h3 className="text-3xl font-bold text-theme-primary mb-4">
+                  Ergonomic Design Excellence
+                </h3>
                 <p className="text-lg text-theme-secondary leading-relaxed mb-6">
-                  Thoughtfully engineered for operator comfort and efficiency, reducing fatigue during extended operations while maximizing productivity and maintaining consistent strapping quality throughout shifts.
+                  Thoughtfully engineered for operator comfort and efficiency, reducing fatigue
+                  during extended operations while maximizing productivity and maintaining
+                  consistent strapping quality throughout shifts.
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 text-theme-secondary">
@@ -925,9 +1049,12 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
             >
               <div className="text-center mb-12">
                 <Award className="h-16 w-16 text-amber-400 mx-auto mb-6" />
-                <h3 className="text-4xl font-bold text-theme-primary mb-4">Proprietary German Engineering</h3>
+                <h3 className="text-4xl font-bold text-theme-primary mb-4">
+                  Proprietary German Engineering
+                </h3>
                 <p className="text-xl text-theme-secondary max-w-3xl mx-auto">
-                  40+ years of innovation with multiple patented technologies exclusive to ErgopackGermany
+                  40+ years of innovation with multiple patented technologies exclusive to
+                  ErgopackGermany
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -940,7 +1067,8 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 <div className="text-center p-8 rounded-2xl bg-white/5">
                   <div className="text-5xl font-black text-amber-400 mb-3">TrippleTool™</div>
                   <p className="text-theme-secondary leading-relaxed">
-                    Revolutionary three-position tool head for versatile strapping angles and positions
+                    Revolutionary three-position tool head for versatile strapping angles and
+                    positions
                   </p>
                 </div>
                 <div className="text-center p-8 rounded-2xl bg-white/5">
@@ -956,7 +1084,10 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
       </section>
 
       {/* Industrial Applications & Use Cases Section */}
-      <section data-section className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-black via-gray-900 to-black py-20">
+      <section
+        data-section
+        className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-black via-gray-900 to-black py-20"
+      >
         <div className="max-w-7xl mx-auto px-8 sm:px-12 w-full">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -968,7 +1099,9 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#C8102E]/20 border border-[#C8102E] mb-6">
                 <Box className="h-6 w-6 text-[#FFB81C]" />
-                <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">Industry Applications</span>
+                <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">
+                  Industry Applications
+                </span>
               </div>
               <h2 className="text-5xl sm:text-6xl font-black text-white mb-6 leading-tight">
                 Trusted Across Critical Industries
@@ -994,7 +1127,9 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                   <h3 className="text-2xl font-bold text-white mb-4">Pharmaceutical</h3>
                 </div>
                 <p className="text-gray-300 leading-relaxed mb-6">
-                  GMP-compliant strapping ensuring tamper-evident security for high-value pharmaceutical shipments, clinical trial materials, and sensitive medical supplies.
+                  GMP-compliant strapping ensuring tamper-evident security for high-value
+                  pharmaceutical shipments, clinical trial materials, and sensitive medical
+                  supplies.
                 </p>
                 <div className="space-y-2 text-sm text-gray-400">
                   <div className="flex items-center gap-2">
@@ -1026,7 +1161,8 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                   <h3 className="text-2xl font-bold text-white mb-4">Automotive</h3>
                 </div>
                 <p className="text-gray-300 leading-relaxed mb-6">
-                  Precision load securing for JIT manufacturing, protecting high-value components from assembly line to global distribution networks.
+                  Precision load securing for JIT manufacturing, protecting high-value components
+                  from assembly line to global distribution networks.
                 </p>
                 <div className="space-y-2 text-sm text-gray-400">
                   <div className="flex items-center gap-2">
@@ -1058,7 +1194,8 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                   <h3 className="text-2xl font-bold text-white mb-4">Electronics</h3>
                 </div>
                 <p className="text-gray-300 leading-relaxed mb-6">
-                  ESD-safe strapping protecting sensitive electronic components, semiconductors, and finished consumer electronics from static and physical damage.
+                  ESD-safe strapping protecting sensitive electronic components, semiconductors, and
+                  finished consumer electronics from static and physical damage.
                 </p>
                 <div className="space-y-2 text-sm text-gray-400">
                   <div className="flex items-center gap-2">
@@ -1090,7 +1227,8 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                   <h3 className="text-2xl font-bold text-white mb-4">Food & Beverage</h3>
                 </div>
                 <p className="text-gray-300 leading-relaxed mb-6">
-                  Food-grade materials and hygienic design for securing packaged goods, bottled products, and perishable items in temperature-controlled logistics.
+                  Food-grade materials and hygienic design for securing packaged goods, bottled
+                  products, and perishable items in temperature-controlled logistics.
                 </p>
                 <div className="space-y-2 text-sm text-gray-400">
                   <div className="flex items-center gap-2">
@@ -1122,7 +1260,8 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                   <h3 className="text-2xl font-bold text-white mb-4">Building Materials</h3>
                 </div>
                 <p className="text-gray-300 leading-relaxed mb-6">
-                  Heavy-duty strapping for construction materials, tiles, pipes, and bulk goods requiring maximum tension force and weather resistance.
+                  Heavy-duty strapping for construction materials, tiles, pipes, and bulk goods
+                  requiring maximum tension force and weather resistance.
                 </p>
                 <div className="space-y-2 text-sm text-gray-400">
                   <div className="flex items-center gap-2">
@@ -1154,7 +1293,8 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                   <h3 className="text-2xl font-bold text-white mb-4">E-Commerce & Logistics</h3>
                 </div>
                 <p className="text-gray-300 leading-relaxed mb-6">
-                  High-volume fulfillment center operations requiring rapid strapping cycles, minimal downtime, and consistent quality across millions of shipments.
+                  High-volume fulfillment center operations requiring rapid strapping cycles,
+                  minimal downtime, and consistent quality across millions of shipments.
                 </p>
                 <div className="space-y-2 text-sm text-gray-400">
                   <div className="flex items-center gap-2">
@@ -1177,7 +1317,10 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
       </section>
 
       {/* ROI & Business Benefits Section */}
-      <section data-section className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-black via-gray-900 to-black py-20">
+      <section
+        data-section
+        className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-black via-gray-900 to-black py-20"
+      >
         <div className="max-w-7xl mx-auto px-8 sm:px-12 w-full">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -1189,7 +1332,9 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#C8102E]/20 border border-[#C8102E] mb-6">
                 <TrendingUp className="h-6 w-6 text-[#FFB81C]" />
-                <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">Return On Investment</span>
+                <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">
+                  Return On Investment
+                </span>
               </div>
               <h2 className="text-5xl sm:text-6xl font-black text-white mb-6 leading-tight">
                 Proven ROI & Cost Savings
@@ -1220,8 +1365,7 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 <p className="text-gray-300 leading-relaxed mb-6">
                   {isXpert
                     ? 'Process up to 80 pallets per hour with X-pert Line lithium-ion technology - 65% faster than conventional lead-battery systems. Operators can complete entire warehouse sections in half the time.'
-                    : 'Reliable 60-cycle-per-hour performance ensures consistent productivity throughout your shift, with proven uptime exceeding 99.5% in industrial environments.'
-                  }
+                    : 'Reliable 60-cycle-per-hour performance ensures consistent productivity throughout your shift, with proven uptime exceeding 99.5% in industrial environments.'}
                 </p>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-4 rounded-xl bg-white/5">
@@ -1255,7 +1399,9 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4">Quality & Loss Prevention</h3>
                 <p className="text-gray-300 leading-relaxed mb-6">
-                  Precision tensioning eliminates over-tightening damage and under-tensioning failures. Customers report 85% reduction in transit damage claims and complete elimination of strap-related product losses.
+                  Precision tensioning eliminates over-tightening damage and under-tensioning
+                  failures. Customers report 85% reduction in transit damage claims and complete
+                  elimination of strap-related product losses.
                 </p>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-4 rounded-xl bg-white/5">
@@ -1291,8 +1437,7 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 <p className="text-gray-300 leading-relaxed mb-6">
                   {isLithium
                     ? 'Lithium-ion battery technology eliminates battery change downtime and reduces operator fatigue. One battery handles full 8-hour shifts with rapid charging during breaks.'
-                    : 'Ergonomic design reduces operator fatigue, enabling consistent productivity throughout shifts. Minimal training requirements reduce onboarding costs and errors.'
-                  }
+                    : 'Ergonomic design reduces operator fatigue, enabling consistent productivity throughout shifts. Minimal training requirements reduce onboarding costs and errors.'}
                 </p>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-4 rounded-xl bg-white/5">
@@ -1328,7 +1473,9 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-4">Total Cost of Ownership</h3>
                 <p className="text-gray-300 leading-relaxed mb-6">
-                  Typical ROI achieved in 5-7 months through combined savings from reduced damage claims, lower labor costs, eliminated battery replacements, and minimal maintenance requirements over 10+ year operational lifespan.
+                  Typical ROI achieved in 5-7 months through combined savings from reduced damage
+                  claims, lower labor costs, eliminated battery replacements, and minimal
+                  maintenance requirements over 10+ year operational lifespan.
                 </p>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="p-4 rounded-xl bg-white/5">
@@ -1351,8 +1498,12 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
               className="p-12 rounded-3xl bg-gradient-to-br from-amber-500/10 to-orange-500/5 border-2 border-amber-500/30"
             >
               <div className="text-center mb-10">
-                <h3 className="text-4xl font-bold text-white mb-4">Typical Annual Savings Example</h3>
-                <p className="text-xl text-gray-300">Based on 200 pallets/day operation (50,000 pallets/year)</p>
+                <h3 className="text-4xl font-bold text-white mb-4">
+                  Typical Annual Savings Example
+                </h3>
+                <p className="text-xl text-gray-300">
+                  Based on 200 pallets/day operation (50,000 pallets/year)
+                </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <div className="p-6 rounded-2xl bg-white/10 text-center">
@@ -1386,7 +1537,10 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
       </section>
 
       {/* Safety & Reliability Section */}
-      <section data-section className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-black via-gray-900 to-black py-20">
+      <section
+        data-section
+        className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-black via-gray-900 to-black py-20"
+      >
         <div className="max-w-7xl mx-auto px-8 sm:px-12 w-full">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -1398,13 +1552,16 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#C8102E]/20 border border-[#C8102E] mb-6">
                 <Shield className="h-6 w-6 text-[#FFB81C]" />
-                <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">Safety & Reliability</span>
+                <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">
+                  Safety & Reliability
+                </span>
               </div>
               <h2 className="text-5xl sm:text-6xl font-black text-white mb-6 leading-tight">
                 Industrial-Grade Safety Standards
               </h2>
               <p className="text-2xl text-gray-400 font-light max-w-3xl mx-auto leading-relaxed">
-                Engineered for operator safety and long-term reliability in demanding industrial environments
+                Engineered for operator safety and long-term reliability in demanding industrial
+                environments
               </p>
             </div>
 
@@ -1423,21 +1580,28 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                     <CheckCircle2 className="h-6 w-6 text-[#C8102E] flex-shrink-0 mt-1" />
                     <div>
                       <div className="text-white font-semibold mb-1">Emergency Stop System</div>
-                      <div className="text-sm text-gray-400">Instant shutdown with clearly marked controls accessible from all operating positions</div>
+                      <div className="text-sm text-gray-400">
+                        Instant shutdown with clearly marked controls accessible from all operating
+                        positions
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5">
                     <CheckCircle2 className="h-6 w-6 text-[#C8102E] flex-shrink-0 mt-1" />
                     <div>
                       <div className="text-white font-semibold mb-1">Tool Head Protection</div>
-                      <div className="text-sm text-gray-400">Enclosed sealing mechanism prevents operator contact with heated components</div>
+                      <div className="text-sm text-gray-400">
+                        Enclosed sealing mechanism prevents operator contact with heated components
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5">
                     <CheckCircle2 className="h-6 w-6 text-[#C8102E] flex-shrink-0 mt-1" />
                     <div>
                       <div className="text-white font-semibold mb-1">Anti-Pinch Technology</div>
-                      <div className="text-sm text-gray-400">Chain movement sensors prevent hand/finger injuries during operation</div>
+                      <div className="text-sm text-gray-400">
+                        Chain movement sensors prevent hand/finger injuries during operation
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-start gap-4 p-4 rounded-xl bg-white/5">
@@ -1447,8 +1611,7 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                       <div className="text-sm text-gray-400">
                         {isLithium
                           ? 'Lithium-ion battery with BMS (Battery Management System) prevents overcharge, overdischarge, and thermal runaway'
-                          : 'Sealed lead-fleece battery with overcharge protection and low-voltage cutoff'
-                        }
+                          : 'Sealed lead-fleece battery with overcharge protection and low-voltage cutoff'}
                       </div>
                     </div>
                   </div>
@@ -1490,7 +1653,8 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                       </div>
                     </div>
                     <p className="text-sm text-gray-300 leading-relaxed">
-                      Manufactured under certified quality management system ensuring consistent excellence
+                      Manufactured under certified quality management system ensuring consistent
+                      excellence
                     </p>
                   </div>
 
@@ -1505,7 +1669,8 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                       </div>
                     </div>
                     <p className="text-sm text-gray-300 leading-relaxed">
-                      Restriction of hazardous substances - environmentally responsible manufacturing
+                      Restriction of hazardous substances - environmentally responsible
+                      manufacturing
                     </p>
                   </div>
                 </div>
@@ -1521,7 +1686,9 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
             >
               <div className="text-center mb-12">
                 <h3 className="text-4xl font-bold text-white mb-4">Proven Reliability Metrics</h3>
-                <p className="text-xl text-gray-300">Real-world performance data from industrial installations worldwide</p>
+                <p className="text-xl text-gray-300">
+                  Real-world performance data from industrial installations worldwide
+                </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
                 <div className="text-center p-8 rounded-2xl bg-white/5">
@@ -1553,7 +1720,10 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
       </section>
 
       {/* Maintenance & Support Section */}
-      <section data-section className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-black via-gray-900 to-black py-20">
+      <section
+        data-section
+        className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-black via-gray-900 to-black py-20"
+      >
         <div className="max-w-7xl mx-auto px-8 sm:px-12 w-full">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -1565,13 +1735,16 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#C8102E]/20 border border-[#C8102E] mb-6">
                 <Settings className="h-6 w-6 text-[#FFB81C]" />
-                <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">Maintenance & Support</span>
+                <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">
+                  Maintenance & Support
+                </span>
               </div>
               <h2 className="text-5xl sm:text-6xl font-black text-white mb-6 leading-tight">
                 Lifetime Partnership & Support
               </h2>
               <p className="text-2xl text-gray-400 font-light max-w-3xl mx-auto leading-relaxed">
-                Comprehensive maintenance programs and expert technical support ensuring maximum uptime and performance
+                Comprehensive maintenance programs and expert technical support ensuring maximum
+                uptime and performance
               </p>
             </div>
 
@@ -1586,14 +1759,18 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 <Clock className="h-16 w-16 text-[#FFB81C] mb-6" />
                 <h3 className="text-3xl font-bold text-white mb-6">Minimal Maintenance Design</h3>
                 <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                  Engineered for extended service intervals with easy-access maintenance points and modular component design reducing downtime to minutes instead of hours.
+                  Engineered for extended service intervals with easy-access maintenance points and
+                  modular component design reducing downtime to minutes instead of hours.
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-start gap-4">
                     <CheckCircle2 className="h-6 w-6 text-[#C8102E] flex-shrink-0 mt-1" />
                     <div>
                       <div className="text-white font-semibold mb-1">Quick-Change Components</div>
-                      <div className="text-sm text-gray-400">Tool-free battery removal, snap-fit covers, modular seal head replacement in under 5 minutes</div>
+                      <div className="text-sm text-gray-400">
+                        Tool-free battery removal, snap-fit covers, modular seal head replacement in
+                        under 5 minutes
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
@@ -1603,27 +1780,32 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                       <div className="text-sm text-gray-400">
                         {isXpert
                           ? 'Touchscreen displays error codes, maintenance schedules, and component wear status with predictive failure warnings'
-                          : 'LED indicators provide clear status information and alert operators to service requirements'
-                        }
+                          : 'LED indicators provide clear status information and alert operators to service requirements'}
                       </div>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
                     <CheckCircle2 className="h-6 w-6 text-[#C8102E] flex-shrink-0 mt-1" />
                     <div>
-                      <div className="text-white font-semibold mb-1">Lubrication-Free Operation</div>
-                      <div className="text-sm text-gray-400">Sealed bearings and self-lubricating components eliminate messy maintenance tasks</div>
+                      <div className="text-white font-semibold mb-1">
+                        Lubrication-Free Operation
+                      </div>
+                      <div className="text-sm text-gray-400">
+                        Sealed bearings and self-lubricating components eliminate messy maintenance
+                        tasks
+                      </div>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
                     <CheckCircle2 className="h-6 w-6 text-[#C8102E] flex-shrink-0 mt-1" />
                     <div>
-                      <div className="text-white font-semibold mb-1">Extended Service Intervals</div>
+                      <div className="text-white font-semibold mb-1">
+                        Extended Service Intervals
+                      </div>
                       <div className="text-sm text-gray-400">
                         {isLithium
                           ? 'Lithium-ion battery requires zero maintenance - no water top-ups, no cleaning, no memory effect'
-                          : 'Sealed lead-fleece battery technology minimizes water loss and maintenance requirements'
-                        }
+                          : 'Sealed lead-fleece battery technology minimizes water loss and maintenance requirements'}
                       </div>
                     </div>
                   </div>
@@ -1637,9 +1819,12 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                 className="p-10 rounded-3xl bg-gradient-to-br from-[#C8102E]/10 to-transparent border border-[#C8102E]/30"
               >
                 <Award className="h-16 w-16 text-[#FFB81C] mb-6" />
-                <h3 className="text-3xl font-bold text-white mb-6">Comprehensive Support Programs</h3>
+                <h3 className="text-3xl font-bold text-white mb-6">
+                  Comprehensive Support Programs
+                </h3>
                 <p className="text-lg text-gray-300 mb-6 leading-relaxed">
-                  ErgopackIndia provides multi-tier support ensuring your operations never stop, backed by German engineering expertise and local service presence.
+                  ErgopackIndia provides multi-tier support ensuring your operations never stop,
+                  backed by German engineering expertise and local service presence.
                 </p>
                 <div className="space-y-4">
                   <div className="p-6 rounded-2xl bg-gradient-to-br from-amber-500/10 to-orange-500/5 border border-amber-500/30">
@@ -1650,7 +1835,8 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                       <div className="text-xl font-bold text-white">24/7 Technical Hotline</div>
                     </div>
                     <p className="text-sm text-gray-300">
-                      Round-the-clock access to certified technicians for troubleshooting, remote diagnostics, and emergency support
+                      Round-the-clock access to certified technicians for troubleshooting, remote
+                      diagnostics, and emergency support
                     </p>
                   </div>
 
@@ -1662,7 +1848,8 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                       <div className="text-xl font-bold text-white">On-Site Service</div>
                     </div>
                     <p className="text-sm text-gray-300">
-                      Nationwide service network with guaranteed 48-hour response time for critical failures
+                      Nationwide service network with guaranteed 48-hour response time for critical
+                      failures
                     </p>
                   </div>
 
@@ -1674,7 +1861,8 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                       <div className="text-xl font-bold text-white">Genuine Parts Inventory</div>
                     </div>
                     <p className="text-sm text-gray-300">
-                      Complete spare parts availability with next-day delivery across India for all ErgopackGermany models
+                      Complete spare parts availability with next-day delivery across India for all
+                      ErgopackGermany models
                     </p>
                   </div>
 
@@ -1686,7 +1874,8 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                       <div className="text-xl font-bold text-white">Training & Certification</div>
                     </div>
                     <p className="text-sm text-gray-300">
-                      Comprehensive operator and maintenance training programs with certification for in-house technical teams
+                      Comprehensive operator and maintenance training programs with certification
+                      for in-house technical teams
                     </p>
                   </div>
                 </div>
@@ -1702,15 +1891,20 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
             >
               <div className="text-center mb-10">
                 <Shield className="h-20 w-20 text-[#FFB81C] mx-auto mb-6" />
-                <h3 className="text-4xl font-bold text-white mb-4">Industry-Leading Warranty Protection</h3>
-                <p className="text-xl text-gray-300">Comprehensive coverage protecting your investment</p>
+                <h3 className="text-4xl font-bold text-white mb-4">
+                  Industry-Leading Warranty Protection
+                </h3>
+                <p className="text-xl text-gray-300">
+                  Comprehensive coverage protecting your investment
+                </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="p-8 rounded-2xl bg-white/5 border border-white/10 text-center">
                   <div className="text-5xl font-black text-[#C8102E] mb-4">2 Years</div>
                   <div className="text-xl text-white font-semibold mb-3">Full Machine Warranty</div>
                   <div className="text-sm text-gray-400 leading-relaxed">
-                    Complete coverage on all mechanical, electrical, and electronic components including labor and parts
+                    Complete coverage on all mechanical, electrical, and electronic components
+                    including labor and parts
                   </div>
                 </div>
                 <div className="p-8 rounded-2xl bg-white/5 border border-white/10 text-center">
@@ -1721,15 +1915,15 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                   <div className="text-sm text-gray-400 leading-relaxed">
                     {isLithium
                       ? 'Extended lithium-ion battery warranty covering capacity degradation and cell failures'
-                      : 'Lead-fleece battery coverage including replacement for manufacturing defects'
-                    }
+                      : 'Lead-fleece battery coverage including replacement for manufacturing defects'}
                   </div>
                 </div>
                 <div className="p-8 rounded-2xl bg-white/5 border border-white/10 text-center">
                   <div className="text-5xl font-black text-[#C8102E] mb-4">10 Years</div>
                   <div className="text-xl text-white font-semibold mb-3">Parts Availability</div>
                   <div className="text-sm text-gray-400 leading-relaxed">
-                    Guaranteed spare parts availability for minimum 10 years after purchase protecting long-term investment
+                    Guaranteed spare parts availability for minimum 10 years after purchase
+                    protecting long-term investment
                   </div>
                 </div>
               </div>
@@ -1739,7 +1933,10 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
       </section>
 
       {/* Competitive Advantages Section */}
-      <section data-section className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-black via-gray-900 to-black py-20">
+      <section
+        data-section
+        className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-black via-gray-900 to-black py-20"
+      >
         <div className="max-w-7xl mx-auto px-8 sm:px-12 w-full">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -1751,13 +1948,16 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
             <div className="text-center mb-16">
               <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#C8102E]/20 border border-[#C8102E] mb-6">
                 <Award className="h-6 w-6 text-[#FFB81C]" />
-                <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">Competitive Edge</span>
+                <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">
+                  Competitive Edge
+                </span>
               </div>
               <h2 className="text-5xl sm:text-6xl font-black text-white mb-6 leading-tight">
                 Why ErgoPack Leads The Industry
               </h2>
               <p className="text-2xl text-gray-400 font-light max-w-3xl mx-auto leading-relaxed">
-                40 years of German engineering excellence translated into measurable competitive advantages
+                40 years of German engineering excellence translated into measurable competitive
+                advantages
               </p>
             </div>
 
@@ -1784,7 +1984,8 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                     <div>
                       <div className="text-white font-semibold mb-2">Speed Advantage</div>
                       <div className="text-sm text-gray-400">
-                        Complete pallet in 45 seconds vs. 7-8 minutes with manual tools - transforming warehouse productivity
+                        Complete pallet in 45 seconds vs. 7-8 minutes with manual tools -
+                        transforming warehouse productivity
                       </div>
                     </div>
                   </div>
@@ -1796,7 +1997,8 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                     <div>
                       <div className="text-white font-semibold mb-2">Consistency</div>
                       <div className="text-sm text-gray-400">
-                        Programmable tension eliminates human error - every strap perfect, every time, regardless of operator skill level
+                        Programmable tension eliminates human error - every strap perfect, every
+                        time, regardless of operator skill level
                       </div>
                     </div>
                   </div>
@@ -1808,7 +2010,8 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                     <div>
                       <div className="text-white font-semibold mb-2">Labor Intensity</div>
                       <div className="text-sm text-gray-400">
-                        Eliminate operator fatigue, repetitive strain injuries, and training requirements for complex manual strapping techniques
+                        Eliminate operator fatigue, repetitive strain injuries, and training
+                        requirements for complex manual strapping techniques
                       </div>
                     </div>
                   </div>
@@ -1841,8 +2044,7 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                       <div className="text-sm text-gray-400">
                         {isLithium
                           ? 'Lithium-ion technology delivers industry-leading 66m/min vs. 40m/min lead-battery competitors'
-                          : 'Optimized motor and chain system outperforms equivalent economy-class competitors by 25%'
-                        }
+                          : 'Optimized motor and chain system outperforms equivalent economy-class competitors by 25%'}
                       </div>
                     </div>
                   </div>
@@ -1858,8 +2060,7 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                       <div className="text-sm text-gray-400">
                         {isLithium
                           ? '1200 cycles vs. 350-cycle competitors - complete 3-shift operation on single charge'
-                          : '350 cycles vs. 160-cycle basic models - full-day operation without battery changes'
-                        }
+                          : '350 cycles vs. 160-cycle basic models - full-day operation without battery changes'}
                       </div>
                     </div>
                   </div>
@@ -1871,7 +2072,8 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                     <div>
                       <div className="text-white font-semibold mb-2">Longevity</div>
                       <div className="text-sm text-gray-400">
-                        German precision manufacturing means 10+ year service life vs. 5-7 years for Asian competitors - superior TCO
+                        German precision manufacturing means 10+ year service life vs. 5-7 years for
+                        Asian competitors - superior TCO
                       </div>
                     </div>
                   </div>
@@ -1887,19 +2089,27 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
               className="mt-16 p-12 rounded-3xl bg-gradient-to-br from-amber-500/10 to-orange-500/5 border-2 border-amber-500/30"
             >
               <div className="text-center mb-12">
-                <h3 className="text-4xl font-bold text-white mb-4">The ErgopackGermany Difference</h3>
-                <p className="text-xl text-gray-300">Features you won't find in competitor systems</p>
+                <h3 className="text-4xl font-bold text-white mb-4">
+                  The ErgopackGermany Difference
+                </h3>
+                <p className="text-xl text-gray-300">
+                  Features you won't find in competitor systems
+                </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div className="text-center p-6 rounded-2xl bg-white/10">
                   <Package className="h-12 w-12 text-amber-400 mx-auto mb-4" />
                   <div className="text-white font-bold mb-2">ChainLance® System</div>
-                  <div className="text-sm text-gray-400">Patented chain guidance ensuring perfect placement</div>
+                  <div className="text-sm text-gray-400">
+                    Patented chain guidance ensuring perfect placement
+                  </div>
                 </div>
                 <div className="text-center p-6 rounded-2xl bg-white/10">
                   <Settings className="h-12 w-12 text-amber-400 mx-auto mb-4" />
                   <div className="text-white font-bold mb-2">TrippleTool™ Head</div>
-                  <div className="text-sm text-gray-400">Versatile 3-position sealing capability</div>
+                  <div className="text-sm text-gray-400">
+                    Versatile 3-position sealing capability
+                  </div>
                 </div>
                 <div className="text-center p-6 rounded-2xl bg-white/10">
                   {isXpert ? (
@@ -1913,21 +2123,21 @@ export default function ProductShowcase({ productData }: ProductShowcaseProps) {
                   <div className="text-sm text-gray-400">
                     {isXpert
                       ? 'Industrial touchscreen with 99 program memory'
-                      : 'Reliable electromechanical control system'
-                    }
+                      : 'Reliable electromechanical control system'}
                   </div>
                 </div>
                 <div className="text-center p-6 rounded-2xl bg-white/10">
                   <Award className="h-12 w-12 text-amber-400 mx-auto mb-4" />
                   <div className="text-white font-bold mb-2">Made in Germany</div>
-                  <div className="text-sm text-gray-400">40 years engineering excellence & quality</div>
+                  <div className="text-sm text-gray-400">
+                    40 years engineering excellence & quality
+                  </div>
                 </div>
               </div>
             </motion.div>
           </motion.div>
         </div>
       </section>
-
     </div>
   );
 }

@@ -8,10 +8,17 @@ interface MagneticButtonProps {
   className?: string;
   onClick?: () => void;
   href?: string;
+  as?: any;
 }
 
-export function MagneticButton({ children, className = '', onClick, href }: MagneticButtonProps) {
-  const ref = useRef<HTMLButtonElement | HTMLAnchorElement>(null);
+export function MagneticButton({
+  children,
+  className = '',
+  onClick,
+  href,
+  as,
+}: MagneticButtonProps) {
+  const ref = useRef<HTMLElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -50,11 +57,11 @@ export function MagneticButton({ children, className = '', onClick, href }: Magn
     };
   }, [x, y]);
 
-  const Component = href ? motion.a : motion.button;
+  const Component = as || (href ? motion.a : motion.button);
 
   return (
     <Component
-      ref={ref as any}
+      ref={ref}
       href={href}
       onClick={onClick}
       className={`relative inline-block ${className}`}

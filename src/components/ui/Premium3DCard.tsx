@@ -12,7 +12,7 @@ interface Premium3DCardProps {
 export function Premium3DCard({
   children,
   className = '',
-  glowColor = 'rgba(155, 28, 28, 0.3)'
+  glowColor = 'rgba(155, 28, 28, 0.3)',
 }: Premium3DCardProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
@@ -65,9 +65,7 @@ export function Premium3DCard({
       className={`relative ${className}`}
     >
       {/* Card content */}
-      <div style={{ transform: 'translateZ(50px)', transformStyle: 'preserve-3d' }}>
-        {children}
-      </div>
+      <div style={{ transform: 'translateZ(50px)', transformStyle: 'preserve-3d' }}>{children}</div>
 
       {/* Glossy overlay effect */}
       <motion.div

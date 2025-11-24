@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
@@ -6,85 +6,18 @@ const config: Config = {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        // Premium neutrals - inspired by Apple, Rolex
-        luxury: {
-          white: '#FAFAFA',
-          'off-white': '#F5F5F7',
-          'light-gray': '#E8E8ED',
-          'mid-gray': '#86868B',
-          'dark-gray': '#1D1D1F',
-          'space-black': '#0A0A0A',
-        },
-        // Premium Red - Deep Crimson & Ruby (replacing gold)
-        crimson: {
-          50: '#FEF2F2',
-          100: '#FEE2E2',
-          200: '#FEC9C9',
-          300: '#FCA5A5',
-          400: '#F87171',
-          500: '#9B1C1C', // Deep premium crimson - main brand color
-          600: '#7F1D1D',
-          700: '#6B1717',
-          800: '#5A1414',
-          900: '#4A1111',
-        },
-        // Deep burgundy - premium dark accent
-        burgundy: {
-          50: '#FDF2F4',
-          100: '#FCE7EB',
-          200: '#F9CFD9',
-          300: '#F4A8BA',
-          400: '#ED7692',
-          500: '#8B1538', // Deep burgundy
-          600: '#701129',
-          700: '#5C0E22',
-          800: '#4E0D20',
-          900: '#450C1F',
-        },
-        // Ruby - vibrant premium red
-        ruby: {
-          50: '#FFF1F1',
-          100: '#FFE1E1',
-          200: '#FFC7C7',
-          300: '#FFA0A0',
-          400: '#FF6B6B',
-          500: '#CC0000', // Rich ruby red
-          600: '#B00000',
-          700: '#940000',
-          800: '#7A0000',
-          900: '#660000',
-        },
-        // Platinum - subtle luxury
-        platinum: {
-          50: '#FAFAFA',
-          100: '#F4F4F5',
-          200: '#E4E4E7',
-          300: '#D4D4D8',
-          400: '#A1A1AA',
-          500: '#71717A',
-          600: '#52525B',
-          700: '#3F3F46',
-          800: '#27272A',
-          900: '#18181B',
-        },
-        // Legacy colors (kept for compatibility)
-        primary: {
-          50: '#f5f7fa',
-          100: '#eaeef4',
-          200: '#d0dae7',
-          300: '#a7bcd1',
-          400: '#7799b7',
-          500: '#557a9f',
-          600: '#426185',
-          700: '#364f6c',
-          800: '#30445b',
-          900: '#2c3a4d',
-          950: '#1d2633',
-        },
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
         accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
           50: '#fef2f2',
           100: '#fee2e2',
           200: '#fecaca',
@@ -97,24 +30,74 @@ const config: Config = {
           900: '#7f1d1d',
           950: '#450a0a',
         },
-        dark: {
-          50: '#f6f6f6',
-          100: '#e7e7e7',
-          200: '#d1d1d1',
-          300: '#b0b0b0',
-          400: '#888888',
-          500: '#6d6d6d',
-          600: '#5d5d5d',
-          700: '#4f4f4f',
-          800: '#454545',
-          900: '#3d3d3d',
-          950: '#1a1a1a',
+        primary: {
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
+          50: '#f5f7fa',
+          100: '#eaeef4',
+          200: '#d0dae7',
+          300: '#a7bcd1',
+          400: '#7799b7',
+          500: '#557a9f',
+          600: '#426185',
+          700: '#364f6c',
+          800: '#30445b',
+          900: '#2c3a4d',
+          950: '#1d2633',
+        },
+        popover: {
+          DEFAULT: 'hsl(var(--popover))',
+          foreground: 'hsl(var(--popover-foreground))',
+        },
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))',
+        },
+        // Artisan Luxury Palette
+        artisan: {
+          black: '#050505', // Deepest black
+          white: '#FAFAFA', // Crisp white
+          gold: '#D4AF37', // Metallic accent
+          silver: '#E5E7EB', // Subtle silver
+          charcoal: '#121212', // Soft black
+        },
+        // Premium Custom Palettes
+        luxury: {
+          'off-white': '#F9F9F7',
+          'dark-gray': '#1A1A1A',
+          'space-black': '#0A0A0A',
+        },
+        crimson: {
+          50: '#fef2f2',
+          100: '#fee2e2',
+          200: '#fecaca',
+          300: '#fca5a5',
+          400: '#f87171',
+          500: '#ef4444',
+          600: '#dc2626',
+          700: '#b91c1c',
+          800: '#991b1b',
+          900: '#7f1d1d',
+          950: '#450a0a',
+        },
+        platinum: {
+          50: '#f8f9fa',
+          100: '#f1f3f5',
+          200: '#e9ecef',
+          300: '#dee2e6',
+          400: '#ced4da',
+          500: '#adb5bd',
+          600: '#868e96',
+          700: '#495057',
+          800: '#343a40',
+          900: '#212529',
+          950: '#121416',
         },
       },
       fontFamily: {
-        sans: ['var(--font-montserrat)', 'system-ui', '-apple-system', 'sans-serif'],
-        serif: ['var(--font-playfair)', 'Georgia', 'serif'],
-        display: ['var(--font-playfair)', 'Georgia', 'serif'],
+        sans: ['var(--font-proza)', 'system-ui', '-apple-system', 'sans-serif'],
+        serif: ['var(--font-cormorant)', 'Georgia', 'serif'],
+        display: ['var(--font-cormorant)', 'Georgia', 'serif'],
       },
       animation: {
         // Existing animations
@@ -122,16 +105,16 @@ const config: Config = {
         'slide-up': 'slideUp 0.5s ease-out',
         'slide-down': 'slideDown 0.5s ease-out',
         'scale-in': 'scaleIn 0.3s ease-out',
-        'shimmer': 'shimmer 2s infinite',
-        'float': 'float 6s ease-in-out infinite',
-        'glow': 'glow 2s ease-in-out infinite',
+        shimmer: 'shimmer 2s infinite',
+        float: 'float 6s ease-in-out infinite',
+        glow: 'glow 2s ease-in-out infinite',
         // Premium animations
         'luxury-fade': 'luxuryFade 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
         'luxury-slide-up': 'luxurySlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1)',
         'luxury-scale': 'luxuryScale 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)',
         'elegant-glow': 'elegantGlow 3s ease-in-out infinite',
         'sophisticated-shimmer': 'sophisticatedShimmer 3s ease-in-out infinite',
-        'reveal': 'reveal 1.2s cubic-bezier(0.77, 0, 0.175, 1)',
+        reveal: 'reveal 1.2s cubic-bezier(0.77, 0, 0.175, 1)',
         'soft-bounce': 'softBounce 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
       },
       keyframes: {
@@ -195,9 +178,9 @@ const config: Config = {
         },
       },
       transitionTimingFunction: {
-        'luxury': 'cubic-bezier(0.16, 1, 0.3, 1)',
-        'elegant': 'cubic-bezier(0.4, 0, 0.2, 1)',
-        'smooth': 'cubic-bezier(0.45, 0.05, 0.55, 0.95)',
+        luxury: 'cubic-bezier(0.16, 1, 0.3, 1)',
+        elegant: 'cubic-bezier(0.4, 0, 0.2, 1)',
+        smooth: 'cubic-bezier(0.45, 0.05, 0.55, 0.95)',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -205,8 +188,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-  ],
-}
-export default config
+  plugins: [require('@tailwindcss/typography')],
+};
+export default config;

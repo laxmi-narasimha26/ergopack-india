@@ -3,6 +3,7 @@
 ## 🎯 Overview
 
 This guide will help you set up the complete headless CMS system for ErgopackIndia, consisting of:
+
 - **Backend API** (Node.js/Express/PostgreSQL/TypeScript)
 - **Admin Panel** (React/Vite/Tailwind)
 - **Frontend Integration** (Next.js)
@@ -88,6 +89,7 @@ npm run migrate
 ```
 
 This will:
+
 - Create all database tables
 - Set up default roles (Super Admin, Marketer, Sales, Product Manager, Editor)
 - Create default languages (English)
@@ -97,6 +99,7 @@ This will:
 ### Step 5: Create Admin User
 
 The seed data includes a default admin user:
+
 - **Email:** admin@ergopackindia.com
 - **Password:** admin123
 
@@ -116,6 +119,7 @@ npm start
 The backend will be available at: `http://localhost:5000`
 
 **Test the API:**
+
 ```bash
 curl http://localhost:5000/health
 # Should return: {"status":"ok","timestamp":"..."}
@@ -178,6 +182,7 @@ echo "NEXT_PUBLIC_CMS_API_URL=http://localhost:5000/api/public" >> .env.local
 ### Step 2: Update Next.js Pages to Use CMS API
 
 The following files have been created for you:
+
 - `/src/lib/cms-api.ts` - CMS API client
 - `/src/components/cms/DynamicComponent.tsx` - Dynamic component renderer
 
@@ -449,11 +454,13 @@ npm run test:coverage
 ## 🔒 Security Best Practices
 
 1. **Change Default Credentials:**
+
    ```bash
    # Login to admin panel and change admin password immediately
    ```
 
 2. **Use Strong JWT Secrets:**
+
    ```bash
    # Generate strong secrets
    openssl rand -base64 64
@@ -588,6 +595,7 @@ Your headless CMS is now fully operational. You can:
 5. ✅ Integrate seamlessly with your Next.js frontend
 
 **Next Steps:**
+
 - Customize component designs in `/admin/src/components/cms/DynamicComponent.tsx`
 - Add more component types in the database
 - Configure Google Analytics integration

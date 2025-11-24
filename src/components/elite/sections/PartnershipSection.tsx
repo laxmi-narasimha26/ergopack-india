@@ -93,7 +93,9 @@ export default function PartnershipSection({ sectionNumber }: { sectionNumber: n
           viewport={{ once: true }}
           className="bg-black/60 border border-[#4A0000] p-8 rounded-lg max-w-3xl mx-auto text-left"
         >
-          <h4 className="text-theme-primary font-bold text-xl mb-4 text-center">Eligibility Criteria</h4>
+          <h4 className="text-theme-primary font-bold text-xl mb-4 text-center">
+            Eligibility Criteria
+          </h4>
           <ul className="space-y-2 text-theme-secondary">
             {[
               'Minimum 1,000 packages/day production volume',

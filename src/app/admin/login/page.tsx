@@ -96,12 +96,7 @@ export default function LoginPage() {
               />
             </div>
 
-            <Button
-              type="submit"
-              variant="primary"
-              className="w-full"
-              disabled={isLoading}
-            >
+            <Button type="submit" variant="primary" className="w-full" disabled={isLoading}>
               {isLoading ? (
                 <>
                   <Loader className="animate-spin mr-2" size={20} />
@@ -117,9 +112,7 @@ export default function LoginPage() {
           </form>
 
           <div className="mt-6 pt-6 border-t border-neutral-800 text-center">
-            <p className="text-sm text-neutral-500">
-              Secured by NextAuth
-            </p>
+            <p className="text-sm text-neutral-500">Secured by NextAuth</p>
           </div>
         </div>
 

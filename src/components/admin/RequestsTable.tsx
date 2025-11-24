@@ -12,7 +12,10 @@ interface RequestsTableProps {
   onStatusUpdate?: (id: string, status: ContactRequest['status']) => void;
 }
 
-const statusColors: Record<ContactRequest['status'], 'default' | 'info' | 'success' | 'warning' | 'danger'> = {
+const statusColors: Record<
+  ContactRequest['status'],
+  'default' | 'info' | 'success' | 'warning' | 'danger'
+> = {
   new: 'info',
   contacted: 'warning',
   qualified: 'default',
@@ -63,10 +66,7 @@ export default function RequestsTable({ requests, onStatusUpdate }: RequestsTabl
           </thead>
           <tbody className="divide-y divide-neutral-800">
             {requests.map((request) => (
-              <tr
-                key={request._id}
-                className="hover:bg-neutral-900/50 transition-colors"
-              >
+              <tr key={request._id} className="hover:bg-neutral-900/50 transition-colors">
                 <td className="px-4 py-4 whitespace-nowrap">
                   <div>
                     <div className="text-sm font-medium text-white">{request.name}</div>
@@ -78,14 +78,14 @@ export default function RequestsTable({ requests, onStatusUpdate }: RequestsTabl
                   <div className="text-xs text-neutral-400">{request.jobTitle}</div>
                 </td>
                 <td className="px-4 py-4 whitespace-nowrap">
-                  <span className="text-sm text-neutral-300 capitalize">
-                    {request.industry}
-                  </span>
+                  <span className="text-sm text-neutral-300 capitalize">{request.industry}</span>
                 </td>
                 <td className="px-4 py-4 whitespace-nowrap">
                   <select
                     value={request.status}
-                    onChange={(e) => handleStatusChange(request._id, e.target.value as ContactRequest['status'])}
+                    onChange={(e) =>
+                      handleStatusChange(request._id, e.target.value as ContactRequest['status'])
+                    }
                     className="text-xs bg-neutral-800 border border-neutral-700 rounded px-2 py-1
                       text-white focus:outline-none focus:border-neutral-600"
                   >
@@ -120,67 +120,64 @@ export default function RequestsTable({ requests, onStatusUpdate }: RequestsTabl
       </div>
 
       {/* Details Modal */}
-      <Modal
-        open={isModalOpen}
-        onOpenChange={(open) => setIsModalOpen(open)}
-      >
+      <Modal open={isModalOpen} onOpenChange={(open) => setIsModalOpen(open)}>
         <ModalContent>
           <ModalHeader>
             <ModalTitle>Request Details</ModalTitle>
           </ModalHeader>
-        {selectedRequest && (
-          <div className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label className="text-sm text-neutral-400">Name</label>
-                <p className="text-white font-medium">{selectedRequest.name}</p>
+          {selectedRequest && (
+            <div className="space-y-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="text-sm text-neutral-400">Name</label>
+                  <p className="text-white font-medium">{selectedRequest.name}</p>
+                </div>
+                <div>
+                  <label className="text-sm text-neutral-400">Email</label>
+                  <p className="text-white font-medium">{selectedRequest.email}</p>
+                </div>
+                <div>
+                  <label className="text-sm text-neutral-400">Company</label>
+                  <p className="text-white font-medium">{selectedRequest.company}</p>
+                </div>
+                <div>
+                  <label className="text-sm text-neutral-400">Job Title</label>
+                  <p className="text-white font-medium">{selectedRequest.jobTitle}</p>
+                </div>
+                <div>
+                  <label className="text-sm text-neutral-400">Industry</label>
+                  <p className="text-white font-medium capitalize">{selectedRequest.industry}</p>
+                </div>
+                <div>
+                  <label className="text-sm text-neutral-400">Phone</label>
+                  <p className="text-white font-medium">{selectedRequest.phone || 'N/A'}</p>
+                </div>
               </div>
+
+              {selectedRequest.message && (
+                <div>
+                  <label className="text-sm text-neutral-400">Message</label>
+                  <p className="text-white mt-1">{selectedRequest.message}</p>
+                </div>
+              )}
+
               <div>
-                <label className="text-sm text-neutral-400">Email</label>
-                <p className="text-white font-medium">{selectedRequest.email}</p>
+                <label className="text-sm text-neutral-400">Status</label>
+                <div className="mt-1">
+                  <Badge variant={statusColors[selectedRequest.status]}>
+                    {selectedRequest.status}
+                  </Badge>
+                </div>
               </div>
+
               <div>
-                <label className="text-sm text-neutral-400">Company</label>
-                <p className="text-white font-medium">{selectedRequest.company}</p>
-              </div>
-              <div>
-                <label className="text-sm text-neutral-400">Job Title</label>
-                <p className="text-white font-medium">{selectedRequest.jobTitle}</p>
-              </div>
-              <div>
-                <label className="text-sm text-neutral-400">Industry</label>
-                <p className="text-white font-medium capitalize">{selectedRequest.industry}</p>
-              </div>
-              <div>
-                <label className="text-sm text-neutral-400">Phone</label>
-                <p className="text-white font-medium">{selectedRequest.phone || 'N/A'}</p>
+                <label className="text-sm text-neutral-400">Submitted</label>
+                <p className="text-white">
+                  {format(new Date(selectedRequest.createdAt), 'MMMM dd, yyyy HH:mm')}
+                </p>
               </div>
             </div>
-
-            {selectedRequest.message && (
-              <div>
-                <label className="text-sm text-neutral-400">Message</label>
-                <p className="text-white mt-1">{selectedRequest.message}</p>
-              </div>
-            )}
-
-            <div>
-              <label className="text-sm text-neutral-400">Status</label>
-              <div className="mt-1">
-                <Badge variant={statusColors[selectedRequest.status]}>
-                  {selectedRequest.status}
-                </Badge>
-              </div>
-            </div>
-
-            <div>
-              <label className="text-sm text-neutral-400">Submitted</label>
-              <p className="text-white">
-                {format(new Date(selectedRequest.createdAt), 'MMMM dd, yyyy HH:mm')}
-              </p>
-            </div>
-          </div>
-        )}
+          )}
         </ModalContent>
       </Modal>
     </>

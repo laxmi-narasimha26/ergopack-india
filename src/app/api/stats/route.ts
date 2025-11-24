@@ -11,11 +11,8 @@ export async function GET(request: NextRequest) {
   try {
     const session = await getServerSession(authOptions);
 
-    if (!await isAuthenticated(session)) {
-      return NextResponse.json(
-        { success: false, error: 'Unauthorized' },
-        { status: 401 }
-      );
+    if (!(await isAuthenticated(session))) {
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
     }
 
     await connectDB();
@@ -35,10 +32,7 @@ export async function GET(request: NextRequest) {
     const totalViews = viewsResult[0]?.totalViews || 0;
 
     // Get recent contact requests
-    const recentRequests = await ContactRequestModel.find()
-      .sort({ createdAt: -1 })
-      .limit(5)
-      .lean();
+    const recentRequests = await ContactRequestModel.find().sort({ createdAt: -1 }).limit(5).lean();
 
     // Get recent blogs
     const recentBlogs = await BlogModel.find()

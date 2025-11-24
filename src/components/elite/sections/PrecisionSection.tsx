@@ -28,8 +28,8 @@ export default function PrecisionSection({ sectionNumber }: { sectionNumber: num
         className="mt-12 text-center"
       >
         <p className="text-lg text-theme-secondary max-w-2xl mx-auto mb-12">
-          Close-up strapping mechanism engineered to 0.1mm tolerances.
-          Every strap, perfectly tensioned. Every package, secured with precision.
+          Close-up strapping mechanism engineered to 0.1mm tolerances. Every strap, perfectly
+          tensioned. Every package, secured with precision.
         </p>
 
         {/* Precision Metrics */}
@@ -49,7 +49,9 @@ export default function PrecisionSection({ sectionNumber }: { sectionNumber: num
             >
               <item.icon className="w-8 h-8 text-[#C8102E] mx-auto mb-4" strokeWidth={1.5} />
               <div className="text-2xl font-bold text-theme-primary mb-1">{item.value}</div>
-              <div className="text-sm text-theme-secondary uppercase tracking-wider">{item.label}</div>
+              <div className="text-sm text-theme-secondary uppercase tracking-wider">
+                {item.label}
+              </div>
             </motion.div>
           ))}
         </div>
@@ -62,7 +64,9 @@ export default function PrecisionSection({ sectionNumber }: { sectionNumber: num
           viewport={{ once: true }}
           className="max-w-4xl mx-auto aspect-video bg-gradient-to-br from-[#1A0000] to-black rounded-lg border border-[#4A0000] flex items-center justify-center"
         >
-          <span className="text-theme-secondary text-xl">[ VIDEO: Strapping Mechanism Close-Up ]</span>
+          <span className="text-theme-secondary text-xl">
+            [ VIDEO: Strapping Mechanism Close-Up ]
+          </span>
         </motion.div>
       </motion.div>
     </SectionWrapper>

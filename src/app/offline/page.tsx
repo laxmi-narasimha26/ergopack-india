@@ -22,16 +22,14 @@ export default function OfflinePage() {
         <div className="space-y-4">
           <h1 className="text-4xl font-bold text-gray-900">You're Offline</h1>
           <p className="text-lg text-gray-600">
-            It looks like you've lost your internet connection. Don't worry, some content may
-            still be available.
+            It looks like you've lost your internet connection. Don't worry, some content may still
+            be available.
           </p>
         </div>
 
         <div className="space-y-4 pt-4">
           <div className="bg-white rounded-lg shadow-md p-6 text-left">
-            <h2 className="text-lg font-semibold text-gray-900 mb-3">
-              What you can do:
-            </h2>
+            <h2 className="text-lg font-semibold text-gray-900 mb-3">What you can do:</h2>
             <ul className="space-y-2 text-gray-600">
               <li className="flex items-start">
                 <span className="text-blue-600 mr-2">•</span>
@@ -64,8 +62,8 @@ export default function OfflinePage() {
         </div>
 
         <p className="text-sm text-gray-500 pt-4">
-          This page is part of our offline experience. You'll be automatically redirected when
-          your connection is restored.
+          This page is part of our offline experience. You'll be automatically redirected when your
+          connection is restored.
         </p>
       </div>
     </div>

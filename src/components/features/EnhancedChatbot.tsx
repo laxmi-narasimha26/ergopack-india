@@ -44,7 +44,10 @@ const initialBotMessage: Message = {
   ],
 };
 
-const predictiveResponses: Record<string, { text: string; suggestions?: string[]; type?: string; data?: any }> = {
+const predictiveResponses: Record<
+  string,
+  { text: string; suggestions?: string[]; type?: string; data?: any }
+> = {
   roi: {
     text: "I'd be happy to help you calculate your potential ROI! Based on typical scenarios, companies save an average of $127,000 annually. Let me ask you a few questions to get precise numbers for your operation.",
     suggestions: [
@@ -56,7 +59,7 @@ const predictiveResponses: Record<string, { text: string; suggestions?: string[]
     type: 'quick-action',
   },
   compare: {
-    text: "Great! I can help you compare our product lines. The X-pert Line offers 99.99% reliability with IoT monitoring, while the Economy Line provides proven performance at a lower cost. What matters most to you?",
+    text: 'Great! I can help you compare our product lines. The X-pert Line offers 99.99% reliability with IoT monitoring, while the Economy Line provides proven performance at a lower cost. What matters most to you?',
     suggestions: [
       'Maximum reliability (X-pert)',
       'Best value (Economy)',
@@ -74,7 +77,7 @@ const predictiveResponses: Record<string, { text: string; suggestions?: string[]
     ],
   },
   auto: {
-    text: "Automotive JIT logistics demand zero-failure performance. A single failed load can halt an entire assembly line costing $22,000/minute. Our X-pert Line has maintained 99.99% uptime for Fortune 500 automotive manufacturers. Interested in the details?",
+    text: 'Automotive JIT logistics demand zero-failure performance. A single failed load can halt an entire assembly line costing $22,000/minute. Our X-pert Line has maintained 99.99% uptime for Fortune 500 automotive manufacturers. Interested in the details?',
     suggestions: [
       'Tell me about uptime guarantees',
       'Show me automotive case studies',
@@ -83,7 +86,7 @@ const predictiveResponses: Record<string, { text: string; suggestions?: string[]
     ],
   },
   electronics: {
-    text: "High-value electronics require precision tension control. Too much damages components, too little risks transit failure. Our ChainLance system maintains consistent tension within ±0.5% across all load conditions. Which is your priority?",
+    text: 'High-value electronics require precision tension control. Too much damages components, too little risks transit failure. Our ChainLance system maintains consistent tension within ±0.5% across all load conditions. Which is your priority?',
     suggestions: [
       'Preventing product damage',
       'Transit security',
@@ -92,7 +95,7 @@ const predictiveResponses: Record<string, { text: string; suggestions?: string[]
     ],
   },
   pricing: {
-    text: "Investment in load security pays for itself quickly. X-pert Line starts at $35,000 with typical ROI in 2.3 months. Economy Line starts at $15,000 with ROI in 4.1 months. Most customers save 3-5x their investment in year one. What would you like to explore?",
+    text: 'Investment in load security pays for itself quickly. X-pert Line starts at $35,000 with typical ROI in 2.3 months. Economy Line starts at $15,000 with ROI in 4.1 months. Most customers save 3-5x their investment in year one. What would you like to explore?',
     suggestions: [
       'Calculate exact ROI for my operation',
       'Compare total cost of ownership',
@@ -101,7 +104,7 @@ const predictiveResponses: Record<string, { text: string; suggestions?: string[]
     ],
   },
   technical: {
-    text: "I can provide detailed technical specifications. The X-pert Line delivers up to 4500N tension force with ±0.5% precision, Siemens PLC control, and real-time IoT monitoring. What specific specs do you need?",
+    text: 'I can provide detailed technical specifications. The X-pert Line delivers up to 4500N tension force with ±0.5% precision, Siemens PLC control, and real-time IoT monitoring. What specific specs do you need?',
     suggestions: [
       'Tension specifications',
       'Control system details',
@@ -110,7 +113,7 @@ const predictiveResponses: Record<string, { text: string; suggestions?: string[]
     ],
   },
   consultation: {
-    text: "Excellent! Our C-Suite Risk Assessment is typically a 45-minute confidential briefing where we analyze your specific failure risks and quantify potential savings. Available times are usually within 48 hours. Shall I help you schedule?",
+    text: 'Excellent! Our C-Suite Risk Assessment is typically a 45-minute confidential briefing where we analyze your specific failure risks and quantify potential savings. Available times are usually within 48 hours. Shall I help you schedule?',
     suggestions: [
       'Yes, schedule a consultation',
       'Tell me what to expect',
@@ -149,40 +152,79 @@ export default function EnhancedChatbot() {
     const lowerMessage = userMessage.toLowerCase();
 
     // ROI related
-    if (lowerMessage.includes('roi') || lowerMessage.includes('save') || lowerMessage.includes('cost') || lowerMessage.includes('investment')) {
+    if (
+      lowerMessage.includes('roi') ||
+      lowerMessage.includes('save') ||
+      lowerMessage.includes('cost') ||
+      lowerMessage.includes('investment')
+    ) {
       return predictiveResponses.roi;
     }
 
     // Comparison
-    if (lowerMessage.includes('compare') || lowerMessage.includes('difference') || lowerMessage.includes('vs') || lowerMessage.includes('which')) {
+    if (
+      lowerMessage.includes('compare') ||
+      lowerMessage.includes('difference') ||
+      lowerMessage.includes('vs') ||
+      lowerMessage.includes('which')
+    ) {
       return predictiveResponses.compare;
     }
 
     // Industry specific
-    if (lowerMessage.includes('pharma') || lowerMessage.includes('pharmaceutical') || lowerMessage.includes('compliance') || lowerMessage.includes('fda')) {
+    if (
+      lowerMessage.includes('pharma') ||
+      lowerMessage.includes('pharmaceutical') ||
+      lowerMessage.includes('compliance') ||
+      lowerMessage.includes('fda')
+    ) {
       return predictiveResponses.pharma;
     }
 
-    if (lowerMessage.includes('automotive') || lowerMessage.includes('jit') || lowerMessage.includes('assembly')) {
+    if (
+      lowerMessage.includes('automotive') ||
+      lowerMessage.includes('jit') ||
+      lowerMessage.includes('assembly')
+    ) {
       return predictiveResponses.auto;
     }
 
-    if (lowerMessage.includes('electronics') || lowerMessage.includes('component') || lowerMessage.includes('precision')) {
+    if (
+      lowerMessage.includes('electronics') ||
+      lowerMessage.includes('component') ||
+      lowerMessage.includes('precision')
+    ) {
       return predictiveResponses.electronics;
     }
 
     // Pricing
-    if (lowerMessage.includes('price') || lowerMessage.includes('pricing') || lowerMessage.includes('how much') || lowerMessage.includes('cost')) {
+    if (
+      lowerMessage.includes('price') ||
+      lowerMessage.includes('pricing') ||
+      lowerMessage.includes('how much') ||
+      lowerMessage.includes('cost')
+    ) {
       return predictiveResponses.pricing;
     }
 
     // Technical
-    if (lowerMessage.includes('spec') || lowerMessage.includes('technical') || lowerMessage.includes('tension') || lowerMessage.includes('force')) {
+    if (
+      lowerMessage.includes('spec') ||
+      lowerMessage.includes('technical') ||
+      lowerMessage.includes('tension') ||
+      lowerMessage.includes('force')
+    ) {
       return predictiveResponses.technical;
     }
 
     // Consultation
-    if (lowerMessage.includes('consult') || lowerMessage.includes('demo') || lowerMessage.includes('talk') || lowerMessage.includes('speak') || lowerMessage.includes('call')) {
+    if (
+      lowerMessage.includes('consult') ||
+      lowerMessage.includes('demo') ||
+      lowerMessage.includes('talk') ||
+      lowerMessage.includes('speak') ||
+      lowerMessage.includes('call')
+    ) {
       return predictiveResponses.consultation;
     }
 

@@ -164,14 +164,7 @@ function AnimatedCamera() {
     cameraRef.current.lookAt(0, 0, 0);
   });
 
-  return (
-    <PerspectiveCamera
-      ref={cameraRef}
-      makeDefault
-      position={[0, 3, 12]}
-      fov={60}
-    />
-  );
+  return <PerspectiveCamera ref={cameraRef} makeDefault position={[0, 3, 12]} fov={60} />;
 }
 
 // Grid Component for depth
@@ -183,13 +176,7 @@ function Grid() {
     gridRef.current.rotation.y += 0.001;
   });
 
-  return (
-    <gridHelper
-      ref={gridRef}
-      args={[50, 50, '#1a1a2e', '#0a0a15']}
-      position={[0, -5, 0]}
-    />
-  );
+  return <gridHelper ref={gridRef} args={[50, 50, '#1a1a2e', '#0a0a15']} position={[0, -5, 0]} />;
 }
 
 // Main Hero Scene Component
@@ -263,12 +250,7 @@ export function HeroSceneSimplified() {
           </mesh>
         </Float>
 
-        <OrbitControls
-          enableZoom={false}
-          enablePan={false}
-          autoRotate
-          autoRotateSpeed={0.5}
-        />
+        <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
       </Canvas>
     </div>
   );

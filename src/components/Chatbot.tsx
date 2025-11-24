@@ -28,14 +28,22 @@ const quickReplies = [
 ];
 
 const botResponses: Record<string, string> = {
-  'xpert': "The X-pert Line is our flagship intelligent risk-mitigation system featuring a Siemens Industrial Touchscreen, Triplex-Tool-Lift, and precision line-laser guidance. It delivers up to 4500N tension force for absolute load security. Would you like to know more about specific features?",
-  'economy': "The E-conomy Line is our proven, reliable workhorse that's been the benchmark in pallet strapping for almost 20 years. It offers electronically controlled drive and integrated sealing head with consistent performance. Perfect for standard logistics operations.",
-  'compare': "Great question! The X-pert Line offers advanced automation with a Siemens touchscreen and higher tension force (up to 4500N), while the E-conomy Line provides reliable, proven performance at a lower investment. Would you like to see a detailed comparison?",
-  'pharma': "For pharmaceutical and life sciences, we provide cGMP-compliant solutions that mitigate risks of pilferage, tampering, and regulatory non-compliance with verifiable, consistent seals to protect product integrity from factory to patient.",
-  'automotive': "Our automotive solutions ensure zero-failure standard for Just-in-Time logistics. With up to 4500N tension and German-engineered reliability, we prevent assembly line stoppages from failed pallets.",
-  'electronics': "For electronics and high-value machinery, we offer precision tension control that eliminates the inconsistency of manual strapping - preventing both damage from excessive tension and failure from insufficient tension.",
-  'consultation': "I'd be happy to help schedule a C-Suite Risk Assessment consultation. Please visit our Contact page to request an exclusive invitation, or I can transfer you there now. Would you like me to do that?",
-  'default': "I can help you with information about our products (X-pert Line, E-conomy Line), industry solutions (Pharmaceuticals, Automotive, Electronics), or schedule a consultation. What would you like to know more about?",
+  xpert:
+    'The X-pert Line is our flagship intelligent risk-mitigation system featuring a Siemens Industrial Touchscreen, Triplex-Tool-Lift, and precision line-laser guidance. It delivers up to 4500N tension force for absolute load security. Would you like to know more about specific features?',
+  economy:
+    "The E-conomy Line is our proven, reliable workhorse that's been the benchmark in pallet strapping for almost 20 years. It offers electronically controlled drive and integrated sealing head with consistent performance. Perfect for standard logistics operations.",
+  compare:
+    'Great question! The X-pert Line offers advanced automation with a Siemens touchscreen and higher tension force (up to 4500N), while the E-conomy Line provides reliable, proven performance at a lower investment. Would you like to see a detailed comparison?',
+  pharma:
+    'For pharmaceutical and life sciences, we provide cGMP-compliant solutions that mitigate risks of pilferage, tampering, and regulatory non-compliance with verifiable, consistent seals to protect product integrity from factory to patient.',
+  automotive:
+    'Our automotive solutions ensure zero-failure standard for Just-in-Time logistics. With up to 4500N tension and German-engineered reliability, we prevent assembly line stoppages from failed pallets.',
+  electronics:
+    'For electronics and high-value machinery, we offer precision tension control that eliminates the inconsistency of manual strapping - preventing both damage from excessive tension and failure from insufficient tension.',
+  consultation:
+    "I'd be happy to help schedule a C-Suite Risk Assessment consultation. Please visit our Contact page to request an exclusive invitation, or I can transfer you there now. Would you like me to do that?",
+  default:
+    'I can help you with information about our products (X-pert Line, E-conomy Line), industry solutions (Pharmaceuticals, Automotive, Electronics), or schedule a consultation. What would you like to know more about?',
 };
 
 export default function Chatbot() {
@@ -68,7 +76,11 @@ export default function Chatbot() {
       return botResponses.automotive;
     } else if (lowerMessage.includes('electronics') || lowerMessage.includes('electronic')) {
       return botResponses.electronics;
-    } else if (lowerMessage.includes('consult') || lowerMessage.includes('demo') || lowerMessage.includes('contact')) {
+    } else if (
+      lowerMessage.includes('consult') ||
+      lowerMessage.includes('demo') ||
+      lowerMessage.includes('contact')
+    ) {
       return botResponses.consultation;
     }
 
@@ -192,9 +204,18 @@ export default function Chatbot() {
                 >
                   <div className="bg-dark-800 text-dark-100 rounded-lg p-3">
                     <div className="flex space-x-2">
-                      <div className="w-2 h-2 bg-dark-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                      <div className="w-2 h-2 bg-dark-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                      <div className="w-2 h-2 bg-dark-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                      <div
+                        className="w-2 h-2 bg-dark-400 rounded-full animate-bounce"
+                        style={{ animationDelay: '0ms' }}
+                      />
+                      <div
+                        className="w-2 h-2 bg-dark-400 rounded-full animate-bounce"
+                        style={{ animationDelay: '150ms' }}
+                      />
+                      <div
+                        className="w-2 h-2 bg-dark-400 rounded-full animate-bounce"
+                        style={{ animationDelay: '300ms' }}
+                      />
                     </div>
                   </div>
                 </motion.div>

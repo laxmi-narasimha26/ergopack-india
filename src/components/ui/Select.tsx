@@ -10,20 +10,7 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
 }
 
 const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
-  (
-    {
-      className,
-      error,
-      errorMessage,
-      label,
-      helperText,
-      options,
-      children,
-      id,
-      ...props
-    },
-    ref
-  ) => {
+  ({ className, error, errorMessage, label, helperText, options, children, id, ...props }, ref) => {
     const selectId = id || React.useId();
 
     return (
@@ -56,18 +43,14 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
               error && errorMessage
                 ? `${selectId}-error`
                 : helperText
-                ? `${selectId}-helper`
-                : undefined
+                  ? `${selectId}-helper`
+                  : undefined
             }
             {...props}
           >
             {options
               ? options.map((option) => (
-                  <option
-                    key={option.value}
-                    value={option.value}
-                    disabled={option.disabled}
-                  >
+                  <option key={option.value} value={option.value} disabled={option.disabled}>
                     {option.label}
                   </option>
                 ))
@@ -90,19 +73,12 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
           </div>
         </div>
         {error && errorMessage && (
-          <p
-            id={`${selectId}-error`}
-            className="mt-1.5 text-sm text-red-500"
-            role="alert"
-          >
+          <p id={`${selectId}-error`} className="mt-1.5 text-sm text-red-500" role="alert">
             {errorMessage}
           </p>
         )}
         {!error && helperText && (
-          <p
-            id={`${selectId}-helper`}
-            className="mt-1.5 text-sm text-gray-600 dark:text-gray-400"
-          >
+          <p id={`${selectId}-helper`} className="mt-1.5 text-sm text-gray-600 dark:text-gray-400">
             {helperText}
           </p>
         )}

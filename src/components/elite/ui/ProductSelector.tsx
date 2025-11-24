@@ -17,10 +17,14 @@ export default function ProductSelector({ onSelect, onClose }: ProductSelectorPr
   }));
 
   const productsByLine = {
-    'X-pert Line': allProducts.filter(p => p.line === 'X-pert Line'),
-    'Economy Line': allProducts.filter(p => p.line === 'Economy Line'),
-    'RE Line - Mobile Retracting': allProducts.filter(p => p.line === 'RE Line - Mobile Retracting'),
-    'GO Line - Economy Portable': allProducts.filter(p => p.line === 'GO Line - Economy Portable'),
+    'X-pert Line': allProducts.filter((p) => p.line === 'X-pert Line'),
+    'Economy Line': allProducts.filter((p) => p.line === 'Economy Line'),
+    'RE Line - Mobile Retracting': allProducts.filter(
+      (p) => p.line === 'RE Line - Mobile Retracting'
+    ),
+    'GO Line - Economy Portable': allProducts.filter(
+      (p) => p.line === 'GO Line - Economy Portable'
+    ),
   };
 
   return (
@@ -63,7 +67,8 @@ export default function ProductSelector({ onSelect, onClose }: ProductSelectorPr
               <span className="text-[#C8102E]">MACHINE</span>
             </h2>
             <p className="text-base sm:text-lg text-theme-secondary max-w-2xl mx-auto font-light">
-              Choose a model to see its complete specifications, features, and capabilities in stunning detail
+              Choose a model to see its complete specifications, features, and capabilities in
+              stunning detail
             </p>
           </motion.div>
         </div>
@@ -93,7 +98,9 @@ export default function ProductSelector({ onSelect, onClose }: ProductSelectorPr
                   ) : (
                     <DollarSign className="h-8 w-8 text-theme-secondary" />
                   )}
-                  <h3 className={`text-3xl font-bold ${isXpert ? 'text-[#C8102E]' : 'text-theme-primary'}`}>
+                  <h3
+                    className={`text-3xl font-bold ${isXpert ? 'text-[#C8102E]' : 'text-theme-primary'}`}
+                  >
                     {lineName}
                   </h3>
                 </div>
@@ -120,18 +127,22 @@ export default function ProductSelector({ onSelect, onClose }: ProductSelectorPr
                         style={{ cursor: 'pointer' }}
                       >
                         {/* Model Badge */}
-                        <div className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4 ${
-                          isXpert
-                            ? 'bg-[#C8102E]/30 text-[#FFB81C]'
-                            : 'bg-white/10 text-theme-secondary'
-                        }`}>
+                        <div
+                          className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mb-4 ${
+                            isXpert
+                              ? 'bg-[#C8102E]/30 text-[#FFB81C]'
+                              : 'bg-white/10 text-theme-secondary'
+                          }`}
+                        >
                           {product.applicationType}
                         </div>
 
                         {/* Model Name */}
-                        <h4 className={`text-2xl sm:text-3xl font-black mb-2 ${
-                          isXpert ? 'text-theme-primary' : 'text-theme-primary'
-                        }`}>
+                        <h4
+                          className={`text-2xl sm:text-3xl font-black mb-2 ${
+                            isXpert ? 'text-theme-primary' : 'text-theme-primary'
+                          }`}
+                        >
                           {product.model}
                         </h4>
 
@@ -146,7 +157,8 @@ export default function ProductSelector({ onSelect, onClose }: ProductSelectorPr
                             <div className="flex justify-between">
                               <span className="text-theme-secondary">Max Tension:</span>
                               <span className="text-theme-primary font-medium">
-                                {product.sealingHead.tensionPower.max} {product.sealingHead.tensionPower.unit}
+                                {product.sealingHead.tensionPower.max}{' '}
+                                {product.sealingHead.tensionPower.unit}
                               </span>
                             </div>
                           )}
@@ -154,24 +166,30 @@ export default function ProductSelector({ onSelect, onClose }: ProductSelectorPr
                             <div className="flex justify-between">
                               <span className="text-theme-secondary">Speed:</span>
                               <span className="text-theme-primary font-medium">
-                                {product.performance.chainSpeed} {product.performance.chainSpeedUnit || 'm/min'}
+                                {product.performance.chainSpeed}{' '}
+                                {product.performance.chainSpeedUnit || 'm/min'}
                               </span>
                             </div>
                           )}
-                          {product.battery?.type && product.battery.type !== 'None - Manual Operation' && (
-                            <div className="flex justify-between">
-                              <span className="text-theme-secondary">Battery:</span>
-                              <span className={`font-medium ${isLithium ? 'text-amber-400' : 'text-theme-primary'}`}>
-                                {isLithium ? 'Li-Ion' : 'Lead'}
-                              </span>
-                            </div>
-                          )}
+                          {product.battery?.type &&
+                            product.battery.type !== 'None - Manual Operation' && (
+                              <div className="flex justify-between">
+                                <span className="text-theme-secondary">Battery:</span>
+                                <span
+                                  className={`font-medium ${isLithium ? 'text-amber-400' : 'text-theme-primary'}`}
+                                >
+                                  {isLithium ? 'Li-Ion' : 'Lead'}
+                                </span>
+                              </div>
+                            )}
                         </div>
 
                         {/* Hover Arrow */}
-                        <div className={`absolute bottom-4 right-4 transition-all duration-300 ${
-                          isXpert ? 'text-[#FFB81C]' : 'text-theme-primary'
-                        } opacity-0 group-hover:opacity-100 group-hover:translate-x-1`}>
+                        <div
+                          className={`absolute bottom-4 right-4 transition-all duration-300 ${
+                            isXpert ? 'text-[#FFB81C]' : 'text-theme-primary'
+                          } opacity-0 group-hover:opacity-100 group-hover:translate-x-1`}
+                        >
                           ↘
                         </div>
                       </motion.button>

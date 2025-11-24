@@ -125,7 +125,10 @@ export default function BlogsPage() {
       <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-500" size={20} />
+            <Search
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-500"
+              size={20}
+            />
             <Input
               type="text"
               placeholder="Search blogs..."
@@ -135,7 +138,10 @@ export default function BlogsPage() {
             />
           </div>
           <div className="relative">
-            <Filter className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-500" size={20} />
+            <Filter
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-500"
+              size={20}
+            />
             <Select
               value={categoryFilter}
               onChange={(e) => {

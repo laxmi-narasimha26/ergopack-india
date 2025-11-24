@@ -175,7 +175,9 @@ export default function PremiumFeaturesPage() {
                       }`}
                       onClick={() => setActiveFeature(feature.id)}
                     >
-                      <div className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${feature.color} mb-6 group-hover:scale-110 transition-transform`}>
+                      <div
+                        className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${feature.color} mb-6 group-hover:scale-110 transition-transform`}
+                      >
                         <Icon className="h-8 w-8 text-white" />
                       </div>
                       <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-amber-400 transition-colors">
@@ -327,8 +329,8 @@ export default function PremiumFeaturesPage() {
                   Ready to Experience Premium?
                 </h2>
                 <p className="text-xl text-slate-300 mb-10 max-w-3xl mx-auto leading-relaxed">
-                  These features are just the beginning. Explore our full platform to discover
-                  how we're revolutionizing industrial equipment interaction.
+                  These features are just the beginning. Explore our full platform to discover how
+                  we're revolutionizing industrial equipment interaction.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -351,7 +353,8 @@ export default function PremiumFeaturesPage() {
 
                 <div className="mt-12 pt-8 border-t border-slate-800">
                   <p className="text-slate-400 text-sm">
-                    Built with Next.js, TypeScript, Three.js, Framer Motion, and cutting-edge web technologies
+                    Built with Next.js, TypeScript, Three.js, Framer Motion, and cutting-edge web
+                    technologies
                   </p>
                 </div>
               </motion.div>

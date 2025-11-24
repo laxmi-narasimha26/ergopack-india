@@ -18,7 +18,7 @@ interface ArrowSymbolsProps {
 export default function ArrowSymbols({
   variant = 'mixed',
   className = '',
-  animate = true
+  animate = true,
 }: ArrowSymbolsProps) {
   const symbols = {
     diagonal: '↘',
@@ -60,15 +60,31 @@ export function NumberedSection({
   number,
   label,
   isActive = false,
-  onClick
+  onClick,
 }: {
   number: number;
   label: string;
   isActive?: boolean;
   onClick?: () => void;
 }) {
-  const circledNumbers = ['⓪', '①', '②', '③', '④', '⑤', '⑥', '⑦', '⑧', '⑨', '⑩',
-                          '⑪', '⑫', '⑬', '⑭', '⑮'];
+  const circledNumbers = [
+    '⓪',
+    '①',
+    '②',
+    '③',
+    '④',
+    '⑤',
+    '⑥',
+    '⑦',
+    '⑧',
+    '⑨',
+    '⑩',
+    '⑪',
+    '⑫',
+    '⑬',
+    '⑭',
+    '⑮',
+  ];
 
   return (
     <motion.button

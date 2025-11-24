@@ -1,34 +1,36 @@
 import type { Metadata, Viewport } from 'next';
-import { Playfair_Display, Montserrat } from 'next/font/google';
+import { Cormorant_Garamond, Proza_Libre } from 'next/font/google';
 import '../styles/globals.css';
+import '../styles/themes.css';
 import { Toaster } from 'react-hot-toast';
 import Providers from '@/components/Providers';
+import { ThemeProvider } from '@/lib/theme-provider';
 import { WebVitals, PerformanceMonitor } from '@/components/WebVitals';
 import { OrganizationSchema, WebsiteSchema } from '@/components/JsonLd';
 import { SkipNav } from '@/components/accessibility/SkipNav';
 import { FocusManager } from '@/components/accessibility/FocusManager';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { LuxuryCursor } from '@/components/ui/LuxuryCursor';
+import { ComparisonProvider } from '@/contexts/ComparisonContext';
+import ComparisonWidget from '@/components/comparison/ComparisonWidget';
 
-// Premium serif font for headings - inspired by Rolex, Cartier
-const playfair = Playfair_Display({
+// Ultra-Premium serif for headings - The "Gucci" standard
+const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
-  variable: '--font-playfair',
-  display: 'swap',
-  preload: true,
-  weight: ['400', '500', '600', '700', '800', '900'],
-  style: ['normal', 'italic'],
-  fallback: ['Georgia', 'serif'],
-});
-
-// Refined sans-serif for body text - inspired by Prada, Burberry
-const montserrat = Montserrat({
-  subsets: ['latin'],
-  variable: '--font-montserrat',
+  variable: '--font-cormorant',
   display: 'swap',
   preload: true,
   weight: ['300', '400', '500', '600', '700'],
-  fallback: ['system-ui', '-apple-system', 'sans-serif'],
+  style: ['normal', 'italic'],
+});
+
+// Refined sans-serif for body text - Humanist and legible
+const proza = Proza_Libre({
+  subsets: ['latin'],
+  variable: '--font-proza',
+  display: 'swap',
+  preload: true,
+  weight: ['400', '500', '600', '700', '800'],
 });
 
 export const viewport: Viewport = {
@@ -47,7 +49,8 @@ export const metadata: Metadata = {
     default: 'ErgoPack India | Verifiable Load Integrity',
     template: '%s | ErgoPack India',
   },
-  description: "ErgoPack India delivers the 'Made in Germany' precision required to mitigate catastrophic shipment risk and protect your brand's reputation at the final, critical checkpoint of your supply chain.",
+  description:
+    "ErgoPack India delivers the 'Made in Germany' precision required to mitigate catastrophic shipment risk and protect your brand's reputation at the final, critical checkpoint of your supply chain.",
   keywords: [
     'ErgoPack',
     'Load Integrity',
@@ -110,9 +113,7 @@ export const metadata: Metadata = {
       { url: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png' },
     ],
     shortcut: '/favicon-16x16.png',
-    apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
   },
   manifest: '/manifest.json',
   appleWebApp: {
@@ -124,13 +125,9 @@ export const metadata: Metadata = {
   category: 'business',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${montserrat.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${proza.variable}`} suppressHydrationWarning>
       <head>
         {/* DNS Prefetch for performance */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
@@ -144,48 +141,58 @@ export default function RootLayout({
         <OrganizationSchema />
         <WebsiteSchema />
       </head>
-      <body className="bg-white text-gray-900 antialiased font-sans">
-        <ErrorBoundary>
-          {/* Accessibility: Skip to main content */}
-          <SkipNav />
+      <body className="bg-primary text-primary antialiased font-sans transition-colors duration-200">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange={false}
+        >
+          <ErrorBoundary>
+            {/* Accessibility: Skip to main content */}
+            <SkipNav />
 
-          {/* Focus management for route changes */}
-          <FocusManager />
+            {/* Focus management for route changes */}
+            <FocusManager />
 
-          {/* Web Vitals and Performance Monitoring */}
-          <WebVitals />
-          <PerformanceMonitor />
+            {/* Web Vitals and Performance Monitoring */}
+            <WebVitals />
+            <PerformanceMonitor />
 
-          {/* Premium Luxury Cursor */}
-          <LuxuryCursor />
+            {/* Premium Luxury Cursor - Removed for normal mouse behavior */}
+            {/* <LuxuryCursor /> */}
 
-          <Providers>
-            {children}
-            <Toaster
-              position="top-right"
-              toastOptions={{
-                duration: 4000,
-                style: {
-                  background: '#ffffff',
-                  color: '#1a1a1a',
-                  border: '1px solid #e8e8e8',
-                },
-                success: {
-                  iconTheme: {
-                    primary: '#10b981',
-                    secondary: '#fff',
-                  },
-                },
-                error: {
-                  iconTheme: {
-                    primary: '#d32f2f',
-                    secondary: '#fff',
-                  },
-                },
-              }}
-            />
-          </Providers>
-        </ErrorBoundary>
+            <Providers>
+              <ComparisonProvider>
+                {children}
+                <ComparisonWidget />
+                <Toaster
+                  position="top-right"
+                  toastOptions={{
+                    duration: 4000,
+                    style: {
+                      background: '#ffffff',
+                      color: '#1a1a1a',
+                      border: '1px solid #e8e8e8',
+                    },
+                    success: {
+                      iconTheme: {
+                        primary: '#10b981',
+                        secondary: '#fff',
+                      },
+                    },
+                    error: {
+                      iconTheme: {
+                        primary: '#d32f2f',
+                        secondary: '#fff',
+                      },
+                    },
+                  }}
+                />
+              </ComparisonProvider>
+            </Providers>
+          </ErrorBoundary>
+        </ThemeProvider>
       </body>
     </html>
   );

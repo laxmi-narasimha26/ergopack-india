@@ -87,11 +87,10 @@ export default function BlogListing() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            Insights & Updates
-          </h1>
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">Insights & Updates</h1>
           <p className="text-xl text-neutral-400 max-w-2xl mx-auto">
-            Explore the latest trends in packaging automation, sustainability practices, and industry innovations.
+            Explore the latest trends in packaging automation, sustainability practices, and
+            industry innovations.
           </p>
         </motion.div>
 
@@ -118,13 +117,13 @@ export default function BlogListing() {
                       </div>
                     )}
                     <div className="p-6">
-                      <Badge variant="warning" className="mb-3">Featured</Badge>
+                      <Badge variant="warning" className="mb-3">
+                        Featured
+                      </Badge>
                       <h3 className="text-xl font-bold text-white mb-2 line-clamp-2 group-hover:text-neutral-300 transition-colors">
                         {blog.title}
                       </h3>
-                      <p className="text-neutral-400 text-sm line-clamp-2 mb-4">
-                        {blog.excerpt}
-                      </p>
+                      <p className="text-neutral-400 text-sm line-clamp-2 mb-4">{blog.excerpt}</p>
                       <div className="flex items-center justify-between text-xs text-neutral-500">
                         <span className="flex items-center">
                           <Clock size={14} className="mr-1" />
@@ -132,7 +131,9 @@ export default function BlogListing() {
                         </span>
                         <span className="flex items-center">
                           <Calendar size={14} className="mr-1" />
-                          {blog.publishedAt ? format(new Date(blog.publishedAt), 'MMM dd, yyyy') : 'Draft'}
+                          {blog.publishedAt
+                            ? format(new Date(blog.publishedAt), 'MMM dd, yyyy')
+                            : 'Draft'}
                         </span>
                       </div>
                     </div>
@@ -152,7 +153,10 @@ export default function BlogListing() {
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-500" size={20} />
+              <Search
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-500"
+                size={20}
+              />
               <Input
                 type="text"
                 placeholder="Search articles..."
@@ -162,7 +166,10 @@ export default function BlogListing() {
               />
             </div>
             <div className="relative">
-              <Filter className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-500" size={20} />
+              <Filter
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-500"
+                size={20}
+              />
               <Select
                 value={categoryFilter}
                 onChange={(e) => {
@@ -221,9 +228,7 @@ export default function BlogListing() {
                       <h3 className="text-xl font-bold text-white mb-2 line-clamp-2 group-hover:text-neutral-300 transition-colors">
                         {blog.title}
                       </h3>
-                      <p className="text-neutral-400 text-sm line-clamp-3 mb-4">
-                        {blog.excerpt}
-                      </p>
+                      <p className="text-neutral-400 text-sm line-clamp-3 mb-4">{blog.excerpt}</p>
                       <div className="flex items-center justify-between text-xs text-neutral-500 mb-4">
                         <span>{blog.author}</span>
                         <span className="flex items-center">
@@ -233,7 +238,10 @@ export default function BlogListing() {
                       </div>
                       <div className="flex items-center text-sm text-neutral-400 group-hover:text-white transition-colors">
                         Read more
-                        <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight
+                          size={16}
+                          className="ml-2 group-hover:translate-x-1 transition-transform"
+                        />
                       </div>
                     </div>
                   </Card>

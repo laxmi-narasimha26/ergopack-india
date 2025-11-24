@@ -67,7 +67,7 @@ export default function ContactForm({
 
       if (response.data.success) {
         setIsSuccess(true);
-        toast.success('Request submitted successfully! We\'ll be in touch soon.', {
+        toast.success("Request submitted successfully! We'll be in touch soon.", {
           duration: 5000,
           icon: '✓',
         });
@@ -112,7 +112,8 @@ export default function ContactForm({
         </div>
         <h3 className="mb-4 text-2xl font-bold text-white">Request Submitted!</h3>
         <p className="max-w-md text-lg text-slate-300">
-          Thank you for your interest. Our team will review your request and contact you within 24-48 hours.
+          Thank you for your interest. Our team will review your request and contact you within
+          24-48 hours.
         </p>
       </div>
     );
@@ -120,7 +121,9 @@ export default function ContactForm({
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={className}>
-      <div className={variant === 'compact' ? 'space-y-4' : 'grid grid-cols-1 gap-6 md:grid-cols-2'}>
+      <div
+        className={variant === 'compact' ? 'space-y-4' : 'grid grid-cols-1 gap-6 md:grid-cols-2'}
+      >
         {/* Name */}
         <div className={variant === 'default' ? 'md:col-span-1' : ''}>
           <Input
@@ -229,7 +232,8 @@ export default function ContactForm({
 
         {variant === 'default' && (
           <p className="mt-4 text-center text-sm text-slate-400">
-            By submitting this form, you agree to our privacy policy. We'll only use your information to respond to your inquiry.
+            By submitting this form, you agree to our privacy policy. We'll only use your
+            information to respond to your inquiry.
           </p>
         )}
       </div>

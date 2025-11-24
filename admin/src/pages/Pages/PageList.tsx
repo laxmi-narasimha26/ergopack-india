@@ -102,9 +102,7 @@ export const PageList: React.FC = () => {
             <tbody className="divide-y divide-gray-200">
               {pages.map((page) => (
                 <tr key={page.id} className="hover:bg-gray-50">
-                  <td className="px-6 py-4 font-medium text-gray-900">
-                    {page.title}
-                  </td>
+                  <td className="px-6 py-4 font-medium text-gray-900">{page.title}</td>
                   <td className="px-6 py-4 text-sm text-gray-500">{page.slug}</td>
                   <td className="px-6 py-4">
                     <span

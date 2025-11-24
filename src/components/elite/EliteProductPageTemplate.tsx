@@ -24,7 +24,7 @@ import {
   Download,
   ChevronRight,
   Maximize2,
-  Minimize2
+  Minimize2,
 } from 'lucide-react';
 import SmoothScroll from './animations/SmoothScroll';
 import FixedHeader from './ui/FixedHeader';
@@ -119,8 +119,8 @@ export default function EliteProductPageTemplate({ productData }: EliteProductPa
       '700E': '700E',
       '700X Li': '700X',
       '700': '700',
-      'RE': 'RE',
-      'GO': 'GO'
+      RE: 'RE',
+      GO: 'GO',
     };
 
     const folderName = modelMap[productData.model] || productData.model.replace(/\s/g, '');
@@ -184,13 +184,17 @@ export default function EliteProductPageTemplate({ productData }: EliteProductPa
                 className="space-y-8"
               >
                 {/* Product Line Badge */}
-                <div className={`inline-flex items-center gap-3 px-6 py-3 rounded-full border-2 ${
-                  isXpert
-                    ? 'bg-gradient-to-r from-[#C8102E]/20 to-red-900/20 border-[#C8102E]'
-                    : 'bg-white/10 dark:bg-white/5 border-white/30'
-                }`}>
+                <div
+                  className={`inline-flex items-center gap-3 px-6 py-3 rounded-full border-2 ${
+                    isXpert
+                      ? 'bg-gradient-to-r from-[#C8102E]/20 to-red-900/20 border-[#C8102E]'
+                      : 'bg-white/10 dark:bg-white/5 border-white/30'
+                  }`}
+                >
                   <Package className={`h-6 w-6 ${isXpert ? 'text-[#FFB81C]' : 'text-[#C8102E]'}`} />
-                  <span className={`font-bold tracking-wide text-lg ${isXpert ? 'text-[#FFB81C]' : 'text-[#C8102E]'}`}>
+                  <span
+                    className={`font-bold tracking-wide text-lg ${isXpert ? 'text-[#FFB81C]' : 'text-[#C8102E]'}`}
+                  >
                     {productData.line}
                   </span>
                 </div>
@@ -206,11 +210,13 @@ export default function EliteProductPageTemplate({ productData }: EliteProductPa
                 </div>
 
                 {/* Application Type */}
-                <div className={`inline-block px-8 py-4 rounded-2xl text-xl font-bold ${
-                  isXpert
-                    ? 'bg-gradient-to-r from-[#C8102E] to-red-700 text-white'
-                    : 'bg-white/20 dark:bg-white/10 text-theme-primary'
-                }`}>
+                <div
+                  className={`inline-block px-8 py-4 rounded-2xl text-xl font-bold ${
+                    isXpert
+                      ? 'bg-gradient-to-r from-[#C8102E] to-red-700 text-white'
+                      : 'bg-white/20 dark:bg-white/10 text-theme-primary'
+                  }`}
+                >
                   {productData.applicationType}
                 </div>
 
@@ -228,7 +234,9 @@ export default function EliteProductPageTemplate({ productData }: EliteProductPa
                       <div className="text-3xl font-black text-theme-primary">
                         {productData.performance.chainSpeed}
                       </div>
-                      <div className="text-sm text-theme-secondary">{productData.performance.chainSpeedUnit}</div>
+                      <div className="text-sm text-theme-secondary">
+                        {productData.performance.chainSpeedUnit}
+                      </div>
                     </div>
                   )}
 
@@ -247,9 +255,7 @@ export default function EliteProductPageTemplate({ productData }: EliteProductPa
                     <div className="p-6 rounded-2xl glass-theme border border-theme-border">
                       <Settings className="h-8 w-8 text-[#FFB81C] mb-3" />
                       <div className="text-sm text-theme-secondary mb-1">Operation</div>
-                      <div className="text-lg font-black text-theme-primary">
-                        Manual Hand Crank
-                      </div>
+                      <div className="text-lg font-black text-theme-primary">Manual Hand Crank</div>
                       <div className="text-sm text-theme-secondary">No battery required</div>
                     </div>
                   )}
@@ -301,7 +307,9 @@ export default function EliteProductPageTemplate({ productData }: EliteProductPa
               <div className="text-center mb-16">
                 <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#C8102E]/20 border border-[#C8102E] mb-6">
                   <Box className="h-6 w-6 text-[#FFB81C]" />
-                  <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">System Specifications</span>
+                  <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">
+                    System Specifications
+                  </span>
                 </div>
                 <h2 className="text-5xl sm:text-6xl font-black text-theme-primary mb-6">
                   Technical Details
@@ -357,7 +365,9 @@ export default function EliteProductPageTemplate({ productData }: EliteProductPa
                   <div className="text-5xl font-black text-[#C8102E] mb-2">
                     {productData.system.weight}
                   </div>
-                  <div className="text-xl text-theme-secondary">{productData.system.weightUnit}</div>
+                  <div className="text-xl text-theme-secondary">
+                    {productData.system.weightUnit}
+                  </div>
                 </motion.div>
 
                 {/* Chain Length */}
@@ -373,7 +383,9 @@ export default function EliteProductPageTemplate({ productData }: EliteProductPa
                   <div className="text-5xl font-black text-[#C8102E] mb-2">
                     {productData.performance.standardChainLength}
                   </div>
-                  <div className="text-xl text-theme-secondary">{productData.performance.chainLengthUnit} standard</div>
+                  <div className="text-xl text-theme-secondary">
+                    {productData.performance.chainLengthUnit} standard
+                  </div>
                 </motion.div>
               </div>
             </motion.div>
@@ -393,7 +405,9 @@ export default function EliteProductPageTemplate({ productData }: EliteProductPa
               <div className="text-center mb-16">
                 <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#C8102E]/20 border border-[#C8102E] mb-6">
                   <Maximize2 className="h-6 w-6 text-[#FFB81C]" />
-                  <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">Operational Flexibility</span>
+                  <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">
+                    Operational Flexibility
+                  </span>
                 </div>
                 <h2 className="text-5xl sm:text-6xl font-black text-theme-primary mb-6">
                   Pallet Range
@@ -497,7 +511,9 @@ export default function EliteProductPageTemplate({ productData }: EliteProductPa
                 <div className="text-center mb-16">
                   <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#C8102E]/20 border border-[#C8102E] mb-6">
                     <Target className="h-6 w-6 text-[#FFB81C]" />
-                    <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">Sealing Performance</span>
+                    <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">
+                      Sealing Performance
+                    </span>
                   </div>
                   <h2 className="text-5xl sm:text-6xl font-black text-theme-primary mb-6">
                     Sealing Head Specifications
@@ -567,7 +583,9 @@ export default function EliteProductPageTemplate({ productData }: EliteProductPa
                       className="p-8 rounded-3xl glass-theme border border-theme-border"
                     >
                       <Layers className="h-12 w-12 text-[#FFB81C] mb-4" />
-                      <h3 className="text-2xl font-black text-theme-primary mb-4">Strap Thickness</h3>
+                      <h3 className="text-2xl font-black text-theme-primary mb-4">
+                        Strap Thickness
+                      </h3>
                       <div className="flex items-center gap-2">
                         <div className="text-3xl font-black text-[#C8102E]">
                           {productData.sealingHead.strapThickness.min}
@@ -591,7 +609,9 @@ export default function EliteProductPageTemplate({ productData }: EliteProductPa
                   viewport={{ once: true }}
                   className="mt-8 p-8 rounded-3xl glass-theme border border-theme-border"
                 >
-                  <h3 className="text-2xl font-black text-theme-primary mb-6">Compatible Strap Materials</h3>
+                  <h3 className="text-2xl font-black text-theme-primary mb-6">
+                    Compatible Strap Materials
+                  </h3>
                   <div className="flex flex-wrap gap-4">
                     {productData.sealingHead.strapMaterials.map((material, idx) => (
                       <div
@@ -623,7 +643,9 @@ export default function EliteProductPageTemplate({ productData }: EliteProductPa
                 <div className="text-center mb-16">
                   <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#C8102E]/20 border border-[#C8102E] mb-6">
                     <Battery className="h-6 w-6 text-[#FFB81C]" />
-                    <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">Power System</span>
+                    <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">
+                      Power System
+                    </span>
                   </div>
                   <h2 className="text-5xl sm:text-6xl font-black text-theme-primary mb-6">
                     {isLithium ? 'Lithium-Ion Technology' : 'Lead-Fleece Battery System'}
@@ -631,8 +653,7 @@ export default function EliteProductPageTemplate({ productData }: EliteProductPa
                   <p className="text-2xl text-theme-secondary font-light max-w-3xl mx-auto">
                     {isLithium
                       ? 'Advanced lithium-ion power for maximum efficiency and extended runtime'
-                      : 'Reliable lead-fleece battery system for consistent performance'
-                    }
+                      : 'Reliable lead-fleece battery system for consistent performance'}
                   </p>
                 </div>
 
@@ -682,8 +703,7 @@ export default function EliteProductPageTemplate({ productData }: EliteProductPa
                     <div className="text-3xl font-black text-[#C8102E]">
                       {typeof productData.battery.loadingTime === 'number'
                         ? `${productData.battery.loadingTime}h`
-                        : `${productData.battery.loadingTime?.min}-${productData.battery.loadingTime?.max}h`
-                      }
+                        : `${productData.battery.loadingTime?.min}-${productData.battery.loadingTime?.max}h`}
                     </div>
                   </motion.div>
 
@@ -697,7 +717,9 @@ export default function EliteProductPageTemplate({ productData }: EliteProductPa
                       className="p-8 rounded-3xl glass-theme border border-theme-border text-center"
                     >
                       <Weight className="h-12 w-12 text-[#FFB81C] mb-4 mx-auto" />
-                      <h3 className="text-lg font-bold text-theme-secondary mb-2">Battery Weight</h3>
+                      <h3 className="text-lg font-bold text-theme-secondary mb-2">
+                        Battery Weight
+                      </h3>
                       <div className="text-3xl font-black text-[#C8102E]">
                         {productData.battery.weight} {productData.battery.weightUnit}
                       </div>
@@ -721,21 +743,29 @@ export default function EliteProductPageTemplate({ productData }: EliteProductPa
                         <CheckCircle2 className="h-6 w-6 text-[#FFB81C] flex-shrink-0 mt-1" />
                         <div>
                           <div className="font-bold text-theme-primary mb-1">3.4x More Cycles</div>
-                          <div className="text-sm text-theme-secondary">1200 vs 350 cycles per charge</div>
+                          <div className="text-sm text-theme-secondary">
+                            1200 vs 350 cycles per charge
+                          </div>
                         </div>
                       </div>
                       <div className="flex items-start gap-4">
                         <CheckCircle2 className="h-6 w-6 text-[#FFB81C] flex-shrink-0 mt-1" />
                         <div>
-                          <div className="font-bold text-theme-primary mb-1">60% Faster Charging</div>
-                          <div className="text-sm text-theme-secondary">3.5 hours vs 8-10 hours</div>
+                          <div className="font-bold text-theme-primary mb-1">
+                            60% Faster Charging
+                          </div>
+                          <div className="text-sm text-theme-secondary">
+                            3.5 hours vs 8-10 hours
+                          </div>
                         </div>
                       </div>
                       <div className="flex items-start gap-4">
                         <CheckCircle2 className="h-6 w-6 text-[#FFB81C] flex-shrink-0 mt-1" />
                         <div>
                           <div className="font-bold text-theme-primary mb-1">60% Lighter</div>
-                          <div className="text-sm text-theme-secondary">5kg vs 12.3kg battery weight</div>
+                          <div className="text-sm text-theme-secondary">
+                            5kg vs 12.3kg battery weight
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -760,7 +790,9 @@ export default function EliteProductPageTemplate({ productData }: EliteProductPa
                 <div className="text-center mb-16">
                   <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#C8102E]/20 border border-[#C8102E] mb-6">
                     <Settings className="h-6 w-6 text-[#FFB81C]" />
-                    <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">Features & Accessories</span>
+                    <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">
+                      Features & Accessories
+                    </span>
                   </div>
                   <h2 className="text-5xl sm:text-6xl font-black text-theme-primary mb-6">
                     Included & Optional
@@ -795,30 +827,33 @@ export default function EliteProductPageTemplate({ productData }: EliteProductPa
                   )}
 
                   {/* Optional Accessories */}
-                  {productData.optionalAccessories && productData.optionalAccessories.length > 0 && (
-                    <motion.div
-                      initial={{ opacity: 0, x: 30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      className="p-8 rounded-3xl glass-theme border border-theme-border"
-                    >
-                      <h3 className="text-3xl font-black text-theme-primary mb-6 flex items-center gap-3">
-                        <Package className="h-8 w-8 text-[#FFB81C]" />
-                        Optional Accessories
-                      </h3>
-                      <div className="space-y-4">
-                        {productData.optionalAccessories.map((accessory, idx) => (
-                          <div
-                            key={idx}
-                            className="flex items-center gap-3 p-4 rounded-xl bg-white/5 dark:bg-white/5 border border-theme-border"
-                          >
-                            <div className="w-2 h-2 rounded-full bg-[#FFB81C] flex-shrink-0" />
-                            <span className="font-semibold text-theme-secondary">{accessory}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
+                  {productData.optionalAccessories &&
+                    productData.optionalAccessories.length > 0 && (
+                      <motion.div
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        className="p-8 rounded-3xl glass-theme border border-theme-border"
+                      >
+                        <h3 className="text-3xl font-black text-theme-primary mb-6 flex items-center gap-3">
+                          <Package className="h-8 w-8 text-[#FFB81C]" />
+                          Optional Accessories
+                        </h3>
+                        <div className="space-y-4">
+                          {productData.optionalAccessories.map((accessory, idx) => (
+                            <div
+                              key={idx}
+                              className="flex items-center gap-3 p-4 rounded-xl bg-white/5 dark:bg-white/5 border border-theme-border"
+                            >
+                              <div className="w-2 h-2 rounded-full bg-[#FFB81C] flex-shrink-0" />
+                              <span className="font-semibold text-theme-secondary">
+                                {accessory}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
                 </div>
               </motion.div>
             </div>
@@ -838,7 +873,9 @@ export default function EliteProductPageTemplate({ productData }: EliteProductPa
               <div className="text-center mb-16">
                 <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[#C8102E]/20 border border-[#C8102E] mb-6">
                   <Award className="h-6 w-6 text-[#FFB81C]" />
-                  <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">Quality Assurance</span>
+                  <span className="text-sm font-bold text-[#FFB81C] tracking-wider uppercase">
+                    Quality Assurance
+                  </span>
                 </div>
                 <h2 className="text-5xl sm:text-6xl font-black text-theme-primary mb-6">
                   Certifications
@@ -881,7 +918,8 @@ export default function EliteProductPageTemplate({ productData }: EliteProductPa
                 Ready to Elevate Your Operations?
               </h2>
               <p className="text-2xl font-light mb-12 opacity-90">
-                Get in touch with our team to discuss how the {productData.model} can transform your strapping process
+                Get in touch with our team to discuss how the {productData.model} can transform your
+                strapping process
               </p>
 
               <div className="flex flex-wrap justify-center gap-6">

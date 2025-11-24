@@ -14,7 +14,11 @@ interface IconProps {
 }
 
 // Package Entry Icon
-export const PackageEntryIcon: React.FC<IconProps> = ({ className = '', size = 48, color = 'currentColor' }) => (
+export const PackageEntryIcon: React.FC<IconProps> = ({
+  className = '',
+  size = 48,
+  color = 'currentColor',
+}) => (
   <svg
     width={size}
     height={size}
@@ -41,7 +45,11 @@ export const PackageEntryIcon: React.FC<IconProps> = ({ className = '', size = 4
 );
 
 // Strap Feeding Icon (Circular flow)
-export const StrapFeedingIcon: React.FC<IconProps> = ({ className = '', size = 48, color = 'currentColor' }) => (
+export const StrapFeedingIcon: React.FC<IconProps> = ({
+  className = '',
+  size = 48,
+  color = 'currentColor',
+}) => (
   <svg
     width={size}
     height={size}
@@ -68,7 +76,11 @@ export const StrapFeedingIcon: React.FC<IconProps> = ({ className = '', size = 4
 );
 
 // Precision Tensioning Icon (Bolt with precision marker)
-export const PrecisionTensionIcon: React.FC<IconProps> = ({ className = '', size = 48, color = 'currentColor' }) => (
+export const PrecisionTensionIcon: React.FC<IconProps> = ({
+  className = '',
+  size = 48,
+  color = 'currentColor',
+}) => (
   <svg
     width={size}
     height={size}
@@ -91,7 +103,11 @@ export const PrecisionTensionIcon: React.FC<IconProps> = ({ className = '', size
 );
 
 // Heat Sealing Icon (Flame with waves)
-export const HeatSealingIcon: React.FC<IconProps> = ({ className = '', size = 48, color = 'currentColor' }) => (
+export const HeatSealingIcon: React.FC<IconProps> = ({
+  className = '',
+  size = 48,
+  color = 'currentColor',
+}) => (
   <svg
     width={size}
     height={size}
@@ -127,7 +143,11 @@ export const HeatSealingIcon: React.FC<IconProps> = ({ className = '', size = 48
 );
 
 // Success/Complete Icon (Premium checkmark)
-export const CompleteIcon: React.FC<IconProps> = ({ className = '', size = 48, color = 'currentColor' }) => (
+export const CompleteIcon: React.FC<IconProps> = ({
+  className = '',
+  size = 48,
+  color = 'currentColor',
+}) => (
   <svg
     width={size}
     height={size}
@@ -144,12 +164,24 @@ export const CompleteIcon: React.FC<IconProps> = ({ className = '', size = 48, c
       strokeLinecap="round"
       strokeLinejoin="round"
     />
-    <circle cx="24" cy="24" r="22" stroke={color} strokeWidth="1" opacity="0.3" strokeDasharray="4 4" />
+    <circle
+      cx="24"
+      cy="24"
+      r="22"
+      stroke={color}
+      strokeWidth="1"
+      opacity="0.3"
+      strokeDasharray="4 4"
+    />
   </svg>
 );
 
 // Speed/Performance Icon
-export const SpeedIcon: React.FC<IconProps> = ({ className = '', size = 48, color = 'currentColor' }) => (
+export const SpeedIcon: React.FC<IconProps> = ({
+  className = '',
+  size = 48,
+  color = 'currentColor',
+}) => (
   <svg
     width={size}
     height={size}
@@ -163,12 +195,7 @@ export const SpeedIcon: React.FC<IconProps> = ({ className = '', size = 48, colo
       stroke={color}
       strokeWidth="2"
     />
-    <path
-      d="M24 24L34 14"
-      stroke={color}
-      strokeWidth="2.5"
-      strokeLinecap="round"
-    />
+    <path d="M24 24L34 14" stroke={color} strokeWidth="2.5" strokeLinecap="round" />
     <circle cx="24" cy="24" r="3" fill={color} />
     <path
       d="M14 32C16 28 20 26 24 26"
@@ -182,7 +209,11 @@ export const SpeedIcon: React.FC<IconProps> = ({ className = '', size = 48, colo
 );
 
 // Strength Icon
-export const StrengthIcon: React.FC<IconProps> = ({ className = '', size = 48, color = 'currentColor' }) => (
+export const StrengthIcon: React.FC<IconProps> = ({
+  className = '',
+  size = 48,
+  color = 'currentColor',
+}) => (
   <svg
     width={size}
     height={size}
@@ -191,12 +222,7 @@ export const StrengthIcon: React.FC<IconProps> = ({ className = '', size = 48, c
     xmlns="http://www.w3.org/2000/svg"
     className={className}
   >
-    <path
-      d="M8 24H14M34 24H40"
-      stroke={color}
-      strokeWidth="2.5"
-      strokeLinecap="round"
-    />
+    <path d="M8 24H14M34 24H40" stroke={color} strokeWidth="2.5" strokeLinecap="round" />
     <rect x="14" y="18" width="6" height="12" stroke={color} strokeWidth="2" fill={`${color}33`} />
     <rect x="28" y="18" width="6" height="12" stroke={color} strokeWidth="2" fill={`${color}33`} />
     <rect x="20" y="12" width="8" height="24" stroke={color} strokeWidth="2" fill={`${color}66`} />
@@ -212,7 +238,11 @@ export const StrengthIcon: React.FC<IconProps> = ({ className = '', size = 48, c
 );
 
 // Energy/Battery Icon
-export const EnergyIcon: React.FC<IconProps> = ({ className = '', size = 48, color = 'currentColor' }) => (
+export const EnergyIcon: React.FC<IconProps> = ({
+  className = '',
+  size = 48,
+  color = 'currentColor',
+}) => (
   <svg
     width={size}
     height={size}
@@ -223,23 +253,17 @@ export const EnergyIcon: React.FC<IconProps> = ({ className = '', size = 48, col
   >
     <rect x="10" y="14" width="28" height="20" rx="2" stroke={color} strokeWidth="2" />
     <rect x="38" y="20" width="4" height="8" rx="1" fill={color} />
-    <path
-      d="M26 20L20 26H24L22 34L28 28H24L26 20Z"
-      fill={color}
-      opacity="0.8"
-    />
-    <path
-      d="M14 18H34"
-      stroke={color}
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      opacity="0.3"
-    />
+    <path d="M26 20L20 26H24L22 34L28 28H24L26 20Z" fill={color} opacity="0.8" />
+    <path d="M14 18H34" stroke={color} strokeWidth="1.5" strokeLinecap="round" opacity="0.3" />
   </svg>
 );
 
 // Timer/Cycle Icon
-export const TimerIcon: React.FC<IconProps> = ({ className = '', size = 48, color = 'currentColor' }) => (
+export const TimerIcon: React.FC<IconProps> = ({
+  className = '',
+  size = 48,
+  color = 'currentColor',
+}) => (
   <svg
     width={size}
     height={size}
@@ -249,24 +273,18 @@ export const TimerIcon: React.FC<IconProps> = ({ className = '', size = 48, colo
     className={className}
   >
     <circle cx="24" cy="26" r="16" stroke={color} strokeWidth="2" />
-    <path
-      d="M24 26V16M24 26L32 32"
-      stroke={color}
-      strokeWidth="2"
-      strokeLinecap="round"
-    />
-    <path
-      d="M18 8H30M24 8V10"
-      stroke={color}
-      strokeWidth="2"
-      strokeLinecap="round"
-    />
+    <path d="M24 26V16M24 26L32 32" stroke={color} strokeWidth="2" strokeLinecap="round" />
+    <path d="M18 8H30M24 8V10" stroke={color} strokeWidth="2" strokeLinecap="round" />
     <circle cx="24" cy="26" r="2" fill={color} />
   </svg>
 );
 
 // Global/World Icon
-export const GlobalIcon: React.FC<IconProps> = ({ className = '', size = 48, color = 'currentColor' }) => (
+export const GlobalIcon: React.FC<IconProps> = ({
+  className = '',
+  size = 48,
+  color = 'currentColor',
+}) => (
   <svg
     width={size}
     height={size}
@@ -287,7 +305,11 @@ export const GlobalIcon: React.FC<IconProps> = ({ className = '', size = 48, col
 );
 
 // Certificate/Quality Icon
-export const CertificateIcon: React.FC<IconProps> = ({ className = '', size = 48, color = 'currentColor' }) => (
+export const CertificateIcon: React.FC<IconProps> = ({
+  className = '',
+  size = 48,
+  color = 'currentColor',
+}) => (
   <svg
     width={size}
     height={size}
@@ -316,7 +338,11 @@ export const CertificateIcon: React.FC<IconProps> = ({ className = '', size = 48
 );
 
 // Precision/Target Icon
-export const PrecisionIcon: React.FC<IconProps> = ({ className = '', size = 48, color = 'currentColor' }) => (
+export const PrecisionIcon: React.FC<IconProps> = ({
+  className = '',
+  size = 48,
+  color = 'currentColor',
+}) => (
   <svg
     width={size}
     height={size}
@@ -339,7 +365,11 @@ export const PrecisionIcon: React.FC<IconProps> = ({ className = '', size = 48, 
 );
 
 // Innovation/Lightbulb Icon
-export const InnovationIcon: React.FC<IconProps> = ({ className = '', size = 48, color = 'currentColor' }) => (
+export const InnovationIcon: React.FC<IconProps> = ({
+  className = '',
+  size = 48,
+  color = 'currentColor',
+}) => (
   <svg
     width={size}
     height={size}
@@ -355,12 +385,7 @@ export const InnovationIcon: React.FC<IconProps> = ({ className = '', size = 48,
       strokeLinejoin="round"
       fill={`${color}22`}
     />
-    <path
-      d="M18 36H30M20 40H28M22 44H26"
-      stroke={color}
-      strokeWidth="2"
-      strokeLinecap="round"
-    />
+    <path d="M18 36H30M20 40H28M22 44H26" stroke={color} strokeWidth="2" strokeLinecap="round" />
     <path
       d="M24 12V18M18 15L20 17M30 15L28 17"
       stroke={color}
@@ -372,7 +397,11 @@ export const InnovationIcon: React.FC<IconProps> = ({ className = '', size = 48,
 );
 
 // Industry/Factory Icon
-export const IndustryIcon: React.FC<IconProps> = ({ className = '', size = 48, color = 'currentColor' }) => (
+export const IndustryIcon: React.FC<IconProps> = ({
+  className = '',
+  size = 48,
+  color = 'currentColor',
+}) => (
   <svg
     width={size}
     height={size}
@@ -405,7 +434,11 @@ export const IndustryIcon: React.FC<IconProps> = ({ className = '', size = 48, c
 );
 
 // Support/Handshake Icon
-export const SupportIcon: React.FC<IconProps> = ({ className = '', size = 48, color = 'currentColor' }) => (
+export const SupportIcon: React.FC<IconProps> = ({
+  className = '',
+  size = 48,
+  color = 'currentColor',
+}) => (
   <svg
     width={size}
     height={size}
@@ -434,7 +467,11 @@ export const SupportIcon: React.FC<IconProps> = ({ className = '', size = 48, co
 );
 
 // Sustainability/Leaf Icon
-export const SustainabilityIcon: React.FC<IconProps> = ({ className = '', size = 48, color = 'currentColor' }) => (
+export const SustainabilityIcon: React.FC<IconProps> = ({
+  className = '',
+  size = 48,
+  color = 'currentColor',
+}) => (
   <svg
     width={size}
     height={size}

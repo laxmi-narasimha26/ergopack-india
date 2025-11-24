@@ -7,10 +7,7 @@ import { ApiResponse } from '@/types';
 import readingTime from 'reading-time';
 
 // GET /api/blog/[id] - Get single blog by ID or slug
-export async function GET(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
   try {
     await connectDB();
 
@@ -24,19 +21,13 @@ export async function GET(
     }
 
     if (!blog) {
-      return NextResponse.json(
-        { success: false, error: 'Blog not found' },
-        { status: 404 }
-      );
+      return NextResponse.json({ success: false, error: 'Blog not found' }, { status: 404 });
     }
 
     // Check if blog is published (unless user is authenticated)
     const session = await getServerSession(authOptions);
-    if (!blog.published && !await isAuthenticated(session)) {
-      return NextResponse.json(
-        { success: false, error: 'Blog not found' },
-        { status: 404 }
-      );
+    if (!blog.published && !(await isAuthenticated(session))) {
+      return NextResponse.json({ success: false, error: 'Blog not found' }, { status: 404 });
     }
 
     // Increment view count for published blogs
@@ -52,26 +43,17 @@ export async function GET(
     return NextResponse.json(response);
   } catch (error: any) {
     console.error('Error fetching blog:', error);
-    return NextResponse.json(
-      { success: false, error: 'Failed to fetch blog' },
-      { status: 500 }
-    );
+    return NextResponse.json({ success: false, error: 'Failed to fetch blog' }, { status: 500 });
   }
 }
 
 // PUT /api/blog/[id] - Update blog (protected)
-export async function PUT(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function PUT(request: NextRequest, { params }: { params: { id: string } }) {
   try {
     const session = await getServerSession(authOptions);
 
-    if (!await isAuthenticated(session)) {
-      return NextResponse.json(
-        { success: false, error: 'Unauthorized' },
-        { status: 401 }
-      );
+    if (!(await isAuthenticated(session))) {
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
     }
 
     await connectDB();
@@ -83,10 +65,7 @@ export async function PUT(
     const existingBlog = await BlogModel.findById(id);
 
     if (!existingBlog) {
-      return NextResponse.json(
-        { success: false, error: 'Blog not found' },
-        { status: 404 }
-      );
+      return NextResponse.json({ success: false, error: 'Blog not found' }, { status: 404 });
     }
 
     // Calculate read time if content changed
@@ -127,11 +106,10 @@ export async function PUT(
       updateData.publishedAt = new Date();
     }
 
-    const blog = await BlogModel.findByIdAndUpdate(
-      id,
-      updateData,
-      { new: true, runValidators: true }
-    );
+    const blog = await BlogModel.findByIdAndUpdate(id, updateData, {
+      new: true,
+      runValidators: true,
+    });
 
     const response: ApiResponse = {
       success: true,
@@ -150,18 +128,12 @@ export async function PUT(
 }
 
 // DELETE /api/blog/[id] - Delete blog (protected)
-export async function DELETE(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
+export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
   try {
     const session = await getServerSession(authOptions);
 
-    if (!await isAuthenticated(session)) {
-      return NextResponse.json(
-        { success: false, error: 'Unauthorized' },
-        { status: 401 }
-      );
+    if (!(await isAuthenticated(session))) {
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
     }
 
     await connectDB();
@@ -171,10 +143,7 @@ export async function DELETE(
     const blog = await BlogModel.findByIdAndDelete(id);
 
     if (!blog) {
-      return NextResponse.json(
-        { success: false, error: 'Blog not found' },
-        { status: 404 }
-      );
+      return NextResponse.json({ success: false, error: 'Blog not found' }, { status: 404 });
     }
 
     const response: ApiResponse = {
@@ -185,9 +154,6 @@ export async function DELETE(
     return NextResponse.json(response);
   } catch (error: any) {
     console.error('Error deleting blog:', error);
-    return NextResponse.json(
-      { success: false, error: 'Failed to delete blog' },
-      { status: 500 }
-    );
+    return NextResponse.json({ success: false, error: 'Failed to delete blog' }, { status: 500 });
   }
 }

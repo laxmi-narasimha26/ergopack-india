@@ -13,6 +13,7 @@ This document serves as a comprehensive guide for AI assistants (like Claude) wo
 Ergopack India is [PROJECT DESCRIPTION TO BE ADDED - likely related to packaging, logistics, or ergonomic solutions in India].
 
 **Key Objectives:**
+
 - [TO BE DEFINED]
 - [TO BE DEFINED]
 
@@ -50,6 +51,7 @@ ergopack-india/
 **Current Branch:** `claude/claude-md-mi1qvph9rykr5wq5-01G1U7ppVBuGFxKpX1iE1aaL`
 
 **Branch Naming Conventions:**
+
 - `main` - Production-ready code
 - `develop` - Development branch
 - `feature/*` - Feature branches
@@ -76,6 +78,7 @@ Follow conventional commits format:
 ```
 
 **Types:**
+
 - `feat`: New feature
 - `fix`: Bug fix
 - `docs`: Documentation changes
@@ -86,6 +89,7 @@ Follow conventional commits format:
 - `perf`: Performance improvements
 
 **Examples:**
+
 ```
 feat(auth): add user authentication module
 fix(api): resolve timeout issue in payment processing
@@ -125,6 +129,7 @@ docs(readme): update installation instructions
 [Language-specific style guides will be added as the tech stack is determined]
 
 **Potential Stack Considerations:**
+
 - Frontend: React, Vue, Angular, or other
 - Backend: Node.js, Python, Java, or other
 - Database: PostgreSQL, MongoDB, MySQL, or other
@@ -206,6 +211,7 @@ npm run lint            # Run linter
 ### Common Tasks
 
 **Adding a New Feature:**
+
 1. Create a feature branch
 2. Implement the feature with tests
 3. Update documentation
@@ -213,6 +219,7 @@ npm run lint            # Run linter
 5. Create a pull request
 
 **Fixing a Bug:**
+
 1. Reproduce the bug
 2. Write a failing test
 3. Fix the bug
@@ -220,6 +227,7 @@ npm run lint            # Run linter
 5. Commit and push
 
 **Refactoring:**
+
 1. Ensure tests exist and pass
 2. Make incremental changes
 3. Run tests after each change
@@ -231,6 +239,7 @@ npm run lint            # Run linter
 ### Domain Knowledge
 
 **Packaging Industry in India:**
+
 - Understanding of packaging materials and standards
 - Knowledge of Indian regulatory requirements
 - Awareness of logistics and supply chain practices
@@ -336,6 +345,7 @@ NODE_ENV=
 ### When This File Needs Updates
 
 Update CLAUDE.md when:
+
 - Project structure changes significantly
 - New development tools are added
 - Coding conventions are established or modified

@@ -25,10 +25,7 @@ export const PostList: React.FC = () => {
         limit: pageSize,
         ...(searchQuery && { search: searchQuery }),
       };
-      const response = await api.get<PaginatedResponse<BlogPost>>(
-        '/blog/posts',
-        { params }
-      );
+      const response = await api.get<PaginatedResponse<BlogPost>>('/blog/posts', { params });
       setPosts(response.data.data);
       setTotal(response.data.total);
     } catch (error) {
@@ -141,21 +138,14 @@ export const PostList: React.FC = () => {
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {posts.map((post) => (
-                  <tr
-                    key={post.id}
-                    className="hover:bg-gray-50 transition-colors"
-                  >
+                  <tr key={post.id} className="hover:bg-gray-50 transition-colors">
                     <td className="px-6 py-4">
                       <p className="font-medium text-gray-900">{post.title}</p>
                       {post.excerpt && (
-                        <p className="text-sm text-gray-500 truncate">
-                          {post.excerpt}
-                        </p>
+                        <p className="text-sm text-gray-500 truncate">{post.excerpt}</p>
                       )}
                     </td>
-                    <td className="px-6 py-4 text-sm text-gray-500">
-                      {post.author_id}
-                    </td>
+                    <td className="px-6 py-4 text-sm text-gray-500">{post.author_id}</td>
                     <td className="px-6 py-4">
                       <span
                         className={`px-3 py-1 rounded-full text-xs font-medium ${
@@ -168,9 +158,7 @@ export const PostList: React.FC = () => {
                       </span>
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-500">
-                      {post.published_at
-                        ? new Date(post.published_at).toLocaleDateString()
-                        : '-'}
+                      {post.published_at ? new Date(post.published_at).toLocaleDateString() : '-'}
                     </td>
                     <td className="px-6 py-4 text-right">
                       <div className="flex items-center justify-end gap-2">

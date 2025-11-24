@@ -112,9 +112,7 @@ export default function FeatureTooltip({
                   </div>
 
                   {/* Explanation */}
-                  <p className="text-sm text-gray-300 leading-relaxed">
-                    {explanation}
-                  </p>
+                  <p className="text-sm text-gray-300 leading-relaxed">{explanation}</p>
 
                   {/* Bottom accent */}
                   <div className="mt-4 h-px bg-gradient-to-r from-transparent via-[#C8102E]/50 to-transparent" />
@@ -126,17 +124,21 @@ export default function FeatureTooltip({
                     </span>
                     <div className="flex gap-1">
                       <div className="w-1 h-1 bg-[#C8102E] rounded-full animate-pulse" />
-                      <div className="w-1 h-1 bg-[#FFB81C] rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
-                      <div className="w-1 h-1 bg-[#00D9FF] rounded-full animate-pulse" style={{ animationDelay: '0.4s' }} />
+                      <div
+                        className="w-1 h-1 bg-[#FFB81C] rounded-full animate-pulse"
+                        style={{ animationDelay: '0.2s' }}
+                      />
+                      <div
+                        className="w-1 h-1 bg-[#00D9FF] rounded-full animate-pulse"
+                        style={{ animationDelay: '0.4s' }}
+                      />
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Arrow */}
-              <div
-                className={`absolute w-0 h-0 border-8 ${getArrowStyles()}`}
-              />
+              <div className={`absolute w-0 h-0 border-8 ${getArrowStyles()}`} />
             </div>
           </motion.div>
         )}
@@ -148,13 +150,7 @@ export default function FeatureTooltip({
 /**
  * Compact inline version for shorter explanations
  */
-export function InlineTooltip({
-  text,
-  children,
-}: {
-  text: string;
-  children: React.ReactNode;
-}) {
+export function InlineTooltip({ text, children }: { text: string; children: React.ReactNode }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (

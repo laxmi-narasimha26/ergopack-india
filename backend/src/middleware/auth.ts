@@ -15,11 +15,7 @@ declare global {
 /**
  * Middleware to authenticate user via JWT token
  */
-export const authenticate = (
-  req: Request,
-  res: Response,
-  next: NextFunction
-): void => {
+export const authenticate = (req: Request, res: Response, next: NextFunction): void => {
   try {
     // Get token from Authorization header
     const authHeader = req.headers.authorization;
@@ -89,11 +85,7 @@ export const authorize = (...requiredPermissions: Permission[]) => {
  * Optional authentication middleware
  * Does not fail if no token is provided, but attaches user if valid token exists
  */
-export const optionalAuth = (
-  req: Request,
-  res: Response,
-  next: NextFunction
-): void => {
+export const optionalAuth = (req: Request, res: Response, next: NextFunction): void => {
   try {
     const authHeader = req.headers.authorization;
     if (authHeader && authHeader.startsWith('Bearer ')) {

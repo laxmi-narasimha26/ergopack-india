@@ -99,7 +99,7 @@ test.describe('Accessibility', () => {
     for (const input of inputs) {
       const ariaLabel = await input.getAttribute('aria-label');
       const id = await input.getAttribute('id');
-      const hasLabel = ariaLabel || (id && await page.locator(`label[for="${id}"]`).count() > 0);
+      const hasLabel = ariaLabel || (id && (await page.locator(`label[for="${id}"]`).count()) > 0);
       expect(hasLabel).toBeTruthy();
     }
   });

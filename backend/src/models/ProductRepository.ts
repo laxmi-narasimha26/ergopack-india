@@ -22,7 +22,7 @@ export class ProductRepository {
     sql += ` ORDER BY p.sort_order ASC, p.created_at DESC LIMIT $1 OFFSET $2`;
 
     const result = await query(sql, [limit, offset]);
-    return Promise.all(result.rows.map(row => this.mapRow(row)));
+    return Promise.all(result.rows.map((row) => this.mapRow(row)));
   }
 
   async findById(id: string): Promise<Product | null> {
@@ -85,7 +85,7 @@ export class ProductRepository {
     sql += ` ORDER BY p.sort_order ASC, p.created_at DESC`;
 
     const result = await query(sql, [category]);
-    return Promise.all(result.rows.map(row => this.mapRow(row)));
+    return Promise.all(result.rows.map((row) => this.mapRow(row)));
   }
 
   async create(data: Partial<Product>): Promise<Product> {
@@ -257,27 +257,25 @@ export class ProductRepository {
     sql += ` ORDER BY p.sort_order ASC, p.created_at DESC`;
 
     const result = await query(sql, [`%${searchTerm}%`]);
-    return Promise.all(result.rows.map(row => this.mapRow(row)));
+    return Promise.all(result.rows.map((row) => this.mapRow(row)));
   }
 
   private async mapRow(row: any): Promise<Product> {
     // Get gallery media if gallery_ids exist
     let gallery: Media[] = [];
     if (row.gallery_ids && Array.isArray(row.gallery_ids)) {
-      const galleryResult = await query(
-        'SELECT * FROM media WHERE id = ANY($1)',
-        [row.gallery_ids]
-      );
+      const galleryResult = await query('SELECT * FROM media WHERE id = ANY($1)', [
+        row.gallery_ids,
+      ]);
       gallery = galleryResult.rows;
     }
 
     // Get brochures if brochure_ids exist
     let brochures: Media[] = [];
     if (row.brochure_ids && Array.isArray(row.brochure_ids)) {
-      const brochuresResult = await query(
-        'SELECT * FROM media WHERE id = ANY($1)',
-        [row.brochure_ids]
-      );
+      const brochuresResult = await query('SELECT * FROM media WHERE id = ANY($1)', [
+        row.brochure_ids,
+      ]);
       brochures = brochuresResult.rows;
     }
 

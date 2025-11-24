@@ -18,11 +18,13 @@ Since the GitHub CLI is not available, please create the PR manually using one o
 ## Method 2: Direct Link (UPDATED - USE THIS ONE!)
 
 Use this direct link to create the PR:
+
 ```
 https://github.com/laxmi-narasimha26/ergopack-india/compare/claude/claude-md-mi1qvph9rykr5wq5-01G1U7ppVBuGFxKpX1iE1aaL...claude/rebuild-product-pages-01GX7S8B9vgucCNeZuiwB3oE
 ```
 
 Then:
+
 1. Copy the title and description from `PR_DESCRIPTION.md`
 2. Paste into the PR form
 3. Click "Create pull request"
@@ -42,6 +44,7 @@ gh pr create \
 ## Summary of Changes
 
 This PR includes:
+
 - 2 new components (ProductSelector, ProductShowcase)
 - 9 modified files
 - 1,312 insertions, 252 deletions

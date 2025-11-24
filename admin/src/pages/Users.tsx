@@ -18,7 +18,8 @@ export const Users: React.FC = () => {
       <div className="bg-white rounded-lg shadow p-12 text-center">
         <p className="text-gray-500 mb-4">User management coming soon</p>
         <p className="text-sm text-gray-400">
-          This section will allow you to create, edit, and manage admin users with different roles and permissions
+          This section will allow you to create, edit, and manage admin users with different roles
+          and permissions
         </p>
       </div>
     </div>

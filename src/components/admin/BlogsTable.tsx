@@ -61,10 +61,7 @@ export default function BlogsTable({ blogs, onDelete, onTogglePublish }: BlogsTa
         </thead>
         <tbody className="divide-y divide-neutral-800">
           {blogs.map((blog) => (
-            <tr
-              key={blog._id}
-              className="hover:bg-neutral-900/50 transition-colors"
-            >
+            <tr key={blog._id} className="hover:bg-neutral-900/50 transition-colors">
               <td className="px-4 py-4">
                 <div className="flex items-start space-x-3">
                   {blog.coverImage && (
@@ -75,28 +72,20 @@ export default function BlogsTable({ blogs, onDelete, onTogglePublish }: BlogsTa
                     />
                   )}
                   <div>
-                    <div className="text-sm font-medium text-white line-clamp-1">
-                      {blog.title}
-                    </div>
-                    <div className="text-xs text-neutral-400 line-clamp-1 mt-1">
-                      {blog.excerpt}
-                    </div>
+                    <div className="text-sm font-medium text-white line-clamp-1">{blog.title}</div>
+                    <div className="text-xs text-neutral-400 line-clamp-1 mt-1">{blog.excerpt}</div>
                   </div>
                 </div>
               </td>
               <td className="px-4 py-4 whitespace-nowrap">
-                <span className="text-sm text-neutral-300 capitalize">
-                  {blog.category}
-                </span>
+                <span className="text-sm text-neutral-300 capitalize">{blog.category}</span>
               </td>
               <td className="px-4 py-4 whitespace-nowrap">
                 <div className="flex items-center space-x-2">
                   <Badge variant={blog.published ? 'success' : 'default'}>
                     {blog.published ? 'Published' : 'Draft'}
                   </Badge>
-                  {blog.featured && (
-                    <Badge variant="warning">Featured</Badge>
-                  )}
+                  {blog.featured && <Badge variant="warning">Featured</Badge>}
                 </div>
               </td>
               <td className="px-4 py-4 whitespace-nowrap text-sm text-neutral-400">

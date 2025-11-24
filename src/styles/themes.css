@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Premium Artisan Palette */
+
+  /* Accents: Gold/Bronze for luxury touches */
+  --accent: 45 30% 50%;
+  /* #A69050 */
+  --accent-foreground: 0 0% 98%;
+
+  /* Muted: Warm Grays */
+  --muted: 60 5% 90%;
+  --muted-foreground: 0 0% 40%;
+
+  /* Cards & Borders */
+  --card: 60 10% 98%;
+  --card-foreground: 0 0% 10%;
+  --border: 0 0% 90%;
+  --input: 0 0% 90%;
+
+  /* Radius */
+  --radius: 0.2rem;
+  /* Sharp, precise corners for "German Engineering" feel */
+}
+
+.dark {
+  /* Premium Dark Mode: Rich Charcoal/Onyx instead of pure black */
+  --background: 0 0% 7%;
+  /* #121212 */
+  --foreground: 60 5% 90%;
+  /* #E6E6E1 */
+
+  --primary: 358 80% 55%;
+  --primary-foreground: 0 0% 98%;
+
+  --secondary: 0 0% 12%;
+  --secondary-foreground: 0 0% 98%;
+
+  --accent: 45 40% 60%;
+  --accent-foreground: 0 0% 10%;
+
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 60%;
+
+  --card: 0 0% 9%;
+  --card-foreground: 0 0% 90%;
+  --border: 0 0% 15%;
+  --input: 0 0% 15%;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .tracking-widest-artisan {
+    letter-spacing: 0.2em;
+  }
+
+  .leading-relaxed-artisan {
+    line-height: 1.8;
+  }
+
+  .font-artisan-serif {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-artisan-sans {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  /* Premium Shadows */
+  .shadow-premium-sm {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .shadow-premium-md {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+
+  .shadow-premium-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+}

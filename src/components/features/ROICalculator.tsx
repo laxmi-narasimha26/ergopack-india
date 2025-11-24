@@ -43,8 +43,7 @@ export default function ROICalculator() {
     // With ErgoPack
     const ergopackMonthlyFailures = loadsPerMonth * ergopackFailureRate;
     const ergopackMonthlyCost =
-      ergopackMonthlyFailures * averageLossPerFailure +
-      loadsPerMonth * systemCostPerLoad;
+      ergopackMonthlyFailures * averageLossPerFailure + loadsPerMonth * systemCostPerLoad;
 
     // Savings
     const monthlySavings = currentMonthlyCost - ergopackMonthlyCost;
@@ -58,7 +57,8 @@ export default function ROICalculator() {
       totalSavings: monthlySavings,
       monthlyROI: (monthlySavings / systemInvestment) * 100,
       paybackPeriod: paybackMonths,
-      reductionInFailures: ((currentMonthlyFailures - ergopackMonthlyFailures) / currentMonthlyFailures) * 100,
+      reductionInFailures:
+        ((currentMonthlyFailures - ergopackMonthlyFailures) / currentMonthlyFailures) * 100,
       annualSavings: annualSavings,
     };
 
@@ -90,9 +90,7 @@ export default function ROICalculator() {
           <div className="space-y-6">
             {/* Loads per month */}
             <div>
-              <label className="block text-sm font-medium text-slate-300 mb-3">
-                Monthly Loads
-              </label>
+              <label className="block text-sm font-medium text-slate-300 mb-3">Monthly Loads</label>
               <div className="relative">
                 <Package className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400" />
                 <input

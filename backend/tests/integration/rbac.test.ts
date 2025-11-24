@@ -23,39 +23,51 @@ describe('RBAC Integration Tests', () => {
     await pool.query('TRUNCATE TABLE users, roles CASCADE');
 
     // Create Sales role
-    const roleResult = await pool.query(`
+    const roleResult = await pool.query(
+      `
       INSERT INTO roles (name, display_name, description, permissions)
       VALUES ('sales', 'Sales', 'Sales team access', $1)
       RETURNING id
-    `, [JSON.stringify(['leads.read', 'leads.update'])]);
+    `,
+      [JSON.stringify(['leads.read', 'leads.update'])]
+    );
 
     salesRoleId = roleResult.rows[0].id;
 
     // Create Admin role
-    const adminRoleResult = await pool.query(`
+    const adminRoleResult = await pool.query(
+      `
       INSERT INTO roles (name, display_name, description, permissions)
       VALUES ('super_admin', 'Super Admin', 'Full access', $1)
       RETURNING id
-    `, [JSON.stringify(['*'])]);
+    `,
+      [JSON.stringify(['*'])]
+    );
 
     const adminRoleId = adminRoleResult.rows[0].id;
 
     // Create Sales user
     const passwordHash = await hashPassword('password123');
-    const userResult = await pool.query(`
+    const userResult = await pool.query(
+      `
       INSERT INTO users (email, password_hash, name, role_id)
       VALUES ('sales@test.com', $1, 'Sales User', $2)
       RETURNING id
-    `, [passwordHash, salesRoleId]);
+    `,
+      [passwordHash, salesRoleId]
+    );
 
     salesUserId = userResult.rows[0].id;
 
     // Create Admin user
-    const adminResult = await pool.query(`
+    const adminResult = await pool.query(
+      `
       INSERT INTO users (email, password_hash, name, role_id)
       VALUES ('admin@test.com', $1, 'Admin User', $2)
       RETURNING id
-    `, [passwordHash, adminRoleId]);
+    `,
+      [passwordHash, adminRoleId]
+    );
 
     // Generate tokens
     salesToken = generateToken({
@@ -89,10 +101,13 @@ describe('RBAC Integration Tests', () => {
 
   it('should ALLOW sales user access to GET /api/forms/submissions (200 OK)', async () => {
     // First, create a test form as admin
-    await pool.query(`
+    await pool.query(
+      `
       INSERT INTO forms (id, name, slug, fields, is_active)
       VALUES (uuid_generate_v4(), 'Test Form', 'test-form', $1, true)
-    `, [JSON.stringify([{ name: 'name', label: 'Name', type: 'text', required: true }])]);
+    `,
+      [JSON.stringify([{ name: 'name', label: 'Name', type: 'text', required: true }])]
+    );
 
     const response = await request(app)
       .get('/api/forms/submissions')
@@ -112,8 +127,7 @@ describe('RBAC Integration Tests', () => {
   });
 
   it('should DENY unauthenticated requests to protected routes', async () => {
-    const response = await request(app)
-      .get('/api/products');
+    const response = await request(app).get('/api/products');
 
     expect(response.status).toBe(401);
     expect(response.body.success).toBe(false);

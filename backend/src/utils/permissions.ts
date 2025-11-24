@@ -37,9 +37,7 @@ export const hasAnyPermission = (
   userPermissions: string[],
   requiredPermissions: Permission[]
 ): boolean => {
-  return requiredPermissions.some((permission) =>
-    hasPermission(userPermissions, permission)
-  );
+  return requiredPermissions.some((permission) => hasPermission(userPermissions, permission));
 };
 
 /**
@@ -49,7 +47,5 @@ export const hasAllPermissions = (
   userPermissions: string[],
   requiredPermissions: Permission[]
 ): boolean => {
-  return requiredPermissions.every((permission) =>
-    hasPermission(userPermissions, permission)
-  );
+  return requiredPermissions.every((permission) => hasPermission(userPermissions, permission));
 };

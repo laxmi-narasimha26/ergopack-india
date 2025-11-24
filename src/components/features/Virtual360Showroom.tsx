@@ -136,7 +136,12 @@ function ShowroomEnvironment() {
 
         {/* Arms */}
         {[-1.3, 1.3].map((x, i) => (
-          <mesh key={i} position={[x, 1, 0]} rotation={[0, 0, x > 0 ? -Math.PI / 6 : Math.PI / 6]} castShadow>
+          <mesh
+            key={i}
+            position={[x, 1, 0]}
+            rotation={[0, 0, x > 0 ? -Math.PI / 6 : Math.PI / 6]}
+            castShadow
+          >
             <boxGeometry args={[0.4, 2, 0.4]} />
             <meshStandardMaterial color="#475569" metalness={0.8} roughness={0.3} />
           </mesh>
@@ -144,11 +149,7 @@ function ShowroomEnvironment() {
 
         {/* Details */}
         {[...Array(6)].map((_, i) => (
-          <mesh
-            key={i}
-            position={[-1 + i * 0.4, 0.3, 1]}
-            castShadow
-          >
+          <mesh key={i} position={[-1 + i * 0.4, 0.3, 1]} castShadow>
             <cylinderGeometry args={[0.06, 0.06, 0.4, 16]} />
             <meshStandardMaterial color="#0f172a" metalness={0.9} roughness={0.1} />
           </mesh>
@@ -198,8 +199,13 @@ export default function Virtual360Showroom() {
 
   return (
     <div className="w-full max-w-7xl mx-auto">
-      <Card className={`bg-slate-900/50 border-slate-800 overflow-hidden ${isFullscreen ? 'fixed inset-4 z-50 max-w-none' : ''}`}>
-        <div className="relative bg-gradient-to-br from-slate-950 to-slate-900" style={{ height: isFullscreen ? 'calc(100vh - 2rem)' : '700px' }}>
+      <Card
+        className={`bg-slate-900/50 border-slate-800 overflow-hidden ${isFullscreen ? 'fixed inset-4 z-50 max-w-none' : ''}`}
+      >
+        <div
+          className="relative bg-gradient-to-br from-slate-950 to-slate-900"
+          style={{ height: isFullscreen ? 'calc(100vh - 2rem)' : '700px' }}
+        >
           {/* 3D Canvas */}
           <Canvas shadows>
             <PerspectiveCamera makeDefault position={[6, 4, 6]} fov={50} />
@@ -296,7 +302,11 @@ export default function Virtual360Showroom() {
                 className="bg-slate-900/80 backdrop-blur-md border border-slate-700 text-white hover:bg-slate-800"
                 onClick={() => setIsFullscreen(!isFullscreen)}
               >
-                {isFullscreen ? <Minimize2 className="h-4 w-4" /> : <Maximize2 className="h-4 w-4" />}
+                {isFullscreen ? (
+                  <Minimize2 className="h-4 w-4" />
+                ) : (
+                  <Maximize2 className="h-4 w-4" />
+                )}
               </Button>
             </div>
           </div>

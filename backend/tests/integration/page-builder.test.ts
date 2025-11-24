@@ -24,19 +24,25 @@ describe('Dynamic Page Builder Integration Tests', () => {
     await pool.query('TRUNCATE TABLE page_components, pages, components, users, roles CASCADE');
 
     // Create Marketer role
-    const roleResult = await pool.query(`
+    const roleResult = await pool.query(
+      `
       INSERT INTO roles (name, display_name, permissions)
       VALUES ('marketer', 'Marketer', $1)
       RETURNING id
-    `, [JSON.stringify(['pages.*', 'blog.*', 'seo.*', 'leads.*', 'media.*'])]);
+    `,
+      [JSON.stringify(['pages.*', 'blog.*', 'seo.*', 'leads.*', 'media.*'])]
+    );
 
     // Create Marketer user
     const passwordHash = await hashPassword('password123');
-    const userResult = await pool.query(`
+    const userResult = await pool.query(
+      `
       INSERT INTO users (email, password_hash, name, role_id)
       VALUES ('marketer@test.com', $1, 'Marketer User', $2)
       RETURNING id
-    `, [passwordHash, roleResult.rows[0].id]);
+    `,
+      [passwordHash, roleResult.rows[0].id]
+    );
 
     // Generate token
     marketerToken = generateToken({
@@ -77,13 +83,16 @@ describe('Dynamic Page Builder Integration Tests', () => {
     component3Id = comp3.rows[0].id;
 
     // Add components to page in initial order: 1, 2, 3
-    await pool.query(`
+    await pool.query(
+      `
       INSERT INTO page_components (page_id, component_id, props, sort_order)
       VALUES
         ($1, $2, '{"title": "Component 1"}', 1),
         ($1, $3, '{"title": "Component 2"}', 2),
         ($1, $4, '{"title": "Component 3"}', 3)
-    `, [pageId, component1Id, component2Id, component3Id]);
+    `,
+      [pageId, component1Id, component2Id, component3Id]
+    );
   });
 
   afterAll(async () => {
@@ -92,12 +101,15 @@ describe('Dynamic Page Builder Integration Tests', () => {
 
   it('should ALLOW marketer to reorder page components (200 OK)', async () => {
     // Get initial component IDs in order
-    const initialComponents = await pool.query(`
+    const initialComponents = await pool.query(
+      `
       SELECT id, component_id, sort_order
       FROM page_components
       WHERE page_id = $1
       ORDER BY sort_order
-    `, [pageId]);
+    `,
+      [pageId]
+    );
 
     expect(initialComponents.rows.length).toBe(3);
     expect(initialComponents.rows[0].sort_order).toBe(1);
@@ -121,8 +133,7 @@ describe('Dynamic Page Builder Integration Tests', () => {
   });
 
   it('should return components in NEW ORDER via public API', async () => {
-    const response = await request(app)
-      .get('/api/public/page/test-page');
+    const response = await request(app).get('/api/public/page/test-page');
 
     expect(response.status).toBe(200);
     expect(response.body.success).toBe(true);
@@ -138,8 +149,7 @@ describe('Dynamic Page Builder Integration Tests', () => {
   });
 
   it('should maintain component props after reordering', async () => {
-    const response = await request(app)
-      .get('/api/public/page/test-page');
+    const response = await request(app).get('/api/public/page/test-page');
 
     const components = response.body.data.components;
     expect(components[0].props.title).toBe('Component 3');
@@ -148,9 +158,12 @@ describe('Dynamic Page Builder Integration Tests', () => {
   });
 
   it('should prevent duplicate sort_orders', async () => {
-    const initialComponents = await pool.query(`
+    const initialComponents = await pool.query(
+      `
       SELECT id FROM page_components WHERE page_id = $1 ORDER BY sort_order
-    `, [pageId]);
+    `,
+      [pageId]
+    );
 
     // Try to set duplicate sort orders
     const invalidOrder = [

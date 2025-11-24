@@ -2,7 +2,12 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GlobalIcon, CertificateIcon, IndustryIcon, SupportIcon } from '@/components/elite/ui/PremiumIcons';
+import {
+  GlobalIcon,
+  CertificateIcon,
+  IndustryIcon,
+  SupportIcon,
+} from '@/components/elite/ui/PremiumIcons';
 import FeatureTooltip from '@/components/elite/ui/FeatureTooltip';
 
 /**
@@ -21,32 +26,38 @@ const CERTIFICATIONS = [
   {
     name: 'ISO 12100:2010',
     description: 'Safety of machinery - General principles for design',
-    fullExplanation: 'International standard ensuring ErgopackGermany machines meet the highest safety requirements through risk assessment and reduction protocols.',
+    fullExplanation:
+      'International standard ensuring ErgopackGermany machines meet the highest safety requirements through risk assessment and reduction protocols.',
   },
   {
     name: 'EU Declaration of Conformity',
     description: 'Compliance with European safety standards',
-    fullExplanation: 'Official certification confirming all products meet stringent EU Machinery Directive requirements for safe operation across European markets.',
+    fullExplanation:
+      'Official certification confirming all products meet stringent EU Machinery Directive requirements for safe operation across European markets.',
   },
   {
     name: 'AGR Certified',
     description: 'Aktion Gesunder Rücken - Back-friendly design certification',
-    fullExplanation: 'Premium ergonomic certification awarded by German back health experts, confirming our machines reduce operator strain and prevent workplace injuries.',
+    fullExplanation:
+      'Premium ergonomic certification awarded by German back health experts, confirming our machines reduce operator strain and prevent workplace injuries.',
   },
   {
     name: 'CE Marking',
     description: 'European conformity certification',
-    fullExplanation: 'Mandatory European certification indicating products meet EU health, safety, and environmental protection standards.',
+    fullExplanation:
+      'Mandatory European certification indicating products meet EU health, safety, and environmental protection standards.',
   },
   {
     name: 'TÜV Approved',
     description: 'German Technical Inspection Association approval',
-    fullExplanation: 'Independent verification by Germany\'s leading technical inspection authority, ensuring superior quality and safety standards.',
+    fullExplanation:
+      "Independent verification by Germany's leading technical inspection authority, ensuring superior quality and safety standards.",
   },
   {
     name: 'RoHS Compliant',
     description: 'Restriction of Hazardous Substances compliance',
-    fullExplanation: 'Environmental certification ensuring products are free from hazardous materials, meeting global sustainability standards.',
+    fullExplanation:
+      'Environmental certification ensuring products are free from hazardous materials, meeting global sustainability standards.',
   },
 ];
 

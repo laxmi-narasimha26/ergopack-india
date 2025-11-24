@@ -14,9 +14,7 @@ export const Settings: React.FC = () => {
           <h2 className="text-lg font-semibold text-gray-900">General Settings</h2>
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Site Name
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Site Name</label>
               <input
                 type="text"
                 value="Ergopack India"
@@ -24,9 +22,7 @@ export const Settings: React.FC = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Site URL
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Site URL</label>
               <input
                 type="text"
                 value="https://ergopack-india.com"
@@ -44,9 +40,7 @@ export const Settings: React.FC = () => {
           <h2 className="text-lg font-semibold text-gray-900">Email Settings</h2>
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Admin Email
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">Admin Email</label>
               <input
                 type="email"
                 value="admin@example.com"

@@ -14,12 +14,15 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 require('dotenv').config({ path: '.env.local' });
 
-const UserSchema = new mongoose.Schema({
-  email: { type: String, required: true, unique: true, lowercase: true, trim: true },
-  password: { type: String, required: true },
-  name: { type: String, required: true },
-  role: { type: String, enum: ['admin', 'editor'], default: 'editor' },
-}, { timestamps: true });
+const UserSchema = new mongoose.Schema(
+  {
+    email: { type: String, required: true, unique: true, lowercase: true, trim: true },
+    password: { type: String, required: true },
+    name: { type: String, required: true },
+    role: { type: String, enum: ['admin', 'editor'], default: 'editor' },
+  },
+  { timestamps: true }
+);
 
 const User = mongoose.models.User || mongoose.model('User', UserSchema);
 

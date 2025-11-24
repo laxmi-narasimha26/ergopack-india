@@ -94,7 +94,9 @@ export default function ParticleBackground({
         // Draw particle
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `${color}${Math.floor(particle.opacity * 255).toString(16).padStart(2, '0')}`;
+        ctx.fillStyle = `${color}${Math.floor(particle.opacity * 255)
+          .toString(16)
+          .padStart(2, '0')}`;
         ctx.fill();
 
         // Draw connections
@@ -108,7 +110,9 @@ export default function ParticleBackground({
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(otherParticle.x, otherParticle.y);
             const opacity = (1 - distance / connectionDistance) * 0.3;
-            ctx.strokeStyle = `${color}${Math.floor(opacity * 255).toString(16).padStart(2, '0')}`;
+            ctx.strokeStyle = `${color}${Math.floor(opacity * 255)
+              .toString(16)
+              .padStart(2, '0')}`;
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }

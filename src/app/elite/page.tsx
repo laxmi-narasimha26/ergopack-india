@@ -101,7 +101,11 @@ function ElitePageContent() {
       const scrollY = window.scrollY || window.pageYOffset;
 
       // Show selector after first 7 sections (~7 viewport heights) - after company story
-      if (!selectedProduct && scrollY > window.innerHeight * 7 && scrollY < window.innerHeight * 8) {
+      if (
+        !selectedProduct &&
+        scrollY > window.innerHeight * 7 &&
+        scrollY < window.innerHeight * 8
+      ) {
         setShowProductSelector(true);
       }
     };
@@ -196,7 +200,10 @@ function ElitePageContent() {
 
             {/* ========== PRODUCT SELECTION TRIGGER ========== */}
             {!selectedProduct && (
-              <section data-section className="min-h-screen flex items-center justify-center relative">
+              <section
+                data-section
+                className="min-h-screen flex items-center justify-center relative"
+              >
                 <div className="max-w-5xl mx-auto px-8 sm:px-12 text-center">
                   <div className="mb-12">
                     <h2 className="text-7xl sm:text-8xl font-black tracking-tighter mb-8">
@@ -215,7 +222,9 @@ function ElitePageContent() {
                   >
                     <span className="relative z-10 flex items-center gap-4">
                       SELECT PRODUCT
-                      <span className="text-3xl group-hover:translate-x-2 transition-transform duration-300">→</span>
+                      <span className="text-3xl group-hover:translate-x-2 transition-transform duration-300">
+                        →
+                      </span>
                     </span>
                     <div className="absolute inset-0 bg-gradient-to-r from-red-700 to-[#C8102E] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </button>
@@ -230,12 +239,13 @@ function ElitePageContent() {
             {/* ========== PRODUCT-SPECIFIC SECTIONS ========== */}
             {selectedProduct && productData && (
               <div data-product-showcase>
-                <ProductShowcase
-                  productData={productData}
-                />
+                <ProductShowcase productData={productData} />
 
                 {/* Change Product Button */}
-                <section data-section className="min-h-screen flex items-center justify-center relative">
+                <section
+                  data-section
+                  className="min-h-screen flex items-center justify-center relative"
+                >
                   <div className="max-w-5xl mx-auto px-8 sm:px-12 text-center">
                     <h2 className="text-6xl sm:text-7xl font-black text-theme-primary mb-8">
                       Explore Another Model?

@@ -191,7 +191,9 @@ export async function submitForm(formId: string, data: Record<string, any>): Pro
 /**
  * Get active redirects (for client-side routing)
  */
-export async function getRedirects(): Promise<Array<{ from_path: string; to_path: string; type: number }>> {
+export async function getRedirects(): Promise<
+  Array<{ from_path: string; to_path: string; type: number }>
+> {
   const response = await api.get('/redirects');
   return response.data.data;
 }

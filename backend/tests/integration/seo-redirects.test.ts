@@ -21,19 +21,25 @@ describe('SEO Redirect Integration Tests', () => {
     await pool.query('TRUNCATE TABLE redirects, users, roles CASCADE');
 
     // Create Marketer role
-    const roleResult = await pool.query(`
+    const roleResult = await pool.query(
+      `
       INSERT INTO roles (name, display_name, permissions)
       VALUES ('marketer', 'Marketer', $1)
       RETURNING id
-    `, [JSON.stringify(['pages.*', 'blog.*', 'seo.*', 'leads.*', 'media.*'])]);
+    `,
+      [JSON.stringify(['pages.*', 'blog.*', 'seo.*', 'leads.*', 'media.*'])]
+    );
 
     // Create Marketer user
     const passwordHash = await hashPassword('password123');
-    const userResult = await pool.query(`
+    const userResult = await pool.query(
+      `
       INSERT INTO users (email, password_hash, name, role_id)
       VALUES ('marketer@test.com', $1, 'Marketer User', $2)
       RETURNING id
-    `, [passwordHash, roleResult.rows[0].id]);
+    `,
+      [passwordHash, roleResult.rows[0].id]
+    );
 
     // Generate token
     marketerToken = generateToken({
@@ -70,8 +76,7 @@ describe('SEO Redirect Integration Tests', () => {
   });
 
   it('should return the new redirect in public API (/api/public/redirects)', async () => {
-    const response = await request(app)
-      .get('/api/public/redirects');
+    const response = await request(app).get('/api/public/redirects');
 
     expect(response.status).toBe(200);
     expect(response.body.success).toBe(true);
@@ -80,9 +85,7 @@ describe('SEO Redirect Integration Tests', () => {
     expect(response.body.data.length).toBeGreaterThan(0);
 
     // Find our redirect
-    const redirect = response.body.data.find(
-      (r: any) => r.from_path === '/old-page'
-    );
+    const redirect = response.body.data.find((r: any) => r.from_path === '/old-page');
 
     expect(redirect).toBeDefined();
     expect(redirect.to_path).toBe('/new-page');
@@ -131,12 +134,9 @@ describe('SEO Redirect Integration Tests', () => {
     expect(response.body.data.is_active).toBe(false);
 
     // Verify it's not in public API anymore (only active redirects)
-    const publicResponse = await request(app)
-      .get('/api/public/redirects');
+    const publicResponse = await request(app).get('/api/public/redirects');
 
-    const inactiveRedirect = publicResponse.body.data.find(
-      (r: any) => r.id === redirectId
-    );
+    const inactiveRedirect = publicResponse.body.data.find((r: any) => r.id === redirectId);
 
     expect(inactiveRedirect).toBeUndefined(); // Should not be in active list
   });

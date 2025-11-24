@@ -32,9 +32,11 @@ const BlogSchema = new Schema<Blog>(
       type: String,
       required: true,
     },
-    tags: [{
-      type: String,
-    }],
+    tags: [
+      {
+        type: String,
+      },
+    ],
     published: {
       type: Boolean,
       default: false,

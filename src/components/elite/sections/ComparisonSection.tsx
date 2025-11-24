@@ -99,9 +99,7 @@ export default function ComparisonSection({ sectionNumber }: { sectionNumber: nu
             ))}
           </ul>
           <div className="mt-6 pt-6 border-t border-blue-500/30">
-            <p className="text-sm text-gray-400">
-              Models: 745E, 726E, 713E, 700, 700E, GO
-            </p>
+            <p className="text-sm text-gray-400">Models: 745E, 726E, 713E, 700, 700E, GO</p>
           </div>
         </motion.div>
 
@@ -148,9 +146,7 @@ export default function ComparisonSection({ sectionNumber }: { sectionNumber: nu
             ))}
           </ul>
           <div className="mt-6 pt-6 border-t border-[#FFB81C]/30">
-            <p className="text-sm text-gray-400">
-              Models: 745X Li, 726X Li, 713X Li, 700X Li, RE
-            </p>
+            <p className="text-sm text-gray-400">Models: 745X Li, 726X Li, 713X Li, 700X Li, RE</p>
           </div>
         </motion.div>
       </div>
@@ -205,9 +201,7 @@ export default function ComparisonSection({ sectionNumber }: { sectionNumber: nu
                     <td className="px-6 py-5">
                       <span className="font-medium text-white">{row.category}</span>
                     </td>
-                    <td className="px-6 py-5 text-center text-gray-300">
-                      {row.economy}
-                    </td>
+                    <td className="px-6 py-5 text-center text-gray-300">{row.economy}</td>
                     <td className="px-6 py-5 text-center">
                       <span className="font-semibold text-[#FFB81C]">{row.xpert}</span>
                     </td>
@@ -236,9 +230,11 @@ export default function ComparisonSection({ sectionNumber }: { sectionNumber: nu
         <div className="bg-gradient-to-br from-[#1A0000] to-black border-2 border-[#FFB81C] rounded-lg p-8">
           <h3 className="text-2xl font-bold text-white mb-4">The X-pert Advantage</h3>
           <p className="text-lg text-gray-300 mb-6">
-            X-pert Line delivers <span className="text-[#FFB81C] font-bold">65% faster performance</span>,{' '}
+            X-pert Line delivers{' '}
+            <span className="text-[#FFB81C] font-bold">65% faster performance</span>,{' '}
             <span className="text-[#FFB81C] font-bold">3.4x more productivity</span>, and{' '}
-            <span className="text-[#FFB81C] font-bold">65% faster charging</span> compared to Economy Line
+            <span className="text-[#FFB81C] font-bold">65% faster charging</span> compared to
+            Economy Line
           </p>
           <div className="flex items-center justify-center gap-4 text-sm text-gray-400">
             <div className="flex items-center gap-2">

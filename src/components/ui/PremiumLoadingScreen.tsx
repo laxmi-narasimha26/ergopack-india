@@ -72,12 +72,7 @@ export function PremiumLoadingScreen({ onLoadingComplete }: PremiumLoadingScreen
             >
               {/* Geometric Logo Mark */}
               <div className="relative">
-                <svg
-                  width="80"
-                  height="80"
-                  viewBox="0 0 80 80"
-                  className="relative z-10"
-                >
+                <svg width="80" height="80" viewBox="0 0 80 80" className="relative z-10">
                   {/* Outer ring */}
                   <motion.circle
                     cx="40"
@@ -153,9 +148,7 @@ export function PremiumLoadingScreen({ onLoadingComplete }: PremiumLoadingScreen
                   ERGOPACK
                 </h1>
                 <div className="h-px w-32 bg-gradient-to-r from-transparent via-crimson-500 to-transparent" />
-                <p className="font-sans text-xs tracking-[0.2em] text-platinum-400">
-                  INDIA
-                </p>
+                <p className="font-sans text-xs tracking-[0.2em] text-platinum-400">INDIA</p>
               </motion.div>
             </motion.div>
 

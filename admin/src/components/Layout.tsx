@@ -84,12 +84,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
                     onClick={() => navigate('/settings')}
                     className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-50 flex items-center gap-2"
                   >
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -120,9 +115,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
 
         {/* Page content */}
         <main className="flex-1 overflow-y-auto">
-          <div className="p-4 sm:p-6 lg:p-8">
-            {children}
-          </div>
+          <div className="p-4 sm:p-6 lg:p-8">{children}</div>
         </main>
       </div>
     </div>

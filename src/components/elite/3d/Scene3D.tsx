@@ -70,9 +70,12 @@ function ErgopackMachine() {
   useFrame((state) => {
     if (groupRef.current) {
       // Apply scroll-controlled rotation + subtle idle animation
-      groupRef.current.rotation.y = rotationRef.current.y + Math.sin(state.clock.getElapsedTime() * 0.5) * 0.05;
-      groupRef.current.rotation.x = rotationRef.current.x + Math.sin(state.clock.getElapsedTime() * 0.3) * 0.02;
-      groupRef.current.rotation.z = rotationRef.current.z + Math.sin(state.clock.getElapsedTime() * 0.4) * 0.02;
+      groupRef.current.rotation.y =
+        rotationRef.current.y + Math.sin(state.clock.getElapsedTime() * 0.5) * 0.05;
+      groupRef.current.rotation.x =
+        rotationRef.current.x + Math.sin(state.clock.getElapsedTime() * 0.3) * 0.02;
+      groupRef.current.rotation.z =
+        rotationRef.current.z + Math.sin(state.clock.getElapsedTime() * 0.4) * 0.02;
     }
   });
 
@@ -241,7 +244,13 @@ export default function Scene3D({ containerRef }: Scene3DProps) {
           shadow-mapSize-width={2048}
           shadow-mapSize-height={2048}
         />
-        <spotLight position={[-5, 5, 0]} intensity={0.5} angle={0.3} penumbra={0.5} color="#FFB81C" />
+        <spotLight
+          position={[-5, 5, 0]}
+          intensity={0.5}
+          angle={0.3}
+          penumbra={0.5}
+          color="#FFB81C"
+        />
 
         {/* 3D Machine */}
         <ErgopackMachine />

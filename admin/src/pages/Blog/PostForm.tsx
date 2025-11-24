@@ -120,9 +120,7 @@ export const PostForm: React.FC = () => {
               <h2 className="text-lg font-semibold text-gray-900">Post Details</h2>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Post Title *
-                </label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Post Title *</label>
                 <input
                   {...register('title', { required: 'Title is required' })}
                   type="text"
@@ -137,9 +135,7 @@ export const PostForm: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Slug *
-                </label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Slug *</label>
                 <input
                   {...register('slug', { required: 'Slug is required' })}
                   type="text"
@@ -148,15 +144,11 @@ export const PostForm: React.FC = () => {
                     errors.slug ? 'border-red-500' : 'border-gray-300'
                   }`}
                 />
-                {errors.slug && (
-                  <p className="mt-1 text-sm text-red-500">{errors.slug.message}</p>
-                )}
+                {errors.slug && <p className="mt-1 text-sm text-red-500">{errors.slug.message}</p>}
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Excerpt
-                </label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Excerpt</label>
                 <textarea
                   {...register('excerpt')}
                   placeholder="A brief summary of the post..."
@@ -166,9 +158,7 @@ export const PostForm: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Content *
-                </label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Content *</label>
                 <textarea
                   {...register('content', { required: 'Content is required' })}
                   placeholder="Write your post content here..."
@@ -198,9 +188,7 @@ export const PostForm: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Status
-                </label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Status</label>
                 <select
                   {...register('status')}
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"

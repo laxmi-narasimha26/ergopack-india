@@ -112,70 +112,86 @@ export default function ProductPageTemplate({
     const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://ergopack.in';
 
     return {
-      "@context": "https://schema.org/",
-      "@type": "Product",
-      "name": productData.fullName,
-      "model": productData.model,
-      "description": productData.description,
-      "brand": {
-        "@type": "Brand",
-        "name": "ErgoPack India"
+      '@context': 'https://schema.org/',
+      '@type': 'Product',
+      name: productData.fullName,
+      model: productData.model,
+      description: productData.description,
+      brand: {
+        '@type': 'Brand',
+        name: 'ErgoPack India',
       },
-      "manufacturer": {
-        "@type": "Organization",
-        "name": "ErgoPack India",
-        "url": baseUrl
+      manufacturer: {
+        '@type': 'Organization',
+        name: 'ErgoPack India',
+        url: baseUrl,
       },
-      "category": "Industrial Strapping Equipment",
-      "productLine": productData.line,
-      "additionalProperty": [
+      category: 'Industrial Strapping Equipment',
+      productLine: productData.line,
+      additionalProperty: [
         {
-          "@type": "PropertyValue",
-          "name": "Application Type",
-          "value": productData.applicationType
+          '@type': 'PropertyValue',
+          name: 'Application Type',
+          value: productData.applicationType,
         },
         {
-          "@type": "PropertyValue",
-          "name": "Product Line",
-          "value": productData.line
+          '@type': 'PropertyValue',
+          name: 'Product Line',
+          value: productData.line,
         },
         {
-          "@type": "PropertyValue",
-          "name": "Generation",
-          "value": `Gen ${productData.generation}`
+          '@type': 'PropertyValue',
+          name: 'Generation',
+          value: `Gen ${productData.generation}`,
         },
-        ...(productData.performance.chainSpeed ? [{
-          "@type": "PropertyValue",
-          "name": "Chain Speed",
-          "value": `${productData.performance.chainSpeed} ${productData.performance.chainSpeedUnit || 'm/min'}`
-        }] : []),
-        ...(productData.sealingHead.tensionPower ? [{
-          "@type": "PropertyValue",
-          "name": "Tension Power",
-          "value": `${productData.sealingHead.tensionPower.min}-${productData.sealingHead.tensionPower.max} ${productData.sealingHead.tensionPower.unit}`
-        }] : []),
-        ...(productData.battery.type ? [{
-          "@type": "PropertyValue",
-          "name": "Battery Type",
-          "value": productData.battery.type
-        }] : []),
-        ...(productData.battery.strappingCycles ? [{
-          "@type": "PropertyValue",
-          "name": "Strapping Cycles",
-          "value": `${productData.battery.strappingCycles} cycles`
-        }] : [])
+        ...(productData.performance.chainSpeed
+          ? [
+              {
+                '@type': 'PropertyValue',
+                name: 'Chain Speed',
+                value: `${productData.performance.chainSpeed} ${productData.performance.chainSpeedUnit || 'm/min'}`,
+              },
+            ]
+          : []),
+        ...(productData.sealingHead.tensionPower
+          ? [
+              {
+                '@type': 'PropertyValue',
+                name: 'Tension Power',
+                value: `${productData.sealingHead.tensionPower.min}-${productData.sealingHead.tensionPower.max} ${productData.sealingHead.tensionPower.unit}`,
+              },
+            ]
+          : []),
+        ...(productData.battery.type
+          ? [
+              {
+                '@type': 'PropertyValue',
+                name: 'Battery Type',
+                value: productData.battery.type,
+              },
+            ]
+          : []),
+        ...(productData.battery.strappingCycles
+          ? [
+              {
+                '@type': 'PropertyValue',
+                name: 'Strapping Cycles',
+                value: `${productData.battery.strappingCycles} cycles`,
+              },
+            ]
+          : []),
       ],
-      "offers": {
-        "@type": "Offer",
-        "availability": "https://schema.org/InStock",
-        "priceCurrency": "INR",
-        "url": `${baseUrl}/products/${productData.model.toLowerCase()}`
+      offers: {
+        '@type': 'Offer',
+        availability: 'https://schema.org/InStock',
+        priceCurrency: 'INR',
+        url: `${baseUrl}/products/${productData.model.toLowerCase()}`,
       },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "150"
-      }
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '4.9',
+        reviewCount: '150',
+      },
     };
   };
 
@@ -327,7 +343,9 @@ export default function ProductPageTemplate({
           >
             {productData.sealingHead.tensionPower && (
               <div className="flex flex-col items-center gap-2">
-                <div className={`text-3xl font-serif font-bold bg-gradient-to-r ${badgeColor} bg-clip-text text-transparent`}>
+                <div
+                  className={`text-3xl font-serif font-bold bg-gradient-to-r ${badgeColor} bg-clip-text text-transparent`}
+                >
                   {productData.sealingHead.tensionPower.max}N
                 </div>
                 <span className="text-sm text-platinum-400">Max Tension</span>
@@ -335,7 +353,9 @@ export default function ProductPageTemplate({
             )}
             {productData.performance.chainSpeed && (
               <div className="flex flex-col items-center gap-2">
-                <div className={`text-3xl font-serif font-bold bg-gradient-to-r ${badgeColor} bg-clip-text text-transparent`}>
+                <div
+                  className={`text-3xl font-serif font-bold bg-gradient-to-r ${badgeColor} bg-clip-text text-transparent`}
+                >
                   {productData.performance.chainSpeed} m/min
                 </div>
                 <span className="text-sm text-platinum-400">Chain Speed</span>
@@ -343,14 +363,18 @@ export default function ProductPageTemplate({
             )}
             {productData.battery.strappingCycles && (
               <div className="flex flex-col items-center gap-2">
-                <div className={`text-3xl font-serif font-bold bg-gradient-to-r ${badgeColor} bg-clip-text text-transparent`}>
+                <div
+                  className={`text-3xl font-serif font-bold bg-gradient-to-r ${badgeColor} bg-clip-text text-transparent`}
+                >
                   {productData.battery.strappingCycles}
                 </div>
                 <span className="text-sm text-platinum-400">Cycles/Charge</span>
               </div>
             )}
             <div className="flex flex-col items-center gap-2">
-              <div className={`text-3xl font-serif font-bold bg-gradient-to-r ${badgeColor} bg-clip-text text-transparent`}>
+              <div
+                className={`text-3xl font-serif font-bold bg-gradient-to-r ${badgeColor} bg-clip-text text-transparent`}
+              >
                 {productData.flexibility.palletHeight.max}cm
               </div>
               <span className="text-sm text-platinum-400">Max Height</span>
@@ -373,7 +397,9 @@ export default function ProductPageTemplate({
             transition={{ duration: 1.2 }}
             className="text-center mb-20"
           >
-            <p className={`text-sm uppercase tracking-[0.3em] ${isXpertLine ? 'text-crimson-500' : 'text-amber-500'} mb-8 font-medium`}>
+            <p
+              className={`text-sm uppercase tracking-[0.3em] ${isXpertLine ? 'text-crimson-500' : 'text-amber-500'} mb-8 font-medium`}
+            >
               Technical Specifications
             </p>
             <h2 className="font-serif text-5xl sm:text-6xl font-semibold text-white mb-6">
@@ -390,8 +416,12 @@ export default function ProductPageTemplate({
               className="premium-card-dark p-8"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className={`p-3 rounded-xl ${isXpertLine ? 'bg-crimson-500/10 border border-crimson-500/20' : 'bg-amber-500/10 border border-amber-500/20'}`}>
-                  <Box className={`h-6 w-6 ${isXpertLine ? 'text-crimson-400' : 'text-amber-400'}`} />
+                <div
+                  className={`p-3 rounded-xl ${isXpertLine ? 'bg-crimson-500/10 border border-crimson-500/20' : 'bg-amber-500/10 border border-amber-500/20'}`}
+                >
+                  <Box
+                    className={`h-6 w-6 ${isXpertLine ? 'text-crimson-400' : 'text-amber-400'}`}
+                  />
                 </div>
                 <h3 className="font-serif text-2xl font-semibold text-white">System Details</h3>
               </div>
@@ -411,7 +441,8 @@ export default function ProductPageTemplate({
                 <div className="flex justify-between items-center py-3 border-b border-platinum-800">
                   <span className="text-platinum-400">Dimensions</span>
                   <span className="text-white font-medium">
-                    {productData.system.dimensions.length} × {productData.system.dimensions.width} × {productData.system.dimensions.height} {productData.system.dimensions.unit}
+                    {productData.system.dimensions.length} × {productData.system.dimensions.width} ×{' '}
+                    {productData.system.dimensions.height} {productData.system.dimensions.unit}
                   </span>
                 </div>
                 <div className="flex justify-between items-center py-3">
@@ -432,22 +463,34 @@ export default function ProductPageTemplate({
               className="premium-card-dark p-8"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className={`p-3 rounded-xl ${isXpertLine ? 'bg-crimson-500/10 border border-crimson-500/20' : 'bg-amber-500/10 border border-amber-500/20'}`}>
-                  <Ruler className={`h-6 w-6 ${isXpertLine ? 'text-crimson-400' : 'text-amber-400'}`} />
+                <div
+                  className={`p-3 rounded-xl ${isXpertLine ? 'bg-crimson-500/10 border border-crimson-500/20' : 'bg-amber-500/10 border border-amber-500/20'}`}
+                >
+                  <Ruler
+                    className={`h-6 w-6 ${isXpertLine ? 'text-crimson-400' : 'text-amber-400'}`}
+                  />
                 </div>
                 <h3 className="font-serif text-2xl font-semibold text-white">Flexibility</h3>
               </div>
               <div className="space-y-4">
                 <div className="flex justify-between items-center py-3 border-b border-platinum-800">
                   <span className="text-platinum-400">Pallet Width Range</span>
-                  <span className={`${isXpertLine ? 'text-crimson-400' : 'text-amber-400'} font-semibold`}>
-                    {productData.flexibility.palletWidth.min} - {productData.flexibility.palletWidth.max} {productData.flexibility.palletWidth.unit}
+                  <span
+                    className={`${isXpertLine ? 'text-crimson-400' : 'text-amber-400'} font-semibold`}
+                  >
+                    {productData.flexibility.palletWidth.min} -{' '}
+                    {productData.flexibility.palletWidth.max}{' '}
+                    {productData.flexibility.palletWidth.unit}
                   </span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-platinum-800">
                   <span className="text-platinum-400">Pallet Height Range</span>
-                  <span className={`${isXpertLine ? 'text-crimson-400' : 'text-amber-400'} font-semibold`}>
-                    {productData.flexibility.palletHeight.min} - {productData.flexibility.palletHeight.max} {productData.flexibility.palletHeight.unit}
+                  <span
+                    className={`${isXpertLine ? 'text-crimson-400' : 'text-amber-400'} font-semibold`}
+                  >
+                    {productData.flexibility.palletHeight.min} -{' '}
+                    {productData.flexibility.palletHeight.max}{' '}
+                    {productData.flexibility.palletHeight.unit}
                   </span>
                 </div>
                 {productData.performance.chainSpeed && (
@@ -461,13 +504,16 @@ export default function ProductPageTemplate({
                 {productData.performance.operationType && (
                   <div className="flex justify-between items-center py-3 border-b border-platinum-800">
                     <span className="text-platinum-400">Operation Type</span>
-                    <span className="text-white font-medium">{productData.performance.operationType}</span>
+                    <span className="text-white font-medium">
+                      {productData.performance.operationType}
+                    </span>
                   </div>
                 )}
                 <div className="flex justify-between items-center py-3">
                   <span className="text-platinum-400">Chain Length</span>
                   <span className="text-white font-medium">
-                    {productData.performance.standardChainLength} {productData.performance.chainLengthUnit}
+                    {productData.performance.standardChainLength}{' '}
+                    {productData.performance.chainLengthUnit}
                   </span>
                 </div>
               </div>
@@ -482,8 +528,12 @@ export default function ProductPageTemplate({
               className="premium-card-dark p-8"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className={`p-3 rounded-xl ${isXpertLine ? 'bg-crimson-500/10 border border-crimson-500/20' : 'bg-amber-500/10 border border-amber-500/20'}`}>
-                  <Battery className={`h-6 w-6 ${isXpertLine ? 'text-crimson-400' : 'text-amber-400'}`} />
+                <div
+                  className={`p-3 rounded-xl ${isXpertLine ? 'bg-crimson-500/10 border border-crimson-500/20' : 'bg-amber-500/10 border border-amber-500/20'}`}
+                >
+                  <Battery
+                    className={`h-6 w-6 ${isXpertLine ? 'text-crimson-400' : 'text-amber-400'}`}
+                  />
                 </div>
                 <h3 className="font-serif text-2xl font-semibold text-white">Power System</h3>
               </div>
@@ -513,7 +563,9 @@ export default function ProductPageTemplate({
                 {productData.battery.strappingCycles && (
                   <div className="flex justify-between items-center py-3 border-b border-platinum-800">
                     <span className="text-platinum-400">Strapping Cycles</span>
-                    <span className={`${isXpertLine ? 'text-crimson-400' : 'text-amber-400'} font-semibold`}>
+                    <span
+                      className={`${isXpertLine ? 'text-crimson-400' : 'text-amber-400'} font-semibold`}
+                    >
                       {productData.battery.strappingCycles} cycles
                     </span>
                   </div>
@@ -547,7 +599,9 @@ export default function ProductPageTemplate({
             viewport={{ once: true }}
             className="text-center mb-20"
           >
-            <p className={`text-sm uppercase tracking-[0.3em] ${isXpertLine ? 'text-crimson-500' : 'text-amber-500'} mb-8 font-medium`}>
+            <p
+              className={`text-sm uppercase tracking-[0.3em] ${isXpertLine ? 'text-crimson-500' : 'text-amber-500'} mb-8 font-medium`}
+            >
               Sealing Technology
             </p>
             <h2 className="font-serif text-5xl sm:text-6xl font-semibold text-white">
@@ -564,8 +618,12 @@ export default function ProductPageTemplate({
                 className="flex items-center justify-between p-6 rounded-2xl bg-luxury-space-black/50 border border-platinum-800 hover:border-crimson-500/30 transition-all duration-500"
               >
                 <span className="text-platinum-400 font-light">Tension Power</span>
-                <span className={`font-medium ${isXpertLine ? 'text-crimson-400' : 'text-amber-400'} text-lg`}>
-                  {productData.sealingHead.tensionPower.min} - {productData.sealingHead.tensionPower.max} {productData.sealingHead.tensionPower.unit}
+                <span
+                  className={`font-medium ${isXpertLine ? 'text-crimson-400' : 'text-amber-400'} text-lg`}
+                >
+                  {productData.sealingHead.tensionPower.min} -{' '}
+                  {productData.sealingHead.tensionPower.max}{' '}
+                  {productData.sealingHead.tensionPower.unit}
                 </span>
               </motion.div>
             )}
@@ -579,7 +637,8 @@ export default function ProductPageTemplate({
               >
                 <span className="text-platinum-400 font-light">Strap Width</span>
                 <span className="text-white font-medium">
-                  {productData.sealingHead.strapWidth.min} - {productData.sealingHead.strapWidth.max} {productData.sealingHead.strapWidth.unit}
+                  {productData.sealingHead.strapWidth.min} -{' '}
+                  {productData.sealingHead.strapWidth.max} {productData.sealingHead.strapWidth.unit}
                 </span>
               </motion.div>
             )}
@@ -594,7 +653,9 @@ export default function ProductPageTemplate({
               >
                 <span className="text-platinum-400 font-light">Strap Thickness</span>
                 <span className="text-white font-medium">
-                  {productData.sealingHead.strapThickness.min} - {productData.sealingHead.strapThickness.max} {productData.sealingHead.strapThickness.unit}
+                  {productData.sealingHead.strapThickness.min} -{' '}
+                  {productData.sealingHead.strapThickness.max}{' '}
+                  {productData.sealingHead.strapThickness.unit}
                 </span>
               </motion.div>
             )}
@@ -607,7 +668,9 @@ export default function ProductPageTemplate({
               className="flex items-center justify-between p-6 rounded-2xl bg-luxury-space-black/50 border border-platinum-800 hover:border-crimson-500/30 transition-all duration-500"
             >
               <span className="text-platinum-400 font-light">Strap Materials</span>
-              <span className="text-white font-medium">{productData.sealingHead.strapMaterials.join(', ')}</span>
+              <span className="text-white font-medium">
+                {productData.sealingHead.strapMaterials.join(', ')}
+              </span>
             </motion.div>
 
             {productData.sealingHead.mounting && (
@@ -635,7 +698,9 @@ export default function ProductPageTemplate({
                   <AlertCircle className="h-5 w-5" />
                   Availability
                 </span>
-                <span className="text-amber-400 font-medium">{productData.sealingHead.availability}</span>
+                <span className="text-amber-400 font-medium">
+                  {productData.sealingHead.availability}
+                </span>
               </motion.div>
             )}
           </div>
@@ -659,7 +724,9 @@ export default function ProductPageTemplate({
                 viewport={{ once: true }}
                 className="text-center mb-16"
               >
-                <p className={`text-sm uppercase tracking-[0.3em] ${isXpertLine ? 'text-crimson-500' : 'text-amber-500'} mb-8 font-medium`}>
+                <p
+                  className={`text-sm uppercase tracking-[0.3em] ${isXpertLine ? 'text-crimson-500' : 'text-amber-500'} mb-8 font-medium`}
+                >
                   Standard Equipment
                 </p>
                 <h2 className="font-serif text-5xl sm:text-6xl font-semibold text-white">
@@ -702,7 +769,9 @@ export default function ProductPageTemplate({
                 viewport={{ once: true }}
                 className="text-center mb-16"
               >
-                <p className={`text-sm uppercase tracking-[0.3em] ${isXpertLine ? 'text-crimson-500' : 'text-amber-500'} mb-8 font-medium`}>
+                <p
+                  className={`text-sm uppercase tracking-[0.3em] ${isXpertLine ? 'text-crimson-500' : 'text-amber-500'} mb-8 font-medium`}
+                >
                   Customization
                 </p>
                 <h2 className="font-serif text-5xl sm:text-6xl font-semibold text-white">
@@ -752,7 +821,9 @@ export default function ProductPageTemplate({
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <p className={`text-sm uppercase tracking-[0.3em] ${isXpertLine ? 'text-crimson-500' : 'text-amber-500'} mb-8 font-medium`}>
+            <p
+              className={`text-sm uppercase tracking-[0.3em] ${isXpertLine ? 'text-crimson-500' : 'text-amber-500'} mb-8 font-medium`}
+            >
               Quality Assurance
             </p>
             <h2 className="font-serif text-5xl sm:text-6xl font-semibold text-white">
@@ -800,7 +871,9 @@ export default function ProductPageTemplate({
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <p className={`text-sm uppercase tracking-[0.3em] ${isXpertLine ? 'text-crimson-500' : 'text-amber-500'} mb-8 font-medium`}>
+            <p
+              className={`text-sm uppercase tracking-[0.3em] ${isXpertLine ? 'text-crimson-500' : 'text-amber-500'} mb-8 font-medium`}
+            >
               Real-World Use
             </p>
             <h2 className="font-serif text-5xl sm:text-6xl font-semibold text-white">
@@ -819,7 +892,12 @@ export default function ProductPageTemplate({
                 className="premium-card-dark p-4 overflow-hidden"
               >
                 <div className="relative h-64 rounded-lg overflow-hidden">
-                  <Image src={image} alt={`Application ${index + 1}`} fill className="object-cover" />
+                  <Image
+                    src={image}
+                    alt={`Application ${index + 1}`}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </motion.div>
             ))}
@@ -849,7 +927,8 @@ export default function ProductPageTemplate({
               </span>
             </h2>
             <p className="text-xl sm:text-2xl text-platinum-300 mb-16 font-light leading-relaxed max-w-2xl mx-auto">
-              Contact us today for a personalized demonstration and quote for the {productData.fullName}.
+              Contact us today for a personalized demonstration and quote for the{' '}
+              {productData.fullName}.
             </p>
 
             <Link href="/contact">
@@ -864,7 +943,9 @@ export default function ProductPageTemplate({
             <div className="mt-16 flex flex-wrap justify-center gap-12 text-sm text-platinum-400 font-light">
               {['AGR Certified', 'Expert Support', 'Customizable'].map((item, i) => (
                 <div key={i} className="flex items-center gap-2">
-                  <CheckCircle2 className={`h-4 w-4 ${isXpertLine ? 'text-crimson-500' : 'text-amber-500'}`} />
+                  <CheckCircle2
+                    className={`h-4 w-4 ${isXpertLine ? 'text-crimson-500' : 'text-amber-500'}`}
+                  />
                   <span>{item}</span>
                 </div>
               ))}

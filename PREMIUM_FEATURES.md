@@ -11,6 +11,7 @@ This document describes the premium features and advanced interactive components
 An advanced custom cursor system that creates premium micro-interactions.
 
 **Features:**
+
 - Custom cursor with smooth spring animations
 - Magnetic attraction to interactive elements
 - Dynamic scaling and morphing based on hover states
@@ -18,15 +19,17 @@ An advanced custom cursor system that creates premium micro-interactions.
 - Fully customizable appearance
 
 **Technology Stack:**
+
 - Framer Motion for spring physics
 - React hooks for cursor tracking
 - CSS mix-blend-mode for visual effects
 
 **Usage:**
+
 ```tsx
 import MagneticCursor from '@/components/ui/MagneticCursor';
 
-<MagneticCursor enabled={true} />
+<MagneticCursor enabled={true} />;
 ```
 
 ---
@@ -36,6 +39,7 @@ import MagneticCursor from '@/components/ui/MagneticCursor';
 WebGL-powered particle system with mouse interaction.
 
 **Features:**
+
 - Canvas-based particle rendering
 - Mouse-responsive particle movement
 - Connection lines between nearby particles
@@ -43,20 +47,17 @@ WebGL-powered particle system with mouse interaction.
 - Performance optimized with requestAnimationFrame
 
 **Technology Stack:**
+
 - HTML5 Canvas API
 - Custom physics engine
 - React refs for canvas management
 
 **Usage:**
+
 ```tsx
 import ParticleBackground from '@/components/effects/ParticleBackground';
 
-<ParticleBackground
-  particleCount={100}
-  color="#f59e0b"
-  speed={0.5}
-  connectionDistance={150}
-/>
+<ParticleBackground particleCount={100} color="#f59e0b" speed={0.5} connectionDistance={150} />;
 ```
 
 ---
@@ -66,6 +67,7 @@ import ParticleBackground from '@/components/effects/ParticleBackground';
 Real-time return on investment calculator with interactive visualizations.
 
 **Features:**
+
 - Real-time calculations as users adjust inputs
 - Interactive range sliders with visual feedback
 - Animated data visualization
@@ -74,11 +76,13 @@ Real-time return on investment calculator with interactive visualizations.
 - Responsive design
 
 **Business Logic:**
+
 - Base system costs: Economy ($15K), X-pert ($35K)
 - Failure rate comparison: Current vs ErgoLance (99.99% success)
 - Comprehensive cost analysis including installation, training, warranty
 
 **Technology Stack:**
+
 - React hooks for state management
 - Framer Motion for animations
 - Lucide icons for UI elements
@@ -90,6 +94,7 @@ Real-time return on investment calculator with interactive visualizations.
 Interactive 3D product viewer with AR capabilities.
 
 **Features:**
+
 - Real-time 3D model rendering
 - Interactive color customization
 - Material property adjustments (metalness, roughness)
@@ -100,12 +105,14 @@ Interactive 3D product viewer with AR capabilities.
 - Download specifications
 
 **Technology Stack:**
+
 - Three.js for 3D rendering
 - React Three Fiber (R3F)
 - React Three Drei for helpers
 - OrbitControls for camera manipulation
 
 **Configuration Options:**
+
 - 6 color presets
 - 4 material finish presets (Polished, Brushed, Matte, Textured)
 - 3 size presets (Compact, Standard, Industrial)
@@ -118,6 +125,7 @@ Interactive 3D product viewer with AR capabilities.
 Immersive 3D showroom experience with interactive hotspots.
 
 **Features:**
+
 - Full 360° product exploration
 - Interactive hotspot markers
 - Auto-rotation mode
@@ -127,12 +135,14 @@ Immersive 3D showroom experience with interactive hotspots.
 - Responsive camera controls
 
 **Hotspots:**
+
 1. ChainLance System - Precision tensioning mechanism
 2. IoT Sensors - Real-time monitoring
 3. Control Panel - Touchscreen interface
 4. Base Platform - Industrial foundation
 
 **Technology Stack:**
+
 - Three.js and R3F
 - Custom 3D models and animations
 - HTML overlays for hotspot info
@@ -144,6 +154,7 @@ Immersive 3D showroom experience with interactive hotspots.
 Multi-step quote configuration system.
 
 **Features:**
+
 - 4-step wizard interface
 - Product selection (Economy vs X-pert)
 - Feature customization
@@ -154,12 +165,14 @@ Multi-step quote configuration system.
 - Email submission
 
 **Steps:**
+
 1. **Product Selection** - Choose line and quantity
 2. **Customization** - Add features and warranty
 3. **Shipping & Services** - Select delivery and support
 4. **Review & Submit** - Final review and contact info
 
 **Pricing Components:**
+
 - Base product cost
 - Premium features (+$2,500 each)
 - Shipping options ($500-$3,000)
@@ -173,6 +186,7 @@ Multi-step quote configuration system.
 Smooth dark/light theme toggle with system preference support.
 
 **Features:**
+
 - Three modes: Light, Dark, System
 - Smooth transitions
 - LocalStorage persistence
@@ -181,6 +195,7 @@ Smooth dark/light theme toggle with system preference support.
 - Accessible controls
 
 **Technology Stack:**
+
 - React hooks for theme state
 - CSS classes for theme application
 - LocalStorage API
@@ -192,6 +207,7 @@ Smooth dark/light theme toggle with system preference support.
 Intelligent conversational assistant with predictive responses.
 
 **Features:**
+
 - Context-aware responses
 - Smart suggestion chips
 - Quick action buttons (ROI, Compare, Solutions, Quote)
@@ -204,6 +220,7 @@ Intelligent conversational assistant with predictive responses.
 - Animated message bubbles
 
 **Response Categories:**
+
 - ROI calculations
 - Product comparisons
 - Industry-specific solutions (Pharma, Automotive, Electronics)
@@ -212,6 +229,7 @@ Intelligent conversational assistant with predictive responses.
 - Consultation scheduling
 
 **Technology Stack:**
+
 - React state management
 - Natural language processing logic
 - Framer Motion animations
@@ -224,6 +242,7 @@ Intelligent conversational assistant with predictive responses.
 Smooth page-to-page navigation transitions.
 
 **Features:**
+
 - Curtain animation effect
 - Loading brand indicator
 - Smooth fade transitions
@@ -231,6 +250,7 @@ Smooth page-to-page navigation transitions.
 - Non-blocking UI
 
 **Technology Stack:**
+
 - Next.js usePathname hook
 - Framer Motion AnimatePresence
 - Custom easing functions
@@ -242,6 +262,7 @@ Smooth page-to-page navigation transitions.
 Comprehensive demonstration page for all premium features.
 
 **Features:**
+
 - Interactive feature cards
 - Live feature demonstrations
 - Statistics dashboard
@@ -254,6 +275,7 @@ Comprehensive demonstration page for all premium features.
 ## 🎨 Design System
 
 ### Color Palette
+
 - **Primary**: Amber (#f59e0b, #f59e0b, #d97706)
 - **Dark**: Slate (#0f172a, #1e293b, #334155)
 - **Success**: Green (#10b981)
@@ -262,16 +284,19 @@ Comprehensive demonstration page for all premium features.
 - **Info**: Blue (#3b82f6)
 
 ### Typography
+
 - **Headings**: Bold, tight tracking
 - **Body**: Inter font family
 - **Code**: Monospace
 
 ### Animations
+
 - **Easing**: Custom cubic-bezier curves
 - **Duration**: 0.3s - 0.8s
 - **Spring**: Framer Motion spring physics
 
 ### Spacing
+
 - Consistent 4px grid system
 - Generous padding/margins
 - Responsive scaling
@@ -281,11 +306,13 @@ Comprehensive demonstration page for all premium features.
 ## 🚀 Technology Stack
 
 ### Core
+
 - **Next.js 14.2** - React framework
 - **TypeScript** - Type safety
 - **Tailwind CSS** - Utility-first styling
 
 ### 3D & Animation
+
 - **Three.js** - 3D rendering
 - **React Three Fiber** - React renderer for Three.js
 - **React Three Drei** - Useful helpers
@@ -293,11 +320,13 @@ Comprehensive demonstration page for all premium features.
 - **GSAP** - Timeline animations
 
 ### UI Components
+
 - **Radix UI** - Accessible primitives
 - **Lucide Icons** - Icon library
 - **Headless UI** - Unstyled components
 
 ### Database & Backend
+
 - **MongoDB** - Database
 - **Mongoose** - ODM
 - **NextAuth** - Authentication
@@ -308,21 +337,25 @@ Comprehensive demonstration page for all premium features.
 ## 📊 Performance Optimizations
 
 ### Code Splitting
+
 - Lazy loading of 3D components
 - Dynamic imports for heavy features
 - Suspense boundaries
 
 ### Asset Optimization
+
 - Image optimization with Next.js Image
 - Font optimization
 - SVG sprites
 
 ### Rendering
+
 - React Server Components where applicable
 - Client-side hydration
 - Memoization of expensive computations
 
 ### Caching
+
 - Static page generation
 - Incremental static regeneration
 - API route caching
@@ -332,6 +365,7 @@ Comprehensive demonstration page for all premium features.
 ## 🔧 Configuration
 
 ### Environment Variables
+
 ```env
 MONGODB_URI=your_mongodb_connection_string
 NEXTAUTH_SECRET=your_nextauth_secret
@@ -339,6 +373,7 @@ NEXTAUTH_URL=http://localhost:3000
 ```
 
 ### Next.js Config
+
 - Image domains configuration
 - MDX support
 - TypeScript strict mode
@@ -370,6 +405,7 @@ All premium features are fully responsive:
 ## 🧪 Testing
 
 ### Manual Testing Checklist
+
 - [ ] All features render correctly
 - [ ] 3D models load and are interactive
 - [ ] Calculations are accurate
@@ -380,6 +416,7 @@ All premium features are fully responsive:
 - [ ] Cross-browser compatibility
 
 ### Browser Support
+
 - Chrome/Edge 90+
 - Firefox 88+
 - Safari 14+
@@ -390,6 +427,7 @@ All premium features are fully responsive:
 ## 📦 Component API Reference
 
 ### MagneticCursor Props
+
 ```typescript
 interface MagneticCursorProps {
   enabled?: boolean; // Default: true
@@ -397,6 +435,7 @@ interface MagneticCursorProps {
 ```
 
 ### ParticleBackground Props
+
 ```typescript
 interface ParticleBackgroundProps {
   particleCount?: number; // Default: 100
@@ -425,6 +464,7 @@ interface ParticleBackgroundProps {
 ## 🔮 Future Enhancements
 
 ### Planned Features
+
 - [ ] WebGL shader effects
 - [ ] Advanced AR integration
 - [ ] Voice commands
@@ -437,6 +477,7 @@ interface ParticleBackgroundProps {
 - [ ] Advanced personalization
 
 ### Technical Debt
+
 - [ ] Unit tests for components
 - [ ] E2E tests with Playwright
 - [ ] Performance monitoring
@@ -462,6 +503,7 @@ Proprietary - ErgoLance India © 2025
 ## 📞 Support
 
 For questions or issues with premium features:
+
 - Check component documentation
 - Review example usage in `/src/app/premium-features/page.tsx`
 - Consult Next.js and React documentation

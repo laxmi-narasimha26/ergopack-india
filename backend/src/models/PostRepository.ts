@@ -18,13 +18,13 @@ export class PostRepository {
     `;
 
     if (publishedOnly) {
-      sql += ' WHERE p.status = \'published\' AND p.published_at <= CURRENT_TIMESTAMP';
+      sql += " WHERE p.status = 'published' AND p.published_at <= CURRENT_TIMESTAMP";
     }
 
     sql += ` ORDER BY p.published_at DESC LIMIT $1 OFFSET $2`;
 
     const result = await query(sql, [limit, offset]);
-    return result.rows.map(row => this.mapRow(row));
+    return result.rows.map((row) => this.mapRow(row));
   }
 
   async findById(id: string): Promise<Post | null> {
@@ -63,7 +63,7 @@ export class PostRepository {
     `;
 
     if (publishedOnly) {
-      sql += ' AND p.status = \'published\' AND p.published_at <= CURRENT_TIMESTAMP';
+      sql += " AND p.status = 'published' AND p.published_at <= CURRENT_TIMESTAMP";
     }
 
     const result = await query(sql, [slug]);
@@ -88,7 +88,7 @@ export class PostRepository {
       LIMIT $1
     `;
     const result = await query(sql, [limit]);
-    return result.rows.map(row => this.mapRow(row));
+    return result.rows.map((row) => this.mapRow(row));
   }
 
   async findByCategory(category: string, publishedOnly = false): Promise<Post[]> {
@@ -108,13 +108,13 @@ export class PostRepository {
     `;
 
     if (publishedOnly) {
-      sql += ' AND p.status = \'published\' AND p.published_at <= CURRENT_TIMESTAMP';
+      sql += " AND p.status = 'published' AND p.published_at <= CURRENT_TIMESTAMP";
     }
 
     sql += ` ORDER BY p.published_at DESC`;
 
     const result = await query(sql, [category]);
-    return result.rows.map(row => this.mapRow(row));
+    return result.rows.map((row) => this.mapRow(row));
   }
 
   async create(data: Partial<Post>): Promise<Post> {
@@ -227,7 +227,7 @@ export class PostRepository {
   async count(publishedOnly = false): Promise<number> {
     let sql = 'SELECT COUNT(*) as count FROM posts';
     if (publishedOnly) {
-      sql += ' WHERE status = \'published\' AND published_at <= CURRENT_TIMESTAMP';
+      sql += " WHERE status = 'published' AND published_at <= CURRENT_TIMESTAMP";
     }
     const result = await query(sql);
     return parseInt(result.rows[0].count);
@@ -250,13 +250,13 @@ export class PostRepository {
     `;
 
     if (publishedOnly) {
-      sql += ' AND p.status = \'published\' AND p.published_at <= CURRENT_TIMESTAMP';
+      sql += " AND p.status = 'published' AND p.published_at <= CURRENT_TIMESTAMP";
     }
 
     sql += ` ORDER BY p.published_at DESC`;
 
     const result = await query(sql, [`%${searchTerm}%`]);
-    return result.rows.map(row => this.mapRow(row));
+    return result.rows.map((row) => this.mapRow(row));
   }
 
   async incrementViews(id: string): Promise<void> {

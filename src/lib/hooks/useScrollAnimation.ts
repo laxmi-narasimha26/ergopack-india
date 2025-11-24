@@ -84,10 +84,7 @@ export function useScrollAnimation<T extends HTMLElement>(
 /**
  * Hook for fade in animation on scroll
  */
-export function useFadeIn(
-  config: ScrollAnimationConfig = {},
-  deps: any[] = []
-) {
+export function useFadeIn(config: ScrollAnimationConfig = {}, deps: any[] = []) {
   return useScrollAnimation<HTMLDivElement>(
     (element) => {
       return gsap.from(element, {
@@ -105,10 +102,7 @@ export function useFadeIn(
 /**
  * Hook for slide in from left animation on scroll
  */
-export function useSlideInLeft(
-  config: ScrollAnimationConfig = {},
-  deps: any[] = []
-) {
+export function useSlideInLeft(config: ScrollAnimationConfig = {}, deps: any[] = []) {
   return useScrollAnimation<HTMLDivElement>(
     (element) => {
       return gsap.from(element, {
@@ -126,10 +120,7 @@ export function useSlideInLeft(
 /**
  * Hook for slide in from right animation on scroll
  */
-export function useSlideInRight(
-  config: ScrollAnimationConfig = {},
-  deps: any[] = []
-) {
+export function useSlideInRight(config: ScrollAnimationConfig = {}, deps: any[] = []) {
   return useScrollAnimation<HTMLDivElement>(
     (element) => {
       return gsap.from(element, {
@@ -147,10 +138,7 @@ export function useSlideInRight(
 /**
  * Hook for scale in animation on scroll
  */
-export function useScaleIn(
-  config: ScrollAnimationConfig = {},
-  deps: any[] = []
-) {
+export function useScaleIn(config: ScrollAnimationConfig = {}, deps: any[] = []) {
   return useScrollAnimation<HTMLDivElement>(
     (element) => {
       return gsap.from(element, {

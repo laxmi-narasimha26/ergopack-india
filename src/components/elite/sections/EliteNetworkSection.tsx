@@ -59,8 +59,8 @@ export default function EliteNetworkSection({ sectionNumber }: { sectionNumber: 
           viewport={{ once: true }}
           className="text-gray-500 text-sm mt-8"
         >
-          Partnership applications are reviewed quarterly. Selection criteria include production volume,
-          quality standards, and commitment to operational excellence.
+          Partnership applications are reviewed quarterly. Selection criteria include production
+          volume, quality standards, and commitment to operational excellence.
         </motion.p>
       </motion.div>
     </SectionWrapper>

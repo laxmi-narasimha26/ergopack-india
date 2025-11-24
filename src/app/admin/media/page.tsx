@@ -143,11 +143,7 @@ export default function MediaPage() {
           <h1 className="text-3xl font-bold text-white mb-2">Media Library</h1>
           <p className="text-neutral-400">Upload and manage media files</p>
         </div>
-        <Button
-          variant="primary"
-          onClick={handleFileSelect}
-          disabled={isUploading}
-        >
+        <Button variant="primary" onClick={handleFileSelect} disabled={isUploading}>
           <Upload size={20} className="mr-2" />
           {isUploading ? 'Uploading...' : 'Upload File'}
         </Button>
@@ -251,11 +247,7 @@ export default function MediaPage() {
       {media.length === 0 && !isLoading && (
         <div className="text-center py-12">
           <p className="text-neutral-500">No media files found</p>
-          <Button
-            variant="secondary"
-            onClick={handleFileSelect}
-            className="mt-4"
-          >
+          <Button variant="secondary" onClick={handleFileSelect} className="mt-4">
             Upload your first file
           </Button>
         </div>

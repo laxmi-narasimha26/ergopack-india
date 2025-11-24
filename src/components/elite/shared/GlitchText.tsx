@@ -18,7 +18,11 @@ interface GlitchTextProps {
  * - Trigger on scroll into view
  * - Premium cyberpunk aesthetic
  */
-export default function GlitchText({ text, className = '', triggerOnView = true }: GlitchTextProps) {
+export default function GlitchText({
+  text,
+  className = '',
+  triggerOnView = true,
+}: GlitchTextProps) {
   const [displayText, setDisplayText] = useState(text);
   const [isGlitching, setIsGlitching] = useState(false);
 
@@ -61,9 +65,7 @@ export default function GlitchText({ text, className = '', triggerOnView = true 
       onMouseEnter={() => !isGlitching && triggerGlitch()}
       className={`inline-block cursor-pointer ${className}`}
       style={{
-        textShadow: isGlitching
-          ? '2px 2px 0px #C8102E, -2px -2px 0px #00D9FF'
-          : 'none',
+        textShadow: isGlitching ? '2px 2px 0px #C8102E, -2px -2px 0px #00D9FF' : 'none',
       }}
     >
       {displayText}

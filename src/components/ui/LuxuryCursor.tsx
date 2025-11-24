@@ -25,9 +25,7 @@ export function LuxuryCursor() {
       // Optimize pointer detection - cache and simplify checks
       const target = e.target as HTMLElement;
       const isClickable =
-        target.tagName === 'A' ||
-        target.tagName === 'BUTTON' ||
-        !!target.closest('a, button');
+        target.tagName === 'A' || target.tagName === 'BUTTON' || !!target.closest('a, button');
 
       setIsPointer(isClickable);
     };
@@ -72,9 +70,7 @@ export function LuxuryCursor() {
       >
         <div
           className={`transition-all duration-150 ease-luxury ${
-            isPointer
-              ? 'h-3 w-3 bg-crimson-500 opacity-100'
-              : 'h-1 w-1 bg-white opacity-80'
+            isPointer ? 'h-3 w-3 bg-crimson-500 opacity-100' : 'h-1 w-1 bg-white opacity-80'
           } rounded-full`}
         />
       </div>

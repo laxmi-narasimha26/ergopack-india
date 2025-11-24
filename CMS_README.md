@@ -12,6 +12,7 @@
 ## 🎯 Project Overview
 
 This is a complete headless CMS system that provides:
+
 - **Dynamic Content Management** - No hard-coded content; everything is managed through the admin panel
 - **Product Information Management (PIM)** - Full-featured product catalog with specs, images, videos, brochures
 - **Blog Management** - Modern block-based editor (Editor.js) for rich content
@@ -49,6 +50,7 @@ This is a complete headless CMS system that provides:
 ### Technology Stack
 
 #### **Backend (Node.js/Express/TypeScript)**
+
 - **Framework:** Express.js 4.18
 - **Language:** TypeScript 5.3
 - **Database:** PostgreSQL 14+ with JSONB support
@@ -57,6 +59,7 @@ This is a complete headless CMS system that provides:
 - **Testing:** Jest + Supertest
 
 #### **Admin Panel (React SPA)**
+
 - **Framework:** React 18.2
 - **Build Tool:** Vite 5.0
 - **Styling:** Tailwind CSS 3.4
@@ -69,6 +72,7 @@ This is a complete headless CMS system that provides:
 - **Notifications:** React Hot Toast
 
 #### **Frontend (Next.js)**
+
 - **Framework:** Next.js 14
 - **Language:** TypeScript
 - **Styling:** Tailwind CSS
@@ -357,13 +361,13 @@ Granular permission system:
 
 **Built-in Roles:**
 
-| Role | Permissions | Use Case |
-|------|------------|----------|
-| **Super Admin** | `["*"]` | Full system access |
-| **Marketer** | `["blog.*", "pages.*", "seo.*", "leads.*", "media.*"]` | Content & marketing |
-| **Sales** | `["leads.read", "leads.update"]` | View and manage leads only |
-| **Product Manager** | `["products.*", "media.*"]` | Product catalog management |
-| **Editor** | `["blog.*", "media.*"]` | Blog content creation |
+| Role                | Permissions                                            | Use Case                   |
+| ------------------- | ------------------------------------------------------ | -------------------------- |
+| **Super Admin**     | `["*"]`                                                | Full system access         |
+| **Marketer**        | `["blog.*", "pages.*", "seo.*", "leads.*", "media.*"]` | Content & marketing        |
+| **Sales**           | `["leads.read", "leads.update"]`                       | View and manage leads only |
+| **Product Manager** | `["products.*", "media.*"]`                            | Product catalog management |
+| **Editor**          | `["blog.*", "media.*"]`                                | Blog content creation      |
 
 **How It Works:**
 
@@ -376,13 +380,13 @@ Granular permission system:
 
 ```typescript
 // Sales user tries to access products
-GET /api/products
-Authorization: Bearer <sales_token>
+GET / api / products;
+Authorization: Bearer<sales_token>;
 // Response: 403 Forbidden
 
 // Sales user accesses leads
-GET /api/forms/submissions
-Authorization: Bearer <sales_token>
+GET / api / forms / submissions;
+Authorization: Bearer<sales_token>;
 // Response: 200 OK
 ```
 
@@ -495,8 +499,7 @@ it('should ALLOW marketer to reorder page components', async () => {
 
 // Public API returns components in NEW order
 it('should return components in NEW ORDER via public API', async () => {
-  const response = await request(app)
-    .get('/api/public/page/test-page');
+  const response = await request(app).get('/api/public/page/test-page');
 
   expect(response.body.data.components[0].component_id).toBe(component3Id);
   expect(response.body.data.components[1].component_id).toBe(component1Id);
@@ -523,7 +526,7 @@ it('should ALLOW marketer to create a 301 redirect', async () => {
 it('should return the new redirect in public API', async () => {
   const response = await request(app).get('/api/public/redirects');
 
-  const redirect = response.body.data.find(r => r.from_path === '/old-page');
+  const redirect = response.body.data.find((r) => r.from_path === '/old-page');
   expect(redirect.to_path).toBe('/new-page');
 });
 ```
@@ -549,16 +552,14 @@ it('should add Hindi translation for product title', async () => {
 
 // Retrieve with lang=en returns English
 it('should return English title when lang=en', async () => {
-  const response = await request(app)
-    .get(`/api/public/products/${productId}?lang=en`);
+  const response = await request(app).get(`/api/public/products/${productId}?lang=en`);
 
   expect(response.body.data.name).toBe('My Product');
 });
 
 // Retrieve with lang=hi returns Hindi
 it('should return Hindi title when lang=hi', async () => {
-  const response = await request(app)
-    .get(`/api/public/products/${productId}?lang=hi`);
+  const response = await request(app).get(`/api/public/products/${productId}?lang=hi`);
 
   expect(response.body.data.name).toBe('मेरा उत्पाद');
 });
@@ -579,33 +580,33 @@ npm run test:coverage     # Generate coverage report
 
 ### Public API (No Auth Required)
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/api/public/config` | Site settings, navigation, social links |
-| GET | `/api/public/page/:slug` | Page with components |
-| GET | `/api/public/products` | Published products (supports `?lang=`) |
-| GET | `/api/public/products/:slug` | Single product |
-| GET | `/api/public/posts` | Published blog posts |
-| GET | `/api/public/posts/:slug` | Single post (increments view count) |
-| POST | `/api/public/forms/:id/submit` | Submit form |
-| GET | `/api/public/redirects` | Active redirects |
-| POST | `/api/public/track` | Track page view |
+| Method | Endpoint                       | Description                             |
+| ------ | ------------------------------ | --------------------------------------- |
+| GET    | `/api/public/config`           | Site settings, navigation, social links |
+| GET    | `/api/public/page/:slug`       | Page with components                    |
+| GET    | `/api/public/products`         | Published products (supports `?lang=`)  |
+| GET    | `/api/public/products/:slug`   | Single product                          |
+| GET    | `/api/public/posts`            | Published blog posts                    |
+| GET    | `/api/public/posts/:slug`      | Single post (increments view count)     |
+| POST   | `/api/public/forms/:id/submit` | Submit form                             |
+| GET    | `/api/public/redirects`        | Active redirects                        |
+| POST   | `/api/public/track`            | Track page view                         |
 
 ### Protected API (Auth Required)
 
-| Module | Endpoints |
-|--------|-----------|
-| **Auth** | POST `/api/auth/login`, POST `/api/auth/refresh`, GET `/api/auth/me` |
-| **Products** | Full CRUD `/api/products/*` |
-| **Posts** | Full CRUD `/api/posts/*` |
-| **Pages** | Full CRUD `/api/pages/*`, Component management |
-| **Forms** | Full CRUD `/api/forms/*`, `/api/forms/submissions` |
-| **Media** | Upload, list, delete `/api/media/*` |
-| **SEO** | Redirects, robots.txt, sitemap `/api/seo/*` |
-| **i18n** | Languages, translations `/api/i18n/*` |
-| **Settings** | Site settings, navigation `/api/settings/*` |
-| **Users** | User management `/api/users/*` |
-| **Dashboard** | Stats and analytics `/api/dashboard/*` |
+| Module        | Endpoints                                                            |
+| ------------- | -------------------------------------------------------------------- |
+| **Auth**      | POST `/api/auth/login`, POST `/api/auth/refresh`, GET `/api/auth/me` |
+| **Products**  | Full CRUD `/api/products/*`                                          |
+| **Posts**     | Full CRUD `/api/posts/*`                                             |
+| **Pages**     | Full CRUD `/api/pages/*`, Component management                       |
+| **Forms**     | Full CRUD `/api/forms/*`, `/api/forms/submissions`                   |
+| **Media**     | Upload, list, delete `/api/media/*`                                  |
+| **SEO**       | Redirects, robots.txt, sitemap `/api/seo/*`                          |
+| **i18n**      | Languages, translations `/api/i18n/*`                                |
+| **Settings**  | Site settings, navigation `/api/settings/*`                          |
+| **Users**     | User management `/api/users/*`                                       |
+| **Dashboard** | Stats and analytics `/api/dashboard/*`                               |
 
 ---
 
@@ -780,6 +781,7 @@ Proprietary - ErgopackIndia © 2024
 ## 💬 Support
 
 For questions or issues:
+
 - **Technical Documentation:** `CMS_SETUP_GUIDE.md`
 - **API Documentation:** Run backend and visit `/api/health`
 - **Admin Guide:** `/admin/README.md`
@@ -788,4 +790,4 @@ For questions or issues:
 
 **Built with ❤️ for ErgopackIndia**
 
-*Empowering Indian Industry with World-Class Packaging Solutions*
+_Empowering Indian Industry with World-Class Packaging Solutions_

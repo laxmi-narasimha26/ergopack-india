@@ -102,11 +102,7 @@ function ProductMesh({ productData, hoveredPart, onPartHover }: any) {
             castShadow
           >
             <cylinderGeometry args={[0.15, 0.15, 0.1, 32]} />
-            <meshStandardMaterial
-              color="#1A1A1A"
-              metalness={0.5}
-              roughness={0.5}
-            />
+            <meshStandardMaterial color="#1A1A1A" metalness={0.5} roughness={0.5} />
           </mesh>
         ))
       )}
@@ -148,21 +144,13 @@ function ProductMesh({ productData, hoveredPart, onPartHover }: any) {
       {/* Branding plate */}
       <mesh position={[0, 0.5, 0.51]}>
         <planeGeometry args={[1, 0.3]} />
-        <meshStandardMaterial
-          color="#1A1A1A"
-          metalness={0.9}
-          roughness={0.1}
-        />
+        <meshStandardMaterial color="#1A1A1A" metalness={0.9} roughness={0.1} />
       </mesh>
 
       {/* Logo emboss effect */}
       <mesh position={[0, 0.5, 0.52]}>
         <planeGeometry args={[0.8, 0.15]} />
-        <meshStandardMaterial
-          color={baseColor}
-          emissive={baseColor}
-          emissiveIntensity={0.5}
-        />
+        <meshStandardMaterial color={baseColor} emissive={baseColor} emissiveIntensity={0.5} />
       </mesh>
     </group>
   );
@@ -196,33 +184,17 @@ function Scene({ productData, hoveredPart, onPartHover, autoRotate }: any) {
         castShadow
         shadow-mapSize={[2048, 2048]}
       />
-      <spotLight
-        position={[-10, 10, -10]}
-        angle={0.15}
-        penumbra={1}
-        intensity={0.5}
-        castShadow
-      />
+      <spotLight position={[-10, 10, -10]} angle={0.15} penumbra={1} intensity={0.5} castShadow />
       <pointLight position={[0, 5, 0]} intensity={0.5} color="#FFB81C" />
 
       {/* Environment for reflections */}
       <Environment preset="warehouse" />
 
       {/* Product mesh */}
-      <ProductMesh
-        productData={productData}
-        hoveredPart={hoveredPart}
-        onPartHover={onPartHover}
-      />
+      <ProductMesh productData={productData} hoveredPart={hoveredPart} onPartHover={onPartHover} />
 
       {/* Ground plane with contact shadows */}
-      <ContactShadows
-        position={[0, -1.4, 0]}
-        opacity={0.5}
-        scale={10}
-        blur={2}
-        far={4}
-      />
+      <ContactShadows position={[0, -1.4, 0]} opacity={0.5} scale={10} blur={2} far={4} />
 
       {/* Grid floor */}
       <gridHelper args={[10, 20, '#C8102E', '#1A1A1A']} position={[0, -1.4, 0]} />

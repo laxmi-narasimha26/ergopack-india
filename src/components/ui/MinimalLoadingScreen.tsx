@@ -91,12 +91,7 @@ export function MinimalLoadingScreen({ onLoadingComplete }: MinimalLoadingScreen
               className="relative"
             >
               {/* Hexagon Shape */}
-              <svg
-                width="100"
-                height="100"
-                viewBox="0 0 100 100"
-                className="relative z-10"
-              >
+              <svg width="100" height="100" viewBox="0 0 100 100" className="relative z-10">
                 {/* Outer hexagon */}
                 <motion.path
                   d="M50 5 L90 27.5 L90 72.5 L50 95 L10 72.5 L10 27.5 Z"
@@ -168,9 +163,7 @@ export function MinimalLoadingScreen({ onLoadingComplete }: MinimalLoadingScreen
                 ERGOPACK
               </h1>
               <div className="h-px w-40 bg-gradient-to-r from-transparent via-gray-500 to-transparent" />
-              <p className="font-sans text-xs tracking-[0.25em] text-gray-500 uppercase">
-                India
-              </p>
+              <p className="font-sans text-xs tracking-[0.25em] text-gray-500 uppercase">India</p>
             </motion.div>
 
             {/* Minimal Progress Bar */}

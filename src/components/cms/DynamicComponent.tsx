@@ -25,12 +25,8 @@ const HeroComponent: React.FC<{ props: any }> = ({ props }) => {
         />
       )}
       <div className="relative z-10 text-center px-4 max-w-5xl">
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-          {props.headline}
-        </h1>
-        <p className="text-xl md:text-2xl text-neutral-300 mb-8">
-          {props.subheadline}
-        </p>
+        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">{props.headline}</h1>
+        <p className="text-xl md:text-2xl text-neutral-300 mb-8">{props.subheadline}</p>
         {props.ctaText && props.ctaUrl && (
           <a
             href={props.ctaUrl}
@@ -49,12 +45,8 @@ const CTAComponent: React.FC<{ props: any }> = ({ props }) => {
   return (
     <section className="py-20 bg-primary-600">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-4xl font-bold text-white mb-4">
-          {props.title}
-        </h2>
-        <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-          {props.description}
-        </p>
+        <h2 className="text-4xl font-bold text-white mb-4">{props.title}</h2>
+        <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">{props.description}</p>
         {props.buttonText && props.buttonUrl && (
           <a
             href={props.buttonUrl}
@@ -105,9 +97,7 @@ const ProductCarouselComponent: React.FC<{ props: any }> = ({ props }) => {
   return (
     <section className="py-20 bg-neutral-900 text-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-12 text-center">
-          {props.title || 'Our Products'}
-        </h2>
+        <h2 className="text-4xl font-bold mb-12 text-center">{props.title || 'Our Products'}</h2>
         {/* Implement product carousel here */}
         <p className="text-center text-neutral-400">Product carousel component</p>
       </div>
@@ -121,9 +111,7 @@ const TestimonialsComponent: React.FC<{ props: any }> = ({ props }) => {
   return (
     <section className="py-20 bg-neutral-100">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-12 text-center">
-          What Our Clients Say
-        </h2>
+        <h2 className="text-4xl font-bold mb-12 text-center">What Our Clients Say</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial: any, index: number) => (
             <div key={index} className="bg-white p-6 rounded-lg shadow">

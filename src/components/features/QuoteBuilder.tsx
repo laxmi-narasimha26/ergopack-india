@@ -127,8 +127,8 @@ export default function QuoteBuilder() {
                         isCompleted
                           ? 'bg-amber-500 border-amber-500'
                           : isActive
-                          ? 'bg-amber-500/20 border-amber-500'
-                          : 'bg-slate-800 border-slate-700'
+                            ? 'bg-amber-500/20 border-amber-500'
+                            : 'bg-slate-800 border-slate-700'
                       }`}
                       whileHover={{ scale: 1.05 }}
                     >
@@ -136,9 +136,7 @@ export default function QuoteBuilder() {
                         <CheckCircle2 className="h-6 w-6 text-white" />
                       ) : (
                         <Icon
-                          className={`h-6 w-6 ${
-                            isActive ? 'text-amber-400' : 'text-slate-500'
-                          }`}
+                          className={`h-6 w-6 ${isActive ? 'text-amber-400' : 'text-slate-500'}`}
                         />
                       )}
                     </motion.div>
@@ -226,7 +224,10 @@ export default function QuoteBuilder() {
 
                       <ul className="space-y-2">
                         {product.features.map((feature) => (
-                          <li key={feature} className="flex items-center gap-2 text-sm text-slate-300">
+                          <li
+                            key={feature}
+                            className="flex items-center gap-2 text-sm text-slate-300"
+                          >
                             <CheckCircle2 className="h-4 w-4 text-amber-500 flex-shrink-0" />
                             {feature}
                           </li>
@@ -387,7 +388,9 @@ export default function QuoteBuilder() {
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.3 }}
               >
-                <h3 className="text-2xl font-bold text-white mb-6">Shipping & Additional Services</h3>
+                <h3 className="text-2xl font-bold text-white mb-6">
+                  Shipping & Additional Services
+                </h3>
 
                 <div className="space-y-8">
                   <div>
@@ -489,7 +492,9 @@ export default function QuoteBuilder() {
                   {/* Configuration Summary */}
                   <div>
                     <Card className="bg-slate-800/50 border-slate-700 p-6">
-                      <h4 className="text-lg font-semibold text-white mb-4">Configuration Summary</h4>
+                      <h4 className="text-lg font-semibold text-white mb-4">
+                        Configuration Summary
+                      </h4>
                       <div className="space-y-4">
                         <div className="pb-4 border-b border-slate-700">
                           <p className="text-sm text-slate-400 mb-1">Product Line</p>
@@ -516,7 +521,9 @@ export default function QuoteBuilder() {
                         <div className="pb-4 border-b border-slate-700">
                           <p className="text-sm text-slate-400 mb-1">Shipping</p>
                           <p className="text-white font-semibold">
-                            {config.shipping?.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase())}
+                            {config.shipping
+                              ?.replace(/-/g, ' ')
+                              .replace(/\b\w/g, (l) => l.toUpperCase())}
                           </p>
                         </div>
 
@@ -615,7 +622,8 @@ export default function QuoteBuilder() {
                               className="mt-1 w-5 h-5 rounded border-slate-600 text-amber-500 focus:ring-amber-500 focus:ring-offset-0 bg-slate-700"
                             />
                             <span className="text-sm text-slate-400">
-                              I agree to receive communications about this quote and related products
+                              I agree to receive communications about this quote and related
+                              products
                             </span>
                           </label>
                         </div>

@@ -45,12 +45,18 @@ export default function BlogForm({ blog, isEdit = false }: BlogFormProps) {
   };
 
   const handleTagsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const tags = e.target.value.split(',').map((tag) => tag.trim()).filter(Boolean);
+    const tags = e.target.value
+      .split(',')
+      .map((tag) => tag.trim())
+      .filter(Boolean);
     setFormData((prev) => ({ ...prev, tags }));
   };
 
   const handleKeywordsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const keywords = e.target.value.split(',').map((kw) => kw.trim()).filter(Boolean);
+    const keywords = e.target.value
+      .split(',')
+      .map((kw) => kw.trim())
+      .filter(Boolean);
     setFormData((prev) => ({ ...prev, seoKeywords: keywords }));
   };
 
@@ -107,9 +113,7 @@ export default function BlogForm({ blog, isEdit = false }: BlogFormProps) {
         <h2 className="text-xl font-bold text-white">Basic Information</h2>
 
         <div>
-          <label className="block text-sm font-medium text-neutral-300 mb-2">
-            Title *
-          </label>
+          <label className="block text-sm font-medium text-neutral-300 mb-2">Title *</label>
           <Input
             type="text"
             name="title"
@@ -122,9 +126,7 @@ export default function BlogForm({ blog, isEdit = false }: BlogFormProps) {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-neutral-300 mb-2">
-            Slug *
-          </label>
+          <label className="block text-sm font-medium text-neutral-300 mb-2">Slug *</label>
           <div className="flex space-x-2">
             <Input
               type="text"
@@ -141,9 +143,7 @@ export default function BlogForm({ blog, isEdit = false }: BlogFormProps) {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-neutral-300 mb-2">
-            Excerpt *
-          </label>
+          <label className="block text-sm font-medium text-neutral-300 mb-2">Excerpt *</label>
           <Textarea
             name="excerpt"
             value={formData.excerpt}
@@ -170,9 +170,7 @@ export default function BlogForm({ blog, isEdit = false }: BlogFormProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-neutral-300 mb-2">
-              Author *
-            </label>
+            <label className="block text-sm font-medium text-neutral-300 mb-2">Author *</label>
             <Input
               type="text"
               name="author"
@@ -184,9 +182,7 @@ export default function BlogForm({ blog, isEdit = false }: BlogFormProps) {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-neutral-300 mb-2">
-              Category *
-            </label>
+            <label className="block text-sm font-medium text-neutral-300 mb-2">Category *</label>
             <Select name="category" value={formData.category} onChange={handleChange} required>
               <option value="industry">Industry</option>
               <option value="products">Products</option>
@@ -237,9 +233,7 @@ export default function BlogForm({ blog, isEdit = false }: BlogFormProps) {
         <h2 className="text-xl font-bold text-white">SEO Settings</h2>
 
         <div>
-          <label className="block text-sm font-medium text-neutral-300 mb-2">
-            SEO Title
-          </label>
+          <label className="block text-sm font-medium text-neutral-300 mb-2">SEO Title</label>
           <Input
             type="text"
             name="seoTitle"
@@ -250,9 +244,7 @@ export default function BlogForm({ blog, isEdit = false }: BlogFormProps) {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-neutral-300 mb-2">
-            SEO Description
-          </label>
+          <label className="block text-sm font-medium text-neutral-300 mb-2">SEO Description</label>
           <Textarea
             name="seoDescription"
             value={formData.seoDescription}

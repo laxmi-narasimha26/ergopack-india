@@ -48,8 +48,16 @@ export default function ScalabilitySection({ sectionNumber }: { sectionNumber: n
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-12">
           {[
-            { icon: Settings2, title: 'Modular Architecture', desc: 'Add machines as demand grows' },
-            { icon: Monitor, title: 'Centralized Control', desc: 'Manage entire fleet from one dashboard' },
+            {
+              icon: Settings2,
+              title: 'Modular Architecture',
+              desc: 'Add machines as demand grows',
+            },
+            {
+              icon: Monitor,
+              title: 'Centralized Control',
+              desc: 'Manage entire fleet from one dashboard',
+            },
             { icon: Award, title: 'Consistent Quality', desc: 'Same precision across all units' },
           ].map((item, idx) => (
             <motion.div

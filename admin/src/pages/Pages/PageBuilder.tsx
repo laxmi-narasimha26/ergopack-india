@@ -112,10 +112,7 @@ export const PageBuilder: React.FC = () => {
 
     if (!destination) return;
 
-    if (
-      source.droppableId === destination.droppableId &&
-      source.index === destination.index
-    ) {
+    if (source.droppableId === destination.droppableId && source.index === destination.index) {
       return;
     }
 
@@ -195,9 +192,7 @@ export const PageBuilder: React.FC = () => {
               <h2 className="text-lg font-semibold text-gray-900">Page Information</h2>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Page Title *
-                </label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Page Title *</label>
                 <input
                   {...register('title', { required: 'Title is required' })}
                   type="text"
@@ -209,9 +204,7 @@ export const PageBuilder: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Slug *
-                </label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Slug *</label>
                 <input
                   {...register('slug', { required: 'Slug is required' })}
                   type="text"
@@ -223,9 +216,7 @@ export const PageBuilder: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Description
-                </label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Description</label>
                 <textarea
                   {...register('description')}
                   placeholder="Page description..."
@@ -236,9 +227,7 @@ export const PageBuilder: React.FC = () => {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    SEO Title
-                  </label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">SEO Title</label>
                   <input
                     {...register('seo_title')}
                     type="text"
@@ -248,9 +237,7 @@ export const PageBuilder: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Status
-                  </label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Status</label>
                   <select
                     {...register('status')}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -280,9 +267,7 @@ export const PageBuilder: React.FC = () => {
 
               {/* Component Library */}
               <div>
-                <p className="text-sm font-medium text-gray-700 mb-3">
-                  Add Components
-                </p>
+                <p className="text-sm font-medium text-gray-700 mb-3">Add Components</p>
                 <div className="grid grid-cols-2 gap-2">
                   {componentTypes.map((comp) => (
                     <button
@@ -292,9 +277,7 @@ export const PageBuilder: React.FC = () => {
                       className="flex items-center gap-2 px-3 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-sm"
                     >
                       <span>{comp.icon}</span>
-                      <span className="font-medium text-gray-700">
-                        {comp.label}
-                      </span>
+                      <span className="font-medium text-gray-700">{comp.label}</span>
                     </button>
                   ))}
                 </div>
@@ -319,9 +302,7 @@ export const PageBuilder: React.FC = () => {
                           }`}
                         >
                           {components.map((comp, index) => {
-                            const compType = componentTypes.find(
-                              (t) => t.id === comp.type
-                            );
+                            const compType = componentTypes.find((t) => t.id === comp.type);
                             return (
                               <Draggable
                                 key={comp._tempId || comp.id}
@@ -393,11 +374,7 @@ export const PageBuilder: React.FC = () => {
                 disabled={loading || components.length === 0}
                 className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-medium py-2 rounded-lg transition-colors"
               >
-                {loading
-                  ? 'Saving...'
-                  : isEdit
-                  ? 'Update Page'
-                  : 'Create Page'}
+                {loading ? 'Saving...' : isEdit ? 'Update Page' : 'Create Page'}
               </button>
 
               <button
@@ -412,12 +389,8 @@ export const PageBuilder: React.FC = () => {
             {/* Stats */}
             <div className="bg-blue-50 rounded-lg p-4 border border-blue-200">
               <p className="text-sm font-medium text-blue-900">Component Stats</p>
-              <p className="text-2xl font-bold text-blue-600 mt-2">
-                {components.length}
-              </p>
-              <p className="text-xs text-blue-800 mt-1">
-                Components added to page
-              </p>
+              <p className="text-2xl font-bold text-blue-600 mt-2">{components.length}</p>
+              <p className="text-xs text-blue-800 mt-1">Components added to page</p>
             </div>
 
             {/* Help text */}

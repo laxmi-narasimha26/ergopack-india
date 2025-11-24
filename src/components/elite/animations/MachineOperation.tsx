@@ -311,7 +311,9 @@ export default function MachineOperation() {
                 <spec.Icon size={36} color="#FFB81C" />
               </div>
               <div className="text-2xl font-bold text-[#FFB81C] mb-1">{spec.value}</div>
-              <div className="text-sm text-theme-secondary uppercase tracking-wider">{spec.label}</div>
+              <div className="text-sm text-theme-secondary uppercase tracking-wider">
+                {spec.label}
+              </div>
             </div>
           ))}
         </motion.div>

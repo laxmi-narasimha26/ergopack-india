@@ -112,10 +112,7 @@ export function getStatusColor(status: string): string {
   return colors[status] || 'badge-new';
 }
 
-export async function fetchAPI<T = any>(
-  endpoint: string,
-  options?: RequestInit
-): Promise<T> {
+export async function fetchAPI<T = any>(endpoint: string, options?: RequestInit): Promise<T> {
   const baseUrl = process.env.NEXT_PUBLIC_API_URL || '';
   const url = `${baseUrl}${endpoint}`;
 

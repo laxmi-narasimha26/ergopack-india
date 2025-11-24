@@ -80,9 +80,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
 
   const toggleSubmenu = (label: string) => {
     setExpandedItems((prev) =>
-      prev.includes(label)
-        ? prev.filter((item) => item !== label)
-        : [...prev, label]
+      prev.includes(label) ? prev.filter((item) => item !== label) : [...prev, label]
     );
   };
 
@@ -101,9 +99,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           <Link
             to={item.path}
             className={`flex items-center justify-between px-4 py-3 rounded-lg transition-colors ${
-              active
-                ? 'bg-blue-600 text-white'
-                : 'text-gray-700 hover:bg-gray-100'
+              active ? 'bg-blue-600 text-white' : 'text-gray-700 hover:bg-gray-100'
             } ${isNested ? 'pl-8' : ''}`}
             onClick={onClose}
           >
@@ -148,10 +144,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
     <>
       {/* Mobile overlay */}
       {isOpen && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
-          onClick={onClose}
-        />
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden" onClick={onClose} />
       )}
 
       {/* Sidebar */}
@@ -172,9 +165,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         </div>
 
         {/* Menu items */}
-        <nav className="p-4 space-y-2">
-          {menuItems.map((item) => renderMenuItem(item))}
-        </nav>
+        <nav className="p-4 space-y-2">{menuItems.map((item) => renderMenuItem(item))}</nav>
       </aside>
     </>
   );

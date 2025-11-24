@@ -18,7 +18,11 @@ interface SectionWrapperProps {
  * - Fade-in effects
  * - Consistent spacing
  */
-export default function SectionWrapper({ children, sectionNumber, className = '' }: SectionWrapperProps) {
+export default function SectionWrapper({
+  children,
+  sectionNumber,
+  className = '',
+}: SectionWrapperProps) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,

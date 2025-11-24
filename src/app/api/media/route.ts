@@ -13,11 +13,8 @@ export async function GET(request: NextRequest) {
   try {
     const session = await getServerSession(authOptions);
 
-    if (!await isAuthenticated(session)) {
-      return NextResponse.json(
-        { success: false, error: 'Unauthorized' },
-        { status: 401 }
-      );
+    if (!(await isAuthenticated(session))) {
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
     }
 
     await connectDB();
@@ -65,10 +62,7 @@ export async function GET(request: NextRequest) {
     return NextResponse.json(response);
   } catch (error: any) {
     console.error('Error fetching media:', error);
-    return NextResponse.json(
-      { success: false, error: 'Failed to fetch media' },
-      { status: 500 }
-    );
+    return NextResponse.json({ success: false, error: 'Failed to fetch media' }, { status: 500 });
   }
 }
 
@@ -77,26 +71,20 @@ export async function POST(request: NextRequest) {
   try {
     const session = await getServerSession(authOptions);
 
-    if (!await isAuthenticated(session)) {
-      return NextResponse.json(
-        { success: false, error: 'Unauthorized' },
-        { status: 401 }
-      );
+    if (!(await isAuthenticated(session))) {
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
     }
 
     await connectDB();
 
     const formData = await request.formData();
     const file = formData.get('file') as File;
-    const folder = formData.get('folder') as string || 'general';
-    const alt = formData.get('alt') as string || '';
-    const caption = formData.get('caption') as string || '';
+    const folder = (formData.get('folder') as string) || 'general';
+    const alt = (formData.get('alt') as string) || '';
+    const caption = (formData.get('caption') as string) || '';
 
     if (!file) {
-      return NextResponse.json(
-        { success: false, error: 'No file provided' },
-        { status: 400 }
-      );
+      return NextResponse.json({ success: false, error: 'No file provided' }, { status: 400 });
     }
 
     // Validate file size (10MB max)
@@ -110,13 +98,22 @@ export async function POST(request: NextRequest) {
 
     // Get file extension and validate type
     const fileExtension = file.name.split('.').pop()?.toLowerCase() || '';
-    const allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'mp4', 'webm', 'pdf', 'glb', 'gltf'];
+    const allowedExtensions = [
+      'jpg',
+      'jpeg',
+      'png',
+      'gif',
+      'webp',
+      'svg',
+      'mp4',
+      'webm',
+      'pdf',
+      'glb',
+      'gltf',
+    ];
 
     if (!allowedExtensions.includes(fileExtension)) {
-      return NextResponse.json(
-        { success: false, error: 'Invalid file type' },
-        { status: 400 }
-      );
+      return NextResponse.json({ success: false, error: 'Invalid file type' }, { status: 400 });
     }
 
     // Determine media type
@@ -182,11 +179,8 @@ export async function DELETE(request: NextRequest) {
   try {
     const session = await getServerSession(authOptions);
 
-    if (!await isAuthenticated(session)) {
-      return NextResponse.json(
-        { success: false, error: 'Unauthorized' },
-        { status: 401 }
-      );
+    if (!(await isAuthenticated(session))) {
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
     }
 
     await connectDB();
@@ -195,19 +189,13 @@ export async function DELETE(request: NextRequest) {
     const id = searchParams.get('id');
 
     if (!id) {
-      return NextResponse.json(
-        { success: false, error: 'Media ID is required' },
-        { status: 400 }
-      );
+      return NextResponse.json({ success: false, error: 'Media ID is required' }, { status: 400 });
     }
 
     const media = await MediaModel.findByIdAndDelete(id);
 
     if (!media) {
-      return NextResponse.json(
-        { success: false, error: 'Media not found' },
-        { status: 404 }
-      );
+      return NextResponse.json({ success: false, error: 'Media not found' }, { status: 404 });
     }
 
     // Note: In production, you might want to delete the physical file as well
@@ -221,9 +209,6 @@ export async function DELETE(request: NextRequest) {
     return NextResponse.json(response);
   } catch (error: any) {
     console.error('Error deleting media:', error);
-    return NextResponse.json(
-      { success: false, error: 'Failed to delete media' },
-      { status: 500 }
-    );
+    return NextResponse.json({ success: false, error: 'Failed to delete media' }, { status: 500 });
   }
 }

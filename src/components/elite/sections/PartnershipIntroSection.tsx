@@ -10,7 +10,11 @@ import { Handshake, Award, Zap, Globe2, Factory, ChevronRight } from 'lucide-rea
  * Tells the story of Benz Packaging Solutions + ErgoPack Germany partnership
  * Showcases the bringing of German precision and high-tech technology to India
  */
-export default function PartnershipIntroSection({ sectionNumber: _sectionNumber }: { sectionNumber: number }) {
+export default function PartnershipIntroSection({
+  sectionNumber: _sectionNumber,
+}: {
+  sectionNumber: number;
+}) {
   const { scrollYProgress } = useScroll();
 
   const opacity = useTransform(scrollYProgress, [0.05, 0.15, 0.25], [0, 1, 0]);
@@ -64,10 +68,7 @@ export default function PartnershipIntroSection({ sectionNumber: _sectionNumber 
         />
       </div>
 
-      <motion.div
-        style={{ opacity, scale }}
-        className="relative z-10 max-w-7xl mx-auto"
-      >
+      <motion.div style={{ opacity, scale }} className="relative z-10 max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -93,7 +94,8 @@ export default function PartnershipIntroSection({ sectionNumber: _sectionNumber 
 
           <p className="text-xl md:text-2xl text-theme-secondary max-w-4xl mx-auto leading-relaxed font-light">
             The fusion of Benz Packaging Solutions' deep market expertise with ErgoPack Germany's
-            cutting-edge engineering excellence, delivering world-class strapping solutions without compromise.
+            cutting-edge engineering excellence, delivering world-class strapping solutions without
+            compromise.
           </p>
         </motion.div>
 
@@ -119,8 +121,8 @@ export default function PartnershipIntroSection({ sectionNumber: _sectionNumber 
               </h3>
 
               <p className="text-theme-secondary text-lg leading-relaxed mb-6">
-                India's trusted partner in packaging excellence, bringing decades of industry expertise,
-                market understanding, and unwavering commitment to customer success.
+                India's trusted partner in packaging excellence, bringing decades of industry
+                expertise, market understanding, and unwavering commitment to customer success.
               </p>
 
               <div className="space-y-3">
@@ -154,13 +156,11 @@ export default function PartnershipIntroSection({ sectionNumber: _sectionNumber 
                 <Award className="w-8 h-8 text-[#C8102E]" />
               </div>
 
-              <h3 className="text-3xl font-bold text-theme-primary mb-4">
-                ErgoPack Germany
-              </h3>
+              <h3 className="text-3xl font-bold text-theme-primary mb-4">ErgoPack Germany</h3>
 
               <p className="text-theme-secondary text-lg leading-relaxed mb-6">
-                25+ years of pioneering innovation in strapping technology, engineering solutions that
-                set global benchmarks for precision, reliability, and ergonomic excellence.
+                25+ years of pioneering innovation in strapping technology, engineering solutions
+                that set global benchmarks for precision, reliability, and ergonomic excellence.
               </p>
 
               <div className="space-y-3">
@@ -201,8 +201,8 @@ export default function PartnershipIntroSection({ sectionNumber: _sectionNumber 
             </h3>
 
             <p className="text-xl text-theme-secondary max-w-3xl mx-auto leading-relaxed">
-              World-class German precision engineering and hi-tech automation technology,
-              delivered to Indian industries with local expertise, support, and understanding—
+              World-class German precision engineering and hi-tech automation technology, delivered
+              to Indian industries with local expertise, support, and understanding—
               <span className="text-[#FFB81C] font-medium"> without any compromises</span>.
             </p>
           </div>

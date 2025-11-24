@@ -27,7 +27,7 @@ const productsDropdown = {
   compare: [
     { href: '/products/compare-all', label: 'Compare All Models', desc: 'Side-by-side' },
     { href: '/products/find-your-model', label: 'Find Your Model', desc: 'Model finder' },
-  ]
+  ],
 };
 
 const navLinks = [
@@ -100,10 +100,12 @@ export default function Navigation() {
                       )}
                     >
                       {link.label}
-                      <ChevronDown className={cn(
-                        'h-4 w-4 transition-transform duration-300',
-                        isProductsOpen && 'rotate-180'
-                      )} />
+                      <ChevronDown
+                        className={cn(
+                          'h-4 w-4 transition-transform duration-300',
+                          isProductsOpen && 'rotate-180'
+                        )}
+                      />
                       <span
                         className={cn(
                           'absolute -bottom-1 left-0 h-px transition-all duration-300 bg-red-600',
@@ -178,10 +180,7 @@ export default function Navigation() {
                                 <h3 className="font-bold text-gray-900">Quick Links</h3>
                               </div>
                               <div className="space-y-2">
-                                <Link
-                                  href="/products"
-                                  className="block group"
-                                >
+                                <Link href="/products" className="block group">
                                   <div className="px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors">
                                     <div className="font-medium text-gray-900 group-hover:text-red-600 transition-colors">
                                       All Products
@@ -190,11 +189,7 @@ export default function Navigation() {
                                   </div>
                                 </Link>
                                 {productsDropdown.compare.map((item) => (
-                                  <Link
-                                    key={item.href}
-                                    href={item.href}
-                                    className="block group"
-                                  >
+                                  <Link key={item.href} href={item.href} className="block group">
                                     <div className="px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors">
                                       <div className="font-medium text-gray-900 group-hover:text-red-600 transition-colors">
                                         {item.label}
@@ -215,9 +210,7 @@ export default function Navigation() {
                     href={link.href}
                     className={cn(
                       'relative text-sm font-medium transition-colors duration-300 group',
-                      pathname === link.href
-                        ? 'text-red-600'
-                        : 'text-gray-700 hover:text-red-600'
+                      pathname === link.href ? 'text-red-600' : 'text-gray-700 hover:text-red-600'
                     )}
                   >
                     {link.label}
@@ -248,11 +241,7 @@ export default function Navigation() {
             className="lg:hidden relative z-50 p-2 text-gray-900"
             aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
@@ -274,10 +263,7 @@ export default function Navigation() {
                   transition={{ delay: 0 }}
                   className="space-y-2"
                 >
-                  <Link
-                    href="/products"
-                    className="block py-2 text-lg font-bold text-gray-900"
-                  >
+                  <Link href="/products" className="block py-2 text-lg font-bold text-gray-900">
                     All Products
                   </Link>
 
@@ -340,9 +326,7 @@ export default function Navigation() {
                       href={link.href}
                       className={cn(
                         'block py-2 text-lg font-medium transition-colors',
-                        pathname === link.href
-                          ? 'text-red-600'
-                          : 'text-gray-700 hover:text-red-600'
+                        pathname === link.href ? 'text-red-600' : 'text-gray-700 hover:text-red-600'
                       )}
                     >
                       {link.label}

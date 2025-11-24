@@ -7,6 +7,7 @@ The **Ergopack Elite** presentation page is a jaw-dropping, premium scroll-based
 ## ✨ Key Features
 
 ### 🎬 Cinematic Scroll Experience
+
 - **Lenis Smooth Scroll**: Buttery-smooth scrolling with momentum and easing
 - **GSAP ScrollTrigger**: Precision-timed animations tied to scroll position
 - **60fps Performance**: Optimized for smooth, lag-free experience
@@ -14,30 +15,35 @@ The **Ergopack Elite** presentation page is a jaw-dropping, premium scroll-based
 ### 🎨 Visual Elements
 
 #### 1. **3D Wireframe Background**
+
 - Geometric wireframe grid with red lines (#4A0000)
 - Particle effects at grid intersections
 - Subtle pulse animations
 - Technical/engineering aesthetic
 
 #### 2. **3D Product Visualization**
+
 - Scroll-triggered camera zoom (dolly in/out on Z-axis)
 - 3D Ergopack machine placeholder (ready for GLTF model)
 - Ambient red glow effect
 - Professional lighting setup
 
 #### 3. **Fixed UI Overlays**
+
 - **Header**: Blur backdrop, logo left, CTA button right
 - **Scroll Progress**: Top-right counter (01/15, 02/15...)
 - **Section Badge**: Bottom-left circular indicator
 - **Performance Stats**: Bottom-right real-time telemetry
 
 #### 4. **Massive Text Overlays**
+
 - Scale transform animations (60px → 200px → 60px)
 - Dramatic zoom-in/zoom-out effects
 - Creates emphasis on key concepts
 - Examples: "PRECISION", "GERMAN ENGINEERING", "900 STRAPS/HOUR"
 
 #### 5. **Custom Cursor**
+
 - Mix-blend-difference effect
 - Smooth spring animation
 - Scale on hover over interactive elements
@@ -64,11 +70,13 @@ The **Ergopack Elite** presentation page is a jaw-dropping, premium scroll-based
 ## 🛠️ Tech Stack
 
 ### Core Framework
+
 - **Next.js 14.2.15**: React framework with App Router
 - **TypeScript**: Type-safe development
 - **Tailwind CSS**: Utility-first styling
 
 ### 3D & Animation
+
 - **Three.js**: WebGL 3D rendering
 - **@react-three/fiber**: React renderer for Three.js
 - **@react-three/drei**: Useful Three.js helpers
@@ -77,6 +85,7 @@ The **Ergopack Elite** presentation page is a jaw-dropping, premium scroll-based
 - **Framer Motion**: React animation library
 
 ### Performance
+
 - **Dynamic imports**: Code splitting for 3D components
 - **Lazy loading**: Sections load on demand
 - **RequestAnimationFrame**: 60fps optimization
@@ -134,17 +143,11 @@ src/
 
 ```css
 /* Primary Colors */
---black: #000000          /* Pure void background */
---dark-red: #4A0000      /* Wireframe grid lines */
---brand-red: #C8102E     /* Product accent, borders */
---white: #FFFFFF         /* Primary text */
---gold: #FFB81C          /* CTA buttons, highlights */
-
-/* Secondary Colors */
---gray-900: #1A1A1A      /* Dark surfaces */
---gray-700: #4A4A4A      /* Borders */
---gray-500: #8A9BA8      /* Secondary text */
---gray-400: #A1A1A6      /* Tertiary text */
+--black: #000000 /* Pure void background */ --dark-red: #4a0000 /* Wireframe grid lines */
+  --brand-red: #c8102e /* Product accent, borders */ --white: #ffffff /* Primary text */
+  --gold: #ffb81c /* CTA buttons, highlights */ /* Secondary Colors */ --gray-900: #1a1a1a
+  /* Dark surfaces */ --gray-700: #4a4a4a /* Borders */ --gray-500: #8a9ba8 /* Secondary text */
+  --gray-400: #a1a1a6 /* Tertiary text */;
 ```
 
 ### Typography
@@ -174,15 +177,15 @@ line-height: 1.6
 
 ```javascript
 // Custom Lenis easing
-easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t));
 
 // GSAP ease
-ease: [0.16, 1, 0.3, 1]  // Expo ease-out
+ease: [0.16, 1, 0.3, 1]; // Expo ease-out
 
 // Framer Motion spring
-damping: 30
-stiffness: 400
-mass: 0.5
+damping: 30;
+stiffness: 400;
+mass: 0.5;
 ```
 
 ## 🚀 Getting Started
@@ -212,6 +215,7 @@ The following sections include video placeholders ready for actual footage:
 2. **Section 7 (Facility)**: Full facility operation
 
 Replace placeholders with actual video files:
+
 ```tsx
 // Replace this:
 <div className="...">[ VIDEO: ... ]</div>
@@ -259,11 +263,11 @@ Modify camera journey in `Scene3D.tsx`:
 ```typescript
 // Customize zoom distances and timing
 tl.to(cameraRef.current.position, {
-  z: 8,  // Change distance
-  y: 3,  // Change height
-  duration: 2,  // Change speed
+  z: 8, // Change distance
+  y: 3, // Change height
+  duration: 2, // Change speed
   ease: 'power2.inOut',
-})
+});
 ```
 
 ### Modify Section Count
@@ -353,6 +357,7 @@ xl: 1280px  /* Large desktop */
 ### Issue: 3D scene not rendering
 
 **Solution**: Check WebGL support
+
 ```javascript
 const canvas = document.createElement('canvas');
 const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
@@ -364,6 +369,7 @@ if (!gl) {
 ### Issue: Animations stuttering
 
 **Solution**: Check browser performance
+
 - Reduce particle count in wireframe grid
 - Simplify 3D model geometry
 - Disable shadows in 3D scene
@@ -371,6 +377,7 @@ if (!gl) {
 ### Issue: Scroll not smooth
 
 **Solution**: Verify Lenis initialization
+
 - Check console for Lenis errors
 - Ensure GSAP ScrollTrigger is registered
 - Test on different browsers
@@ -398,5 +405,5 @@ This implementation is part of the Ergopack India project.
 
 **Built with ❤️ for Ergopack Elite**
 
-*Last Updated: November 2024*
-*Version: 1.0.0*
+_Last Updated: November 2024_
+_Version: 1.0.0_

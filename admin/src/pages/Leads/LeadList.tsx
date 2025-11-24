@@ -27,10 +27,9 @@ export const LeadList: React.FC = () => {
         ...(searchQuery && { search: searchQuery }),
         ...(statusFilter && { status: statusFilter }),
       };
-      const response = await api.get<PaginatedResponse<FormSubmission>>(
-        '/forms/submissions',
-        { params }
-      );
+      const response = await api.get<PaginatedResponse<FormSubmission>>('/forms/submissions', {
+        params,
+      });
       setLeads(response.data.data);
       setTotal(response.data.total);
     } catch (error) {
@@ -201,8 +200,8 @@ export const LeadList: React.FC = () => {
                           lead.status === 'new'
                             ? 'bg-blue-100 text-blue-800'
                             : lead.status === 'read'
-                            ? 'bg-yellow-100 text-yellow-800'
-                            : 'bg-green-100 text-green-800'
+                              ? 'bg-yellow-100 text-yellow-800'
+                              : 'bg-green-100 text-green-800'
                         }`}
                       >
                         {lead.status}
@@ -210,9 +209,7 @@ export const LeadList: React.FC = () => {
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-500">
                       {new Date(lead.createdAt).toLocaleDateString()}
-                      <p className="text-xs">
-                        {new Date(lead.createdAt).toLocaleTimeString()}
-                      </p>
+                      <p className="text-xs">{new Date(lead.createdAt).toLocaleTimeString()}</p>
                     </td>
                     <td className="px-6 py-4 text-right">
                       <div className="flex items-center justify-end gap-2">
@@ -277,9 +274,7 @@ export const LeadList: React.FC = () => {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
             <div className="p-6 border-b border-gray-200 flex items-center justify-between sticky top-0 bg-white">
-              <h2 className="text-xl font-semibold text-gray-900">
-                Submission Details
-              </h2>
+              <h2 className="text-xl font-semibold text-gray-900">Submission Details</h2>
               <button
                 onClick={() => setSelectedLead(null)}
                 className="text-gray-500 hover:text-gray-700"
@@ -292,9 +287,7 @@ export const LeadList: React.FC = () => {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <p className="text-sm font-medium text-gray-600">Form Type</p>
-                  <p className="text-lg font-semibold text-gray-900">
-                    {selectedLead.form_type}
-                  </p>
+                  <p className="text-lg font-semibold text-gray-900">{selectedLead.form_type}</p>
                 </div>
                 <div>
                   <p className="text-sm font-medium text-gray-600">Status</p>
@@ -303,8 +296,8 @@ export const LeadList: React.FC = () => {
                       selectedLead.status === 'new'
                         ? 'bg-blue-100 text-blue-800'
                         : selectedLead.status === 'read'
-                        ? 'bg-yellow-100 text-yellow-800'
-                        : 'bg-green-100 text-green-800'
+                          ? 'bg-yellow-100 text-yellow-800'
+                          : 'bg-green-100 text-green-800'
                     }`}
                   >
                     {selectedLead.status}
@@ -319,32 +312,22 @@ export const LeadList: React.FC = () => {
                 {selectedLead.ip_address && (
                   <div>
                     <p className="text-sm font-medium text-gray-600">IP Address</p>
-                    <p className="text-gray-900 font-mono text-sm">
-                      {selectedLead.ip_address}
-                    </p>
+                    <p className="text-gray-900 font-mono text-sm">{selectedLead.ip_address}</p>
                   </div>
                 )}
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                  Submission Data
-                </h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-4">Submission Data</h3>
                 <div className="bg-gray-50 rounded-lg p-4 space-y-3">
-                  {Object.entries(selectedLead.data || {}).map(
-                    ([key, value]) => (
-                      <div key={key} className="border-b border-gray-200 pb-3 last:border-0">
-                        <p className="text-sm font-medium text-gray-600 capitalize">
-                          {key}
-                        </p>
-                        <p className="text-gray-900 mt-1 whitespace-pre-wrap">
-                          {typeof value === 'object'
-                            ? JSON.stringify(value, null, 2)
-                            : String(value)}
-                        </p>
-                      </div>
-                    )
-                  )}
+                  {Object.entries(selectedLead.data || {}).map(([key, value]) => (
+                    <div key={key} className="border-b border-gray-200 pb-3 last:border-0">
+                      <p className="text-sm font-medium text-gray-600 capitalize">{key}</p>
+                      <p className="text-gray-900 mt-1 whitespace-pre-wrap">
+                        {typeof value === 'object' ? JSON.stringify(value, null, 2) : String(value)}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

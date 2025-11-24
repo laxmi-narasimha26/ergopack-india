@@ -43,25 +43,18 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             error && errorMessage
               ? `${inputId}-error`
               : helperText
-              ? `${inputId}-helper`
-              : undefined
+                ? `${inputId}-helper`
+                : undefined
           }
           {...props}
         />
         {error && errorMessage && (
-          <p
-            id={`${inputId}-error`}
-            className="mt-1.5 text-sm text-red-500"
-            role="alert"
-          >
+          <p id={`${inputId}-error`} className="mt-1.5 text-sm text-red-500" role="alert">
             {errorMessage}
           </p>
         )}
         {!error && helperText && (
-          <p
-            id={`${inputId}-helper`}
-            className="mt-1.5 text-sm text-gray-600 dark:text-gray-400"
-          >
+          <p id={`${inputId}-helper`} className="mt-1.5 text-sm text-gray-600 dark:text-gray-400">
             {helperText}
           </p>
         )}

@@ -23,7 +23,9 @@ export default function ThemeSwitcher() {
     const root = document.documentElement;
 
     if (newTheme === 'system') {
-      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light';
       root.classList.toggle('dark', systemTheme === 'dark');
       root.classList.toggle('light', systemTheme === 'light');
     } else {
@@ -116,7 +118,9 @@ export default function ThemeSwitcher() {
                       whileHover={{ x: 4 }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      <Icon className={`h-4 w-4 ${isActive ? 'text-amber-400' : 'text-slate-400'}`} />
+                      <Icon
+                        className={`h-4 w-4 ${isActive ? 'text-amber-400' : 'text-slate-400'}`}
+                      />
                       <span className="text-sm font-medium">{themeOption.label}</span>
 
                       {isActive && (
@@ -135,9 +139,7 @@ export default function ThemeSwitcher() {
 
               {/* Footer */}
               <div className="px-3 py-2 border-t border-slate-800 bg-slate-950/50">
-                <p className="text-xs text-slate-500">
-                  Theme preference is saved locally
-                </p>
+                <p className="text-xs text-slate-500">Theme preference is saved locally</p>
               </div>
             </motion.div>
           </>

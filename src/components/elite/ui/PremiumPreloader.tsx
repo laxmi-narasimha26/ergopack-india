@@ -54,13 +54,16 @@ export default function PremiumPreloader() {
         >
           {/* Animated Grid Background */}
           <div className="absolute inset-0 opacity-10">
-            <div className="absolute inset-0" style={{
-              backgroundImage: `
+            <div
+              className="absolute inset-0"
+              style={{
+                backgroundImage: `
                 linear-gradient(#C8102E 1px, transparent 1px),
                 linear-gradient(90deg, #C8102E 1px, transparent 1px)
               `,
-              backgroundSize: '50px 50px',
-            }} />
+                backgroundSize: '50px 50px',
+              }}
+            />
           </div>
 
           {/* Content */}

@@ -28,16 +28,14 @@ async function runMigrations() {
 
     // Get list of migration files
     const migrationsDir = __dirname;
-    const files = fs.readdirSync(migrationsDir)
-      .filter(f => f.endsWith('.sql'))
+    const files = fs
+      .readdirSync(migrationsDir)
+      .filter((f) => f.endsWith('.sql'))
       .sort();
 
     for (const file of files) {
       // Check if migration already executed
-      const result = await client.query(
-        'SELECT id FROM migrations WHERE filename = $1',
-        [file]
-      );
+      const result = await client.query('SELECT id FROM migrations WHERE filename = $1', [file]);
 
       if (result.rows.length > 0) {
         console.log(`⏭️  Skipping ${file} (already executed)`);
@@ -53,10 +51,7 @@ async function runMigrations() {
       await client.query('BEGIN');
       try {
         await client.query(sql);
-        await client.query(
-          'INSERT INTO migrations (filename) VALUES ($1)',
-          [file]
-        );
+        await client.query('INSERT INTO migrations (filename) VALUES ($1)', [file]);
         await client.query('COMMIT');
         console.log(`✅ Successfully executed ${file}\n`);
       } catch (error) {

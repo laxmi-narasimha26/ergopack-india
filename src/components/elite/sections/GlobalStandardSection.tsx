@@ -53,7 +53,16 @@ export default function GlobalStandardSection({ sectionNumber }: { sectionNumber
 
         {/* Logo Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto mt-12">
-          {['Airbus', 'Bosch', 'Siemens', 'BMW', 'Volkswagen', 'ThyssenKrupp', 'BASF', 'Henkel'].map((company, idx) => (
+          {[
+            'Airbus',
+            'Bosch',
+            'Siemens',
+            'BMW',
+            'Volkswagen',
+            'ThyssenKrupp',
+            'BASF',
+            'Henkel',
+          ].map((company, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, y: 20 }}

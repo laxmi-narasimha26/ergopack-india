@@ -4,7 +4,11 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Shield, Gauge, Boxes } from 'lucide-react';
 
-export default function EngineeringSection({ sectionNumber: _sectionNumber }: { sectionNumber: number }) {
+export default function EngineeringSection({
+  sectionNumber: _sectionNumber,
+}: {
+  sectionNumber: number;
+}) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -18,21 +22,24 @@ export default function EngineeringSection({ sectionNumber: _sectionNumber }: { 
     {
       icon: Shield,
       title: 'Carbon Steel Frame',
-      description: 'Industrial-grade durability engineered for 24/7 continuous operation. Precision-welded joints ensure structural integrity under extreme loads.',
+      description:
+        'Industrial-grade durability engineered for 24/7 continuous operation. Precision-welded joints ensure structural integrity under extreme loads.',
       badge: 'ISO 9001 Certified',
       delay: 0,
     },
     {
       icon: Gauge,
       title: 'Precision Sensors',
-      description: 'Real-time quality control with microsecond response times. Laser-guided positioning ensures 0.1mm tolerance accuracy.',
+      description:
+        'Real-time quality control with microsecond response times. Laser-guided positioning ensures 0.1mm tolerance accuracy.',
       badge: 'Sub-millisecond Response',
       delay: 0.3,
     },
     {
       icon: Boxes,
       title: 'Modular Design',
-      description: 'Tool-free maintenance access with hot-swappable components to minimize downtime. Designed for rapid service and maximum uptime.',
+      description:
+        'Tool-free maintenance access with hot-swappable components to minimize downtime. Designed for rapid service and maximum uptime.',
       badge: '15-minute Component Swap',
       delay: 0.6,
     },
@@ -130,7 +137,9 @@ export default function EngineeringSection({ sectionNumber: _sectionNumber }: { 
         >
           <div className="aspect-[21/9] bg-gradient-to-br from-[#1A0000] via-black to-[#1A0000] rounded-2xl overflow-hidden border border-[#4A0000]/50 relative group">
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-gray-700 text-xl font-mono">[ IMAGE: Internal Components View ]</span>
+              <span className="text-gray-700 text-xl font-mono">
+                [ IMAGE: Internal Components View ]
+              </span>
             </div>
           </div>
         </motion.div>

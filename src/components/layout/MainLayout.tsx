@@ -4,14 +4,20 @@ import { ReactNode, useEffect } from 'react';
 import PremiumNavigation from './PremiumNavigation';
 import Footer from './Footer';
 import EnhancedChatbot from '@/components/features/EnhancedChatbot';
-import PageTransition from '@/components/effects/PageTransition';
+
 import { ScrollProgress } from '@/components/ui/ScrollProgress';
 
 interface MainLayoutProps {
   children: ReactNode;
+  hideLogoInitially?: boolean;
+  noPadding?: boolean;
 }
 
-export default function MainLayout({ children }: MainLayoutProps) {
+export default function MainLayout({
+  children,
+  hideLogoInitially = false,
+  noPadding = false,
+}: MainLayoutProps) {
   // Smooth scroll behavior
   useEffect(() => {
     // Add smooth scroll polyfill for better cross-browser support
@@ -41,10 +47,8 @@ export default function MainLayout({ children }: MainLayoutProps) {
   return (
     <div className="min-h-screen flex flex-col bg-luxury-white">
       <ScrollProgress />
-      <PremiumNavigation />
-      <PageTransition>
-        <main className="flex-grow pt-20">{children}</main>
-      </PageTransition>
+      <PremiumNavigation initialHidden={hideLogoInitially} />
+      <main className={`flex-grow ${noPadding ? '' : 'pt-20'}`}>{children}</main>
       <Footer />
       <EnhancedChatbot />
     </div>

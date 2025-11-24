@@ -2,15 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import {
-  LayoutDashboard,
-  FileText,
-  MessageSquare,
-  Image,
-  LogOut,
-  Menu,
-  X
-} from 'lucide-react';
+import { LayoutDashboard, FileText, MessageSquare, Image, LogOut, Menu, X } from 'lucide-react';
 import { signOut } from 'next-auth/react';
 import { useState } from 'react';
 
@@ -68,7 +60,8 @@ export default function Sidebar() {
           {/* Navigation */}
           <nav className="flex-1 p-4 space-y-1">
             {navigation.map((item) => {
-              const isActive = pathname === item.href ||
+              const isActive =
+                pathname === item.href ||
                 (item.href !== '/admin' && pathname.startsWith(item.href));
 
               return (

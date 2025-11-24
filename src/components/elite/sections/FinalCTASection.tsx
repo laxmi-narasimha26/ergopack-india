@@ -1,111 +1,28 @@
 'use client';
 
-import React from 'react';
-import SectionWrapper from '../shared/SectionWrapper';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { MagneticButton } from '@/components/ui/MagneticButton';
 
-export default function FinalCTASection({ sectionNumber }: { sectionNumber: number }) {
+export default function FinalCTASection() {
   return (
-    <SectionWrapper sectionNumber={sectionNumber} className="min-h-screen">
-      <div className="text-center space-y-12">
-        {/* Final Message */}
+    <section className="py-40 bg-white text-center">
+      <div className="max-w-4xl mx-auto px-8">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
+          transition={{ duration: 1 }}
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-theme-primary leading-tight mb-8 tracking-tight">
-            JOIN INDIA&apos;S
-            <br />
-            <span className="text-[#C8102E]">ELITE OPERATORS</span>
+          <h2 className="font-serif text-5xl sm:text-7xl text-artisan-black mb-12">
+            Experience the <span className="italic text-artisan-gold">Excellence.</span>
           </h2>
+          <MagneticButton href="/contact">
+            <button className="px-12 py-5 bg-artisan-black text-white rounded-full text-sm uppercase tracking-widest hover:bg-gray-900 transition-colors duration-300">
+              Request Private Briefing
+            </button>
+          </MagneticButton>
         </motion.div>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 2, delay: 0.5 }}
-          viewport={{ once: true }}
-          className="text-xl text-theme-secondary max-w-3xl mx-auto"
-        >
-          Transform your packaging operation. Apply for Elite Partnership today.
-        </motion.p>
-
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 2, delay: 1 }}
-          viewport={{ once: true }}
-          className="flex flex-col md:flex-row items-center justify-center gap-6 mt-12"
-        >
-          {/* Primary CTA */}
-          <motion.button
-            whileHover={{ scale: 1.05, boxShadow: '0 0 40px rgba(255, 184, 28, 0.5)' }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.3 }}
-            className="px-12 py-6 bg-[#FFB81C] text-black font-bold text-xl rounded-full hover:bg-[#FFC940] transition-colors min-w-[300px]"
-          >
-            Apply for Partnership
-          </motion.button>
-
-          {/* Secondary CTA */}
-          <motion.button
-            whileHover={{ scale: 1.05, borderColor: '#FFB81C' }}
-            whileTap={{ scale: 0.95 }}
-            transition={{ duration: 0.3 }}
-            className="px-12 py-6 bg-transparent border-2 border-[#C8102E] text-theme-primary font-bold text-xl rounded-full hover:border-[#FFB81C] transition-colors min-w-[300px]"
-          >
-            Schedule Site Visit
-          </motion.button>
-        </motion.div>
-
-        {/* Contact Information */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 2, delay: 1.5 }}
-          viewport={{ once: true }}
-          className="mt-16 pt-12 border-t border-gray-800"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="flex flex-col items-center gap-3">
-              <Mail className="w-6 h-6 text-[#C8102E]" strokeWidth={1.5} />
-              <h5 className="text-theme-primary font-semibold">Email</h5>
-              <a href="mailto:elite@ergopack.in" className="text-theme-secondary hover:text-[#FFB81C] transition-colors">
-                elite@ergopack.in
-              </a>
-            </div>
-            <div className="flex flex-col items-center gap-3">
-              <Phone className="w-6 h-6 text-[#C8102E]" strokeWidth={1.5} />
-              <h5 className="text-theme-primary font-semibold">Phone</h5>
-              <a href="tel:+911234567890" className="text-theme-secondary hover:text-[#FFB81C] transition-colors">
-                +91 123 456 7890
-              </a>
-            </div>
-            <div className="flex flex-col items-center gap-3">
-              <MapPin className="w-6 h-6 text-[#C8102E]" strokeWidth={1.5} />
-              <h5 className="text-theme-primary font-semibold">Location</h5>
-              <p className="text-theme-secondary">Mumbai, India</p>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Footer Note */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 2, delay: 2 }}
-          viewport={{ once: true }}
-          className="text-theme-secondary text-sm mt-16 pb-12"
-        >
-          © 2024 Ergopack India. Elite Partnership Program.
-          <br />
-          Engineered in Germany. Deployed across India.
-        </motion.p>
       </div>
-    </SectionWrapper>
+    </section>
   );
 }

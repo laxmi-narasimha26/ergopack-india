@@ -24,19 +24,25 @@ describe('i18n Content Integration Tests', () => {
     await pool.query('TRUNCATE TABLE i18n_content, languages, products, users, roles CASCADE');
 
     // Create Admin role
-    const roleResult = await pool.query(`
+    const roleResult = await pool.query(
+      `
       INSERT INTO roles (name, display_name, permissions)
       VALUES ('super_admin', 'Super Admin', $1)
       RETURNING id
-    `, [JSON.stringify(['*'])]);
+    `,
+      [JSON.stringify(['*'])]
+    );
 
     // Create Admin user
     const passwordHash = await hashPassword('password123');
-    const userResult = await pool.query(`
+    const userResult = await pool.query(
+      `
       INSERT INTO users (email, password_hash, name, role_id)
       VALUES ('admin@test.com', $1, 'Admin User', $2)
       RETURNING id
-    `, [passwordHash, roleResult.rows[0].id]);
+    `,
+      [passwordHash, roleResult.rows[0].id]
+    );
 
     // Generate token
     adminToken = generateToken({
@@ -84,23 +90,28 @@ describe('i18n Content Integration Tests', () => {
   });
 
   it('should add Hindi translation for product title', async () => {
-    await pool.query(`
+    await pool.query(
+      `
       INSERT INTO i18n_content (entity_type, entity_id, language_id, field_name, field_value)
       VALUES ('product', $1, $2, 'name', $3)
-    `, [productId, hindiLangId, JSON.stringify('मेरा उत्पाद')]);
+    `,
+      [productId, hindiLangId, JSON.stringify('मेरा उत्पाद')]
+    );
 
-    const result = await pool.query(`
+    const result = await pool.query(
+      `
       SELECT * FROM i18n_content
       WHERE entity_type = 'product' AND entity_id = $1 AND language_id = $2
-    `, [productId, hindiLangId]);
+    `,
+      [productId, hindiLangId]
+    );
 
     expect(result.rows.length).toBe(1);
     expect(result.rows[0].field_value).toBe(JSON.stringify('मेरा उत्पाद'));
   });
 
   it('should return English title when lang=en', async () => {
-    const response = await request(app)
-      .get(`/api/public/products/${productId}?lang=en`);
+    const response = await request(app).get(`/api/public/products/${productId}?lang=en`);
 
     expect(response.status).toBe(200);
     expect(response.body.success).toBe(true);
@@ -108,8 +119,7 @@ describe('i18n Content Integration Tests', () => {
   });
 
   it('should return Hindi title when lang=hi', async () => {
-    const response = await request(app)
-      .get(`/api/public/products/${productId}?lang=hi`);
+    const response = await request(app).get(`/api/public/products/${productId}?lang=hi`);
 
     expect(response.status).toBe(200);
     expect(response.body.success).toBe(true);
@@ -127,8 +137,7 @@ describe('i18n Content Integration Tests', () => {
       RETURNING id
     `);
 
-    const response = await request(app)
-      .get(`/api/public/products/${productId}?lang=de`);
+    const response = await request(app).get(`/api/public/products/${productId}?lang=de`);
 
     expect(response.status).toBe(200);
     // Should fall back to original (English)
@@ -137,13 +146,15 @@ describe('i18n Content Integration Tests', () => {
 
   it('should support multiple fields in different languages', async () => {
     // Add Hindi description
-    await pool.query(`
+    await pool.query(
+      `
       INSERT INTO i18n_content (entity_type, entity_id, language_id, field_name, field_value)
       VALUES ('product', $1, $2, 'short_description', $3)
-    `, [productId, hindiLangId, JSON.stringify('यह एक महान उत्पाद है')]);
+    `,
+      [productId, hindiLangId, JSON.stringify('यह एक महान उत्पाद है')]
+    );
 
-    const response = await request(app)
-      .get(`/api/public/products/${productId}?lang=hi`);
+    const response = await request(app).get(`/api/public/products/${productId}?lang=hi`);
 
     expect(response.status).toBe(200);
     expect(response.body.data.name).toBe('मेरा उत्पाद');
@@ -151,8 +162,7 @@ describe('i18n Content Integration Tests', () => {
   });
 
   it('should list products in specific language', async () => {
-    const response = await request(app)
-      .get('/api/public/products?lang=hi');
+    const response = await request(app).get('/api/public/products?lang=hi');
 
     expect(response.status).toBe(200);
     expect(response.body.success).toBe(true);

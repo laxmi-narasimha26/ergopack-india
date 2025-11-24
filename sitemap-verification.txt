@@ -1,0 +1,17 @@
+http://localhost:3000/
+http://localhost:3000/products
+http://localhost:3000/products/economy-line
+http://localhost:3000/products/x-pert-line
+http://localhost:3000/products/go-line
+http://localhost:3000/products/700
+http://localhost:3000/products/700e
+http://localhost:3000/products/700x
+http://localhost:3000/products/713e
+http://localhost:3000/products/713x
+http://localhost:3000/products/726e
+http://localhost:3000/products/726x
+http://localhost:3000/products/745e
+http://localhost:3000/products/745x
+http://localhost:3000/products/go
+http://localhost:3000/contact
+http://localhost:3000/products/compare-machines

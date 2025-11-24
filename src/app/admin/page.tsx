@@ -56,9 +56,7 @@ export default function AdminDashboard() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-3xl font-bold text-white mb-2">Dashboard</h1>
-          <p className="text-neutral-400">
-            Welcome back, {session?.user?.name || 'Admin'}
-          </p>
+          <p className="text-neutral-400">Welcome back, {session?.user?.name || 'Admin'}</p>
         </div>
         <div className="flex items-center space-x-3">
           <Link href="/admin/blogs/new">
@@ -78,12 +76,7 @@ export default function AdminDashboard() {
           icon={MessageSquare}
           color="blue"
         />
-        <StatsCard
-          title="New Requests"
-          value={stats.newRequests}
-          icon={TrendingUp}
-          color="green"
-        />
+        <StatsCard title="New Requests" value={stats.newRequests} icon={TrendingUp} color="green" />
         <StatsCard
           title="Published Blogs"
           value={stats.publishedBlogs}
@@ -160,9 +153,7 @@ export default function AdminDashboard() {
                 >
                   <div className="flex items-start justify-between mb-2">
                     <div className="flex-1">
-                      <h3 className="text-white font-medium line-clamp-1">
-                        {blog.title}
-                      </h3>
+                      <h3 className="text-white font-medium line-clamp-1">{blog.title}</h3>
                       <p className="text-xs text-neutral-500 mt-1">
                         {format(new Date(blog.createdAt), 'MMM dd, yyyy')}
                       </p>

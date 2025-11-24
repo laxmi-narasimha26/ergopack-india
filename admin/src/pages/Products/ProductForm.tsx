@@ -133,10 +133,7 @@ export const ProductForm: React.FC = () => {
   };
 
   const addSpec = () => {
-    setValue('specsEntries', [
-      ...specsEntries,
-      { key: '', value: '' },
-    ]);
+    setValue('specsEntries', [...specsEntries, { key: '', value: '' }]);
   };
 
   const removeSpec = (index: number) => {
@@ -167,7 +164,9 @@ export const ProductForm: React.FC = () => {
             {isEdit ? 'Edit Product' : 'Create Product'}
           </h1>
           <p className="text-gray-500 mt-1">
-            {isEdit ? 'Update product details and specifications' : 'Add a new product to your catalog'}
+            {isEdit
+              ? 'Update product details and specifications'
+              : 'Add a new product to your catalog'}
           </p>
         </div>
       </div>
@@ -193,15 +192,11 @@ export const ProductForm: React.FC = () => {
                     errors.name ? 'border-red-500' : 'border-gray-300'
                   }`}
                 />
-                {errors.name && (
-                  <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>
-                )}
+                {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>}
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Slug *
-                </label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Slug *</label>
                 <input
                   {...register('slug', { required: 'Slug is required' })}
                   type="text"
@@ -210,15 +205,11 @@ export const ProductForm: React.FC = () => {
                     errors.slug ? 'border-red-500' : 'border-gray-300'
                   }`}
                 />
-                {errors.slug && (
-                  <p className="mt-1 text-sm text-red-500">{errors.slug.message}</p>
-                )}
+                {errors.slug && <p className="mt-1 text-sm text-red-500">{errors.slug.message}</p>}
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Description
-                </label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Description</label>
                 <textarea
                   {...register('description')}
                   placeholder="Product description..."
@@ -229,9 +220,7 @@ export const ProductForm: React.FC = () => {
 
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Price (₹)
-                  </label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Price (₹)</label>
                   <input
                     {...register('price', {
                       valueAsNumber: true,
@@ -243,9 +232,7 @@ export const ProductForm: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Status
-                  </label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Status</label>
                   <select
                     {...register('status')}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"

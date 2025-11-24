@@ -2,7 +2,13 @@
 
 import { Suspense, useState, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, PerspectiveCamera, Environment, ContactShadows, Html } from '@react-three/drei';
+import {
+  OrbitControls,
+  PerspectiveCamera,
+  Environment,
+  ContactShadows,
+  Html,
+} from '@react-three/drei';
 import { motion, AnimatePresence } from 'framer-motion';
 import * as THREE from 'three';
 import {
@@ -67,15 +73,7 @@ function MachineModel({ color, metalness, roughness, scale }: MachineModelProps)
 
       {/* Details */}
       {[...Array(8)].map((_, i) => (
-        <mesh
-          key={i}
-          position={[
-            -1 + i * 0.3,
-            0.2,
-            1,
-          ]}
-          castShadow
-        >
+        <mesh key={i} position={[-1 + i * 0.3, 0.2, 1]} castShadow>
           <cylinderGeometry args={[0.05, 0.05, 0.3, 16]} />
           <meshStandardMaterial color="#0f172a" metalness={0.8} roughness={0.2} />
         </mesh>
@@ -156,13 +154,7 @@ export default function ProductConfigurator3D() {
                   roughness={roughness}
                   scale={scale}
                 />
-                <ContactShadows
-                  position={[0, -0.1, 0]}
-                  opacity={0.5}
-                  scale={10}
-                  blur={2}
-                  far={4}
-                />
+                <ContactShadows position={[0, -0.1, 0]} opacity={0.5} scale={10} blur={2} far={4} />
                 <Environment preset="city" />
               </Suspense>
             </Canvas>
@@ -203,10 +195,7 @@ export default function ProductConfigurator3D() {
                 <Eye className="h-4 w-4 mr-2" />
                 View in AR
               </Button>
-              <Button
-                variant="outline"
-                className="border-slate-700 text-white hover:bg-slate-800"
-              >
+              <Button variant="outline" className="border-slate-700 text-white hover:bg-slate-800">
                 <Download className="h-4 w-4 mr-2" />
                 Download Specs
               </Button>
@@ -226,9 +215,7 @@ export default function ProductConfigurator3D() {
           <div className="bg-slate-900 p-6 overflow-y-auto max-h-[600px]">
             <div className="mb-6">
               <h3 className="text-xl font-bold text-white mb-2">Configure Your Machine</h3>
-              <p className="text-slate-400 text-sm">
-                Customize appearance and specifications
-              </p>
+              <p className="text-slate-400 text-sm">Customize appearance and specifications</p>
             </div>
 
             {/* Configuration Tabs */}

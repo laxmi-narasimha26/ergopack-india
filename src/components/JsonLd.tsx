@@ -177,7 +177,7 @@ export function OrganizationSchema() {
         url: baseUrl,
         logo: `${baseUrl}/logo.png`,
         description:
-          "Made in Germany precision for catastrophic shipment risk mitigation and brand protection at the final, critical checkpoint of your supply chain.",
+          'Made in Germany precision for catastrophic shipment risk mitigation and brand protection at the final, critical checkpoint of your supply chain.',
         contactPoint: {
           '@type': 'ContactPoint',
           telephone: '+91-XXX-XXX-XXXX',

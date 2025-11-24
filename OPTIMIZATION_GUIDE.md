@@ -9,6 +9,7 @@ This document outlines all the production-grade optimizations, testing infrastru
 ## 🚀 Performance Optimizations
 
 ### Core Web Vitals Targets (2025 Standards)
+
 - **LCP (Largest Contentful Paint)**: < 2.5s
 - **INP (Interaction to Next Paint)**: < 200ms
 - **CLS (Cumulative Layout Shift)**: < 0.1
@@ -16,6 +17,7 @@ This document outlines all the production-grade optimizations, testing infrastru
 ### Implemented Optimizations
 
 #### 1. **Bundle Optimization**
+
 - **Code Splitting**: Automatic per-route with custom cache groups
   - Three.js isolated to separate chunk
   - Animation libraries (GSAP, Framer Motion) bundled separately
@@ -25,12 +27,14 @@ This document outlines all the production-grade optimizations, testing infrastru
 - **Console Removal**: All console statements except errors/warnings removed in production
 
 #### 2. **Image Optimization**
+
 - **Next.js Image Component**: Automatic format selection (AVIF, WebP)
 - **Responsive Images**: Multiple device sizes configured
 - **Lazy Loading**: Native browser lazy loading with placeholder support
 - **CDN Ready**: Configured domains for production CDN
 
 #### 3. **Caching Strategy**
+
 ```javascript
 Fonts: CacheFirst (1 year)
 Images: StaleWhileRevalidate (30 days)
@@ -39,11 +43,13 @@ API: NetworkFirst (5 minutes)
 ```
 
 #### 4. **Resource Hints**
+
 - DNS Prefetch for Google Fonts
 - Preconnect for critical resources
 - Font display: swap for optimal loading
 
 #### 5. **Compression**
+
 - Enabled gzip/brotli compression in Next.js config
 - SWC minification (faster than Babel)
 
@@ -54,6 +60,7 @@ API: NetworkFirst (5 minutes)
 ### Security Headers Implemented
 
 #### 1. **Content Security Policy (CSP)**
+
 ```
 default-src 'self';
 script-src 'self' 'unsafe-eval' 'unsafe-inline' googletagmanager google-analytics;
@@ -63,6 +70,7 @@ font-src 'self' data: fonts.gstatic.com;
 ```
 
 #### 2. **Additional Security Headers**
+
 - **HSTS**: Strict-Transport-Security with preload
 - **X-Frame-Options**: SAMEORIGIN (prevent clickjacking)
 - **X-Content-Type-Options**: nosniff
@@ -71,6 +79,7 @@ font-src 'self' data: fonts.gstatic.com;
 - **Permissions-Policy**: Disabled camera, microphone, geolocation
 
 #### 3. **Input Validation**
+
 - Zod schemas for all form inputs
 - Server-side validation on all API routes
 - MongoDB injection prevention (Mongoose)
@@ -83,24 +92,28 @@ font-src 'self' data: fonts.gstatic.com;
 ### Implemented Features
 
 #### 1. **Keyboard Navigation**
+
 - Skip navigation links (Tab to activate)
 - Focus trap for modals/dialogs
 - Proper tab order throughout site
 - Escape key to close modals
 
 #### 2. **Screen Reader Support**
+
 - ARIA labels on all interactive elements
 - Role attributes for semantic HTML
 - Live regions for dynamic content
 - Route change announcements
 
 #### 3. **Visual Accessibility**
+
 - High contrast ratios (WCAG AAA where possible)
 - Focus indicators on all interactive elements
 - No content dependent solely on color
 - Responsive text sizing
 
 #### 4. **Assistive Technologies**
+
 - Alt text on all images
 - Form labels properly associated
 - Error messages clear and descriptive
@@ -111,6 +124,7 @@ font-src 'self' data: fonts.gstatic.com;
 ## 📱 Progressive Web App (PWA)
 
 ### Features
+
 - **Offline Support**: Service worker with intelligent caching
 - **Installable**: Add to home screen on mobile
 - **App-like Experience**: Standalone display mode
@@ -119,6 +133,7 @@ font-src 'self' data: fonts.gstatic.com;
 - **Background Sync**: Ready (needs backend integration)
 
 ### Caching Strategy
+
 See `next.config.js` for detailed runtime caching configuration.
 
 ---
@@ -126,6 +141,7 @@ See `next.config.js` for detailed runtime caching configuration.
 ## 🧪 Testing Infrastructure
 
 ### Unit Tests (Jest + React Testing Library)
+
 ```bash
 npm test              # Run all tests
 npm run test:watch    # Watch mode
@@ -135,6 +151,7 @@ npm run test:coverage # Generate coverage report
 **Coverage Thresholds**: 70% for branches, functions, lines, statements
 
 ### E2E Tests (Playwright)
+
 ```bash
 npm run test:e2e          # Run E2E tests
 npm run test:e2e:ui       # Interactive UI mode
@@ -142,6 +159,7 @@ npm run test:e2e:headed   # Run with browser visible
 ```
 
 **Test Coverage**:
+
 - Homepage functionality
 - Navigation flows
 - Accessibility checks
@@ -150,6 +168,7 @@ npm run test:e2e:headed   # Run with browser visible
 - Mobile responsiveness
 
 ### Browser Support
+
 - Chromium (Desktop + Mobile)
 - Firefox (Desktop)
 - WebKit/Safari (Desktop + Mobile)
@@ -161,9 +180,11 @@ npm run test:e2e:headed   # Run with browser visible
 ### GitHub Actions Workflows
 
 #### 1. **Main CI Pipeline** (`.github/workflows/ci.yml`)
+
 Runs on: Push to main/develop/claude branches, PRs
 
 **Jobs**:
+
 - **Lint & Format**: ESLint, Prettier, TypeScript checks
 - **Unit Tests**: Jest with coverage reports
 - **E2E Tests**: Playwright across multiple browsers
@@ -173,12 +194,14 @@ Runs on: Push to main/develop/claude branches, PRs
 - **Deploy**: Automatic deployment to Vercel (main branch only)
 
 #### 2. **PR Checks** (`.github/workflows/pr-checks.yml`)
+
 - Semantic PR title validation
 - Automated code review
 - Bundle size comparison
 - Comments on PR with metrics
 
 ### Pre-commit Hooks (Husky)
+
 - Lint staged files
 - Format with Prettier
 - TypeScript type checking
@@ -189,6 +212,7 @@ Runs on: Push to main/develop/claude branches, PRs
 ## 📊 Monitoring & Analytics
 
 ### Error Tracking (Sentry)
+
 - Client-side error capture
 - Server-side error logging
 - Edge runtime support
@@ -196,11 +220,13 @@ Runs on: Push to main/develop/claude branches, PRs
 - Performance monitoring
 
 **Configuration Files**:
+
 - `sentry.client.config.ts`
 - `sentry.server.config.ts`
 - `sentry.edge.config.ts`
 
 ### Web Vitals Tracking
+
 - Real User Monitoring (RUM)
 - Core Web Vitals sent to `/api/vitals`
 - Integration ready for Google Analytics
@@ -208,7 +234,9 @@ Runs on: Push to main/develop/claude branches, PRs
 - Resource loading monitoring
 
 ### Analytics Integration
+
 Ready for:
+
 - Google Analytics 4
 - Plausible Analytics
 - Vercel Analytics
@@ -219,11 +247,13 @@ Ready for:
 ## 🎨 Code Quality
 
 ### Linting
+
 - **ESLint**: Next.js config + Prettier integration
 - **Prettier**: Consistent code formatting
 - **TypeScript**: Strict mode enabled
 
 ### Pre-commit Quality Gates
+
 ```bash
 npm run lint          # Check for linting errors
 npm run lint:fix      # Auto-fix linting errors
@@ -237,16 +267,19 @@ npm run type-check    # TypeScript validation
 ## 📦 Bundle Analysis
 
 ### Analyze Bundle Size
+
 ```bash
 npm run analyze
 ```
 
 This generates an interactive treemap showing:
+
 - Size of each dependency
 - Chunk distribution
 - Optimization opportunities
 
 ### Current Bundle Optimizations
+
 - Three.js: Separate chunk (~500KB)
 - Animations: Separate chunk (~200KB)
 - Vendor: Core dependencies
@@ -259,6 +292,7 @@ This generates an interactive treemap showing:
 ### Implemented Features
 
 #### 1. **Metadata**
+
 - Dynamic title templates
 - Open Graph tags
 - Twitter Card tags
@@ -266,6 +300,7 @@ This generates an interactive treemap showing:
 - Viewport configuration
 
 #### 2. **Structured Data (JSON-LD)**
+
 - Organization schema
 - Website schema
 - Product schema (ready)
@@ -273,11 +308,13 @@ This generates an interactive treemap showing:
 - Article schema (for blog)
 
 #### 3. **Sitemaps & Robots**
+
 - Dynamic XML sitemap (`/sitemap.xml`)
 - Robots.txt with proper directives
 - Priority and change frequency configured
 
 #### 4. **Performance = SEO**
+
 - Core Web Vitals optimization
 - Mobile-first responsive design
 - Fast page load times
@@ -288,6 +325,7 @@ This generates an interactive treemap showing:
 ## 🛠️ Development Workflow
 
 ### Getting Started
+
 ```bash
 # Install dependencies
 npm install
@@ -304,12 +342,14 @@ npm run dev
 ```
 
 ### Quality Checks Before Commit
+
 ```bash
 # Run all checks
 npm run lint && npm run type-check && npm test
 ```
 
 ### Building for Production
+
 ```bash
 # Production build
 npm run build
@@ -328,6 +368,7 @@ npm run analyze
 ### Environment Variables Required
 
 #### Production
+
 - `MONGODB_URI`
 - `NEXTAUTH_SECRET`
 - `NEXTAUTH_URL`
@@ -336,12 +377,14 @@ npm run analyze
 - `NEXT_PUBLIC_SENTRY_DSN` (optional)
 
 #### CI/CD Secrets (GitHub)
+
 - `VERCEL_TOKEN`
 - `VERCEL_ORG_ID`
 - `VERCEL_PROJECT_ID`
 - `SNYK_TOKEN` (optional)
 
 ### Deployment Platforms
+
 - ✅ **Vercel**: Configured in CI/CD
 - ✅ **Netlify**: Alternative configuration available
 - ✅ **Docker**: Dockerfile can be added
@@ -352,6 +395,7 @@ npm run analyze
 ## 📈 Performance Benchmarks
 
 ### Target Lighthouse Scores
+
 - **Performance**: > 90
 - **Accessibility**: 100
 - **Best Practices**: 100
@@ -359,6 +403,7 @@ npm run analyze
 - **PWA**: > 90
 
 ### Optimization Checklist
+
 - [x] Code splitting
 - [x] Image optimization
 - [x] Font optimization
@@ -378,6 +423,7 @@ npm run analyze
 ### Common Issues
 
 #### Build Failures
+
 ```bash
 # Clear Next.js cache
 rm -rf .next
@@ -388,6 +434,7 @@ npm install --legacy-peer-deps
 ```
 
 #### Test Failures
+
 ```bash
 # Clear Jest cache
 npm test -- --clearCache
@@ -397,6 +444,7 @@ npx playwright install
 ```
 
 #### Husky Not Working
+
 ```bash
 # Re-initialize Husky
 npm run prepare
@@ -408,6 +456,7 @@ chmod +x .husky/pre-commit .husky/commit-msg
 ## 📚 Additional Resources
 
 ### Documentation
+
 - [Next.js Docs](https://nextjs.org/docs)
 - [React Testing Library](https://testing-library.com/react)
 - [Playwright](https://playwright.dev)
@@ -415,6 +464,7 @@ chmod +x .husky/pre-commit .husky/commit-msg
 - [WCAG 2.2](https://www.w3.org/WAI/WCAG22/quickref/)
 
 ### Tools
+
 - **Bundle Analyzer**: Visualize bundle composition
 - **Lighthouse CI**: Automated performance testing
 - **Playwright**: E2E testing across browsers
@@ -425,6 +475,7 @@ chmod +x .husky/pre-commit .husky/commit-msg
 ## 🎯 Future Enhancements
 
 ### Recommended Additions
+
 1. **Internationalization (i18n)**
    - next-intl integration
    - Multi-language support
@@ -455,6 +506,7 @@ chmod +x .husky/pre-commit .husky/commit-msg
 ## 📝 Version History
 
 ### v2.0.0 (Current)
+
 - ✅ Production-grade optimizations
 - ✅ Full testing infrastructure
 - ✅ CI/CD pipeline
@@ -464,6 +516,7 @@ chmod +x .husky/pre-commit .husky/commit-msg
 - ✅ Performance monitoring
 
 ### v1.0.0
+
 - Initial premium design
 - Blog system
 - Admin panel

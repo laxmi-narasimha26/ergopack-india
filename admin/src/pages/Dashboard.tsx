@@ -1,5 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, LineChart, Line } from 'recharts';
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+  LineChart,
+  Line,
+} from 'recharts';
 import { Package, FileText, Layers, MessageSquare } from 'lucide-react';
 import api from '../services/api';
 import toast from 'react-hot-toast';
@@ -172,8 +183,8 @@ export const Dashboard: React.FC = () => {
                       lead.status === 'new'
                         ? 'bg-blue-100 text-blue-800'
                         : lead.status === 'read'
-                        ? 'bg-yellow-100 text-yellow-800'
-                        : 'bg-green-100 text-green-800'
+                          ? 'bg-yellow-100 text-yellow-800'
+                          : 'bg-green-100 text-green-800'
                     }`}
                   >
                     {lead.status}

@@ -62,27 +62,20 @@ const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
             error && errorMessage
               ? `${textareaId}-error`
               : helperText
-              ? `${textareaId}-helper`
-              : undefined
+                ? `${textareaId}-helper`
+                : undefined
           }
           {...props}
         />
         <div className="mt-1.5 flex items-center justify-between">
           <div className="flex-1">
             {error && errorMessage && (
-              <p
-                id={`${textareaId}-error`}
-                className="text-sm text-red-500"
-                role="alert"
-              >
+              <p id={`${textareaId}-error`} className="text-sm text-red-500" role="alert">
                 {errorMessage}
               </p>
             )}
             {!error && helperText && (
-              <p
-                id={`${textareaId}-helper`}
-                className="text-sm text-gray-600 dark:text-gray-400"
-              >
+              <p id={`${textareaId}-helper`} className="text-sm text-gray-600 dark:text-gray-400">
                 {helperText}
               </p>
             )}

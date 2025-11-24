@@ -62,8 +62,13 @@ interface ComparisonMatrixProps {
   highlightDifferences?: boolean;
 }
 
-export default function ComparisonMatrix({ products, highlightDifferences = true }: ComparisonMatrixProps) {
-  const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set(['overview', 'performance', 'battery']));
+export default function ComparisonMatrix({
+  products,
+  highlightDifferences = true,
+}: ComparisonMatrixProps) {
+  const [expandedSections, setExpandedSections] = useState<Set<string>>(
+    new Set(['overview', 'performance', 'battery'])
+  );
 
   const toggleSection = (section: string) => {
     const newExpanded = new Set(expandedSections);
@@ -76,7 +81,11 @@ export default function ComparisonMatrix({ products, highlightDifferences = true
   };
 
   // Comparison helper - returns 'better', 'worse', or 'equal'
-  const compareValues = (value1: number, value2: number, higherIsBetter = true): 'better' | 'worse' | 'equal' => {
+  const compareValues = (
+    value1: number,
+    value2: number,
+    higherIsBetter = true
+  ): 'better' | 'worse' | 'equal' => {
     if (value1 === value2) return 'equal';
     if (higherIsBetter) {
       return value1 > value2 ? 'better' : 'worse';
@@ -149,15 +158,27 @@ export default function ComparisonMatrix({ products, highlightDifferences = true
   // Row component
   const ComparisonRow = ({ label, values, comparisons, unit = '', icon: Icon }: any) => {
     return (
-      <div className="grid gap-4 py-4 border-b border-platinum-800 last:border-b-0" style={{ gridTemplateColumns: `200px repeat(${products.length}, 1fr)` }}>
+      <div
+        className="grid gap-4 py-4 border-b border-platinum-800 last:border-b-0"
+        style={{ gridTemplateColumns: `200px repeat(${products.length}, 1fr)` }}
+      >
         <div className="flex items-center gap-2 text-platinum-300">
           {Icon && <Icon className="h-4 w-4" />}
           <span className="font-medium">{label}</span>
         </div>
         {values.map((value: any, index: number) => (
           <div key={index} className="flex items-center justify-center gap-2">
-            {comparisons && comparisons[index] && highlightDifferences && getComparisonIcon(comparisons[index])}
-            <span className={comparisons && comparisons[index] && highlightDifferences ? getValueColor(comparisons[index]) : 'text-white'}>
+            {comparisons &&
+              comparisons[index] &&
+              highlightDifferences &&
+              getComparisonIcon(comparisons[index])}
+            <span
+              className={
+                comparisons && comparisons[index] && highlightDifferences
+                  ? getValueColor(comparisons[index])
+                  : 'text-white'
+              }
+            >
               {value}
               {unit}
             </span>
@@ -170,7 +191,10 @@ export default function ComparisonMatrix({ products, highlightDifferences = true
   // Yes/No row
   const BooleanRow = ({ label, values, icon: Icon }: any) => {
     return (
-      <div className="grid gap-4 py-4 border-b border-platinum-800 last:border-b-0" style={{ gridTemplateColumns: `200px repeat(${products.length}, 1fr)` }}>
+      <div
+        className="grid gap-4 py-4 border-b border-platinum-800 last:border-b-0"
+        style={{ gridTemplateColumns: `200px repeat(${products.length}, 1fr)` }}
+      >
         <div className="flex items-center gap-2 text-platinum-300">
           {Icon && <Icon className="h-4 w-4" />}
           <span className="font-medium">{label}</span>
@@ -198,7 +222,10 @@ export default function ComparisonMatrix({ products, highlightDifferences = true
     <div className="max-w-7xl mx-auto">
       {/* Product Headers */}
       <div className="sticky top-20 z-10 bg-luxury-dark-gray/95 backdrop-blur-lg p-6 rounded-2xl mb-8 shadow-2xl">
-        <div className="grid gap-6" style={{ gridTemplateColumns: `200px repeat(${products.length}, 1fr)` }}>
+        <div
+          className="grid gap-6"
+          style={{ gridTemplateColumns: `200px repeat(${products.length}, 1fr)` }}
+        >
           <div></div>
           {products.map((product, index) => (
             <motion.div
@@ -210,7 +237,9 @@ export default function ComparisonMatrix({ products, highlightDifferences = true
             >
               <div
                 className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3 ${
-                  product.line.includes('X-pert') ? 'bg-crimson-500/20 text-crimson-400' : 'bg-amber-500/20 text-amber-400'
+                  product.line.includes('X-pert')
+                    ? 'bg-crimson-500/20 text-crimson-400'
+                    : 'bg-amber-500/20 text-amber-400'
                 }`}
               >
                 {product.line}
@@ -257,7 +286,11 @@ export default function ComparisonMatrix({ products, highlightDifferences = true
             comparisons={products.map((p, i) =>
               i === 0 || !p.performance.chainSpeed
                 ? 'equal'
-                : compareValues(p.performance.chainSpeed, products[0].performance.chainSpeed || 0, true)
+                : compareValues(
+                    p.performance.chainSpeed,
+                    products[0].performance.chainSpeed || 0,
+                    true
+                  )
             )}
             unit=" m/min"
             icon={Zap}
@@ -284,22 +317,34 @@ export default function ComparisonMatrix({ products, highlightDifferences = true
 
         <ComparisonRow
           label="Pallet Width Range"
-          values={products.map((p) => `${p.flexibility.palletWidth.min}-${p.flexibility.palletWidth.max}`)}
+          values={products.map(
+            (p) => `${p.flexibility.palletWidth.min}-${p.flexibility.palletWidth.max}`
+          )}
           comparisons={products.map((p, i) =>
             i === 0
               ? 'equal'
-              : compareValues(p.flexibility.palletWidth.max, products[0].flexibility.palletWidth.max, true)
+              : compareValues(
+                  p.flexibility.palletWidth.max,
+                  products[0].flexibility.palletWidth.max,
+                  true
+                )
           )}
           unit=" cm"
         />
 
         <ComparisonRow
           label="Pallet Height Range"
-          values={products.map((p) => `${p.flexibility.palletHeight.min}-${p.flexibility.palletHeight.max}`)}
+          values={products.map(
+            (p) => `${p.flexibility.palletHeight.min}-${p.flexibility.palletHeight.max}`
+          )}
           comparisons={products.map((p, i) =>
             i === 0
               ? 'equal'
-              : compareValues(p.flexibility.palletHeight.max, products[0].flexibility.palletHeight.max, true)
+              : compareValues(
+                  p.flexibility.palletHeight.max,
+                  products[0].flexibility.palletHeight.max,
+                  true
+                )
           )}
           unit=" cm"
         />
@@ -320,7 +365,11 @@ export default function ComparisonMatrix({ products, highlightDifferences = true
             comparisons={products.map((p, i) =>
               i === 0 || !p.battery.strappingCycles
                 ? 'equal'
-                : compareValues(p.battery.strappingCycles, products[0].battery.strappingCycles || 0, true)
+                : compareValues(
+                    p.battery.strappingCycles,
+                    products[0].battery.strappingCycles || 0,
+                    true
+                  )
             )}
             unit=" cycles"
             icon={Battery}
@@ -338,9 +387,16 @@ export default function ComparisonMatrix({ products, highlightDifferences = true
               return `${p.battery.loadingTime.min}-${p.battery.loadingTime.max} ${p.battery.loadingTime.unit}`;
             })}
             comparisons={products.map((p, i) => {
-              if (i === 0 || !p.battery.loadingTime || !products[0].battery.loadingTime) return 'equal';
-              const time1 = typeof p.battery.loadingTime === 'number' ? p.battery.loadingTime : p.battery.loadingTime.max;
-              const time2 = typeof products[0].battery.loadingTime === 'number' ? products[0].battery.loadingTime : products[0].battery.loadingTime.max;
+              if (i === 0 || !p.battery.loadingTime || !products[0].battery.loadingTime)
+                return 'equal';
+              const time1 =
+                typeof p.battery.loadingTime === 'number'
+                  ? p.battery.loadingTime
+                  : p.battery.loadingTime.max;
+              const time2 =
+                typeof products[0].battery.loadingTime === 'number'
+                  ? products[0].battery.loadingTime
+                  : products[0].battery.loadingTime.max;
               return compareValues(time1, time2, false);
             })}
             icon={Clock}
@@ -352,17 +408,23 @@ export default function ComparisonMatrix({ products, highlightDifferences = true
       <ComparisonSection title="Included Features" icon={Award} sectionKey="features">
         <BooleanRow
           label="Siemens Touchscreen"
-          values={products.map((p) => p.includedFeatures?.some((f) => f.includes('Siemens')) || false)}
+          values={products.map(
+            (p) => p.includedFeatures?.some((f) => f.includes('Siemens')) || false
+          )}
           icon={Check}
         />
         <BooleanRow
           label="Line Laser"
-          values={products.map((p) => p.includedFeatures?.some((f) => f.includes('Laser')) || false)}
+          values={products.map(
+            (p) => p.includedFeatures?.some((f) => f.includes('Laser')) || false
+          )}
           icon={Check}
         />
         <BooleanRow
           label="Tool-Lift Included"
-          values={products.map((p) => p.includedFeatures?.some((f) => f.includes('Tool-Lift')) || false)}
+          values={products.map(
+            (p) => p.includedFeatures?.some((f) => f.includes('Tool-Lift')) || false
+          )}
           icon={Check}
         />
       </ComparisonSection>
@@ -421,10 +483,14 @@ export default function ComparisonMatrix({ products, highlightDifferences = true
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 className={`p-6 rounded-xl border-2 ${
-                  isXpert ? 'border-crimson-500/30 bg-crimson-500/5' : 'border-amber-500/30 bg-amber-500/5'
+                  isXpert
+                    ? 'border-crimson-500/30 bg-crimson-500/5'
+                    : 'border-amber-500/30 bg-amber-500/5'
                 }`}
               >
-                <h4 className="text-lg font-serif font-semibold text-white mb-3">{product.fullName}</h4>
+                <h4 className="text-lg font-serif font-semibold text-white mb-3">
+                  {product.fullName}
+                </h4>
                 <p className="text-sm text-platinum-400 mb-4">
                   {isXpert
                     ? 'Best for high-volume operations requiring maximum efficiency'
@@ -433,7 +499,9 @@ export default function ComparisonMatrix({ products, highlightDifferences = true
                 <ul className="space-y-2">
                   {keyBenefits.map((benefit, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm">
-                      <Check className={`h-4 w-4 mt-0.5 flex-shrink-0 ${isXpert ? 'text-crimson-400' : 'text-amber-400'}`} />
+                      <Check
+                        className={`h-4 w-4 mt-0.5 flex-shrink-0 ${isXpert ? 'text-crimson-400' : 'text-amber-400'}`}
+                      />
                       <span className="text-platinum-300">{benefit}</span>
                     </li>
                   ))}
@@ -446,14 +514,15 @@ export default function ComparisonMatrix({ products, highlightDifferences = true
 
       {/* CTA */}
       <div className="text-center mt-12 p-8 premium-card-dark">
-        <h3 className="text-2xl font-serif font-semibold text-white mb-4">Still Not Sure Which One to Choose?</h3>
+        <h3 className="text-2xl font-serif font-semibold text-white mb-4">
+          Still Not Sure Which One to Choose?
+        </h3>
         <p className="text-platinum-400 mb-6 max-w-2xl mx-auto">
-          Our experts can help you select the perfect strapping system for your specific needs and budget.
+          Our experts can help you select the perfect strapping system for your specific needs and
+          budget.
         </p>
         <Link href="/contact">
-          <button className="btn-premium">
-            Get Expert Recommendation
-          </button>
+          <button className="btn-premium">Get Expert Recommendation</button>
         </Link>
       </div>
     </div>

@@ -9,7 +9,7 @@ export class PageRepository {
       LIMIT $1 OFFSET $2
     `;
     const result = await query(sql, [limit, offset]);
-    return Promise.all(result.rows.map(row => this.mapRow(row)));
+    return Promise.all(result.rows.map((row) => this.mapRow(row)));
   }
 
   async findById(id: string): Promise<Page | null> {
@@ -116,13 +116,17 @@ export class PageRepository {
       ORDER BY pc.sort_order ASC
     `;
     const result = await query(sql, [pageId]);
-    return result.rows.map(row => this.mapPageComponentRow(row));
+    return result.rows.map((row) => this.mapPageComponentRow(row));
   }
 
   /**
    * Add component to page
    */
-  async addComponent(pageId: string, componentId: string, props: Record<string, any>): Promise<PageComponent> {
+  async addComponent(
+    pageId: string,
+    componentId: string,
+    props: Record<string, any>
+  ): Promise<PageComponent> {
     // Get next sort order
     const sortResult = await query(
       'SELECT COALESCE(MAX(sort_order), 0) + 1 as next_order FROM page_components WHERE page_id = $1',
@@ -135,13 +139,7 @@ export class PageRepository {
       VALUES ($1, $2, $3, $4, $5)
       RETURNING id
     `;
-    const result = await query(sql, [
-      pageId,
-      componentId,
-      JSON.stringify(props),
-      sortOrder,
-      true,
-    ]);
+    const result = await query(sql, [pageId, componentId, JSON.stringify(props), sortOrder, true]);
 
     const componentResult = await query(
       `SELECT pc.*, c.type as component_type, c.name as component_name,
@@ -158,7 +156,11 @@ export class PageRepository {
   /**
    * Update page component
    */
-  async updateComponent(componentId: string, props: Record<string, any>, isVisible?: boolean): Promise<PageComponent | null> {
+  async updateComponent(
+    componentId: string,
+    props: Record<string, any>,
+    isVisible?: boolean
+  ): Promise<PageComponent | null> {
     const fields: string[] = [];
     const values: any[] = [];
     let paramCount = 1;
@@ -208,8 +210,11 @@ export class PageRepository {
   /**
    * Reorder page components
    */
-  async reorderComponents(pageId: string, components: Array<{ id: string; sort_order: number }>): Promise<void> {
-    const promises = components.map(comp =>
+  async reorderComponents(
+    pageId: string,
+    components: Array<{ id: string; sort_order: number }>
+  ): Promise<void> {
+    const promises = components.map((comp) =>
       query(
         'UPDATE page_components SET sort_order = $1, updated_at = CURRENT_TIMESTAMP WHERE id = $2 AND page_id = $3',
         [comp.sort_order, comp.id, pageId]
@@ -246,7 +251,9 @@ export class PageRepository {
             id: row.component_id,
             type: row.component_type,
             name: row.component_name,
-            default_props: row.component_default_props ? JSON.parse(row.component_default_props) : {},
+            default_props: row.component_default_props
+              ? JSON.parse(row.component_default_props)
+              : {},
             schema: row.component_schema ? JSON.parse(row.component_schema) : undefined,
             is_active: true,
             created_at: new Date(),

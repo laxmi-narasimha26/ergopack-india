@@ -37,6 +37,10 @@ export interface ProductSpecifications {
   chainLength: string;
   control: string;
   settingsChange: string;
+  strapMaterials?: string[];
+  strapWidth?: string;
+  strapThickness?: string;
+  coilDiameters?: string[];
 }
 
 export interface BatteryInfo {
@@ -79,6 +83,11 @@ export interface ComprehensiveProduct {
     accessories: string[];
     applications: string[];
   };
+  price?: number;
+  sealingHead?: any;
+  useCases?: any[];
+  videoLinks?: string[];
+  resources?: any;
 }
 
 // ErgoPack 700 - Manual Hand-Crank System
@@ -86,7 +95,8 @@ export const ergoPack700: ComprehensiveProduct = {
   id: '700',
   name: 'ErgoPack 700',
   tagline: 'Manual Hand-Crank Pallet Strapping System',
-  description: 'Cost-effective manual strapping solution with no battery required. Perfect for operations seeking reliable, economical pallet strapping with zero electricity costs.',
+  description:
+    'Cost-effective manual strapping solution with no battery required. Perfect for operations seeking reliable, economical pallet strapping with zero electricity costs.',
   line: 'economy',
   specifications: {
     line: 'Economy Line',
@@ -228,7 +238,7 @@ export const ergoPack700: ComprehensiveProduct = {
     'Oversized items with MOHM',
   ],
   images: {
-    hero: '/images/products/700/2.jpg',
+    hero: '/images/products/700.png',
     gallery: [
       '/images/products/700/1.png',
       '/images/products/700/2.jpg',
@@ -257,7 +267,8 @@ export const ergoPack700E: ComprehensiveProduct = {
   id: '700E',
   name: 'ErgoPack 700E',
   tagline: 'Multi-Material Battery Strapping System',
-  description: 'Economy Line battery-powered strapping system with 40m/min speed and 350 cycles per charge. Multi-material compatibility for versatile packaging operations.',
+  description:
+    'Economy Line battery-powered strapping system with 40m/min speed and 350 cycles per charge. Multi-material compatibility for versatile packaging operations.',
   line: 'economy',
   specifications: {
     line: 'Economy Line',
@@ -265,8 +276,8 @@ export const ergoPack700E: ComprehensiveProduct = {
     generation: '2',
     tariffNr: '842240',
     dimensions: {
-      length: 6300,
-      width: 7700,
+      length: 630,
+      width: 770,
       height: 1200,
       unit: 'mm',
     },
@@ -359,7 +370,8 @@ export const ergoPack700E: ComprehensiveProduct = {
     {
       id: 'triplex-tool-lift',
       name: 'Triplex-Tool-Lift (TTL)',
-      description: 'Ideal for pallets lower than 80cm, suitable for pallets as low as 10cm in height',
+      description:
+        'Ideal for pallets lower than 80cm, suitable for pallets as low as 10cm in height',
       category: 'optional',
       details: [
         'Three-stage lifting mechanism',
@@ -484,17 +496,14 @@ export const ergoPack700E: ComprehensiveProduct = {
     'Mixed-material strapping operations',
   ],
   images: {
-    hero: '/images/products/700E/18.png',
+    hero: '/images/products/700e.png',
     gallery: [
       '/images/products/700E/1.png',
       '/images/products/700E/2.jpg',
       '/images/products/700E/18.png',
       '/images/products/700E/19.jpg',
     ],
-    accessories: [
-      '/images/products/700E/11.jpg',
-      '/images/products/700E/12.jpg',
-    ],
+    accessories: ['/images/products/700E/11.jpg', '/images/products/700E/12.jpg'],
     applications: [
       '/images/products/700E/20.png',
       '/images/products/700E/21.png',
@@ -515,7 +524,8 @@ export const ergoPack700X: ComprehensiveProduct = {
   id: '700X',
   name: 'ErgoPack 700X Li',
   tagline: 'Premium Lithium-Ion Pallet Strapping System',
-  description: 'X-pert Line premium strapping system with advanced Lithium-Ion battery delivering up to 1200 cycles and 66m/min speed. Features Siemens Industry Touchscreen and premium ergonomic design for high-volume operations.',
+  description:
+    'X-pert Line premium strapping system with advanced Lithium-Ion battery delivering up to 1200 cycles and 66m/min speed. Features Siemens Industry Touchscreen and premium ergonomic design for high-volume operations.',
   line: 'xpert',
   specifications: {
     line: 'X-pert Line',
@@ -643,7 +653,8 @@ export const ergoPack700X: ComprehensiveProduct = {
     {
       id: 'triplex-tool-lift',
       name: 'Triplex-Tool-Lift (TTL)',
-      description: 'Ideal for pallets lower than 80cm, suitable for pallets as low as 10cm in height',
+      description:
+        'Ideal for pallets lower than 80cm, suitable for pallets as low as 10cm in height',
       category: 'optional',
       details: [
         'Three-stage lifting mechanism',
@@ -657,7 +668,12 @@ export const ergoPack700X: ComprehensiveProduct = {
       name: 'Standard Tool-Lift',
       description: 'For pallets >80cm with sealing head quick release',
       category: 'optional',
-      details: ['Standard lifting mechanism', 'Quick release system', 'Ideal for taller pallets', 'Video demonstration available'],
+      details: [
+        'Standard lifting mechanism',
+        'Quick release system',
+        'Ideal for taller pallets',
+        'Video demonstration available',
+      ],
     },
     {
       id: 'sealing-head',
@@ -706,7 +722,11 @@ export const ergoPack700X: ComprehensiveProduct = {
       name: 'Strap-Brake-Relief',
       description: 'For pallets higher than 120cm - relief in pulling out strap',
       category: 'optional',
-      details: ['For tall pallets >120cm', 'Eases strap extraction', 'Video demonstration available'],
+      details: [
+        'For tall pallets >120cm',
+        'Eases strap extraction',
+        'Video demonstration available',
+      ],
     },
     {
       id: 'headpiece-bumper',
@@ -732,7 +752,12 @@ export const ergoPack700X: ComprehensiveProduct = {
       name: 'Spare Lithium-Ion Battery',
       description: 'Additional lithium-ion battery optimal for multiple shifts',
       category: 'optional',
-      details: ['Premium Lithium-Ion technology', 'Up to 1200 cycles', 'Seamless shift changeover', 'Only 5kg weight'],
+      details: [
+        'Premium Lithium-Ion technology',
+        'Up to 1200 cycles',
+        'Seamless shift changeover',
+        'Only 5kg weight',
+      ],
     },
     {
       id: 'mohm',
@@ -767,7 +792,11 @@ export const ergoPack700X: ComprehensiveProduct = {
       name: 'Screen Protector',
       description: 'Protect the Siemens touchscreen display from damages',
       category: 'optional',
-      details: ['X-pert Line exclusive accessory', 'Protects premium touchscreen', 'Easy installation'],
+      details: [
+        'X-pert Line exclusive accessory',
+        'Protects premium touchscreen',
+        'Easy installation',
+      ],
     },
   ],
   certifications: {
@@ -791,7 +820,7 @@ export const ergoPack700X: ComprehensiveProduct = {
     'Operations with long distances between pallets',
   ],
   images: {
-    hero: '/images/products/700X/1.png',
+    hero: '/images/products/700x.png',
     gallery: [
       '/images/products/700X/1.png',
       '/images/products/700X/2.jpg',
@@ -820,7 +849,8 @@ export const ergoPack713E: ComprehensiveProduct = {
   id: '713E',
   name: 'ErgoPack 713E',
   tagline: 'Complete Strapping & Sealing System',
-  description: 'Economy Line battery-powered system with integrated sealing head and standard tool-lift included. Professional sealing for PP and PET straps with 40m/min speed and 350 cycles per charge.',
+  description:
+    'Economy Line battery-powered system with integrated sealing head and standard tool-lift included. Professional sealing for PP and PET straps with 40m/min speed and 350 cycles per charge.',
   line: 'economy',
   specifications: {
     line: 'Economy Line',
@@ -893,10 +923,7 @@ export const ergoPack713E: ComprehensiveProduct = {
     'Sealing head weight: 3.8-4.3kg',
     'Up to 10A current for powerful sealing',
   ],
-  materialCompatibility: [
-    'Polypropylene (PP)',
-    'Polyester (PET)',
-  ],
+  materialCompatibility: ['Polypropylene (PP)', 'Polyester (PET)'],
   includedAccessories: [
     {
       id: 'standard-tool-lift',
@@ -959,7 +986,8 @@ export const ergoPack713E: ComprehensiveProduct = {
     {
       id: 'triplex-tool-lift',
       name: 'Triplex-Tool-Lift (TTL)',
-      description: 'Ideal for pallets lower than 80cm, suitable for pallets as low as 10cm in height',
+      description:
+        'Ideal for pallets lower than 80cm, suitable for pallets as low as 10cm in height',
       category: 'optional',
       details: [
         'Three-stage lifting mechanism',
@@ -1008,7 +1036,11 @@ export const ergoPack713E: ComprehensiveProduct = {
       name: 'Strap-Brake-Relief',
       description: 'For pallets higher than 120cm - relief in pulling out strap',
       category: 'optional',
-      details: ['For tall pallets >120cm', 'Eases strap extraction', 'Video demonstration available'],
+      details: [
+        'For tall pallets >120cm',
+        'Eases strap extraction',
+        'Video demonstration available',
+      ],
     },
     {
       id: 'headpiece-bumper',
@@ -1073,7 +1105,7 @@ export const ergoPack713E: ComprehensiveProduct = {
     'Narrow pallets starting from 30cm width',
   ],
   images: {
-    hero: '/images/products/713E/1.png',
+    hero: '/images/products/713e.png',
     gallery: [
       '/images/products/713E/1.png',
       '/images/products/713E/2.jpg',
@@ -1100,7 +1132,8 @@ export const ergoPack713X: ComprehensiveProduct = {
   id: '713X',
   name: 'ErgoPack 713X Li',
   tagline: 'Ultimate Complete Strapping & Sealing System',
-  description: 'X-pert Line premium system with sealing head, tool-lift, AND Line-Laser Type 2 ALL INCLUDED. Lithium-Ion battery with 1200 cycles, 66m/min speed, and Siemens touchscreen for professional PP and PET strapping.',
+  description:
+    'X-pert Line premium system with sealing head, tool-lift, AND Line-Laser Type 2 ALL INCLUDED. Lithium-Ion battery with 1200 cycles, 66m/min speed, and Siemens touchscreen for professional PP and PET strapping.',
   line: 'xpert',
   specifications: {
     line: 'X-pert Line',
@@ -1181,15 +1214,13 @@ export const ergoPack713X: ComprehensiveProduct = {
     'Video tutorials available for key features',
     'Complete professional packaging solution',
   ],
-  materialCompatibility: [
-    'Polypropylene (PP)',
-    'Polyester (PET)',
-  ],
+  materialCompatibility: ['Polypropylene (PP)', 'Polyester (PET)'],
   includedAccessories: [
     {
       id: 'standard-tool-lift',
       name: 'Standard Tool-Lift',
-      description: 'Included premium tool-lift system for pallets >80cm with sealing head quick release',
+      description:
+        'Included premium tool-lift system for pallets >80cm with sealing head quick release',
       category: 'included',
       details: [
         'INCLUDED in X-pert Line package',
@@ -1274,7 +1305,8 @@ export const ergoPack713X: ComprehensiveProduct = {
     {
       id: 'triplex-tool-lift',
       name: 'Triplex-Tool-Lift (TTL)',
-      description: 'Ideal for pallets lower than 80cm, suitable for pallets as low as 10cm in height',
+      description:
+        'Ideal for pallets lower than 80cm, suitable for pallets as low as 10cm in height',
       category: 'optional',
       details: [
         'Three-stage lifting mechanism',
@@ -1316,7 +1348,11 @@ export const ergoPack713X: ComprehensiveProduct = {
       name: 'Strap-Brake-Relief',
       description: 'For pallets higher than 120cm - relief in pulling out strap',
       category: 'optional',
-      details: ['For tall pallets >120cm', 'Eases strap extraction', 'Video demonstration available'],
+      details: [
+        'For tall pallets >120cm',
+        'Eases strap extraction',
+        'Video demonstration available',
+      ],
     },
     {
       id: 'headpiece-bumper',
@@ -1342,7 +1378,12 @@ export const ergoPack713X: ComprehensiveProduct = {
       name: 'Spare Lithium-Ion Battery',
       description: 'Additional lithium-ion battery optimal for multiple shifts',
       category: 'optional',
-      details: ['Premium Lithium-Ion technology', 'Up to 1200 cycles', 'Seamless shift changeover', 'Only 5kg weight'],
+      details: [
+        'Premium Lithium-Ion technology',
+        'Up to 1200 cycles',
+        'Seamless shift changeover',
+        'Only 5kg weight',
+      ],
     },
     {
       id: 'mohm',
@@ -1377,7 +1418,11 @@ export const ergoPack713X: ComprehensiveProduct = {
       name: 'Screen Protector',
       description: 'Protect the Siemens touchscreen display from damages',
       category: 'optional',
-      details: ['X-pert Line exclusive accessory', 'Protects premium touchscreen', 'Easy installation'],
+      details: [
+        'X-pert Line exclusive accessory',
+        'Protects premium touchscreen',
+        'Easy installation',
+      ],
     },
   ],
   certifications: {
@@ -1402,7 +1447,7 @@ export const ergoPack713X: ComprehensiveProduct = {
     'Operations with long distances between pallets',
   ],
   images: {
-    hero: '/images/products/713X/1.png',
+    hero: '/images/products/713x.png',
     gallery: [
       '/images/products/713X/1.png',
       '/images/products/713X/2.jpg',
@@ -1434,7 +1479,7 @@ export const ergoPack726E: ComprehensiveProduct = {
   line: 'economy',
   price: 0,
   images: {
-    hero: '/images/products/726E/1.png',
+    hero: '/images/products/726e.png',
     gallery: [
       '/images/products/726E/1.png',
       '/images/products/726E/2.png',
@@ -1450,6 +1495,8 @@ export const ergoPack726E: ComprehensiveProduct = {
       '/images/products/726E/12.png',
       '/images/products/726E/13.png',
     ],
+    accessories: [],
+    applications: [],
   },
   features: [
     'Complete mobile strapping and sealing solution in one system',
@@ -1491,7 +1538,7 @@ export const ergoPack726E: ComprehensiveProduct = {
     model: '726E',
     line: 'Economy Line',
     generation: '2',
-    tariffNumber: '842240',
+    tariffNr: '842240',
     dimensions: {
       length: 630,
       width: 770,
@@ -1499,10 +1546,21 @@ export const ergoPack726E: ComprehensiveProduct = {
       unit: 'mm',
     },
     weight: 92.9,
+    weightUnit: 'kg',
+    control: 'Electrically via joystick',
+    settingsChange: 'With pin',
     chainSpeed: '40m/min',
     chainLength: '6m standard',
-    palletWidthRange: '30-255cm',
-    palletHeightRange: '10-230cm',
+    palletWidth: {
+      min: 30,
+      max: 255,
+      unit: 'cm',
+    },
+    palletHeight: {
+      min: 10,
+      max: 230,
+      unit: 'cm',
+    },
     strapMaterials: ['PP (Polypropylene)', 'PET (Polyester)'],
     strapWidth: '12-16mm',
     strapThickness: '0.50-1.00mm',
@@ -1514,6 +1572,12 @@ export const ergoPack726E: ComprehensiveProduct = {
     weight: 12.3,
     loadingTime: '8-10 hours',
     strappingCycles: 350,
+    chargingStation: {
+      type: '3-stage lead loader',
+      operatingVoltage: '100-240V - 50/60Hz',
+      powerConsumption: 'Max. 60W',
+      powerSupply: '2x 12V DC/2A',
+    },
   },
   sealingHead: {
     included: true,
@@ -1526,13 +1590,12 @@ export const ergoPack726E: ComprehensiveProduct = {
     materials: ['PP', 'PET'],
     mounting: 'Mounted on Tool-Lift',
   },
-  chargingStation: {
-    type: '3-stage lead loader',
-    operatingVoltage: '100-240V - 50/60Hz',
-    powerConsumption: 'Max. 60W',
-    powerSupply: '2x 12V DC/2A',
+
+  certifications: {
+    iso12100: true,
+    euDeclaration: true,
+    agr: true,
   },
-  certifications: ['ISO 12100:2010', 'EU Declaration of Conformity', 'AGR Certification'],
   includedAccessories: [
     {
       id: 'sealing-head-726e',
@@ -1822,23 +1885,7 @@ export const ergoPack726E: ComprehensiveProduct = {
     manuals: ['/manuals/726E-manual.pdf'],
     videos: ['/videos/726E-demo.mp4'],
   },
-  gallery: {
-    main: [
-      '/images/products/726E/1.png',
-      '/images/products/726E/2.png',
-      '/images/products/726E/3.png',
-      '/images/products/726E/4.png',
-      '/images/products/726E/5.png',
-      '/images/products/726E/6.png',
-      '/images/products/726E/7.png',
-      '/images/products/726E/8.png',
-      '/images/products/726E/9.png',
-      '/images/products/726E/10.png',
-      '/images/products/726E/11.png',
-      '/images/products/726E/12.png',
-      '/images/products/726E/13.png',
-    ],
-  },
+  applications: [],
 };
 
 export const ergoPack726X: ComprehensiveProduct = {
@@ -1850,7 +1897,7 @@ export const ergoPack726X: ComprehensiveProduct = {
   line: 'xpert',
   price: 0,
   images: {
-    hero: '/images/products/726X/1.png',
+    hero: '/images/products/726x.png',
     gallery: [
       '/images/products/726X/1.png',
       '/images/products/726X/2.png',
@@ -1866,6 +1913,8 @@ export const ergoPack726X: ComprehensiveProduct = {
       '/images/products/726X/12.png',
       '/images/products/726X/13.png',
     ],
+    accessories: [],
+    applications: [],
   },
   features: [
     'PREMIUM MOBILE X-PERT PACKAGE: Sealing head + Tool-Lift + Line-Laser ALL INCLUDED',
@@ -1909,7 +1958,7 @@ export const ergoPack726X: ComprehensiveProduct = {
     model: '726X Li',
     line: 'X-pert Line',
     generation: '2',
-    tariffNumber: '842240',
+    tariffNr: '842240',
     dimensions: {
       length: 665,
       width: 770,
@@ -1917,10 +1966,21 @@ export const ergoPack726X: ComprehensiveProduct = {
       unit: 'mm',
     },
     weight: 104,
+    weightUnit: 'kg',
+    control: 'Siemens Touchscreen',
+    settingsChange: 'Touchscreen',
     chainSpeed: '66m/min',
     chainLength: '6m standard',
-    palletWidthRange: '40-270cm',
-    palletHeightRange: '10-230cm',
+    palletWidth: {
+      min: 40,
+      max: 270,
+      unit: 'cm',
+    },
+    palletHeight: {
+      min: 10,
+      max: 230,
+      unit: 'cm',
+    },
     strapMaterials: ['PP (Polypropylene)', 'PET (Polyester)'],
     strapWidth: '12-16mm',
     strapThickness: '0.50-1.00mm',
@@ -1929,11 +1989,16 @@ export const ergoPack726X: ComprehensiveProduct = {
   battery: {
     type: 'Lithium-Ion',
     voltage: '36.3V',
-    capacity: '24.15Ah',
+    // capacity: '24.15Ah',
     weight: 5,
     loadingTime: '~3.5 hours',
     strappingCycles: 1200,
-    dimensions: '393 x 153 x 82mm',
+    chargingStation: {
+      type: 'Wide-range charger',
+      operatingVoltage: '100-240V - 50/60Hz',
+      powerConsumption: 'Up to ~650W',
+      powerSupply: 'Up to 10A', // nominalCurrent mapped to powerSupply or similar? BatteryInfo has powerSupply string.
+    },
   },
   sealingHead: {
     included: true,
@@ -1946,15 +2011,12 @@ export const ergoPack726X: ComprehensiveProduct = {
     materials: ['PP', 'PET'],
     mounting: 'Mounted on Tool-Lift',
   },
-  chargingStation: {
-    type: 'Wide-range charger',
-    operatingVoltage: '100-240V - 50/60Hz',
-    powerConsumption: 'Up to ~650W',
-    nominalCurrent: 'Up to 10A',
-    dimensions: '225 x 156 x 69mm',
-    weight: '8.8kg (incl. charger)',
+
+  certifications: {
+    iso12100: true,
+    euDeclaration: true,
+    agr: true,
   },
-  certifications: ['ISO 12100:2010', 'EU Declaration of Conformity', 'AGR Certification'],
   includedAccessories: [
     {
       id: 'line-laser-type-2-726x',
@@ -2279,23 +2341,7 @@ export const ergoPack726X: ComprehensiveProduct = {
     manuals: ['/manuals/726X-manual.pdf'],
     videos: ['/videos/726X-demo.mp4'],
   },
-  gallery: {
-    main: [
-      '/images/products/726X/1.png',
-      '/images/products/726X/2.png',
-      '/images/products/726X/3.png',
-      '/images/products/726X/4.png',
-      '/images/products/726X/5.png',
-      '/images/products/726X/6.png',
-      '/images/products/726X/7.png',
-      '/images/products/726X/8.png',
-      '/images/products/726X/9.png',
-      '/images/products/726X/10.png',
-      '/images/products/726X/11.png',
-      '/images/products/726X/12.png',
-      '/images/products/726X/13.png',
-    ],
-  },
+  applications: [],
 };
 
 // ErgoPack 745E - Economy Line Mobile Complete System
@@ -2303,7 +2349,8 @@ export const ergoPack745E: ComprehensiveProduct = {
   id: '745E',
   name: 'ErgoPack 745E',
   tagline: 'Mobile and Ergonomic Complete Strapping & Sealing System',
-  description: 'Economy Line mobile battery-powered system with integrated sealing head and standard tool-lift included. Complete mobile solution for ergonomic pallet strapping and sealing with 40m/min speed and 350 cycles per charge.',
+  description:
+    'Economy Line mobile battery-powered system with integrated sealing head and standard tool-lift included. Complete mobile solution for ergonomic pallet strapping and sealing with 40m/min speed and 350 cycles per charge.',
   line: 'economy',
   specifications: {
     line: 'Economy Line',
@@ -2318,6 +2365,8 @@ export const ergoPack745E: ComprehensiveProduct = {
     },
     weight: 92.9,
     weightUnit: 'kg',
+    control: 'Electrically via joystick',
+    settingsChange: 'With pin',
     palletWidth: {
       min: 30,
       max: 255,
@@ -2330,8 +2379,6 @@ export const ergoPack745E: ComprehensiveProduct = {
     },
     chainSpeed: '40m/min',
     chainLength: 'Standard 6m',
-    control: 'Electrically via joystick',
-    settingsChange: 'With pin',
   },
   battery: {
     type: '24V lead-fleece battery',
@@ -2378,10 +2425,7 @@ export const ergoPack745E: ComprehensiveProduct = {
     'Sealing head dimensions: 335 x 140 x 180mm',
     'Up to 10A current for powerful sealing',
   ],
-  materialCompatibility: [
-    'Polypropylene (PP)',
-    'Polyester (PET)',
-  ],
+  materialCompatibility: ['Polypropylene (PP)', 'Polyester (PET)'],
   includedAccessories: [
     {
       id: 'standard-tool-lift-745e',
@@ -2451,7 +2495,8 @@ export const ergoPack745E: ComprehensiveProduct = {
     {
       id: 'triplex-tool-lift-745e',
       name: 'Triplex-Tool-Lift (TTL)',
-      description: 'Ideal for pallets lower than 80cm, suitable for pallets as low as 10cm in height',
+      description:
+        'Ideal for pallets lower than 80cm, suitable for pallets as low as 10cm in height',
       category: 'optional',
       details: [
         'Three-stage lifting mechanism',
@@ -2500,7 +2545,11 @@ export const ergoPack745E: ComprehensiveProduct = {
       name: 'Strap-Brake-Relief',
       description: 'For pallets higher than 120cm - relief in pulling out strap',
       category: 'optional',
-      details: ['For tall pallets >120cm', 'Eases strap extraction', 'Video demonstration available'],
+      details: [
+        'For tall pallets >120cm',
+        'Eases strap extraction',
+        'Video demonstration available',
+      ],
     },
     {
       id: 'headpiece-bumper-745e',
@@ -2566,7 +2615,7 @@ export const ergoPack745E: ComprehensiveProduct = {
     'Mobile strapping stations',
   ],
   images: {
-    hero: '/images/products/745E/1.png',
+    hero: '/images/products/745e.png',
     gallery: [
       '/images/products/745E/1.png',
       '/images/products/745E/2.jpg',
@@ -2593,7 +2642,8 @@ export const ergoPack745X: ComprehensiveProduct = {
   id: '745X',
   name: 'ErgoPack 745X Li',
   tagline: 'Premium Mobile Complete Strapping & Sealing System with Laser Positioning',
-  description: 'X-pert Line premium mobile system with sealing head, tool-lift, AND Line-Laser Type 2 ALL INCLUDED. Advanced Lithium-Ion battery delivering up to 1200 cycles and 66m/min speed with Siemens touchscreen control for professional mobile operations.',
+  description:
+    'X-pert Line premium mobile system with sealing head, tool-lift, AND Line-Laser Type 2 ALL INCLUDED. Advanced Lithium-Ion battery delivering up to 1200 cycles and 66m/min speed with Siemens touchscreen control for professional mobile operations.',
   line: 'xpert',
   specifications: {
     line: 'X-pert Line',
@@ -2678,10 +2728,7 @@ export const ergoPack745X: ComprehensiveProduct = {
     'Optional additional chain (up to 2m extra)',
     'Video tutorials available for key features',
   ],
-  materialCompatibility: [
-    'Polypropylene (PP)',
-    'Polyester (PET)',
-  ],
+  materialCompatibility: ['Polypropylene (PP)', 'Polyester (PET)'],
   includedAccessories: [
     {
       id: 'line-laser-type-2-745x',
@@ -2986,7 +3033,7 @@ export const ergoPack745X: ComprehensiveProduct = {
     'Mobile strapping stations requiring premium features',
   ],
   images: {
-    hero: '/images/products/745X/1.png',
+    hero: '/images/products/745x.png',
     gallery: [
       '/images/products/745X/1.png',
       '/images/products/745X/2.jpg',
@@ -3009,14 +3056,326 @@ export const ergoPack745X: ComprehensiveProduct = {
   },
 };
 
+// ErgoPack 700X-LFP - X-pert Line with Lead-Fleece Battery
+export const ergoPack700XLFP: ComprehensiveProduct = {
+  id: '700X-LFP',
+  name: 'ErgoPack 700X-LFP',
+  tagline: 'High-Performance with Proven Battery Stability',
+  description:
+    'Designed for demanding, high-volume environments. The 700X-LFP comes with a robust Lead-Fleece power configuration. Ideal for operations valuing proven battery stability.',
+  line: 'xpert',
+  specifications: {
+    line: 'X-pert Line',
+    model: '700X-LFP',
+    tariffNr: '842240',
+    dimensions: {
+      length: 665,
+      width: 770,
+      height: 1200,
+      unit: 'mm',
+    },
+    weight: 95,
+    weightUnit: 'kg',
+    palletWidth: {
+      min: 40,
+      max: 270,
+      unit: 'cm',
+    },
+    palletHeight: {
+      min: 10,
+      max: 230,
+      unit: 'cm',
+    },
+    chainSpeed: '66m/min',
+    chainLength: 'Standard 6m',
+    control: 'Electrically via joystick',
+    settingsChange: 'Siemens industry touchscreen',
+  },
+  battery: {
+    type: 'Lead-Fleece Battery',
+    weight: 12.3,
+    loadingTime: '8 hours',
+    voltage: '24V',
+    strappingCycles: 600,
+    chargingStation: {
+      type: '3-stage lead loader',
+      operatingVoltage: '100-240V - 50/60Hz',
+      powerConsumption: 'Max. 60W',
+      powerSupply: '2x 12V DC/2A',
+    },
+  },
+  features: [
+    '66m/min chain speed',
+    '600 strapping cycles per charge',
+    'Lead-Fleece battery for proven stability',
+    'Standard 8 hours charging cycle',
+    'Siemens Industry Touchscreen display',
+    'Electric joystick control',
+    'Multi-material compatibility',
+    'AGR certified ergonomic design',
+    'ISO 12100:2010 certified',
+    'Pallet width flexibility: 40-270cm',
+  ],
+  materialCompatibility: [
+    'Polypropylene (PP)',
+    'Polyester (PET)',
+    'Paper strap',
+    'Cord strap',
+    'Composite strap',
+  ],
+  includedAccessories: [
+    {
+      id: 'sledge-85',
+      name: 'Standard Sledge 85',
+      description: 'For clearance height >95mm',
+      category: 'included',
+    },
+    {
+      id: 'siemens-touchscreen',
+      name: 'Siemens Industry Touchscreen',
+      description: 'Advanced industrial touchscreen control system',
+      category: 'included',
+    },
+    {
+      id: 'battery-charger',
+      name: '24V Battery & 3-Stage Charger',
+      description: '24V lead-fleece battery with intelligent charging station',
+      category: 'included',
+      details: [
+        '12.3 kg battery weight',
+        '600 strapping cycles per charge',
+        '8 hours charge time',
+        '100-240V universal voltage',
+        'Max 60W power consumption',
+      ],
+    },
+  ],
+  optionalAccessories: [],
+  certifications: {
+    iso12100: true,
+    euDeclaration: true,
+    agr: true,
+  },
+  applications: [
+    'High-volume operations',
+    'Manufacturing facilities',
+    'Distribution centers',
+    'Operations valuing proven battery technology',
+  ],
+  images: {
+    hero: '/images/products/700x.png',
+    gallery: ['/images/products/700X/1.png', '/images/products/700X/2.jpg'],
+    accessories: [],
+    applications: [],
+  },
+};
+
+// ErgoPack 713X-LFP - Robust X-pert with Integration
+export const ergoPack713XLFP: ComprehensiveProduct = {
+  id: '713X-LFP',
+  name: 'ErgoPack 713-726X-LFP',
+  tagline: 'The Robust Alternative',
+  description:
+    'Delivers the integrated convenience of the 726 series with a robust Lead-Fleece power configuration. Ideal for operations valuing proven battery stability.',
+  line: 'xpert',
+  specifications: {
+    line: 'X-pert Line',
+    model: '713-726X-LFP',
+    tariffNr: '842240',
+    dimensions: {
+      length: 680,
+      width: 770,
+      height: 1200,
+      unit: 'mm',
+    },
+    weight: 110,
+    weightUnit: 'kg',
+    palletWidth: {
+      min: 40,
+      max: 270,
+      unit: 'cm',
+    },
+    palletHeight: {
+      min: 10,
+      max: 230,
+      unit: 'cm',
+    },
+    chainSpeed: '66m/min',
+    chainLength: 'Standard 6m',
+    control: 'Electrically via joystick',
+    settingsChange: 'Siemens industry touchscreen',
+  },
+  battery: {
+    type: 'Lead-Fleece Battery',
+    weight: 12.3,
+    loadingTime: '8 hours',
+    voltage: '24V',
+    strappingCycles: 600,
+    chargingStation: {
+      type: '3-stage lead loader',
+      operatingVoltage: '100-240V - 50/60Hz',
+      powerConsumption: 'Max. 60W',
+      powerSupply: '2x 12V DC/2A',
+    },
+  },
+  features: [
+    '66m/min chain speed',
+    '600 strapping cycles per charge',
+    'Lead-Fleece battery configuration',
+    'Standard 8 hours charging cycle',
+    'Includes Sealing Head & Tool-Lift',
+    'Siemens Touchscreen control',
+    'Integration for moderate volume operations',
+  ],
+  materialCompatibility: ['Polypropylene (PP)', 'Polyester (PET)'],
+  includedAccessories: [
+    {
+      id: 'sealing-head-integrated',
+      name: 'Integrated Sealing Head & Tool-Lift',
+      description: 'Included sealing head with tool-lift mechanism',
+      category: 'included',
+    },
+    {
+      id: 'battery-charger',
+      name: '24V Battery & 3-Stage Charger',
+      description: '24V lead-fleece battery with intelligent charging station',
+      category: 'included',
+      details: [
+        '12.3 kg battery weight',
+        '600 strapping cycles per charge',
+        '8 hours charge time',
+        '100-240V universal voltage',
+        'Max 60W power consumption',
+      ],
+    },
+  ],
+  optionalAccessories: [],
+  certifications: {
+    iso12100: true,
+    agr: true,
+  },
+  applications: [
+    'Moderate volume operations',
+    'Single-shift operations',
+    'Integrated sealing workflows',
+  ],
+  images: {
+    hero: '/images/products/726x.png',
+    gallery: ['/images/products/726X/1.png', '/images/products/726X/2.jpg'],
+    accessories: [],
+    applications: [],
+  },
+};
+
+// ErgoPack 726X-LFP - Note: This shares the same specs as 713X-LFP per user images
+export const ergoPack726XLFP: ComprehensiveProduct = {
+  ...ergoPack713XLFP,
+  id: '726X-LFP',
+};
+
+// ErgoPack GO - Economy Portable System
+export const ergoPackGO: ComprehensiveProduct = {
+  id: 'GO',
+  name: 'ErgoPack GO',
+  tagline: 'Mobile & Ergonomic Portable Pallet Strapping System',
+  description:
+    'GO Line economy portable strapping system. Flexible operation across multiple locations with 24V battery technology.',
+  line: 'economy',
+  specifications: {
+    line: 'Economy Line',
+    model: 'GO',
+    generation: '1',
+    tariffNr: '842240',
+    dimensions: {
+      length: 630,
+      width: 770,
+      height: 1200,
+      unit: 'mm',
+    },
+    weight: 90,
+    weightUnit: 'kg',
+    palletWidth: {
+      min: 30,
+      max: 240,
+      unit: 'cm',
+    },
+    palletHeight: {
+      min: 10,
+      max: 230,
+      unit: 'cm',
+    },
+    chainSpeed: '40m/min',
+    chainLength: 'Standard 6m',
+    control: 'Electrically via joystick',
+    settingsChange: 'With pin',
+  },
+  battery: {
+    type: '24V lead-fleece battery',
+    weight: 12.3,
+    loadingTime: '8-10 hours',
+    voltage: '24V',
+    strappingCycles: 350,
+    chargingStation: {
+      type: '3-stage lead loader',
+      operatingVoltage: '100-240V - 50/60Hz',
+      powerConsumption: 'Max. 60W',
+      powerSupply: '2x 12V DC/2A',
+    },
+  },
+  features: [
+    'Portable strapping solution',
+    'Flexible operation across multiple locations',
+    '40m/min chain speed',
+    '350 strapping cycles per charge',
+    'Electric joystick control',
+    'AGR certified ergonomic design',
+    '24V lead-fleece battery included',
+    'Mobile and versatile',
+  ],
+  materialCompatibility: ['Polypropylene (PP)', 'Polyester (PET)'],
+  includedAccessories: [
+    {
+      id: 'sledge-85',
+      name: 'Standard Sledge 85',
+      description: 'For clearance height >95mm',
+      category: 'included',
+      details: ['Included in base system'],
+    },
+    {
+      id: 'battery-charger',
+      name: '24V Battery & Charger',
+      description: '24V lead-fleece battery with charger',
+      category: 'included',
+      details: ['350 cycles per charge'],
+    },
+  ],
+  optionalAccessories: [],
+  certifications: {
+    iso12100: true,
+    euDeclaration: true,
+    agr: true,
+  },
+  applications: ['Portable strapping operations', 'Flexible warehouse use', 'Low to medium volume'],
+  images: {
+    hero: '/images/products/GO/1.png',
+    gallery: ['/images/products/GO/1.png', '/images/products/GO/2.png'],
+    accessories: [],
+    applications: [],
+  },
+};
+
 export const allComprehensiveProducts = {
   '700': ergoPack700,
   '700E': ergoPack700E,
   '700X': ergoPack700X,
+  '700X-LFP': ergoPack700XLFP,
   '713E': ergoPack713E,
   '713X': ergoPack713X,
+  '713X-LFP': ergoPack713XLFP,
   '726E': ergoPack726E,
   '726X': ergoPack726X,
+  '726X-LFP': ergoPack726XLFP,
   '745E': ergoPack745E,
   '745X': ergoPack745X,
+  GO: ergoPackGO,
 };
