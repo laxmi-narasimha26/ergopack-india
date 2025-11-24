@@ -103,6 +103,9 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
 
+  // Disable static optimization to prevent build timeouts
+  output: 'standalone',
+
   // Production optimizations
   compress: true,
   productionBrowserSourceMaps: false,
