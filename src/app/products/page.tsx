@@ -12,10 +12,13 @@ import {
   ergoPack700,
   ergoPack700E,
   ergoPack700X,
+  ergoPack700XLFP,
   ergoPack713E,
   ergoPack713X,
+  ergoPack713XLFP,
   ergoPack726E,
   ergoPack726X,
+  ergoPack726XLFP,
   ergoPack745E,
   ergoPack745X,
   ergoPackGO,
@@ -23,7 +26,15 @@ import {
 } from '@/data/comprehensive-products';
 
 export default function ProductsPage() {
-  const xpertLine = [ergoPack700X, ergoPack713X, ergoPack726X, ergoPack745X];
+  const xpertLine = [
+    ergoPack700X,
+    ergoPack700XLFP,
+    ergoPack713X,
+    ergoPack713XLFP,
+    ergoPack726X,
+    ergoPack726XLFP,
+    ergoPack745X,
+  ];
   const economyLine = [ergoPack700, ergoPack700E, ergoPack713E, ergoPack726E, ergoPack745E];
   const goLine = [ergoPackGO];
 
@@ -34,7 +45,9 @@ export default function ProductsPage() {
     product: ComprehensiveProduct;
     isXpert: boolean;
   }) => {
-    const isLithium = product.battery?.type === 'Lithium-Ion';
+    const isLithium =
+      product.battery?.type === 'Lithium-Ion' ||
+      product.battery?.type === 'Lithium-Iron-Phosphate (LFP)';
     const cardClass = isXpert
       ? 'premium-card-dark'
       : 'premium-card bg-gradient-to-br from-white to-platinum-50';
@@ -70,7 +83,7 @@ export default function ProductsPage() {
                   <div className="flex gap-2">
                     <div
                       className="p-2 rounded-lg bg-amber-500/20 border border-amber-500/30"
-                      title="Lithium-Ion Technology"
+                      title="Lithium Technology"
                     >
                       <Battery className="h-4 w-4 text-amber-400" />
                     </div>
@@ -211,7 +224,7 @@ export default function ProductsPage() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                  <MagneticButton href="/products/compare-machines">
+                  <MagneticButton href="/compare?auto=true">
                     <div className="btn-premium group text-lg px-12 py-6 cursor-pointer">
                       <span className="relative z-10 flex items-center">
                         Compare Models

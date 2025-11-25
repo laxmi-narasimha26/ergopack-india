@@ -13,7 +13,7 @@ interface ProductSelectorProps {
 export default function ProductSelector({ onSelect, onClose }: ProductSelectorProps) {
   const allProducts = Object.entries(productsData.products).map(([key, product]) => ({
     key,
-    ...product,
+    ...(product as any),
   }));
 
   const productsByLine = {

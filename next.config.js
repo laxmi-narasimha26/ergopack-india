@@ -131,12 +131,7 @@ const nextConfig = {
     serverActions: {
       bodySizeLimit: '2mb',
     },
-    optimizePackageImports: [
-      'lucide-react',
-      'date-fns',
-      'framer-motion',
-      'react-hook-form',
-    ],
+    optimizePackageImports: ['lucide-react', 'date-fns', 'framer-motion', 'react-hook-form'],
     // Force all pages to be dynamic - no static generation
     isrMemoryCacheSize: 0,
   },
@@ -278,8 +273,8 @@ const nextConfig = {
     removeConsole:
       process.env.NODE_ENV === 'production'
         ? {
-          exclude: ['error', 'warn'],
-        }
+            exclude: ['error', 'warn'],
+          }
         : false,
   },
 };

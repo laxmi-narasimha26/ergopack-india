@@ -21,15 +21,15 @@ function HeroSection() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div ref={titleRef} className="text-center">
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-amber-500/50 bg-amber-500/10 px-4 py-2">
-            <Lock className="h-4 w-4 text-amber-500" />
-            <span className="text-sm font-semibold text-amber-500">Exclusive Access</span>
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-ergopack/50 bg-ergopack/10 px-4 py-2">
+            <Lock className="h-4 w-4 text-ergopack" />
+            <span className="text-sm font-semibold text-ergopack">Exclusive Access</span>
           </div>
 
           <h1 className="mb-6 text-5xl font-bold leading-tight text-white lg:text-6xl">
             Request Your
             <br />
-            <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-ergopack to-red-600 bg-clip-text text-transparent">
               Exclusive Invitation
             </span>
           </h1>
@@ -120,8 +120,8 @@ function MainContentSection() {
                       transition={{ delay: index * 0.1 }}
                     >
                       <div className="flex-shrink-0">
-                        <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-amber-500/20">
-                          <item.icon className="h-5 w-5 text-amber-500" />
+                        <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-ergopack/20">
+                          <item.icon className="h-5 w-5 text-ergopack" />
                         </div>
                       </div>
                       <div>
@@ -147,14 +147,14 @@ function MainContentSection() {
                       transition={{ delay: index * 0.1 }}
                     >
                       <div className="flex-shrink-0">
-                        <item.icon className="h-5 w-5 text-amber-500" />
+                        <item.icon className="h-5 w-5 text-ergopack" />
                       </div>
                       <div>
                         <p className="text-sm font-medium text-slate-400">{item.title}</p>
                         {item.link ? (
                           <a
                             href={item.link}
-                            className="text-white hover:text-amber-500 transition-colors"
+                            className="text-white hover:text-ergopack transition-colors"
                           >
                             {item.value}
                           </a>
@@ -168,20 +168,20 @@ function MainContentSection() {
               </Card>
 
               {/* Trust Signals */}
-              <Card className="border-amber-500/30 bg-gradient-to-br from-amber-500/5 to-slate-900 p-8">
+              <Card className="border-ergopack/30 bg-gradient-to-br from-ergopack/5 to-slate-900 p-8">
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
-                    <Shield className="h-6 w-6 text-amber-500" />
+                    <Shield className="h-6 w-6 text-ergopack" />
                     <p className="text-sm text-slate-300">
                       Your information is secure and confidential
                     </p>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Clock className="h-6 w-6 text-amber-500" />
+                    <Clock className="h-6 w-6 text-ergopack" />
                     <p className="text-sm text-slate-300">Response within 24-48 hours</p>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Award className="h-6 w-6 text-amber-500" />
+                    <Award className="h-6 w-6 text-ergopack" />
                     <p className="text-sm text-slate-300">Trusted by industry leaders worldwide</p>
                   </div>
                 </div>
@@ -244,7 +244,7 @@ function WhyChooseSection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div ref={sectionRef}>
           <div className="mb-16 text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-amber-500">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-ergopack">
               Why ErgoPack
             </p>
             <h2 className="mb-6 text-4xl font-bold text-white md:text-5xl">
@@ -264,8 +264,8 @@ function WhyChooseSection() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="border-slate-800 bg-slate-900/50 p-8 transition-all duration-300 hover:border-amber-500/50 h-full">
-                  <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-amber-500 to-amber-600">
+                <Card className="border-slate-800 bg-slate-900/50 p-8 transition-all duration-300 hover:border-ergopack/50 h-full">
+                  <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-ergopack to-red-700">
                     <reason.icon className="h-8 w-8 text-white" />
                   </div>
                   <h3 className="mb-4 text-xl font-bold text-white">{reason.title}</h3>
@@ -322,7 +322,7 @@ function FAQSection() {
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         <div ref={sectionRef}>
           <div className="mb-16 text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-amber-500">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-ergopack">
               Common Questions
             </p>
             <h2 className="mb-6 text-4xl font-bold text-white md:text-5xl">
@@ -342,7 +342,7 @@ function FAQSection() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
               >
-                <Card className="border-slate-800 bg-slate-900/50 p-6 transition-all duration-300 hover:border-amber-500/30">
+                <Card className="border-slate-800 bg-slate-900/50 p-6 transition-all duration-300 hover:border-ergopack/30">
                   <h3 className="mb-3 text-lg font-bold text-white">{faq.question}</h3>
                   <p className="leading-relaxed text-slate-300">{faq.answer}</p>
                 </Card>
@@ -357,15 +357,12 @@ function FAQSection() {
                 Contact us directly at{' '}
                 <a
                   href="mailto:sales@ergopack.in"
-                  className="font-semibold text-amber-500 hover:underline"
+                  className="font-semibold text-ergopack hover:underline"
                 >
                   sales@ergopack.in
                 </a>{' '}
                 or call{' '}
-                <a
-                  href="tel:+911234567890"
-                  className="font-semibold text-amber-500 hover:underline"
-                >
+                <a href="tel:+911234567890" className="font-semibold text-ergopack hover:underline">
                   +91 123 456 7890
                 </a>
               </p>

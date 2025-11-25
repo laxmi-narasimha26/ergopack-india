@@ -111,7 +111,7 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
                         <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                       </Button>
                     </Link>
-                    <Link href="/products/compare-machines">
+                    <Link href="/compare?auto=true">
                       <Button
                         size="lg"
                         variant="outline"
@@ -567,7 +567,7 @@ export default function PremiumProductPage({ product }: PremiumProductPageProps)
                       <ArrowRight className="ml-2 h-5 w-5" />
                     </Button>
                   </Link>
-                  <Link href="/products/compare-machines">
+                  <Link href="/compare?auto=true">
                     <Button
                       size="lg"
                       variant="outline"

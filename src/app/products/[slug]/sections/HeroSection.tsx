@@ -1,9 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ArrowRight, ChevronDown, Scale, CheckCircle2 } from 'lucide-react';
 import { ScrollReveal } from '@/components/premium/ScrollReveal';
 import { MagneticButton } from '@/components/ui/MagneticButton';
+import { useComparison } from '@/contexts/ComparisonContext';
 
 interface HeroSectionProps {
   model: string;
@@ -15,6 +16,7 @@ interface HeroSectionProps {
   specs?: { label: string; value: string }[];
   onRequestDemo: () => void;
   onDownloadBrochure: () => void;
+  productId: string;
 }
 
 export function HeroSection({
@@ -27,7 +29,19 @@ export function HeroSection({
   specs = [],
   onRequestDemo,
   onDownloadBrochure,
+  productId,
 }: HeroSectionProps) {
+  const { addProduct, removeProduct, isSelected } = useComparison();
+  const selected = isSelected(productId);
+
+  const toggleCompare = () => {
+    if (selected) {
+      removeProduct(productId);
+    } else {
+      addProduct(productId);
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary">
       {/* Background Layer */}
@@ -131,9 +145,30 @@ export function HeroSection({
               <MagneticButton
                 onClick={onDownloadBrochure}
                 className="px-8 py-4 bg-transparent border-2 border-gold text-gold font-semibold 
-                         rounded-full transition-all duration-300 hover:bg-gold/10 min-w-[200px]"
+                           rounded-full transition-all duration-300 hover:bg-gold/10 min-w-[200px]"
               >
                 Download Brochure
+              </MagneticButton>
+
+              <MagneticButton
+                onClick={toggleCompare}
+                className={`px-8 py-4 border-2 font-semibold rounded-full transition-all duration-300 min-w-[200px] flex items-center justify-center gap-2 ${
+                  selected
+                    ? 'bg-red-600 border-red-600 text-white hover:bg-red-700'
+                    : 'bg-transparent border-white/20 text-white hover:bg-white/10'
+                }`}
+              >
+                {selected ? (
+                  <>
+                    <CheckCircle2 className="w-5 h-5" />
+                    Added to Compare
+                  </>
+                ) : (
+                  <>
+                    <Scale className="w-5 h-5" />
+                    Add to Compare
+                  </>
+                )}
               </MagneticButton>
             </div>
           </ScrollReveal>

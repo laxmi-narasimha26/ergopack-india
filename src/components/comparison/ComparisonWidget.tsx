@@ -57,10 +57,10 @@ export default function ComparisonWidget({ className = '' }: ComparisonWidgetPro
             {selectedProducts.length >= COMPARISON_CONFIG.MIN_PRODUCTS && (
               <Link
                 href="/compare?auto=true"
-                className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-2.5 rounded-lg transition-all shadow-lg shadow-red-600/20 hover:shadow-red-600/30"
+                className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white font-bold px-4 py-2 rounded-lg transition-all shadow-lg shadow-red-600/20 hover:shadow-red-600/30 text-sm"
               >
-                Compare Now
-                <ArrowRight className="w-4 h-4" />
+                Add to Compare
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             )}
 

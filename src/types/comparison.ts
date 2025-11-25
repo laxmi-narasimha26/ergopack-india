@@ -35,6 +35,8 @@ export interface PerformanceMetrics {
   operationType?: string;
   efficiency?: string;
   cycleTime?: string;
+  power?: string;
+  drive?: string;
 }
 
 export interface PowerBattery {
@@ -73,11 +75,19 @@ export interface SealingStrapping {
     max: number;
     unit: string;
   };
+  tensionForce?: {
+    min: number;
+    max: number;
+    unit: string;
+  };
   strapMaterials: string[];
   mounting?: string;
   availability?: string;
   included?: boolean;
   sealingMethod?: string;
+  headWeight?: number | string;
+  headDimensions?: string;
+  nominalCurrent?: string;
 }
 
 export interface ControlDisplay {
@@ -88,6 +98,8 @@ export interface ControlDisplay {
   indicators?: string[];
   controls?: string[];
   automation?: string;
+  palletWidthSetting?: string;
+  softwareUpdate?: string;
 }
 
 export interface SafetyErgonomics {

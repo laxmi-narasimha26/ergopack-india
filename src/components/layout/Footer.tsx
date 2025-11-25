@@ -5,7 +5,7 @@ const footerLinks = {
   products: [
     { label: 'X-pert Line', href: '/products/xpert-line' },
     { label: 'E-conomy Line', href: '/products/economy-line' },
-    { label: 'Compare Products', href: '/products/compare' },
+    { label: 'Compare Products', href: '/compare?auto=true' },
   ],
   industries: [
     { label: 'Pharmaceuticals', href: '/industries#pharmaceuticals' },
@@ -37,10 +37,9 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block mb-6">
-              <div className="text-2xl font-bold">
-                <span className="text-white">ErgoPack</span>
-                <span className="text-accent-500">India</span>
-              </div>
+              <span className="text-2xl font-serif font-medium tracking-widest uppercase text-white hover:text-white/90 transition-colors">
+                ErgoPack India
+              </span>
             </Link>
             <p className="text-dark-300 mb-6 leading-relaxed">
               Verifiable Load Integrity. The C-Suite's Control System for Zero-Failure Logistics.

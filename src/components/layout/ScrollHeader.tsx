@@ -21,8 +21,11 @@ export default function ScrollHeader() {
   // Text tracking: Ultra wide to normal-wide
   const letterSpacing = useTransform(scrollY, [0, 400], ['0.25em', '0.1em']);
 
-  // Color: White to Black (for contrast on video)
-  const color = useTransform(scrollY, [0, 400], ['#FFFFFF', '#000000']);
+  // Color: White to White (always white for premium dark theme)
+  const color = useTransform(scrollY, [0, 400], ['#FFFFFF', '#FFFFFF']);
+
+  // Opacity: Fade out as it reaches the top to allow PremiumNavigation to take over
+  const opacity = useTransform(scrollY, [300, 400], [1, 0]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,9 +37,13 @@ export default function ScrollHeader() {
 
   return (
     <div className="fixed top-0 left-0 right-0 z-[101] pointer-events-none h-screen flex justify-center">
-      <motion.div style={{ scale, x, y }} className="origin-center absolute top-0">
+      <motion.div
+        style={{ scale, x, y, opacity }}
+        className="origin-center absolute top-0 flex items-center space-x-2"
+      >
+        {/* Zap icon removed as per user request */}
         <motion.h1
-          className="font-serif font-medium text-luxury-dark-gray whitespace-nowrap text-6xl md:text-8xl lg:text-9xl tracking-widest uppercase"
+          className="font-serif font-medium text-white whitespace-nowrap text-6xl md:text-8xl lg:text-9xl tracking-widest uppercase"
           style={{ letterSpacing, color }}
         >
           ERGOPACK INDIA

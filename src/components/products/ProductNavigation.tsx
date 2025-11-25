@@ -6,11 +6,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 
 const productSeries = [
-  { name: '700 Series', href: '/products/700' },
-  { name: '713 Series', href: '/products/713e' },
-  { name: '726 Series', href: '/products/726e' },
-  { name: '745 Series', href: '/products/745e' },
-  { name: 'GO Series', href: '/products/go' },
+  { name: '700 Series', href: '/products/700-series' },
+  { name: '713 Series', href: '/products/713-series' },
+  { name: '726 Series', href: '/products/726-series' },
+  { name: '745 Series', href: '/products/745-series' },
+  { name: 'GO Series', href: '/products/go-series' },
 ];
 
 export const ProductNavigation = () => {

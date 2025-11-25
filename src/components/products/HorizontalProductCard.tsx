@@ -4,7 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Battery, ArrowRight, Scale } from 'lucide-react';
+import { Battery, ArrowRight, Scale, CheckCircle2 } from 'lucide-react';
 import { ComprehensiveProduct } from '@/data/comprehensive-products';
 import { useComparison } from '@/contexts/ComparisonContext';
 
@@ -21,10 +21,13 @@ export const HorizontalProductCard: React.FC<HorizontalProductCardProps> = ({
 }) => {
   const { addProduct, removeProduct, isSelected } = useComparison();
   const selected = isSelected(product.id);
-  const isLithium = product.battery?.type === 'Lithium-Ion';
+  const isLithium =
+    product.battery?.type === 'Lithium-Ion' ||
+    product.battery?.type === 'Lithium-Iron-Phosphate (LFP)';
 
   const toggleCompare = (e: React.MouseEvent) => {
     e.preventDefault();
+    e.stopPropagation();
     if (selected) {
       removeProduct(product.id);
     } else {
@@ -48,42 +51,25 @@ export const HorizontalProductCard: React.FC<HorizontalProductCardProps> = ({
       transition={{ duration: 0.5, delay: index * 0.1 }}
       className="h-full"
     >
-      <div
-        className={`relative group h-full flex flex-col border rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-2xl ${bgClass}`}
-      >
-        {/* New Badge */}
-        {isLithium && (
-          <div className="absolute top-4 right-4 z-10">
-            <span
-              className={`px-3 py-1 rounded-full text-xs font-bold border ${badgeClass} flex items-center gap-1`}
-            >
-              <Battery className="w-3 h-3" />
-              Li-Ion
-            </span>
-          </div>
-        )}
-
-        {/* Compare Button */}
-        <button
-          onClick={toggleCompare}
-          className={`absolute top-4 left-4 z-10 p-2 rounded-full transition-all duration-300 ${
-            selected
-              ? 'bg-red-600 text-white shadow-lg'
-              : isDark
-                ? 'bg-white/10 text-white hover:bg-white/20'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-          }`}
-          aria-label={selected ? 'Remove from comparison' : 'Add to comparison'}
+      <Link href={`/products/${product.id.toLowerCase()}`} className="block h-full">
+        <div
+          className={`relative group h-full flex flex-col border rounded-3xl overflow-hidden transition-all duration-300 hover:shadow-2xl ${bgClass}`}
         >
-          <Scale className="w-4 h-4" />
-        </button>
+          {/* Badge */}
+          {isLithium && (
+            <div className="absolute top-4 right-4 z-10">
+              <span
+                className={`px-3 py-1 rounded-full text-xs font-bold border ${badgeClass} flex items-center gap-1`}
+              >
+                <Battery className="w-3 h-3" />
+                <span>Lithium-Ion</span>
+              </span>
+            </div>
+          )}
 
-        {/* Product Image */}
-        <Link href={`/products/${product.id.toLowerCase()}`} className="flex-1 flex flex-col">
-          <div
-            className={`relative h-64 flex items-center justify-center p-10 ${isDark ? 'bg-gradient-to-br from-white/5 to-transparent' : 'bg-gradient-to-br from-gray-50 to-white'}`}
-          >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_70%)]" />
+          {/* Image Section */}
+          <div className="relative h-64 w-full p-6 flex items-center justify-center bg-gradient-to-b from-transparent to-black/5">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0.03),transparent_70%)]" />
             <Image
               src={product.images.hero}
               alt={product.name}
@@ -126,20 +112,48 @@ export const HorizontalProductCard: React.FC<HorizontalProductCardProps> = ({
               </div>
             </div>
 
-            {/* CTA Button */}
-            <div
-              className={`inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 w-full ${
-                isDark
-                  ? 'bg-crimson-600 text-white hover:bg-crimson-700'
-                  : 'bg-gray-900 text-white hover:bg-gray-800'
-              }`}
-            >
-              <span>Learn More</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            {/* Actions */}
+            <div className="flex items-center gap-3 mt-auto">
+              {/* Learn More Button */}
+              <div
+                className={`flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                  isDark
+                    ? 'bg-crimson-600 text-white hover:bg-crimson-700'
+                    : 'bg-gray-900 text-white hover:bg-gray-800'
+                }`}
+              >
+                <span>Learn More</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+
+              {/* Compare Button */}
+              <button
+                onClick={toggleCompare}
+                className={`px-4 py-3 rounded-full font-semibold transition-all duration-300 flex items-center justify-center gap-2 border ${
+                  selected
+                    ? 'bg-red-600 border-red-600 text-white hover:bg-red-700'
+                    : isDark
+                      ? 'bg-white/5 border-white/10 text-white hover:bg-white/10'
+                      : 'bg-white border-gray-200 text-gray-700 hover:bg-gray-50'
+                }`}
+                title={selected ? 'Remove from comparison' : 'Add to compare'}
+              >
+                {selected ? (
+                  <>
+                    <CheckCircle2 className="w-5 h-5" />
+                    <span className="text-sm">Added</span>
+                  </>
+                ) : (
+                  <>
+                    <Scale className="w-5 h-5" />
+                    <span className="text-sm">Compare</span>
+                  </>
+                )}
+              </button>
             </div>
           </div>
-        </Link>
-      </div>
+        </div>
+      </Link>
     </motion.div>
   );
 };

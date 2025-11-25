@@ -35,7 +35,7 @@ export default function MagneticCursor({ enabled = true }: MagneticCursorProps) 
         target.closest('a') ||
         target.classList.contains('magnetic-target');
 
-      setIsPointer(isInteractive);
+      setIsPointer(!!isInteractive);
     };
 
     const handleMouseEnter = () => setIsHovering(true);

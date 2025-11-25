@@ -37,7 +37,7 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
       gestureOrientation: 'vertical',
       smoothWheel: true,
       wheelMultiplier: 1.0, // Standard responsiveness
-      smoothTouch: false, // Disable for better mobile performance
+      // smoothTouch: false, // Deprecated/Removed in newer Lenis versions
       touchMultiplier: 2,
       infinite: false,
       autoResize: true,

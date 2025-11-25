@@ -12,6 +12,10 @@ import {
   ergoPack726X,
   ergoPack745E,
   ergoPack745X,
+  ergoPack700XLFP,
+  ergoPack713XLFP,
+  ergoPack726XLFP,
+  ergoPack745XLFP,
   ergoPackGO,
 } from '@/data/comprehensive-products';
 import Image from 'next/image';
@@ -24,12 +28,16 @@ export const ProductSelector = () => {
     ergoPack700,
     ergoPack700E,
     ergoPack700X,
+    ergoPack700XLFP,
     ergoPack713E,
     ergoPack713X,
+    ergoPack713XLFP,
     ergoPack726E,
     ergoPack726X,
+    ergoPack726XLFP,
     ergoPack745E,
     ergoPack745X,
+    ergoPack745XLFP,
     ergoPackGO,
   ];
 

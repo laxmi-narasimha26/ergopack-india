@@ -292,7 +292,7 @@ export const ProductLinePage: React.FC<ProductLinePageProps> = ({ line, products
 
                   <MagneticButton as={motion.div}>
                     <Link
-                      href="/products/compare-machines"
+                      href="/compare?auto=true"
                       className={`inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold text-lg border-2 transition-all duration-300 ${
                         isXpert
                           ? 'border-white/20 text-white hover:bg-white/10'

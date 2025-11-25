@@ -15,6 +15,7 @@ import {
   VolumeX,
   Play,
   Pause,
+  ZoomIn,
 } from 'lucide-react';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
@@ -98,7 +99,7 @@ function HotspotMarker({ position, title, description, onClick, isActive }: Hots
 }
 
 function ShowroomEnvironment() {
-  const meshRef = useRef<THREE.Mesh>(null);
+  const meshRef = useRef<THREE.Group>(null);
 
   useFrame((state) => {
     if (meshRef.current) {

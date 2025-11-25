@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Award, Globe, ShieldCheck, Headphones } from 'lucide-react';
 
 export default function VideoHeroSection() {
   return (
@@ -9,6 +9,7 @@ export default function VideoHeroSection() {
       {/* Main Hero Video - Go Model (ErgoPack RE) */}
       <div className="absolute inset-0 z-0">
         <video autoPlay loop muted playsInline className="w-full h-full object-cover opacity-90">
+          <source src="/videos/mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
           <source src="/videos/ErgoPack_RE.mp4" type="video/mp4" />
         </video>
         {/* Cinematic Overlay */}
@@ -18,24 +19,47 @@ export default function VideoHeroSection() {
       {/* Center Title - REMOVED because ScrollHeader.tsx handles the main title transition */}
 
       {/* Bottom Left Content - The Premium Detail */}
-      <div className="relative z-20 h-full flex flex-col justify-end pb-24 px-8 md:px-16 max-w-[1800px] mx-auto w-full pointer-events-none">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="max-w-xl text-left"
-        >
-          <div className="flex items-center gap-4 mb-6">
-            <div className="h-[1px] w-12 bg-artisan-gold" />
-            <span className="text-xs md:text-sm uppercase tracking-[0.3em] text-white/80 font-medium">
-              The Future of Strapping
-            </span>
-          </div>
-
-          <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed border-l border-white/20 pl-6 backdrop-blur-sm bg-black/10 py-2 pr-4 rounded-r-lg">
-            Experience the next generation of ergonomic mobile pallet strapping systems.
-          </p>
-        </motion.div>
+      <div className="absolute bottom-12 left-0 z-20 w-full px-8 md:px-16 pointer-events-none">
+        <div className="max-w-[1800px] mx-auto w-full">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.8 }}
+            className="w-full grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 border-t border-white/10 pt-8 backdrop-blur-sm"
+          >
+            {[
+              { title: 'German Engineering', subtitle: 'Precision Crafted', icon: 'Award' },
+              { title: 'Global Leader', subtitle: '55+ Countries', icon: 'Globe' },
+              {
+                title: 'Patented Technology',
+                subtitle: 'Ergonomic Excellence',
+                icon: 'ShieldCheck',
+              },
+              { title: 'Premium Support', subtitle: '24/7 Assistance', icon: 'Headphones' },
+            ].map((item, index) => (
+              <div key={index} className="flex items-center gap-4 group">
+                <div className="p-3 rounded-full bg-white/5 border border-white/10 group-hover:border-ergopack/50 transition-colors duration-500">
+                  {item.icon === 'Award' && (
+                    <Award className="w-6 h-6 text-ergopack" strokeWidth={1.5} />
+                  )}
+                  {item.icon === 'Globe' && (
+                    <Globe className="w-6 h-6 text-ergopack" strokeWidth={1.5} />
+                  )}
+                  {item.icon === 'ShieldCheck' && (
+                    <ShieldCheck className="w-6 h-6 text-ergopack" strokeWidth={1.5} />
+                  )}
+                  {item.icon === 'Headphones' && (
+                    <Headphones className="w-6 h-6 text-ergopack" strokeWidth={1.5} />
+                  )}
+                </div>
+                <div>
+                  <h3 className="text-white font-serif text-lg tracking-wide">{item.title}</h3>
+                  <p className="text-white/60 text-xs uppercase tracking-widest">{item.subtitle}</p>
+                </div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
       </div>
 
       {/* Scroll Indicator - Bottom Right */}

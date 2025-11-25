@@ -4,7 +4,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { MagneticButton } from '@/components/ui/MagneticButton';
 import Image from 'next/image';
-import { Scale } from 'lucide-react';
+import { Scale, CheckCircle2 } from 'lucide-react';
 import { SuggestedProducts } from '@/components/products/SuggestedProducts';
 import { ComprehensiveProduct } from '@/data/comprehensive-products';
 
@@ -19,6 +19,7 @@ interface HeroSectionProps {
   onCompare?: () => void;
   isSelectedForComparison?: boolean;
   productData?: ComprehensiveProduct;
+  productId?: string;
 }
 
 export const HeroSection: React.FC<HeroSectionProps> = ({
@@ -32,6 +33,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onCompare,
   isSelectedForComparison = false,
   productData,
+  productId,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -108,16 +110,23 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {onCompare && (
               <MagneticButton
                 onClick={onCompare}
-                className={`border px-4 py-4 rounded-sm text-lg font-medium transition-all flex items-center justify-center ${
+                className={`border px-8 py-4 rounded-sm text-lg font-medium transition-all flex items-center justify-center gap-2 min-w-[200px] ${
                   isSelectedForComparison
                     ? 'bg-red-600 border-red-600 text-white hover:bg-red-700'
                     : 'border-primary/20 bg-transparent text-foreground hover:bg-secondary'
                 }`}
-                aria-label={
-                  isSelectedForComparison ? 'Remove from comparison' : 'Add to comparison'
-                }
               >
-                <Scale className={`w-6 h-6 ${isSelectedForComparison ? 'text-white' : ''}`} />
+                {isSelectedForComparison ? (
+                  <>
+                    <CheckCircle2 className="w-5 h-5" />
+                    <span>Added to Compare</span>
+                  </>
+                ) : (
+                  <>
+                    <Scale className="w-5 h-5" />
+                    <span>Add to Compare</span>
+                  </>
+                )}
               </MagneticButton>
             )}
           </div>

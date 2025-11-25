@@ -93,6 +93,21 @@ const config: Config = {
           900: '#212529',
           950: '#121416',
         },
+        // ErgoPack Brand Color - Deep Premium Red
+        ergopack: {
+          DEFAULT: '#C8102E', // Primary brand red
+          50: '#fef2f2',
+          100: '#fee2e4',
+          200: '#fccace',
+          300: '#FA8E9B',
+          400: '#F5556A',
+          500: '#EB1C38',
+          600: '#C8102E', // Brand color
+          700: '#A00D25',
+          800: '#7D0A1D',
+          900: '#5F0816',
+          950: '#3A0509',
+        },
       },
       fontFamily: {
         sans: ['var(--font-proza)', 'system-ui', '-apple-system', 'sans-serif'],

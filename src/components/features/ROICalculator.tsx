@@ -26,7 +26,7 @@ interface ROIMetrics {
 
 export default function ROICalculator() {
   const [loadsPerMonth, setLoadsPerMonth] = useState(500);
-  const [averageLoss, setAverageLossPerFailure] = useState(25000);
+  const [averageLossPerFailure, setAverageLossPerFailure] = useState(25000);
   const [currentFailureRate, setCurrentFailureRate] = useState(0.05);
   const [metrics, setMetrics] = useState<ROIMetrics | null>(null);
   const [showResults, setShowResults] = useState(false);

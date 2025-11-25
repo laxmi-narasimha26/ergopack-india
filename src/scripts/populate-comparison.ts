@@ -145,7 +145,7 @@ function mapProductToComparison(cp: ComprehensiveProduct): Product {
     description: cp.description,
     applicationType: cp.applications[0] || 'General',
     htmlPage: `/products/${cp.id.toLowerCase()}`,
-    pdfPath: `/pdfs/${cp.id}_Technical_Data.pdf`, // Placeholder
+    pdfPath: cp.pdfPath || `/pdfs/${cp.id}_Technical_Data.pdf`, // Use defined path or fallback
     overviewPath: `/pdfs/${cp.id}_Model_Overview.pdf`, // Placeholder
     comparison,
   };

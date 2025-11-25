@@ -1,3 +1,5 @@
+import { ComprehensiveProduct } from './comprehensive-products';
+
 // ErgoPack GO - Economy Portable System
 export const ergoPackGO: ComprehensiveProduct = {
   id: 'GO',

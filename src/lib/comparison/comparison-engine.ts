@@ -110,6 +110,22 @@ function buildComparisonCategories(products: Product[]): ComparisonCategory[] {
     });
   }
 
+  // Downloads
+  const downloadAttrs: ComparisonAttribute[] = [];
+  downloadAttrs.push(
+    createAttribute('technicalData', 'Technical Data', products, (p) =>
+      p.pdfPath
+        ? `<a href="${p.pdfPath}" target="_blank" class="text-ergopack-red hover:underline">Download PDF</a>`
+        : 'N/A'
+    )
+  );
+
+  categories.push({
+    name: 'downloads',
+    displayName: 'Downloads',
+    attributes: downloadAttrs,
+  });
+
   return categories;
 }
 
@@ -218,6 +234,18 @@ function extractPerformance(products: Product[]): ComparisonAttribute[] {
     );
   }
 
+  if (products.some((p) => p.comparison.performance.power)) {
+    attrs.push(
+      createAttribute('power', 'Power', products, (p) => p.comparison.performance.power || 'N/A')
+    );
+  }
+
+  if (products.some((p) => p.comparison.performance.drive)) {
+    attrs.push(
+      createAttribute('drive', 'Drive', products, (p) => p.comparison.performance.drive || 'N/A')
+    );
+  }
+
   return attrs;
 }
 
@@ -283,9 +311,9 @@ function extractSealingStrapping(products: Product[]): ComparisonAttribute[] {
   // Tension power
   if (products.some((p) => p.comparison.sealingStrapping.tensionPower)) {
     attrs.push(
-      createAttribute('tensionPower', 'Tension Power Range', products, (p) => {
+      createAttribute('tensionPower', 'Tension Force', products, (p) => {
         const tp = p.comparison.sealingStrapping.tensionPower;
-        return tp ? `${tp.min} - ${tp.max} ${tp.unit}` : 'N/A';
+        return tp ? `${tp.min}N - ${tp.max}N` : 'N/A';
       })
     );
   }
@@ -297,6 +325,48 @@ function extractSealingStrapping(products: Product[]): ComparisonAttribute[] {
         const sw = p.comparison.sealingStrapping.strapWidth;
         return sw ? `${sw.min} - ${sw.max} ${sw.unit}` : 'N/A';
       })
+    );
+  }
+
+  // Strap thickness
+  if (products.some((p) => p.comparison.sealingStrapping.strapThickness)) {
+    attrs.push(
+      createAttribute('strapThickness', 'Strap Thickness', products, (p) => {
+        const st = p.comparison.sealingStrapping.strapThickness;
+        return st ? `${st.min} - ${st.max} ${st.unit}` : 'N/A';
+      })
+    );
+  }
+
+  // Sealing Head Specs
+  if (products.some((p) => p.comparison.sealingStrapping.headWeight)) {
+    attrs.push(
+      createAttribute('headWeight', 'Sealing Head Weight', products, (p) => {
+        const hw = p.comparison.sealingStrapping.headWeight;
+        return hw ? `${hw} kg` : 'N/A';
+      })
+    );
+  }
+
+  if (products.some((p) => p.comparison.sealingStrapping.headDimensions)) {
+    attrs.push(
+      createAttribute(
+        'headDimensions',
+        'Sealing Head Dimensions (l, w, h)',
+        products,
+        (p) => p.comparison.sealingStrapping.headDimensions || 'N/A'
+      )
+    );
+  }
+
+  if (products.some((p) => p.comparison.sealingStrapping.nominalCurrent)) {
+    attrs.push(
+      createAttribute(
+        'nominalCurrent',
+        'Current (Nominal)',
+        products,
+        (p) => p.comparison.sealingStrapping.nominalCurrent || 'N/A'
+      )
     );
   }
 
@@ -346,6 +416,28 @@ function extractControlDisplay(products: Product[]): ComparisonAttribute[] {
         'Touchscreen Type',
         products,
         (p) => p.comparison.controlDisplay.touchscreenType || 'N/A'
+      )
+    );
+  }
+
+  if (products.some((p) => p.comparison.controlDisplay.palletWidthSetting)) {
+    attrs.push(
+      createAttribute(
+        'palletWidthSetting',
+        'Pallet Width Setting',
+        products,
+        (p) => p.comparison.controlDisplay.palletWidthSetting || 'N/A'
+      )
+    );
+  }
+
+  if (products.some((p) => p.comparison.controlDisplay.softwareUpdate)) {
+    attrs.push(
+      createAttribute(
+        'softwareUpdate',
+        'Software Update',
+        products,
+        (p) => p.comparison.controlDisplay.softwareUpdate || 'N/A'
       )
     );
   }
@@ -440,6 +532,17 @@ function extractMaintenance(products: Product[]): ComparisonAttribute[] {
   // Only add if at least one product has maintenance data
   if (!products.some((p) => p.comparison.maintenance)) {
     return attrs;
+  }
+
+  if (products.some((p) => p.comparison.maintenance?.warranty)) {
+    attrs.push(
+      createAttribute(
+        'warranty',
+        'Warranty',
+        products,
+        (p) => p.comparison.maintenance?.warranty || 'N/A'
+      )
+    );
   }
 
   return attrs;

@@ -48,11 +48,11 @@ export default function Navigation() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [pathname]);
@@ -76,7 +76,7 @@ export default function Navigation() {
               transition={{ duration: 0.2 }}
             >
               <span className="text-gray-900">ErgoPack</span>
-              <span className="text-red-600">India</span>
+              <span className="text-ergopack">India</span>
             </motion.div>
           </Link>
 
@@ -95,8 +95,8 @@ export default function Navigation() {
                       className={cn(
                         'relative text-sm font-medium transition-colors duration-300 group flex items-center gap-1',
                         pathname.startsWith('/products')
-                          ? 'text-red-600'
-                          : 'text-gray-700 hover:text-red-600'
+                          ? 'text-ergopack'
+                          : 'text-gray-700 hover:text-ergopack'
                       )}
                     >
                       {link.label}
@@ -108,12 +108,11 @@ export default function Navigation() {
                       />
                       <span
                         className={cn(
-                          'absolute -bottom-1 left-0 h-px transition-all duration-300 bg-red-600',
+                          'absolute -bottom-1 left-0 h-px transition-all duration-300 bg-ergopack',
                           pathname.startsWith('/products') ? 'w-full' : 'w-0 group-hover:w-full'
                         )}
                       />
                     </button>
-
                     {/* Products Mega Dropdown */}
                     <AnimatePresence>
                       {isProductsOpen && (
@@ -127,8 +126,8 @@ export default function Navigation() {
                           <div className="grid grid-cols-3 gap-8">
                             {/* X-pert Line */}
                             <div>
-                              <div className="flex items-center gap-2 mb-4 pb-3 border-b border-red-200">
-                                <Zap className="h-5 w-5 text-red-600" />
+                              <div className="flex items-center gap-2 mb-4 pb-3 border-b border-ergopack-200">
+                                <Zap className="h-5 w-5 text-ergopack" />
                                 <h3 className="font-bold text-gray-900">X-pert Line</h3>
                               </div>
                               <div className="space-y-2">
@@ -138,8 +137,8 @@ export default function Navigation() {
                                     href={product.href}
                                     className="block group"
                                   >
-                                    <div className="px-3 py-2 rounded-lg hover:bg-red-50 transition-colors">
-                                      <div className="font-medium text-gray-900 group-hover:text-red-600 transition-colors">
+                                    <div className="px-3 py-2 rounded-lg hover:bg-ergopack-50 transition-colors">
+                                      <div className="font-medium text-gray-900 group-hover:text-ergopack transition-colors">
                                         {product.label}
                                       </div>
                                       <div className="text-xs text-gray-500">{product.desc}</div>
@@ -163,7 +162,7 @@ export default function Navigation() {
                                     className="block group"
                                   >
                                     <div className="px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors">
-                                      <div className="font-medium text-gray-900 group-hover:text-red-600 transition-colors">
+                                      <div className="font-medium text-gray-900 group-hover:text-ergopack transition-colors">
                                         {product.label}
                                       </div>
                                       <div className="text-xs text-gray-500">{product.desc}</div>
@@ -182,7 +181,7 @@ export default function Navigation() {
                               <div className="space-y-2">
                                 <Link href="/products" className="block group">
                                   <div className="px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors">
-                                    <div className="font-medium text-gray-900 group-hover:text-red-600 transition-colors">
+                                    <div className="font-medium text-gray-900 group-hover:text-ergopack transition-colors">
                                       All Products
                                     </div>
                                     <div className="text-xs text-gray-500">View all 11 models</div>
@@ -191,7 +190,7 @@ export default function Navigation() {
                                 {productsDropdown.compare.map((item) => (
                                   <Link key={item.href} href={item.href} className="block group">
                                     <div className="px-3 py-2 rounded-lg hover:bg-gray-50 transition-colors">
-                                      <div className="font-medium text-gray-900 group-hover:text-red-600 transition-colors">
+                                      <div className="font-medium text-gray-900 group-hover:text-ergopack transition-colors">
                                         {item.label}
                                       </div>
                                       <div className="text-xs text-gray-500">{item.desc}</div>
@@ -210,13 +209,13 @@ export default function Navigation() {
                     href={link.href}
                     className={cn(
                       'relative text-sm font-medium transition-colors duration-300 group',
-                      pathname === link.href ? 'text-red-600' : 'text-gray-700 hover:text-red-600'
+                      pathname === link.href ? 'text-ergopack' : 'text-gray-700 hover:text-ergopack'
                     )}
                   >
                     {link.label}
                     <span
                       className={cn(
-                        'absolute -bottom-1 left-0 h-px transition-all duration-300 bg-red-600',
+                        'absolute -bottom-1 left-0 h-px transition-all duration-300 bg-ergopack',
                         pathname === link.href ? 'w-full' : 'w-0 group-hover:w-full'
                       )}
                     />
@@ -266,10 +265,9 @@ export default function Navigation() {
                   <Link href="/products" className="block py-2 text-lg font-bold text-gray-900">
                     All Products
                   </Link>
-
                   <div className="pl-4 space-y-3">
                     <div className="space-y-2">
-                      <p className="text-sm font-semibold text-red-600 flex items-center gap-2">
+                      <p className="text-sm font-semibold text-ergopack flex items-center gap-2">
                         <Zap className="h-4 w-4" />
                         X-pert Line
                       </p>
@@ -277,13 +275,12 @@ export default function Navigation() {
                         <Link
                           key={product.href}
                           href={product.href}
-                          className="block py-1.5 pl-6 text-sm text-gray-700 hover:text-red-600"
+                          className="block py-1.5 pl-6 text-sm text-gray-700 hover:text-ergopack"
                         >
                           {product.label}
                         </Link>
                       ))}
                     </div>
-
                     <div className="space-y-2">
                       <p className="text-sm font-semibold text-gray-700 flex items-center gap-2">
                         <DollarSign className="h-4 w-4" />
@@ -293,19 +290,18 @@ export default function Navigation() {
                         <Link
                           key={product.href}
                           href={product.href}
-                          className="block py-1.5 pl-6 text-sm text-gray-700 hover:text-red-600"
+                          className="block py-1.5 pl-6 text-sm text-gray-700 hover:text-ergopack"
                         >
                           {product.label}
                         </Link>
                       ))}
                     </div>
-
                     <div className="space-y-2 pt-2 border-t border-gray-200">
                       {productsDropdown.compare.map((item) => (
                         <Link
                           key={item.href}
                           href={item.href}
-                          className="block py-1.5 pl-6 text-sm font-medium text-gray-700 hover:text-red-600"
+                          className="block py-1.5 pl-6 text-sm font-medium text-gray-700 hover:text-ergopack"
                         >
                           {item.label}
                         </Link>
@@ -326,7 +322,7 @@ export default function Navigation() {
                       href={link.href}
                       className={cn(
                         'block py-2 text-lg font-medium transition-colors',
-                        pathname === link.href ? 'text-red-600' : 'text-gray-700 hover:text-red-600'
+                        pathname === link.href ? 'text-ergopack' : 'text-gray-700 hover:ergopack'
                       )}
                     >
                       {link.label}

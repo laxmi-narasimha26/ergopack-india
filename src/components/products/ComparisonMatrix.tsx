@@ -121,7 +121,7 @@ export default function ComparisonMatrix({
   const allHaveValue = (key: string, subkey?: string): boolean => {
     return products.every((p) => {
       if (subkey) {
-        return p[key as keyof ProductData]?.[subkey as any] !== undefined;
+        return (p[key as keyof ProductData] as any)?.[subkey] !== undefined;
       }
       return p[key as keyof ProductData] !== undefined;
     });

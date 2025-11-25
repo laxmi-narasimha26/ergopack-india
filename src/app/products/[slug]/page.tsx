@@ -29,6 +29,7 @@ import { ProductNavigation } from '@/components/products/ProductNavigation';
 import { BatteryPerformance } from '@/components/products/BatteryPerformance';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
 import { ProductLinePage } from '@/components/products/ProductLinePage';
+import { SeriesPage } from '@/components/products/SeriesPage';
 import MainLayout from '@/components/layout/MainLayout';
 import { useComparison } from '@/contexts/ComparisonContext';
 
@@ -64,6 +65,27 @@ export default function ProductPage({ params }: ProductPageProps) {
   }
   if (normalizedSlug === 'go-line' || normalizedSlug === 'go') {
     return <ProductLinePage line="go" products={goLine} />;
+  }
+
+  // Check for Series Pages
+  if (normalizedSlug === '700-series') {
+    const products = [ergoPack700, ergoPack700E, ergoPack700X, ergoPack700XLFP];
+    return <SeriesPage series="700" products={products} />;
+  }
+  if (normalizedSlug === '713-series') {
+    const products = [ergoPack713E, ergoPack713X, ergoPack713XLFP];
+    return <SeriesPage series="713" products={products} />;
+  }
+  if (normalizedSlug === '726-series') {
+    const products = [ergoPack726E, ergoPack726X, ergoPack726XLFP];
+    return <SeriesPage series="726" products={products} />;
+  }
+  if (normalizedSlug === '745-series') {
+    const products = [ergoPack745E, ergoPack745X];
+    return <SeriesPage series="745" products={products} />;
+  }
+  if (normalizedSlug === 'go-series') {
+    return <SeriesPage series="GO" products={[ergoPackGO]} />;
   }
 
   // Map slug to comprehensive product data
@@ -242,7 +264,14 @@ export default function ProductPage({ params }: ProductPageProps) {
           subheadline={product.description}
           imageSrc={product.images.hero}
           onRequestDemo={handleRequestDemo}
-          onDownloadBrochure={handleDownloadBrochure}
+          onDownloadBrochure={() => {
+            if (product.pdfPath) {
+              window.open(product.pdfPath, '_blank');
+            } else {
+              console.log('No brochure available for', product.name);
+            }
+          }}
+          productId={product.id}
           onCompare={toggleCompare}
           isSelectedForComparison={selected}
           productData={product}
