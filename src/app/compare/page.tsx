@@ -10,7 +10,7 @@ import { ProductSelector } from '@/components/comparison/ProductSelector';
 import { generateComparisonMatrix, filterCategories } from '@/lib/comparison/comparison-engine';
 import { FilterMode, ComparisonMatrix } from '@/types/comparison';
 import comparisonData from '@/data/products-comparison-data.json';
-import { ArrowLeft, ArrowRight, Check, AlertCircle } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Check, AlertCircle, X } from 'lucide-react';
 import Link from 'next/link';
 import MainLayout from '@/components/layout/MainLayout';
 import { useSearchParams } from 'next/navigation';
@@ -21,8 +21,30 @@ export default function ComparePage() {
   const [matrix, setMatrix] = useState<ComparisonMatrix | null>(null);
   const [isComparing, setIsComparing] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [showMobileToast, setShowMobileToast] = useState(false);
 
   const searchParams = useSearchParams();
+
+  // Mobile detection
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Show mobile toast when 4+ products selected on mobile
+  useEffect(() => {
+    if (isMobile && selectedProducts.length >= 4 && !isComparing) {
+      setShowMobileToast(true);
+      const timer = setTimeout(() => setShowMobileToast(false), 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [isMobile, selectedProducts.length, isComparing]);
 
   useEffect(() => {
     console.log('ComparePage: selectedProducts changed', selectedProducts);
@@ -168,11 +190,10 @@ export default function ComparePage() {
                   <button
                     onClick={handleStartComparison}
                     disabled={selectedProducts.length < 2}
-                    className={`flex items-center gap-2 px-8 py-3 rounded-lg font-bold text-white transition-all ${
-                      selectedProducts.length >= 2
-                        ? 'bg-red-600 hover:bg-red-700 shadow-lg shadow-red-600/20 hover:shadow-red-600/30'
-                        : 'bg-gray-300 cursor-not-allowed'
-                    }`}
+                    className={`flex items-center gap-2 px-8 py-3 rounded-lg font-bold text-white transition-all ${selectedProducts.length >= 2
+                      ? 'bg-red-600 hover:bg-red-700 shadow-lg shadow-red-600/20 hover:shadow-red-600/30'
+                      : 'bg-gray-300 cursor-not-allowed'
+                      }`}
                   >
                     Compare Now
                     <ArrowRight className="w-4 h-4" />
@@ -182,6 +203,23 @@ export default function ComparePage() {
             </div>
           </div>
         </div>
+
+        {/* Mobile Scroll Toast */}
+        {showMobileToast && (
+          <div className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-gray-900 text-white px-6 py-4 rounded-lg shadow-2xl z-[200] flex items-center gap-3 animate-slide-up max-w-[90vw]">
+            <AlertCircle className="w-5 h-5 text-amber-400 flex-shrink-0" />
+            <div>
+              <p className="font-bold text-sm">Scroll to View All Products</p>
+              <p className="text-xs text-gray-300 mt-1">Swipe left/right to see all {selectedProducts.length} models</p>
+            </div>
+            <button
+              onClick={() => setShowMobileToast(false)}
+              className="ml-2 text-gray-400 hover:text-white transition-colors"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+        )}
       </MainLayout>
     );
   }

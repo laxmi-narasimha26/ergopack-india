@@ -41,8 +41,8 @@ export default function PremiumNavigation({ initialHidden = false }: { initialHi
 
   const backgroundColor = showText ? 'rgba(249, 249, 247, 0.95)' : 'transparent'; // Premium light shade
   const headerPadding = showText ? 'py-4' : 'py-6';
-  const textColor = showText ? 'text-dark-950' : 'text-white';
-  const borderColor = showText ? 'border-dark-950/10' : 'border-white/10';
+  const textColor = showText ? 'text-gray-900' : 'text-white';
+  const borderColor = showText ? 'border-gray-900/10' : 'border-white/10';
 
   return (
     <motion.header
@@ -128,14 +128,14 @@ export default function PremiumNavigation({ initialHidden = false }: { initialHi
         <div className="w-1/3 flex justify-end items-center gap-6">
           <Link href="/contact" className="hidden md:block">
             <button
-              className={`px-6 py-2 text-xs font-medium uppercase tracking-widest border transition-all duration-300 rounded-sm ${showText ? 'text-dark-950 border-dark-950/30 hover:bg-ergopack hover:text-white hover:border-ergopack' : 'text-white border-white/30 hover:bg-ergopack hover:border-ergopack'} ${showIcons ? 'bg-white/10 backdrop-blur-sm' : ''}`}
+              className={`px-6 py-2 text-xs font-medium uppercase tracking-widest border transition-all duration-300 rounded-sm ${showText ? 'text-gray-900 border-gray-900/30 hover:bg-ergopack hover:text-white hover:border-ergopack' : 'text-white border-white/30 hover:bg-ergopack hover:border-ergopack'} ${showIcons ? 'bg-white/10 backdrop-blur-sm' : ''}`}
             >
               Request Demo
             </button>
           </Link>
 
           <button
-            className="md:hidden p-2 text-white"
+            className={`md:hidden p-2 ${showText ? 'text-gray-900' : 'text-white'}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
@@ -154,7 +154,7 @@ export default function PremiumNavigation({ initialHidden = false }: { initialHi
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-dark-950 border-t border-white/10 overflow-hidden"
+            className="md:hidden bg-gray-900 border-t border-white/10 overflow-hidden"
           >
             <div className="px-6 py-8 space-y-6">
               {navItems.map((item) => (

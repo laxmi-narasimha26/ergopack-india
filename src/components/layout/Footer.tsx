@@ -31,7 +31,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-dark-950 border-t border-dark-800">
+    <footer className="bg-gray-900 border-t border-gray-800">
       <div className="container mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           {/* Brand Section */}
@@ -41,13 +41,13 @@ export default function Footer() {
                 ErgoPack India
               </span>
             </Link>
-            <p className="text-dark-300 mb-6 leading-relaxed">
+            <p className="text-gray-400 mb-6 leading-relaxed">
               Verifiable Load Integrity. The C-Suite's Control System for Zero-Failure Logistics.
             </p>
             <div className="space-y-3">
               <a
                 href="mailto:contact@ergopack-india.com"
-                className="flex items-center text-dark-300 hover:text-white transition-colors"
+                className="flex items-center text-gray-400 hover:text-white transition-colors"
               >
                 <Mail className="w-4 h-4 mr-2" />
                 contact@ergopack-india.com
@@ -59,7 +59,7 @@ export default function Footer() {
                 <Phone className="w-4 h-4 mr-2" />
                 +91 123 456 7890
               </a>
-              <div className="flex items-start text-dark-300">
+              <div className="flex items-start text-gray-400">
                 <MapPin className="w-4 h-4 mr-2 mt-1 flex-shrink-0" />
                 <span>Mumbai, Maharashtra, India</span>
               </div>
@@ -76,7 +76,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-dark-300 hover:text-white transition-colors text-sm"
+                    className="text-gray-400 hover:text-white transition-colors text-sm"
                   >
                     {link.label}
                   </Link>
@@ -125,9 +125,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="pt-8 border-t border-dark-800">
+        <div className="pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-dark-400 text-sm">
+            <div className="text-gray-500 text-sm">
               © {new Date().getFullYear()} ErgoPack India. All rights reserved.
             </div>
 
@@ -137,7 +137,7 @@ export default function Footer() {
                 <a
                   key={social.label}
                   href={social.href}
-                  className="text-dark-400 hover:text-white transition-colors"
+                  className="text-gray-500 hover:text-white transition-colors"
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5" />
