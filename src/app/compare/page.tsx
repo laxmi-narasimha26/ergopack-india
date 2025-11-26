@@ -266,7 +266,7 @@ export default function ComparePage() {
           />
 
           {/* Comparison Table */}
-          <ComparisonTable products={matrix.products} categories={filteredCategories} />
+          <ComparisonTable products={matrix.products} categories={filteredCategories} isMobile={isMobile} />
 
           {/* Footer Actions */}
           <div className="mt-12 flex justify-center gap-4">
