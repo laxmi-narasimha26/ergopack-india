@@ -43,7 +43,7 @@ export default function ScrollHeader() {
       >
         {/* Zap icon removed as per user request */}
         <motion.h1
-          className="font-serif font-medium text-white whitespace-nowrap text-6xl md:text-8xl lg:text-9xl tracking-widest uppercase"
+          className="font-serif font-medium text-white whitespace-nowrap text-3xl sm:text-4xl md:text-8xl lg:text-9xl tracking-widest uppercase"
           style={{ letterSpacing, color }}
         >
           ERGOPACK INDIA
