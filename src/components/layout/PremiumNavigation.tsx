@@ -63,7 +63,7 @@ export default function PremiumNavigation({ initialHidden = false }: { initialHi
                 transition={{ duration: 0.5 }}
               >
                 <Link href="/" className="group relative z-50">
-                  <div className="text-2xl font-serif font-medium tracking-widest uppercase">
+                  <div className="text-lg md:text-2xl font-serif font-medium tracking-widest uppercase whitespace-nowrap">
                     <span className={textColor}>ErgoPack India</span>
                   </div>
                 </Link>
