@@ -39,9 +39,11 @@ export default function ComparisonTable({ products, categories, isMobile = false
   }
 
   // Dynamic Grid Columns based on device
+  // Mobile: Sticky 80px label col + compact 100px product cols
+  // Desktop: 250px label col + 200px product cols
   const gridStyle = {
     gridTemplateColumns: isMobile
-      ? `repeat(${products.length}, 1fr)`
+      ? `80px repeat(${products.length}, minmax(100px, 1fr))`
       : `250px repeat(${products.length}, minmax(200px, 1fr))`
   };
 
@@ -52,15 +54,21 @@ export default function ComparisonTable({ products, categories, isMobile = false
           {/* Products Header - Sticky */}
           <div className="sticky top-0 bg-white border-b-2 border-gray-200 z-20">
             <div className="grid" style={gridStyle}>
-              {/* Features Header Label - Hidden on Mobile */}
-              <div className={`p-4 font-semibold text-gray-700 border-r border-gray-200 ${isMobile ? 'hidden' : 'block'}`}>
+              {/* Features Header Label - Sticky Left on Mobile */}
+              <div
+                className={`font-semibold text-gray-700 border-r border-gray-200 bg-white
+                  ${isMobile
+                    ? 'sticky left-0 z-30 p-2 text-[10px] flex items-center justify-center shadow-[2px_0_5px_rgba(0,0,0,0.05)]'
+                    : 'p-4 block'
+                  }`}
+              >
                 Features
               </div>
 
               {products.map((product) => (
-                <div key={product.model} className={`border-r border-gray-200 last:border-r-0 ${isMobile ? 'p-2' : 'p-4'}`}>
+                <div key={product.model} className={`border-r border-gray-200 last:border-r-0 ${isMobile ? 'p-1' : 'p-4'}`}>
                   <div className="text-center">
-                    <div className={`relative mx-auto mb-2 ${isMobile ? 'w-16 h-16' : 'w-32 h-32 mb-4'}`}>
+                    <div className={`relative mx-auto mb-2 ${isMobile ? 'w-12 h-12' : 'w-32 h-32 mb-4'}`}>
                       <Image
                         src={product.image}
                         alt={product.fullName}
@@ -68,7 +76,7 @@ export default function ComparisonTable({ products, categories, isMobile = false
                         className="object-contain"
                       />
                     </div>
-                    <h3 className={`font-bold text-gray-900 leading-tight ${isMobile ? 'text-xs' : 'text-lg'}`}>
+                    <h3 className={`font-bold text-gray-900 leading-tight ${isMobile ? 'text-[10px]' : 'text-lg'}`}>
                       {product.fullName}
                     </h3>
                     {!isMobile && (
@@ -79,9 +87,9 @@ export default function ComparisonTable({ products, categories, isMobile = false
                     )}
                     <button
                       onClick={() => removeProduct(product.model)}
-                      className={`text-red-600 hover:text-red-700 font-medium flex items-center justify-center gap-1 mx-auto opacity-60 hover:opacity-100 transition-opacity ${isMobile ? 'mt-1 text-[10px]' : 'mt-3 text-xs'}`}
+                      className={`text-red-600 hover:text-red-700 font-medium flex items-center justify-center gap-1 mx-auto opacity-60 hover:opacity-100 transition-opacity ${isMobile ? 'mt-1 text-[9px]' : 'mt-3 text-xs'}`}
                     >
-                      <Trash2 className={isMobile ? "w-3 h-3" : "w-3 h-3"} />
+                      <Trash2 className={isMobile ? "w-2.5 h-2.5" : "w-3 h-3"} />
                       {isMobile ? 'Del' : 'Remove'}
                     </button>
                   </div>
@@ -100,18 +108,18 @@ export default function ComparisonTable({ products, categories, isMobile = false
                   {/* Category Header */}
                   <button
                     onClick={() => toggleCategory(category.name)}
-                    className={`w-full bg-gray-50 hover:bg-gray-100 transition-colors flex items-center justify-between text-left ${isMobile ? 'p-3' : 'p-4'}`}
+                    className={`w-full bg-gray-50 hover:bg-gray-100 transition-colors flex items-center justify-between text-left sticky left-0 z-10 ${isMobile ? 'p-2' : 'p-4'}`}
                   >
-                    <h3 className={`font-bold text-gray-900 ${isMobile ? 'text-sm' : 'text-base'}`}>{category.displayName}</h3>
+                    <h3 className={`font-bold text-gray-900 ${isMobile ? 'text-xs' : 'text-base'}`}>{category.displayName}</h3>
                     <div className="flex items-center gap-2">
-                      <span className={`text-gray-600 ${isMobile ? 'text-xs' : 'text-sm'}`}>
+                      <span className={`text-gray-600 ${isMobile ? 'text-[10px]' : 'text-sm'}`}>
                         {category.attributes.length} attribute
                         {category.attributes.length !== 1 ? 's' : ''}
                       </span>
                       {isExpanded ? (
-                        <ChevronUp className="w-5 h-5 text-gray-600" />
+                        <ChevronUp className="w-4 h-4 text-gray-600" />
                       ) : (
-                        <ChevronDown className="w-5 h-5 text-gray-600" />
+                        <ChevronDown className="w-4 h-4 text-gray-600" />
                       )}
                     </div>
                   </button>
@@ -125,17 +133,15 @@ export default function ComparisonTable({ products, categories, isMobile = false
                           className={`grid ${index % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}
                           style={gridStyle}
                         >
-                          {/* Attribute Label */}
+                          {/* Attribute Label - Sticky Left on Mobile */}
                           <div
-                            className={`flex items-center border-gray-200 
+                            className={`flex items-center border-r border-gray-200 bg-inherit
                               ${isMobile
-                                ? 'col-span-full bg-gray-100/80 p-1.5 justify-center border-b border-t'
-                                : 'p-4 border-r justify-start'
+                                ? 'sticky left-0 z-10 p-1.5 text-[10px] font-bold text-gray-700 shadow-[2px_0_5px_rgba(0,0,0,0.05)] break-words'
+                                : 'p-4 text-base font-medium text-gray-700'
                               }`}
                           >
-                            <span className={`font-medium text-gray-700 ${isMobile ? 'text-xs uppercase tracking-wide' : 'text-base'}`}>
-                              {attr.label}
-                            </span>
+                            {attr.label}
                           </div>
 
                           {/* Attribute Values */}
@@ -149,13 +155,13 @@ export default function ComparisonTable({ products, categories, isMobile = false
                                 key={product.model}
                                 className={`border-r border-gray-200 last:border-r-0 relative 
                                   ${isDifferent ? 'bg-amber-50/50' : ''}
-                                  ${isMobile ? 'p-2 text-center flex justify-center items-center' : 'p-4 text-left'}
+                                  ${isMobile ? 'p-1 text-center flex justify-center items-center' : 'p-4 text-left'}
                                 `}
                               >
                                 {/* Custom Rendering based on Attribute Key */}
                                 {attr.key === 'includedFeatures' ||
                                   attr.key === 'optionalAccessories' ? (
-                                  <ul className={`space-y-1 ${isMobile ? 'text-[10px]' : 'text-sm space-y-2'}`}>
+                                  <ul className={`space-y-1 ${isMobile ? 'text-[9px]' : 'text-sm space-y-2'}`}>
                                     {String(value)
                                       .split(', ')
                                       .map((item, i) => (
@@ -176,7 +182,7 @@ export default function ComparisonTable({ products, categories, isMobile = false
                                         <span
                                           key={i}
                                           className={`bg-gray-100 border border-gray-200 rounded font-medium text-gray-600 uppercase tracking-wider 
-                                            ${isMobile ? 'px-1 py-0.5 text-[9px]' : 'px-2 py-1 text-xs'}
+                                            ${isMobile ? 'px-1 py-0.5 text-[8px]' : 'px-2 py-1 text-xs'}
                                           `}
                                         >
                                           {item}
@@ -191,13 +197,13 @@ export default function ComparisonTable({ products, categories, isMobile = false
                                     {isDifferent && !isMobile && (
                                       <div className="w-2 h-2 rounded-full bg-amber-500 flex-shrink-0 mt-1.5" />
                                     )}
-                                    <span className={`text-gray-900 ${isMobile ? 'text-xs' : 'text-base'}`}>{value || 'N/A'}</span>
+                                    <span className={`text-gray-900 ${isMobile ? 'text-[10px]' : 'text-base'}`}>{value || 'N/A'}</span>
                                   </div>
                                 )}
 
                                 {isBestValue && (
-                                  <div className={`absolute ${isMobile ? 'top-1 right-1' : 'top-2 right-2'}`}>
-                                    <Award className={`${isMobile ? 'w-3 h-3' : 'w-5 h-5'} text-yellow-500`} />
+                                  <div className={`absolute ${isMobile ? 'top-0.5 right-0.5' : 'top-2 right-2'}`}>
+                                    <Award className={`${isMobile ? 'w-2.5 h-2.5' : 'w-5 h-5'} text-yellow-500`} />
                                   </div>
                                 )}
                               </div>
