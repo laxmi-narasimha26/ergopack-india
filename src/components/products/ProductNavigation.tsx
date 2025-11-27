@@ -28,11 +28,10 @@ export const ProductNavigation = () => {
 
   return (
     <motion.div
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-        isScrolled
-          ? 'bg-background/80 backdrop-blur-md border-b border-border/50 py-3'
-          : 'bg-transparent py-6'
-      }`}
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled
+        ? 'bg-background/80 backdrop-blur-md border-b border-border/50 py-3'
+        : 'bg-transparent py-6'
+        }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: 'circOut' }}
@@ -46,18 +45,21 @@ export const ProductNavigation = () => {
               (series.name === '713 Series' && pathname.includes('713')) ||
               (series.name === '726 Series' && pathname.includes('726')) ||
               (series.name === '745 Series' && pathname.includes('745')) ||
-              (series.name === 'GO Series' && pathname.includes('go'));
+              (series.name === 'GO Series' && pathname.includes('go')) ||
+              (series.name === 'LFP India Exclusive' && pathname.includes('lfp'));
 
             return (
               <Link key={series.name} href={series.href} className="relative group">
                 <span
-                  className={`text-sm font-artisan-sans font-medium tracking-wide transition-colors duration-300 ${
-                    isActive
-                      ? 'text-foreground'
-                      : 'text-muted-foreground group-hover:text-foreground'
-                  }`}
+                  className={`text-sm font-artisan-sans font-medium tracking-wide transition-colors duration-300 ${isActive
+                    ? 'text-foreground'
+                    : 'text-muted-foreground group-hover:text-foreground'
+                    } ${series.badge ? 'flex items-center gap-1.5' : ''}`}
                 >
                   {series.name}
+                  {series.badge && (
+                    <span className="text-lg" title="Exclusively for India">{series.badge}</span>
+                  )}
                 </span>
                 {isActive && (
                   <motion.div

@@ -27,7 +27,7 @@ import { HorizontalProductCard } from '@/components/products/HorizontalProductCa
 import { FeatureHighlightCard } from '@/components/products/FeatureHighlightCard';
 
 interface ProductLinePageProps {
-  line: 'economy' | 'xpert' | 'go';
+  line: 'economy' | 'xpert' | 'go' | 'xpert-lfp-india';
   products: ComprehensiveProduct[];
 }
 
@@ -138,10 +138,45 @@ export const ProductLinePage: React.FC<ProductLinePageProps> = ({ line, products
             },
           ],
         };
+      case 'xpert-lfp-india':
+        return {
+          title: '🇮🇳 LFP India Exclusive',
+          tagline: 'Premium Technology Crafted for India',
+          description:
+            'Exclusive to the Indian market. Featuring advanced Lithium-Iron-Phosphate (LFP) battery technology - the safest and most reliable lithium chemistry. Purpose-built for Indian industrial conditions with extended longevity and superior thermal stability.',
+          icon: Battery,
+          accent: 'orange',
+          bgClass: 'bg-gradient-to-br from-orange-50 via-white to-green-50',
+          textClass: 'text-luxury-dark-gray',
+          features: [
+            {
+              icon: ShieldCheck,
+              title: 'LFP Battery Technology',
+              description: 'Safest lithium chemistry with superior thermal stability and 600 strapping cycles.',
+              video: '/videos/demo.mp4',
+            },
+            {
+              icon: Target,
+              title: 'India-Optimized',
+              description: 'Engineered for Indian industrial environments and operational patterns.',
+            },
+            {
+              icon: Sparkles,
+              title: 'Extended Longevity',
+              description: '8-hour charging time with exceptional cycle life and reliability.',
+            },
+            {
+              icon: Award,
+              title: 'Exclusive',
+              description: 'Available exclusively in India - premium technology for the Indian market.',
+            },
+          ],
+        };
     }
   };
 
   const info = getLineInfo();
+  if (!info) return null;
   const Icon = info.icon;
 
   return (
@@ -162,11 +197,10 @@ export const ProductLinePage: React.FC<ProductLinePageProps> = ({ line, products
               className="max-w-4xl"
             >
               <div
-                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 border ${
-                  isXpert
-                    ? 'bg-crimson-500/10 border-crimson-500/20 text-crimson-400'
-                    : 'bg-gray-100 border-gray-200 text-gray-600'
-                }`}
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 border ${isXpert
+                  ? 'bg-crimson-500/10 border-crimson-500/20 text-crimson-400'
+                  : 'bg-gray-100 border-gray-200 text-gray-600'
+                  }`}
               >
                 <Icon className="w-4 h-4" />
                 <span className="text-sm font-bold tracking-widest uppercase">{info.tagline}</span>
@@ -279,11 +313,10 @@ export const ProductLinePage: React.FC<ProductLinePageProps> = ({ line, products
                   <MagneticButton as={motion.div}>
                     <Link
                       href="/contact"
-                      className={`inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 ${
-                        isXpert
-                          ? 'bg-crimson-600 text-white hover:bg-crimson-700'
-                          : 'bg-gray-900 text-white hover:bg-gray-800'
-                      }`}
+                      className={`inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 ${isXpert
+                        ? 'bg-crimson-600 text-white hover:bg-crimson-700'
+                        : 'bg-gray-900 text-white hover:bg-gray-800'
+                        }`}
                     >
                       Request Demo
                       <ArrowRight className="ml-2 w-5 h-5" />
@@ -293,11 +326,10 @@ export const ProductLinePage: React.FC<ProductLinePageProps> = ({ line, products
                   <MagneticButton as={motion.div}>
                     <Link
                       href="/compare?auto=true"
-                      className={`inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold text-lg border-2 transition-all duration-300 ${
-                        isXpert
-                          ? 'border-white/20 text-white hover:bg-white/10'
-                          : 'border-gray-200 text-gray-900 hover:bg-gray-50'
-                      }`}
+                      className={`inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold text-lg border-2 transition-all duration-300 ${isXpert
+                        ? 'border-white/20 text-white hover:bg-white/10'
+                        : 'border-gray-200 text-gray-900 hover:bg-gray-50'
+                        }`}
                     >
                       Compare Models
                       <Scale className="ml-2 w-5 h-5" />
@@ -350,11 +382,10 @@ export const ProductLinePage: React.FC<ProductLinePageProps> = ({ line, products
               <MagneticButton as={motion.div}>
                 <Link
                   href="/contact"
-                  className={`inline-flex items-center px-10 py-5 rounded-full font-bold text-xl transition-all duration-300 ${
-                    isXpert
-                      ? 'bg-crimson-600 text-white hover:bg-crimson-700 shadow-lg shadow-crimson-900/30'
-                      : 'bg-gray-900 text-white hover:bg-gray-800 shadow-lg shadow-gray-900/20'
-                  }`}
+                  className={`inline-flex items-center px-10 py-5 rounded-full font-bold text-xl transition-all duration-300 ${isXpert
+                    ? 'bg-crimson-600 text-white hover:bg-crimson-700 shadow-lg shadow-crimson-900/30'
+                    : 'bg-gray-900 text-white hover:bg-gray-800 shadow-lg shadow-gray-900/20'
+                    }`}
                 >
                   Get a Quote
                   <ChevronRight className="ml-2 w-6 h-6" />

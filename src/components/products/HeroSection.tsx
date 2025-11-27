@@ -55,7 +55,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           style={{ y: textY }}
           className="text-[20vw] lg:text-[25vw] font-artisan-serif font-bold text-secondary/30 whitespace-nowrap leading-none tracking-tighter opacity-30 mix-blend-multiply dark:mix-blend-soft-light"
         >
-          {model}
+          {productData?.line === 'xpert-lfp-india' ? productData.name.replace('ErgoPack ', '') : model}
         </motion.h1>
       </div>
 
@@ -84,7 +84,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             <h2 className="text-5xl lg:text-7xl font-artisan-serif font-medium italic text-foreground leading-[1.1] text-balance">
               {headline}{' '}
               <span className="not-italic text-primary/80 block text-3xl lg:text-4xl mt-2 font-normal">
-                {model} Series
+                {productData?.line === 'xpert-lfp-india' ? productData.name.replace('ErgoPack ', '') : `${model} Series`}
               </span>
             </h2>
 
@@ -110,11 +110,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {onCompare && (
               <MagneticButton
                 onClick={onCompare}
-                className={`border px-8 py-4 rounded-sm text-lg font-medium transition-all flex items-center justify-center gap-2 min-w-[200px] ${
-                  isSelectedForComparison
+                className={`border px-8 py-4 rounded-sm text-lg font-medium transition-all flex items-center justify-center gap-2 min-w-[200px] ${isSelectedForComparison
                     ? 'bg-red-600 border-red-600 text-white hover:bg-red-700'
                     : 'border-primary/20 bg-transparent text-foreground hover:bg-secondary'
-                }`}
+                  }`}
               >
                 {isSelectedForComparison ? (
                   <>

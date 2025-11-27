@@ -68,7 +68,7 @@ export interface ComprehensiveProduct {
   name: string;
   tagline: string;
   description: string;
-  line: 'economy' | 'xpert';
+  line: 'economy' | 'xpert' | 'xpert-lfp-india';
   specifications: ProductSpecifications;
   battery?: BatteryInfo;
   features: string[];
@@ -835,10 +835,9 @@ export const ergoPack700X: ComprehensiveProduct = {
 export const ergoPack713XLFP: ComprehensiveProduct = {
   id: '713XLFP',
   name: 'ErgoPack 713X LFP',
-  tagline: 'Premium LFP Pallet Strapping System (9-13mm)',
-  description:
-    'X-pert Line premium strapping system with advanced Lithium-Iron-Phosphate (LFP) battery technology. Optimized for 9-13mm strap widths, delivering superior safety and longevity.',
-  line: 'xpert',
+  tagline: '🇮🇳 Premium LFP Technology - Exclusively for India',
+  description: 'India-exclusive ultra-light strapping system with advanced LFP battery technology. Perfect for Indian operations requiring 600 cycles per charge with 8-hour charging. Safest lithium chemistry engineered for local conditions.',
+  line: 'xpert-lfp-india',
   specifications: {
     line: 'X-pert Line',
     model: '713X LFP',
@@ -993,10 +992,9 @@ export const ergoPack713XLFP: ComprehensiveProduct = {
 export const ergoPack726XLFP: ComprehensiveProduct = {
   id: '726XLFP',
   name: 'ErgoPack 726X LFP',
-  tagline: 'Premium LFP Pallet Strapping System (13-16mm)',
-  description:
-    'X-pert Line premium strapping system with advanced Lithium-Iron-Phosphate (LFP) battery technology. Optimized for 13-16mm strap widths, delivering superior safety and longevity for heavier loads.',
-  line: 'xpert',
+  tagline: '🇮🇳 Premium LFP Technology - Exclusively for India',
+  description: 'India-exclusive compact strapping system with LFP battery technology. Ideal for Indian warehouses requiring 600 cycles and 8-hour charging. Premium safety and reliability engineered for local conditions.',
+  line: 'xpert-lfp-india',
   specifications: {
     line: 'X-pert Line',
     model: '726X LFP',
@@ -1152,7 +1150,9 @@ export const ergoPack700XLFP: ComprehensiveProduct = {
   ...ergoPack700X,
   id: '700XLFP',
   name: 'ErgoPack 700X LFP',
-  tagline: 'Premium LFP Pallet Strapping System',
+  tagline: '🇮🇳 Premium LFP Technology - Exclusively for India',
+  description: 'India-exclusive strapping system featuring advanced Lithium-Iron-Phosphate (LFP) battery technology - the safest lithium chemistry. Engineered specifically for Indian industrial conditions with 600 cycles per charge, 8-hour charging time, and superior thermal stability.',
+  line: 'xpert-lfp-india',
   pdfPath: '/pdfs/700XLFP_Technical_Data.pdf',
   battery: {
     type: 'Lithium-Iron-Phosphate (LFP)',
@@ -1167,6 +1167,15 @@ export const ergoPack700XLFP: ComprehensiveProduct = {
       powerSupply: '2x 12V DC/2A',
     },
   },
+  features: [
+    'LFP (Lithium-Iron-Phosphate) Battery - Safest lithium chemistry',
+    '600 Strapping Cycles per Charge - Optimized for Indian operations',
+    '8-Hour Charging Time - Full shift productivity',
+    '66 m/min Chain Speed',
+    '🇮🇳 Exclusively for India - Engineered for local conditions',
+    'AGR Certified Ergonomic Design',
+    'Superior Thermal Stability for Indian Climate',
+  ],
 };
 
 // ErgoPack 713X - X-pert Line (9-13mm)
@@ -1252,7 +1261,9 @@ export const ergoPack745XLFP: ComprehensiveProduct = {
   ...ergoPack745X,
   id: '745XLFP',
   name: 'ErgoPack 745X LFP',
-  tagline: 'Premium LFP Pallet Strapping System',
+  tagline: '\ud83c\uddee\ud83c\uddf3 Premium LFP Technology - Exclusively for India',
+  description: 'India-exclusive heavy-duty strapping system with LFP battery technology. Maximum power and safety with 600 cycles and 8-hour charging, engineered for demanding Indian industrial operations.',
+  line: 'xpert-lfp-india',
   pdfPath: '/pdfs/745XLFP_Technical_Data.pdf',
   battery: {
     type: 'Lithium-Iron-Phosphate (LFP)',
@@ -1267,6 +1278,13 @@ export const ergoPack745XLFP: ComprehensiveProduct = {
       powerSupply: '2x 12V DC/2A',
     },
   },
+  features: [
+    'LFP Battery - Maximum safety',
+    '600 Cycles - India-optimized',
+    '8-Hour Charging',
+    'Heavy-Duty Performance',
+    '\ud83c\uddee\ud83c\uddf3 Exclusively for India',
+  ],
 };
 
 // ErgoPack GO - Economy Portable System

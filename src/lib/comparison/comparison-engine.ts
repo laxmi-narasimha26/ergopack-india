@@ -115,7 +115,7 @@ function buildComparisonCategories(products: Product[]): ComparisonCategory[] {
   downloadAttrs.push(
     createAttribute('technicalData', 'Technical Data', products, (p) =>
       p.pdfPath
-        ? `<a href="${p.pdfPath}" target="_blank" class="text-ergopack-red hover:underline">Download PDF</a>`
+        ? `PDF:${p.pdfPath}` // Use special marker format that we can detect and render as link
         : 'N/A'
     )
   );
@@ -490,7 +490,7 @@ function extractFeaturesAccessories(products: Product[]): ComparisonAttribute[] 
     attrs.push(
       createAttribute('optionalAccessories', 'Optional Accessories', products, (p) =>
         p.comparison.featuresAccessories.optional &&
-        p.comparison.featuresAccessories.optional.length > 0
+          p.comparison.featuresAccessories.optional.length > 0
           ? p.comparison.featuresAccessories.optional.join(', ')
           : 'None listed'
       )

@@ -15,6 +15,7 @@ import {
   ergoPack726XLFP,
   ergoPack745E,
   ergoPack745X,
+  ergoPack745XLFP,
   ergoPackGO,
   ComprehensiveProduct,
 } from '@/data/comprehensive-products';
@@ -46,12 +47,14 @@ export default function ProductPage({ params }: ProductPageProps) {
   // Define Product Lines
   const xpertLine = [
     ergoPack700X,
-    ergoPack700XLFP,
     ergoPack713X,
-    ergoPack713XLFP,
     ergoPack726X,
-    ergoPack726XLFP,
     ergoPack745X,
+    // LFP India Exclusive models
+    ergoPack700XLFP,
+    ergoPack713XLFP,
+    ergoPack726XLFP,
+    ergoPack745XLFP,
   ];
   const economyLine = [ergoPack700, ergoPack700E, ergoPack713E, ergoPack726E, ergoPack745E];
   const goLine = [ergoPackGO];
@@ -81,7 +84,7 @@ export default function ProductPage({ params }: ProductPageProps) {
     return <SeriesPage series="726" products={products} />;
   }
   if (normalizedSlug === '745-series') {
-    const products = [ergoPack745E, ergoPack745X];
+    const products = [ergoPack745E, ergoPack745X, ergoPack745XLFP];
     return <SeriesPage series="745" products={products} />;
   }
   if (normalizedSlug === 'go-series') {
@@ -92,10 +95,11 @@ export default function ProductPage({ params }: ProductPageProps) {
   const getProductData = (slug: string): ComprehensiveProduct | undefined => {
     const normalizedSlug = slug.toLowerCase();
 
-    // LFP Series (Prioritize these matches)
-    if (normalizedSlug.includes('700x-lfp')) return ergoPack700XLFP;
-    if (normalizedSlug.includes('713x-lfp')) return ergoPack713XLFP;
-    if (normalizedSlug.includes('726x-lfp')) return ergoPack726XLFP;
+    // LFP Series (Prioritize these matches - check for both hyphenated and non-hyphenated)
+    if (normalizedSlug.includes('700xlfp') || normalizedSlug.includes('700x-lfp')) return ergoPack700XLFP;
+    if (normalizedSlug.includes('713xlfp') || normalizedSlug.includes('713x-lfp')) return ergoPack713XLFP;
+    if (normalizedSlug.includes('726xlfp') || normalizedSlug.includes('726x-lfp')) return ergoPack726XLFP;
+    if (normalizedSlug.includes('745xlfp') || normalizedSlug.includes('745x-lfp')) return ergoPack745XLFP;
 
     // 700 Series
     if (normalizedSlug.includes('700x') || normalizedSlug.includes('x-pert')) return ergoPack700X;
