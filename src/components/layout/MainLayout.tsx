@@ -3,7 +3,6 @@
 import { ReactNode, useEffect } from 'react';
 import PremiumNavigation from './PremiumNavigation';
 import Footer from './Footer';
-import EnhancedChatbot from '@/components/features/EnhancedChatbot';
 
 import { ScrollProgress } from '@/components/ui/ScrollProgress';
 
@@ -50,7 +49,6 @@ export default function MainLayout({
       <PremiumNavigation initialHidden={hideLogoInitially} />
       <main className={`flex-grow ${noPadding ? '' : 'pt-20'}`}>{children}</main>
       <Footer />
-      <EnhancedChatbot />
     </div>
   );
 }

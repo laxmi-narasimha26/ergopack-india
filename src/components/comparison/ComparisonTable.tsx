@@ -38,27 +38,27 @@ export default function ComparisonTable({ products, categories, isMobile = false
     );
   }
 
-  // Dynamic Grid Columns: Mobile uses flexible columns that wrap text
+  // Dynamic Grid Columns: Use 1fr to divide space equally
   const gridStyle = {
     gridTemplateColumns: isMobile
       ? `70px repeat(${products.length}, 1fr)`
-      : `250px repeat(${products.length}, minmax(160px, 1fr))` // Reduced from 200px to fit 3-4 products
+      : `250px repeat(${products.length}, 1fr)` // Fixed label, products divide remaining space equally
   };
 
   return (
     <div className={`w-full ${isMobile ? 'overflow-x-auto -mx-4' : 'overflow-x-auto md:overflow-x-visible -mx-4 md:mx-0'}`}>
-      <div className={`${isMobile ? '' : 'px-4 md:px-0 min-w-max'}`}>
+      <div className={`${isMobile ? '' : 'px-4 md:px-0'}`}>
         <div className="bg-white rounded-lg shadow-lg overflow-hidden">
           {/* Products Header - Sticky */}
           <div className="sticky top-0 bg-white border-b-2 border-gray-200 z-20">
             <div className="grid" style={gridStyle}>
               {/* Features Header Label */}
-              <div className={`font-semibold text-gray-700 border-r border-gray-200 ${isMobile ? 'p-1 text-[9px] sticky left-0 bg-white z-30' : 'p-4'}`}>
+              <div className={`font-semibold text-gray-700 border-r border-gray-200 ${isMobile ? 'p-1 text-[9px] sticky left-0 bg-white z-30' : 'p-4 sticky left-0 bg-white z-30 min-w-0'}`}>
                 Features
               </div>
 
               {products.map((product) => (
-                <div key={product.model} className={`border-r border-gray-200 last:border-r-0 ${isMobile ? 'p-1' : 'p-4'}`}>
+                <div key={product.model} className={`border-r border-gray-200 last:border-r-0 ${isMobile ? 'p-1' : 'p-4 min-w-0 overflow-hidden'}`}>
                   <div className="text-center">
                     <div className={`relative mx-auto ${isMobile ? 'w-10 h-10 mb-1' : 'w-32 h-32 mb-4'}`}>
                       <Image

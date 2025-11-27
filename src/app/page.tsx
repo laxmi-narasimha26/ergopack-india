@@ -19,13 +19,13 @@ import productsData from '../../products-data.json';
 
 function ProductLinesSection() {
   return (
-    <section className="py-16 md:py-40 bg-white relative">
+    <section className="py-8 md:py-40 bg-white relative">
       <div className="max-w-7xl mx-auto px-8 sm:px-12">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-32"
+          className="text-center mb-8 md:mb-32"
         >
           <h2 className="font-serif text-6xl sm:text-8xl text-artisan-black mb-6">One Standard.</h2>
         </motion.div>
