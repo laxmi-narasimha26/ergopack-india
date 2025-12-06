@@ -1,0 +1,728 @@
+
+
+# How to use this checklist
+
+* For each item mark: **Pass / Fail / N/A**.
+* Required evidence for each Fail: *short description*, *steps to reproduce*, *expected vs actual*, *logs/screenshots/video*, *commit/PR that fixes it*.
+* Priorities: **Critical** (blocker), **High**, **Medium**, **Low**. Critical & High must be fixed before launch.
+* Where possible require automated test coverage (unit, integration, E2E) and that test results be attached.
+
+---
+
+# Summary — Top critical items (do these before anything else)
+
+1. HTTPS + valid certificate on every domain + redirect HTTP → HTTPS. **(Critical)**
+2. Authentication flows (signup, login, logout, session expiry, password reset, MFA if required). **(Critical)**
+3. Payment flows (sandbox & live, refund/cancel, error states). **(Critical if payments used)**
+4. Backups + restore tested for DB & storage. **(Critical)**
+5. Dependency & secret leak scan (no secrets in repo). **(Critical)**
+6. Smoke tests covering core user journeys run and passing in staging. **(Critical)**
+
+---
+
+# Full exhaustive checklist (grouped). For each line item I include: **What to test**, **How to test**, **Pass criteria**, **Priority**, **Evidence**.
+
+---
+
+## A — Functional / Business flows (end-to-end)
+
+These ensure the app behaves as business expects.
+
+1. Home / Landing pages
+
+   * What: load time, canonical content, hero CTAs, analytics firing.
+   * How: manually visit, Lighthouse, check GA real-time.
+   * Pass: page loads, hero CTA clickable, analytics records page view. **High**
+   * Evidence: screenshots, Lighthouse report, GA real-time screenshot.
+
+2. Sign-up / onboarding
+
+   * What: create account via email, OAuth, SMS (if offered), email verification, welcome flow.
+   * How: perform sign-up with valid email, invalid email, duplicate account; check DB entry and verification email.
+   * Pass: user created, verification email arrives under 2 min, verification link functions, user routed to correct onboarding. **Critical**
+   * Evidence: email screenshots, DB entry (id), test user credentials.
+
+3. Login / logout / session lifecycle
+
+   * What: login with email/pass, social logins, remember me, session timeout, forced logout after password change.
+   * How: login, wait for session expiry window, use revoked token, change password and verify old tokens invalidated.
+   * Pass: login succeeds, token/cookie flags correct, timeout enforced. **Critical**
+   * Evidence: curl -I cookie headers, screenshot of protected page.
+
+4. Password reset / account recovery
+
+   * What: request reset, token expiry/one-use, link validity, secure messaging.
+   * How: request reset, use expired token, ensure tokens are single use.
+   * Pass: reset link expires after configured window, old tokens invalidated. **High**
+
+5. Authorization / RBAC (role-based)
+
+   * What: user vs admin vs superadmin permissions, direct URL access blocked.
+   * How: test each role, attempt forbidden actions with lower-privilege account.
+   * Pass: unauthorized access returns 403/redirect; admin actions logged. **Critical**
+
+6. Forms: validations & error messages
+
+   * What: client & server validation, edge case inputs (max length, unicode, special chars), friendly messages.
+   * How: submit invalid, oversized, malicious inputs; check server rejects; check messages are user-friendly and accessible.
+   * Pass: server rejects invalid data and returns sanitized messages (no stack traces). **High**
+
+7. File uploads
+
+   * What: type & size restrictions, virus scanning, storage ACLs.
+   * How: upload allowed types, disallowed types, very large file, corrupted file.
+   * Pass: allowed uploaded, disallowed rejected with message; private objects not public unless intended. **High**
+
+8. Search & filtering
+
+   * What: relevance, pagination, empty states, special characters, diacritics.
+   * How: queries for normal, edge cases, performance under load.
+   * Pass: correct results, pagination stable, empty message helpful. **Medium**
+
+9. Shopping/cart/checkout (if ecommerce)
+
+   * What: cart persistence, coupon codes, tax & shipping calc, order creation, emails, inventory decrement, refunds, partial refunds.
+   * How: full checkout with sandbox card, failed card, out-of-stock during checkout, order in admin.
+   * Pass: order recorded, emails sent, inventory updated, retries handled. **Critical**
+
+10. Payments & billing
+
+    * What: test sandbox + production gateway, webhooks (idempotency), subscription lifecycle (trial, cancellation, renewal).
+    * How: send test webhooks, simulate duplicate webhooks, check idempotency handling.
+    * Pass: webhook idempotent, errors handled and retried gracefully. **Critical (if payments used)**
+
+11. Emails & notifications
+
+    * What: transactional email content, unsubscribe links, DKIM/SPF, bounce handling.
+    * How: inspect headers, deliverability checks, test suppression/unsubscribe flows.
+    * Pass: emails pass DKIM/SPF, unsubscribe works. **High**
+
+12. Third-party APIs & integrations
+
+    * What: network errors, timeouts, retries, fallbacks.
+    * How: simulate API failure/slow response, ensure app degrades gracefully.
+    * Pass: user-facing error is useful; system queues or retries. **High**
+
+13. Admin panel & operations
+
+    * What: secure access, audit logs, admin actions, data export/import, data correction tools.
+    * How: test role separation, log visibility, run data export and import on sample dataset.
+    * Pass: only admins can access; export/import works and logs created. **High**
+
+14. Scheduled tasks / background jobs
+
+    * What: idempotency, error handling, monitoring.
+    * How: run jobs manually; simulate failure and restart.
+    * Pass: job either completes or logs and retries per policy. **High**
+
+15. API endpoints & contract
+
+    * What: OpenAPI/Swagger consistent, versioning, pagination, rate-limit headers.
+    * How: run contract tests, ensure 4xx/5xx are semantic.
+    * Pass: documented API matches behavior. **High**
+
+---
+
+## B — UX / UI / Visual / Responsiveness
+
+Make sure the product looks and feels professional.
+
+1. Responsive checks (breakpoints)
+
+   * What: layout at common widths: 320, 375, 414, 768, 1024, 1366, 1920.
+   * How: Browser dev tools, BrowserStack or real devices.
+   * Pass: no horizontal scroll, no overlapping text, controls accessible. **High**
+
+2. Cross-browser rendering
+
+   * What: supported browsers (specify versions: latest + n-1 for Chrome/FF/Safari/Edge).
+   * How: visual diff/testing tools, manual QA.
+   * Pass: UI consistent, no JS errors in console. **High**
+
+3. Visual alignment & spacing
+
+   * What: grid alignment, consistent margins, font sizes, line heights.
+   * How: pixel-compare critical screens or manual checks.
+   * Pass: consistent spacing; components follow design system. **Medium**
+
+4. Responsive images & assets
+
+   * What: correct srcset, lazy load, no oversized images on mobile.
+   * How: check network waterfall, element sizes.
+   * Pass: images match sizes served; lazy-loading used. **Medium**
+
+5. Interactive states & microcopy
+
+   * What: focus outlines, hover states, disabled states, loading states.
+   * How: keyboard tabbing, simulate slow network.
+   * Pass: states visible and accessible. **High**
+
+6. Font loading & FOUT/FOIT
+
+   * What: fonts loaded with `font-display` fallback, no long invisible text.
+   * How: throttle network to slow and inspect behavior.
+   * Pass: content visible quickly with fallback font. **Medium**
+
+7. Placeholder copy removed
+
+   * What: no lorem ipsum or dev notes.
+   * How: scan pages for placeholders.
+   * Pass: only final approved copy present. **Low**
+
+---
+
+## C — Accessibility (A11y)
+
+Compliance with WCAG and keyboard/screen reader friendliness.
+
+1. Semantic HTML & heading order
+
+   * Test: run axe/Lighthouse and manual checks.
+   * Pass: no critical heading order issues. **High**
+
+2. Color contrast
+
+   * Test: 4.5:1 for normal text, 3:1 for large text.
+   * Pass: all critical text meets contrast. **High**
+
+3. Alt text & meaningful labels
+
+   * Test: scan images, ARIA labels for dynamic controls.
+   * Pass: meaningful alt text or empty alt for decorative images. **High**
+
+4. Keyboard navigation
+
+   * Test: tab through all pages and forms, interactive widgets reachable.
+   * Pass: full functionality without mouse. **High**
+
+5. Screen reader behavior
+
+   * Test: NVDA/VoiceOver walkthrough of critical flows (signup, purchase).
+   * Pass: logical reading order, announcements for dynamic changes. **High**
+
+6. Accessible forms
+
+   * Test: labels associated, error messages pointed to `aria-describedby`.
+   * Pass: forms accessible when using a screen reader. **High**
+
+7. Accessibility audit & remediation plan
+
+   * Test: run axe, Lighthouse; log issues and priorities.
+   * Pass: no critical issues remain. **Critical for public sites**
+
+---
+
+## D — Performance & Optimization
+
+Performance affects UX and SEO.
+
+1. Lighthouse audits (performance, accessibility, best practices, SEO)
+
+   * Test: run on staging for main pages.
+   * Pass: meet team targets (e.g., Perf > 60/90 depending on app). **High**
+
+2. First Contentful Paint (FCP) & Time to Interactive (TTI)
+
+   * Test: measure with Lighthouse, WebPageTest.
+   * Pass: within target thresholds. **High**
+
+3. JS & CSS bundling, code-splitting, tree-shaking
+
+   * Test: bundle sizes, analyze with source-map-explorer.
+   * Pass: critical path minimized; lazy load non-critical. **High**
+
+4. Image optimization
+
+   * Test: WebP/AVIF where applicable, proper resizing, next-gen formats, responsive `srcset`.
+   * Pass: images sized for viewport and optimized. **High**
+
+5. Caching & CDN
+
+   * Test: Cache-Control headers, cache-busting on deploy, CDN behavior & purge.
+   * Pass: static assets long cache, HTML short cache. **High**
+
+6. Compression (Gzip/Brotli)
+
+   * Test: `curl -I` shows `content-encoding`.
+   * Pass: text assets compressed. **Medium**
+
+7. HTTP/2 or HTTP/3 support
+
+   * Test: check server and CDN support.
+   * Pass: HTTP/2/3 enabled. **Medium**
+
+8. Third-party script audit
+
+   * Test: measure impact of tags (analytics/ads/widgets).
+   * Pass: removed unnecessary scripts and async/defer used. **Medium**
+
+9. Load & stress testing
+
+   * Test: simulate expected and peak+margin traffic (k6, JMeter).
+   * Pass: system handles target concurrency with acceptable error rate and latency. **Critical for high-traffic sites**
+
+10. Monitors for real-user metrics (RUM)
+
+    * Test: set up Real User Monitoring (New Relic/Datadog/RUM).
+    * Pass: RUM data visible and configured. **Medium**
+
+---
+
+## E — Security (very detailed)
+
+Security must be airtight. For every check, require proof (headers, config, logs).
+
+1. HTTPS & HSTS
+
+   * Test: verify cert chain on every hostname, enforce HTTP→HTTPS, HSTS enabled with `includeSubDomains` (if safe).
+   * Pass: no mixed content warnings. **Critical**
+
+2. Secure cookie flags
+
+   * Test: `Secure`, `HttpOnly`, `SameSite` set for auth cookies.
+   * Pass: cookie flags present. **High**
+
+3. CSP (Content Security Policy)
+
+   * Test: implement strict CSP in report-only, then enforce; no `unsafe-inline` unless necessary.
+   * Pass: CSP in place and no unintended blocks. **High**
+
+4. Input validation & output encoding
+
+   * Test: all user-supplied input validated server-side and encoded before output.
+   * Pass: no XSS, stored XSS avoided. **Critical**
+
+5. CSRF protections
+
+   * Test: CSRF token present on forms and validated. For APIs use same-site cookies or tokens.
+   * Pass: CSRF test attempts blocked. **High**
+
+6. Authentication security
+
+   * Test: lockout after failed attempts, password strength, bcrypt/argon2 for hashing, multi-factor for admin.
+   * Pass: secure hashing and lockouts configured. **Critical**
+
+7. Session management
+
+   * Test: session revocation on password change/logout; session expiry; refresh token handling securely.
+   * Pass: sessions behave securely. **High**
+
+8. Secrets management
+
+   * Test: no secrets in repos (grep `.env`), use a vault (AWS Secrets Manager/Azure).
+   * Pass: secrets only in secret manager. **Critical**
+
+9. Dependency vulnerability scanning
+
+   * Test: `npm audit`/Snyk/OSS scanner; update or mitigate vulnerabilities.
+   * Pass: no critical unpatched vulnerabilities. **Critical**
+
+10. Infrastructure & network
+
+    * Test: least privilege IAM, closed unused ports, SSH keys, MFA for console.
+    * Pass: hardened infra. **High**
+
+11. Database security
+
+    * Test: least-privilege DB users, parameterized queries/ORM use.
+    * Pass: no direct DB user with excessive privileges. **High**
+
+12. Logging & error handling
+
+    * Test: no stack traces to users, logging sanitized for PII, structured logs with correlation IDs.
+    * Pass: errors logged safely and helpful. **High**
+
+13. Rate limiting & DDoS protections
+
+    * Test: rate limit thresholds, WAF rules, CDN protections.
+    * Pass: mitigation rules in place. **High**
+
+14. Penetration test & vulns lifecycle
+
+    * Action: schedule external pentest or use internal pentest checklist; remediate critical findings.
+    * Pass: no critical pen-test findings open. **Critical**
+
+15. Privacy & PII handling
+
+    * Test: PII stored only when needed, encryption at rest, data minimization.
+    * Pass: complies with privacy policy and applicable regulations. **Critical**
+
+> Note: For security testing you should require QA to report *safe reproduction steps* and *proof of fix*, and keep all testing limited to your property. For external pen tests, get written authorization.
+
+---
+
+## F — SEO & Social / Marketing readiness
+
+Make sure search engines and social platforms see the site correctly.
+
+1. Titles & meta descriptions
+
+   * Test: unique `<title>` and `<meta description>` per page; lengths OK.
+   * Pass: no duplicates for main pages. **Medium**
+
+2. Robots.txt & sitemap
+
+   * Test: robots.txt accessible and not accidentally disallowing, sitemap.xml present and submitted.
+   * Pass: search engines able to crawl. **High**
+
+3. Structured data / schema
+
+   * Test: Product, Article, Organization JSON-LD validated with Google Rich Results test.
+   * Pass: schema correct and error-free. **Medium**
+
+4. Open Graph & Twitter Cards
+
+   * Test: share a link to Twitter/Facebook and check preview using their debug tools.
+   * Pass: cards display properly. **Medium**
+
+5. Canonicalization & redirects
+
+   * Test: canonical tags, www vs non-www, HTTP→HTTPS 301s, 301s used for permanent moves.
+   * Pass: canonical points to preferred URL. **High**
+
+6. hreflang & localization
+
+   * Test: hreflang tags valid for multi-language sites.
+   * Pass: languages indexed correctly. **Medium**
+
+7. Speed & mobile-first indexing
+
+   * Test: mobile Lighthouse/Google Search Console mobile friendliness.
+   * Pass: mobile passes checks. **High**
+
+---
+
+## G — Analytics, monitoring & observability
+
+Insights + alerting for production.
+
+1. Analytics (GA4 / alternative)
+
+   * Test: page views, events, ecommerce events recorded in real-time.
+   * Pass: events appear in analytics with correct parameters. **High**
+
+2. Tag Management
+
+   * Test: GTM preview mode and QA for tags firing only when consented.
+   * Pass: tags fire correctly and respect consent. **High**
+
+3. Error tracking & logging
+
+   * Test: send test exceptions, confirm capture with proper context (user id, URL).
+   * Pass: Sentry/Loggly receives errors with breadcrumbs. **High**
+
+4. Uptime & synthetic monitoring
+
+   * Test: add monitors for main endpoints and add escalations.
+   * Pass: monitors alert and notifications tested. **High**
+
+5. Alerting & runbooks
+
+   * Test: alerts tied to on-call rotation; runbooks exist for top incidents.
+   * Pass: test alert triggers on-call notification and runbook is accessible. **Critical**
+
+6. Business & conversion dashboards
+
+   * Test: funnels, conversion tracking, key metric dashboards.
+   * Pass: dashboards populated and accurate. **Medium**
+
+---
+
+## H — Data, backup & database operations
+
+Ensure safety of data and ability to recover.
+
+1. Backup schedule, retention, encryption
+
+   * Test: backups for DB and storage run, encrypted and retained per policy.
+   * Pass: last successful backup within window. **Critical**
+
+2. Restore test
+
+   * Test: restore backup to staging, verify sample user data restored.
+   * Pass: restore completes within RTO and data integrity OK. **Critical**
+
+3. Migrations & deploys
+
+   * Test: migration scripts idempotent, backward-compatible where possible, tested in staging.
+   * Pass: migrations applied without data loss. **High**
+
+4. DB performance & indexes
+
+   * Test: slow query log, explain plans, indexes for heavy queries.
+   * Pass: no obvious N+1 queries or missing indexes for key endpoints. **High**
+
+5. Data retention & deletion
+
+   * Test: data deletion flow for GDPR/CCPA requests; soft delete vs purge behavior validated.
+   * Pass: deletion flow works and logs actions. **Medium**
+
+---
+
+## I — Infrastructure, deployment & CI/CD
+
+Reliable, repeatable deployments.
+
+1. CI build reproducibility
+
+   * Test: build artifact created deterministically, tests run in CI pipeline.
+   * Pass: pipeline green on merge. **High**
+
+2. Automated tests in CI
+
+   * Test: unit, integration, E2E run in CI; flakiness flagged.
+   * Pass: required tests must pass before deploy. **High**
+
+3. Deployment strategy
+
+   * Test: blue-green/canary/rolling deploys prepared; feature flags used.
+   * Pass: safe rollback path validated. **Critical**
+
+4. Secrets & env config
+
+   * Test: secrets in vault, no secrets in build logs.
+   * Pass: env config separated for staging/production. **High**
+
+5. Health checks & readiness/liveness probes
+
+   * Test: orchestration returns healthy only when app is ready.
+   * Pass: probes configured and pass. **High**
+
+6. Resource limits & auto-scaling
+
+   * Test: CPU/memory limits set; auto-scale behavior tested under load.
+   * Pass: app scales without OOM or crashloops. **High**
+
+7. DNS & TTL for cutover
+
+   * Test: DNS records verified; TTL lowered before cutover.
+   * Pass: DNS resolves promptly during cutover. **Medium**
+
+8. Maintenance page & maintenance mode
+
+   * Test: display maintenance page with 503 header and Retry-After during maintenance.
+   * Pass: maintenance served correctly. **Low**
+
+---
+
+## J — Logging, error pages & edge cases
+
+User-friendly error handling.
+
+1. Custom 404 & 500 pages
+
+   * Test: configure custom pages and ensure correct HTTP status returned.
+   * Pass: 404 returns 404 status, helpful nav back. **Medium**
+
+2. Error messages
+
+   * Test: user-friendly messages, no leak of internals.
+   * Pass: descriptive but not revealing. **High**
+
+3. Offline behavior (PWA)/graceful degradation
+
+   * Test: service worker caching, offline pages, error handling when APIs fail.
+   * Pass: basic content available offline or helpful message shown. **Medium**
+
+---
+
+## K — Content, copy & localization
+
+Text and assets ready.
+
+1. Final copy review & legal
+
+   * Test: spelling, grammar, legal disclaimers, footer links (Privacy/ToS) present.
+   * Pass: copy approved by content/legal. **Medium**
+
+2. Translations & localization
+
+   * Test: translation completeness, date/currency formatting, RTL if applicable.
+   * Pass: localized content coherent. **Medium**
+
+3. Media assets & brand QA
+
+   * Test: correct logos, colors, svg optimized, Favicon configured.
+   * Pass: brand assets correct and high quality. **Low**
+
+---
+
+## L — Mobile, native OS & device-specific features
+
+Specific mobile behaviors.
+
+1. Mobile touch targets & gestures
+
+   * Test: buttons big enough, no accidental gestures.
+   * Pass: touch targets ≥ 44x44 CSS px. **Medium**
+
+2. Push notifications & PWA
+
+   * Test: permission flows and opt-out, push delivery tested.
+   * Pass: notifications received and routing works. **Low**
+
+3. Mobile app wrappers (if webview used)
+
+   * Test: in-app browser behavior, deep linking, back button handling.
+   * Pass: app wrapper behaves correctly. **Medium**
+
+---
+
+## M — Advanced QA: Automation & test artifacts (must include)
+
+1. Unit tests & coverage thresholds
+
+   * Action: require coverage baseline (e.g., >60% global + 80% for critical modules).
+   * Evidence: coverage report. **High**
+
+2. Integration tests
+
+   * Action: test DB integration and external API stubs.
+   * Evidence: CI run outputs. **High**
+
+3. E2E tests (Cypress/Playwright)
+
+   * Action: core flows covered in E2E with stable fixtures and network stubbing for flakiness.
+   * Evidence: passing suite in CI. **Critical**
+
+4. Regression testing & flaky test policy
+
+   * Action: quarantined flaky tests and root cause tracked.
+   * Evidence: flaky test dashboard. **Medium**
+
+5. Test data & test accounts
+
+   * Action: provide stable test accounts and seeded DB for E2E. Clean up after runs.
+   * Evidence: seeded DB snapshot. **Medium**
+
+---
+
+## N — Release / Launch checklist & runbook (exact tasks)
+
+Do these at scheduled deploy time.
+
+1. Pre-release
+
+   * Freeze: code freeze window and final smoke test.
+   * Verify backups & DB snapshots ready.
+   * Lower DNS TTL if switching domains.
+
+2. Release
+
+   * Run smoke tests (home, login, key path).
+   * Monitor deploy logs & health checks.
+   * Keep team on-call for first 24–72 hours.
+
+3. Post-release (first 72 hours)
+
+   * Watch errors and slow queries.
+   * Verify analytics & conversion tracking live.
+   * Re-enable TTL and run cache purges if needed.
+
+4. Rollback plan
+
+   * Document steps to revert (DB state, code version).
+   * Validate rollback in staging prior to release.
+
+---
+
+## O — Legal / Privacy / Compliance
+
+1. Privacy policy accessible, data handling documented.
+2. Cookie consent & script blocking until consent where required.
+3. Data subject request flows created and tested (export, delete).
+4. Industry compliance: PCI, HIPAA etc. mapped and validated if applicable.
+
+---
+
+## P — Evidence & reporting standards
+
+For each item require:
+
+* Evidence type (screenshot, trace ID, curl output, Lighthouse JSON, CI build id).
+* Tested by: name/date/time.
+* Remediation PR/commit link if fixed.
+
+Suggested columns for spreadsheet/issue tracker:
+`ID | Category | Item | Steps to test | Priority | Pass/Fail/N/A | Evidence link(s) | Tester | Date | Notes | Fix PR`
+
+---
+
+## Q — Example concrete test commands & snippets (for the agent)
+
+(ask the dev to paste these results into the issue tracker)
+
+* Check SSL (replace `example.com`):
+
+```
+openssl s_client -connect example.com:443 -servername example.com -showcerts
+```
+
+* Check headers:
+
+```
+curl -I -L https://example.com/
+```
+
+Look for HSTS, CSP, content-encoding, set-cookie flags.
+
+* Check gzip/brotli compression:
+
+```
+curl -H 'Accept-Encoding: gzip, deflate, br' -I https://example.com/
+```
+
+* Check robots and sitemap:
+
+```
+curl -I https://example.com/robots.txt
+curl -I https://example.com/sitemap.xml
+```
+
+* Smoke test API (example):
+
+```
+curl -X POST https://api.example.com/v1/login -H 'Content-Type: application/json' -d '{"email":"test@staging","password":"password"}' -v
+```
+
+* Lighthouse (CLI) example:
+
+```
+npx @lhci/cli autorun --url=https://staging.example.com
+```
+
+* Run accessibility scan with axe (example conceptual): run axe-core in Cypress or Lighthouse accessibility audit.
+
+(These commands are examples — require the agent to attach outputs.)
+
+---
+
+## R — Final sign-off checklist (what must be true before "GO")
+
+* All **Critical** items are **Pass**.
+* All **High** items are **Pass** or have a documented mitigation with ETA and owner (no open High items without plan).
+* Automated smoke tests pass on production after deploy.
+* Backups are verified and rollback plan tested.
+* On-call rotation and runbooks assigned for first 72 hours.
+* Legal/privacy sign-off completed.
+* Stakeholder confirmation (Product, Security, Ops, Legal) recorded.
+
+---
+
+## S — Optional: Automated QA requirements to demand from the agent
+
+* Provide a CI artifact with: build id, test reports (unit/integration/E2E), bundle size report, dependency scan report, Lighthouse JSON(s), Snyk/`npm audit` output.
+* Provide a link to a staging site that mirrors production environment variables and dataset (sanitized).
+* Provide a runbook document with escalation paths and contact info.
+
+---
+
+## T — Incident & postmortem process (must exist)
+
+* Steps to reproduce and mitigation for top 10 likely incidents.
+* Communications template for outages.
+* Postmortem template and SLA for publishing postmortem.
+
+---
+
+

@@ -2,7 +2,7 @@
 
 export const dynamic = 'force-dynamic';
 
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import MainLayout from '@/components/layout/MainLayout';
 import ScrollHeader from '@/components/layout/ScrollHeader';
@@ -12,7 +12,7 @@ import VideoHeroSection from '@/components/elite/sections/VideoHeroSection';
 import PhilosophySection from '@/components/elite/sections/PhilosophySection';
 import SocialProofSection from '@/components/elite/sections/SocialProofSection';
 import FinalCTASection from '@/components/elite/sections/FinalCTASection';
-import { ArrowRight, CheckCircle2, Sparkles, Zap, Shield, Award, Battery } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import productsData from '../../products-data.json';
 
 // --- Components ---
@@ -52,7 +52,8 @@ function ProductLinesSection() {
 
                   <h3 className="font-serif text-4xl sm:text-5xl text-gray-900 mb-6">LFP India</h3>
                   <p className="text-gray-600 text-lg font-light leading-relaxed mb-12">
-                    Premium Lithium-Iron-Phosphate technology engineered specifically for Indian industrial conditions. Safest, longest-lasting power.
+                    Premium Lithium-Iron-Phosphate technology engineered specifically for Indian
+                    industrial conditions. Safest, longest-lasting power.
                   </p>
 
                   <div className="space-y-4 mb-12">

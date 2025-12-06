@@ -6,7 +6,12 @@ import { Toaster } from 'react-hot-toast';
 import Providers from '@/components/Providers';
 import { ThemeProvider } from '@/lib/theme-provider';
 import { WebVitals, PerformanceMonitor } from '@/components/WebVitals';
-import { OrganizationSchema, WebsiteSchema } from '@/components/JsonLd';
+import {
+  OrganizationSchema,
+  WebsiteSchema,
+  LocalBusinessSchema,
+  FAQSchema,
+} from '@/components/JsonLd';
 import { SkipNav } from '@/components/accessibility/SkipNav';
 import { FocusManager } from '@/components/accessibility/FocusManager';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
@@ -145,6 +150,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* JSON-LD Structured Data */}
         <OrganizationSchema />
         <WebsiteSchema />
+        <LocalBusinessSchema />
+        <FAQSchema />
       </head>
       <body className="bg-primary text-primary antialiased font-sans transition-colors duration-200">
         <ThemeProvider

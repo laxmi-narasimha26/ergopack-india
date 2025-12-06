@@ -233,18 +233,20 @@ export default function ComparisonMatrix({
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className={`p-6 text-center ${product.line === 'xpert-lfp-india'
-                ? 'bg-gradient-to-br from-orange-50/10 via-white/5 to-green-50/10 border border-orange-500/30 rounded-xl'
-                : 'premium-card-dark'
-                }`}
+              className={`p-6 text-center ${
+                product.line === 'xpert-lfp-india'
+                  ? 'bg-gradient-to-br from-orange-50/10 via-white/5 to-green-50/10 border border-orange-500/30 rounded-xl'
+                  : 'premium-card-dark'
+              }`}
             >
               <div
-                className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3 ${product.line === 'xpert-lfp-india'
-                  ? 'bg-orange-500/20 text-orange-400 border border-orange-500/30'
-                  : product.line.includes('X-pert')
-                    ? 'bg-crimson-500/20 text-crimson-400'
-                    : 'bg-amber-500/20 text-amber-400'
-                  }`}
+                className={`inline-block px-3 py-1 rounded-full text-xs font-semibold mb-3 ${
+                  product.line === 'xpert-lfp-india'
+                    ? 'bg-orange-500/20 text-orange-400 border border-orange-500/30'
+                    : product.line.includes('X-pert')
+                      ? 'bg-crimson-500/20 text-crimson-400'
+                      : 'bg-amber-500/20 text-amber-400'
+                }`}
               >
                 {product.line === 'xpert-lfp-india' ? (
                   <span className="flex items-center gap-1">
@@ -257,7 +259,15 @@ export default function ComparisonMatrix({
               <h3 className="text-2xl font-serif font-bold text-white mb-2">{product.fullName}</h3>
               <p className="text-sm text-platinum-400 mb-4">{product.applicationType}</p>
               <Link href={`/products/${product.model.toLowerCase().replace(' ', '')}`}>
-                <button className={product.line === 'xpert-lfp-india' ? "px-4 py-2 rounded-lg bg-orange-600 hover:bg-orange-700 text-white font-medium transition-colors text-sm" : "btn-sm-premium"}>View Details</button>
+                <button
+                  className={
+                    product.line === 'xpert-lfp-india'
+                      ? 'px-4 py-2 rounded-lg bg-orange-600 hover:bg-orange-700 text-white font-medium transition-colors text-sm'
+                      : 'btn-sm-premium'
+                  }
+                >
+                  View Details
+                </button>
               </Link>
             </motion.div>
           ))}
@@ -297,10 +307,10 @@ export default function ComparisonMatrix({
               i === 0 || !p.performance.chainSpeed
                 ? 'equal'
                 : compareValues(
-                  p.performance.chainSpeed,
-                  products[0].performance.chainSpeed || 0,
-                  true
-                )
+                    p.performance.chainSpeed,
+                    products[0].performance.chainSpeed || 0,
+                    true
+                  )
             )}
             unit=" m/min"
             icon={Zap}
@@ -315,10 +325,10 @@ export default function ComparisonMatrix({
               i === 0 || !p.sealingHead.tensionPower
                 ? 'equal'
                 : compareValues(
-                  p.sealingHead.tensionPower.max,
-                  products[0].sealingHead.tensionPower?.max || 0,
-                  true
-                )
+                    p.sealingHead.tensionPower.max,
+                    products[0].sealingHead.tensionPower?.max || 0,
+                    true
+                  )
             )}
             unit="N"
             icon={Gauge}
@@ -334,10 +344,10 @@ export default function ComparisonMatrix({
             i === 0
               ? 'equal'
               : compareValues(
-                p.flexibility.palletWidth.max,
-                products[0].flexibility.palletWidth.max,
-                true
-              )
+                  p.flexibility.palletWidth.max,
+                  products[0].flexibility.palletWidth.max,
+                  true
+                )
           )}
           unit=" cm"
         />
@@ -351,10 +361,10 @@ export default function ComparisonMatrix({
             i === 0
               ? 'equal'
               : compareValues(
-                p.flexibility.palletHeight.max,
-                products[0].flexibility.palletHeight.max,
-                true
-              )
+                  p.flexibility.palletHeight.max,
+                  products[0].flexibility.palletHeight.max,
+                  true
+                )
           )}
           unit=" cm"
         />
@@ -376,10 +386,10 @@ export default function ComparisonMatrix({
               i === 0 || !p.battery.strappingCycles
                 ? 'equal'
                 : compareValues(
-                  p.battery.strappingCycles,
-                  products[0].battery.strappingCycles || 0,
-                  true
-                )
+                    p.battery.strappingCycles,
+                    products[0].battery.strappingCycles || 0,
+                    true
+                  )
             )}
             unit=" cycles"
             icon={Battery}
@@ -492,12 +502,13 @@ export default function ComparisonMatrix({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`p-6 rounded-xl border-2 ${product.line === 'xpert-lfp-india'
+                className={`p-6 rounded-xl border-2 ${
+                  product.line === 'xpert-lfp-india'
                     ? 'border-orange-500/30 bg-gradient-to-br from-orange-500/10 via-white/5 to-green-500/10'
                     : isXpert
                       ? 'border-crimson-500/30 bg-crimson-500/5'
                       : 'border-amber-500/30 bg-amber-500/5'
-                  }`}
+                }`}
               >
                 <h4 className="text-lg font-serif font-semibold text-white mb-3">
                   {product.fullName}
@@ -513,18 +524,20 @@ export default function ComparisonMatrix({
                   {keyBenefits.map((benefit, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm">
                       <Check
-                        className={`h-4 w-4 mt-0.5 flex-shrink-0 ${product.line === 'xpert-lfp-india'
+                        className={`h-4 w-4 mt-0.5 flex-shrink-0 ${
+                          product.line === 'xpert-lfp-india'
                             ? 'text-orange-400'
                             : isXpert
                               ? 'text-crimson-400'
                               : 'text-amber-400'
-                          }`}
+                        }`}
                       />
                       <span className="text-platinum-300">{benefit}</span>
                     </li>
                   ))}
                 </ul>
               </motion.div>
+            );
           })}
         </div>
       </div>

@@ -196,7 +196,7 @@ export default function ProductsPage() {
       <MainLayout>
         <div className="bg-gradient-to-b from-white via-crimson-50/20 to-white min-h-screen">
           {/* Hero Section */}
-          <section className="relative bg-gradient-to-br from-crimson-50 via-white to-crimson-100/40 pt-32 pb-20 overflow-hidden">
+          <section className="relative bg-gradient-to-br from-crimson-50 via-white to-crimson-100/40 pt-20 pb-12 overflow-hidden">
             <div className="absolute inset-0 opacity-10">
               <div className="absolute inset-0 bg-grid-slate-700/50 [mask-image:linear-gradient(0deg,transparent,black)]" />
             </div>
@@ -215,10 +215,10 @@ export default function ProductsPage() {
                   </span>
                 </div>
 
-                <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-bold text-luxury-dark-gray leading-tight mb-8">
+                <h1 className="font-serif text-4xl sm:text-5xl font-bold text-luxury-dark-gray leading-tight mb-6">
                   The ErgoPack Collection
                 </h1>
-                <p className="text-xl sm:text-2xl text-platinum-600 font-light leading-relaxed max-w-4xl mx-auto mb-12">
+                <p className="text-lg sm:text-xl text-platinum-600 font-light leading-relaxed max-w-4xl mx-auto mb-8">
                   Discover the pinnacle of ergonomic strapping technology. From the efficiency of
                   our Economy Line to the advanced precision of the X-pert Line.
                 </p>
@@ -238,12 +238,12 @@ export default function ProductsPage() {
           </section>
 
           {/* X-pert Line Section */}
-          <section className="py-24 bg-luxury-dark-gray relative overflow-hidden">
+          <section className="py-16 bg-luxury-dark-gray relative overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.05)_1px,transparent_1px)] [background-size:24px_24px]" />
             <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-crimson-900/20 to-transparent" />
 
             <div className="max-w-7xl mx-auto px-8 sm:px-12 relative z-10">
-              <div className="mb-20 text-center">
+              <div className="mb-12 text-center">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -255,10 +255,10 @@ export default function ProductsPage() {
                     The Pinnacle of Performance
                   </span>
                 </motion.div>
-                <h2 className="font-serif text-5xl md:text-6xl font-bold text-white mb-6">
+                <h2 className="font-serif text-3xl md:text-4xl font-bold text-white mb-4">
                   X-pert Line
                 </h2>
-                <p className="text-xl text-platinum-300 max-w-3xl mx-auto font-light leading-relaxed">
+                <p className="text-lg text-platinum-300 max-w-3xl mx-auto font-light leading-relaxed">
                   Engineered for high-volume operations requiring maximum speed and precision.
                   Featuring Siemens Touchscreen control, Line-Laser positioning, and Lithium-Ion
                   technology.
@@ -283,9 +283,9 @@ export default function ProductsPage() {
           </section>
 
           {/* Economy Line Section */}
-          <section className="py-24 bg-gradient-to-b from-white to-platinum-50">
+          <section className="py-16 bg-gradient-to-b from-white to-platinum-50">
             <div className="max-w-7xl mx-auto px-8 sm:px-12">
-              <div className="mb-20 text-center">
+              <div className="mb-12 text-center">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -297,7 +297,7 @@ export default function ProductsPage() {
                     The Benchmark of Efficiency
                   </span>
                 </motion.div>
-                <h2 className="font-serif text-5xl md:text-6xl font-bold text-luxury-dark-gray mb-6">
+                <h2 className="font-serif text-3xl md:text-4xl font-bold text-luxury-dark-gray mb-4">
                   Economy Line
                 </h2>
                 <p className="text-xl text-platinum-600 max-w-3xl mx-auto font-light leading-relaxed">
@@ -327,9 +327,9 @@ export default function ProductsPage() {
           <EssentialsSection />
 
           {/* GO Line Section */}
-          <section className="py-24 bg-white">
+          <section className="py-16 bg-white">
             <div className="max-w-7xl mx-auto px-8 sm:px-12">
-              <div className="flex flex-col lg:flex-row items-center gap-16">
+              <div className="flex flex-col lg:flex-row items-center gap-12">
                 <div className="lg:w-1/2">
                   <motion.div
                     initial={{ opacity: 0, x: -40 }}
@@ -342,10 +342,10 @@ export default function ProductsPage() {
                         Uncompromised Mobility
                       </span>
                     </div>
-                    <h2 className="font-serif text-5xl font-bold text-luxury-dark-gray mb-6">
+                    <h2 className="font-serif text-3xl md:text-4xl font-bold text-luxury-dark-gray mb-4">
                       ErgoPack GO
                     </h2>
-                    <p className="text-xl text-platinum-600 font-light leading-relaxed mb-8">
+                    <p className="text-lg text-platinum-600 font-light leading-relaxed mb-6">
                       The portable solution for flexible strapping across multiple locations.
                       Compact, powerful, and ready to go wherever you need it.
                     </p>

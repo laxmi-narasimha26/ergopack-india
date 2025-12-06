@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 
-const productSeries = [
+const productSeries: { name: string; href: string; badge?: string }[] = [
   { name: '700 Series', href: '/products/700-series' },
   { name: '713 Series', href: '/products/713-series' },
   { name: '726 Series', href: '/products/726-series' },
@@ -27,15 +27,7 @@ export const ProductNavigation = () => {
   }, []);
 
   return (
-    <motion.div
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled
-        ? 'bg-background/80 backdrop-blur-md border-b border-border/50 py-3'
-        : 'bg-transparent py-6'
-        }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5, ease: 'circOut' }}
-    >
+    <div className={`w-full bg-ergopack transition-all duration-300 py-3`}>
       <div className="container mx-auto px-6 overflow-x-auto no-scrollbar">
         <div className="flex items-center justify-center min-w-max gap-8 md:gap-12">
           {productSeries.map((series) => {
@@ -51,14 +43,17 @@ export const ProductNavigation = () => {
             return (
               <Link key={series.name} href={series.href} className="relative group">
                 <span
-                  className={`text-sm font-artisan-sans font-medium tracking-wide transition-colors duration-300 ${isActive
-                    ? 'text-foreground'
-                    : 'text-muted-foreground group-hover:text-foreground'
-                    } ${series.badge ? 'flex items-center gap-1.5' : ''}`}
+                  className={`text-sm font-artisan-sans font-medium tracking-wide transition-colors duration-300 ${
+                    isActive
+                      ? 'text-foreground'
+                      : 'text-muted-foreground group-hover:text-foreground'
+                  } ${series.badge ? 'flex items-center gap-1.5' : ''}`}
                 >
                   {series.name}
                   {series.badge && (
-                    <span className="text-lg" title="Exclusively for India">{series.badge}</span>
+                    <span className="text-lg" title="Exclusively for India">
+                      {series.badge}
+                    </span>
                   )}
                 </span>
                 {isActive && (
@@ -73,6 +68,6 @@ export const ProductNavigation = () => {
           })}
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };

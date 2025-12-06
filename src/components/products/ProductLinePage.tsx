@@ -152,13 +152,15 @@ export const ProductLinePage: React.FC<ProductLinePageProps> = ({ line, products
             {
               icon: ShieldCheck,
               title: 'LFP Battery Technology',
-              description: 'Safest lithium chemistry with superior thermal stability and 600 strapping cycles.',
+              description:
+                'Safest lithium chemistry with superior thermal stability and 600 strapping cycles.',
               video: '/videos/demo.mp4',
             },
             {
               icon: Target,
               title: 'India-Optimized',
-              description: 'Engineered for Indian industrial environments and operational patterns.',
+              description:
+                'Engineered for Indian industrial environments and operational patterns.',
             },
             {
               icon: Sparkles,
@@ -168,7 +170,8 @@ export const ProductLinePage: React.FC<ProductLinePageProps> = ({ line, products
             {
               icon: Award,
               title: 'Exclusive',
-              description: 'Available exclusively in India - premium technology for the Indian market.',
+              description:
+                'Available exclusively in India - premium technology for the Indian market.',
             },
           ],
         };
@@ -184,7 +187,7 @@ export const ProductLinePage: React.FC<ProductLinePageProps> = ({ line, products
       <ProductNavigation />
       <div className={`min-h-screen ${info.bgClass}`}>
         {/* Hero Section */}
-        <section className="relative pt-40 pb-32 overflow-hidden">
+        <section className="relative pt-16 pb-16 overflow-hidden">
           <div className="absolute inset-0 opacity-20">
             <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
           </div>
@@ -197,23 +200,24 @@ export const ProductLinePage: React.FC<ProductLinePageProps> = ({ line, products
               className="max-w-4xl"
             >
               <div
-                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 border ${isXpert
-                  ? 'bg-crimson-500/10 border-crimson-500/20 text-crimson-400'
-                  : 'bg-gray-100 border-gray-200 text-gray-600'
-                  }`}
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-full mb-8 border ${
+                  isXpert
+                    ? 'bg-crimson-500/10 border-crimson-500/20 text-crimson-400'
+                    : 'bg-gray-100 border-gray-200 text-gray-600'
+                }`}
               >
                 <Icon className="w-4 h-4" />
                 <span className="text-sm font-bold tracking-widest uppercase">{info.tagline}</span>
               </div>
 
               <h1
-                className={`font-serif text-6xl md:text-8xl font-bold mb-8 leading-tight ${info.textClass}`}
+                className={`font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight ${info.textClass}`}
               >
                 {info.title}
               </h1>
 
               <p
-                className={`text-2xl md:text-3xl font-light leading-relaxed max-w-3xl ${isXpert ? 'text-gray-400' : 'text-gray-600'}`}
+                className={`text-lg md:text-xl font-light leading-relaxed max-w-3xl ${isXpert ? 'text-gray-400' : 'text-gray-600'}`}
               >
                 {info.description}
               </p>
@@ -223,16 +227,16 @@ export const ProductLinePage: React.FC<ProductLinePageProps> = ({ line, products
 
         {/* All Models Section - Horizontal Scrolling Grid */}
         <section
-          className={`py-24 ${isXpert ? 'border-t border-white/5' : 'border-t border-gray-200'}`}
+          className={`py-16 ${isXpert ? 'border-t border-white/5' : 'border-t border-gray-200'}`}
         >
           <div className="container mx-auto px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mb-16"
+              className="mb-12"
             >
-              <h2 className={`font-serif text-5xl md:text-6xl font-bold mb-4 ${info.textClass}`}>
+              <h2 className={`font-serif text-3xl md:text-4xl font-bold mb-4 ${info.textClass}`}>
                 All models.{' '}
                 <span className={isXpert ? 'text-gray-500' : 'text-gray-400'}>Take your pick.</span>
               </h2>
@@ -256,7 +260,7 @@ export const ProductLinePage: React.FC<ProductLinePageProps> = ({ line, products
 
         {/* Why [Line]? Section - Feature Highlights */}
         <section
-          className={`py-24 ${isXpert ? 'bg-gradient-to-b from-transparent to-black/20' : 'bg-gray-50'}`}
+          className={`py-16 ${isXpert ? 'bg-gradient-to-b from-transparent to-black/20' : 'bg-gray-50'}`}
         >
           <div className="container mx-auto px-6">
             <motion.div
@@ -265,7 +269,7 @@ export const ProductLinePage: React.FC<ProductLinePageProps> = ({ line, products
               viewport={{ once: true }}
               className="mb-16 text-center"
             >
-              <h2 className={`font-serif text-5xl md:text-6xl font-bold mb-4 ${info.textClass}`}>
+              <h2 className={`font-serif text-3xl md:text-4xl font-bold mb-4 ${info.textClass}`}>
                 Why {info.title}?
               </h2>
               <p
@@ -292,7 +296,7 @@ export const ProductLinePage: React.FC<ProductLinePageProps> = ({ line, products
         </section>
 
         {/* Experience Section (Video Showcase) */}
-        <section className={`py-32 ${isXpert ? '' : 'bg-white'}`}>
+        <section className={`py-20 ${isXpert ? '' : 'bg-white'}`}>
           <div className="container mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <motion.div
@@ -300,11 +304,11 @@ export const ProductLinePage: React.FC<ProductLinePageProps> = ({ line, products
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
               >
-                <h2 className={`font-serif text-5xl md:text-6xl font-bold mb-8 ${info.textClass}`}>
+                <h2 className={`font-serif text-3xl md:text-4xl font-bold mb-6 ${info.textClass}`}>
                   Experience the difference.
                 </h2>
                 <p
-                  className={`text-xl mb-8 leading-relaxed ${isXpert ? 'text-gray-400' : 'text-gray-600'}`}
+                  className={`text-lg mb-6 leading-relaxed ${isXpert ? 'text-gray-400' : 'text-gray-600'}`}
                 >
                   See the {info.title} in action and discover how it transforms pallet strapping
                   operations with German precision engineering.
@@ -313,10 +317,11 @@ export const ProductLinePage: React.FC<ProductLinePageProps> = ({ line, products
                   <MagneticButton as={motion.div}>
                     <Link
                       href="/contact"
-                      className={`inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 ${isXpert
-                        ? 'bg-crimson-600 text-white hover:bg-crimson-700'
-                        : 'bg-gray-900 text-white hover:bg-gray-800'
-                        }`}
+                      className={`inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 ${
+                        isXpert
+                          ? 'bg-crimson-600 text-white hover:bg-crimson-700'
+                          : 'bg-gray-900 text-white hover:bg-gray-800'
+                      }`}
                     >
                       Request Demo
                       <ArrowRight className="ml-2 w-5 h-5" />
@@ -326,10 +331,11 @@ export const ProductLinePage: React.FC<ProductLinePageProps> = ({ line, products
                   <MagneticButton as={motion.div}>
                     <Link
                       href="/compare?auto=true"
-                      className={`inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold text-lg border-2 transition-all duration-300 ${isXpert
-                        ? 'border-white/20 text-white hover:bg-white/10'
-                        : 'border-gray-200 text-gray-900 hover:bg-gray-50'
-                        }`}
+                      className={`inline-flex items-center justify-center px-8 py-4 rounded-xl font-bold text-lg border-2 transition-all duration-300 ${
+                        isXpert
+                          ? 'border-white/20 text-white hover:bg-white/10'
+                          : 'border-gray-200 text-gray-900 hover:bg-gray-50'
+                      }`}
                     >
                       Compare Models
                       <Scale className="ml-2 w-5 h-5" />
@@ -361,7 +367,7 @@ export const ProductLinePage: React.FC<ProductLinePageProps> = ({ line, products
 
         {/* Final CTA */}
         <section
-          className={`py-32 ${isXpert ? 'bg-gradient-to-b from-luxury-dark-gray to-black' : 'bg-gray-50'}`}
+          className={`py-20 ${isXpert ? 'bg-gradient-to-b from-luxury-dark-gray to-black' : 'bg-gray-50'}`}
         >
           <div className="container mx-auto px-6 text-center">
             <motion.div
@@ -371,21 +377,22 @@ export const ProductLinePage: React.FC<ProductLinePageProps> = ({ line, products
               className="max-w-3xl mx-auto"
             >
               <h2
-                className={`font-serif text-5xl md:text-6xl font-bold mb-8 ${isXpert ? 'text-white' : 'text-gray-900'}`}
+                className={`font-serif text-3xl md:text-4xl font-bold mb-6 ${isXpert ? 'text-white' : 'text-gray-900'}`}
               >
                 Ready to Transform Your Workflow?
               </h2>
-              <p className={`text-xl mb-12 ${isXpert ? 'text-gray-400' : 'text-gray-600'}`}>
+              <p className={`text-lg mb-8 ${isXpert ? 'text-gray-400' : 'text-gray-600'}`}>
                 Our experts are ready to help you choose the perfect {info.title} model for your
                 specific requirements.
               </p>
               <MagneticButton as={motion.div}>
                 <Link
                   href="/contact"
-                  className={`inline-flex items-center px-10 py-5 rounded-full font-bold text-xl transition-all duration-300 ${isXpert
-                    ? 'bg-crimson-600 text-white hover:bg-crimson-700 shadow-lg shadow-crimson-900/30'
-                    : 'bg-gray-900 text-white hover:bg-gray-800 shadow-lg shadow-gray-900/20'
-                    }`}
+                  className={`inline-flex items-center px-10 py-5 rounded-full font-bold text-xl transition-all duration-300 ${
+                    isXpert
+                      ? 'bg-crimson-600 text-white hover:bg-crimson-700 shadow-lg shadow-crimson-900/30'
+                      : 'bg-gray-900 text-white hover:bg-gray-800 shadow-lg shadow-gray-900/20'
+                  }`}
                 >
                   Get a Quote
                   <ChevronRight className="ml-2 w-6 h-6" />

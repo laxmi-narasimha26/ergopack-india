@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { connectDB } from '@/lib/db/mongodb';
-import { ContactRequestModel } from '@/lib/db/models/ContactRequest';
-import { ContactFormData } from '@/types';
+import nodemailer from 'nodemailer';
 
 // Validation schema matching the frontend
 const contactSchema = z.object({
@@ -15,46 +13,186 @@ const contactSchema = z.object({
   message: z.string().max(1000).optional(),
 });
 
+// Rate limiting store (in-memory for simple deployment)
+const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
+
+function checkRateLimit(ip: string): boolean {
+  const now = Date.now();
+  const windowMs = 60 * 60 * 1000; // 1 hour
+  const maxRequests = 5;
+
+  const record = rateLimitStore.get(ip);
+
+  if (!record || record.resetTime < now) {
+    rateLimitStore.set(ip, { count: 1, resetTime: now + windowMs });
+    return true;
+  }
+
+  if (record.count >= maxRequests) {
+    return false;
+  }
+
+  record.count++;
+  return true;
+}
+
+// Create email transporter
+function getTransporter() {
+  // Use environment variables for email configuration
+  return nodemailer.createTransport({
+    host: process.env.SMTP_HOST || 'smtp.gmail.com',
+    port: parseInt(process.env.SMTP_PORT || '587'),
+    secure: process.env.SMTP_SECURE === 'true',
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+  });
+}
+
+async function sendNotificationEmail(data: z.infer<typeof contactSchema>) {
+  const transporter = getTransporter();
+
+  // Email to admin
+  const adminMailOptions = {
+    from: process.env.SMTP_FROM || 'noreply@ergopack-india.com',
+    to: process.env.CONTACT_EMAIL || 'sales@ergopack.in',
+    subject: `New Contact Request from ${data.name} - ${data.company}`,
+    html: `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+        <h2 style="color: #C8102E;">New Contact Request</h2>
+        <table style="width: 100%; border-collapse: collapse;">
+          <tr>
+            <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Name:</strong></td>
+            <td style="padding: 10px; border-bottom: 1px solid #eee;">${data.name}</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Company:</strong></td>
+            <td style="padding: 10px; border-bottom: 1px solid #eee;">${data.company}</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Job Title:</strong></td>
+            <td style="padding: 10px; border-bottom: 1px solid #eee;">${data.jobTitle}</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Email:</strong></td>
+            <td style="padding: 10px; border-bottom: 1px solid #eee;"><a href="mailto:${data.email}">${data.email}</a></td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Phone:</strong></td>
+            <td style="padding: 10px; border-bottom: 1px solid #eee;">${data.phone || 'Not provided'}</td>
+          </tr>
+          <tr>
+            <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Industry:</strong></td>
+            <td style="padding: 10px; border-bottom: 1px solid #eee;">${data.industry}</td>
+          </tr>
+        </table>
+        ${
+          data.message
+            ? `
+          <div style="margin-top: 20px;">
+            <h3>Message:</h3>
+            <p style="background: #f5f5f5; padding: 15px; border-radius: 5px;">${data.message}</p>
+          </div>
+        `
+            : ''
+        }
+        <p style="color: #888; font-size: 12px; margin-top: 20px;">
+          Received at: ${new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })}
+        </p>
+      </div>
+    `,
+  };
+
+  // Confirmation email to user
+  const userMailOptions = {
+    from: process.env.SMTP_FROM || 'noreply@ergopack-india.com',
+    to: data.email,
+    subject: 'Thank you for contacting ErgoPack India',
+    html: `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+        <h2 style="color: #C8102E;">Thank You for Your Interest</h2>
+        <p>Dear ${data.name},</p>
+        <p>Thank you for contacting ErgoPack India. We have received your inquiry and our team will get back to you within 24-48 business hours.</p>
+        <p><strong>Your Request Summary:</strong></p>
+        <ul>
+          <li>Company: ${data.company}</li>
+          <li>Industry: ${data.industry}</li>
+        </ul>
+        <p>In the meantime, feel free to explore our products at <a href="https://ergopack-india.com/products">ergopack-india.com/products</a>.</p>
+        <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
+        <p style="color: #888; font-size: 12px;">
+          ErgoPack India | Premium Pallet Strapping Solutions<br>
+          Made in Germany. Trusted Worldwide.
+        </p>
+      </div>
+    `,
+  };
+
+  // Send both emails
+  try {
+    if (process.env.SMTP_USER && process.env.SMTP_PASS) {
+      await Promise.all([
+        transporter.sendMail(adminMailOptions),
+        transporter.sendMail(userMailOptions),
+      ]);
+      console.log('Notification emails sent successfully');
+    } else {
+      // If email not configured, just log the submission
+      console.log('Email not configured. Contact submission:', {
+        name: data.name,
+        email: data.email,
+        company: data.company,
+        industry: data.industry,
+        timestamp: new Date().toISOString(),
+      });
+    }
+  } catch (error) {
+    console.error('Failed to send email notification:', error);
+    // Don't throw - we still want to accept the submission even if email fails
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
+    // Get client IP for rate limiting
+    const ip =
+      request.headers.get('x-forwarded-for') || request.headers.get('x-real-ip') || 'unknown';
+
+    // Check rate limit
+    if (!checkRateLimit(ip)) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: 'Too many requests. Please try again later.',
+        },
+        { status: 429 }
+      );
+    }
+
     // Parse request body
     const body = await request.json();
 
     // Validate input
     const validatedData = contactSchema.parse(body);
 
-    // Connect to database
-    await connectDB();
+    // Send notification emails
+    await sendNotificationEmail(validatedData);
 
-    // Create contact request
-    const contactRequest = await ContactRequestModel.create({
+    // Log the submission (could be stored in a file or external service)
+    console.log('New contact request:', {
+      timestamp: new Date().toISOString(),
       name: validatedData.name,
       company: validatedData.company,
-      jobTitle: validatedData.jobTitle,
-      email: validatedData.email.toLowerCase(),
+      email: validatedData.email,
       industry: validatedData.industry,
-      phone: validatedData.phone,
-      message: validatedData.message,
-      status: 'new',
-    });
-
-    // TODO: Send email notification to admin and confirmation to user
-    // This would typically use nodemailer or a service like SendGrid
-    // For now, we'll just log it
-    console.log('New contact request:', {
-      id: contactRequest._id,
-      name: contactRequest.name,
-      company: contactRequest.company,
-      email: contactRequest.email,
     });
 
     return NextResponse.json(
       {
         success: true,
-        message: 'Contact request submitted successfully',
-        data: {
-          id: contactRequest._id,
-        },
+        message:
+          'Contact request submitted successfully. We will get back to you within 24-48 hours.',
       },
       { status: 201 }
     );
@@ -66,21 +204,13 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           success: false,
-          error: 'Invalid input data',
-          details: error.errors,
+          error: 'Please check your input and try again.',
+          details: error.errors.map((e) => ({
+            field: e.path.join('.'),
+            message: e.message,
+          })),
         },
         { status: 400 }
-      );
-    }
-
-    // Handle duplicate email (if you want to prevent multiple submissions)
-    if (error instanceof Error && error.message.includes('duplicate')) {
-      return NextResponse.json(
-        {
-          success: false,
-          error: 'A request with this email has already been submitted',
-        },
-        { status: 409 }
       );
     }
 
@@ -88,56 +218,18 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         success: false,
-        error: 'Failed to submit contact request. Please try again later.',
+        error: 'Something went wrong. Please try again or contact us directly at sales@ergopack.in',
       },
       { status: 500 }
     );
   }
 }
 
-// GET endpoint to retrieve contact requests (admin only - would need auth)
-export async function GET(request: NextRequest) {
-  try {
-    // TODO: Add authentication check here
-    // For now, this is just a placeholder
-
-    const { searchParams } = new URL(request.url);
-    const page = parseInt(searchParams.get('page') || '1');
-    const limit = parseInt(searchParams.get('limit') || '10');
-    const status = searchParams.get('status');
-
-    await connectDB();
-
-    const query: any = {};
-    if (status) {
-      query.status = status;
-    }
-
-    const total = await ContactRequestModel.countDocuments(query);
-    const requests = await ContactRequestModel.find(query)
-      .sort({ createdAt: -1 })
-      .skip((page - 1) * limit)
-      .limit(limit)
-      .lean();
-
-    return NextResponse.json({
-      success: true,
-      data: requests,
-      pagination: {
-        page,
-        limit,
-        total,
-        totalPages: Math.ceil(total / limit),
-      },
-    });
-  } catch (error) {
-    console.error('Contact GET API error:', error);
-    return NextResponse.json(
-      {
-        success: false,
-        error: 'Failed to retrieve contact requests',
-      },
-      { status: 500 }
-    );
-  }
+// Health check - no database needed
+export async function GET() {
+  return NextResponse.json({
+    status: 'ok',
+    message: 'Contact API is operational',
+    contact: 'sales@ergopack.in',
+  });
 }
