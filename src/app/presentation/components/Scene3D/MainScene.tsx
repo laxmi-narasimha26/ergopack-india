@@ -3,7 +3,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import {
-    Environment,
     PerspectiveCamera,
     OrbitControls,
     Stars,
@@ -136,12 +135,15 @@ function Scene3DContent({ scrollProgress, currentSection }: Scene3DContentProps)
             <PerspectiveCamera makeDefault position={[0, 2, 15]} fov={50} />
             <CameraRig scrollProgress={scrollProgress} />
 
-            {/* Environment */}
-            <Environment preset="night" />
+            {/* Environment - using lights instead of HDR preset to avoid external loading */}
+            <color attach="background" args={['#000000']} />
             <fog attach="fog" args={['#000000', 10, 50]} />
 
             {/* Ambient lighting */}
-            <ambientLight intensity={0.2} />
+            <ambientLight intensity={0.3} />
+
+            {/* Hemisphere light for soft fill */}
+            <hemisphereLight args={['#1a1a2e', '#000000', 0.5]} />
 
             {/* Main spot light */}
             <spotLight
