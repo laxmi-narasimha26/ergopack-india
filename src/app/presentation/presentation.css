@@ -1,0 +1,37 @@
+/* Presentation Page Styles */
+.presentation-page {
+    --void-black: #000000;
+    --premium-red: #C8102E;
+    --gold-accent: #FFB81C;
+    --glass-white: rgba(255, 255, 255, 0.05);
+    --border-glass: rgba(255, 255, 255, 0.1);
+}
+
+.glass-card {
+    background: var(--glass-white);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-glass);
+}
+
+.text-gradient-red {
+    background: linear-gradient(135deg, #C8102E 0%, #FF4444 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.text-gradient-gold {
+    background: linear-gradient(135deg, #FFB81C 0%, #FFD700 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.glow-red {
+    box-shadow: 0 0 60px rgba(200, 16, 46, 0.4);
+}
+
+.glow-gold {
+    box-shadow: 0 0 60px rgba(255, 184, 28, 0.4);
+}
