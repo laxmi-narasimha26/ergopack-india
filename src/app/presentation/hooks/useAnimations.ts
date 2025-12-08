@@ -56,8 +56,12 @@ export function useScrollProgress(totalSections: number = 10) {
 
     useEffect(() => {
         const handleScroll = () => {
-            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollTop = window.scrollY;
+            const scrollHeight = Math.max(
+                document.documentElement.scrollHeight,
+                document.body.scrollHeight,
+                document.documentElement.offsetHeight
+            ) - window.innerHeight;
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
             const progress = scrollHeight > 0 ? scrollTop / scrollHeight : 0;
 
             setScrollProgress(Math.min(1, Math.max(0, progress)));
