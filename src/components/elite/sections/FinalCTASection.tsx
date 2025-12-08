@@ -18,7 +18,7 @@ export default function FinalCTASection() {
           </h2>
           <MagneticButton href="/contact">
             <button className="px-12 py-5 bg-artisan-black text-white rounded-full text-sm uppercase tracking-widest hover:bg-gray-900 transition-colors duration-300">
-              Request Private Briefing
+              Contact Sales
             </button>
           </MagneticButton>
         </motion.div>
