@@ -26,6 +26,7 @@ import { FeatureShowcase } from '@/components/products/FeatureShowcase';
 import { GallerySection } from '@/components/products/GallerySection';
 import { TrustSignalsSection } from './sections/TrustSignalsSection';
 import { FinalCTASection } from './sections/FinalCTASection';
+import { ProductInquirySection } from './sections/ProductInquirySection';
 import { ProductNavigation } from '@/components/products/ProductNavigation';
 import { BatteryPerformance } from '@/components/products/BatteryPerformance';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
@@ -313,6 +314,12 @@ export default function ProductPage({ params }: ProductPageProps) {
           certifications={certifications}
           madeInGermany={true}
           warranty="2 Year"
+        />
+
+        {/* Product Inquiry Section */}
+        <ProductInquirySection
+          productName={product.name}
+          productModel={product.specifications.model}
         />
 
         {/* Final CTA Section */}
