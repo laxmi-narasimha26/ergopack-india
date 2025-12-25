@@ -1,7 +1,8 @@
 'use client';
+// Build: 2024-12-08T14:25:00 - Cache Buster
 
 import { motion } from 'framer-motion';
-import { MagneticButton } from '@/components/ui/MagneticButton';
+import Link from 'next/link';
 
 export default function FinalCTASection() {
   return (
@@ -16,11 +17,11 @@ export default function FinalCTASection() {
           <h2 className="font-serif text-5xl sm:text-7xl text-artisan-black mb-12">
             Experience the <span className="italic text-artisan-gold">Excellence.</span>
           </h2>
-          <MagneticButton href="/contact">
+          <Link href="/contact">
             <button className="px-12 py-5 bg-artisan-black text-white rounded-full text-sm uppercase tracking-widest hover:bg-gray-900 transition-colors duration-300">
-              Contact Sales
+              CONTACT SALES
             </button>
-          </MagneticButton>
+          </Link>
         </motion.div>
       </div>
     </section>

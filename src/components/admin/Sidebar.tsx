@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LayoutDashboard, FileText, MessageSquare, Image, LogOut, Menu, X } from 'lucide-react';
+import { LayoutDashboard, FileText, MessageSquare, Image, LogOut, Menu, X, Package } from 'lucide-react';
 import { signOut } from 'next-auth/react';
 import { useState } from 'react';
 
@@ -10,6 +10,7 @@ const navigation = [
   { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
   { name: 'Blogs', href: '/admin/blogs', icon: FileText },
   { name: 'Requests', href: '/admin/requests', icon: MessageSquare },
+  { name: 'Product Inquiries', href: '/admin/product-inquiries', icon: Package },
   { name: 'Media', href: '/admin/media', icon: Image },
 ];
 
@@ -72,10 +73,9 @@ export default function Sidebar() {
                   className={`
                     flex items-center space-x-3 px-4 py-3 rounded-lg
                     transition-all duration-200
-                    ${
-                      isActive
-                        ? 'bg-neutral-800 text-white'
-                        : 'text-neutral-400 hover:bg-neutral-800/50 hover:text-white'
+                    ${isActive
+                      ? 'bg-neutral-800 text-white'
+                      : 'text-neutral-400 hover:bg-neutral-800/50 hover:text-white'
                     }
                   `}
                 >
