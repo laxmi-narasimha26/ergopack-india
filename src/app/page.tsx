@@ -4,16 +4,39 @@ export const dynamic = 'force-dynamic';
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import dynamicImport from 'next/dynamic';
 import MainLayout from '@/components/layout/MainLayout';
 import ScrollHeader from '@/components/layout/ScrollHeader';
 import { MagneticButton } from '@/components/ui/MagneticButton';
-import AppleStyleProductShowcase from '@/components/elite/sections/AppleStyleProductShowcase';
-import VideoHeroSection from '@/components/elite/sections/VideoHeroSection';
-import PhilosophySection from '@/components/elite/sections/PhilosophySection';
-import SocialProofSection from '@/components/elite/sections/SocialProofSection';
-import FinalCTASection from '@/components/elite/sections/FinalCTASection';
+import ImageHeroSection from '@/components/elite/sections/ImageHeroSection';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import productsData from '../../products-data.json';
+
+// Lazy load below-the-fold sections for faster initial load
+const AppleStyleProductShowcase = dynamicImport(
+  () => import('@/components/elite/sections/AppleStyleProductShowcase'),
+  { ssr: true }
+);
+const PhilosophySection = dynamicImport(
+  () => import('@/components/elite/sections/PhilosophySection'),
+  { ssr: true }
+);
+const SocialProofSection = dynamicImport(
+  () => import('@/components/elite/sections/SocialProofSection'),
+  { ssr: true }
+);
+const PartnersSection = dynamicImport(
+  () => import('@/components/elite/sections/PartnersSection'),
+  { ssr: false, loading: () => <div className="h-48 bg-white" /> }
+);
+const TestimonialsFooterSection = dynamicImport(
+  () => import('@/components/testimonials/TestimonialsFooterSection'),
+  { ssr: false, loading: () => <div className="h-96 bg-black" /> }
+);
+const FinalCTASection = dynamicImport(
+  () => import('@/components/elite/sections/FinalCTASection'),
+  { ssr: false }
+);
 
 // --- Components ---
 
@@ -30,56 +53,7 @@ function ProductLinesSection() {
           <h2 className="font-serif text-6xl sm:text-8xl text-artisan-black mb-6">One Standard.</h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* LFP India Exclusive - The "India Card" */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <Link href="/products/lfp-india-exclusive" className="block group h-full">
-              <div className="h-full bg-gradient-to-br from-orange-50 via-white to-green-50 border border-orange-100 p-10 rounded-[2rem] relative overflow-hidden transition-transform duration-700 group-hover:-translate-y-2 shadow-xl shadow-orange-900/5">
-                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-orange-500 via-white to-green-500" />
-
-                <div className="relative z-10">
-                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-orange-200 bg-orange-50 mb-10">
-                    <span className="text-lg">🇮🇳</span>
-                    <span className="text-xs uppercase tracking-widest text-orange-700 font-bold">
-                      India Exclusive
-                    </span>
-                  </div>
-
-                  <h3 className="font-serif text-4xl sm:text-5xl text-gray-900 mb-6">LFP India</h3>
-                  <p className="text-gray-600 text-lg font-light leading-relaxed mb-12">
-                    Premium Lithium-Iron-Phosphate technology engineered specifically for Indian
-                    industrial conditions. Safest, longest-lasting power.
-                  </p>
-
-                  <div className="space-y-4 mb-12">
-                    {[
-                      'LFP Battery Technology',
-                      '600 Strapping Cycles',
-                      '8-Hour Charging',
-                      'Superior Safety',
-                    ].map((item, i) => (
-                      <div key={i} className="flex items-center gap-3">
-                        <div className="w-5 h-5 rounded-full border border-orange-500/30 flex items-center justify-center bg-orange-50">
-                          <CheckCircle2 className="w-3 h-3 text-orange-600" />
-                        </div>
-                        <span className="text-gray-700 font-light text-sm">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="flex items-center gap-4 text-orange-600 font-bold group-hover:gap-6 transition-all duration-300">
-                    <span>Explore LFP India</span>
-                    <ArrowRight className="w-5 h-5" />
-                  </div>
-                </div>
-              </div>
-            </Link>
-          </motion.div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
           {/* X-pert Line - The "Black Card" */}
           <motion.div
@@ -188,10 +162,12 @@ export default function HomePage() {
       <ScrollHeader />
       <MainLayout hideLogoInitially={true} noPadding={true}>
         <div className="bg-white selection:bg-artisan-gold selection:text-white">
-          <VideoHeroSection />
+          <ImageHeroSection />
           <AppleStyleProductShowcase />
           <PhilosophySection />
           <SocialProofSection />
+          <PartnersSection />
+          <TestimonialsFooterSection />
           <FinalCTASection />
         </div>
       </MainLayout>
