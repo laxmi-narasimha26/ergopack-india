@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logimat Marble Footer V2</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            background-color: #000;
+            padding: 40px;
+            font-family: 'Lato', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .container {
+            /* Generated Wide Background - Local Copy */
+            background-image: url('../../../../public/images/newsletter/marble_bg_v2.png');
+            background-size: cover;
+            background-position: center;
+            /* or adjust dynamically */
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Specific alignment for the text on the GREY WALL part */
+        .content-left {
+            width: 55%;
+            padding-left: 40px;
+            z-index: 10;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .logo-benz {
+            filter: brightness(0) invert(1);
+            display: block;
+        }
+
+        .title {
+            font-family: 'Playfair Display', serif;
+            color: white;
+            line-height: 1;
+        }
+
+        .highlight-text {
+            color: #d1d5db;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .date-loc {
+            color: #f3f4f6;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .machine-container {
+            width: 45%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            margin-right: -20px;
+            /* pull machine slightly right */
+        }
+
+        .machine-img {
+            object-fit: contain;
+            filter: drop-shadow(-5px 5px 15px rgba(0, 0, 0, 0.4));
+        }
+
+        .booth-badge {
+            background-color: #E30613;
+            color: white;
+            position: absolute;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: left;
+        }
+
+        /* ------------------------------------------- */
+        /* 1200 x 200 - The "Problem" Child */
+        /* ------------------------------------------- */
+        /* Strategy: Scale content down slightly to fit comfortalby, 
+           or use horizontal layout */
+        .size-1200-200 {
+            width: 1200px;
+            height: 200px;
+            background-position: right center;
+        }
+
+        .size-1200-200 .logo-benz {
+            height: 28px;
+            margin-bottom: 25px;
+            margin-top: -10px;
+        }
+
+        /* Lift logo */
+        .size-1200-200 .highlight-text {
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 10px;
+        }
+
+        .size-1200-200 .title {
+            font-size: 36px;
+            display: inline-block;
+            margin: 0;
+            vertical-align: middle;
+            margin-top: -4px;
+        }
+
+        .size-1200-200 .date-loc {
+            display: block;
+            margin-top: 5px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            padding-top: 5px;
+            font-size: 12px;
+            width: fit-content;
+        }
+
+        .size-1200-200 .content-left {
+            padding-left: 50px;
+            justify-content: center;
+            width: 60%;
+        }
+
+        /* Machine needs to fit in 200px height. 
+           If use 100% height, it's 200px tall. Realistically small. 
+           However, user wants it to look "Proper". 
+           We will let it overlap top/bottom or just be small? 
+           "Size must be 1200x200". We can't leak. 
+           So machine is small (approx 190px). 
+           To balance, we place it further right. */
+        .size-1200-200 .machine-img {
+            height: 90%;
+            margin-right: 100px;
+            margin-bottom: 5px;
+        }
+
+        .size-1200-200 .booth-badge {
+            bottom: 15px;
+            left: 560px;
+            right: auto;
+            padding: 8px 12px;
+        }
+
+        .size-1200-200 .booth-badge span {
+            font-size: 8px;
+            display: block;
+        }
+
+        .size-1200-200 .booth-badge strong {
+            font-size: 14px;
+            display: block;
+        }
+
+
+        /* ------------------------------------------- */
+        /* 1200 x 400 - Easier */
+        /* ------------------------------------------- */
+        .size-1200-400 {
+            width: 1200px;
+            height: 400px;
+            background-position: center bottom;
+        }
+
+        .size-1200-400 .logo-benz {
+            height: 50px;
+            margin-bottom: 30px;
+        }
+
+        .size-1200-400 .title {
+            font-size: 64px;
+            margin-bottom: 15px;
+        }
+
+        .size-1200-400 .machine-img {
+            height: 90%;
+            margin-right: 100px;
+        }
+
+        .size-1200-400 .booth-badge {
+            bottom: 30px;
+            right: 40px;
+            padding: 15px 30px;
+        }
+
+        .size-1200-400 .booth-badge span {
+            font-size: 12px;
+            display: block;
+        }
+
+        .size-1200-400 .booth-badge strong {
+            font-size: 24px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1200 x 200 -->
+    <div class="container size-1200-200">
+        <div class="content-left">
+            <img src="../../../public/_email/benz-logo.png" class="logo-benz" alt="Benz Packaging">
+            <div>
+                <span class="highlight-text">MEET US AT</span>
+                <span class="title">LogiMAT India 2026</span>
+            </div>
+            <div class="date-loc">5-7 February 2026 | Bombay Exhibition Centre</div>
+        </div>
+        <div class="machine-container">
+            <img src="../../eg/ergopack_machine.webp" class="machine-img" alt="Machine">
+            <div class="booth-badge">
+                <span>BOOTH</span>
+                <strong>C09-07</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1200 x 400 -->
+    <div class="container size-1200-400">
+        <div class="content-left">
+            <img src="../../../public/_email/benz-logo.png" class="logo-benz" alt="Benz Packaging">
+            <span class="highlight-text">MEET US AT</span>
+            <h1 class="title">LogiMAT India 2026</h1>
+            <div class="date-loc">5-7 February 2026 | Bombay Exhibition Centre</div>
+        </div>
+        <div class="machine-container">
+            <img src="../../eg/ergopack_machine.webp" class="machine-img" alt="Machine">
+            <div class="booth-badge">
+                <span>BOOTH</span>
+                <strong>C09-07</strong>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

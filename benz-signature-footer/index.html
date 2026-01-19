@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benz Packaging - Premium Signature</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #0a0a0a;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .signature-container {
+            width: 600px;
+            height: 180px;
+            background: linear-gradient(135deg, #0d1117 0%, #161b22 50%, #0d1117 100%);
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+            box-shadow:
+                0 25px 50px -12px rgba(0, 0, 0, 0.8),
+                0 0 0 1px rgba(212, 175, 55, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        /* Animated gradient border */
+        .signature-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg,
+                    transparent,
+                    #d4af37,
+                    #f4d03f,
+                    #d4af37,
+                    transparent);
+            background-size: 200% 100%;
+            animation: shimmerBorder 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmerBorder {
+
+            0%,
+            100% {
+                background-position: -200% 0;
+            }
+
+            50% {
+                background-position: 200% 0;
+            }
+        }
+
+        /* Floating particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.8), transparent);
+            border-radius: 50%;
+            animation: floatParticle 8s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .particle:nth-child(2) {
+            left: 25%;
+            animation-delay: 1s;
+        }
+
+        .particle:nth-child(3) {
+            left: 45%;
+            animation-delay: 2s;
+        }
+
+        .particle:nth-child(4) {
+            left: 65%;
+            animation-delay: 3s;
+        }
+
+        .particle:nth-child(5) {
+            left: 85%;
+            animation-delay: 4s;
+        }
+
+        @keyframes floatParticle {
+
+            0%,
+            100% {
+                transform: translateY(180px) scale(0);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 1;
+                transform: translateY(140px) scale(1);
+            }
+
+            80% {
+                opacity: 0.5;
+                transform: translateY(20px) scale(0.5);
+            }
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 25px 35px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 50%, #d4af37 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 35px rgba(212, 175, 55, 0.6);
+            }
+        }
+
+        .logo-icon svg {
+            width: 30px;
+            height: 30px;
+            fill: #0d1117;
+        }
+
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .company-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #d4af37 0%, #f4d03f 30%, #fff5cc 50%, #f4d03f 70%, #d4af37 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmerText 4s linear infinite;
+            letter-spacing: 2px;
+        }
+
+        @keyframes shimmerText {
+            0% {
+                background-position: 0% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        .tagline {
+            font-size: 11px;
+            color: rgba(212, 175, 55, 0.7);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 4px;
+            font-weight: 400;
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg,
+                    transparent 0%,
+                    rgba(212, 175, 55, 0.3) 20%,
+                    rgba(212, 175, 55, 0.5) 50%,
+                    rgba(212, 175, 55, 0.3) 80%,
+                    transparent 100%);
+            margin: 12px 0;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .contact-items {
+            display: flex;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 11px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: #d4af37;
+        }
+
+        .contact-item svg {
+            width: 14px;
+            height: 14px;
+            fill: #d4af37;
+            opacity: 0.8;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-icon {
+            width: 28px;
+            height: 28px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .social-icon:hover {
+            background: rgba(212, 175, 55, 0.1);
+            border-color: rgba(212, 175, 55, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .social-icon svg {
+            width: 14px;
+            height: 14px;
+            fill: #d4af37;
+        }
+
+        /* Ambient light effect */
+        .ambient-light {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15), transparent 70%);
+            border-radius: 50%;
+            animation: ambientMove 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes ambientMove {
+
+            0%,
+            100% {
+                top: -50px;
+                left: -50px;
+                opacity: 0.5;
+            }
+
+            25% {
+                top: 50%;
+                left: 30%;
+                opacity: 0.8;
+            }
+
+            50% {
+                top: -30px;
+                left: 70%;
+                opacity: 0.5;
+            }
+
+            75% {
+                top: 60%;
+                left: 50%;
+                opacity: 0.7;
+            }
+        }
+
+        /* Corner accents */
+        .corner-accent {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            pointer-events: none;
+        }
+
+        .corner-accent.top-right {
+            top: 10px;
+            right: 10px;
+            border-left: none;
+            border-bottom: none;
+            border-radius: 0 8px 0 0;
+        }
+
+        .corner-accent.bottom-left {
+            bottom: 10px;
+            left: 10px;
+            border-right: none;
+            border-top: none;
+            border-radius: 0 0 0 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="signature-container">
+        <!-- Ambient light -->
+        <div class="ambient-light"></div>
+
+        <!-- Corner accents -->
+        <div class="corner-accent top-right"></div>
+        <div class="corner-accent bottom-left"></div>
+
+        <!-- Floating particles -->
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+
+        <div class="content">
+            <div class="header">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-4h2v-2h-2v2zm0-4h2V7h-2v5z" />
+                        <path d="M12 6l-4 4h3v4h2v-4h3l-4-4z" />
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <div class="company-name">BENZ PACKAGING</div>
+                    <div class="tagline">Excellence in Packaging Solutions</div>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="contact-row">
+                <div class="contact-items">
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+                        </svg>
+                        <span>+91 98765 43210</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                        </svg>
+                        <span>info@benzpackaging.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                        </svg>
+                        <span>Mumbai, India</span>
+                    </div>
+                </div>
+
+                <div class="social-icons">
+                    <div class="social-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+                        </svg>
+                    </div>
+                    <div class="social-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" />
+                        </svg>
+                    </div>
+                    <div class="social-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add subtle mouse tracking for ambient light
+        const container = document.querySelector('.signature-container');
+        const ambientLight = document.querySelector('.ambient-light');
+
+        container.addEventListener('mousemove', (e) => {
+            const rect = container.getBoundingClientRect();
+            const x = e.clientX - rect.left - 75;
+            const y = e.clientY - rect.top - 75;
+            ambientLight.style.left = x + 'px';
+            ambientLight.style.top = y + 'px';
+            ambientLight.style.animation = 'none';
+        });
+
+        container.addEventListener('mouseleave', () => {
+            ambientLight.style.animation = 'ambientMove 8s ease-in-out infinite';
+        });
+    </script>
+</body>
+
+</html>
+</CodeContent>
+<parameter name="EmptyFile">false

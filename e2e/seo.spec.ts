@@ -20,7 +20,7 @@ test.describe('SEO Validation', () => {
 
     test('should have Open Graph tags', async ({ page }) => {
       await page.goto('/');
-
+      v;
       const ogTitle = await page.locator('meta[property="og:title"]').getAttribute('content');
       expect(ogTitle).toBeTruthy();
 

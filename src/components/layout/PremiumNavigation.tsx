@@ -4,13 +4,12 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Package, Factory, FileText, Mail, Search } from 'lucide-react';
+import { Menu, X, Package, Factory, FileText, Mail } from 'lucide-react';
 
 const navItems = [
   { href: '/products', label: 'Products', icon: Package },
   { href: '/testimonials', label: 'Testimonials', icon: FileText },
   { href: '/about', label: 'About Us', icon: Factory },
-  { href: '/support', label: 'Support', icon: Search },
   { href: '/contact', label: 'Contact', icon: Mail },
 ];
 

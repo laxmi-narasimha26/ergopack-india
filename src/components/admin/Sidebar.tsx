@@ -2,16 +2,14 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LayoutDashboard, FileText, MessageSquare, Image, LogOut, Menu, X, Package } from 'lucide-react';
+import { LayoutDashboard, MessageSquare, FileText, LogOut, Menu, X } from 'lucide-react';
 import { signOut } from 'next-auth/react';
 import { useState } from 'react';
 
 const navigation = [
   { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
+  { name: 'Contact Requests', href: '/admin/requests', icon: MessageSquare },
   { name: 'Blogs', href: '/admin/blogs', icon: FileText },
-  { name: 'Requests', href: '/admin/requests', icon: MessageSquare },
-  { name: 'Product Inquiries', href: '/admin/product-inquiries', icon: Package },
-  { name: 'Media', href: '/admin/media', icon: Image },
 ];
 
 export default function Sidebar() {
@@ -27,7 +25,7 @@ export default function Sidebar() {
       {/* Mobile menu button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-neutral-900 text-white rounded-lg"
+        className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-white shadow-md text-gray-700 rounded-lg"
       >
         {isOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
@@ -35,7 +33,7 @@ export default function Sidebar() {
       {/* Overlay */}
       {isOpen && (
         <div
-          className="lg:hidden fixed inset-0 bg-black/50 z-30"
+          className="lg:hidden fixed inset-0 bg-black/30 z-30"
           onClick={() => setIsOpen(false)}
         />
       )}
@@ -43,19 +41,23 @@ export default function Sidebar() {
       {/* Sidebar */}
       <aside
         className={`
-          fixed top-0 left-0 z-40 h-screen w-64 bg-neutral-900 text-neutral-100
+          fixed top-0 left-0 z-40 h-screen w-64 bg-white border-r border-gray-200 shadow-sm
           transition-transform duration-300 ease-in-out
           ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
         `}
       >
         <div className="flex flex-col h-full">
           {/* Logo */}
-          <div className="p-6 border-b border-neutral-800">
-            <Link href="/admin" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-neutral-600 to-neutral-800 rounded-lg" />
-              <span className="text-xl font-bold">ErgoPack</span>
+          <div className="p-6 border-b border-gray-200">
+            <Link href="/admin" className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-[#C8102E] to-[#FF4444] rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-lg">E</span>
+              </div>
+              <div>
+                <span className="text-xl font-bold text-gray-900">ErgoPack</span>
+                <p className="text-xs text-gray-500">Admin Panel</p>
+              </div>
             </Link>
-            <p className="text-xs text-neutral-400 mt-1">Admin Panel</p>
           </div>
 
           {/* Navigation */}
@@ -73,9 +75,10 @@ export default function Sidebar() {
                   className={`
                     flex items-center space-x-3 px-4 py-3 rounded-lg
                     transition-all duration-200
-                    ${isActive
-                      ? 'bg-neutral-800 text-white'
-                      : 'text-neutral-400 hover:bg-neutral-800/50 hover:text-white'
+                    ${
+                      isActive
+                        ? 'bg-[#C8102E] text-white shadow-md'
+                        : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900'
                     }
                   `}
                 >
@@ -87,11 +90,11 @@ export default function Sidebar() {
           </nav>
 
           {/* User info & logout */}
-          <div className="p-4 border-t border-neutral-800">
+          <div className="p-4 border-t border-gray-200">
             <button
               onClick={handleSignOut}
               className="flex items-center space-x-3 px-4 py-3 w-full rounded-lg
-                text-neutral-400 hover:bg-neutral-800/50 hover:text-white
+                text-gray-600 hover:bg-red-50 hover:text-red-600
                 transition-all duration-200"
             >
               <LogOut size={20} />

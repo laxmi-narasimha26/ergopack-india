@@ -11,3 +11,4 @@ public/workbox-*.js
 package-lock.json
 yarn.lock
 pnpm-lock.yaml
+temp_clean_comparison.tsx

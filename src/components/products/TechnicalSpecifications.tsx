@@ -55,7 +55,10 @@ export const TechnicalSpecifications: React.FC<TechnicalSpecificationsProps> = (
               </h3>
               <ul className="space-y-4">
                 {category.items.map((item, index) => (
-                  <li key={index} className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 sm:gap-4 group/item">
+                  <li
+                    key={index}
+                    className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline gap-1 sm:gap-4 group/item"
+                  >
                     <span className="text-sm text-muted-foreground font-artisan-sans uppercase tracking-wide group-hover/item:text-foreground transition-colors">
                       {item.label}
                     </span>

@@ -5,6 +5,7 @@ import { useRef } from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
+import VideoPosterLink from '@/components/media/VideoPosterLink';
 
 const ProductSection = ({
   title,
@@ -117,15 +118,15 @@ const ProductSection = ({
               className={`absolute inset-0 z-10 pointer-events-none ${theme === 'dark' ? 'shadow-[inset_0_0_100px_rgba(0,0,0,0.5)]' : 'shadow-[inset_0_0_100px_rgba(255,255,255,0.2)]'}`}
             />
 
-            <video
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover transform scale-105"
-            >
-              <source src={videoSource} type="video/mp4" />
-            </video>
+            <VideoPosterLink
+              videoSrc={videoSource}
+              title={`${title} demo`}
+              className="w-full h-full"
+              imageClassName="object-cover transform scale-105"
+              sizes="(max-width: 1024px) 100vw, 900px"
+              linkLabel="Watch video"
+              linkClassName="absolute bottom-6 left-6 inline-flex items-center gap-2 rounded-full border border-white/30 bg-black/40 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-sm transition hover:bg-black/60"
+            />
 
             <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-20 pointer-events-none z-20" />
           </motion.div>

@@ -46,22 +46,22 @@ export default function Footer() {
             </p>
             <div className="space-y-3">
               <a
-                href="mailto:contact@ergopack-india.com"
+                href="mailto:sales@ergopack-india.com"
                 className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
               >
                 <Mail className="w-4 h-4 mr-2" />
-                contact@ergopack-india.com
+                sales@ergopack-india.com
               </a>
               <a
-                href="tel:+911234567890"
+                href="tel:+919899144488"
                 className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
               >
                 <Phone className="w-4 h-4 mr-2" />
-                +91 123 456 7890
+                +91 98991 44488
               </a>
               <div className="flex items-start text-gray-600">
                 <MapPin className="w-4 h-4 mr-2 mt-1 flex-shrink-0" />
-                <span>Mumbai, Maharashtra, India</span>
+                <span>Gurgaon, Haryana, India</span>
               </div>
             </div>
           </div>

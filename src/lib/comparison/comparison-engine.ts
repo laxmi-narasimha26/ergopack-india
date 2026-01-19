@@ -490,7 +490,7 @@ function extractFeaturesAccessories(products: Product[]): ComparisonAttribute[] 
     attrs.push(
       createAttribute('optionalAccessories', 'Optional Accessories', products, (p) =>
         p.comparison.featuresAccessories.optional &&
-          p.comparison.featuresAccessories.optional.length > 0
+        p.comparison.featuresAccessories.optional.length > 0
           ? p.comparison.featuresAccessories.optional.join(', ')
           : 'None listed'
       )

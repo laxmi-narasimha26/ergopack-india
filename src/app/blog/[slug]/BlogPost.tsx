@@ -20,6 +20,7 @@ import { Blog } from '@/types';
 import Badge from '@/components/ui/Badge';
 import Card from '@/components/ui/Card';
 import ReactMarkdown from 'react-markdown';
+import SmartImage from '@/components/media/SmartImage';
 
 interface BlogPostProps {
   blog: Blog;
@@ -155,12 +156,14 @@ export default function BlogPost({ blog, relatedBlogs }: BlogPostProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-12 rounded-2xl overflow-hidden"
+            className="relative mb-12 rounded-2xl overflow-hidden aspect-video"
           >
-            <img
+            <SmartImage
               src={blog.coverImage}
               alt={blog.title}
-              className="w-full aspect-video object-cover"
+              fill
+              sizes="(max-width: 1024px) 100vw, 960px"
+              className="object-cover"
             />
           </motion.div>
         )}
@@ -220,6 +223,19 @@ export default function BlogPost({ blog, relatedBlogs }: BlogPostProps) {
                   {children}
                 </a>
               ),
+              img: ({ src, alt }) => {
+                if (!src) return null;
+                return (
+                  <SmartImage
+                    src={src}
+                    alt={alt || ''}
+                    width={1200}
+                    height={800}
+                    sizes="100vw"
+                    className="w-full h-auto rounded-lg my-6"
+                  />
+                );
+              },
             }}
           >
             {blog.content}
@@ -298,11 +314,13 @@ export default function BlogPost({ blog, relatedBlogs }: BlogPostProps) {
                 <Link key={relatedBlog._id} href={`/blog/${relatedBlog.slug}`}>
                   <Card className="h-full hover:border-neutral-700 transition-all duration-300 cursor-pointer group">
                     {relatedBlog.coverImage && (
-                      <div className="aspect-video overflow-hidden rounded-t-xl">
-                        <img
+                      <div className="relative aspect-video overflow-hidden rounded-t-xl">
+                        <SmartImage
                           src={relatedBlog.coverImage}
-                          alt={relatedBlog.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          alt={relatedBlog.title || 'Related article'}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                       </div>
                     )}

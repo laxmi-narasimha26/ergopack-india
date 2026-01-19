@@ -7,6 +7,7 @@ import Button from '@/components/ui/Button';
 import Select from '@/components/ui/Select';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
 import toast from 'react-hot-toast';
+import SmartImage from '@/components/media/SmartImage';
 
 export default function MediaPage() {
   const [media, setMedia] = useState<Media[]>([]);
@@ -190,12 +191,14 @@ export default function MediaPage() {
                 hover:border-neutral-700 transition-all duration-300 group"
             >
               {/* Preview */}
-              <div className="aspect-square bg-neutral-800 flex items-center justify-center overflow-hidden">
+              <div className="relative aspect-square bg-neutral-800 flex items-center justify-center overflow-hidden">
                 {item.type === 'image' ? (
-                  <img
+                  <SmartImage
                     src={item.url}
                     alt={item.alt || item.originalName}
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                    className="object-cover"
                   />
                 ) : (
                   <div className="text-6xl">{getFileIcon(item.type)}</div>

@@ -1,16 +1,12 @@
 'use client';
 
-export const dynamic = 'force-dynamic';
-
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import dynamicImport from 'next/dynamic';
 import MainLayout from '@/components/layout/MainLayout';
 import ScrollHeader from '@/components/layout/ScrollHeader';
-import { MagneticButton } from '@/components/ui/MagneticButton';
 import ImageHeroSection from '@/components/elite/sections/ImageHeroSection';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import productsData from '../../products-data.json';
+import { ArrowRight } from 'lucide-react';
 
 // Lazy load below-the-fold sections for faster initial load
 const AppleStyleProductShowcase = dynamicImport(
@@ -25,18 +21,17 @@ const SocialProofSection = dynamicImport(
   () => import('@/components/elite/sections/SocialProofSection'),
   { ssr: true }
 );
-const PartnersSection = dynamicImport(
-  () => import('@/components/elite/sections/PartnersSection'),
-  { ssr: false, loading: () => <div className="h-48 bg-white" /> }
-);
+const PartnersSection = dynamicImport(() => import('@/components/elite/sections/PartnersSection'), {
+  ssr: false,
+  loading: () => <div className="h-48 bg-white" />,
+});
 const TestimonialsFooterSection = dynamicImport(
   () => import('@/components/testimonials/TestimonialsFooterSection'),
   { ssr: false, loading: () => <div className="h-96 bg-black" /> }
 );
-const FinalCTASection = dynamicImport(
-  () => import('@/components/elite/sections/FinalCTASection'),
-  { ssr: false }
-);
+const FinalCTASection = dynamicImport(() => import('@/components/elite/sections/FinalCTASection'), {
+  ssr: false,
+});
 
 // --- Components ---
 
@@ -54,7 +49,6 @@ function ProductLinesSection() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
           {/* X-pert Line - The "Black Card" */}
           <motion.div
             initial={{ opacity: 0, y: 40 }}

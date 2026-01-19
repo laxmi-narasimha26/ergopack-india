@@ -6,12 +6,11 @@ export default function SocialProofSection() {
   return (
     <section className="py-32 bg-artisan-black text-white border-t border-white/5">
       <div className="max-w-7xl mx-auto px-8 sm:px-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
           {[
-            { value: '10K+', label: 'Systems Deployed' },
-            { value: '55+', label: 'Countries' },
-            { value: '100%', label: 'Made in Germany' },
-            { value: '24/7', label: 'Global Support' },
+            { value: '14,868', label: 'Customers' },
+            { value: '22,303', label: 'Sold machines' },
+            { value: '89,210', label: 'Satisfied users' },
           ].map((stat, i) => (
             <motion.div
               key={i}

@@ -88,54 +88,54 @@ const holographicFragmentShader = `
 `;
 
 interface HolographicMaterialProps {
-    color?: string;
-    opacity?: number;
-    scanlineSpeed?: number;
-    scanlineCount?: number;
-    fresnelPower?: number;
-    glitchIntensity?: number;
+  color?: string;
+  opacity?: number;
+  scanlineSpeed?: number;
+  scanlineCount?: number;
+  fresnelPower?: number;
+  glitchIntensity?: number;
 }
 
 export function HolographicMaterial({
-    color = '#00ffff',
-    opacity = 0.8,
-    scanlineSpeed = 2.0,
-    scanlineCount = 100.0,
-    fresnelPower = 2.0,
-    glitchIntensity = 0.0,
+  color = '#00ffff',
+  opacity = 0.8,
+  scanlineSpeed = 2.0,
+  scanlineCount = 100.0,
+  fresnelPower = 2.0,
+  glitchIntensity = 0.0,
 }: HolographicMaterialProps) {
-    const materialRef = useRef<THREE.ShaderMaterial>(null);
+  const materialRef = useRef<THREE.ShaderMaterial>(null);
 
-    const uniforms = useMemo(
-        () => ({
-            uTime: { value: 0 },
-            uColor: { value: new THREE.Color(color) },
-            uOpacity: { value: opacity },
-            uScanlineSpeed: { value: scanlineSpeed },
-            uScanlineCount: { value: scanlineCount },
-            uFresnelPower: { value: fresnelPower },
-            uGlitchIntensity: { value: glitchIntensity },
-        }),
-        [color, opacity, scanlineSpeed, scanlineCount, fresnelPower, glitchIntensity]
-    );
+  const uniforms = useMemo(
+    () => ({
+      uTime: { value: 0 },
+      uColor: { value: new THREE.Color(color) },
+      uOpacity: { value: opacity },
+      uScanlineSpeed: { value: scanlineSpeed },
+      uScanlineCount: { value: scanlineCount },
+      uFresnelPower: { value: fresnelPower },
+      uGlitchIntensity: { value: glitchIntensity },
+    }),
+    [color, opacity, scanlineSpeed, scanlineCount, fresnelPower, glitchIntensity]
+  );
 
-    useFrame((state) => {
-        if (materialRef.current) {
-            materialRef.current.uniforms.uTime.value = state.clock.elapsedTime;
-        }
-    });
+  useFrame((state) => {
+    if (materialRef.current) {
+      materialRef.current.uniforms.uTime.value = state.clock.elapsedTime;
+    }
+  });
 
-    return (
-        <shaderMaterial
-            ref={materialRef}
-            vertexShader={holographicVertexShader}
-            fragmentShader={holographicFragmentShader}
-            uniforms={uniforms}
-            transparent
-            side={THREE.DoubleSide}
-            depthWrite={false}
-        />
-    );
+  return (
+    <shaderMaterial
+      ref={materialRef}
+      vertexShader={holographicVertexShader}
+      fragmentShader={holographicFragmentShader}
+      uniforms={uniforms}
+      transparent
+      side={THREE.DoubleSide}
+      depthWrite={false}
+    />
+  );
 }
 
 // Energy flow shader for strapping chain
@@ -175,44 +175,44 @@ const energyFragmentShader = `
 `;
 
 interface EnergyMaterialProps {
-    color?: string;
-    speed?: number;
-    pulseWidth?: number;
+  color?: string;
+  speed?: number;
+  pulseWidth?: number;
 }
 
 export function EnergyMaterial({
-    color = '#FFB81C',
-    speed = 0.5,
-    pulseWidth = 0.1,
+  color = '#FFB81C',
+  speed = 0.5,
+  pulseWidth = 0.1,
 }: EnergyMaterialProps) {
-    const materialRef = useRef<THREE.ShaderMaterial>(null);
+  const materialRef = useRef<THREE.ShaderMaterial>(null);
 
-    const uniforms = useMemo(
-        () => ({
-            uTime: { value: 0 },
-            uColor: { value: new THREE.Color(color) },
-            uSpeed: { value: speed },
-            uPulseWidth: { value: pulseWidth },
-        }),
-        [color, speed, pulseWidth]
-    );
+  const uniforms = useMemo(
+    () => ({
+      uTime: { value: 0 },
+      uColor: { value: new THREE.Color(color) },
+      uSpeed: { value: speed },
+      uPulseWidth: { value: pulseWidth },
+    }),
+    [color, speed, pulseWidth]
+  );
 
-    useFrame((state) => {
-        if (materialRef.current) {
-            materialRef.current.uniforms.uTime.value = state.clock.elapsedTime;
-        }
-    });
+  useFrame((state) => {
+    if (materialRef.current) {
+      materialRef.current.uniforms.uTime.value = state.clock.elapsedTime;
+    }
+  });
 
-    return (
-        <shaderMaterial
-            ref={materialRef}
-            vertexShader={energyVertexShader}
-            fragmentShader={energyFragmentShader}
-            uniforms={uniforms}
-            transparent
-            side={THREE.DoubleSide}
-        />
-    );
+  return (
+    <shaderMaterial
+      ref={materialRef}
+      vertexShader={energyVertexShader}
+      fragmentShader={energyFragmentShader}
+      uniforms={uniforms}
+      transparent
+      side={THREE.DoubleSide}
+    />
+  );
 }
 
 // Dissolve shader for materialize effect
@@ -323,48 +323,48 @@ const dissolveFragmentShader = `
 `;
 
 interface DissolveMaterialProps {
-    color?: string;
-    edgeColor?: string;
-    progress?: number;
-    edgeWidth?: number;
+  color?: string;
+  edgeColor?: string;
+  progress?: number;
+  edgeWidth?: number;
 }
 
 export function DissolveMaterial({
-    color = '#ffffff',
-    edgeColor = '#FFB81C',
-    progress = 1.0,
-    edgeWidth = 0.1,
+  color = '#ffffff',
+  edgeColor = '#FFB81C',
+  progress = 1.0,
+  edgeWidth = 0.1,
 }: DissolveMaterialProps) {
-    const materialRef = useRef<THREE.ShaderMaterial>(null);
+  const materialRef = useRef<THREE.ShaderMaterial>(null);
 
-    const uniforms = useMemo(
-        () => ({
-            uTime: { value: 0 },
-            uProgress: { value: progress },
-            uColor: { value: new THREE.Color(color) },
-            uEdgeColor: { value: new THREE.Color(edgeColor) },
-            uEdgeWidth: { value: edgeWidth },
-        }),
-        [color, edgeColor, progress, edgeWidth]
-    );
+  const uniforms = useMemo(
+    () => ({
+      uTime: { value: 0 },
+      uProgress: { value: progress },
+      uColor: { value: new THREE.Color(color) },
+      uEdgeColor: { value: new THREE.Color(edgeColor) },
+      uEdgeWidth: { value: edgeWidth },
+    }),
+    [color, edgeColor, progress, edgeWidth]
+  );
 
-    useFrame((state) => {
-        if (materialRef.current) {
-            materialRef.current.uniforms.uTime.value = state.clock.elapsedTime;
-            materialRef.current.uniforms.uProgress.value = progress;
-        }
-    });
+  useFrame((state) => {
+    if (materialRef.current) {
+      materialRef.current.uniforms.uTime.value = state.clock.elapsedTime;
+      materialRef.current.uniforms.uProgress.value = progress;
+    }
+  });
 
-    return (
-        <shaderMaterial
-            ref={materialRef}
-            vertexShader={dissolveVertexShader}
-            fragmentShader={dissolveFragmentShader}
-            uniforms={uniforms}
-            transparent
-            side={THREE.DoubleSide}
-        />
-    );
+  return (
+    <shaderMaterial
+      ref={materialRef}
+      vertexShader={dissolveVertexShader}
+      fragmentShader={dissolveFragmentShader}
+      uniforms={uniforms}
+      transparent
+      side={THREE.DoubleSide}
+    />
+  );
 }
 
 export { holographicVertexShader, holographicFragmentShader };

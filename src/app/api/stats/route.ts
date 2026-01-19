@@ -4,7 +4,10 @@ import { authOptions, isAuthenticated } from '@/lib/auth';
 import { connectDB } from '@/lib/db/mongodb';
 import { BlogModel } from '@/lib/db/models/Blog';
 import { ContactRequestModel } from '@/lib/db/models/ContactRequest';
+import { ProductInquiryModel } from '@/lib/db/models/ProductInquiry';
 import { DashboardStats, ApiResponse } from '@/types';
+
+export const dynamic = 'force-dynamic';
 
 // GET /api/stats - Get dashboard statistics (protected)
 export async function GET(request: NextRequest) {
@@ -18,9 +21,18 @@ export async function GET(request: NextRequest) {
     await connectDB();
 
     // Get basic counts
-    const [totalRequests, newRequests, totalBlogs, publishedBlogs] = await Promise.all([
+    const [
+      totalRequests,
+      newRequests,
+      totalProductInquiries,
+      newProductInquiries,
+      totalBlogs,
+      publishedBlogs,
+    ] = await Promise.all([
       ContactRequestModel.countDocuments(),
       ContactRequestModel.countDocuments({ status: 'new' }),
+      ProductInquiryModel.countDocuments(),
+      ProductInquiryModel.countDocuments({ status: 'new' }),
       BlogModel.countDocuments(),
       BlogModel.countDocuments({ published: true }),
     ]);
@@ -33,6 +45,12 @@ export async function GET(request: NextRequest) {
 
     // Get recent contact requests
     const recentRequests = await ContactRequestModel.find().sort({ createdAt: -1 }).limit(5).lean();
+
+    // Get recent product inquiries
+    const recentProductInquiries = await ProductInquiryModel.find()
+      .sort({ createdAt: -1 })
+      .limit(5)
+      .lean();
 
     // Get recent blogs
     const recentBlogs = await BlogModel.find()
@@ -103,10 +121,13 @@ export async function GET(request: NextRequest) {
     const stats: DashboardStats = {
       totalRequests,
       newRequests,
+      totalProductInquiries,
+      newProductInquiries,
       totalBlogs,
       publishedBlogs,
       totalViews,
       recentRequests,
+      recentProductInquiries,
       recentBlogs,
       requestsByIndustry,
       requestsByMonth,

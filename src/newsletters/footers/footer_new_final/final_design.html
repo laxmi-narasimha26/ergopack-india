@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logimat Marble Footer</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            background-color: #111;
+            padding: 40px;
+            font-family: 'Lato', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .container {
+            /* Use the generated marble background */
+            background-image: url('../../../../../.gemini/antigravity/brain/dd968869-7b65-4405-9640-085db41b1a7c/marble_studio_bg_wide_1767788222160.png');
+            background-size: cover;
+            background-position: center bottom;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Dark overlay gradient to ensure text readability on the grey wall */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, rgba(80, 82, 71, 0.95) 0%, rgba(80, 82, 71, 0.8) 40%, rgba(80, 82, 71, 0) 100%);
+            z-index: 1;
+        }
+
+        /* Simulating the specific reference color overlay if the BG is too light */
+        .color-tint {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(80, 82, 71, 0.4);
+            /* Dark Olive Tint */
+            mix-blend-mode: multiply;
+            z-index: 1;
+        }
+
+        .content-left {
+            padding-left: 5%;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            width: 55%;
+            position: relative;
+            color: white;
+        }
+
+        .logo-benz {
+            height: 50px;
+            margin-bottom: 25px;
+            filter: brightness(0) invert(1);
+        }
+
+        .highlight-text {
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            color: #e0e0e0;
+        }
+
+        .title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .date-loc {
+            font-family: 'Lato', sans-serif;
+            font-weight: 300;
+            opacity: 0.95;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.4);
+            display: inline-block;
+        }
+
+        .machine-container {
+            width: 45%;
+            height: 100%;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            margin-right: -20px;
+        }
+
+        /* 3D Floor Shadow Simulation for Machine */
+        .machine-shadow {
+            position: absolute;
+            bottom: 5%;
+            right: 15%;
+            width: 60%;
+            height: 20px;
+            background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 70%);
+            transform: skewX(-20deg);
+            z-index: 1;
+        }
+
+        .machine-img {
+            max-height: 92%;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(-5px 0px 10px rgba(0, 0, 0, 0.3));
+            /* Refined shadow */
+            z-index: 2;
+        }
+
+        .booth-badge {
+            background-color: #E30613;
+            color: white;
+            padding: 15px 25px;
+            position: absolute;
+            bottom: 25px;
+            right: 40px;
+            font-weight: 700;
+            text-align: left;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 3;
+        }
+
+        .booth-badge span {
+            font-size: 11px;
+            text-transform: uppercase;
+            display: block;
+        }
+
+        .booth-badge strong {
+            font-size: 20px;
+            display: block;
+        }
+
+        /* ------------------------------------------- */
+        /* 1200 x 400 Variant */
+        /* ------------------------------------------- */
+        .size-1200-400 {
+            width: 1200px;
+            height: 400px;
+        }
+
+        .size-1200-400 .title {
+            font-size: 60px;
+        }
+
+        .size-1200-400 .date-loc {
+            font-size: 20px;
+        }
+
+        .size-1200-400 .machine-img {
+            margin-right: 120px;
+        }
+
+        /* ------------------------------------------- */
+        /* 1200 x 200 Variant (Wide) */
+        /* ------------------------------------------- */
+        .size-1200-200 {
+            width: 1200px;
+            height: 200px;
+        }
+
+        .size-1200-200 .logo-benz {
+            height: 32px;
+            position: absolute;
+            top: 25px;
+            left: 40px;
+            margin: 0;
+        }
+
+        .size-1200-200 .title {
+            font-size: 32px;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 0 0 10px;
+        }
+
+        .size-1200-200 .highlight-text {
+            font-size: 12px;
+            display: inline-block;
+        }
+
+        .size-1200-200 .content-left {
+            width: 65%;
+            display: block;
+            padding-top: 60px;
+            padding-left: 40px;
+            box-sizing: border-box;
+        }
+
+        .size-1200-200 .date-loc {
+            display: block;
+            border: none;
+            padding-top: 5px;
+            font-size: 14px;
+        }
+
+        .size-1200-200 .machine-container {
+            width: 35%;
+        }
+
+        .size-1200-200 .machine-img {
+            max-height: 125%;
+            margin-bottom: -10px;
+            margin-right: 130px;
+        }
+
+        .size-1200-200 .booth-badge {
+            bottom: 15px;
+            right: 15px;
+            padding: 8px 15px;
+        }
+
+        .size-1200-200 .booth-badge span {
+            font-size: 8px;
+        }
+
+        .size-1200-200 .booth-badge strong {
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 1200 x 400 -->
+    <div class="container size-1200-400">
+        <div class="color-tint"></div>
+        <div class="overlay"></div>
+
+        <div class="content-left">
+            <img src="../../../public/_email/benz-logo.png" class="logo-benz" alt="Benz Packaging">
+            <p class="highlight-text">Meet us at</p>
+            <h1 class="title">LogiMAT India 2026</h1>
+            <div class="date-loc">5-7 February 2026 | Bombay Exhibition Centre</div>
+        </div>
+
+        <div class="machine-container">
+            <div class="machine-shadow"></div>
+            <img src="../../../public/images/products/726x.png" class="machine-img" alt="Machine">
+            <div class="booth-badge">
+                <span>BOOTH</span>
+                <strong>C09-07</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1200 x 200 -->
+    <div class="container size-1200-200">
+        <div class="color-tint"></div>
+        <div class="overlay"></div>
+
+        <div class="content-left">
+            <img src="../../../public/_email/benz-logo.png" class="logo-benz" alt="Benz Packaging">
+            <span class="highlight-text">MEET US AT</span>
+            <span class="title">LogiMAT India 2026</span>
+            <div class="date-loc">5-7 February 2026 | Bombay Exhibition Centre</div>
+        </div>
+
+        <div class="machine-container">
+            <div class="machine-shadow"></div>
+            <img src="../../../public/images/products/726x.png" class="machine-img" alt="Machine">
+            <div class="booth-badge">
+                <span>BOOTH</span>
+                <strong>C09-07</strong>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
