@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Block admin and API routes
+Disallow: /api/
+Disallow: /admin/
+
+# Allow search engine crawlers full access to important content
+Allow: /products/
+Allow: /about/
+Allow: /contact/
+Allow: /industries/
+Allow: /ergonomics/
+Allow: /ehs-compliance/
+
+# Sitemap location
+Sitemap: https://ergopack-india.com/sitemap.xml
+
+# Crawl-delay for polite bot behavior
+Crawl-delay: 1

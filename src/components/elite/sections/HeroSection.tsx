@@ -75,8 +75,8 @@ export default function HeroSection({ sectionNumber: _sectionNumber }: { section
             transition={{ duration: 2, delay: 1.6 }}
             className="text-sm md:text-base text-theme-secondary max-w-2xl mx-auto leading-relaxed font-light"
           >
-            25 years of German precision engineering, now empowering India's category leaders with
-            world-class automated strapping solutions.
+            {new Date().getFullYear() - 1998} years of German precision engineering, now empowering
+            India&apos;s category leaders with world-class automated strapping solutions.
           </motion.p>
         </motion.div>
 

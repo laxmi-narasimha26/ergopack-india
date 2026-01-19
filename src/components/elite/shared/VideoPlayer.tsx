@@ -99,6 +99,8 @@ export default function VideoPlayer({ src, poster, title }: VideoPlayerProps) {
         onLoadedMetadata={handleLoadedMetadata}
         onEnded={() => setIsPlaying(false)}
         onClick={togglePlay}
+        preload="metadata"
+        playsInline
       />
 
       {/* Play Button Overlay (when paused) */}

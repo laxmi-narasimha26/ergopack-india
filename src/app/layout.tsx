@@ -17,12 +17,8 @@ import { FocusManager } from '@/components/accessibility/FocusManager';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { LuxuryCursor } from '@/components/ui/LuxuryCursor';
 import { ComparisonProvider } from '@/contexts/ComparisonContext';
+import { ContactPopupProvider } from '@/components/contact/ContactPopupContext';
 import ComparisonWidget from '@/components/comparison/ComparisonWidget';
-
-// Force all routes to render dynamically - prevent static generation errors
-export const dynamic = 'force-dynamic';
-export const dynamicParams = true;
-export const revalidate = 0;
 
 // Ultra-Premium serif for headings - The "Gucci" standard
 const cormorant = Cormorant_Garamond({
@@ -56,20 +52,26 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: 'ErgoPack India | Verifiable Load Integrity',
+    default: 'ErgoPack India | Ergonomic Pallet Strapping - Zero Bending, Zero Back Injuries',
     template: '%s | ErgoPack India',
   },
   description:
-    "ErgoPack India delivers the 'Made in Germany' precision required to mitigate catastrophic shipment risk and protect your brand's reputation at the final, critical checkpoint of your supply chain.",
+    "India's only zero-bending pallet strapping system. German-engineered ergonomic solutions that eliminate back injuries, reduce worker fatigue by 80%, and boost productivity 3x. EHS compliant. Trusted by 10,000+ facilities worldwide.",
   keywords: [
     'ErgoPack',
-    'Load Integrity',
-    'Pallet Strapping',
-    'Supply Chain',
+    'ergonomic pallet strapping',
+    'zero bending strapping',
+    'back injury prevention',
+    'EHS compliance India',
+    'workplace ergonomics',
+    'pallet strapping machine',
+    'ChainLance technology',
     'Made in Germany',
-    'Pharmaceutical Packaging',
-    'Automotive Logistics',
-    'Electronics Shipping',
+    'worker safety equipment',
+    'musculoskeletal disorder prevention',
+    'OSHA compliant strapping',
+    'warehouse ergonomics India',
+    'industrial safety solutions',
   ],
   authors: [{ name: 'ErgoPack India' }],
   creator: 'ErgoPack India',
@@ -176,31 +178,33 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
             <Providers>
               <ComparisonProvider>
-                {children}
-                <ComparisonWidget />
-                <Toaster
-                  position="top-right"
-                  toastOptions={{
-                    duration: 4000,
-                    style: {
-                      background: '#ffffff',
-                      color: '#1a1a1a',
-                      border: '1px solid #e8e8e8',
-                    },
-                    success: {
-                      iconTheme: {
-                        primary: '#10b981',
-                        secondary: '#fff',
+                <ContactPopupProvider>
+                  {children}
+                  <ComparisonWidget />
+                  <Toaster
+                    position="top-right"
+                    toastOptions={{
+                      duration: 4000,
+                      style: {
+                        background: '#ffffff',
+                        color: '#1a1a1a',
+                        border: '1px solid #e8e8e8',
                       },
-                    },
-                    error: {
-                      iconTheme: {
-                        primary: '#d32f2f',
-                        secondary: '#fff',
+                      success: {
+                        iconTheme: {
+                          primary: '#10b981',
+                          secondary: '#fff',
+                        },
                       },
-                    },
-                  }}
-                />
+                      error: {
+                        iconTheme: {
+                          primary: '#d32f2f',
+                          secondary: '#fff',
+                        },
+                      },
+                    }}
+                  />
+                </ContactPopupProvider>
               </ComparisonProvider>
             </Providers>
           </ErrorBoundary>

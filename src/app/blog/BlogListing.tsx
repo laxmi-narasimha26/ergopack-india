@@ -11,6 +11,7 @@ import Select from '@/components/ui/Select';
 import Card from '@/components/ui/Card';
 import Badge from '@/components/ui/Badge';
 import LoadingSpinner from '@/components/ui/LoadingSpinner';
+import SmartImage from '@/components/media/SmartImage';
 
 export default function BlogListing() {
   const [blogs, setBlogs] = useState<Blog[]>([]);
@@ -108,11 +109,13 @@ export default function BlogListing() {
                 <Link key={blog._id} href={`/blog/${blog.slug}`}>
                   <Card className="h-full hover:border-neutral-700 transition-all duration-300 cursor-pointer group">
                     {blog.coverImage && (
-                      <div className="aspect-video overflow-hidden rounded-t-xl">
-                        <img
+                      <div className="relative aspect-video overflow-hidden rounded-t-xl">
+                        <SmartImage
                           src={blog.coverImage}
                           alt={blog.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                       </div>
                     )}
@@ -211,11 +214,13 @@ export default function BlogListing() {
                 <Link href={`/blog/${blog.slug}`}>
                   <Card className="h-full hover:border-neutral-700 transition-all duration-300 cursor-pointer group">
                     {blog.coverImage && (
-                      <div className="aspect-video overflow-hidden rounded-t-xl">
-                        <img
+                      <div className="relative aspect-video overflow-hidden rounded-t-xl">
+                        <SmartImage
                           src={blog.coverImage}
                           alt={blog.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
                         />
                       </div>
                     )}

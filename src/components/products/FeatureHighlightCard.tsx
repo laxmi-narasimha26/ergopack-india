@@ -4,11 +4,14 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { LucideIcon } from 'lucide-react';
+import VideoPosterLink from '@/components/media/VideoPosterLink';
 
 interface FeatureHighlightCardProps {
   icon?: LucideIcon;
   image?: string;
-  video?: string;
+  videoSrc?: string;
+  poster?: string;
+  watchUrl?: string;
   title: string;
   description: string;
   index: number;
@@ -18,7 +21,9 @@ interface FeatureHighlightCardProps {
 export const FeatureHighlightCard: React.FC<FeatureHighlightCardProps> = ({
   icon: Icon,
   image,
-  video,
+  videoSrc,
+  poster,
+  watchUrl,
   title,
   description,
   index,
@@ -38,11 +43,19 @@ export const FeatureHighlightCard: React.FC<FeatureHighlightCardProps> = ({
       className={`group relative border rounded-3xl overflow-hidden p-8 transition-all duration-300 hover:shadow-2xl ${bgClass}`}
     >
       {/* Media Section */}
-      {video ? (
+      {videoSrc ? (
         <div className="relative h-48 mb-6 rounded-2xl overflow-hidden">
-          <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-            <source src={video} type="video/mp4" />
-          </video>
+          <VideoPosterLink
+            videoSrc={videoSrc}
+            posterSrc={poster}
+            watchUrl={watchUrl}
+            title={title}
+            className="w-full h-full"
+            imageClassName="object-cover"
+            sizes="(max-width: 768px) 100vw, 480px"
+            linkLabel="Watch video"
+            linkClassName="absolute bottom-3 left-3 inline-flex items-center gap-2 rounded-full bg-black/50 px-3 py-2 text-[10px] font-semibold uppercase tracking-wider text-white backdrop-blur-sm transition hover:bg-black/70"
+          />
         </div>
       ) : image ? (
         <div className="relative h-48 mb-6 rounded-2xl overflow-hidden">

@@ -25,6 +25,7 @@ import { EssentialsSection } from '@/components/products/EssentialsSection';
 import { ProductNavigation } from '@/components/products/ProductNavigation';
 import { HorizontalProductCard } from '@/components/products/HorizontalProductCard';
 import { FeatureHighlightCard } from '@/components/products/FeatureHighlightCard';
+import VideoPosterLink from '@/components/media/VideoPosterLink';
 
 interface ProductLinePageProps {
   line: 'economy' | 'xpert' | 'go' | 'xpert-lfp-india';
@@ -46,12 +47,13 @@ export const ProductLinePage: React.FC<ProductLinePageProps> = ({ line, products
           accent: 'crimson',
           bgClass: 'bg-luxury-dark-gray',
           textClass: 'text-white',
+          poster: '/images/backgrounds/xpert_bg.png',
           features: [
             {
               icon: Battery,
               title: 'Lithium-Ion Power',
               description: 'Up to 1200 strapping cycles per charge with fast charging technology.',
-              video: '/videos/demo.mp4',
+              videoSrc: '/videos/demo.mp4',
             },
             {
               icon: Target,
@@ -80,12 +82,13 @@ export const ProductLinePage: React.FC<ProductLinePageProps> = ({ line, products
           accent: 'platinum',
           bgClass: 'bg-white',
           textClass: 'text-luxury-dark-gray',
+          poster: '/images/backgrounds/economy_bg.png',
           features: [
             {
               icon: ShieldCheck,
               title: 'Proven Reliability',
               description: 'Battle-tested design with thousands of installations worldwide.',
-              video: '/videos/726E.mp4',
+              videoSrc: '/videos/726E.mp4',
             },
             {
               icon: Award,
@@ -114,12 +117,13 @@ export const ProductLinePage: React.FC<ProductLinePageProps> = ({ line, products
           accent: 'blue',
           bgClass: 'bg-slate-50',
           textClass: 'text-luxury-dark-gray',
+          poster: '/images/backgrounds/go_bg.png',
           features: [
             {
               icon: Package,
               title: 'Ultra-Portable Design',
               description: 'Compact and lightweight for easy transport between locations.',
-              video: '/videos/ErgoPack_RE.mp4',
+              videoSrc: '/videos/ErgoPack_RE.mp4',
             },
             {
               icon: Zap,
@@ -148,13 +152,14 @@ export const ProductLinePage: React.FC<ProductLinePageProps> = ({ line, products
           accent: 'orange',
           bgClass: 'bg-gradient-to-br from-orange-50 via-white to-green-50',
           textClass: 'text-luxury-dark-gray',
+          poster: '/images/backgrounds/xpert_bg.png',
           features: [
             {
               icon: ShieldCheck,
               title: 'LFP Battery Technology',
               description:
                 'Safest lithium chemistry with superior thermal stability and 600 strapping cycles.',
-              video: '/videos/demo.mp4',
+              videoSrc: '/videos/demo.mp4',
             },
             {
               icon: Target,
@@ -284,7 +289,7 @@ export const ProductLinePage: React.FC<ProductLinePageProps> = ({ line, products
                 <FeatureHighlightCard
                   key={index}
                   icon={feature.icon}
-                  video={feature.video}
+                  videoSrc={feature.videoSrc}
                   title={feature.title}
                   description={feature.description}
                   index={index}
@@ -353,9 +358,15 @@ export const ProductLinePage: React.FC<ProductLinePageProps> = ({ line, products
                 <div
                   className={`relative rounded-3xl overflow-hidden shadow-2xl border ${isXpert ? 'border-white/10' : 'border-gray-200'}`}
                 >
-                  <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-                    <source src={info.features[0].video || '/videos/demo.mp4'} type="video/mp4" />
-                  </video>
+                  <VideoPosterLink
+                    videoSrc={info.features[0].videoSrc || '/videos/demo.mp4'}
+                    title={`${info.title} overview`}
+                    className="w-full h-full"
+                    imageClassName="object-cover"
+                    sizes="(max-width: 1024px) 100vw, 900px"
+                    linkLabel="Watch video"
+                    linkClassName={`absolute bottom-6 left-6 inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-wider backdrop-blur-sm transition ${isXpert ? 'bg-white/10 text-white hover:bg-white/20' : 'bg-black/50 text-white hover:bg-black/70'}`}
+                  />
                 </div>
               </motion.div>
             </div>

@@ -5,6 +5,8 @@ import { ArrowRight, ChevronDown, Scale, CheckCircle2 } from 'lucide-react';
 import { ScrollReveal } from '@/components/premium/ScrollReveal';
 import { MagneticButton } from '@/components/ui/MagneticButton';
 import { useComparison } from '@/contexts/ComparisonContext';
+import SmartImage from '@/components/media/SmartImage';
+import { getHostedVideoUrl, getVideoPoster } from '@/lib/media/video';
 
 interface HeroSectionProps {
   model: string;
@@ -33,6 +35,8 @@ export function HeroSection({
 }: HeroSectionProps) {
   const { addProduct, removeProduct, isSelected } = useComparison();
   const selected = isSelected(productId);
+  const posterSrc = videoSrc ? getVideoPoster(videoSrc) : imageSrc;
+  const watchUrl = videoSrc ? getHostedVideoUrl(videoSrc) : null;
 
   const toggleCompare = () => {
     if (selected) {
@@ -46,20 +50,13 @@ export function HeroSection({
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary">
       {/* Background Layer */}
       <div className="absolute inset-0">
-        {videoSrc ? (
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover opacity-20 dark:opacity-10"
-          >
-            <source src={videoSrc} type="video/mp4" />
-          </video>
-        ) : imageSrc ? (
-          <div
-            className="absolute inset-0 w-full h-full bg-cover bg-center opacity-20 dark:opacity-10"
-            style={{ backgroundImage: `url(${imageSrc})` }}
+        {posterSrc ? (
+          <SmartImage
+            src={posterSrc}
+            alt={`${model} hero poster`}
+            fill
+            sizes="100vw"
+            className="object-cover opacity-20 dark:opacity-10"
           />
         ) : null}
 
@@ -149,6 +146,17 @@ export function HeroSection({
               >
                 Download Brochure
               </MagneticButton>
+
+              {watchUrl && (
+                <a
+                  href={watchUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 border-2 border-gold text-gold font-semibold rounded-full transition-all duration-300 hover:bg-gold/10 min-w-[200px] text-center"
+                >
+                  Watch Video
+                </a>
+              )}
 
               <MagneticButton
                 onClick={toggleCompare}

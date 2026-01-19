@@ -836,7 +836,8 @@ export const ergoPack713XLFP: ComprehensiveProduct = {
   id: '713XLFP',
   name: 'ErgoPack 713X LFP',
   tagline: '🇮🇳 Premium LFP Technology - Exclusively for India',
-  description: 'India-exclusive ultra-light strapping system with advanced LFP battery technology. Perfect for Indian operations requiring 600 cycles per charge with 8-hour charging. Safest lithium chemistry engineered for local conditions.',
+  description:
+    'India-exclusive ultra-light strapping system with advanced LFP battery technology. Perfect for Indian operations requiring 600 cycles per charge with 8-hour charging. Safest lithium chemistry engineered for local conditions.',
   line: 'xpert-lfp-india',
   specifications: {
     line: 'X-pert Line',
@@ -981,8 +982,8 @@ export const ergoPack713XLFP: ComprehensiveProduct = {
     'Operations requiring 9-13mm straps',
   ],
   images: {
-    hero: '/images/products/700X.png',
-    gallery: ['/images/products/700X/1.png', '/images/products/700X/2.jpg'],
+    hero: '/images/products/713xlfp.png',
+    gallery: ['/images/products/713X/1.png', '/images/products/713X/2.jpg'],
     accessories: [],
     applications: [],
   },
@@ -993,7 +994,8 @@ export const ergoPack726XLFP: ComprehensiveProduct = {
   id: '726XLFP',
   name: 'ErgoPack 726X LFP',
   tagline: '🇮🇳 Premium LFP Technology - Exclusively for India',
-  description: 'India-exclusive compact strapping system with LFP battery technology. Ideal for Indian warehouses requiring 600 cycles and 8-hour charging. Premium safety and reliability engineered for local conditions.',
+  description:
+    'India-exclusive compact strapping system with LFP battery technology. Ideal for Indian warehouses requiring 600 cycles and 8-hour charging. Premium safety and reliability engineered for local conditions.',
   line: 'xpert-lfp-india',
   specifications: {
     line: 'X-pert Line',
@@ -1138,8 +1140,8 @@ export const ergoPack726XLFP: ComprehensiveProduct = {
     'Operations requiring 13-16mm straps',
   ],
   images: {
-    hero: '/images/products/700X.png',
-    gallery: ['/images/products/700X/1.png', '/images/products/700X/2.jpg'],
+    hero: '/images/products/726xlfp.png',
+    gallery: ['/images/products/726X/1.png', '/images/products/726X/2.jpg'],
     accessories: [],
     applications: [],
   },
@@ -1151,7 +1153,8 @@ export const ergoPack700XLFP: ComprehensiveProduct = {
   id: '700XLFP',
   name: 'ErgoPack 700X LFP',
   tagline: '🇮🇳 Premium LFP Technology - Exclusively for India',
-  description: 'India-exclusive strapping system featuring advanced Lithium-Iron-Phosphate (LFP) battery technology - the safest lithium chemistry. Engineered specifically for Indian industrial conditions with 600 cycles per charge, 8-hour charging time, and superior thermal stability.',
+  description:
+    'India-exclusive strapping system featuring advanced Lithium-Iron-Phosphate (LFP) battery technology - the safest lithium chemistry. Engineered specifically for Indian industrial conditions with 600 cycles per charge, 8-hour charging time, and superior thermal stability.',
   line: 'xpert-lfp-india',
   pdfPath: '/pdfs/700XLFP_Technical_Data.pdf',
   battery: {
@@ -1176,6 +1179,12 @@ export const ergoPack700XLFP: ComprehensiveProduct = {
     'AGR Certified Ergonomic Design',
     'Superior Thermal Stability for Indian Climate',
   ],
+  images: {
+    hero: '/images/products/700xlfp.png',
+    gallery: ['/images/products/700X/1.png', '/images/products/700X/2.jpg'],
+    accessories: [],
+    applications: [],
+  },
 };
 
 // ErgoPack 713X - X-pert Line (9-13mm)
@@ -1188,6 +1197,12 @@ export const ergoPack713X: ComprehensiveProduct = {
     ...ergoPack700X.specifications,
     model: '713X',
     strapWidth: '9-13mm',
+  },
+  images: {
+    hero: '/images/products/713x.png',
+    gallery: ['/images/products/713X/1.png', '/images/products/713X/2.jpg'],
+    accessories: [],
+    applications: [],
   },
 };
 
@@ -1202,6 +1217,12 @@ export const ergoPack713E: ComprehensiveProduct = {
     model: '713E',
     strapWidth: '9-13mm',
   },
+  images: {
+    hero: '/images/products/713e.png',
+    gallery: ['/images/products/713E/1.png', '/images/products/713E/2.jpg'],
+    accessories: [],
+    applications: [],
+  },
 };
 
 // ErgoPack 726X - X-pert Line (13-16mm)
@@ -1214,6 +1235,12 @@ export const ergoPack726X: ComprehensiveProduct = {
     ...ergoPack700X.specifications,
     model: '726X',
     strapWidth: '13-16mm',
+  },
+  images: {
+    hero: '/images/products/726x.png',
+    gallery: ['/images/products/726X/1.png', '/images/products/726X/2.jpg'],
+    accessories: [],
+    applications: [],
   },
 };
 
@@ -1228,6 +1255,12 @@ export const ergoPack726E: ComprehensiveProduct = {
     model: '726E',
     strapWidth: '13-16mm',
   },
+  images: {
+    hero: '/images/products/726e.png',
+    gallery: ['/images/products/726E/1.png', '/images/products/726E/2.jpg'],
+    accessories: [],
+    applications: [],
+  },
 };
 
 // ErgoPack 745X - X-pert Line (16-19mm)
@@ -1240,6 +1273,12 @@ export const ergoPack745X: ComprehensiveProduct = {
     ...ergoPack700X.specifications,
     model: '745X',
     strapWidth: '16-19mm',
+  },
+  images: {
+    hero: '/images/products/745x.png',
+    gallery: ['/images/products/745X/1.png', '/images/products/745X/2.jpg'],
+    accessories: [],
+    applications: [],
   },
 };
 
@@ -1254,6 +1293,12 @@ export const ergoPack745E: ComprehensiveProduct = {
     model: '745E',
     strapWidth: '16-19mm',
   },
+  images: {
+    hero: '/images/products/745e.png',
+    gallery: ['/images/products/745E/1.png', '/images/products/745E/2.jpg'],
+    accessories: [],
+    applications: [],
+  },
 };
 
 // ErgoPack 745X LFP - X-pert Line Premium System (LFP)
@@ -1262,7 +1307,8 @@ export const ergoPack745XLFP: ComprehensiveProduct = {
   id: '745XLFP',
   name: 'ErgoPack 745X LFP',
   tagline: '\ud83c\uddee\ud83c\uddf3 Premium LFP Technology - Exclusively for India',
-  description: 'India-exclusive heavy-duty strapping system with LFP battery technology. Maximum power and safety with 600 cycles and 8-hour charging, engineered for demanding Indian industrial operations.',
+  description:
+    'India-exclusive heavy-duty strapping system with LFP battery technology. Maximum power and safety with 600 cycles and 8-hour charging, engineered for demanding Indian industrial operations.',
   line: 'xpert-lfp-india',
   pdfPath: '/pdfs/745XLFP_Technical_Data.pdf',
   battery: {
@@ -1285,6 +1331,12 @@ export const ergoPack745XLFP: ComprehensiveProduct = {
     'Heavy-Duty Performance',
     '\ud83c\uddee\ud83c\uddf3 Exclusively for India',
   ],
+  images: {
+    hero: '/images/products/745xlfp.png',
+    gallery: ['/images/products/745X/1.png', '/images/products/745X/2.jpg'],
+    accessories: [],
+    applications: [],
+  },
 };
 
 // ErgoPack GO - Economy Portable System

@@ -6,6 +6,7 @@ import { Blog } from '@/types';
 import { format } from 'date-fns';
 import { Edit, Trash2, Eye, EyeOff } from 'lucide-react';
 import Badge from '@/components/ui/Badge';
+import SmartImage from '@/components/media/SmartImage';
 
 interface BlogsTableProps {
   blogs: Blog[];
@@ -65,10 +66,12 @@ export default function BlogsTable({ blogs, onDelete, onTogglePublish }: BlogsTa
               <td className="px-4 py-4">
                 <div className="flex items-start space-x-3">
                   {blog.coverImage && (
-                    <img
+                    <SmartImage
                       src={blog.coverImage}
                       alt={blog.title}
-                      className="w-12 h-12 rounded object-cover flex-shrink-0"
+                      width={48}
+                      height={48}
+                      className="rounded object-cover flex-shrink-0"
                     />
                   )}
                   <div>

@@ -22,7 +22,7 @@ export const siteConfig = {
     legalName: 'ErgoPack India Pvt. Ltd.',
     foundingYear: 2010,
     phone: '+91-XXX-XXX-XXXX', // TODO: Update with actual phone
-    email: 'contact@ergopack-india.com',
+    email: 'sales@ergopack-india.com',
     address: {
       streetAddress: '', // TODO: Update with actual address
       addressLocality: 'Mumbai',
@@ -54,6 +54,11 @@ export const industryKeywords = {
     'industrial strapping machine India',
     'load securing equipment',
     'pallet wrapping machine',
+    // Ergonomics-focused primary keywords
+    'ergonomic pallet strapping',
+    'zero bending strapping system',
+    'back injury prevention strapping',
+    'workplace ergonomics solutions India',
   ],
 
   // Secondary keywords (medium volume, specific intent)
@@ -64,6 +69,12 @@ export const industryKeywords = {
     'mobile strapping system',
     'warehouse strapping solution',
     'supply chain packaging',
+    // EHS and safety focused
+    'EHS compliance strapping equipment',
+    'OSHA compliant pallet strapping',
+    'warehouse worker safety solutions',
+    'musculoskeletal disorder prevention',
+    'occupational health packaging',
   ],
 
   // Long-tail keywords (specific, high-conversion)
@@ -78,6 +89,17 @@ export const industryKeywords = {
     'load integrity verification system',
     'Made in Germany strapping machine India',
     'pallet strapping for export shipments',
+    // Ergonomics and EHS long-tail
+    'reduce workplace back injuries India',
+    'ergonomic warehouse equipment India',
+    'prevent musculoskeletal disorders warehouse',
+    'ChainLance technology India',
+    'standing pallet strapping system',
+    'no bending no walking strapping',
+    'worker fatigue reduction equipment',
+    'industrial ergonomics compliance India',
+    'OSH Code 2020 compliant equipment',
+    'workplace injury prevention solutions',
   ],
 
   // Industry-specific keywords
@@ -297,39 +319,49 @@ export const schemaTemplates = {
         'Pallet strapping is the process of securing goods on pallets using plastic or steel straps to prevent shifting during transport. It is critical for preventing cargo damage, ensuring worker safety, and maintaining supply chain integrity.',
     },
     {
+      question: 'How does ErgoPack eliminate bending and back injuries?',
+      answer:
+        'ErgoPack uses patented ChainLance technology that threads straps beneath pallets automatically and brings them up to waist height. Workers never need to bend down, eliminating the primary cause of back injuries in strapping operations.',
+    },
+    {
+      question: 'What are the ergonomic benefits of ErgoPack?',
+      answer:
+        'ErgoPack eliminates repetitive bending (100+ bends per shift reduced to zero), eliminates walking around pallets, reduces worker fatigue by 80%, and has been shown to reduce workplace back injuries by 90% in installed facilities.',
+    },
+    {
+      question: 'Is ErgoPack compliant with Indian EHS regulations?',
+      answer:
+        'Yes, ErgoPack systems help facilities comply with OSH Code 2020 requirements and international OSHA standards. We provide comprehensive documentation for EHS audits including ergonomic improvement metrics and training records.',
+    },
+    {
       question: 'How much can I save by switching to automated strapping?',
       answer:
-        'Most companies see 30-50% reduction in labor costs after switching to automated strapping. Additional savings come from reduced product damage, fewer insurance claims, and improved operational efficiency.',
+        'Most companies see 30-50% reduction in labor costs after switching to automated strapping. Additional savings come from reduced product damage, fewer insurance claims, reduced worker compensation costs, and improved operational efficiency.',
     },
     {
       question: 'What industries benefit most from ErgoPack strapping solutions?',
       answer:
-        'ErgoPack solutions are used across pharmaceutical, automotive, electronics, FMCG, and logistics industries. Any business shipping palletized goods can benefit from improved load security and reduced labor costs.',
+        'ErgoPack solutions are used across pharmaceutical, automotive, electronics, FMCG, and logistics industries. Any business shipping palletized goods can benefit from improved load security, reduced labor costs, and eliminated worker injuries.',
     },
     {
       question: 'What is the difference between Xpert Line and Economy Line?',
       answer:
-        'Xpert Line offers premium features like IoT connectivity, predictive maintenance, and advanced tension control. Economy Line provides reliable German engineering at accessible prices for cost-conscious operations.',
+        'Xpert Line offers premium features like IoT connectivity, predictive maintenance, and advanced tension control. Economy Line provides reliable German engineering at accessible prices for cost-conscious operations. Both lines feature the same ergonomic zero-bending technology.',
     },
     {
-      question: 'Do ErgoPack machines require special maintenance?',
+      question: 'How quickly can workers be trained on ErgoPack?',
       answer:
-        'ErgoPack machines are designed for low maintenance with easily replaceable wear parts. We provide comprehensive training and spare parts availability across India.',
+        'Most operators become proficient within 1-2 hours. Our machines are designed with intuitive controls and we provide comprehensive training as part of every purchase. Workers report the ergonomic design makes operation comfortable from day one.',
     },
     {
-      question: 'Can I get a demonstration before purchasing?',
+      question: 'Can ErgoPack help reduce insurance premiums?',
       answer:
-        'Yes! We offer on-site demonstrations and trial periods. Contact us to schedule a demonstration at your facility with your actual products.',
+        'Many facilities see reduced workers compensation insurance premiums after installing ErgoPack due to documented reduction in workplace injuries. We provide before/after injury metrics that can be shared with your insurance provider.',
     },
     {
-      question: 'What warranty do ErgoPack machines come with?',
+      question: 'What documentation does ErgoPack provide for safety audits?',
       answer:
-        'All ErgoPack machines come with a comprehensive warranty covering manufacturing defects. Extended warranty packages are available for additional peace of mind.',
-    },
-    {
-      question: 'How long does it take to train operators?',
-      answer:
-        'Most operators become proficient within 1-2 hours. Our machines are designed with intuitive controls and we provide comprehensive training as part of every purchase.',
+        'Every installation includes compliance certificates, training records, ergonomic improvement reports, before/after risk assessments, maintenance logs, and OSH Code 2020 compliance statements.',
     },
   ],
 

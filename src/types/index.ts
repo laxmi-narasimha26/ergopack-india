@@ -178,10 +178,13 @@ export interface PaginatedResponse<T> {
 export interface DashboardStats {
   totalRequests: number;
   newRequests: number;
+  totalProductInquiries: number;
+  newProductInquiries: number;
   totalBlogs: number;
   publishedBlogs: number;
   totalViews: number;
   recentRequests: ContactRequest[];
+  recentProductInquiries: any[];
   recentBlogs: Blog[];
   requestsByIndustry: {
     industry: string;
