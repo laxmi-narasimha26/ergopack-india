@@ -122,7 +122,7 @@ export default function Footer() {
         <div className="pt-8 border-t border-gray-200">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-500 text-sm">
-              © {new Date().getFullYear()} ErgoPack India. All rights reserved.
+              A Trademark of ErgoPack Deutschland GmbH
             </div>
 
             {/* Legal Links */}

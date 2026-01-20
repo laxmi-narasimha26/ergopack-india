@@ -118,7 +118,7 @@ export default function LoginPage() {
 
         {/* Footer */}
         <p className="text-center text-sm text-neutral-500 mt-8">
-          &copy; {new Date().getFullYear()} ErgoPack India. All rights reserved.
+          A Trademark of ErgoPack Deutschland GmbH
         </p>
       </motion.div>
     </div>
