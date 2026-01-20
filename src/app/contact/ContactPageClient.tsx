@@ -50,10 +50,10 @@ export default function ContactPageClient() {
                     <h3 className="text-lg font-bold text-gray-900 mb-1">Email Us</h3>
                     <p className="text-gray-600 mb-1">We'll respond within 24 hours</p>
                     <a
-                      href="mailto:sales@ergopack-india.com"
+                      href="mailto:marketing@benz-packaging.com"
                       className="text-lg font-semibold text-[#C8102E] hover:underline"
                     >
-                      sales@ergopack-india.com
+                      marketing@benz-packaging.com
                     </a>
                   </div>
                 </div>

@@ -46,7 +46,7 @@ async function sendNotificationEmail(data: z.infer<typeof contactSchema>) {
   // Email to admin
   const adminMailOptions = {
     from: process.env.SMTP_FROM || 'noreply@ergopack-india.com',
-    to: process.env.CONTACT_EMAIL || 'sales@ergopack-india.com',
+    to: process.env.CONTACT_EMAIL || 'marketing@benz-packaging.com',
     subject: `New Contact Request from ${data.name} - ${data.company}`,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -269,7 +269,7 @@ export async function POST(request: NextRequest) {
       {
         success: false,
         error:
-          'Something went wrong. Please try again or contact us directly at sales@ergopack-india.com',
+          'Something went wrong. Please try again or contact us directly at marketing@benz-packaging.com',
       },
       { status: 500 }
     );

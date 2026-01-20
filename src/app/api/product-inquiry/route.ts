@@ -241,7 +241,7 @@ async function sendEmailNotification(
                         <p>For urgent queries, you can reach us at:</p>
                         <ul>
                             <li>Phone: +91 XXXXXXXXXX</li>
-                            <li>Email: sales@ergopack-india.com</li>
+                            <li>Email: marketing@benz-packaging.com</li>
                         </ul>
                         
                         <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">

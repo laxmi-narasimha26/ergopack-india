@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 const footerLinks = {
   products: [
@@ -23,12 +23,6 @@ const footerLinks = {
   ],
 };
 
-const socialLinks = [
-  { icon: Linkedin, href: '#', label: 'LinkedIn' },
-  { icon: Twitter, href: '#', label: 'Twitter' },
-  { icon: Facebook, href: '#', label: 'Facebook' },
-];
-
 export default function Footer() {
   return (
     <footer className="bg-luxury-off-white border-t border-gray-200">
@@ -46,11 +40,11 @@ export default function Footer() {
             </p>
             <div className="space-y-3">
               <a
-                href="mailto:sales@ergopack-india.com"
+                href="mailto:marketing@benz-packaging.com"
                 className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
               >
                 <Mail className="w-4 h-4 mr-2" />
-                sales@ergopack-india.com
+                marketing@benz-packaging.com
               </a>
               <a
                 href="tel:+919899144488"
@@ -129,20 +123,6 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-gray-500 text-sm">
               © {new Date().getFullYear()} ErgoPack India. All rights reserved.
-            </div>
-
-            {/* Social Links */}
-            <div className="flex items-center space-x-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  className="text-gray-500 hover:text-gray-900 transition-colors"
-                  aria-label={social.label}
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
             </div>
 
             {/* Legal Links */}

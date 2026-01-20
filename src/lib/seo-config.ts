@@ -22,7 +22,7 @@ export const siteConfig = {
     legalName: 'ErgoPack India Pvt. Ltd.',
     foundingYear: 2010,
     phone: '+91-XXX-XXX-XXXX', // TODO: Update with actual phone
-    email: 'sales@ergopack-india.com',
+    email: 'marketing@benz-packaging.com',
     address: {
       streetAddress: '', // TODO: Update with actual address
       addressLocality: 'Mumbai',
