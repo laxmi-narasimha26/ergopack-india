@@ -177,7 +177,7 @@ const nextConfig = {
               img-src 'self' data: blob: https:;
               font-src 'self' data: https://fonts.gstatic.com;
               connect-src 'self' https://www.google-analytics.com;
-              frame-src 'self';
+              frame-src 'self' https://my.spline.design https://prod.spline.design;
               object-src 'none';
               base-uri 'self';
               form-action 'self';

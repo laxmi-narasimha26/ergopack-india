@@ -37,6 +37,7 @@
     "@react-three/fiber": "^8.18.0",
     "@react-three/postprocessing": "^2.19.1",
     "@sentry/nextjs": "^10.25.0",
+    "@splinetool/react-spline": "^4.1.0",
     "@studio-freight/lenis": "^1.0.42",
     "@tailwindcss/typography": "^0.5.15",
     "@types/bcryptjs": "^2.4.6",

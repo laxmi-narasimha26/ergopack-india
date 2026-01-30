@@ -4,14 +4,20 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Package, Factory, FileText, Mail } from 'lucide-react';
+import { Menu, X, Package, Factory, FileText, Mail, Calculator, Layers } from 'lucide-react';
+
+const showSolutionsTab = false;
 
 const navItems = [
   { href: '/products', label: 'Products', icon: Package },
+  { href: '/solutions', label: 'Solutions', icon: Layers, hidden: !showSolutionsTab },
+  { href: '/roi-calculator', label: 'ROI Calculator', icon: Calculator },
   { href: '/testimonials', label: 'Testimonials', icon: FileText },
   { href: '/about', label: 'About Us', icon: Factory },
   { href: '/contact', label: 'Contact', icon: Mail },
 ];
+
+const visibleNavItems = navItems.filter((item) => !item.hidden);
 
 export default function PremiumNavigation({ initialHidden = false }: { initialHidden?: boolean }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -82,7 +88,7 @@ export default function PremiumNavigation({ initialHidden = false }: { initialHi
                 exit={{ opacity: 0, y: -10 }}
                 className="flex items-center gap-16"
               >
-                {navItems.map((item) => (
+                {visibleNavItems.map((item) => (
                   <Link
                     key={item.label}
                     href={item.href}
@@ -108,7 +114,7 @@ export default function PremiumNavigation({ initialHidden = false }: { initialHi
                 exit={{ opacity: 0, y: 10 }}
                 className="flex items-center gap-10"
               >
-                {navItems.map((item) => (
+                {visibleNavItems.map((item) => (
                   <Link key={item.label} href={item.href} className="group relative py-2">
                     <span
                       className={`text-xs uppercase tracking-[0.2em] font-medium ${textColor} hover:text-ergopack transition-colors duration-300 whitespace-nowrap`}
@@ -156,7 +162,7 @@ export default function PremiumNavigation({ initialHidden = false }: { initialHi
             className="md:hidden bg-gray-900 border-t border-white/10 overflow-hidden"
           >
             <div className="px-6 py-8 space-y-6">
-              {navItems.map((item) => (
+              {visibleNavItems.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}

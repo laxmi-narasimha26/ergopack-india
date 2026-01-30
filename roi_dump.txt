@@ -1,0 +1,27 @@
+SHEET: ROI Calculator
+
+--- DATA VALIDATIONS ---
+
+--- CELLS ---
+R1:  |  | C3(Mobile Strapping Unit — ROI Calculator) |  |  |  |  |  |  |  |  |  |  |  | 
+R3:  |  | C3(Machine Details) |  |  | C6(Calculations) |  |  | C9(Model) | C10(Price) |  |  |  |  | 
+R4:  |  | C3(Input) | C4(Value) |  | C6(Output) | C7(Value) |  | C9(700) | C10(755000) |  |  |  |  | 
+R5:  |  | C3(Machine Price) | C4(FORMULA[=J6]) |  | C6(Total Manual Manpower (People)) | C7(FORMULA[=D13*D14*D15]) |  | C9(Go) | C10(1257000) |  |  |  |  | 
+R6:  |  | C3(Expected Machine Life (years)) | C4(10) |  | C6(Total Automated Manpower (People)) | C7(FORMULA[=D13*D22*D15]) |  | C9(726X Li) | C10(2950000) |  |  |  |  | 
+R7:  |  | C3(Annual Maintenance Cost (AMC) from Year 2) | C4(100000) |  | C6(Manual Monthly Cost) | C7(FORMULA[=G5*D16]) |  |  |  |  |  |  |  | 
+R8:  |  |  |  |  | C6(Automated Monthly Cost) | C7(FORMULA[=G6*D16]) |  |  |  |  |  |  |  | 
+R9:  |  |  |  |  | C6(Monthly Labour Savings) | C7(FORMULA[=G7-G8]) |  |  |  |  |  |  |  | 
+R10:  |  |  |  |  | C6(Annual Labour Savings) | C7(FORMULA[=G9*12]) |  |  |  |  |  |  |  | 
+R11:  |  | C3(Current Manual Process) |  |  | C6(Net Annual Savings After AMC (From Year 2)) | C7(FORMULA[=G10-D7]) |  |  |  |  |  |  |  | 
+R12:  |  | C3(Input) | C4(Value) |  | C6(Manual Pallets per Day) | C7(FORMULA[=D13*D15*D17]) |  |  |  |  |  |  |  | 
+R13:  |  | C3(Number of Lines) | C4(1) |  | C6(Manual Strapping Hours per Day) | C7(FORMULA[=(G12*D18)/60]) |  |  |  |  |  |  |  | 
+R14:  |  | C3(People per Line per Shift (Manual)) | C4(4) |  | C6(Automated Strapping Hours per Day) | C7(FORMULA[=(G12*D23)/60]) |  |  |  |  |  |  |  | 
+R15:  |  | C3(Number of Shifts per Day) | C4(2) |  | C6(Hours Saved per Day) | C7(FORMULA[=G13-G14]) |  |  |  |  |  |  |  | 
+R16:  |  | C3(Monthly Cost per Person (CTC)) | C4(30000) |  |  |  |  |  |  |  |  |  |  | 
+R17:  |  | C3(Pallets per Shift per Line) | C4(50) |  |  |  |  |  |  |  |  |  |  | 
+R18:  |  | C3(Minutes to Strap One Pallet (Manual)) | C4(4.5) |  | C6(ROI Summary) |  |  |  |  |  |  |  |  | 
+R19:  |  |  |  |  | C6(Key Results) | C7(Value) |  |  |  |  |  |  |  | 
+R20:  |  | C3(Automated Process (With Mobile Strapping Unit)) |  |  | C6(Payback Period (Months - Year 1, No AMC)) | C7(FORMULA[=D5/G9]) |  |  |  |  |  |  |  | 
+R21:  |  | C3(Input) | C4(Value) |  | C6(Payback Period (Months - With AMC)) | C7(FORMULA[=D5/((G10-D7)/12)]) |  |  |  |  |  |  |  | 
+R22:  |  | C3(People per Line per Shift (Automated)) | C4(1) |  | C6(5-Year Net Benefit (After AMC)) | C7(FORMULA[=(G10*5)-(D7*4)-D5]) |  |  |  |  |  |  |  | 
+R23:  |  | C3(Minutes to Strap One Pallet (Automated)) | C4(1.5) |  | C6(10-Year Net Benefit (After AMC)) | C7(FORMULA[=(G10*10)-(D7*9)-D5]) |  |  |  |  |  |  |  | 

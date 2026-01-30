@@ -6,6 +6,7 @@ import dynamicImport from 'next/dynamic';
 import MainLayout from '@/components/layout/MainLayout';
 import ScrollHeader from '@/components/layout/ScrollHeader';
 import ImageHeroSection from '@/components/elite/sections/ImageHeroSection';
+import TransformationInfographic from '@/components/home/TransformationInfographic';
 import { ArrowRight } from 'lucide-react';
 
 // Lazy load below-the-fold sections for faster initial load
@@ -151,12 +152,14 @@ function ProductLinesSection() {
 }
 
 export default function HomePage() {
+  // Main Homepage Component with lazy loaded sections
   return (
     <>
       <ScrollHeader />
       <MainLayout hideLogoInitially={true} noPadding={true}>
         <div className="bg-white selection:bg-artisan-gold selection:text-white">
           <ImageHeroSection />
+          <TransformationInfographic />
           <AppleStyleProductShowcase />
           <PhilosophySection />
           <SocialProofSection />
