@@ -38,10 +38,7 @@ export function TrustSignalsSection({
 
           <ScrollReveal delay={0.2} direction="up">
             <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-primary">
-              Certified{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-gold-600">
-                Excellence
-              </span>
+              Certified Excellence
             </h2>
           </ScrollReveal>
 

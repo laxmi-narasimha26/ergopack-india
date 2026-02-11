@@ -14,7 +14,6 @@ import {
   Battery,
   Timer,
 } from 'lucide-react';
-import { EssentialsSection } from '@/components/products/EssentialsSection';
 import {
   ergoPack700,
   ergoPack700E,
@@ -317,10 +316,10 @@ export default function ProductsPageClient() {
         </section>
 
         {/* ERGOPACK GO - Viewport-based Banner */}
-        <section className="w-full bg-white border-t border-slate-200 py-[1vh]">
+        <section className="w-full bg-white border-t border-slate-200 py-[2vh]">
           <div className="container-full px-[1.5vw] mx-auto">
             <Link href="/products/go" className="block group">
-              <div className="w-full bg-blue-600 rounded-[clamp(0.5rem,1vw,1rem)] overflow-hidden text-white relative h-[12vh] shadow-xl group-hover:shadow-2xl transition-all">
+              <div className="w-full bg-blue-600 rounded-[clamp(0.5rem,1vw,1rem)] overflow-hidden text-white relative h-[20vh] shadow-xl group-hover:shadow-2xl transition-all">
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-transparent z-10" />
 
                 <div className="relative z-20 h-full flex items-center">
@@ -353,8 +352,6 @@ export default function ProductsPageClient() {
             </Link>
           </div>
         </section>
-
-        <EssentialsSection />
       </div>
     </MainLayout>
   );

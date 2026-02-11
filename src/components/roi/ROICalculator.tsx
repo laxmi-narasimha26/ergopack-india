@@ -35,6 +35,7 @@ const MACHINES = [
 ];
 
 const AMC_COST = 100000;
+const STRAPPING_WASTE_PER_PALLET = 12; // ₹12 saved per pallet with ErgoPack
 
 // Tooltips
 const TOOLTIPS = {
@@ -52,6 +53,7 @@ const TOOLTIPS = {
   tenYear: 'Net profit over 10-year machine life (includes AMC)',
   staffFreed: 'Workers freed for other tasks',
   hoursSaved: 'Man-hours freed daily',
+  strappingWaste: 'ErgoPack reduces strapping waste by ₹12 per pallet compared to manual strapping',
 };
 
 // Smooth animated number
@@ -153,6 +155,7 @@ function ChartTooltip({
 
 export default function ROICalculator() {
   const [viewMode, setViewMode] = useState<'numbers' | 'visuals'>('numbers');
+  const [calcMode, setCalcMode] = useState<'basic' | 'advanced'>('basic');
   const [selectedMachineId, setSelectedMachineId] = useState(MACHINES[0].id);
   const [hoveredYear, setHoveredYear] = useState<number | null>(null);
 
@@ -180,7 +183,17 @@ export default function ROICalculator() {
   const autoMonthlyCost = totalAutoManpower * monthlyCTC;
   const monthlyLabourSavings = manualMonthlyCost - autoMonthlyCost;
   const annualLabourSavings = monthlyLabourSavings * 12;
-  const netAnnualSavingsAfterAMC = annualLabourSavings - AMC_COST;
+
+  // Strapping waste savings
+  const dailyPallets = palletsPerShiftLine * shiftsPerDay * numLines;
+  const dailyStrappingWasteSavings = dailyPallets * STRAPPING_WASTE_PER_PALLET;
+  const monthlyStrappingWasteSavings = dailyStrappingWasteSavings * 30;
+  const annualStrappingWasteSavings = monthlyStrappingWasteSavings * 12;
+
+  // Total savings (labour + strapping waste)
+  const monthlyTotalSavings = monthlyLabourSavings + monthlyStrappingWasteSavings;
+  const annualTotalSavings = annualLabourSavings + annualStrappingWasteSavings;
+  const netAnnualSavingsAfterAMC = annualTotalSavings - AMC_COST;
 
   const manualPalletsPerDay = numLines * shiftsPerDay * palletsPerShiftLine;
   const manualStrappingHoursPerDay = (manualPalletsPerDay * manualMinsPerPallet) / 60;
@@ -189,9 +202,9 @@ export default function ROICalculator() {
   const timeSavedPercent =
     manualStrappingHoursPerDay > 0 ? (hoursSavedPerDay / manualStrappingHoursPerDay) * 100 : 0;
 
-  const paybackPeriodMonths = monthlyLabourSavings > 0 ? machinePrice / monthlyLabourSavings : 0;
-  const fiveYearNetBenefit = annualLabourSavings + 4 * netAnnualSavingsAfterAMC - machinePrice;
-  const tenYearNetBenefit = annualLabourSavings + 9 * netAnnualSavingsAfterAMC - machinePrice;
+  const paybackPeriodMonths = monthlyTotalSavings > 0 ? machinePrice / monthlyTotalSavings : 0;
+  const fiveYearNetBenefit = annualTotalSavings + 4 * netAnnualSavingsAfterAMC - machinePrice;
+  const tenYearNetBenefit = annualTotalSavings + 9 * netAnnualSavingsAfterAMC - machinePrice;
 
   // Chart Data
   const yearlyData = useMemo(() => {
@@ -260,8 +273,8 @@ export default function ROICalculator() {
       },
       {
         name: 'Annual Savings',
-        value: annualLabourSavings,
-        pct: formatCompact(monthlyLabourSavings) + '/mo',
+        value: annualTotalSavings,
+        pct: formatCompact(monthlyTotalSavings) + '/mo',
       },
       {
         name: 'Payback',
@@ -349,10 +362,35 @@ export default function ROICalculator() {
           {/* Left Column: Inputs ONLY */}
           <div className="lg:col-span-3 space-y-4">
             <div className="bg-neutral-50 rounded-2xl p-5">
-              <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-wider mb-4 flex items-center gap-2">
-                <Zap className="w-3.5 h-3.5" />
-                Your Current Setup
-              </h3>
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-wider flex items-center gap-2">
+                  <Zap className="w-3.5 h-3.5" />
+                  Your Current Setup
+                </h3>
+                {/* Mode Toggle */}
+                <div className="bg-neutral-200 p-0.5 rounded-lg flex items-center">
+                  <button
+                    onClick={() => setCalcMode('basic')}
+                    className={`px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider transition-all ${
+                      calcMode === 'basic'
+                        ? 'bg-white text-neutral-900 shadow-sm'
+                        : 'text-neutral-500 hover:text-neutral-700'
+                    }`}
+                  >
+                    Basic
+                  </button>
+                  <button
+                    onClick={() => setCalcMode('advanced')}
+                    className={`px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider transition-all ${
+                      calcMode === 'advanced'
+                        ? 'bg-neutral-900 text-white shadow-sm'
+                        : 'text-neutral-500 hover:text-neutral-700'
+                    }`}
+                  >
+                    Adv
+                  </button>
+                </div>
+              </div>
               <div className="space-y-3">
                 <InputRow
                   label="Production Lines"
@@ -392,26 +430,28 @@ export default function ROICalculator() {
                   step={0.5}
                 />
               </div>
-              <div className="border-t border-neutral-200 my-4 pt-4">
-                <h3 className="text-xs font-bold text-emerald-700 uppercase tracking-wider mb-3">
-                  With ErgoPack
-                </h3>
-                <div className="space-y-3">
-                  <InputRow
-                    label="Operators/Line/Shift"
-                    value={autoPeoplePerLine}
-                    onChange={handleInput(setAutoPeoplePerLine)}
-                    tooltip={TOOLTIPS.operatorsAuto}
-                  />
-                  <InputRow
-                    label="Mins/Pallet (Target)"
-                    value={autoMinsPerPallet}
-                    onChange={handleInput(setAutoMinsPerPallet)}
-                    tooltip={TOOLTIPS.minsAuto}
-                    step={0.1}
-                  />
+              {calcMode === 'advanced' && (
+                <div className="border-t border-neutral-200 my-4 pt-4">
+                  <h3 className="text-xs font-bold text-emerald-700 uppercase tracking-wider mb-3">
+                    With ErgoPack
+                  </h3>
+                  <div className="space-y-3">
+                    <InputRow
+                      label="Operators/Line/Shift"
+                      value={autoPeoplePerLine}
+                      onChange={handleInput(setAutoPeoplePerLine)}
+                      tooltip={TOOLTIPS.operatorsAuto}
+                    />
+                    <InputRow
+                      label="Mins/Pallet (Target)"
+                      value={autoMinsPerPallet}
+                      onChange={handleInput(setAutoMinsPerPallet)}
+                      tooltip={TOOLTIPS.minsAuto}
+                      step={0.1}
+                    />
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
 
@@ -421,7 +461,7 @@ export default function ROICalculator() {
               <div className="space-y-5">
                 {/* Dark Header Banner - 4 Key Metrics */}
                 <div className="bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 rounded-2xl p-6">
-                  <div className="grid grid-cols-4 gap-4">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
                     <HeaderMetric
                       label="Payback"
                       value={paybackPeriodMonths}
@@ -431,7 +471,7 @@ export default function ROICalculator() {
                     />
                     <HeaderMetric
                       label="Annual Savings"
-                      value={annualLabourSavings}
+                      value={annualTotalSavings}
                       format="currency"
                       tooltip={TOOLTIPS.annualSavings}
                     />
@@ -455,53 +495,32 @@ export default function ROICalculator() {
                 {/* Two Column Detail Sections */}
                 <div className="grid grid-cols-2 gap-5">
                   {/* Manpower Section */}
-                  <DetailSection title="Manpower" icon={<Users className="w-4 h-4" />}>
-                    <DetailRow label="Current Staff" value={totalManualManpower} suffix=" people" />
-                    <DetailRow label="With ErgoPack" value={totalAutoManpower} suffix=" people" />
-                    <DetailRow
-                      label="Staff Freed"
-                      value={manpowerReduction}
-                      suffix=" people"
-                      highlight
-                    />
-                    <DetailRow
-                      label="Reduction"
-                      value={manpowerReductionPercent}
-                      suffix="%"
-                      format="decimal"
-                      highlight
-                    />
-                  </DetailSection>
+                  <ComparisonCard
+                    title="Manpower"
+                    icon={<Users className="w-4 h-4 text-neutral-500" />}
+                    currentLabel="Current Staff"
+                    currentValue={totalManualManpower}
+                    ergoLabel="With ErgoPack"
+                    ergoValue={totalAutoManpower}
+                    highlightLabel="Staff Freed"
+                    highlightValue={manpowerReduction}
+                    highlightSuffix=" people"
+                    format="number"
+                  />
 
                   {/* Time Efficiency Section */}
-                  <DetailSection title="Time Efficiency" icon={<Timer className="w-4 h-4" />}>
-                    <DetailRow
-                      label="Current Time"
-                      value={manualMinsPerPallet}
-                      suffix=" min/pallet"
-                      format="decimal"
-                    />
-                    <DetailRow
-                      label="ErgoPack Time"
-                      value={autoMinsPerPallet}
-                      suffix=" min/pallet"
-                      format="decimal"
-                    />
-                    <DetailRow
-                      label="Hours Saved"
-                      value={hoursSavedPerDay}
-                      suffix=" hrs/day"
-                      format="decimal"
-                      highlight
-                    />
-                    <DetailRow
-                      label="Efficiency Gain"
-                      value={timeSavedPercent}
-                      suffix="%"
-                      format="decimal"
-                      highlight
-                    />
-                  </DetailSection>
+                  <ComparisonCard
+                    title="Time Efficiency"
+                    icon={<Timer className="w-4 h-4 text-neutral-500" />}
+                    currentLabel="Current Time"
+                    currentValue={manualMinsPerPallet}
+                    ergoLabel="ErgoPack Time"
+                    ergoValue={autoMinsPerPallet}
+                    highlightLabel="Hours Saved"
+                    highlightValue={hoursSavedPerDay}
+                    highlightSuffix=" hrs/day"
+                    format="decimal"
+                  />
                 </div>
 
                 {/* Second Row - Labor Cost & Investment */}
@@ -547,6 +566,37 @@ export default function ROICalculator() {
                       highlight
                     />
                   </DetailSection>
+                </div>
+
+                {/* Third Row - Strapping Waste Savings */}
+                <div className="bg-gradient-to-br from-emerald-50 to-teal-50 border-2 border-emerald-200 rounded-xl p-5">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Zap className="w-4 h-4 text-emerald-600" />
+                    <h3 className="text-xs font-bold text-emerald-700 uppercase tracking-wider">
+                      Strapping Waste Savings
+                    </h3>
+                    <InfoTooltip content={TOOLTIPS.strappingWaste} />
+                  </div>
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="bg-white/60 rounded-lg p-3">
+                      <div className="text-xs text-emerald-600 font-medium mb-1">Daily</div>
+                      <div className="text-lg font-bold text-emerald-700">
+                        {formatCompact(dailyStrappingWasteSavings)}
+                      </div>
+                    </div>
+                    <div className="bg-white/60 rounded-lg p-3">
+                      <div className="text-xs text-emerald-600 font-medium mb-1">Monthly</div>
+                      <div className="text-lg font-bold text-emerald-700">
+                        {formatCompact(monthlyStrappingWasteSavings)}
+                      </div>
+                    </div>
+                    <div className="bg-white/60 rounded-lg p-3">
+                      <div className="text-xs text-emerald-600 font-medium mb-1">Annual</div>
+                      <div className="text-lg font-bold text-emerald-700">
+                        {formatCompact(annualStrappingWasteSavings)}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             ) : (
@@ -894,7 +944,7 @@ function HeaderMetric({ label, value, format, suffix = '', tooltip, sub }: any) 
       <div className="text-[10px] text-neutral-400 uppercase tracking-wider mb-1 flex items-center justify-center gap-1">
         {label} <InfoTooltip content={tooltip} />
       </div>
-      <div className="text-2xl lg:text-3xl font-black text-emerald-400 tracking-tight">
+      <div className="text-lg sm:text-2xl lg:text-3xl font-black text-emerald-400 tracking-tight text-nowrap truncate max-w-full">
         <AnimatedValue value={value} format={format} />
         {suffix}
       </div>
@@ -989,6 +1039,72 @@ function StatCard({ label, value, highlight, sub }: any) {
         {value}
       </div>
       {sub && <div className="text-[9px] text-neutral-400">{sub}</div>}
+    </div>
+  );
+}
+
+// Comparison Card for Mobile Results
+function ComparisonCard({
+  title,
+  icon,
+  currentLabel,
+  currentValue,
+  ergoLabel,
+  ergoValue,
+  highlightLabel,
+  highlightValue,
+  highlightSuffix,
+  format = 'number',
+}: any) {
+  const formatValue = (val: number) => {
+    if (format === 'decimal') return val.toFixed(1);
+    if (format === 'compact') {
+      if (val >= 100000) return (val / 100000).toFixed(2) + 'L';
+      return (val / 1000).toFixed(1) + 'K';
+    }
+    return val;
+  };
+
+  return (
+    <div className="bg-neutral-50 rounded-xl overflow-hidden border border-neutral-100">
+      <div className="bg-neutral-100/50 px-4 py-3 flex items-center gap-2 border-b border-neutral-100">
+        {icon}
+        <h3 className="text-xs font-bold text-neutral-600 uppercase tracking-wider">{title}</h3>
+      </div>
+
+      <div className="grid grid-cols-2 divide-x divide-neutral-100">
+        {/* Current State */}
+        <div className="p-4 flex flex-col items-center text-center bg-white">
+          <span className="text-[10px] text-neutral-400 uppercase tracking-wide mb-1">
+            {currentLabel}
+          </span>
+          <span className="text-lg font-bold text-neutral-700">{formatValue(currentValue)}</span>
+        </div>
+
+        {/* ErgoPack State */}
+        <div className="p-4 flex flex-col items-center text-center bg-emerald-50/30">
+          <span className="text-[10px] text-emerald-600/80 uppercase tracking-wide mb-1">
+            {ergoLabel}
+          </span>
+          <span className="text-lg font-bold text-emerald-600">{formatValue(ergoValue)}</span>
+        </div>
+      </div>
+
+      {/* Improvement Highlight */}
+      <div className="bg-emerald-100/50 px-4 py-3 flex items-center justify-between">
+        <span className="text-xs font-semibold text-emerald-800">{highlightLabel}</span>
+        <div className="flex items-center gap-1.5">
+          <span className="text-sm font-bold text-emerald-700">
+            {typeof highlightValue === 'number' ? formatValue(highlightValue) : highlightValue}
+            {highlightSuffix}
+          </span>
+          {format === 'decimal' && (
+            <span className="text-[10px] bg-emerald-200 text-emerald-800 px-1.5 py-0.5 rounded-full font-bold">
+              SAVED
+            </span>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

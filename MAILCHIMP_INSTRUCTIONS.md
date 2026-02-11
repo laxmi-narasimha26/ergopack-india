@@ -50,3 +50,15 @@ You will see a checklist. Fill these out:
 
 - **"Missing Merge Tags" warning:** If Mailchimp warns you about `*|UNSUB|*`, ignore it. I included the correct tags in the footer of your HTML file, so it will pass the final check.
 - **"Dark Mode" preview:** You can use Mailchimp's "Inbox Preview" tool to double-check the dark mode rendering if you have a paid plan.
+
+---
+
+# Newsletter #2 (From BENZ Packaging): Deployment Playbook
+
+Use this as your next send after the partnership announcement.
+
+- **From:** "BENZ Packaging & ErgoPack India" <laxmi@benz-packaging.com>
+- **Subject (Option A):** `From BENZ: Your ErgoPack India Deployment Playbook`
+- **Subject (Option B):** `Ready for an ErgoPack pilot? BENZ will run the rollout.`
+- **Preview Text:** `The fastest path from evaluation to rollout - backed by BENZ service, spares, and application support in India.`
+- **Import this HTML file:** `c:\Users\user\ergopack-india\src\newsletters\templates\41-benz-deployment-playbook.html`

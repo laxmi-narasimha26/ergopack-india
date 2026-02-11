@@ -8,6 +8,7 @@ import { ProductSelector } from '@/components/comparison/ProductSelector';
 import { generateComparisonMatrix, filterCategories } from '@/lib/comparison/comparison-engine';
 import { FilterMode, ComparisonMatrix } from '@/types/comparison';
 import comparisonData from '@/data/products-comparison-data.json';
+import { allComprehensiveProducts } from '@/data/comprehensive-products';
 import { ArrowLeft, ArrowRight, Check, AlertCircle, X } from 'lucide-react';
 import Link from 'next/link';
 import MainLayout from '@/components/layout/MainLayout';
@@ -54,12 +55,14 @@ export default function ComparePage() {
           if (!product) {
             throw new Error(`Product ${id} not found`);
           }
-          // FIX: Inject correct image path from local mapping
-          // The IDs in comprehensive-products are like '700', '700E', etc.
-          // The file paths are /images/products/700.png, /images/products/700e.png
+
+          // Get actual hero image from comprehensive products
+          const comprehensiveProduct = allComprehensiveProducts.find((p) => p.id === id);
+          const heroImage = comprehensiveProduct?.images?.hero || `/images/products/${id}.png`;
+
           return {
             ...product,
-            image: `/images/products/${id.toLowerCase()}.png`,
+            image: heroImage,
           };
         });
 

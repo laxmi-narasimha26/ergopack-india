@@ -84,8 +84,8 @@ export const ergoPackGO: ComprehensiveProduct = {
   },
   applications: ['Portable strapping operations', 'Flexible warehouse use', 'Low to medium volume'],
   images: {
-    hero: '/images/products/GO/1.png',
-    gallery: ['/images/products/GO/1.png', '/images/products/GO/2.png'],
+    hero: '/images/products/GO.png',
+    gallery: ['/images/products/GO.png'],
     accessories: [],
     applications: [],
   },

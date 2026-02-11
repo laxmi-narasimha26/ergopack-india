@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { ScrollReveal } from '@/components/premium/ScrollReveal';
-import { ArrowRight, Download, MessageCircle, HelpCircle } from 'lucide-react';
+import { ArrowRight, Download, HelpCircle } from 'lucide-react';
 import { MagneticButton } from '@/components/ui/MagneticButton';
 import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
@@ -90,14 +90,9 @@ export function FinalCTASection({
 
             {/* Contact Options */}
             <ScrollReveal delay={0.5} direction="up">
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-secondary">
+              <div className="flex items-center justify-center text-secondary">
                 <div className="flex items-center gap-2">
-                  <MessageCircle className="w-5 h-5 text-gold" />
-                  <span className="text-sm">Live Chat Available</span>
-                </div>
-                <div className="hidden sm:block w-px h-4 bg-premium" />
-                <div className="flex items-center gap-2">
-                  <span className="text-sm">Or call: +91 (800) XXX-XXXX</span>
+                  <span className="text-sm">Or call: +91 98991 44488</span>
                 </div>
               </div>
             </ScrollReveal>

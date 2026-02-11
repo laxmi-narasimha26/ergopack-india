@@ -151,28 +151,28 @@ export default function AppleStyleProductShowcase() {
         link="/products/x-pert-line"
       />
 
-      {/* E-conomy Line */}
-      <ProductSection
-        title="E-conomy Line"
-        subtitle="Essential Performance"
-        description="The perfect balance of efficiency and reliability. Proven German engineering for your daily strapping needs."
-        videoSource="/videos/726E.mp4"
-        imagePath="/images/backgrounds/economy_bg.png"
-        theme="light"
-        align="right"
-        link="/products/economy-line"
-      />
-
       {/* Go Line */}
       <ProductSection
         title="Go Line"
         subtitle="Mobile Freedom"
         description="Strapping anywhere, anytime. The most compact and versatile solution for agile operations."
-        videoSource="/videos/ErgoPack_RE.mp4"
+        videoSource="/videos/go.mp4"
         imagePath="/images/backgrounds/go_bg.png"
         theme="dark"
         align="left"
         link="/products/go-line"
+      />
+
+      {/* E-conomy Line */}
+      <ProductSection
+        title="E-conomy Line"
+        subtitle="Essential Performance"
+        description="The perfect balance of efficiency and reliability. Proven German engineering for your daily strapping needs."
+        videoSource="/videos/700.mp4"
+        imagePath="/images/backgrounds/economy_bg.png"
+        theme="light"
+        align="right"
+        link="/products/economy-line"
       />
     </div>
   );
