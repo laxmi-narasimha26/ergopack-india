@@ -64,7 +64,7 @@ export default function ProductsPageClient() {
       strapWidth: 'Multi',
       keyDiff: 'Manual',
       speed: 'Manual',
-      cycles: 'Γê₧',
+      cycles: '∞ / Manual',
       description: 'Manual hand-crank system. Zero electricity costs.',
     },
     {
@@ -303,6 +303,15 @@ export default function ProductsPageClient() {
                             </div>
                             <div className="text-[clamp(0.5rem,0.8vw,0.75rem)] font-bold text-slate-700">
                               {product.cycles}
+                            </div>
+                          </div>
+                          <div className="w-px h-[1.5vh] bg-slate-200" />
+                          <div className="text-center flex-1">
+                            <div className="text-[clamp(0.3rem,0.5vw,0.4rem)] text-slate-400 uppercase font-bold">
+                              Width
+                            </div>
+                            <div className="text-[clamp(0.5rem,0.8vw,0.75rem)] font-bold text-slate-700">
+                              {product.strapWidth}
                             </div>
                           </div>
                         </div>
