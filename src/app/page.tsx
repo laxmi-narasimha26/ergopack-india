@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import dynamicImport from 'next/dynamic';
 import MainLayout from '@/components/layout/MainLayout';
 import ImageHeroSection from '@/components/elite/sections/ImageHeroSection';
-import EventUpdateSection from '@/components/home/EventUpdateSection';
 import TransformationInfographic from '@/components/home/TransformationInfographic';
 import SearchHubSection from '@/components/home/SearchHubSection';
 import { FAQSchema, VideoSchema } from '@/components/JsonLd';
@@ -71,7 +70,6 @@ export default function HomePage() {
       />
       <div className="bg-white selection:bg-artisan-gold selection:text-white">
         <ImageHeroSection />
-        <EventUpdateSection />
         <TransformationInfographic />
         <SearchHubSection />
         <AppleStyleProductShowcase />
