@@ -20,6 +20,12 @@ const priorityLinks = [
       'The ErgoPack 700 delivers ChainLance speed with no battery or electricity — built for off-grid, 24/7 dispatch floors.',
   },
   {
+    title: 'Price & Buying Guide',
+    href: '/resources/pallet-strapping-machine-price-india',
+    description:
+      'Pallet strapping machine price tiers in India explained — and why cost-per-pallet, not sticker price, decides.',
+  },
+  {
     title: 'ROI & Cost Comparison',
     href: '/resources/pallet-strapping-roi-cost-comparison',
     description:

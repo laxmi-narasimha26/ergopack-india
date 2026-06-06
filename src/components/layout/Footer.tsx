@@ -13,11 +13,11 @@ const footerLinks = {
     { label: 'Electronics', href: '/industries#electronics' },
   ],
   resources: [
+    { label: 'Price & Buying Guide', href: '/resources/pallet-strapping-machine-price-india' },
     { label: 'ROI & Cost Comparison', href: '/resources/pallet-strapping-roi-cost-comparison' },
+    { label: 'Best for Heavy Loads', href: '/resources/best-pallet-strapping-machine-heavy-loads' },
+    { label: 'PP vs PET vs Steel', href: '/resources/pet-vs-steel-strapping' },
     { label: 'Reduce Transit Damage', href: '/resources/reduce-pallet-transit-damage' },
-    { label: 'PET vs Steel Strapping', href: '/resources/pet-vs-steel-strapping' },
-    { label: 'Strapping vs Wrapping', href: '/resources/pallet-strapping-vs-stretch-wrapping' },
-    { label: 'Replace Broomstick Method', href: '/resources/replace-broomstick-strapping-method' },
     { label: 'All Resources & Guides', href: '/resources' },
   ],
   company: [
