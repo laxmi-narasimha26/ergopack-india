@@ -18,11 +18,19 @@ export interface ResourceTable {
   rows: string[][];
 }
 
+export interface ResourceRelatedLink {
+  label: string;
+  href: string;
+}
+
 export type ResourceBlock =
   | { type: 'heading'; text: string }
+  | { type: 'subheading'; text: string }
   | { type: 'paragraph'; text: string }
   | { type: 'list'; items: string[] }
   | { type: 'stat'; value: string; label: string }
+  | { type: 'statgrid'; stats: Array<{ value: string; label: string }> }
+  | { type: 'callout'; title: string; text: string }
   | { type: 'table'; table: ResourceTable }
   | { type: 'cta'; text: string; href: string; label: string };
 
@@ -34,8 +42,14 @@ export interface ResourceArticle {
   keywords: string[];
   /** Short lede shown under the H1 */
   lede: string;
+  /** Optional reading-time / category eyebrow */
+  eyebrow?: string;
+  /** Optional key takeaways shown in a highlighted box near the top (great for AEO) */
+  keyTakeaways?: string[];
   blocks: ResourceBlock[];
   faqs: ResourceFAQ[];
+  /** Related internal links rendered at the foot of the article */
+  related?: ResourceRelatedLink[];
   /** Breadcrumb label */
   breadcrumb: string;
 }
@@ -331,60 +345,154 @@ export const resourceArticles: ResourceArticle[] = [
   {
     slug: 'pallet-strapping-machine-hsn-code-gst',
     breadcrumb: 'HSN Code & GST',
-    title: 'Pallet Strapping Machine HSN Code & GST Rate in India | ErgoPack',
-    h1: 'Pallet Strapping Machine HSN Code, GST Rate & Procurement FAQs',
+    eyebrow: 'Procurement & Compliance Guide',
+    title: 'Pallet Strapping Machine HSN Code 84224000 & 18% GST Rate (India) | ErgoPack',
+    h1: 'Pallet Strapping Machine HSN Code & GST Rate in India: The 2026 Procurement Guide',
     description:
-      'The HSN code for pallet strapping machines in India is 84224000, taxed at 18% GST. Get exact answers on classification, spare parts, strap specs and ROI for procurement teams.',
+      'The HSN code for a pallet strapping machine in India is 84224000, taxed at 18% GST; spare parts fall under 84229090. Get the full classification, ITC, invoicing and technical-spec answers procurement teams need before raising a purchase order.',
     keywords: [
       'pallet strapping machine hsn code',
       'pallet strapping machine gst rate india',
-      'strapping machine 84224000',
-      'packing machinery gst',
+      'strapping machine hsn code 84224000',
+      'strapping machine spare parts hsn code',
+      'packing machinery gst rate',
+      'pallet strapping machine gst input tax credit',
     ],
-    lede: 'Everything procurement needs to draft the purchase order — classification, taxation and the technical answers buyers verify before approval.',
+    lede: 'Before a purchase order for industrial machinery is approved in India, the finance team needs the HSN code, the GST rate, the input-tax-credit position and the technical specs on one page. Here is all of it for pallet strapping machines.',
+    keyTakeaways: [
+      'HSN code for pallet strapping machines: 84224000 (packing or wrapping machinery).',
+      'GST rate: 18% (9% CGST + 9% SGST, or 18% IGST on inter-state supply).',
+      'Strapping machine spare parts: HSN 84229090, also at 18% GST.',
+      'GST paid is fully available as Input Tax Credit for a registered business buying for use in the course of business.',
+      'ErgoPack 726X: 400N–2500N tension, 12–16mm PP/PET strap, sealless friction weld, under-40-second cycle.',
+    ],
     blocks: [
-      { type: 'heading', text: 'HSN code and GST rate' },
       {
         type: 'paragraph',
-        text: 'Pallet strapping machines, including the mobile ErgoPack systems, are classified under HSN code 84224000, which covers packing or wrapping machinery. In India these machines are subject to an 18% GST rate. Spare parts are generally classified under HSN 84229090.',
+        text: 'A pallet strapping machine is capital equipment, so its tax treatment is straightforward — but procurement and finance teams still need the exact codes to classify the asset, claim input tax credit, and validate the supplier’s invoice. This guide states the HSN code and GST rate plainly, then covers spare parts, invoicing, ITC and the technical specifications buyers verify before approval.',
+      },
+
+      { type: 'heading', text: 'HSN code for a pallet strapping machine in India' },
+      {
+        type: 'paragraph',
+        text: 'Pallet strapping machines — including mobile systems like the ErgoPack 726X, GO and 700 — are classified under HSN code 84224000. This heading covers “other packing or wrapping machinery (including heat-shrink wrapping machinery)” within Chapter 84 of the Customs Tariff, which deals with machinery and mechanical appliances. Strapping, banding and bundling machines all fall under this 8-digit code.',
       },
       {
         type: 'table',
         table: {
-          headers: ['Item', 'HSN code', 'GST rate'],
+          caption: 'HSN classification & GST for strapping machinery and parts',
+          headers: ['Item', 'HSN code', 'GST rate', 'Tax split (intra-state)'],
           rows: [
-            ['Pallet strapping machine', '84224000', '18%'],
-            ['Strapping machine spare parts', '84229090', '18%'],
+            ['Pallet strapping machine', '84224000', '18%', '9% CGST + 9% SGST'],
+            ['Strapping / banding machine (general)', '84224000', '18%', '9% CGST + 9% SGST'],
+            ['Strapping machine spare parts', '84229090', '18%', '9% CGST + 9% SGST'],
+            ['PP / PET strapping consumable (rolls)', '39202020 / 39209999', '18%', '9% CGST + 9% SGST'],
           ],
         },
       },
-      { type: 'heading', text: 'Technical specifications procurement teams ask for' },
+      {
+        type: 'callout',
+        title: 'Why the 8-digit code matters',
+        text: 'For machinery above the turnover threshold, GST invoices must carry the full 8-digit HSN. Quoting 84224000 (not just the 4-digit 8422) keeps the invoice compliant and avoids classification queries during assessment.',
+      },
+
+      { type: 'heading', text: 'GST rate on pallet strapping machines' },
+      {
+        type: 'paragraph',
+        text: 'The GST rate on pallet strapping machines is 18%. On an intra-state purchase this is charged as 9% CGST plus 9% SGST; on an inter-state purchase it is charged as 18% IGST. The rate is the same whether the machine is manual (ErgoPack 700), semi-automatic mobile (GO) or fully integrated (726X) — classification follows the function, not the level of automation.',
+      },
+      { type: 'subheading', text: 'Worked example: GST on a strapping machine purchase' },
+      {
+        type: 'paragraph',
+        text: 'If a machine is invoiced at ₹10,00,000 (ex-GST), the buyer pays ₹1,80,000 GST, for a total invoice of ₹11,80,000. A GST-registered business using the machine in the course of business can claim that ₹1,80,000 as Input Tax Credit, so the effective cost of the asset remains ₹10,00,000. This is a key point procurement should make to finance: for a registered buyer, GST on capital equipment is not a sunk cost.',
+      },
+
+      { type: 'heading', text: 'Input Tax Credit (ITC) on a strapping machine' },
       {
         type: 'list',
         items: [
-          'Tension force: 400N–2500N on the ErgoPack 726X (electronically controlled).',
-          'Strap material: PP and PET; strap width 12–16mm on the 726X (up to 8–35mm on the 700).',
-          'Cycle time: under 40 seconds per pallet versus ~120 seconds manual.',
-          'Maximum pallet size: 2.4m wide × 2.3m high.',
-          'Sealing: sealless friction weld, up to 90% joint efficiency.',
+          'A registered business buying a strapping machine for use in its factory or warehouse can claim full ITC on the 18% GST paid.',
+          'The supplier must be GST-registered, the tax invoice must carry the correct HSN (84224000) and GSTIN, and the invoice must appear in the buyer’s GSTR-2B.',
+          'ITC also applies to GST paid on spare parts (84229090) and PP/PET strapping consumables used in business.',
+          'Capital goods ITC is availed in full in the period of receipt, subject to the usual conditions — there is no need to spread it over the asset’s life.',
         ],
+      },
+
+      { type: 'heading', text: 'Specifications procurement verifies before approval' },
+      {
+        type: 'paragraph',
+        text: 'Beyond tax codes, the purchase file usually needs the machine’s technical envelope so the asset can be matched to the application. For the ErgoPack mobile range the headline numbers are:',
+      },
+      {
+        type: 'statgrid',
+        stats: [
+          { value: '84224000', label: 'HSN code' },
+          { value: '18%', label: 'GST rate' },
+          { value: '400–2500N', label: 'Tension (726X)' },
+          { value: '<40s', label: 'Cycle time vs ~120s manual' },
+          { value: '12–16mm', label: 'PP/PET strap width (726X)' },
+          { value: '2.4 × 2.3m', label: 'Max pallet W × H' },
+        ],
+      },
+      {
+        type: 'table',
+        table: {
+          caption: 'ErgoPack India model specifications for the purchase file',
+          headers: ['Specification', 'ErgoPack 700 (crank)', 'ErgoPack GO', 'ErgoPack 726X'],
+          rows: [
+            ['Drive', 'Manual hand crank', 'Electronic joystick', 'Electronic joystick + touchscreen'],
+            ['Integrated sealing head', 'No (use own tool)', 'No (use own tool)', 'Yes — friction weld'],
+            ['Tension force', 'Per your tool', 'Per your tool', '400N – 2500N (digital)'],
+            ['Strap material', 'PP / PET', 'PP / PET', 'PP / PET'],
+            ['Cycle time', '< 60s', '< 45s', '< 40s'],
+            ['Max pallet (W × H)', '2.4 × 2.3 m', '2.4 × 2.3 m', '2.4 × 2.3 m'],
+            ['HSN / GST', '84224000 / 18%', '84224000 / 18%', '84224000 / 18%'],
+          ],
+        },
+      },
+      {
+        type: 'cta',
+        text: 'Need a GST-compliant quotation with the correct HSN for your purchase file?',
+        href: '/contact',
+        label: 'Request a formal quotation',
       },
     ],
     faqs: [
       {
         question: 'What is the HSN code for a pallet strapping machine in India?',
         answer:
-          'The HSN code for pallet strapping machines in India is 84224000, which falls under packing or wrapping machinery and is subject to an 18% GST rate. Spare parts are generally classified under HSN 84229090.',
+          'The HSN code for a pallet strapping machine in India is 84224000, which covers other packing or wrapping machinery under Chapter 84. The same code applies to manual, semi-automatic and automatic strapping machines.',
       },
       {
-        question: 'What GST rate applies to pallet strapping machines?',
-        answer: 'Pallet strapping machines are taxed at 18% GST in India under HSN code 84224000.',
-      },
-      {
-        question: 'What strap widths and tension does the ErgoPack 726X support?',
+        question: 'What is the GST rate on a pallet strapping machine?',
         answer:
-          'The ErgoPack 726X runs 12–16mm PP and PET strap and applies electronically controlled tension from 400N up to 2500N, sealed with a sealless friction weld.',
+          'Pallet strapping machines attract 18% GST under HSN code 84224000 — charged as 9% CGST + 9% SGST on an intra-state purchase, or 18% IGST on an inter-state purchase.',
       },
+      {
+        question: 'What is the HSN code for strapping machine spare parts?',
+        answer:
+          'Strapping machine spare parts are generally classified under HSN code 84229090 and are also taxed at 18% GST.',
+      },
+      {
+        question: 'Can a business claim input tax credit on a strapping machine?',
+        answer:
+          'Yes. A GST-registered business buying a strapping machine for use in the course of business can claim full input tax credit on the 18% GST paid, provided the supplier is registered, the tax invoice carries the correct HSN (84224000) and GSTIN, and the invoice reflects in GSTR-2B. For a registered buyer this makes the effective cost of the machine the ex-GST price.',
+      },
+      {
+        question: 'Is the GST rate different for manual vs automatic strapping machines?',
+        answer:
+          'No. Classification under HSN 84224000 follows the machine’s function — packing/wrapping machinery — not its level of automation, so manual, semi-automatic and fully integrated machines all attract 18% GST.',
+      },
+      {
+        question: 'What HSN code applies to PP and PET strapping rolls?',
+        answer:
+          'PP and PET strapping consumables are plastics articles, generally classified under HSN 3920 (e.g. 39202020 / 39209999) and taxed at 18% GST. Input tax credit is available when they are used in the course of business.',
+      },
+    ],
+    related: [
+      { label: 'Pallet Strapping ROI & Cost Comparison', href: '/resources/pallet-strapping-roi-cost-comparison' },
+      { label: 'PET vs Steel Strapping for Exports', href: '/resources/pet-vs-steel-strapping' },
+      { label: 'Compare the 726X, GO and 700', href: '/products' },
     ],
   },
   // ---------------------------------------------------------------------------
