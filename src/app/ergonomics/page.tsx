@@ -1,37 +1,26 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { JsonLd } from '@/components/JsonLd';
-import {
-  Shield,
-  Heart,
-  TrendingUp,
-  CheckCircle,
-  ArrowRight,
-  Award,
-  Users,
-  Clock,
-} from 'lucide-react';
+import { Shield, Heart, TrendingUp, CheckCircle, ArrowRight, Clock } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Ergonomic Pallet Strapping | Zero Bending Technology | ErgoPack India',
+  title: 'Pallet Strapping Without Bending Down | Faster, Fatigue-Free | ErgoPack India',
   description:
-    "Eliminate back injuries with ErgoPack's patented ChainLance technology. The only pallet strapping system that requires zero bending. Reduce workplace injuries by 90%, boost productivity 3x. EHS compliant, OSHA standards.",
+    "Strap pallets from one standing position in under 40 seconds. ErgoPack's ChainLance eliminates walking and bending — keeping packaging speed at hour eight identical to hour one, with fatigue-related errors removed.",
   keywords: [
-    'ergonomic pallet strapping',
-    'zero bending strapping',
-    'back injury prevention warehouse',
-    'workplace ergonomics solutions India',
-    'musculoskeletal disorder prevention',
+    'industrial pallet strapper without bending down',
+    'no bending no walking strapping',
+    'standing pallet strapping system',
     'ChainLance technology',
-    'standing pallet strapping',
-    'worker fatigue reduction',
-    'occupational health equipment',
-    'EHS compliant strapping',
+    'reduce worker fatigue packaging line',
+    'consistent dispatch throughput',
+    'mobile pallet strapping machine India',
+    'worker fatigue reduction equipment',
   ],
   openGraph: {
-    title: 'Ergonomic Pallet Strapping - Zero Bending, Zero Injuries | ErgoPack India',
+    title: 'Pallet Strapping Without Bending — Faster, Fatigue-Free | ErgoPack India',
     description:
-      'The revolutionary strapping system that eliminates bending. Protect your workers, boost productivity.',
+      'Strap pallets from one position in under 40 seconds. Eliminate bending and walking so throughput stays constant across the whole shift.',
     type: 'website',
     locale: 'en_IN',
   },
@@ -42,59 +31,59 @@ export const metadata: Metadata = {
 
 const benefits = [
   {
-    icon: Shield,
-    title: 'Zero Back Injuries',
+    icon: TrendingUp,
+    title: '66% Faster Cycle Time',
     description:
-      'Eliminate bending completely with ChainLance technology. Workers strap pallets while standing upright at waist height.',
-    stat: '90%',
-    statLabel: 'Reduction in workplace injuries',
+      'Strap a pallet in under 40 seconds versus 120+ seconds manual. No walking around the pallet — one operator does the work of three.',
+    stat: '40 sec',
+    statLabel: 'Per pallet vs 120s manual',
   },
   {
-    icon: TrendingUp,
-    title: '3x Faster Operations',
+    icon: Clock,
+    title: 'Constant Shift Throughput',
     description:
-      'Strap a pallet in 40 seconds vs 120+ seconds with traditional methods. No walking around pallets required.',
-    stat: '40 sec',
-    statLabel: 'Per pallet strapping time',
+      'Because the machine does the physical work, dispatch speed at hour eight matches hour one — eliminating the afternoon slowdown that costs you pallets.',
+    stat: '0',
+    statLabel: 'Fatigue-related slowdown',
   },
   {
     icon: Heart,
-    title: 'Worker Well-being',
+    title: 'Fewer Fatigue Errors',
     description:
-      'Reduce physical fatigue by 80%. Workers can perform more cycles comfortably throughout their shift.',
-    stat: '80%',
-    statLabel: 'Reduction in worker fatigue',
+      'Reducing physical strain by ~80% removes the tired-operator mistakes that cause loose straps, re-work, and rejected loads.',
+    stat: '~80%',
+    statLabel: 'Less operator fatigue',
   },
   {
-    icon: Award,
-    title: 'EHS Compliance',
+    icon: Shield,
+    title: 'Zero Bending (Byproduct)',
     description:
-      'Meet OSH Code 2020 requirements and international OSHA standards. Document ergonomic improvements for audits.',
-    stat: '100%',
-    statLabel: 'Compliance ready',
+      'Eliminating 50,000+ annual bending movements also removes the leading cause of warehouse back injuries and supports OSH Code 2020 audits.',
+    stat: '0',
+    statLabel: 'Bends required per pallet',
   },
 ];
 
 const problems = [
   {
-    problem: 'Workers bend 50-100+ times per shift',
-    solution: 'Zero bending with ErgoPack ChainLance',
+    problem: 'Manual double-strapping takes 120+ seconds with two operators',
+    solution: 'One operator straps in under 40 seconds with ChainLance',
   },
   {
-    problem: 'Walking around each pallet wastes time',
-    solution: 'Strap from one position, no walking needed',
+    problem: 'Walking around each pallet wastes thousands of man-hours a year',
+    solution: 'Strap from one position — 25,000 fewer trips per year (100 pallets/day)',
   },
   {
-    problem: 'High injury rates increase insurance costs',
-    solution: 'Documented 90% reduction in back injuries',
+    problem: 'Afternoon fatigue slows dispatch and causes loose-strap re-work',
+    solution: 'Machine does the labor — hour-eight speed matches hour-one',
   },
   {
-    problem: 'Worker fatigue reduces afternoon productivity',
-    solution: 'Consistent performance throughout the shift',
+    problem: 'Two-man strapping teams inflate payroll',
+    solution: 'A single operator achieves the throughput of three',
   },
   {
-    problem: 'EHS audits flag ergonomic risks',
-    solution: 'Demonstrate proactive safety investment',
+    problem: '50,000+ annual bends drive back injuries and EHS audit flags',
+    solution: 'Zero bending — a built-in byproduct of the efficiency gain',
   },
 ];
 
@@ -133,17 +122,19 @@ export default function ErgonomicsPage() {
         <div className="container mx-auto px-6 py-24 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <span className="inline-block px-4 py-2 bg-green-500/10 border border-green-500/30 rounded-full text-green-400 text-sm font-medium mb-8">
-              Zero Bending Technology
+              Strap From One Position — No Bending, No Walking
             </span>
 
             <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6 leading-tight">
-              The Only Pallet Strapping System That{' '}
-              <span className="text-green-400">Eliminates Back Injuries</span>
+              Pallet Strapping Without Bending Down —{' '}
+              <span className="text-green-400">Faster, Fatigue-Free Throughput</span>
             </h1>
 
             <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-              German-engineered ergonomic solutions trusted by 10,000+ facilities worldwide. Reduce
-              workplace injuries by 90% while boosting productivity 3x.
+              ErgoPack's ChainLance routes the strap under the pallet and back to the operator, who
+              never walks around the load or bends down. The result is a strapping cycle under 40
+              seconds — and because fatigue is removed, hour eight of the shift runs as fast as hour
+              one, with no fatigue-related strapping errors.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -170,12 +161,12 @@ export default function ErgonomicsPage() {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-green-400">90%</div>
-              <div className="text-gray-400 text-sm">Injury Reduction</div>
+              <div className="text-3xl md:text-4xl font-bold text-green-400">66%</div>
+              <div className="text-gray-400 text-sm">Less Cycle Time</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-green-400">3x</div>
-              <div className="text-gray-400 text-sm">Faster Operations</div>
+              <div className="text-3xl md:text-4xl font-bold text-green-400">40s</div>
+              <div className="text-gray-400 text-sm">Per Pallet</div>
             </div>
             <div className="text-center">
               <div className="text-3xl md:text-4xl font-bold text-green-400">10,000+</div>
@@ -194,10 +185,11 @@ export default function ErgonomicsPage() {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-4">
-              The Ergonomic Challenge in Indian Warehouses
+              The Hidden Cost of Manual Strapping
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Traditional pallet strapping causes musculoskeletal disorders. ErgoPack solves this.
+              Walking around pallets and bending to thread straps wastes thousands of man-hours a
+              year and slows your dispatch floor. ErgoPack removes the wasted motion entirely.
             </p>
           </div>
 
@@ -226,10 +218,11 @@ export default function ErgonomicsPage() {
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-4">
-              Measurable Ergonomic Benefits
+              Measurable Throughput Benefits
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              Real results from real facilities. Document these improvements for your EHS reports.
+              Real results from real facilities — faster cycles, steady all-shift throughput, fewer
+              fatigue errors, with the ergonomic and EHS gains following automatically.
             </p>
           </div>
 
@@ -367,18 +360,18 @@ export default function ErgonomicsPage() {
       <section className="py-20 bg-gradient-to-r from-green-600 to-green-700">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-6">
-            Ready to Eliminate Back Injuries in Your Facility?
+            Ready to Cut Your Strapping Time by 66%?
           </h2>
           <p className="text-green-100 text-lg mb-10 max-w-2xl mx-auto">
-            Schedule a free ergonomic assessment. Our experts will calculate your potential injury
-            reduction and ROI.
+            Book a free on-site capacity audit. Our team will measure your current cycle time and
+            calculate the labor hours and payback you'll gain — fatigue reduction included.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/contact"
               className="inline-flex items-center justify-center px-8 py-4 bg-white text-green-700 font-semibold rounded-lg hover:bg-gray-100 transition-colors"
             >
-              Get Free Assessment
+              Get Free Capacity Audit
               <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
             <Link

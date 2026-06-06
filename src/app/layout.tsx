@@ -6,12 +6,7 @@ import { Toaster } from 'react-hot-toast';
 import Providers from '@/components/Providers';
 import { ThemeProvider } from '@/lib/theme-provider';
 import { WebVitals, PerformanceMonitor } from '@/components/WebVitals';
-import {
-  OrganizationSchema,
-  WebsiteSchema,
-  LocalBusinessSchema,
-  FAQSchema,
-} from '@/components/JsonLd';
+import { OrganizationSchema, WebsiteSchema, LocalBusinessSchema } from '@/components/JsonLd';
 import { SkipNav } from '@/components/accessibility/SkipNav';
 import { FocusManager } from '@/components/accessibility/FocusManager';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
@@ -19,6 +14,8 @@ import { LuxuryCursor } from '@/components/ui/LuxuryCursor';
 import { ComparisonProvider } from '@/contexts/ComparisonContext';
 import { ContactPopupProvider } from '@/components/contact/ContactPopupContext';
 import ComparisonWidget from '@/components/comparison/ComparisonWidget';
+import { OnWebChat } from '@/components/OnWebChat';
+import { siteConfig } from '@/lib/seo-config';
 
 // Ultra-Premium serif for headings - The "Gucci" standard
 const cormorant = Cormorant_Garamond({
@@ -52,26 +49,26 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: 'ErgoPack India | Ergonomic Pallet Strapping - Zero Bending, Zero Back Injuries',
-    template: '%s | ErgoPack India',
+    default: 'Automated Pallet Strapping Machine India | Strap in 40s | ErgoPack',
+    template: '%s',
   },
   description:
-    "India's only zero-bending pallet strapping system. German-engineered ergonomic solutions that eliminate back injuries, reduce worker fatigue by 80%, and boost productivity 3x. EHS compliant. Trusted by 10,000+ facilities worldwide.",
+    'ErgoPack India supplies high-speed mobile pallet strapping machines that secure a pallet in under 40 seconds — a 66% cut versus manual strapping. Machine-calibrated tension up to 2500N eliminates transit damage and shipment rejections while slashing labor and material costs.',
   keywords: [
     'ErgoPack',
-    'ergonomic pallet strapping',
-    'zero bending strapping',
-    'back injury prevention',
-    'EHS compliance India',
-    'workplace ergonomics',
-    'pallet strapping machine',
+    'automated pallet strapping machine India',
+    'mobile pallet strapping machine',
+    'pallet strapping machine price India',
+    'high tension pallet strapping machine',
+    'semi automatic pallet strapping machine',
+    'reduce transit damage',
+    'pallet strapping machine ROI',
+    'friction weld strapping',
+    'PET strapping machine',
     'ChainLance technology',
-    'Made in Germany',
-    'worker safety equipment',
-    'musculoskeletal disorder prevention',
-    'OSHA compliant strapping',
-    'warehouse ergonomics India',
-    'industrial safety solutions',
+    'Made in Germany pallet strapping',
+    'sealless pallet strapping',
+    'battery operated pallet strapping machine',
   ],
   authors: [{ name: 'ErgoPack India' }],
   creator: 'ErgoPack India',
@@ -81,7 +78,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'),
+  metadataBase: new URL(siteConfig.url),
   alternates: {
     canonical: '/',
   },
@@ -90,21 +87,23 @@ export const metadata: Metadata = {
     locale: 'en_IN',
     url: '/',
     siteName: 'ErgoPack India',
-    title: 'ErgoPack India | Verifiable Load Integrity',
-    description: "The C-Suite's Control System for Zero-Failure Logistics",
+    title: 'Automated Pallet Strapping Machines India | ErgoPack',
+    description:
+      'Strap pallets in under 40 seconds with mobile, high-tension ErgoPack machines. Eliminate transit damage, cut labor, and reach ROI in months.',
     images: [
       {
         url: '/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'ErgoPack India',
+        alt: 'ErgoPack India automated mobile pallet strapping machine',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'ErgoPack India | Verifiable Load Integrity',
-    description: "The C-Suite's Control System for Zero-Failure Logistics",
+    title: 'Automated Pallet Strapping Machines India | ErgoPack',
+    description:
+      'Strap pallets in under 40 seconds with mobile, high-tension ErgoPack machines. Eliminate transit damage and cut labor costs.',
     images: ['/images/og-image.jpg'],
   },
   robots: {
@@ -153,7 +152,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <OrganizationSchema />
         <WebsiteSchema />
         <LocalBusinessSchema />
-        <FAQSchema />
       </head>
       <body className="bg-primary text-primary antialiased font-sans transition-colors duration-200">
         <ThemeProvider
@@ -181,6 +179,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <ContactPopupProvider>
                   {children}
                   <ComparisonWidget />
+                  <OnWebChat />
                   <Toaster
                     position="top-right"
                     toastOptions={{

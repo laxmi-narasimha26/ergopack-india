@@ -14,20 +14,18 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'EHS Compliance | OSH Code 2020 Compliant Equipment | ErgoPack India',
+  title: 'EHS Compliance & OSH Code 2020 | Pallet Strapping Audit Readiness | ErgoPack India',
   description:
-    'Meet EHS compliance requirements with ErgoPack ergonomic strapping. OSH Code 2020 compliant, OSHA standards, documented safety improvements. Reduce workplace injury liability.',
+    'Automating pallet strapping cuts cycle time 66% and, as a byproduct, removes the manual-handling hazards EHS auditors flag. Get documented OSH Code 2020 and OSHA-aligned audit readiness with ErgoPack.',
   keywords: [
     'EHS compliance India',
     'OSH Code 2020 equipment',
-    'OSHA compliant strapping',
-    'workplace safety compliance',
-    'ergonomic equipment certification',
-    'occupational health safety',
+    'manual handling risk strapping',
     'factory safety audit',
+    'pallet strapping without bending',
     'industrial safety India',
-    'worker injury prevention compliance',
     'EHS audit documentation',
+    'automated pallet strapping compliance',
   ],
   openGraph: {
     title: 'EHS Compliance Solutions | ErgoPack India',
@@ -143,12 +141,13 @@ export default function EHSCompliancePage() {
 
             <h1 className="text-4xl md:text-6xl font-serif font-bold text-white mb-6 leading-tight">
               Pass Your EHS Audit With{' '}
-              <span className="text-blue-400">Documented Safety Improvements</span>
+              <span className="text-blue-400">Ergonomic Pallet Strapping Improvements</span>
             </h1>
 
             <p className="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
-              Demonstrate proactive safety investment with ErgoPack. OSH Code 2020 compliant,
-              OSHA-aligned, with comprehensive audit documentation included.
+              Automating your strapping line cuts cycle time by 66% — and because the machine does
+              the bending and walking, the manual-handling hazards auditors flag disappear with it.
+              Get documented OSH Code 2020 and OSHA-aligned audit readiness as a built-in byproduct.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -178,7 +177,8 @@ export default function EHSCompliancePage() {
               Standards & Compliance
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              ErgoPack systems are designed to meet and exceed workplace safety regulations
+              ErgoPack systems are designed to meet workplace safety regulations while reducing
+              ergonomic risk in pallet strapping workflows
             </p>
           </div>
 
@@ -210,7 +210,8 @@ export default function EHSCompliancePage() {
               Risk Assessment: Traditional vs ErgoPack
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
-              How ErgoPack transforms your ergonomic risk profile
+              How ergonomic pallet strapping transforms your risk profile and improves safer
+              dispatch operations
             </p>
           </div>
 

@@ -31,8 +31,9 @@ export default function PhilosophySection() {
           </p>
           <div className="h-[1px] w-24 bg-artisan-gold" />
           <p className="text-lg font-light text-gray-500 leading-relaxed max-w-xl">
-            German engineering meets ergonomic excellence. Every curve, every mechanism is designed
-            to transform the mundane task of strapping into a seamless, dignified operation.
+            German engineering meets operational efficiency. Every mechanism is designed to turn a
+            two-minute manual bottleneck into a precise, sub-40-second operation — pallet after
+            pallet.
           </p>
         </motion.div>
       </div>

@@ -12,7 +12,7 @@ export default function ImageHeroSection() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero-machine.png"
-          alt="ErgoPack Premium Strapping System"
+          alt="ErgoPack mobile automated pallet strapping machine securing a pallet in under 40 seconds on an Indian dispatch floor"
           fill
           priority
           className="object-cover object-center"
@@ -35,7 +35,7 @@ export default function ImageHeroSection() {
           >
             <span className="w-2 h-2 rounded-full bg-[#C8102E] animate-pulse" />
             <span className="text-[10px] md:text-xs uppercase tracking-[0.15em] md:tracking-[0.2em] text-[#C8102E] font-semibold">
-              German Engineering Excellence
+              Strap Pallets in Under 40 Seconds
             </span>
           </motion.div>
 
@@ -46,9 +46,8 @@ export default function ImageHeroSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white leading-[0.95] mb-4 md:mb-6"
           >
-            Verifiable
-            <br />
-            <span className="text-[#C8102E]">Load Integrity</span>
+            Automated <br className="hidden sm:block" />
+            <span className="text-[#C8102E]">Pallet Strapping Machines</span>
           </motion.h1>
 
           {/* Subtitle - Smaller on mobile */}
@@ -58,8 +57,9 @@ export default function ImageHeroSection() {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="text-base md:text-xl lg:text-2xl text-white/70 max-w-xl mb-6 md:mb-10 leading-relaxed"
           >
-            The world&apos;s most advanced ergonomic pallet strapping systems. Trusted by 55+
-            countries worldwide.
+            High-speed mobile strapping that secures a pallet in under 40 seconds — a 66% cut versus
+            manual methods. Machine-calibrated tension up to 2500N eliminates transit damage and
+            shipment rejections. Explore the ErgoPack 726X, GO, and 700, trusted in 55+ countries.
           </motion.p>
 
           {/* CTA Buttons - Stack on mobile */}
@@ -67,7 +67,7 @@ export default function ImageHeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
-            className="flex flex-col sm:flex-row gap-3 md:gap-4"
+            className="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4"
           >
             <Link href="/products" className="w-full sm:w-auto">
               <button className="w-full sm:w-auto bg-[#C8102E] text-white px-6 md:px-8 py-3.5 md:py-4 rounded-lg font-medium text-base md:text-lg hover:bg-red-700 transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-red-900/30 hover:shadow-red-900/50 active:scale-[0.98]">
@@ -75,8 +75,13 @@ export default function ImageHeroSection() {
                 <ArrowRight className="w-5 h-5" />
               </button>
             </Link>
+            <Link href="/products/build-your-own" className="w-full sm:w-auto">
+              <button className="w-full sm:w-auto bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 md:px-8 py-3.5 md:py-4 rounded-lg font-medium text-base md:text-lg hover:bg-white/20 hover:border-white/40 transition-all duration-300 active:scale-[0.98]">
+                Build Your Own
+              </button>
+            </Link>
             <Link href="/contact" className="w-full sm:w-auto">
-              <button className="w-full sm:w-auto bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 md:px-8 py-3.5 md:py-4 rounded-lg font-medium text-base md:text-lg hover:bg-white/20 transition-all duration-300 active:scale-[0.98]">
+              <button className="w-full sm:w-auto bg-transparent border border-white/10 text-white/80 px-6 md:px-8 py-3.5 md:py-4 rounded-lg font-medium text-base md:text-lg hover:text-white hover:bg-white/5 transition-all duration-300 active:scale-[0.98]">
                 Request Demo
               </button>
             </Link>
@@ -114,7 +119,7 @@ export default function ImageHeroSection() {
             {[
               { title: 'German Engineering', subtitle: 'Precision Crafted', Icon: Award },
               { title: 'Global Leader', subtitle: '55+ Countries', Icon: Globe },
-              { title: 'Patented Technology', subtitle: 'Ergonomic Excellence', Icon: ShieldCheck },
+              { title: 'Up to 2500N Tension', subtitle: 'Zero Transit Damage', Icon: ShieldCheck },
               { title: 'Premium Support', subtitle: '24/7 Assistance', Icon: Headphones },
             ].map((item, index) => (
               <motion.div

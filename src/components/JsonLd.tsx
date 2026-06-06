@@ -32,6 +32,8 @@ interface ProductData {
     ratingValue: string | number;
     reviewCount: string | number;
   };
+  /** Machine-readable spec pairs (e.g. Tension Force, Strap Width, Cycle Time) for GEO extraction */
+  additionalProperty?: Array<{ name: string; value: string }>;
 }
 
 interface ArticleData {
@@ -58,7 +60,8 @@ type SchemaType =
   | 'article'
   | 'faq'
   | 'localBusiness'
-  | 'service';
+  | 'service'
+  | 'video';
 
 interface JsonLdProps {
   type: SchemaType;
@@ -116,18 +119,6 @@ export function JsonLd({ type, data }: JsonLdProps) {
           '@id': `${data.url}#organization`,
         },
         inLanguage: 'en-IN',
-        ...(data.potentialAction && {
-          potentialAction: {
-            '@type': 'SearchAction',
-            target: {
-              '@type': 'EntryPoint',
-              urlTemplate:
-                data.potentialAction.target?.urlTemplate ||
-                `${data.url}/search?q={search_term_string}`,
-            },
-            'query-input': 'required name=search_term_string',
-          },
-        }),
       };
       break;
 
@@ -149,6 +140,16 @@ export function JsonLd({ type, data }: JsonLdProps) {
           name: 'ErgoPack GmbH',
           url: 'https://www.ergopack.de',
         },
+        ...(Array.isArray(data.additionalProperty) &&
+          data.additionalProperty.length > 0 && {
+            additionalProperty: data.additionalProperty.map(
+              (prop: { name: string; value: string }) => ({
+                '@type': 'PropertyValue',
+                name: prop.name,
+                value: prop.value,
+              })
+            ),
+          }),
         ...(data.offers && {
           offers: {
             '@type': 'Offer',
@@ -216,10 +217,14 @@ export function JsonLd({ type, data }: JsonLdProps) {
       break;
 
     case 'faq':
+      // Google limits FAQ *rich-result display* in classic SERPs, but FAQPage
+      // schema remains valid and is heavily used by AI answer engines (ChatGPT,
+      // Perplexity, Google AI Overviews) for extraction. Emitting it is core to
+      // the AEO/GEO strategy.
       schema = {
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
-        mainEntity: data.items.map((item: FAQItem) => ({
+        mainEntity: (data.items || []).map((item: FAQItem) => ({
           '@type': 'Question',
           name: item.question,
           acceptedAnswer: {
@@ -281,24 +286,57 @@ export function JsonLd({ type, data }: JsonLdProps) {
         '@type': 'Service',
         name: data.name,
         description: data.description,
+        ...(data.url && {
+          url: data.url.startsWith('http') ? data.url : `${baseUrl}${data.url}`,
+        }),
+        ...(data.image && {
+          image: data.image.startsWith('http') ? data.image : `${baseUrl}${data.image}`,
+        }),
         provider: {
           '@type': 'Organization',
           name: 'ErgoPack India',
           url: baseUrl,
         },
-        areaServed: {
-          '@type': 'Country',
-          name: 'India',
-        },
+        areaServed:
+          Array.isArray(data.areaServed) && data.areaServed.length > 0
+            ? data.areaServed.map((place: string) => ({
+                '@type': 'Place',
+                name: place,
+              }))
+            : {
+                '@type': 'Country',
+                name: 'India',
+              },
         ...(data.serviceType && { serviceType: data.serviceType }),
-        ...(data.offers && {
-          offers: {
-            '@type': 'Offer',
-            availability: 'https://schema.org/InStock',
-          },
-        }),
       };
       break;
+
+    case 'video': {
+      const toAbsolute = (url: string) => (url.startsWith('http') ? url : `${baseUrl}${url}`);
+      const thumbs = (Array.isArray(data.thumbnailUrl) ? data.thumbnailUrl : [data.thumbnailUrl])
+        .filter(Boolean)
+        .map(toAbsolute);
+      schema = {
+        '@context': 'https://schema.org',
+        '@type': 'VideoObject',
+        name: data.name,
+        description: data.description,
+        thumbnailUrl: thumbs,
+        uploadDate: data.uploadDate,
+        ...(data.duration && { duration: data.duration }),
+        ...(data.contentUrl && { contentUrl: toAbsolute(data.contentUrl) }),
+        ...(data.embedUrl && { embedUrl: toAbsolute(data.embedUrl) }),
+        publisher: {
+          '@type': 'Organization',
+          name: 'ErgoPack India',
+          logo: {
+            '@type': 'ImageObject',
+            url: `${baseUrl}/logo.png`,
+          },
+        },
+      };
+      break;
+    }
   }
 
   return (
@@ -330,10 +368,9 @@ export function OrganizationSchema() {
         contactPoint: {
           '@type': 'ContactPoint',
           telephone: siteConfig.business.phone,
-          contactType: 'Customer Service',
+          contactType: 'Sales',
           areaServed: 'IN',
           availableLanguage: ['en', 'hi'],
-          contactOption: 'TollFree',
         },
         address: siteConfig.business.address,
         sameAs: Object.values(siteConfig.socialProfiles).filter(Boolean),
@@ -355,14 +392,6 @@ export function WebsiteSchema() {
         url: baseUrl,
         name: siteConfig.name,
         description: siteConfig.tagline,
-        potentialAction: {
-          '@type': 'SearchAction',
-          target: {
-            '@type': 'EntryPoint',
-            urlTemplate: `${baseUrl}/search?q={search_term_string}`,
-          },
-          'query-input': 'required name=search_term_string',
-        },
       }}
     />
   );
@@ -386,6 +415,7 @@ export function LocalBusinessSchema() {
         image: `${baseUrl}/logo.png`,
         priceRange: '₹₹₹',
         address: siteConfig.business.address,
+        geo: siteConfig.business.geo,
         openingHours: [
           {
             dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
@@ -418,6 +448,14 @@ export function FAQSchema({ items }: { items?: FAQItem[] }) {
  */
 export function ProductSchema({ product }: { product: ProductData }) {
   const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'https://ergopack-india.com';
+  const hasEligibleRichResultData =
+    Boolean(product.offers?.price) || Boolean(product.aggregateRating);
+
+  // B2B inquiry pages without a public price or visible ratings should not emit
+  // Product rich result markup. That creates invalid Search Console items.
+  if (!hasEligibleRichResultData) {
+    return null;
+  }
 
   return (
     <JsonLd
@@ -425,8 +463,12 @@ export function ProductSchema({ product }: { product: ProductData }) {
       data={{
         ...product,
         brand: product.brand || 'ErgoPack',
-        image: product.image ? `${baseUrl}${product.image}` : undefined,
-        aggregateRating: product.aggregateRating || schemaTemplates.aggregateRating,
+        image: product.image
+          ? product.image.startsWith('http')
+            ? product.image
+            : `${baseUrl}${product.image}`
+          : undefined,
+        aggregateRating: product.aggregateRating,
       }}
     />
   );
@@ -468,16 +510,46 @@ export function ArticleSchema({ article }: { article: ArticleData }) {
 }
 
 /**
+ * Video Schema - For ChainLance demos and 3D tours (captures video search + GEO)
+ */
+export function VideoSchema({
+  name,
+  description,
+  thumbnailUrl,
+  uploadDate,
+  duration,
+  contentUrl,
+  embedUrl,
+}: {
+  name: string;
+  description: string;
+  thumbnailUrl: string | string[];
+  uploadDate: string;
+  duration?: string;
+  contentUrl?: string;
+  embedUrl?: string;
+}) {
+  return (
+    <JsonLd
+      type="video"
+      data={{ name, description, thumbnailUrl, uploadDate, duration, contentUrl, embedUrl }}
+    />
+  );
+}
+
+/**
  * Service Schema - For service offerings
  */
 export function ServiceSchema({
   name,
   description,
   serviceType,
+  areaServed,
 }: {
   name: string;
   description: string;
   serviceType?: string;
+  areaServed?: string[];
 }) {
   return (
     <JsonLd
@@ -486,7 +558,7 @@ export function ServiceSchema({
         name,
         description,
         serviceType,
-        offers: true,
+        areaServed,
       }}
     />
   );

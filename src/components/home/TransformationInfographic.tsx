@@ -153,7 +153,7 @@ export default function TransformationInfographic() {
           {/* RIGHT: Employee Safety & Well-being */}
           <div>
             <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-neutral-900 mb-2">
-              Employee Safety & Well-being
+              Wasted Motion Eliminated
             </h3>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">

@@ -11,24 +11,28 @@
 
 export const siteConfig = {
   name: 'ErgoPack India',
-  tagline: 'Verifiable Load Integrity',
+  tagline: 'High-Speed Automated Pallet Strapping — Strap Pallets in Under 40 Seconds',
   description:
-    'ErgoPack India delivers Made in Germany precision for catastrophic shipment risk mitigation. Premium pallet strapping solutions for pharmaceutical, automotive, and electronics industries.',
+    'ErgoPack India supplies high-speed mobile pallet strapping machines that secure a pallet in under 40 seconds — a 66% cut in strapping time versus manual methods. Machine-calibrated tension up to 2500N eliminates transit damage and shipment rejections, slashing labor and material costs for Indian manufacturing and export operations.',
   url: process.env.NEXT_PUBLIC_APP_URL || 'https://ergopack-india.com',
   locale: 'en_IN',
 
   // Business information
   business: {
-    legalName: 'ErgoPack India Pvt. Ltd.',
+    legalName: 'ErgoPack India (Benz Packaging Solutions Pvt. Ltd.)',
     foundingYear: 2010,
-    phone: '+91-XXX-XXX-XXXX', // TODO: Update with actual phone
+    phone: '+91 9899144488',
     email: 'marketing@benz-packaging.com',
     address: {
-      streetAddress: '', // TODO: Update with actual address
-      addressLocality: 'Mumbai',
-      addressRegion: 'Maharashtra',
-      postalCode: '',
+      streetAddress: 'Plot No. 4, Sector 37, IMT Manesar',
+      addressLocality: 'Gurgaon',
+      addressRegion: 'Haryana',
+      postalCode: '122001',
       addressCountry: 'IN',
+    },
+    geo: {
+      latitude: 28.3588,
+      longitude: 76.934,
     },
   },
 
@@ -46,60 +50,54 @@ export const siteConfig = {
 // =============================================================================
 
 export const industryKeywords = {
-  // Primary keywords (high search volume, high intent)
+  // Primary keywords (high search volume, high intent) — efficiency / ROI led
   primary: [
+    'automated pallet strapping machine India',
+    'mobile pallet strapping machine',
     'pallet strapping machine',
-    'pallet strapping solution',
-    'automated strapping system',
-    'industrial strapping machine India',
-    'load securing equipment',
-    'pallet wrapping machine',
-    // Ergonomics-focused primary keywords
-    'ergonomic pallet strapping',
-    'zero bending strapping system',
-    'back injury prevention strapping',
-    'workplace ergonomics solutions India',
+    'semi automatic pallet strapping machine',
+    'high tension pallet strapping machine',
+    'industrial pallet strapping machine India',
+    'pallet strapping machine price India',
+    'battery operated pallet strapping machine',
   ],
 
   // Secondary keywords (medium volume, specific intent)
   secondary: [
-    'labor cost reduction strapping',
-    'ergonomic strapping tool',
-    'battery powered strapping tool',
-    'mobile strapping system',
-    'warehouse strapping solution',
-    'supply chain packaging',
-    // EHS and safety focused
-    'EHS compliance strapping equipment',
-    'OSHA compliant pallet strapping',
-    'warehouse worker safety solutions',
-    'musculoskeletal disorder prevention',
-    'occupational health packaging',
+    'reduce pallet strapping time',
+    'automated vs manual pallet strapping cost',
+    'pallet strapping machine ROI',
+    'reduce transit damage pallet',
+    'sealless pallet strapping machine',
+    'friction weld strapping',
+    'PET strapping machine',
+    'heavy duty pallet strapping machine',
+    'labor cost reduction packaging',
+    'reduce shipment rejections',
   ],
 
   // Long-tail keywords (specific, high-conversion)
   longTail: [
-    'reduce labor cost in packaging India',
-    'advanced pallet strapping machinery',
-    'German precision strapping equipment',
-    'pharmaceutical pallet securing',
-    'automotive parts strapping solution',
-    'electronics shipment protection',
-    'zero failure logistics India',
-    'load integrity verification system',
-    'Made in Germany strapping machine India',
-    'pallet strapping for export shipments',
-    // Ergonomics and EHS long-tail
-    'reduce workplace back injuries India',
-    'ergonomic warehouse equipment India',
-    'prevent musculoskeletal disorders warehouse',
-    'ChainLance technology India',
-    'standing pallet strapping system',
-    'no bending no walking strapping',
-    'worker fatigue reduction equipment',
-    'industrial ergonomics compliance India',
-    'OSH Code 2020 compliant equipment',
-    'workplace injury prevention solutions',
+    'automated pallet strapping machine India price',
+    'how to reduce pallet strapping time',
+    'manual vs automatic pallet strapping cost comparison',
+    'alternative to broomstick strapping method',
+    'pallet strapping vs stretch wrapping cost',
+    'best pallet strapping machine for heavy loads',
+    'PET vs steel strapping for exports',
+    'friction weld vs metal clip strapping',
+    'pallet strapping machine hsn code',
+    'pallet strapping machine gst rate india',
+    'high tension pallet strapping machine Pune',
+    'pallet strapping machine Chennai',
+    'mobile pallet strapping machine vs stationary arch',
+    'reduce cargo damage during transit India',
+    'pallet strapping machine for automotive parts export',
+    'corrugated box bundles strapping machine',
+    'ChainLance technology pallet strapping',
+    'strap pallet in 40 seconds',
+    'reduce labor dependency packaging line',
+    'Made in Germany pallet strapping machine India',
   ],
 
   // Industry-specific keywords
@@ -130,14 +128,15 @@ export const industryKeywords = {
     ],
   },
 
-  // Location-based keywords
+  // Location-based keywords (Chennai/Pune prioritised — key export & auto hubs)
   locations: [
+    'pallet strapping machine Chennai',
+    'pallet strapping machine Pune',
     'pallet strapping machine Mumbai',
-    'strapping solution Delhi',
-    'industrial strapping Bangalore',
-    'packaging equipment Chennai',
-    'load securing Pune',
-    'strapping machine Gujarat',
+    'pallet strapping machine Delhi NCR',
+    'pallet strapping machine Bangalore',
+    'pallet strapping machine Gujarat',
+    'heavy machinery export packaging Chennai',
   ],
 } as const;
 
@@ -156,29 +155,35 @@ export type PageSEO = {
 export const pageSEOConfig: Record<string, PageSEO> = {
   // Homepage
   home: {
-    title: 'ErgoPack India | Premium Pallet Strapping Solutions | Made in Germany',
+    title: 'Automated Pallet Strapping Machine India | Strap in 40s | ErgoPack',
     description:
-      "India's leading supplier of German-engineered pallet strapping machines. Reduce labor costs by 40%, eliminate shipment damage, and secure your supply chain with ErgoPack.",
-    keywords: [...industryKeywords.primary, 'ErgoPack India', 'Made in Germany strapping'],
+      'Cut pallet strapping time from 120s to under 40s with ErgoPack mobile machines. Machine-calibrated tension up to 2500N eliminates transit damage and shipment rejections. Compare the 726X, GO, and 700 for Indian manufacturing and export.',
+    keywords: [
+      ...industryKeywords.primary,
+      'strap pallet in 40 seconds',
+      'reduce transit damage',
+      'pallet strapping machine ROI',
+      'ErgoPack India',
+    ],
     ogImage: '/images/og/homepage.jpg',
   },
 
   // Products overview
   products: {
-    title: 'Pallet Strapping Machines | Full Product Range | ErgoPack India',
+    title: 'Mobile Pallet Strapping Machines India | ErgoPack 726X, GO, 700',
     description:
-      'Explore our complete range of pallet strapping machines - from mobile units to high-speed automated systems. Find the perfect solution for your industry.',
+      'High-speed mobile pallet strapping machines that secure a pallet in under 40 seconds. Compare the ErgoPack 726X (up to 2500N, friction-weld sealing), the electronic GO, and the manual-crank 700.',
     keywords: [
-      'pallet strapping machines',
-      'strapping machine range',
-      'industrial strapping products',
-      'ErgoPack product catalog',
+      'mobile pallet strapping machine India',
+      'automated pallet strapping machine',
+      'high tension pallet strapping machine',
+      'ErgoPack 726X GO 700',
     ],
   },
 
   // Xpert Line
   xpertLine: {
-    title: 'Xpert Line | Premium Automated Strapping Systems | ErgoPack India',
+    title: 'X-pert Line | Premium Pallet Strapping | ErgoPack',
     description:
       'Xpert Line offers the highest performance strapping with advanced automation, IoT connectivity, and precision German engineering for demanding industrial applications.',
     keywords: [
@@ -225,10 +230,15 @@ export const pageSEOConfig: Record<string, PageSEO> = {
   },
 
   '726x': {
-    title: 'ErgoPack 726X | Premium Light-Duty Strapping | Xpert Line',
+    title: 'ErgoPack 726X | Automated Pallet Strapping Machine | Up to 2500N',
     description:
-      'The 726X combines compact design with Xpert-level performance. Smart features and enhanced durability for versatile applications.',
-    keywords: ['726X strapping', 'premium compact strapper', 'versatile strapping'],
+      'The ErgoPack 726X straps a pallet in under 40 seconds with electronically controlled tension from 400N to 2500N and sealless friction-weld sealing — eliminating transit damage on heavy and export loads. 12–16mm PP/PET.',
+    keywords: [
+      'ErgoPack 726X price India',
+      'automated pallet strapping machine',
+      'high tension strapping machine 2500N',
+      '16mm PET strapping machine',
+    ],
   },
 
   '713e': {
@@ -246,14 +256,14 @@ export const pageSEOConfig: Record<string, PageSEO> = {
   },
 
   go: {
-    title: 'ErgoPack GO | Mobile Strapping System | Warehouse Flexibility',
+    title: 'ErgoPack GO | Mobile Pallet Strapping Machine | Electronic ChainLance',
     description:
-      'Take strapping anywhere in your facility with ErgoPack GO. The ultimate mobile solution for flexible warehouse operations.',
+      'The ErgoPack GO uses an electronic joystick-driven ChainLance to route the strap under and around the pallet in seconds — one operator does the work of three. Strap pallets in under 45 seconds; use your own sealing tools.',
     keywords: [
       'ErgoPack GO',
-      'mobile strapping',
-      'warehouse strapping',
-      'portable pallet strapper',
+      'mobile pallet strapping machine India',
+      'electronic ChainLance pallet strapping',
+      'battery operated pallet strapping machine',
     ],
   },
 
@@ -292,10 +302,15 @@ export const pageSEOConfig: Record<string, PageSEO> = {
   },
 
   blog: {
-    title: 'Strapping Insights Blog | Industry Tips & Product Updates | ErgoPack',
+    title: 'Pallet Strapping Blog | ErgoPack India',
     description:
-      'Expert insights on pallet strapping, packaging optimization, and supply chain efficiency. Stay updated with the latest from ErgoPack.',
-    keywords: ['strapping blog', 'packaging tips', 'supply chain insights'],
+      'Expert insights on pallet strapping, ergonomic handling, automatic pallet strapping, workspace efficiency, and warehouse automation.',
+    keywords: [
+      'pallet strapping blog',
+      'automatic pallet strapping',
+      'workspace efficiency',
+      'warehouse automation insights',
+    ],
   },
 
   compare: {
@@ -311,57 +326,57 @@ export const pageSEOConfig: Record<string, PageSEO> = {
 // =============================================================================
 
 export const schemaTemplates = {
-  // FAQ items for pallet strapping
+  // FAQ items for pallet strapping — efficiency / ROI / transit / compliance led (AEO)
   faqItems: [
     {
-      question: 'What is pallet strapping and why is it important?',
+      question: 'How much time does an automated pallet strapping machine save?',
       answer:
-        'Pallet strapping is the process of securing goods on pallets using plastic or steel straps to prevent shifting during transport. It is critical for preventing cargo damage, ensuring worker safety, and maintaining supply chain integrity.',
+        'The ErgoPack automated ChainLance system reduces pallet strapping time from a manual average of about 120 seconds down to under 40 seconds per pallet — a 66% reduction in cycle time. A single operator achieves the throughput of a two- to three-person manual strapping team, roughly doubling end-of-line dispatch capacity.',
     },
     {
-      question: 'How does ErgoPack eliminate bending and back injuries?',
+      question: 'How does automated pallet strapping reduce transit damage?',
       answer:
-        'ErgoPack uses patented ChainLance technology that threads straps beneath pallets automatically and brings them up to waist height. Workers never need to bend down, eliminating the primary cause of back injuries in strapping operations.',
+        'Automated machines apply consistent, machine-calibrated tension — from 150N up to 2500N on the ErgoPack 726X — directly to the load, joining it to the pallet base as a single rigid unit. This eliminates the load shifting caused by inconsistent manual tensioning and hand-applied stretch film, which is the primary cause of in-transit damage and shipment rejections.',
     },
     {
-      question: 'What are the ergonomic benefits of ErgoPack?',
+      question: 'Is pallet strapping more cost-effective than stretch wrapping?',
       answer:
-        'ErgoPack eliminates repetitive bending (100+ bends per shift reduced to zero), eliminates walking around pallets, reduces worker fatigue by 80%, and has been shown to reduce workplace back injuries by 90% in installed facilities.',
+        'Yes. Manual stretch wrapping takes 5–10 minutes per pallet and consumes up to 50% more film due to inconsistent hand tensioning, while automated strapping secures the load in under a minute using a precise amount of PET or PP strap. Combined with labor savings, most facilities reach ROI within 6 to 18 months.',
     },
     {
-      question: 'Is ErgoPack compliant with Indian EHS regulations?',
+      question: 'What is the HSN code and GST rate for pallet strapping machines in India?',
       answer:
-        'Yes, ErgoPack systems help facilities comply with OSH Code 2020 requirements and international OSHA standards. We provide comprehensive documentation for EHS audits including ergonomic improvement metrics and training records.',
+        'Pallet strapping machines, including ErgoPack mobile systems, are classified under HSN code 84224000 (packing or wrapping machinery) and are subject to an 18% GST rate in India. Spare parts are generally classified under HSN 84229090.',
     },
     {
-      question: 'How much can I save by switching to automated strapping?',
+      question: 'What is the difference between the ErgoPack 726X, GO, and 700?',
       answer:
-        'Most companies see 30-50% reduction in labor costs after switching to automated strapping. Additional savings come from reduced product damage, fewer insurance claims, reduced worker compensation costs, and improved operational efficiency.',
+        'The 726X is a fully integrated system with an electronic joystick drive, touchscreen and built-in friction-weld sealing head (400N–2500N). The GO uses the same electronic ChainLance drive but ships without a sealing head, so you keep your existing battery or pneumatic tools. The 700 routes the strap via a manual hand crank — no battery — for off-grid, 24/7 operation.',
     },
     {
-      question: 'What industries benefit most from ErgoPack strapping solutions?',
+      question: 'What is friction weld sealing and why is it better than metal clips?',
       answer:
-        'ErgoPack solutions are used across pharmaceutical, automotive, electronics, FMCG, and logistics industries. Any business shipping palletized goods can benefit from improved load security, reduced labor costs, and eliminated worker injuries.',
+        'Friction weld sealing rapidly vibrates two overlapping ends of a PP or PET strap so the polymer chains fuse into a single, sealless joint with up to 90% joint efficiency. Metal clips rely on manual crimping (~60% efficiency), can rust and snap under shock load, and are a recurring consumable cost — which friction welding eliminates entirely.',
     },
     {
-      question: 'What is the difference between Xpert Line and Economy Line?',
+      question: 'How quickly does an ErgoPack system pay for itself?',
       answer:
-        'Xpert Line offers premium features like IoT connectivity, predictive maintenance, and advanced tension control. Economy Line provides reliable German engineering at accessible prices for cost-conscious operations. Both lines feature the same ergonomic zero-bending technology.',
+        'For mid-to-high-volume Indian facilities the break-even point typically falls between 6 and 18 months, driven by a 66% reduction in strapping labor time, elimination of recurring metal-seal costs, and a sharp drop in transit-damage and shipment-rejection claims.',
     },
     {
-      question: 'How quickly can workers be trained on ErgoPack?',
+      question: 'Can ErgoPack machines handle heavy and oversized pallets?',
       answer:
-        'Most operators become proficient within 1-2 hours. Our machines are designed with intuitive controls and we provide comprehensive training as part of every purchase. Workers report the ergonomic design makes operation comfortable from day one.',
+        'Yes. The ChainLance system handles pallets up to 2.4 metres wide and 2.3 metres high, and the 726X applies up to 2500N of tension for dense, non-compressible loads such as automotive parts and machinery — making it suitable for heavy industrial and export freight.',
     },
     {
-      question: 'Can ErgoPack help reduce insurance premiums?',
+      question: 'Why choose a mobile pallet strapping machine over a stationary arch system?',
       answer:
-        'Many facilities see reduced workers compensation insurance premiums after installing ErgoPack due to documented reduction in workplace injuries. We provide before/after injury metrics that can be shared with your insurance provider.',
+        'A mobile ErgoPack system is rolled directly to the pallet, so you avoid the forklift traffic, 3-phase power, conveyors and floor-bolting that stationary arch machines require. You get inline-class automation speed without the capital expenditure and fixed factory-floor footprint.',
     },
     {
-      question: 'What documentation does ErgoPack provide for safety audits?',
+      question: 'How much labor can automated strapping save on the packaging floor?',
       answer:
-        'Every installation includes compliance certificates, training records, ergonomic improvement reports, before/after risk assessments, maintenance logs, and OSH Code 2020 compliance statements.',
+        'At 100 pallets per day, manual strapping forces operators to make around 25,000 trips around pallets per year. ErgoPack reduces that to zero — the operator stands in one position while the machine routes the strap — freeing thousands of labor hours annually for higher-value tasks.',
     },
   ],
 

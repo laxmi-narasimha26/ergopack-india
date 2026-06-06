@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 
 const footerLinks = {
   products: [
-    { label: 'X-pert Line', href: '/products/xpert-line' },
+    { label: 'X-pert Line', href: '/products/x-pert-line' },
     { label: 'E-conomy Line', href: '/products/economy-line' },
     { label: 'Compare Products', href: '/compare?auto=true' },
   ],
@@ -12,8 +12,17 @@ const footerLinks = {
     { label: 'Automotive', href: '/industries#automotive' },
     { label: 'Electronics', href: '/industries#electronics' },
   ],
+  resources: [
+    { label: 'ROI & Cost Comparison', href: '/resources/pallet-strapping-roi-cost-comparison' },
+    { label: 'Reduce Transit Damage', href: '/resources/reduce-pallet-transit-damage' },
+    { label: 'PET vs Steel Strapping', href: '/resources/pet-vs-steel-strapping' },
+    { label: 'Strapping vs Wrapping', href: '/resources/pallet-strapping-vs-stretch-wrapping' },
+    { label: 'Replace Broomstick Method', href: '/resources/replace-broomstick-strapping-method' },
+    { label: 'All Resources & Guides', href: '/resources' },
+  ],
   company: [
     { label: 'About Us', href: '/about' },
+    { label: 'Manufacturing Hubs', href: '/locations' },
     { label: 'Blog & Insights', href: '/blog' },
     { label: 'Contact', href: '/contact' },
   ],
@@ -27,7 +36,7 @@ export default function Footer() {
   return (
     <footer className="bg-luxury-off-white border-t border-gray-200">
       <div className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-12 mb-12">
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block mb-6">
@@ -36,7 +45,9 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-gray-600 mb-6 leading-relaxed">
-              Verifiable Load Integrity. The C-Suite's Control System for Zero-Failure Logistics.
+              High-speed mobile pallet strapping machines that secure a pallet in under 40 seconds —
+              cutting labor, eliminating transit damage, and delivering fast ROI for Indian
+              manufacturing and export.
             </p>
             <div className="space-y-3">
               <a
@@ -98,6 +109,25 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Resources */}
+          <div>
+            <h3 className="text-gray-900 font-semibold mb-4 text-sm uppercase tracking-wider">
+              Resources
+            </h3>
+            <ul className="space-y-3">
+              {footerLinks.resources.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-600 hover:text-gray-900 transition-colors text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Company */}
           <div>
             <h3 className="text-gray-900 font-semibold mb-4 text-sm uppercase tracking-wider">
@@ -121,9 +151,7 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="pt-8 border-t border-gray-200">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-gray-500 text-sm">
-              A Trademark of ErgoPack Deutschland GmbH
-            </div>
+            <div className="text-gray-500 text-sm">A Trademark of ErgoPack Deutschland GmbH</div>
 
             {/* Legal Links */}
             <div className="flex items-center space-x-6">
