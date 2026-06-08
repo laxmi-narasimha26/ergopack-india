@@ -37,10 +37,10 @@ const LINES = [
     color: '#C8102E',
     heroImage: '/images/xpert-hero-banner.png',
     productImage: '/images/products/726x.png',
-    heroHeadline: 'INTELLIGENCE. SPEED.\nPRECISION.',
+    heroHeadline: 'THE 1,400ᵗʰ STRAP.\nIDENTICAL TO THE FIRST.',
     heroSub: 'ErgoPack 726X',
     heroTagline:
-      '66 m/min ChainLance. 1,200 strap cycles per charge. Siemens touchscreen with Line Laser. The machine that knows what it is doing.',
+      'Digitally calibrated tension to 2,500N, a Siemens touchscreen, and a Li-ion ChainLance that routes 65% faster — the machine that has no good days and bad days, so your loads don’t either.',
     // Core differentiator: the ONLY machine with Li-ion, touchscreen, laser, and 66 m/min speed.
     description:
       'The 726X is the only machine in our range that pairs a Lithium-ion battery system with a Siemens touchscreen and Line Laser. At 66 m/min, its ChainLance routes straps 65% faster than lead-battery models — and at 3.5 hours charge time versus 8–10 hours, the machine spends more time working than waiting. Set tension digitally. Position with the laser. Read cycle data on-screen. For operations where consistency and uptime are measured in money lost.',
@@ -76,10 +76,10 @@ const LINES = [
     color: '#D97706',
     heroImage: '/images/go-hero-banner.png',
     productImage: '/images/products/GO.png',
-    heroHeadline: 'ELECTRIC. VERSATILE.\nPORTABLE.',
+    heroHeadline: 'EVERY MATERIAL.\nEVERY PALLET.',
     heroSub: 'ErgoPack GO',
     heroTagline:
-      'Battery-powered strapping without the Li-ion premium. Joystick control, 350 cycles per charge, and the widest material range in the lineup — PP, PET, Paper, Cord and Composite.',
+      'Battery-powered ChainLance routing without the Li-ion premium — joystick-simple, field-serviceable, and the only machine here that straps PP, PET, Paper, Cord and Composite.',
     // Core differentiator: Economy Portable — the electric option between manual 700 and premium 726X.
     // Battery: 24V lead-fleece (proven, no Li-ion transport restrictions, field-serviceable).
     // Joystick control vs touchscreen — simpler, tougher for demanding environments.
@@ -120,10 +120,10 @@ const LINES = [
     color: '#4A7C59',
     heroImage: '/images/economy-hero-banner.png',
     productImage: '/images/products/700.png',
-    heroHeadline: 'NO POWER. NO BATTERY.\nNO LIMITS.',
+    heroHeadline: 'WHERE THE POWER STOPS,\nTHE 700 DOESN’T.',
     heroSub: 'ErgoPack 700',
     heroTagline:
-      'The 700 is a pure hand-crank machine. No battery to charge. No motor to service. The ChainLance routes the strap by handle — anywhere, anytime, on any material.',
+      'A pure hand-crank ChainLance — no battery to charge, no motor to service — delivering the same automated strap routing on any material, anywhere you can stand.',
     // Core differentiator: COMPLETELY MANUAL. No electrical components.
     // Works in areas with no power. No battery maintenance. No charging downtime.
     // Lightest machine at 64.4 kg. Widest strap material range.
