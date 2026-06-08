@@ -22,7 +22,7 @@ export default function ResourcesIndexPage() {
     <MainLayout>
       <div className="min-h-screen bg-white text-neutral-900">
         <header className="border-b border-neutral-200 bg-gradient-to-b from-[#faf7f2] to-white">
-          <div className="mx-auto max-w-4xl px-5 pb-12 pt-28 sm:pt-32">
+          <div className="mx-auto max-w-6xl px-5 pb-12 pt-28 sm:px-8 sm:pt-32">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#C8102E]">
               Resources & Buying Guides
             </p>
@@ -37,8 +37,8 @@ export default function ResourcesIndexPage() {
           </div>
         </header>
 
-        <div className="mx-auto max-w-4xl px-5 py-14">
-          <div className="grid gap-5 sm:grid-cols-2">
+        <div className="mx-auto max-w-6xl px-5 py-14 sm:px-8">
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {resourceArticles.map((article) => (
               <Link
                 key={article.slug}

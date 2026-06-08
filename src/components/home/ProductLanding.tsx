@@ -150,93 +150,6 @@ const LINES = [
 ];
 
 // ─────────────────────────────────────────────────────────────────────────────
-//  FLOATING VARIANT PILL
-// ─────────────────────────────────────────────────────────────────────────────
-function FloatingVariantPill() {
-  const [visible, setVisible] = useState(false);
-  const [activeId, setActiveId] = useState<string | null>(null);
-
-  useEffect(() => {
-    const onScroll = () => {
-      setVisible(window.scrollY > window.innerHeight * 0.75);
-      const sections = LINES.map((l) => ({
-        id: l.id,
-        el: document.getElementById(`section-${l.id}`),
-      }));
-      const viewMid = window.scrollY + window.innerHeight * 0.5;
-      for (const s of [...sections].reverse()) {
-        if (s.el && s.el.offsetTop <= viewMid) {
-          setActiveId(s.id);
-          return;
-        }
-      }
-      setActiveId(null);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  const scrollTo = (id: string) => {
-    document
-      .getElementById(`section-${id}`)
-      ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
-  return (
-    <AnimatePresence>
-      {visible && (
-        <motion.div
-          initial={{ opacity: 0, y: 30, x: '-50%' }}
-          animate={{ opacity: 1, y: 0, x: '-50%' }}
-          exit={{ opacity: 0, y: 20, x: '-50%' }}
-          transition={{ duration: 0.4, ease: 'easeOut' }}
-          className="fixed bottom-8 left-1/2 z-[200] flex items-stretch overflow-hidden"
-          style={{
-            borderRadius: '100px',
-            boxShadow: '0 8px 40px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.25)',
-          }}
-        >
-          {LINES.map((line, idx) => {
-            const isActive = activeId === line.id;
-            return (
-              <button
-                key={line.id}
-                onClick={() => scrollTo(line.id)}
-                className="relative flex items-center gap-2.5 px-6 py-3.5 transition-all duration-300 group"
-                style={{
-                  backgroundColor: isActive ? line.color : 'rgba(12,12,12,0.93)',
-                  borderRight: idx < LINES.length - 1 ? '1px solid rgba(255,255,255,0.07)' : 'none',
-                }}
-              >
-                <span
-                  className="w-2 h-2 rounded-full shrink-0 transition-all duration-300"
-                  style={{
-                    backgroundColor: isActive ? '#fff' : line.color,
-                    boxShadow: isActive ? 'none' : `0 0 6px ${line.color}99`,
-                  }}
-                />
-                <span
-                  className="text-[11px] font-semibold uppercase tracking-[0.12em] whitespace-nowrap transition-colors duration-300"
-                  style={{ color: isActive ? '#fff' : 'rgba(255,255,255,0.5)' }}
-                >
-                  {line.model}
-                </span>
-                {!isActive && (
-                  <span
-                    className="absolute bottom-0 left-6 right-6 h-[1.5px] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"
-                    style={{ backgroundColor: line.color }}
-                  />
-                )}
-              </button>
-            );
-          })}
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
 //  HERO SECTION — full-bleed cinematic background, text left, image right
 // ─────────────────────────────────────────────────────────────────────────────
 function HeroSection() {
@@ -865,20 +778,16 @@ function PhilosophyBanner() {
             <br />
             <span className="italic font-light text-white/40">or zero power dependency.</span>
           </h2>
-          <p className="text-base md:text-lg text-white/40 max-w-xl mx-auto leading-relaxed mb-12">
-            The 726X, GO and 700 cover every configuration of the dispatch floor — from fully
-            digital automated strapping to hand-crank operation with no power source at all. Three
-            machines. Every operation.
+          <p className="text-base md:text-lg text-white/45 max-w-2xl mx-auto leading-relaxed mb-12">
+            There is no dispatch floor we cannot strap. The 726X brings fully digital,
+            high-cycle automation; the GO gives battery-powered routing for any material; the 700
+            needs no power at all. Whatever your pallets, your power, and your volume —
+            one of the three is built for it.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link href="/about">
               <button className="px-8 py-3.5 text-[11px] uppercase tracking-[0.15em] font-semibold border border-white/25 text-white hover:bg-white/8 hover:border-white/50 transition-all duration-300 rounded-sm">
-                Our Story
-              </button>
-            </Link>
-            <Link href="/roi-calculator">
-              <button className="px-8 py-3.5 text-[11px] uppercase tracking-[0.15em] font-semibold bg-[#C8102E] text-white hover:bg-red-700 transition-all duration-300 rounded-sm">
-                Calculate Your ROI
+                The ErgoPack Story
               </button>
             </Link>
           </div>
@@ -1001,20 +910,31 @@ function FinalCTA() {
             Take our machine to your floor.
           </h2>
           <p className="text-white/65 text-lg mb-10 max-w-xl mx-auto">
-            Book an on-site capacity audit. We bring the 726X, GO or 700 to your dock and run a live
-            40-second cycle on your heaviest pallet. You see the number before you spend the rupee.
+            Book an on-site capacity audit and we bring the 726X, GO or 700 to your dock — a live
+            40-second cycle on your heaviest pallet. See the number before you spend the rupee.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link href="/contact">
-              <button className="px-10 py-4 text-sm uppercase tracking-widest font-semibold bg-white text-[#C8102E] hover:bg-gray-100 transition-all duration-300 rounded-sm">
+          {/* One coherent action block: primary audit + two supporting paths */}
+          <div className="flex flex-col items-center gap-4">
+            <Link href="/contact" className="w-full max-w-xs sm:w-auto">
+              <button className="w-full px-12 py-4 text-sm uppercase tracking-widest font-semibold bg-white text-[#C8102E] hover:bg-gray-100 transition-all duration-300 rounded-sm shadow-lg">
                 Request an On-Site Audit
               </button>
             </Link>
-            <Link href="/compare?auto=true">
-              <button className="px-10 py-4 text-sm uppercase tracking-widest font-semibold border border-white/35 text-white hover:bg-white/12 hover:border-white transition-all duration-300 rounded-sm">
-                Compare All Three
-              </button>
-            </Link>
+            <div className="flex items-center gap-3 text-white/70">
+              <Link
+                href="/roi-calculator"
+                className="text-[12px] uppercase tracking-[0.14em] font-semibold underline-offset-4 hover:text-white hover:underline transition-colors"
+              >
+                Calculate your ROI
+              </Link>
+              <span className="text-white/30">·</span>
+              <Link
+                href="/compare?auto=true"
+                className="text-[12px] uppercase tracking-[0.14em] font-semibold underline-offset-4 hover:text-white hover:underline transition-colors"
+              >
+                Compare all three
+              </Link>
+            </div>
           </div>
         </motion.div>
       </div>
@@ -1028,7 +948,6 @@ function FinalCTA() {
 export default function ProductLanding() {
   return (
     <div className="w-full">
-      <FloatingVariantPill />
       <HeroSection />
       <StakesSection />
       <VariantLinePicker />
