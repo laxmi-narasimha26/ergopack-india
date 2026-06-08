@@ -58,38 +58,52 @@ export const resourceArticles: ResourceArticle[] = [
   // ---------------------------------------------------------------------------
   {
     slug: 'pallet-strapping-roi-cost-comparison',
-    breadcrumb: 'Pallet Strapping ROI & Cost Comparison',
-    title: 'Pallet Strapping Machine ROI & Cost Comparison India | ErgoPack',
-    h1: 'Manual vs Automatic Pallet Strapping: ROI & Cost Comparison',
+    breadcrumb: 'ROI & Cost Comparison',
+    eyebrow: 'ROI & Break-Even Analysis',
+    title: 'Manual vs Automatic Pallet Strapping ROI & Break-Even (India) | ErgoPack',
+    h1: 'Manual vs Automatic Pallet Strapping: ROI & Break-Even Analysis',
     description:
-      'See how an ErgoPack mobile pallet strapping machine pays for itself. Compare manual vs automatic strapping cost, labor savings, and transit-damage reduction — most facilities reach ROI in 6–18 months.',
+      'A step-by-step ROI framework for Indian facilities: calculate labor savings, consumable savings and damage reduction in rupees, then the break-even month. Most floors recover an ErgoPack in 6–18 months. Includes a worked INR example.',
     keywords: [
       'automated vs manual pallet strapping cost comparison',
       'pallet strapping machine ROI',
+      'manual vs automatic pallet strapping time study',
       'reduce labor dependency packaging line',
-      'pallet strapping machine price India',
+      'pallet strapping machine break even',
+      'how to reduce pallet strapping time',
     ],
-    lede: 'Procurement teams searching for the "cheapest" strapping machine usually overpay. The real cost of manual strapping is hidden in labor, wasted consumables, and rejected shipments. Here is the math.',
+    lede: 'Buying the "cheapest" strapping machine usually costs the most. The real expense of manual strapping is hidden in labor hours, wasted consumables and rejected shipments. This guide gives you the exact four-step framework — in rupees — to calculate payback for your floor.',
+    keyTakeaways: [
+      'Manual double-strapping: ~120 seconds, two operators. ErgoPack: under 40 seconds, one operator — a 66% cut.',
+      'ROI comes from four sources: labor, consumables (metal seals/film), reduced transit damage, and recovered throughput.',
+      'Break-even (months) = machine price ÷ (annual net savings ÷ 12).',
+      'A mid-volume Indian floor (100 pallets/day) typically reaches break-even in 6–18 months.',
+      'For a GST-registered buyer the 18% GST is recoverable as input tax credit, so the effective machine cost is the ex-GST price.',
+    ],
     blocks: [
       {
-        type: 'stat',
-        value: '120s → under 40s',
-        label: 'Strapping cycle time per pallet, manual vs ErgoPack ChainLance — a 66% reduction.',
+        type: 'statgrid',
+        stats: [
+          { value: '120s → <40s', label: 'Cycle time per pallet (66% cut)' },
+          { value: '1 vs 2', label: 'Operators per pallet' },
+          { value: '6–18 mo', label: 'Typical break-even' },
+          { value: 'up to 50%', label: 'Film/consumable waste removed' },
+        ],
       },
+      {
+        type: 'paragraph',
+        text: 'A strapping machine is bought once but runs every shift, so the decision should be made on total cost of ownership, not sticker price. The four-step framework below mirrors how a CFO evaluates the investment: quantify the savings, subtract the running cost, and divide into the price to get the payback period.',
+      },
+
       { type: 'heading', text: 'The hidden cost of manual strapping' },
       {
         type: 'paragraph',
-        text: 'Double-strapping a single pallet by hand takes a trained two-person team roughly 120 seconds. The ErgoPack ChainLance routes the strap under and around the pallet automatically, letting one operator finish in under 40 seconds. One operator achieves the throughput of three.',
+        text: 'Double-strapping one pallet by hand takes a trained two-person team about 120 seconds. The ErgoPack ChainLance routes the strap under and around the pallet automatically, so one operator finishes in under 40 seconds — one operator achieving the throughput of three. At just 100 pallets a day, manual operators make roughly 25,000 trips around pallets a year; ErgoPack reduces that to zero because the operator stands still while the machine travels.',
       },
-      {
-        type: 'paragraph',
-        text: 'At just 100 pallets per day, manual operators are forced to make around 25,000 trips around pallets every year — wasted motion that produces zero value. ErgoPack reduces that to zero: the operator stands in one position while the machine travels.',
-      },
-      { type: 'heading', text: 'Manual vs automatic: the numbers' },
       {
         type: 'table',
         table: {
-          caption: 'Comparative operational and financial logic (processing 50 pallets/shift)',
+          caption: 'Operational comparison (processing 50 pallets per shift)',
           headers: ['Metric', 'Manual strapping', 'ErgoPack mobile automation'],
           rows: [
             ['Cycle time per pallet', '120+ seconds', 'Under 40 seconds'],
@@ -97,125 +111,220 @@ export const resourceArticles: ResourceArticle[] = [
             ['Labor time per 50-pallet shift', '~350 minutes', '~100 minutes'],
             ['Joint efficiency', '~60% (metal clips)', 'Up to 90% (friction weld)'],
             ['Consumable seal cost', 'High, recurring', 'Zero (sealless)'],
-            ['Tension consistency', 'Highly variable', 'Exact 400N–2500N (726X)'],
+            ['Tension consistency', 'Highly variable', 'Digital 400–2500N (726X)'],
           ],
         },
       },
-      { type: 'heading', text: 'Where the ROI comes from' },
-      {
-        type: 'list',
-        items: [
-          'Labor: one operator replaces a two- to three-person strapping team, freeing 250+ minutes per shift for revenue-generating work.',
-          'Consumables: friction-weld sealing fuses the strap to itself, permanently removing metal-seal purchases from the budget.',
-          'Material: switching from hand-applied stretch film cuts up to 50% of film waste caused by inconsistent manual tensioning.',
-          'Damage: machine-calibrated tension eliminates load shifting, the primary cause of expensive shipment rejections.',
-        ],
-      },
+
+      { type: 'heading', text: 'The four-step ROI framework (in rupees)' },
+      { type: 'subheading', text: 'Step 1 — Annual labor savings' },
       {
         type: 'paragraph',
-        text: 'Combined, these savings mean a mid-to-high-volume facility typically reaches break-even on an ErgoPack system within 6 to 18 months — after which the savings compound month over month.',
+        text: 'Labor savings = (hours spent strapping per day, manual − hours per day with the machine) × loaded hourly wage × working days per year. Use the loaded wage (base wage plus benefits and overheads), not just the base, because that is the true cost of an hour of labor.',
+      },
+      { type: 'subheading', text: 'Step 2 — Consumable & material savings' },
+      {
+        type: 'paragraph',
+        text: 'Add the annual saving from eliminating metal seals (sealless friction welding fuses the strap to itself) and from cutting up to 50% of stretch-film over-use caused by inconsistent manual tensioning. If you currently steel-strap, also remove the recurring cost of metal clips.',
+      },
+      { type: 'subheading', text: 'Step 3 — Transit-damage savings' },
+      {
+        type: 'paragraph',
+        text: 'Estimate damage savings = (rejected/damaged pallets per month × cost per damaged pallet × 12) × the reduction you expect from consistent, machine-calibrated tension. Inconsistent manual tension is the leading cause of load shift, so this line is often larger than buyers assume.',
+      },
+      { type: 'subheading', text: 'Step 4 — Break-even & ROI' },
+      {
+        type: 'paragraph',
+        text: 'Annual net savings = labor + consumables + damage − annual maintenance. Break-even (months) = machine price ÷ (annual net savings ÷ 12). After break-even the net savings recur every year for the life of the machine.',
+      },
+      {
+        type: 'callout',
+        title: 'Formulae',
+        text: 'Annual labor cost = loaded hourly wage × strapping hours/day × working days/year. Annual net savings = L + S + D − maintenance. Break-even months = price ÷ (annual net savings ÷ 12).',
+      },
+
+      { type: 'heading', text: 'Worked example (illustrative INR)' },
+      {
+        type: 'paragraph',
+        text: 'A facility strapping 100 pallets/day at 2 minutes each (manual, 2 operators) spends ~6.7 operator-hours/day. With an ErgoPack that drops to ~1.1 hours/day with 1 operator. At a loaded wage of ₹150/hour over 300 working days, the labor line alone is large; add consumable and damage savings and the annual net saving typically runs into several lakh rupees — recovering a mobile machine well inside 6–18 months. The exact figures depend on your wage, volume and damage rate, which is why we model it against your inputs.',
+      },
+      {
+        type: 'table',
+        table: {
+          caption: 'Decision guide by volume',
+          headers: ['Daily pallet volume', 'Recommendation'],
+          rows: [
+            ['Under ~30/day', 'Manual or the ErgoPack 700 (manual crank) is defensible'],
+            ['~50–100/day', 'ErgoPack GO or 726X — ROI typically clear within 12 months'],
+            ['100+/day', 'ErgoPack 726X — fast payback, biggest labor and damage savings'],
+          ],
+        },
       },
       {
         type: 'cta',
-        text: 'Model your exact payback period with your own pallet volume, labor cost and rejection rate.',
+        text: 'Plug in your pallet volume, wage and rejection rate to see your exact payback month.',
         href: '/roi-calculator',
         label: 'Open the ROI Calculator',
       },
     ],
     faqs: [
       {
+        question: 'How do you calculate ROI on a pallet strapping machine?',
+        answer:
+          'Add up annual savings from three sources — labor (fewer operator-hours per pallet), consumables (no metal seals, up to 50% less film), and reduced transit damage — then subtract annual maintenance to get net savings. Break-even in months = machine price ÷ (annual net savings ÷ 12).',
+      },
+      {
         question: 'How quickly does an automated pallet strapping machine pay for itself?',
         answer:
-          'For mid-to-high-volume Indian facilities the break-even point typically falls between 6 and 18 months, driven by a 66% reduction in strapping labor time, elimination of recurring metal-seal costs, and a sharp drop in transit-damage and shipment-rejection claims.',
+          'For mid-to-high-volume Indian facilities the break-even point typically falls between 6 and 18 months, driven by a 66% cut in strapping labor time, elimination of recurring metal-seal and excess-film costs, and a sharp drop in transit-damage claims.',
+      },
+      {
+        question: 'How much labor does automated strapping save?',
+        answer:
+          'Manual double-strapping takes about 120 seconds with two operators; an ErgoPack takes under 40 seconds with one. Processing 50 pallets per shift drops from roughly 350 minutes of labor to about 100 minutes — around 250 minutes saved every shift.',
       },
       {
         question: 'Is a mobile strapping machine cheaper than a stationary automatic arch?',
         answer:
-          'In total cost of ownership, yes. Mobile machines like the ErgoPack 726X, GO and 700 avoid the forklift traffic, 3-phase power, conveyors and floor-bolting that stationary arches require. The operator rolls the compact machine directly to the pallet instead of moving every pallet to a fixed station.',
+          'In total cost of ownership, usually yes. Mobile machines like the ErgoPack 726X, GO and 700 avoid the forklift traffic, 3-phase power, conveyors and floor-bolting a stationary arch requires — the operator rolls the machine to the pallet instead of moving every pallet to a fixed station.',
       },
       {
-        question: 'How much labor does automated strapping actually save?',
+        question: 'Does GST affect the ROI calculation?',
         answer:
-          'Manual double-strapping takes about 120 seconds with two operators; ErgoPack takes under 40 seconds with one. Processing 50 pallets per shift drops from ~350 minutes of labor to ~100 minutes, saving roughly 250 minutes every shift.',
+          'For a GST-registered business the 18% GST (HSN 84224000) is recoverable as input tax credit, so the effective machine cost in the ROI calculation is the ex-GST price.',
       },
+    ],
+    related: [
+      { label: 'Price & Buying Guide', href: '/resources/pallet-strapping-machine-price-india' },
+      { label: 'Strapping vs Stretch Wrapping', href: '/resources/pallet-strapping-vs-stretch-wrapping' },
+      { label: 'HSN Code & GST', href: '/resources/pallet-strapping-machine-hsn-code-gst' },
     ],
   },
   // ---------------------------------------------------------------------------
   {
     slug: 'reduce-pallet-transit-damage',
     breadcrumb: 'Reduce Transit Damage',
-    title: 'How to Reduce Pallet Transit Damage & Shipment Rejections | ErgoPack',
+    eyebrow: 'Logistics & Quality Guide',
+    title: 'How to Reduce Pallet Transit Damage & Shipment Rejections (India) | ErgoPack',
     h1: 'How to Eliminate Freight Rejections and Reduce Transit Damage',
     description:
-      'Transit damage is caused by inconsistent load securing. Learn how high-tension automated pallet strapping (up to 2500N) and friction-weld sealing stop cargo shifting and reduce shipment rejections.',
+      'Most transit damage is a load-securing failure, not bad luck. Learn the five causes of in-transit damage, pallet-stabilization techniques, and how high-tension automated strapping (up to 2500N) with friction-weld sealing stops cargo shifting and shipment rejections.',
     keywords: [
       'how to reduce pallet packaging damage in transit',
       'reduce cargo damage during transit India',
+      'prevent cargo damage during transit',
       'prevent shipment rejections',
-      'high tension pallet strapping',
+      'pallet stabilization techniques',
+      'solutions for unstable pallet loads during transport',
+      'how to properly secure a pallet for shipping',
     ],
-    lede: 'Most in-transit damage is not bad luck — it is a load-securing failure. Here is why hand-applied methods fail heavy freight and how machine-calibrated strapping fixes it.',
+    lede: 'Most in-transit damage is not bad luck — it is a load-securing failure. This guide covers the five real causes of transit damage, the pallet-stabilization techniques that prevent it, and why machine-calibrated strapping is the only repeatable fix.',
+    keyTakeaways: [
+      'The leading cause of shipment rejection is load shift from inconsistent, insufficient securing — not the carrier.',
+      'Stretch film only binds the load horizontally; it cannot anchor the load to the pallet base.',
+      'Vertical strapping locks the load to the pallet as one rigid unit, resisting vibration and impact.',
+      'Machine-calibrated tension (up to 2500N on the 726X) is repeatable pallet-to-pallet; human tension is not.',
+      'Friction-weld joints hold up to 90% of break strength vs ~60% for metal clips that snap under shock.',
+    ],
     blocks: [
-      { type: 'heading', text: 'The root cause of shipment rejections' },
+      { type: 'heading', text: 'The five causes of in-transit damage' },
       {
         type: 'paragraph',
-        text: 'Goods are rejected because the load shifts. Vibration, sudden braking and mechanical impact during transport move poorly secured cargo on the pallet, crushing cartons and breaking products. The common factor is insufficient, inconsistent load securing.',
+        text: 'Cargo is rarely destroyed by a single dramatic event. It is degraded by repeated forces over a journey, and almost all of them trace back to how well the load is secured to the pallet:',
       },
-      { type: 'heading', text: 'Why hand-applied methods fail heavy freight' },
-      {
-        type: 'paragraph',
-        text: 'Hand-applied stretch film and manual strapping rely on human strength, so containment force varies wildly from pallet to pallet. Too loose and the load shifts and breaks; uneven and the centre of gravity destabilises. Stretch film also only binds the load horizontally — it cannot anchor it to the pallet.',
-      },
-      { type: 'heading', text: 'The high-tension automated solution' },
       {
         type: 'list',
         items: [
-          'Machine-calibrated tension: ErgoPack applies a precise, repeatable force from 150N up to 2500N (726X), locking the product to the pallet base as a single rigid unit.',
-          'Vertical strapping: joining the load directly to the pallet base resists the shifting that horizontal stretch film allows under heavy vibration.',
-          'Friction-weld sealing: a sealless joint with up to 90% efficiency that will not rust, slip or snap under shock — unlike crimped metal clips.',
+          'Vibration: continuous road and sea vibration loosens poorly tensioned loads until they shift.',
+          'Sudden braking & acceleration: inertia drives the load forward or back if it is not anchored to the pallet base.',
+          'Mechanical impact: forklift knocks and drops shock the load; a rigid steel strap snaps where a flexible PET strap would absorb it.',
+          'Compression & settling: stacked corrugated, textile and food loads settle in transit; steel goes slack while PET recovers tension.',
+          'Moisture & handling: humidity rusts steel strap and stains cargo; excess manual handling adds further shock.',
         ],
       },
+
+      { type: 'heading', text: 'Why hand-applied methods fail heavy freight' },
+      {
+        type: 'paragraph',
+        text: 'Hand-applied stretch film and manual strapping rely on human strength, so containment force varies wildly from pallet to pallet. Too loose and the load shifts and breaks; uneven and the centre of gravity destabilises. Critically, stretch film only binds the load horizontally — it wraps the boxes to each other but never anchors them to the pallet, so the whole stack can still slide off as a unit.',
+      },
+
+      { type: 'heading', text: 'Pallet-stabilization techniques that work' },
+      {
+        type: 'list',
+        items: [
+          'Build the load square and centred so the centre of gravity sits over the pallet middle.',
+          'Use vertical strapping to tie the load directly to the pallet base — the single most effective anti-shift measure.',
+          'Apply consistent, calibrated tension on every pallet so no weak link is left in the batch.',
+          'Add edge protectors / corner boards on compressible loads so the strap distributes force without cutting in.',
+          'Choose PET over steel for dynamic and sea freight so the strap absorbs shock and resists rust.',
+        ],
+      },
+
+      { type: 'heading', text: 'How to properly secure a pallet for shipping' },
+      {
+        type: 'list',
+        items: [
+          'Step 1 — Distribute the load evenly on a sound wood or plastic pallet; keep the centre of gravity central.',
+          'Step 2 — Route the strap under the pallet and over the load (vertical strapping) using a machine, not a stick.',
+          'Step 3 — Apply machine-calibrated tension (e.g. 400–2500N on the 726X) so every pallet is identical.',
+          'Step 4 — Seal with a sealless friction weld for a joint that holds up to 90% of the strap’s break strength.',
+          'Step 5 — Add edge protectors on cartons and use PET for export or humid routes.',
+        ],
+      },
+
+      { type: 'heading', text: 'Manual methods vs high-tension automated strapping' },
       {
         type: 'table',
         table: {
-          headers: [
-            'Failure mode',
-            'Manual stretch wrap / metal clips',
-            'ErgoPack high-tension strapping',
-          ],
+          headers: ['Failure mode', 'Manual stretch wrap / metal clips', 'ErgoPack high-tension strapping'],
           rows: [
-            [
-              'Load shifting',
-              'Common (horizontal containment only)',
-              'Eliminated (locked to pallet base)',
-            ],
-            ['Tension consistency', 'Variable, operator-dependent', 'Exact digital calibration'],
-            [
-              'Joint failure',
-              'Metal clips snap (~60% efficiency)',
-              'Friction weld up to 90% efficiency',
-            ],
+            ['Load shifting', 'Common (horizontal containment only)', 'Eliminated (locked to pallet base)'],
+            ['Tension consistency', 'Variable, operator-dependent', 'Digital, repeatable 400–2500N'],
+            ['Joint failure', 'Metal clips snap (~60% efficiency)', 'Friction weld up to 90% efficiency'],
+            ['Shock absorption', 'Steel snaps', 'PET elongates & recovers'],
             ['Rust contamination', 'High on sea freight', 'Zero (PET is moisture resistant)'],
           ],
         },
+      },
+      {
+        type: 'callout',
+        title: 'The repeatability point',
+        text: 'One badly tensioned pallet in a batch is enough to trigger a rejection. The value of machine-calibrated tension is not just higher force — it is that pallet #1 and pallet #500 are identical, removing the weak link manual strapping always leaves.',
+      },
+      {
+        type: 'cta',
+        text: 'Cut your rejection rate — see consistent, calibrated strapping on your own loads.',
+        href: '/contact',
+        label: 'Book a demo',
       },
     ],
     faqs: [
       {
         question: 'How does automated pallet strapping reduce transit damage?',
         answer:
-          'Automated machines apply consistent, machine-calibrated tension from 150N up to 2500N directly to the load, joining it to the pallet base as a single rigid unit. This eliminates the load shifting caused by inconsistent manual tensioning, which is the primary cause of in-transit damage and shipment rejections.',
+          'Automated machines apply consistent, machine-calibrated tension up to 2500N directly to the load, joining it to the pallet base as a single rigid unit. This removes the load shifting caused by inconsistent manual tensioning — the primary cause of in-transit damage and shipment rejections — and does it identically on every pallet.',
       },
       {
         question: 'Why do heavy loads shift during transit?',
         answer:
-          'Heavy loads shift mainly due to insufficient vertical securing. Manual stretch wrapping provides only horizontal containment, which yields under vibration and impact. Vertical strapping anchors the goods directly to the pallet base, preventing movement.',
+          'Heavy loads shift mainly due to insufficient vertical securing. Stretch wrapping provides only horizontal containment, which yields under vibration and impact, so the whole stack can slide off the pallet. Vertical strapping anchors the goods directly to the pallet base, preventing movement.',
       },
       {
         question: 'How do you properly secure a pallet for shipping?',
         answer:
-          'Distribute the load evenly on a quality pallet, then secure it with high-tension automated strapping. Applying machine-calibrated tension with heavy-duty PET strap makes the load act as a single rigid unit, eliminating the internal shifting that causes breakage. Add edge protectors on compressible loads.',
+          'Distribute the load evenly on a sound pallet, then vertically strap it with machine-calibrated tension (e.g. 400–2500N), seal with a friction weld, and add edge protectors on compressible loads. Use PET strap for export and humid routes. This makes the load act as a single rigid unit and removes the internal shifting that causes breakage.',
       },
+      {
+        question: 'What are the main causes of pallet transit damage?',
+        answer:
+          'The main causes are vibration, sudden braking and acceleration, mechanical impact, load compression and settling, and moisture. Almost all of them result in damage only when the load is poorly secured, which is why consistent vertical strapping is the most effective single fix.',
+      },
+    ],
+    related: [
+      { label: 'PP vs PET vs Steel Strapping', href: '/resources/pet-vs-steel-strapping' },
+      { label: 'Best Machine for Heavy Loads', href: '/resources/best-pallet-strapping-machine-heavy-loads' },
+      { label: 'Friction Weld vs Metal Clips', href: '/resources/friction-weld-vs-metal-clips' },
     ],
   },
   // ---------------------------------------------------------------------------
@@ -338,53 +447,107 @@ export const resourceArticles: ResourceArticle[] = [
   {
     slug: 'pallet-strapping-vs-stretch-wrapping',
     breadcrumb: 'Strapping vs Stretch Wrapping',
-    title: 'Pallet Strapping vs Stretch Wrapping: Cost & Time Comparison | ErgoPack',
-    h1: 'Pallet Strapping vs Manual Stretch Wrapping: A Cost & Time Study',
+    eyebrow: 'Cost & Time Study',
+    title: 'Pallet Strapping vs Stretch Wrapping: Cost, Time & Stability (India) | ErgoPack',
+    h1: 'Pallet Strapping vs Stretch Wrapping: A Cost, Time & Stability Study',
     description:
-      'Manual stretch wrapping takes 5–10 minutes per pallet and wastes up to 50% more film. See how automated pallet strapping cuts cycle time to under 40s and delivers better load stability.',
+      'Manual stretch wrapping takes 5–10 minutes per pallet and wastes up to 50% more film. See the full cost and time study vs automated strapping (under 40s), when to use each, and why strapping wins on load stability.',
     keywords: [
       'pallet strapping vs wrapping cost comparison',
+      'pallet strapping vs stretch wrapping',
       'manual stretch wrapping cost',
       'strapping vs wrapping load stability',
-      'reduce film waste pallet',
+      'reduce stretch film waste pallet',
+      'pallet stretch wrapping and strapping machine',
     ],
-    lede: 'Stretch wrapping looks cheap until you count the film and the minutes. For medium-to-heavy loads, strapping wins on cost, speed and stability.',
+    lede: 'Stretch wrapping looks cheap until you count the film and the minutes. This is the full comparison — cost, time and load stability — and a clear rule for when to strap, when to wrap, and when to do both.',
+    keyTakeaways: [
+      'Manual stretch wrapping: 5–10 minutes per pallet; automated strapping: under 40 seconds.',
+      'Hand wrapping over-uses film by up to 50% because consistent tension by hand is impossible.',
+      'Wrapping binds the load horizontally (to itself); strapping anchors it vertically (to the pallet).',
+      'For medium-to-heavy loads, strapping gives far better transit stability per rupee.',
+      'They are complementary: many lines strap for stability and add wrap for dust/moisture protection.',
+    ],
     blocks: [
+      {
+        type: 'paragraph',
+        text: 'Strapping and stretch wrapping solve different problems. Wrapping is a film barrier that unitises and protects against dust and moisture; strapping is a tension band that anchors the load to the pallet. Treating them as either/or leads to the wrong choice — the right question is which job you need done, and at what cost per pallet.',
+      },
+
       { type: 'heading', text: 'The hidden financial drain of manual wrapping' },
       {
         type: 'paragraph',
-        text: 'Manual stretch wrapping takes 5–10 minutes per pallet as workers walk the load repeatedly, stretching film by hand. Achieving consistent film tension by hand is mechanically impossible, so operators over-wrap to compensate — consuming up to 50% more film than a calibrated machine.',
+        text: 'Manual stretch wrapping takes 5–10 minutes per pallet as the worker walks the load repeatedly, stretching film by hand. Consistent film tension by hand is mechanically impossible, so operators over-wrap to compensate — consuming up to 50% more film than a calibrated process. That waste is paid for on every single pallet, every shift, forever.',
       },
       {
         type: 'table',
         table: {
-          caption: 'Processing 50 pallets per shift',
+          caption: 'Manual stretch wrapping vs automated strapping (50 pallets/shift)',
           headers: ['Metric', 'Manual stretch wrapping', 'ErgoPack automated strapping'],
           rows: [
             ['Time per pallet', '5–10 minutes', 'Under 40 seconds'],
             ['Labor per 50-pallet shift', '~350 minutes', '~100 minutes'],
-            ['Consumable waste', 'Up to 50% excess film', 'Precise PP/PET strap'],
-            ['Load stability', 'Horizontal only', 'Vertical, locked to pallet base'],
+            ['Consumable use', 'Up to 50% excess film', 'Precise length of PP/PET strap'],
+            ['Securing direction', 'Horizontal (load to itself)', 'Vertical (load to pallet base)'],
+            ['Heavy-load stability', 'Weak — film yields', 'Strong — calibrated tension'],
+            ['Operator effort', 'Walks the load repeatedly', 'Stands still, ChainLance travels'],
           ],
         },
       },
+
       { type: 'heading', text: 'Load stability: high tension vs film stretch' },
       {
         type: 'paragraph',
-        text: 'For medium-to-heavy goods, horizontal stretch film yields under vibration and creates weak spots. Automated vertical strapping pulls heavy-duty PP or PET strap to exact tension — up to 2500N on the 726X — joining the load directly to the pallet base and eliminating the shifting that film allows.',
+        text: 'For medium-to-heavy goods, horizontal stretch film yields under vibration and creates weak spots, so the stack can slide off the pallet as a unit. Automated vertical strapping pulls heavy-duty PP or PET strap to an exact tension — up to 2500N on the 726X — joining the load directly to the pallet base and eliminating the shifting that film allows. Strapping fixes the part of the problem wrapping cannot reach: the bond between load and pallet.',
+      },
+
+      { type: 'heading', text: 'When to strap, when to wrap, when to do both' },
+      {
+        type: 'list',
+        items: [
+          'Strap: medium-to-heavy, rigid or palletised loads where the priority is preventing shift and anchoring to the pallet.',
+          'Wrap: light, many-piece or dusty/moist-sensitive loads where the priority is unitising and surface protection.',
+          'Both: export and long-haul freight that needs the strap’s stability and the film’s dust/moisture barrier.',
+        ],
+      },
+      {
+        type: 'callout',
+        title: 'The cost-per-pallet rule',
+        text: 'Compare cost per secured pallet over a year, not the price of a film roll vs a strap roll. Once you include the 5–10 minutes of labor and up-to-50% film over-use of manual wrapping, strapping is usually cheaper per pallet for medium-to-heavy loads — and far more stable.',
+      },
+      {
+        type: 'cta',
+        text: 'Not sure whether to strap, wrap or both? Tell us your load and route.',
+        href: '/contact',
+        label: 'Get a recommendation',
       },
     ],
     faqs: [
       {
         question: 'Is pallet strapping cheaper than stretch wrapping?',
         answer:
-          'For medium-to-heavy loads, yes. Although the machine costs more upfront, strapping eliminates the up-to-50% film waste of manual wrapping and cuts cycle time from 5–10 minutes to under 40 seconds, so ROI is typically reached within months.',
+          'For medium-to-heavy loads, yes. Although the machine costs more upfront, strapping eliminates the up-to-50% film over-use of manual wrapping and cuts cycle time from 5–10 minutes to under 40 seconds, so the ROI is typically reached within months on a per-pallet cost basis.',
       },
       {
         question: 'Does strapping provide better load stability than wrapping?',
         answer:
-          'For heavy loads, yes. Strapping joins the cargo to the pallet base with precise vertical tension, preventing shifting. Stretch wrapping only binds items horizontally, which can fail under impact and vibration in transit.',
+          'For heavy loads, yes. Strapping joins the cargo to the pallet base with precise vertical tension, preventing shift. Stretch wrapping only binds items horizontally to each other, which can fail under impact and vibration so the whole stack slides off the pallet.',
       },
+      {
+        question: 'Should I strap, wrap, or do both?',
+        answer:
+          'Strap medium-to-heavy palletised loads for stability; wrap light, many-piece or dust/moisture-sensitive loads for unitising and surface protection; do both for export and long-haul freight that needs the strap’s anchoring and the film’s barrier.',
+      },
+      {
+        question: 'How much stretch film does manual wrapping waste?',
+        answer:
+          'Up to about 50% more film than a calibrated process, because consistent film tension cannot be achieved by hand and operators over-wrap to be safe. That over-use is a recurring cost paid on every pallet.',
+      },
+    ],
+    related: [
+      { label: 'ROI & Cost Comparison', href: '/resources/pallet-strapping-roi-cost-comparison' },
+      { label: 'Reduce Transit Damage', href: '/resources/reduce-pallet-transit-damage' },
+      { label: 'Price & Buying Guide', href: '/resources/pallet-strapping-machine-price-india' },
     ],
   },
   // ---------------------------------------------------------------------------
@@ -929,67 +1092,120 @@ export const resourceArticles: ResourceArticle[] = [
   {
     slug: 'corrugated-box-compressible-load-strapping',
     breadcrumb: 'Corrugated & Compressible Loads',
-    title: 'Corrugated Box & Compressible Load Strapping Without Crushing | ErgoPack',
+    eyebrow: 'Industry Application',
+    title: 'Corrugated Box & Compressible Load Strapping Without Crushing | ErgoPack India',
     h1: 'Corrugated & FMCG Strapping: High-Speed Securing Without Crushing Cargo',
     description:
-      'Corrugated and FMCG loads are bulky and compressible. See how the ErgoPack 726X applies exact, repeatable tension (as low as 400N) to secure stacks without crushing box corners.',
+      'Corrugated, paper and FMCG loads are bulky and compressible. See how the ErgoPack 726X applies exact, repeatable tension (from 400N) to secure stacks without crushing box corners, plus PET’s tension recovery as loads settle.',
     keywords: [
       'corrugated box bundles strapping machine',
       'compressible load strapping',
       'strap corrugated boxes without crushing',
+      'paper bundle strapping machine',
       'FMCG pallet strapping',
+      'print finishing strapping',
     ],
-    lede: 'Strap a stack of corrugated boxes too loose and it shifts; too tight and you crush the corners. Exact, repeatable tension is the only fix.',
+    lede: 'Strap a stack of corrugated boxes too loose and it shifts; too tight and you crush the corners. For compressible loads, exact and repeatable tension — plus the right strap material — is the only fix.',
+    keyTakeaways: [
+      'Compressible loads (corrugated, paper, textiles, FMCG) fail two ways: under-tension shifts them, over-tension crushes them.',
+      'The 726X sets an exact lower tension (from 400N) and applies it identically to every pallet.',
+      'PET strap recovers tension as the load settles in transit, so it stays tight; steel goes slack.',
+      'Edge protectors + a line-laser keep the strap over the corner board, distributing force.',
+      'The electronic ChainLance clears the dock at under 40 seconds per pallet during peak runs.',
+    ],
     blocks: [
       { type: 'heading', text: 'The compressible-load problem' },
       {
         type: 'paragraph',
-        text: 'Corrugated, paper and FMCG loads are bulky, irregular in height and highly compressible. Manual operators face an impossible choice: under-tension and the boxes shift and collapse in transit, or over-tension and the strap cuts into and crushes the bottom layers.',
+        text: 'Corrugated, paper and FMCG loads are bulky, irregular in height and highly compressible. Manual operators face an impossible choice: under-tension and the boxes shift and collapse in transit, or over-tension and the strap cuts into and crushes the bottom layers. Worse, as the stack settles and air escapes during transport, a strap that was correct at dispatch goes slack.',
+      },
+      {
+        type: 'table',
+        table: {
+          caption: 'Securing compressible loads: what works',
+          headers: ['Challenge', 'Manual / steel', 'ErgoPack 726X + PET'],
+          rows: [
+            ['Crushing box corners', 'Common (over-tension by hand)', 'Avoided (exact preset tension)'],
+            ['Load shift / collapse', 'Common (under-tension)', 'Prevented (repeatable tension)'],
+            ['Settling in transit', 'Strap goes slack', 'PET recovers tension'],
+            ['Speed at peak', 'Bottleneck', 'Under 40s per pallet'],
+          ],
+        },
       },
       { type: 'heading', text: 'Exact digital tension calibration' },
       {
         type: 'paragraph',
-        text: 'The ErgoPack 726X removes the guesswork. Operators pre-set the exact tension for compressible loads — as low as 400N — and the machine applies that identical force to every pallet, securing delicate corrugated and FMCG cartons without crushing them. A line-laser aligns the strap over edge protectors every time.',
+        text: 'The ErgoPack 726X removes the guesswork. Operators pre-set the exact tension for compressible loads — from as low as 400N — and the machine applies that identical force to every pallet, securing delicate corrugated and FMCG cartons without crushing them. A line-laser aligns the strap over the edge protectors every time so the force is spread, not concentrated on a corner.',
+      },
+      {
+        type: 'callout',
+        title: 'Why PET, not steel, for compressible loads',
+        text: 'Corrugated and paper stacks settle and lose height in transit. Rigid steel cannot follow that movement and goes slack, while PET elongates and recovers — keeping the load tight from the warehouse to the destination.',
       },
       { type: 'heading', text: 'Continuous high-speed dispatch' },
       {
         type: 'paragraph',
-        text: 'Corrugation plants run on volume. The electronic ChainLance lets one operator route, tension and seal a pallet in under 40 seconds, clearing the loading dock far faster during peak hours. The GO and 700 add the same routing speed for facilities using their own sealing tools.',
+        text: 'Corrugation and print-finishing plants run on volume, and end-of-line strapping is where they bottleneck. The electronic ChainLance lets one operator route, tension and seal a pallet in under 40 seconds, clearing the loading dock far faster during peak hours. The GO and 700 add the same routing speed for facilities that prefer to keep their own sealing tools.',
+      },
+      {
+        type: 'cta',
+        text: 'See exact, repeatable tension on your own corrugated stacks.',
+        href: '/contact',
+        label: 'Book a demo',
       },
     ],
     faqs: [
       {
         question: 'How do you strap corrugated boxes to a pallet without crushing them?',
         answer:
-          'Use a machine with finely adjustable, repeatable tension. The ErgoPack 726X lets you set a precise lower tension (e.g. 400N) and applies it identically to every pallet, so stacks are secured without the strap cutting into box corners — especially with edge protectors.',
+          'Use a machine with finely adjustable, repeatable tension. The ErgoPack 726X lets you set a precise lower tension (e.g. 400N) and applies it identically to every pallet, so stacks are secured without the strap cutting into box corners — especially when combined with edge protectors and PET strap that recovers tension as the load settles.',
       },
       {
         question: 'Why is automated strapping better than stretch wrap for paper products?',
         answer:
           'Strapping applies precise vertical tension that pulls paper stacks down onto the pallet, preventing sliding, while using a fraction of the material. Stretch wrap only binds horizontally and consumes large amounts of film.',
       },
+      {
+        question: 'What strap is best for compressible loads that settle in transit?',
+        answer:
+          'PET strap, because it elongates and recovers tension as the load settles, staying tight where rigid steel would go slack. Applied at a calibrated lower tension on the ErgoPack 726X, it secures compressible loads without crushing.',
+      },
+    ],
+    related: [
+      { label: 'PP vs PET vs Steel Strapping', href: '/resources/pet-vs-steel-strapping' },
+      { label: 'Strapping vs Stretch Wrapping', href: '/resources/pallet-strapping-vs-stretch-wrapping' },
+      { label: 'Reduce Transit Damage', href: '/resources/reduce-pallet-transit-damage' },
     ],
   },
   // ---------------------------------------------------------------------------
   {
     slug: 'replace-broomstick-strapping-method',
     breadcrumb: 'Replace the Broomstick Method',
-    title: 'Replace the Broomstick Strapping Method | Faster Dispatch | ErgoPack',
+    eyebrow: 'Process Upgrade',
+    title: 'Replace the Broomstick Strapping Method | 120s → 40s | ErgoPack India',
     h1: 'Replacing the Broomstick Method: From a 120-Second Bottleneck to 40 Seconds',
     description:
-      'The manual "broomstick method" wastes over two minutes per pallet and produces inconsistent tension. See how the ErgoPack ChainLance routes the strap automatically and cuts the cycle to under 40 seconds.',
+      'The manual "broomstick method" wastes over two minutes per pallet, needs two operators and produces inconsistent tension. See how the ErgoPack ChainLance routes the strap automatically and cuts the cycle to under 40 seconds with one operator.',
     keywords: [
       'alternative to broomstick strapping method',
       'replace manual pallet strapping',
       'how to reduce pallet strapping time',
-      'reduce labor dependency packaging line',
+      'reduce labor dependency in packaging line',
+      'manual strapping tools upgrade',
     ],
-    lede: 'Attaching a strap to a stick and pushing it under the pallet by hand is still the default in many Indian warehouses. It is also the single biggest bottleneck on the dispatch floor.',
+    lede: 'Attaching a strap to a stick and pushing it under the pallet by hand is still the default in many Indian warehouses. It is also the single biggest bottleneck on the dispatch floor — and the easiest to remove.',
+    keyTakeaways: [
+      'The broomstick method: a strap on a stick, pushed under the pallet and walked around by hand.',
+      'It takes 120+ seconds per pallet, usually with two operators, and gives inconsistent tension.',
+      'The ChainLance routes the strap under the pallet automatically — one operator, under 40 seconds.',
+      'That is a 66% cycle-time cut plus calibrated tension that ends shift-related re-work.',
+      'The 700 (crank) is the lowest-cost way to retire the broomstick method without electricity.',
+    ],
     blocks: [
       { type: 'heading', text: 'Deconstructing the broomstick method' },
       {
         type: 'paragraph',
-        text: 'In the broomstick method a PP or PET strap is attached to a stick, pushed manually under a heavy pallet, and walked around the perimeter by hand before being tensioned and sealed with a separate tool. It is slow, physically demanding and produces wildly inconsistent tension.',
+        text: 'In the broomstick method a PP or PET strap is attached to a stick, pushed manually under a heavy pallet, and walked around the perimeter by hand before being tensioned and sealed with a separate tool. It is slow, physically demanding and produces wildly inconsistent tension — and it scales badly, because every extra pallet adds two minutes and another lap around the load.',
       },
       {
         type: 'list',
@@ -997,12 +1213,32 @@ export const resourceArticles: ResourceArticle[] = [
           'Over 120 seconds per pallet, typically requiring two operators for large loads.',
           'Inconsistent human tension causes load shifting, product damage and rejected deliveries.',
           'At 100 pallets/day, operators make around 25,000 trips around pallets per year — pure wasted motion.',
+          'The bottleneck lands at dispatch, exactly where trucks are waiting.',
         ],
       },
       { type: 'heading', text: 'The ChainLance replacement' },
       {
         type: 'paragraph',
         text: 'The ErgoPack ChainLance drives the strap through the bottom clearance under the pallet and returns it to the operator in seconds. One operator, standing in one position, secures the pallet in under 40 seconds — a 66% cut in cycle time, with calibrated tension that ends the shifting and re-work the broomstick method causes.',
+      },
+      {
+        type: 'table',
+        table: {
+          caption: 'Broomstick method vs ErgoPack ChainLance',
+          headers: ['Factor', 'Broomstick method', 'ErgoPack ChainLance'],
+          rows: [
+            ['Cycle time', '120+ seconds', 'Under 40 seconds'],
+            ['Operators', '2', '1'],
+            ['Strap routing', 'By hand, under the pallet', 'Automatic, under the pallet'],
+            ['Tension', 'Inconsistent (human)', 'Calibrated, repeatable'],
+            ['Trips around pallet / yr (100/day)', '~25,000', '0'],
+          ],
+        },
+      },
+      {
+        type: 'callout',
+        title: 'Lowest-cost route off the broomstick',
+        text: 'You do not need full automation to retire the broomstick method. The ErgoPack 700 uses the same ChainLance routing driven by a manual hand crank — no battery, no electricity — and you keep your existing sealing tool.',
       },
       {
         type: 'cta',
@@ -1022,28 +1258,56 @@ export const resourceArticles: ResourceArticle[] = [
         answer:
           'The ErgoPack ChainLance routes the strap automatically so one operator secures a pallet in under 40 seconds versus 120+ seconds manually — a 66% reduction in cycle time, with consistent tension that prevents transit damage.',
       },
+      {
+        question: 'What is the cheapest way to replace the broomstick method?',
+        answer:
+          'The ErgoPack 700 manual-crank machine. It uses the same ChainLance to route the strap under the pallet with no battery or electricity, so you remove the slow manual routing while keeping your existing sealing tool.',
+      },
+    ],
+    related: [
+      { label: 'ROI & Cost Comparison', href: '/resources/pallet-strapping-roi-cost-comparison' },
+      { label: 'Improve Manufacturing Floor Efficiency', href: '/resources/improve-manufacturing-floor-efficiency-strapping' },
+      { label: 'The ErgoPack 700 (manual crank)', href: '/products/700' },
     ],
   },
   // ---------------------------------------------------------------------------
   {
     slug: 'improve-manufacturing-floor-efficiency-strapping',
     breadcrumb: 'Manufacturing Floor Efficiency',
-    title: 'Improve Manufacturing Floor Efficiency With Strapping Automation | ErgoPack',
+    eyebrow: 'Operations Guide',
+    title: 'Improve Manufacturing Floor Efficiency With Strapping Automation | ErgoPack India',
     h1: 'Improving Manufacturing Floor Efficiency: Strapping as a Throughput Multiplier',
     description:
-      'End-of-line strapping is a silent bottleneck. See how mobile automated strapping acts as a throughput multiplier — reclaiming thousands of labor hours and clearing dispatch jams.',
+      'End-of-line strapping is a silent bottleneck. See how mobile automated strapping acts as a throughput multiplier — cutting cycle time 66%, reclaiming thousands of labor hours and clearing dispatch jams without new headcount.',
     keywords: [
       'improving manufacturing floor efficiency',
       'packaging line bottleneck removal',
       'throughput multiplier strapping',
       'reduce dispatch bottleneck',
+      'reduce labor dependency in packaging line',
     ],
-    lede: 'Most efficiency programs ignore the dispatch dock. End-of-line strapping is often the slowest, most labor-heavy step in the building.',
+    lede: 'Most efficiency programs optimise the production line and ignore the dispatch dock. Yet end-of-line strapping is often the slowest, most labor-heavy step in the building — and the cheapest place to find capacity.',
+    keyTakeaways: [
+      'Dispatch is often the real bottleneck: upstream gains are wasted if pallets queue at strapping.',
+      'Manual strapping ties up two operators at 120+ seconds per pallet.',
+      'Automation cuts cycle time 66% (to under 40s) and frees one of the two operators.',
+      'One operator achieves the throughput of three — latent capacity unlocked with no new headcount.',
+      'Freed labor moves to QA, staging and replenishment, lifting overall floor output.',
+    ],
     blocks: [
       { type: 'heading', text: 'The end-of-line bottleneck' },
       {
         type: 'paragraph',
-        text: 'A facility can optimise production upstream and still bottleneck at dispatch, where manual strapping takes over two minutes per pallet and ties up two operators. Pallets queue, trucks wait, and labor that could add value elsewhere is consumed walking around loads.',
+        text: 'A facility can optimise production upstream and still bottleneck at dispatch, where manual strapping takes over two minutes per pallet and ties up two operators. Pallets queue, trucks wait, and labor that could add value elsewhere is consumed walking around loads. Because it is the last step before the truck, every minute lost here delays the whole shipment.',
+      },
+      {
+        type: 'statgrid',
+        stats: [
+          { value: '66%', label: 'Cycle-time reduction' },
+          { value: '3→1', label: 'Operators per strapping task' },
+          { value: '~250 min', label: 'Labor saved / 50-pallet shift' },
+          { value: '0', label: 'New headcount needed' },
+        ],
       },
       { type: 'heading', text: 'Strapping automation as a throughput multiplier' },
       {
@@ -1052,7 +1316,13 @@ export const resourceArticles: ResourceArticle[] = [
           'Cycle time drops from 120 to under 40 seconds — a 66% reduction — so the dispatch dock stops queuing.',
           'One operator does the work of three, freeing labor for QA, staging and replenishment without new headcount.',
           'Processing 50 pallets/shift falls from ~350 minutes of strapping labor to ~100 minutes.',
+          'Mobile machines strap at any dock, so you scale capacity without rebuilding the floor layout.',
         ],
+      },
+      {
+        type: 'callout',
+        title: 'Capacity you already own',
+        text: 'A throughput multiplier does not add machines to your production line — it removes the dispatch bottleneck so the output you already make can leave the building faster. That is usually the lowest-cost capacity on the floor.',
       },
       {
         type: 'cta',
@@ -1072,6 +1342,16 @@ export const resourceArticles: ResourceArticle[] = [
         answer:
           'Equipment that lets the same workforce process more output. A mobile ErgoPack system multiplies dispatch throughput by cutting strapping cycle time 66% and letting one operator achieve the output of three.',
       },
+      {
+        question: 'Will I need to redesign my floor to add strapping automation?',
+        answer:
+          'No. Mobile ErgoPack machines are wheeled to the pallet at any dock, so you add dispatch capacity without conveyors, floor-bolting or layout changes — unlike a fixed inline arch.',
+      },
+    ],
+    related: [
+      { label: 'Replace the Broomstick Method', href: '/resources/replace-broomstick-strapping-method' },
+      { label: 'ROI & Cost Comparison', href: '/resources/pallet-strapping-roi-cost-comparison' },
+      { label: 'Mobile vs Stationary Arch', href: '/resources/mobile-vs-stationary-pallet-strapping-machine' },
     ],
   },
   // ===========================================================================
