@@ -36,7 +36,7 @@ const LINES = [
     color: '#C8102E',
     heroImage: '/images/xpert-hero-banner.png',
     productImage: '/images/products/726x.png',
-    heroHeadline: 'INTELLIGENCE. SPEED. PRECISION.',
+    heroHeadline: 'INTELLIGENCE. SPEED.\nPRECISION.',
     heroSub: 'ErgoPack 726X',
     heroTagline:
       '66 m/min ChainLance. 1,200 strap cycles per charge. Siemens touchscreen with Line Laser. The machine that knows what it is doing.',
@@ -75,7 +75,7 @@ const LINES = [
     color: '#D97706',
     heroImage: '/images/go-hero-banner.png',
     productImage: '/images/products/GO.png',
-    heroHeadline: 'ELECTRIC. VERSATILE. PORTABLE.',
+    heroHeadline: 'ELECTRIC. VERSATILE.\nPORTABLE.',
     heroSub: 'ErgoPack GO',
     heroTagline:
       'Battery-powered strapping without the Li-ion premium. Joystick control, 350 cycles per charge, and the widest material range in the lineup — PP, PET, Paper, Cord and Composite.',
@@ -118,8 +118,8 @@ const LINES = [
     badge: '700 · Hand-Crank · No Battery Required',
     color: '#4A7C59',
     heroImage: '/images/economy-hero-banner.png',
-    productImage: '/images/products/700-dark.png',
-    heroHeadline: 'NO POWER. NO BATTERY. NO LIMITS.',
+    productImage: '/images/products/700.png',
+    heroHeadline: 'NO POWER. NO BATTERY.\nNO LIMITS.',
     heroSub: 'ErgoPack 700',
     heroTagline:
       'The 700 is a pure hand-crank machine. No battery to charge. No motor to service. The ChainLance routes the strap by handle — anywhere, anytime, on any material.',
@@ -320,7 +320,7 @@ function HeroSection() {
             </motion.div>
 
             <motion.h1
-              className="font-serif font-bold text-white leading-[0.9] tracking-tight mb-4"
+              className="font-serif font-bold text-white leading-[0.9] tracking-tight mb-4 whitespace-pre-line"
               style={{ fontSize: 'clamp(2.2rem, 5vw, 4.8rem)' }}
               initial={{ opacity: 0, y: 22 }}
               animate={{ opacity: 1, y: 0 }}
@@ -407,10 +407,10 @@ function HeroSection() {
       <div className="absolute bottom-0 left-0 right-0 z-20 border-t border-white/8 bg-black/60 backdrop-blur-lg">
         <div className="max-w-[1440px] mx-auto px-8 md:px-16 py-4 grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            { stat: '< 40s', label: 'Strap a pallet', Icon: Clock },
-            { stat: '66 m/min', label: 'ChainLance speed (726X)', Icon: Zap },
-            { stat: '64.4 kg', label: 'Lightest machine (700)', Icon: Award },
-            { stat: '55+', label: 'Countries worldwide', Icon: Globe },
+            { stat: '+65%', label: 'Throughput Increase', Icon: TrendingUp },
+            { stat: 'Zero', label: 'Operator Fatigue', Icon: CheckCircle2 },
+            { stat: '< 40s', label: 'Strap Cycle Time', Icon: Clock },
+            { stat: 'The #1', label: 'Upgrade for Indian Floors', Icon: Award },
           ].map(({ stat, label, Icon }) => (
             <div key={stat} className="flex items-center gap-3">
               <Icon
