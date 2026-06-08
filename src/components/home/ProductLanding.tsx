@@ -18,6 +18,7 @@ import {
   Zap,
   Award,
 } from 'lucide-react';
+import { StakesSection, OriginalStandardSection } from './MarketingSections';
 
 // ─────────────────────────────────────────────────────────────────────────────
 //  THE THREE MACHINES WE SELL — all facts taken directly from products-data.json
@@ -408,7 +409,7 @@ function HeroSection() {
         <div className="max-w-[1440px] mx-auto px-8 md:px-16 py-4 grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
             { stat: '+65%', label: 'Throughput Increase', Icon: TrendingUp },
-            { stat: 'Zero', label: 'Operator Fatigue', Icon: CheckCircle2 },
+            { stat: '2,500N', label: 'On Every Strap', Icon: ShieldCheck },
             { stat: '< 40s', label: 'Strap Cycle Time', Icon: Clock },
             { stat: 'The #1', label: 'Upgrade for Indian Floors', Icon: Award },
           ].map(({ stat, label, Icon }) => (
@@ -900,8 +901,8 @@ function BenefitsSection() {
     },
     {
       Icon: ShieldCheck,
-      title: 'Consistent tension, every strap',
-      desc: 'Hand-tensioning varies with operator fatigue. The 726X and GO apply machine-calibrated force. The 700 uses a hand crank with a mechanical sealing head — same repeatable result, different power source.',
+      title: 'The same tension on strap #1,400 as strap #1',
+      desc: 'Hand tension drifts across a shift; a loose load is a rejected load. The 726X and GO apply digitally calibrated force that never tires. The 700 uses a hand crank with a mechanical sealing head — same repeatable hold, no power required.',
       color: '#D97706',
     },
     {
@@ -918,8 +919,8 @@ function BenefitsSection() {
     },
     {
       Icon: Cpu,
-      title: 'ISO and AGR certified',
-      desc: 'Every machine carries ISO 12100:2010, EU Declaration of Conformity and AGR back-safety certification. Documented compliance, not a marketing claim.',
+      title: 'Certified German engineering',
+      desc: 'Every machine carries ISO 12100:2010 and an EU Declaration of Conformity — documented, audited compliance, not a marketing claim. Built to run continuous industrial shifts, not to look the part.',
       color: '#D97706',
     },
     {
@@ -949,7 +950,7 @@ function BenefitsSection() {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            Built around the operator.
+            Engineered for the dispatch floor.
           </motion.h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
@@ -995,18 +996,18 @@ function FinalCTA() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl md:text-6xl font-serif font-bold text-white mb-5 leading-tight">
-            726X, GO, or 700?
+            Don’t take our word for it.
             <br />
-            Not sure which one fits?
+            Take our machine to your floor.
           </h2>
           <p className="text-white/65 text-lg mb-10 max-w-xl mx-auto">
-            Tell us your pallet dimensions, strap material, and power availability. We will tell you
-            which machine is the right match — no obligation.
+            Book an on-site capacity audit. We bring the 726X, GO or 700 to your dock and run a live
+            40-second cycle on your heaviest pallet. You see the number before you spend the rupee.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link href="/contact">
               <button className="px-10 py-4 text-sm uppercase tracking-widest font-semibold bg-white text-[#C8102E] hover:bg-gray-100 transition-all duration-300 rounded-sm">
-                Get a Machine Match
+                Request an On-Site Audit
               </button>
             </Link>
             <Link href="/compare?auto=true">
@@ -1029,11 +1030,13 @@ export default function ProductLanding() {
     <div className="w-full">
       <FloatingVariantPill />
       <HeroSection />
+      <StakesSection />
       <VariantLinePicker />
       <VideoSection />
       {LINES.map((line, idx) => (
         <ProductSpotlight key={line.id} line={line} flip={idx % 2 === 1} />
       ))}
+      <OriginalStandardSection />
       <PhilosophyBanner />
       <BenefitsSection />
       <FinalCTA />
