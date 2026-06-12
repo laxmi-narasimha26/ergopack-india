@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import MainLayout from '@/components/layout/MainLayout';
+import LeadForm from '@/components/forms/LeadForm';
 import type { ResourceArticle } from '@/data/resource-articles';
 
 export default function ResourceArticleBody({ article }: { article: ResourceArticle }) {
@@ -274,6 +275,15 @@ export default function ResourceArticleBody({ article }: { article: ResourceArti
                 </div>
               </section>
             )}
+
+            {/* ---------- Lead form (foot of article) ---------- */}
+            <section className="mt-14">
+              <LeadForm
+                sourceLabel={`Resource: ${article.breadcrumb}`}
+                heading="Get a machine recommendation & pricing"
+                subheading="Tell us your pallet size, strap material and daily volume. We’ll match the right ErgoPack — 726X, GO or 700 — and send pricing. No obligation."
+              />
+            </section>
           </article>
         </div>
       </div>
