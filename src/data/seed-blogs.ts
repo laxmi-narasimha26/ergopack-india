@@ -16,6 +16,8 @@ const publishedAtBase = [
   '2026-06-10T17:00:00+05:30',
   '2026-06-11T09:00:00+05:30',
   '2026-06-11T11:00:00+05:30',
+  '2026-06-11T13:00:00+05:30',
+  '2026-06-11T15:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -1977,6 +1979,197 @@ The right hand tool makes the seal faster. Automating the routing makes the *pal
     createdAt: new Date(publishedAtBase[14]),
     updatedAt: new Date(publishedAtBase[14]),
     publishedAt: new Date(publishedAtBase[14]),
+  },
+  {
+    _id: 'seed-automotive-parts-export-packaging',
+    title: 'Automotive Parts Export Packaging: How to Crate, Protect and Secure Heavy Components',
+    slug: 'automotive-parts-export-packaging',
+    excerpt:
+      'A practical guide to packaging automotive parts for export from India — crating heavy components, VCI rust protection, ISPM-15, and securing irregular castings so they survive sea freight.',
+    content: `An engine block, a casting or a transmission housing is heavy, dense, irregular and expensive — and it is going on a multi-week sea voyage from Chennai, Pune or Gurugram to a customer who will reject the whole shipment if one part arrives rusted or shifted. Automotive export packaging is where generic "wrap it and ship it" advice fails. Here is how heavy auto parts are actually packed to arrive intact.
+
+## Why automotive export packaging is different
+
+Automotive components combine four hard problems at once:
+
+- **Concentrated weight** — a small part can be very heavy, so the load is dense and unforgiving.
+- **Irregular shape** — castings and housings do not sit neatly on a square pallet.
+- **Corrosion risk** — ferrous parts rust in ocean humidity, and a rusted surface is a rejected part.
+- **High value and zero tolerance** — the customer's line stops if the part is damaged, so quality standards are absolute.
+
+## Step 1 — Choose the right base: crate or reinforced pallet
+
+Heavy automotive parts usually need more than a plain pallet:
+
+- **Wooden crates or pallets reinforced with metal brackets** for engine blocks, transmissions and heavy castings.
+- **Custom crating** for delicate, rare or intricately shaped components — built to the exact dimensions of the part so it cannot move.
+- For export, the wood must be **ISPM-15 heat-treated and stamped** (see [ISPM-15 explained](/blog/ispm-15-wood-packaging-explained)).
+
+## Step 2 — Protect against corrosion
+
+Rust is the silent killer of metal exports:
+
+- **VCI (vapour corrosion inhibitor)** films, papers or emitters keep ferrous parts rust-free without messy oils — the modern standard for metal export.
+- Keep parts and packaging dry; pair with desiccants and manage [container condensation](/blog/container-rain-cargo-condensation-prevention) for the sea leg.
+
+## Step 3 — Secure the part so it cannot move
+
+This is where heavy, irregular parts are won or lost. A part that shifts inside its crate damages itself and the crate:
+
+- **Block and brace** the part within the crate so it cannot slide.
+- **Strap heavy and irregular parts down to the pallet or crate base** with high, consistent tension so they are locked as a single unit.
+- Use **PET strap, not steel** — it absorbs the shock of sea movement and does not rust onto the part. Steel snaps under maritime jolts and corrodes onto the finish. See [PP vs PET vs steel strapping](/resources/pet-vs-steel-strapping).
+
+For dense, non-compressible auto parts, tension matters: a calibrated machine such as the [ErgoPack 726X](/products/726x) applies up to 2,500N repeatably and its Triplex-Tool-Lift reaches over awkward castings to seal the side and top — exactly the case made in our [best pallet strapping machine for heavy loads](/resources/best-pallet-strapping-machine-heavy-loads) guide. The [ErgoPack GO](/products/go) and [700](/products/700) automate the strap routing for facilities using their own heavy-duty sealing tools.
+
+## Step 4 — Label, document and comply
+
+- Mark crates with weight, handling and orientation symbols.
+- Include export documentation and the packing list.
+- Confirm ISPM-15 compliance on all wood, including dunnage.
+
+## Common automotive export packaging mistakes
+
+- **Steel strap on sea freight** — rusts onto the part and snaps under shock.
+- **Under-secured castings** — irregular parts shift and self-damage.
+- **No corrosion protection** — ferrous parts arrive rusted and rejected.
+- **Untreated wood** — ISPM-15 hold at the destination port.
+- **Inconsistent tension** — the loose unit in the batch is the one that fails.
+
+## Automotive export packaging checklist
+
+- [ ] Crate or metal-reinforced pallet sized to the part
+- [ ] ISPM-15 heat-treated, stamped wood (and dunnage)
+- [ ] VCI corrosion protection on ferrous parts
+- [ ] Part blocked, braced and strapped to the base
+- [ ] PET strap at high, consistent tension (not steel)
+- [ ] Container condensation managed for the voyage
+- [ ] Weight, handling, orientation marks + documents
+
+India's automotive export hubs — Chennai, Pune, the NCR belt — run on schedules that cannot absorb a rejected container. Pack the part to this standard and it arrives the way it left the line.`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'automotive parts export packaging',
+      'engine component crating',
+      'heavy parts securing',
+      'VCI corrosion',
+      'export packaging India',
+      'automotive strapping',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Automotive Parts Export Packaging: Crate, Protect & Secure | ErgoPack India',
+      description:
+        'How to package automotive parts for export from India — crating heavy components, VCI rust protection, ISPM-15, and securing irregular castings with high-tension PET strapping for sea freight.',
+      keywords: [
+        'automotive parts export packaging',
+        'how to pack automotive parts for shipping',
+        'engine component packaging',
+        'heavy parts export crating',
+        'automotive parts strapping',
+        'export packaging Chennai',
+      ],
+    },
+    readTime: 8,
+    views: 0,
+    createdAt: new Date(publishedAtBase[15]),
+    updatedAt: new Date(publishedAtBase[15]),
+    publishedAt: new Date(publishedAtBase[15]),
+  },
+  {
+    _id: 'seed-dunnage-types-and-uses',
+    title: 'Dunnage: Types, Uses and How to Fill Void Space So Cargo Cannot Move',
+    slug: 'dunnage-types-and-uses',
+    excerpt:
+      'Dunnage fills the empty space that lets cargo shift in transit. A guide to the types — airbags, foam, wood, corrugated — when to use each, and why it works alongside strapping, not instead of it.',
+    content: `Empty space inside a pallet, crate or container is the enemy of safe transit. Every gap is room for cargo to slide, tip and slam into its neighbour. **Dunnage** is the material that fills those gaps so the load travels as one solid block. Here is what it is, the types, and how it works with strapping.
+
+## What is dunnage?
+
+Dunnage is any inexpensive, often disposable material used to **fill void space, brace cargo, and absorb shock** during transport. It does not bind the load (that is strapping) or protect surfaces (that is wrap and corner boards) — its job is to occupy empty space so nothing can move into it.
+
+## Why dunnage matters
+
+In a truck or container, cargo is subjected to constant vibration, braking and rolling. If there is space for the load to shift, it will — and a shifting load:
+
+- slams into adjacent cargo and the container walls,
+- topples and crushes,
+- and concentrates impact on whatever it hits.
+
+Filling the voids removes the room to move, which is half the battle against transit damage.
+
+## Types of dunnage
+
+| Type | What it is | Best for |
+| --- | --- | --- |
+| Inflatable dunnage bags | Air bags inflated between pallets/rows | Filling large gaps in containers; fast |
+| Foam (blocks / sheets) | Cut or moulded foam | Fragile goods; shock absorption; odd shapes |
+| Wood (beams, blocks, braces) | Timber bracing | Heavy loads; blocking and bracing in crates |
+| Corrugated (inserts, honeycomb) | Cardboard fillers | Lightweight void fill; layer separation |
+| Air pillows / paper | Inflated film or crumpled paper | Light void fill inside cartons |
+
+## When to use which
+
+- **Containers:** inflatable dunnage bags between pallet rows are fast and effective for the large gaps between blocks of cargo.
+- **Crates with heavy parts:** wooden bracing blocks the part so it cannot slide (essential for [automotive export](/blog/automotive-parts-export-packaging)).
+- **Fragile goods:** foam absorbs shock and conforms to the shape.
+- **Inside cartons:** air pillows or paper fill the small voids so individual items do not rattle.
+
+One rule applies across all of them: for **export wood dunnage, ISPM-15 applies** — untreated timber dunnage is one of the most common reasons a shipment is held at the destination port (see [ISPM-15 explained](/blog/ispm-15-wood-packaging-explained)).
+
+## Dunnage works with strapping, not instead of it
+
+Dunnage and strapping solve different halves of the movement problem, and you usually need both:
+
+- **Dunnage** removes the *space* the cargo could move into.
+- **Strapping** removes the cargo's *ability* to move by anchoring it to the pallet or crate.
+
+A load that is strapped but has unfilled voids can still rock within the gaps; a load that is dunnaged but unstrapped is filled but not anchored. Together — every pallet strapped to its base at consistent tension, every void filled — the cargo becomes one immovable mass. That is the standard a container should be loaded to (see [how to load a shipping container](/blog/how-to-load-a-shipping-container)). Calibrated strapping machines such as the [ErgoPack 726X](/products/726x), [GO](/products/go) and [700](/products/700) handle the anchoring side repeatably on every pallet.
+
+## Dunnage checklist
+
+- [ ] Voids in the container/crate identified before loading
+- [ ] Right dunnage chosen per gap (bags for big, foam for fragile, wood for heavy)
+- [ ] Heavy parts blocked and braced so they cannot slide
+- [ ] Wood dunnage is ISPM-15 compliant for export
+- [ ] Cargo also strapped to its base — dunnage fills, strapping anchors
+- [ ] Final load is a solid block with no room to move
+
+Fill the space, anchor the load, and the cargo that leaves your floor arrives where you put it.`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'dunnage',
+      'dunnage types',
+      'void fill packaging',
+      'cargo bracing',
+      'dunnage bags',
+      'container loading',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Dunnage: Types, Uses & How to Fill Void Space in Cargo | ErgoPack India',
+      description:
+        'Dunnage fills the void space that lets cargo shift in transit. Types — airbags, foam, wood, corrugated — when to use each, ISPM-15 for wood dunnage, and how it works with strapping.',
+      keywords: [
+        'dunnage',
+        'dunnage types',
+        'what is dunnage',
+        'void fill packaging',
+        'dunnage bags container',
+        'cargo bracing',
+      ],
+    },
+    readTime: 6,
+    views: 0,
+    createdAt: new Date(publishedAtBase[16]),
+    updatedAt: new Date(publishedAtBase[16]),
+    publishedAt: new Date(publishedAtBase[16]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
