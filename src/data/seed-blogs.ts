@@ -22,6 +22,8 @@ const publishedAtBase = [
   '2026-06-12T11:00:00+05:30',
   '2026-06-12T13:00:00+05:30',
   '2026-06-12T15:00:00+05:30',
+  '2026-06-12T17:00:00+05:30',
+  '2026-06-13T09:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -2518,6 +2520,168 @@ Fix the process, verify every step, and automate the outbound bottleneck — and
     createdAt: new Date(publishedAtBase[20]),
     updatedAt: new Date(publishedAtBase[20]),
     publishedAt: new Date(publishedAtBase[20]),
+  },
+  {
+    _id: 'seed-corrugated-box-bundling-dispatch',
+    title: 'Corrugated Box Plant Dispatch: How to Bundle and Strap Without Crushing or Slowing Down',
+    slug: 'corrugated-box-plant-bundling-dispatch',
+    excerpt:
+      'Corrugated and paper plants ship bulky, compressible, irregular bundles at high volume. A guide to bundling and strapping them without crushing edges — and clearing the dispatch dock at peak.',
+    content: `A corrugated box plant has a packaging problem of its own: it ships its product in bulky, lightweight, compressible bundles that are easy to crush and hard to keep square — at volumes where the dispatch dock becomes the bottleneck during peak runs. Getting bundling and strapping right is both a quality and a throughput issue.
+
+## Why corrugated bundles are hard to secure
+
+- **Compressible:** the bundle settles and loses height in transit, so a strap tight at dispatch goes slack.
+- **Light but bulky:** large surface area, low density — prone to leaning and shifting.
+- **Irregular heights:** stacks of flat board or finished boxes rarely come out the same height.
+- **Edge-sensitive:** over-tension crushes the corners — which is the product itself.
+
+The operator faces the classic trap: under-tension and the bundle slips and collapses; over-tension and the strap cuts into and crushes the board.
+
+## The fix: exact, repeatable tension
+
+Compressible loads need a tension that is firm but precise, applied the same way every time:
+
+- **Set a lower, exact tension** — enough to hold the bundle square without cutting into the board. A calibrated machine such as the [ErgoPack 726X](/products/726x) can be dialled down to a gentle, repeatable force (from 400N) and applies that identical tension to every bundle.
+- **Use edge protectors** so the strap force spreads along the edge instead of crushing a corner — see [edge protectors & corner boards](/blog/edge-protectors-corner-boards-pallet-guide).
+- **Use PET strap** so the bundle stays tight as it settles in transit, where steel goes slack.
+
+This is covered in depth in our [corrugated & compressible load strapping](/resources/corrugated-box-compressible-load-strapping) guide.
+
+## The throughput side: clearing the dock at peak
+
+Corrugated plants run on volume and tight dispatch windows. Manual strapping at ~120 seconds per bundle becomes the bottleneck exactly when order volume peaks — finished bundles stack up, the loading dock backs up, and the press is producing faster than dispatch can ship.
+
+Automating the strap routing clears that:
+
+- One operator straps a bundle in under 40 seconds instead of two operators at 120.
+- The dock keeps pace with the press during peak runs.
+- The same machine handles the plant's range of bundle widths and heights without reconfiguration — the ChainLance adjusts continuously.
+
+The [ErgoPack GO](/products/go) and [700](/products/700) automate the routing for plants using their own sealing tools; the [726X](/products/726x) adds digital tension and an integrated friction weld.
+
+## Corrugated dispatch checklist
+
+- [ ] Lower, exact tension set for compressible bundles
+- [ ] Same tension applied to every bundle (calibrated, not by hand)
+- [ ] Edge protectors so the strap does not crush corners
+- [ ] PET strap so the bundle stays tight as it settles
+- [ ] One machine that handles your full bundle size range
+- [ ] Strap routing automated so the dock keeps pace at peak
+
+Secure corrugated bundles this way and you stop choosing between crushed product and a backed-up dock — you get square bundles and a dock that keeps up with the press.`,
+    coverImage: blogImagePaths.warehouseOperation,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'corrugated box bundling',
+      'paper plant dispatch',
+      'compressible load strapping',
+      'corrugated strapping machine',
+      'bundle strapping',
+      'box plant packaging',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Corrugated Box Plant Dispatch: Bundle & Strap Without Crushing | ErgoPack',
+      description:
+        'How corrugated and paper plants bundle and strap compressible product without crushing edges — exact repeatable tension, edge protectors, PET strap — and clear the dispatch dock at peak volume.',
+      keywords: [
+        'corrugated box bundling',
+        'corrugated box strapping machine',
+        'compressible load strapping',
+        'paper bundle strapping',
+        'box plant dispatch',
+        'strap corrugated without crushing',
+      ],
+    },
+    readTime: 6,
+    views: 0,
+    createdAt: new Date(publishedAtBase[21]),
+    updatedAt: new Date(publishedAtBase[21]),
+    publishedAt: new Date(publishedAtBase[21]),
+  },
+  {
+    _id: 'seed-3pl-cross-docking-strapping',
+    title: '3PL & Cross-Docking: How to Keep the Dispatch Dock Moving',
+    slug: '3pl-cross-docking-dispatch',
+    excerpt:
+      'For 3PLs and cross-docking operations, speed at the dock is the whole business. A guide to keeping mixed-load dispatch moving — and why mobile, not fixed, securing fits cross-docking.',
+    content: `For a 3PL, the warehouse is not storage — it is flow. Cross-docking pushes goods from inbound to outbound with minimal dwell, and the entire economic model depends on how fast the dispatch dock turns loads around. Anything that queues at the dock costs money on every shipment. Here is how securing fits — and why the usual fixed automation does not.
+
+## What makes 3PL dispatch different
+
+- **Speed is the product.** A 3PL is paid for throughput and on-time dispatch, not for warehousing.
+- **Mixed, unpredictable loads.** Different clients, SKUs, pallet sizes and configurations cross the dock every shift — there is no single load profile.
+- **Multiple dock lanes.** Work happens across many bays at once, not at one fixed point.
+- **Peaks.** Volume spikes with client demand; the operation has to flex without re-engineering.
+
+## Why fixed automation fights cross-docking
+
+The instinct is to install a fixed, inline strapping arch for speed. But a floor-bolted machine forces **every pallet to one location** — the opposite of how a cross-dock flows. You end up trucking pallets across the floor to the machine and back, creating exactly the queue and forklift traffic cross-docking exists to avoid. A fixed arch also assumes one pallet profile, which a 3PL never has.
+
+## Why mobile securing fits
+
+Mobile strapping matches the cross-dock model: you bring the machine to the pallet, at any lane, on any pallet size:
+
+- **Strap at any dock lane** — no moving pallets to a fixed station.
+- **Handles mixed loads** — the ChainLance adjusts to pallet widths from 40 to 270 cm without reconfiguration.
+- **No infrastructure** — no conveyors, 3-phase power or floor-bolting, so you flex with volume.
+- **Speed where it counts** — one operator secures a pallet in under 40 seconds, at the lane, keeping the dock turning.
+
+This is the case made in [mobile vs stationary pallet strapping](/resources/mobile-vs-stationary-pallet-strapping-machine). Systems such as the [ErgoPack GO](/products/go), [726X](/products/726x) and [700](/products/700) are built for exactly this — wheeled to the staging lane, strapping mixed loads as they cross the dock.
+
+## Keeping the dock moving
+
+- **Secure at the lane, not at a station** — eliminate the move-to-machine round trip.
+- **Standardise the securing step** so any operator does it the same in under 40 seconds.
+- **Reallocate the freed labour** to inbound and staging during peaks.
+- **Measure dock turn time** and attack the slowest step — usually the manual securing.
+
+The broader throughput method is in [improve warehouse dispatch productivity](/blog/improve-warehouse-dispatch-productivity), and the financial case in the [ROI calculator](/roi-calculator).
+
+## 3PL dispatch checklist
+
+- [ ] Securing done at the dock lane, not a fixed station
+- [ ] One machine handles all client pallet sizes (mobile, adjustable)
+- [ ] No conveyors/civil work — flex with client volume
+- [ ] Under-40-second securing standardised across operators
+- [ ] Freed labour redeployed to inbound/staging at peak
+- [ ] Dock turn time measured; slowest step attacked
+
+For a 3PL, the dock is the business. Keep securing mobile, fast and standardised, and the dock keeps turning — which is the only thing the cross-dock model rewards.`,
+    coverImage: blogImagePaths.warehouseOperation,
+    author: 'ErgoPack India Technical Team',
+    category: 'insights',
+    tags: [
+      '3PL',
+      'cross-docking',
+      'dispatch dock',
+      'logistics strapping',
+      'mobile strapping',
+      'warehouse throughput',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: '3PL & Cross-Docking: Keep the Dispatch Dock Moving | ErgoPack India',
+      description:
+        'For 3PLs and cross-docking, dock speed is the business. Why mobile (not fixed-arch) securing fits mixed-load cross-docking, and how to keep dispatch turning at under 40 seconds a pallet.',
+      keywords: [
+        '3PL strapping',
+        'cross-docking dispatch',
+        'logistics pallet strapping',
+        'mobile strapping 3PL',
+        'cross dock efficiency',
+        'warehouse dispatch speed',
+      ],
+    },
+    readTime: 6,
+    views: 0,
+    createdAt: new Date(publishedAtBase[22]),
+    updatedAt: new Date(publishedAtBase[22]),
+    publishedAt: new Date(publishedAtBase[22]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
