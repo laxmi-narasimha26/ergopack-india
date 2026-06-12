@@ -18,6 +18,8 @@ const publishedAtBase = [
   '2026-06-11T11:00:00+05:30',
   '2026-06-11T13:00:00+05:30',
   '2026-06-11T15:00:00+05:30',
+  '2026-06-12T09:00:00+05:30',
+  '2026-06-12T11:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -2170,6 +2172,176 @@ Fill the space, anchor the load, and the cargo that leaves your floor arrives wh
     createdAt: new Date(publishedAtBase[16]),
     updatedAt: new Date(publishedAtBase[16]),
     publishedAt: new Date(publishedAtBase[16]),
+  },
+  {
+    _id: 'seed-timber-wood-export-packaging-strapping',
+    title: 'Timber & Lumber Export Packaging: How to Bundle, Strap and Comply (India)',
+    slug: 'timber-lumber-export-packaging-strapping',
+    excerpt:
+      'How to bundle and secure timber, lumber and plywood for export — strap material choice (PET vs steel), tension by wood type, edge protection, and keeping ISPM-15 stamps visible under the strap.',
+    content: `Timber moves in heavy, long, often sharp-edged bundles that settle and loosen in transit — and if it is wood for export, it carries its own compliance problem. Bundling and strapping lumber well is a specific skill. Here is how it is done.
+
+## What makes timber different to strap
+
+- **Heavy and long** — bundles are dense and awkward, with a high tendency to shift.
+- **It settles** — wood bundles compress and lose height in transit, so a strap tight at dispatch goes slack unless the material recovers tension.
+- **Sharp or rough edges** — corners can cut into strap and into adjacent bundles.
+- **It is wood** — for export, the packaging *and the product* intersect with ISPM-15.
+
+## Strap material: PET vs steel for lumber
+
+Steel was historically the only option for heavy timber, but high-strength PET now matches or beats it for most lumber:
+
+- **Steel** suits non-compressible, sharp or extremely heavy loads where maximum tensile strength is essential.
+- **PET** suits heavy but non-sharp materials like lumber and brick — its elongation recovery keeps the bundle tight as the wood settles, where rigid steel goes slack and can snap under shock. PET also will not rust onto the timber on a humid sea voyage.
+
+For most lumber export, **PET is the better choice** — see [PP vs PET vs steel strapping](/resources/pet-vs-steel-strapping).
+
+## Tension by wood type
+
+Tension is not one setting:
+
+- **Soft woods (pine):** excessive force crushes and dents the wood — use moderate tension.
+- **Hardwoods:** too little tension lets the bundle slip — apply firmer tension.
+- Apply straps **perpendicular to the bundle** for maximum holding power, and use **multiple straps** across the bundle (not one in the middle).
+
+Because the right tension differs by species and a slack strap means a loose bundle, **consistent, repeatable tension matters** — a calibrated machine such as the [ErgoPack 726X](/products/726x) holds a set tension on every bundle, and the [GO](/products/go) and [700](/products/700) route the strap for facilities using their own sealing tools. See the [strapping tension guide](/blog/pallet-strapping-tension-guide).
+
+## Protect the edges
+
+Sharp timber edges cut into strap and slip. Use **edge protectors where the strap contacts the wood** to spread the force and stop the strap sliding — covered in [edge protectors & corner boards](/blog/edge-protectors-corner-boards-pallet-guide).
+
+## The compliance trap: keep the ISPM-15 stamp visible
+
+If you export wooden packaging — or wood products — the ISPM-15 mark must be **visible even after strapping**, on two opposite sides. A common, expensive mistake is applying a strap or wrap directly over the only stamp, so it cannot be read at inspection and the shipment is held. Plan strap placement so the stamps stay legible. (Full detail in [ISPM-15 explained](/blog/ispm-15-wood-packaging-explained).)
+
+## Timber export packaging checklist
+
+- [ ] PET strap for most lumber (steel only for sharp/extreme loads)
+- [ ] Tension by wood type — moderate for softwood, firm for hardwood
+- [ ] Straps perpendicular, multiple across the bundle
+- [ ] Edge protectors where strap meets sharp timber
+- [ ] Consistent, repeatable tension (calibrated machine if volume is high)
+- [ ] Lumber wrap for moisture/UV on the voyage
+- [ ] ISPM-15 stamp left visible under the strap, on two sides
+
+Strap lumber to this standard and the bundle that leaves the yard arrives tight, undamaged, and clears inspection.`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'timber export packaging',
+      'lumber strapping',
+      'wood bundling',
+      'PET vs steel lumber',
+      'ISPM-15 timber',
+      'plywood export',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Timber & Lumber Export Packaging: Bundle, Strap & Comply | ErgoPack India',
+      description:
+        'How to bundle and secure timber and lumber for export — PET vs steel strap, tension by wood type, edge protection, and keeping ISPM-15 stamps visible under the strap.',
+      keywords: [
+        'timber export packaging',
+        'lumber strapping',
+        'how to strap lumber',
+        'wood bundling strapping',
+        'PET strap for timber',
+        'plywood export packaging',
+      ],
+    },
+    readTime: 6,
+    views: 0,
+    createdAt: new Date(publishedAtBase[17]),
+    updatedAt: new Date(publishedAtBase[17]),
+    publishedAt: new Date(publishedAtBase[17]),
+  },
+  {
+    _id: 'seed-pharmaceutical-pallet-packaging-gdp',
+    title: 'Pharmaceutical Pallet Packaging & GDP: Securing Loads in the Cold Chain',
+    slug: 'pharmaceutical-pallet-packaging-gdp',
+    excerpt:
+      'How pharmaceutical distribution secures pallets under Good Distribution Practice — validated packaging, the cold chain, documentation, and why clean, low-contact, consistent load securing matters.',
+    content: `Pharmaceutical distribution has the strictest packaging rules in logistics, because the cargo is temperature-sensitive, high-value, and regulated end to end. Pallet securing is a small but real part of Good Distribution Practice — and getting it wrong undermines everything upstream. Here is how it fits.
+
+## What GDP requires (the short version)
+
+Good Distribution Practice (GDP) is the quality framework governing how medicines are stored, transported and handled — enforced internationally by bodies like the EMA, FDA and WHO, and in India under CDSCO/Schedule requirements. GDP demands:
+
+- **Validated packaging** proven to protect the product.
+- **Temperature control and monitoring** across the journey.
+- **Documentation** — evidence that conditions stayed within limits.
+- **Controlled handling** that minimises contamination and mishandling risk.
+
+## The cold chain: keeping temperature stable
+
+For temperature-sensitive products, the packaging is engineered to hold the range:
+
+- **Insulated shippers** (EPS containers, vacuum-insulated panels).
+- **Phase-change materials** and preconditioned gel packs.
+- **Pallet layering and validated configurations** to keep temperature stable across the pallet.
+- **IoT monitoring** — sensors logging temperature and location for the documentation trail.
+
+## Where load securing fits in GDP
+
+A validated cold-chain pallet still has to survive the truck. Load securing supports GDP in three ways:
+
+1. **Stability:** the carefully built thermal pallet must not shift, topple or be crushed — which would break the insulation configuration and create a temperature excursion. Consistent strapping holds the configuration intact.
+2. **Low contamination / low contact:** GDP favours minimising human handling of the load. Automated strap routing means an operator secures the pallet from a standing position without manhandling or re-stacking it — fewer hands on a controlled load.
+3. **Repeatability and documentation:** GDP is built on *consistency you can prove*. Calibrated, repeatable tension means every pallet is secured identically — a controlled, documentable process rather than variable hand tension.
+
+## Materials for pharma pallets
+
+- **PET strap, not steel** — moisture-proof and rust-free, no contamination risk, and it holds tension as loads settle.
+- **Plastic pallets** are common in pharma — washable, hygienic, moisture-proof and outside ISPM-15.
+- **Sealless friction welding** — no metal clips to rust, shed or contaminate.
+
+A calibrated machine such as the [ErgoPack 726X](/products/726x) applies repeatable tension and a sealless friction weld, and the [GO](/products/go) and [700](/products/700) route the strap so operators secure pallets without manhandling the load. See [PP vs PET vs steel strapping](/resources/pet-vs-steel-strapping) for material detail.
+
+## Pharma pallet securing checklist
+
+- [ ] Validated, temperature-controlled packaging per GDP
+- [ ] Monitoring and documentation in place
+- [ ] Thermal pallet configuration kept intact by stable securing
+- [ ] PET strap (not steel) — no rust or contamination
+- [ ] Plastic/hygienic pallets where appropriate
+- [ ] Sealless friction weld — no metal clips
+- [ ] Consistent, repeatable, low-contact load securing
+
+Get the cold chain and the documentation right, and make sure the securing that holds it all together is just as controlled and repeatable as the rest of the GDP process.`,
+    coverImage: blogImagePaths.warehouseOperation,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'pharmaceutical packaging',
+      'GDP compliance',
+      'cold chain logistics',
+      'pharma pallet securing',
+      'validated packaging',
+      'pharma strapping',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Pharmaceutical Pallet Packaging & GDP: Cold Chain Load Securing | ErgoPack',
+      description:
+        'How pharma distribution secures pallets under Good Distribution Practice — validated cold-chain packaging, documentation, and why clean, low-contact, repeatable PET load securing matters.',
+      keywords: [
+        'pharmaceutical packaging GDP',
+        'cold chain pallet securing',
+        'pharma pallet strapping',
+        'good distribution practice packaging',
+        'validated pharma packaging',
+        'pharmaceutical strapping India',
+      ],
+    },
+    readTime: 7,
+    views: 0,
+    createdAt: new Date(publishedAtBase[18]),
+    updatedAt: new Date(publishedAtBase[18]),
+    publishedAt: new Date(publishedAtBase[18]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
