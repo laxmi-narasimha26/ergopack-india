@@ -5,6 +5,8 @@ const publishedAtBase = [
   '2026-03-20T09:15:00+05:30',
   '2026-03-20T10:00:00+05:30',
   '2026-06-09T09:00:00+05:30',
+  '2026-06-09T11:00:00+05:30',
+  '2026-06-09T13:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -850,6 +852,230 @@ Pack to this standard and the pallet that leaves your floor is the pallet that a
     createdAt: new Date(publishedAtBase[3]),
     updatedAt: new Date(publishedAtBase[3]),
     publishedAt: new Date(publishedAtBase[3]),
+  },
+  {
+    _id: 'seed-how-to-load-a-shipping-container',
+    title: 'How to Load a Shipping Container: Weight Distribution & Securing (India Export Guide)',
+    slug: 'how-to-load-a-shipping-container',
+    excerpt:
+      'A step-by-step guide to loading an export container from India — weight distribution rules, centre of gravity, securing and lashing, dunnage, condensation, and why each pallet must be strapped before it ever reaches the container.',
+    content: `A container that arrives with shifted, crushed or rusted cargo almost always failed before it left the country — in how it was loaded and how each pallet inside it was secured. For Indian exporters, where the load passes through a CFS or ICD, sits in monsoon humidity, and crosses weeks of ocean swell, "load it tight and shut the doors" is not a plan. This is the method that actually protects the cargo.
+
+## The 8 steps to load an export container
+
+1. Inspect the container before anything goes in.
+2. Plan the stow — weight distribution and unloading order.
+3. Load heaviest at the bottom and over the container's strong points.
+4. Keep the centre of gravity central.
+5. Fill voids with dunnage so nothing can move.
+6. Secure and lash the load against shifting.
+7. Manage condensation for the sea leg.
+8. Make sure every pallet was strapped before it was loaded.
+
+## Step 1 — Inspect the container first
+
+Reject a container that fails any of these: holes or daylight visible from inside, a wet or damaged floor, broken door seals, lingering odour, or previous-cargo residue. A single pinhole in the roof lets monsoon and sea spray ruin a full load. Confirm it is clean, dry, structurally sound and that the doors seal fully.
+
+## Step 2 — Plan the stow before you load
+
+Make a simple stow plan — even a sketch — before the first pallet goes in. It should account for:
+
+- **Weight distribution** along the length and width.
+- **Centre of gravity**, kept central.
+- **Unloading order** at the destination (last in, first out).
+
+Loading to a plan, instead of improvising, is the difference between a balanced container and one that is dangerously heavy at one end.
+
+## Step 3 & 4 — Weight distribution and centre of gravity
+
+This is where most overweight-axle fines and tip-overs come from.
+
+- Place **heavier, denser cargo on the bottom**, lighter on top.
+- Spread weight **evenly across the floor** — do not concentrate it in one half. A common rule: no more than ~60% of the cargo weight should sit on either 50% of the container's length.
+- Keep the **centre of gravity central** — laterally and longitudinally — ideally within about ±5% of the mid-point. An off-centre load makes the container unstable on the chassis and on the ship.
+
+## Step 5 — Fill voids with dunnage
+
+Empty space is movement waiting to happen. Fill gaps so cargo cannot slide or topple:
+
+- **Inflatable dunnage bags** between pallets or rows.
+- **Wooden beams, foam blocks or cardboard** for smaller voids.
+- The goal: a tight block of cargo that behaves as one mass, with nothing free to shift when the ship rolls.
+
+## Step 6 — Secure and lash the load
+
+Heavy and tall items must be physically restrained:
+
+- **Lashing** with polyester/textile straps or ratchet straps to the container's lashing points.
+- **Load bars and bracing** across the width to stop forward and backward movement, especially behind the doors.
+- Pay special attention to the **door end** — the last metre is where unsecured cargo falls out when the doors open at destination.
+
+## Step 7 — Manage condensation ("container rain")
+
+On a sea voyage, temperature swings make moisture condense inside the roof and drip onto the cargo — "container rain" — a major cause of rust and mould on Indian exports. Mitigate it with:
+
+- **Desiccant** (container drying bags/poles) sized to the cargo and route.
+- **Dry dunnage and dry pallets** loaded in — never trap moisture inside.
+- **Moisture-resistant securing**: PET strap and plastic or treated wood, not rust-prone steel.
+
+## Step 8 — The part that happens before the container: strap every pallet
+
+A container is only as secure as the units inside it. If individual pallets arrive at the CFS already loose — boxes shifting, stretch film stretched but the stack sliding on the pallet — no amount of lashing inside the container fixes it. The load has to be a set of solid, immovable blocks before it is ever stuffed.
+
+That means **each pallet is strapped down to its base** with consistent tension before it leaves your floor:
+
+- Use **PET strap** for export — it absorbs the shock of ocean movement and resists rust, where steel snaps and corrodes.
+- Apply **repeatable tension on every pallet** so there is no weak unit in the container. Hand tension drifts; a machine that calibrates digitally does not. Mobile ChainLance systems such as the [ErgoPack 726X](/products/726x) apply a set tension up to 2,500N and seal sealless, so pallet #1 and pallet #400 going into the container are identical — and the [ErgoPack GO](/products/go) and manual-crank [ErgoPack 700](/products/700) automate the strap routing for facilities that keep their own sealing tools.
+
+For the full method on the pallet itself, see [how to pack a pallet for shipping](/blog/how-to-pack-a-pallet-for-shipping) and the material choice in [PP vs PET vs steel strapping](/resources/pet-vs-steel-strapping).
+
+## Common container-loading mistakes
+
+- **Improvising without a stow plan** — leads to off-centre, overweight loads.
+- **Concentrating weight in one half** — axle fines and instability.
+- **Leaving voids unfilled** — cargo slides and topples at sea.
+- **Ignoring the door end** — the last metre falls out on opening.
+- **No condensation control** — rust and mould on arrival.
+- **Loading loose pallets** — the container cannot fix a pallet that was never strapped properly.
+
+## Container-loading checklist
+
+- [ ] Container inspected: clean, dry, sound, sealing doors
+- [ ] Stow plan drawn, unloading order considered
+- [ ] Heaviest cargo low; weight spread evenly (≤60% per half)
+- [ ] Centre of gravity central (±5%)
+- [ ] Voids filled with dunnage
+- [ ] Load lashed and braced; door end secured
+- [ ] Desiccant in; dry dunnage and dry pallets only
+- [ ] Every pallet strapped to its base with PET at consistent tension
+
+Load to this standard and the container that leaves the ICD is the container that opens — at the destination, with the cargo exactly where you put it.`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'how to load a shipping container',
+      'container loading',
+      'export packaging India',
+      'cargo securing',
+      'container rain condensation',
+      'pallet strapping',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'How to Load a Shipping Container: Weight & Securing Guide (India) | ErgoPack',
+      description:
+        'Load an export container that arrives intact: weight distribution rules, centre of gravity, lashing & dunnage, container-rain condensation, and why every pallet must be strapped at consistent tension before loading.',
+      keywords: [
+        'how to load a shipping container',
+        'container weight distribution',
+        'how to secure cargo in a container',
+        'export container loading India',
+        'container condensation prevention',
+        'pallet strapping for export',
+      ],
+    },
+    readTime: 10,
+    views: 0,
+    createdAt: new Date(publishedAtBase[4]),
+    updatedAt: new Date(publishedAtBase[4]),
+    publishedAt: new Date(publishedAtBase[4]),
+  },
+  {
+    _id: 'seed-standard-pallet-sizes-india',
+    title: 'Standard Pallet Sizes in India: Dimensions, Types & How to Choose (2026)',
+    slug: 'standard-pallet-sizes-in-india',
+    excerpt:
+      'The standard pallet sizes used in India — Euro, standard, export and big — with dimensions, wood vs plastic, ISO sizes, container fit, and how to choose the right pallet for your load and machine.',
+    content: `Ask three Indian warehouses what a "standard pallet" is and you will get three answers — because India uses several. Choosing the right size is not a detail: it decides how many pallets fit a container, how stable your load is, and whether your strapping machine can even handle it. This is the reference, with the dimensions and the trade-offs.
+
+## The pallet sizes used in India
+
+India does not run on a single national pallet. The four most common footprints are:
+
+| Common name | Dimensions (mm) | Where it is used |
+| --- | --- | --- |
+| Euro pallet | 1200 × 800 | Very common; aligned with European supply chains |
+| Standard pallet | 1200 × 1000 | The general-purpose workhorse; an ISO and GMA size |
+| Export pallet | 1100 × 1100 | Optimised for Asian export container stowage |
+| Big pallet | 1200 × 1200 | Large or heavy industrial loads |
+
+The **1200 × 1000 mm** footprint is one of the six ISO pallet sizes and the basis of the GMA standard, which is why it is the safe default across consumer goods, food, retail, manufacturing and automotive.
+
+## Wood vs plastic pallets in India
+
+| Factor | Wooden pallet | Plastic pallet |
+| --- | --- | --- |
+| Cost | Lower upfront | Higher upfront |
+| Lifespan | ~3–5 years | ~10–15 years / ~350 trips |
+| Moisture / hygiene | Absorbs moisture; can harbour pests | Moisture-proof; washable |
+| Export by sea | Must be ISPM-15 heat-treated & stamped | No treatment required |
+| Best for | General domestic use, cost-sensitive | Pharma, food, humid routes, export reuse |
+
+For **export by sea, untreated wooden pallets are a compliance risk** — they must be ISPM-15 heat-treated and stamped or the shipment can be refused at the destination port. Plastic pallets sidestep this entirely, which is why moisture-sensitive and export-heavy operations often pay the higher upfront cost.
+
+## How many pallets fit a container
+
+Pallet choice directly changes your freight economics:
+
+- **20 ft container:** ~11 Euro pallets or ~9–10 standard pallets in one tier.
+- **40 ft container:** ~22–24 Euro pallets or ~20–21 standard pallets in one tier.
+
+If you ship by sea, the pallet footprint that stows most efficiently for your container and cargo can save real money per shipment — which is why exporters often standardise on a size that blocks neatly into the container.
+
+## How to choose the right pallet size
+
+1. **Match the pallet to your carton footprint** so boxes sit fully on the deck with **no overhang** — overhang destroys load strength.
+2. **Match it to your container** if you export, to maximise pallets per tier.
+3. **Choose the material** for your route: ISPM-15 wood or plastic for sea and humidity.
+4. **Confirm your strapping machine handles the full range** — many operations run mixed sizes on the same floor.
+
+## The pallet size only matters if your machine can strap it
+
+A pallet standard is useless if your end-of-line machine only fits one size. Indian floors rarely run a single footprint — they have narrow parcels, standard pallets, and wide industrial loads on the same shift. A fixed-arch machine forces every load to one size; a mobile machine adjusts to all of them.
+
+This is where the ChainLance design matters: the [ErgoPack 726X](/products/726x) handles pallets from **40 cm up to 270 cm wide** and the [ErgoPack 700](/products/700) and [ErgoPack GO](/products/go) cover the same broad range — so Euro, standard, export and big pallets all run on the same machine, same shift, without reconfiguration. Whatever size you standardise on, the machine adapts to the pallet instead of forcing the pallet to the machine.
+
+For the full packing method, see [how to pack a pallet for shipping](/blog/how-to-pack-a-pallet-for-shipping).
+
+## Quick reference
+
+- Most common Indian sizes: 1200×800 (Euro), 1200×1000 (standard/ISO/GMA), 1100×1100 (export), 1200×1200 (big).
+- Wood is cheap but ~3–5 yr and needs ISPM-15 for export; plastic lasts ~10–15 yr and needs no treatment.
+- 40 ft container: ~22–24 Euro or ~20–21 standard pallets per tier.
+- Pick the size your cartons fill with no overhang — and make sure your machine handles your whole size range.`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'pallet sizes India',
+      'standard pallet size',
+      'euro pallet',
+      'plastic vs wooden pallet',
+      'export pallet',
+      'ISPM-15',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Standard Pallet Sizes in India: Dimensions, Types & How to Choose | ErgoPack',
+      description:
+        'The standard pallet sizes used in India — Euro 1200×800, standard 1200×1000, export 1100×1100, big 1200×1200 — with wood vs plastic, ISPM-15, container fit, and how to choose the right pallet.',
+      keywords: [
+        'pallet sizes India',
+        'standard pallet size India',
+        'euro pallet size',
+        'plastic vs wooden pallet India',
+        'export pallet size',
+        'pallet dimensions',
+      ],
+    },
+    readTime: 7,
+    views: 0,
+    createdAt: new Date(publishedAtBase[5]),
+    updatedAt: new Date(publishedAtBase[5]),
+    publishedAt: new Date(publishedAtBase[5]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
