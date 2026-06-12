@@ -2,23 +2,23 @@ import type { Metadata } from 'next';
 import AboutPageClient from './AboutPageClient';
 
 export const metadata: Metadata = {
-  title: 'About ErgoPack India | German Engineering, Zero-Bending Technology',
+  title: 'About ErgoPack India | The Original Mobile Pallet Strapping System',
   description:
-    'Since 1998, ErgoPack has revolutionized pallet strapping with patented ChainLance technology. 15,000+ systems deployed across 60+ countries. Eliminate back injuries, boost productivity 3x.',
+    'ErgoPack invented the patented mobile ChainLance pallet strapping system — 15,000+ machines across 60+ countries. In India, engineered in Germany and supported by Benz Packaging with service and genuine parts nationwide.',
   keywords: [
-    'about ErgoPack',
-    'ErgoPack history',
-    'German strapping manufacturer',
+    'about ErgoPack India',
+    'original pallet strapping manufacturer',
     'ChainLance technology inventor',
-    'ergonomic equipment company',
-    'pallet strapping pioneer',
-    'Made in Germany strapping',
-    'workplace safety innovation',
+    'German pallet strapping manufacturer',
+    'mobile pallet strapping system',
+    'Benz Packaging ErgoPack',
+    'Made in Germany strapping machine',
+    'pallet strapping machine India',
   ],
   openGraph: {
-    title: 'About ErgoPack India | The Architects of Ergonomic Evolution',
+    title: 'About ErgoPack India | The Original Mobile Pallet Strapping System',
     description:
-      'German engineering excellence since 1998. The inventors of zero-bending pallet strapping.',
+      'The inventors of the patented mobile ChainLance pallet strapping system — German-engineered, supported across India by Benz Packaging.',
     type: 'website',
     locale: 'en_IN',
   },

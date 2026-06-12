@@ -1,5 +1,19 @@
+import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import ComparePageClient from './ComparePageClient';
+
+export const metadata: Metadata = {
+  title: 'Compare ErgoPack 726X, GO & 700 Pallet Strapping Machines | ErgoPack India',
+  description:
+    'Compare the ErgoPack 726X, GO and 700 side by side — tension, strap material, power, speed and pallet range — to find the right mobile pallet strapping machine for your floor.',
+  alternates: {
+    canonical: '/compare',
+  },
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 function CompareFallback() {
   return (

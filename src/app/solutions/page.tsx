@@ -1,28 +1,26 @@
-﻿import type { Metadata } from 'next';
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import ComparisonInfographic from '@/components/home/ComparisonInfographic';
 
 export const metadata: Metadata = {
-  title: 'Solutions | Real-World Pallet Strapping Scenarios | ErgoPack India',
+  title: 'Pallet Strapping Solutions: Cut Dispatch Time & Transit Damage | ErgoPack India',
   description:
-    'Explore dispatch, safety, and load-integrity scenarios where ErgoPack delivers faster, safer pallet strapping across industrial environments.',
+    'Pallet strapping solutions that strap a pallet in under 40 seconds, eliminate transit damage with calibrated tension up to 2500N, and clear the dispatch bottleneck — for Indian manufacturing and export.',
   keywords: [
     'pallet strapping solutions',
-    'industrial strapping scenarios',
-    'dispatch bottleneck',
-    'load security',
-    'ergonomic strapping',
-    'harsh environment strapping',
-    'logistics efficiency',
-    'warehouse safety',
-    'strapping consistency',
+    'automated pallet strapping India',
+    'reduce dispatch bottleneck',
+    'high tension load securing',
+    'reduce transit damage',
+    'mobile pallet strapping machine',
+    'end of line automation',
     'ErgoPack India solutions',
   ],
   openGraph: {
-    title: 'Solutions | ErgoPack India',
+    title: 'Pallet Strapping Solutions: Cut Dispatch Time & Transit Damage | ErgoPack India',
     description:
-      'Real-world scenarios that show where ErgoPack saves time, protects teams, and secures loads.',
+      'Strap a pallet in under 40 seconds, eliminate transit damage, and clear the dispatch bottleneck — solutions for Indian manufacturing and export.',
     type: 'website',
     locale: 'en_IN',
     images: ['/solutions/automation-last-mile.png'],
@@ -35,17 +33,17 @@ export const metadata: Metadata = {
 const scenarios = [
   {
     title: "Automation's Last Mile",
-    copy: 'Robotic lines and automated paint shops move fast, but manual strapping at dispatch can throttle throughput. ErgoPack keeps the final step as automated and reliable as the rest of the factory.',
+    copy: 'Robotic lines and automated paint shops move fast, but manual pallet strapping at dispatch can throttle throughput. ErgoPack keeps the final step ergonomic, repeatable, and aligned with Industry 5.0 workspace-efficiency goals.',
     image: '/solutions/automation-last-mile.png',
   },
   {
     title: 'Ergonomic Safety by Design',
-    copy: 'Traditional strapping forces bending, climbing, and walking into forklift lanes. ErgoPack keeps operators upright and stationary while the strap moves under the pallet for them.',
+    copy: 'Traditional pallet strapping forces bending, climbing, and walking into forklift lanes. ErgoPack keeps operators upright and stationary while the strap moves under the pallet for them.',
     image: '/solutions/ergonomics-before-after.png',
   },
   {
     title: 'Load Security Under Transit Stress',
-    copy: 'Rail vibration, shunting impacts, and sea sway can loosen inconsistent manual tension. Ergopack maintains repeatable tension so loads stay tight from origin to destination.',
+    copy: 'Rail vibration, shunting impacts, and sea sway can loosen inconsistent manual tension. ErgoPack maintains repeatable pallet strapping tension so loads stay tight from origin to destination.',
     image: '/solutions/load-security-physics.png',
   },
   {
@@ -97,11 +95,12 @@ export default function SolutionsPage() {
               Solutions
             </span>
             <h1 className="text-4xl md:text-6xl font-semibold mt-4">
-              Proven workflows for faster, safer dispatch
+              Pallet strapping workflows for ergonomic, efficient dispatch
             </h1>
             <p className="text-white/70 mt-5 text-lg">
-              Explore the operational moments where ErgoPack makes the biggest difference, from
-              automated plants to harsh environments and long-distance transport.
+              Explore the operational moments where ErgoPack improves pallet strapping, workspace
+              efficiency, ergonomic safety, and automatic dispatch flow, from automated plants to
+              harsh environments and long-distance transport.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-8">
               <Link
@@ -201,8 +200,8 @@ export default function SolutionsPage() {
               Find the right model fast
             </h2>
             <p className="text-gray-600 mt-4">
-              Compare control systems, power source, and throughput to match your line speed,
-              operator preference, and shift schedule.
+              Compare control systems, power source, and throughput to match pallet strapping
+              volume, ergonomic requirements, operator preference, and shift schedule.
             </p>
             <Link
               href="/products"
