@@ -24,6 +24,8 @@ const publishedAtBase = [
   '2026-06-12T15:00:00+05:30',
   '2026-06-12T17:00:00+05:30',
   '2026-06-13T09:00:00+05:30',
+  '2026-06-13T11:00:00+05:30',
+  '2026-06-13T13:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -2682,6 +2684,194 @@ For a 3PL, the dock is the business. Keep securing mobile, fast and standardised
     createdAt: new Date(publishedAtBase[22]),
     updatedAt: new Date(publishedAtBase[22]),
     publishedAt: new Date(publishedAtBase[22]),
+  },
+  {
+    _id: 'seed-types-of-pallets-explained',
+    title: 'Types of Pallets Explained: Stringer vs Block, Materials, and Which to Choose',
+    slug: 'types-of-pallets-explained',
+    excerpt:
+      'A complete guide to pallet types — stringer vs block, 2-way vs 4-way entry, wood, plastic, metal and pressed — what each is for, and how to pick the right one for your load and equipment.',
+    content: `"Pallet" is one word for a lot of very different structures. Pick the wrong type and you get forklift entry problems, weak loads, failed exports or wasted money. This is the full breakdown of pallet types and how to choose.
+
+## The two structural types: stringer vs block
+
+The biggest distinction is how the pallet is built underneath:
+
+- **Stringer pallets** use parallel boards ("stringers") between the top and bottom decks. A basic stringer pallet allows **2-way forklift entry** (notched stringers can allow partial 4-way). Cheaper, common.
+- **Block pallets** use solid blocks at the corners and midpoints, giving full **4-way entry** — a forklift or pallet jack can enter from any side. Stronger and easier to handle; the basis of many standard and export pallets.
+
+**Pallet vs skid:** a pallet has a top *and* a bottom deck; a skid has only a top deck (no bottom boards). Skids are simpler but less stable for stacking.
+
+## Entry types
+
+- **2-way entry:** forklift enters from two opposite sides only.
+- **4-way entry:** access from all four sides — faster handling, fewer repositioning moves on a busy dock.
+
+For high-throughput dispatch, 4-way block pallets reduce handling time.
+
+## Pallet materials
+
+| Material | Strengths | Watch-outs |
+| --- | --- | --- |
+| Wood | Strong, cheap, repairable | ~3–5 yr life; ISPM-15 needed for export; absorbs moisture |
+| Plastic | Hygienic, moisture-proof, ~10–15 yr | Higher upfront cost |
+| Metal | Highest load capacity, very durable | Heavy, expensive |
+| Pressed / moulded wood | Light, nestable, export-friendly | Lower load rating |
+
+For the wood-vs-plastic decision and Indian sizes, see [standard pallet sizes in India](/blog/standard-pallet-sizes-in-india).
+
+## Reversible vs non-reversible, wing vs flush
+
+- **Reversible** pallets have identical top and bottom decks — usable either way up.
+- **Non-reversible** have a distinct top deck (often for delicate loads).
+- **Wing pallets** have top/bottom decks overhanging the stringers (for strapping or bar handling); **flush** pallets do not.
+
+## How to choose the right pallet
+
+1. **Handling:** need 4-way access on a busy dock? Choose a block pallet.
+2. **Load weight:** match the pallet's rated capacity to your heaviest load.
+3. **Export:** wood needs ISPM-15; plastic avoids it entirely.
+4. **Reuse / hygiene:** plastic for many trips, washdown, pharma and food.
+5. **Your machine's range:** make sure your strapping/handling equipment fits the pallet's height and width.
+
+## Don't forget what holds the load on the pallet
+
+Choosing the right pallet is half the job — the load still has to be **secured to it**. Whatever pallet type you run, the load should be strapped to the deck at consistent tension so it travels as one unit. Mobile machines such as the [ErgoPack 726X](/products/726x), [GO](/products/go) and [700](/products/700) handle the full range of pallet widths (40–270 cm) on the same floor. See [how to pack a pallet for shipping](/blog/how-to-pack-a-pallet-for-shipping).
+
+## Pallet type quick reference
+
+- [ ] Stringer = cheaper, usually 2-way; block = stronger, 4-way
+- [ ] Pallet has two decks; a skid has one
+- [ ] Match material to route: ISPM-15 wood or plastic for export
+- [ ] 4-way block pallets speed up busy-dock handling
+- [ ] Confirm your equipment fits the pallet size range
+- [ ] Whatever the type — strap the load to the deck
+
+Pick the structure, entry, and material for your load and your dock, and make sure your equipment — and your strapping — handles the whole range.`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'types of pallets',
+      'stringer vs block pallet',
+      'pallet entry types',
+      'pallet materials',
+      'pallet vs skid',
+      'choose pallet',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Types of Pallets Explained: Stringer vs Block, Materials & Choice | ErgoPack',
+      description:
+        'A complete guide to pallet types — stringer vs block, 2-way vs 4-way entry, wood/plastic/metal/pressed, reversible and wing pallets — and how to choose the right one for your load and equipment.',
+      keywords: [
+        'types of pallets',
+        'stringer vs block pallet',
+        'pallet entry types',
+        'pallet materials',
+        'pallet vs skid',
+        '4 way pallet',
+      ],
+    },
+    readTime: 7,
+    views: 0,
+    createdAt: new Date(publishedAtBase[23]),
+    updatedAt: new Date(publishedAtBase[23]),
+    publishedAt: new Date(publishedAtBase[23]),
+  },
+  {
+    _id: 'seed-how-to-reduce-shipping-damage',
+    title: 'How to Reduce Shipping Damage: A Practical Checklist for Indian Shippers',
+    slug: 'how-to-reduce-shipping-damage',
+    excerpt:
+      'Shipping damage is mostly preventable. A practical guide to the real causes — load shift, weak packaging, poor securing — and the steps that cut damage rates and rejected deliveries.',
+    content: `Shipping damage feels like bad luck, but most of it is predictable and preventable. The same handful of causes account for the majority of claims — and each one has a fix. Here is the practical checklist to cut your damage rate.
+
+## What actually causes shipping damage
+
+Damage is rarely one dramatic event. It is the accumulation of forces over a journey, acting on a load that was not built to resist them:
+
+- **Load shift** — the single biggest cause: cargo that moves on the pallet vibrates, slides and topples.
+- **Weak or under-filled packaging** — boxes crush because they were not full or not strong enough.
+- **Poor stacking** — overhang, pyramids and uneven weight create unstable loads.
+- **Inadequate securing** — wrapping without strapping, or inconsistent hand tension.
+- **Moisture** — rust and mould from humidity and condensation.
+- **Rough handling** — drops and forklift impacts, amplified by everything above.
+
+## The steps that cut damage
+
+### 1. Build a strong base load
+
+Full, well-taped cartons; heaviest at the bottom; column-stacked; square to the pallet with no overhang. A strong stack resists everything that comes later — see [how to pack a pallet for shipping](/blog/how-to-pack-a-pallet-for-shipping).
+
+### 2. Secure the load to the pallet — properly
+
+This is where most damage is prevented or caused. The load must be anchored to the pallet as one rigid unit:
+
+- **Strap the load to the pallet base** — vertical strapping resists the shift that wrapping alone cannot.
+- **Apply consistent tension on every pallet.** Hand tension drifts; the loosest pallet in a batch is the one that fails. Calibrated machines such as the [ErgoPack 726X](/products/726x), [GO](/products/go) and [700](/products/700) apply repeatable tension up to 2,500N on every load.
+- **Use PET strap** for heavy/export loads — it absorbs shock and resists rust. See [reduce pallet transit damage](/resources/reduce-pallet-transit-damage).
+
+### 3. Protect the edges and fill the voids
+
+Edge protectors stop straps crushing corners ([edge protectors](/blog/edge-protectors-corner-boards-pallet-guide)); dunnage fills the space cargo could move into ([dunnage types](/blog/dunnage-types-and-uses)).
+
+### 4. Manage moisture
+
+Desiccants and PET (not steel) for sea freight; manage [container condensation](/blog/container-rain-cargo-condensation-prevention).
+
+### 5. Label and document for handling
+
+Clear labels on all four sides, handling/orientation marks, and accurate documentation reduce mishandling.
+
+## The damage-reduction checklist
+
+- [ ] Cartons full, strong, well-taped
+- [ ] Column-stacked, heaviest low, no overhang
+- [ ] Load strapped to the pallet base (not wrapped only)
+- [ ] Consistent, calibrated tension on every pallet
+- [ ] PET strap for heavy/export; edge protectors on compressible loads
+- [ ] Voids filled with dunnage
+- [ ] Moisture managed (desiccant, PET, dry pallets)
+- [ ] Labels on four sides; handling marks; documents attached
+
+## The highest-leverage fix
+
+If you change one thing, make it **consistent securing**. Load shift is the largest single cause of damage, and inconsistent hand tension is the largest single cause of load shift. Removing that variation — every pallet strapped to its base at the same, calibrated tension — eliminates the failure mode that drives most claims. The full financial case for that is in the [ROI calculator](/roi-calculator).
+
+Cut the causes one by one, fix the securing first, and your damage rate — and your rejected deliveries — drop with it.`,
+    coverImage: blogImagePaths.warehouseOperation,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'reduce shipping damage',
+      'transit damage',
+      'prevent cargo damage',
+      'load securing',
+      'shipment damage checklist',
+      'pallet damage prevention',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'How to Reduce Shipping Damage: Practical Checklist for Shippers | ErgoPack',
+      description:
+        'Shipping damage is mostly preventable. The real causes — load shift, weak packaging, poor securing — and the step-by-step checklist that cuts damage rates and rejected deliveries.',
+      keywords: [
+        'how to reduce shipping damage',
+        'prevent transit damage',
+        'reduce cargo damage',
+        'shipping damage prevention',
+        'prevent pallet damage in transit',
+        'reduce freight damage',
+      ],
+    },
+    readTime: 7,
+    views: 0,
+    createdAt: new Date(publishedAtBase[24]),
+    updatedAt: new Date(publishedAtBase[24]),
+    publishedAt: new Date(publishedAtBase[24]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
