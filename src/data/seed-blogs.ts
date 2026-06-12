@@ -20,6 +20,8 @@ const publishedAtBase = [
   '2026-06-11T15:00:00+05:30',
   '2026-06-12T09:00:00+05:30',
   '2026-06-12T11:00:00+05:30',
+  '2026-06-12T13:00:00+05:30',
+  '2026-06-12T15:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -2342,6 +2344,180 @@ Get the cold chain and the documentation right, and make sure the securing that 
     createdAt: new Date(publishedAtBase[18]),
     updatedAt: new Date(publishedAtBase[18]),
     publishedAt: new Date(publishedAtBase[18]),
+  },
+  {
+    _id: 'seed-ltl-freight-shipping-pallets-guide',
+    title: 'LTL Freight Shipping Explained: Pallets, Freight Class & How to Cut Cost',
+    slug: 'ltl-freight-shipping-pallets-guide',
+    excerpt:
+      'How less-than-truckload (LTL) freight works, why it runs on pallets, how freight class and density set your rate, and how proper palletising and strapping survive the terminal network and cut cost.',
+    content: `When your shipment is a few pallets — not a full trailer — it travels LTL: less-than-truckload, sharing space with other shippers. That sharing, and the terminal network it flows through, changes how you should pack. Here is how LTL works and how to ship it for less.
+
+## How LTL freight works
+
+In LTL, multiple shippers' freight shares one trailer and the cost. Your pallets flow through a **terminal network**, getting consolidated, unloaded and reloaded several times between origin and destination. A typical LTL shipment is **1–10 pallets**. Two consequences follow:
+
+1. Your freight is **handled many times** by forklifts and dock crews — far more touches than a full truckload.
+2. Your **rate is set by a classification system**, not just weight.
+
+## Why LTL runs on pallets
+
+Palletising makes LTL freight safer and cheaper to handle: a forklift lifts one sturdy unit, terminals touch it fewer times, and trailers pack neatly. But a pallet only delivers that benefit if the load stays a **single, stable unit** through every terminal transfer. A pallet that arrives loose, leaning or with a shifted stack gets damaged on the next forklift move — and LTL's many touches make that far more likely than in a full truckload.
+
+This is why **strapping the load to the pallet** matters more in LTL: the unit has to survive repeated handling by people who did not pack it.
+
+## Freight class and the NMFC system
+
+LTL pricing uses the **National Motor Freight Classification (NMFC)**, which sorts commodities into 18 classes from **50 to 500**, based on four factors:
+
+- **Density** (weight vs dimensions) — the biggest driver.
+- **Stowability** — how easily it loads with other freight.
+- **Handling** — how easy/hard it is to move.
+- **Liability** — value and damage/theft risk.
+
+**Higher density = lower class = lower cost.** A dense, compact, stackable pallet is cheaper to ship than a tall, light, fragile one.
+
+## How to cut LTL cost
+
+1. **Optimise density.** Pack to compress height where you can — a denser pallet drops your class and can save **15–20% per pallet**.
+2. **Measure and classify accurately.** Measure exact external dimensions (including overhang) and use real scale weight — guessing leads to re-class charges.
+3. **Make it stackable.** Stackable freight earns discounts; non-stackable gets surcharged. A flat, stable, strapped top lets carriers stack on it.
+4. **Pack to survive the terminals.** Secure the load so it is not damaged in transit — damage claims and re-ships erase any rate saving.
+
+That last point is where strapping pays off: a load **strapped to the pallet at consistent tension** stays square and stackable through every terminal, avoids damage surcharges, and keeps labels scannable. Calibrated machines such as the [ErgoPack 726X](/products/726x), [GO](/products/go) and [700](/products/700) make that securing repeatable. See [how to pack a pallet for shipping](/blog/how-to-pack-a-pallet-for-shipping) for the full method.
+
+## LTL shipping checklist
+
+- [ ] Load palletised, square, no overhang
+- [ ] Strapped to the pallet so it survives multiple terminal handlings
+- [ ] Density optimised (compress height where possible)
+- [ ] Exact dimensions + real weight measured for correct NMFC class
+- [ ] Flat, stable top so it is stackable (avoid surcharges)
+- [ ] Labels on all four sides, scannable
+- [ ] Stretch wrap over the strapping for dust/moisture
+
+Ship LTL to this standard and you pay the right class, avoid damage surcharges, and the pallet arrives intact after every terminal in between.`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'LTL freight shipping',
+      'freight class',
+      'NMFC',
+      'pallet shipping cost',
+      'less than truckload',
+      'reduce freight cost',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'LTL Freight Shipping Explained: Pallets, Freight Class & Cost | ErgoPack',
+      description:
+        'How LTL freight works, why it runs on pallets, how NMFC freight class and density set your rate, and how proper palletising and strapping survive the terminal network and cut cost.',
+      keywords: [
+        'LTL freight shipping',
+        'what is freight class',
+        'NMFC freight class',
+        'how to ship a pallet LTL',
+        'reduce LTL shipping cost',
+        'less than truckload',
+      ],
+    },
+    readTime: 7,
+    views: 0,
+    createdAt: new Date(publishedAtBase[19]),
+    updatedAt: new Date(publishedAtBase[19]),
+    publishedAt: new Date(publishedAtBase[19]),
+  },
+  {
+    _id: 'seed-ecommerce-fulfilment-dispatch-guide',
+    title: 'E-Commerce Order Fulfilment: How to Speed Up Dispatch Without Adding Headcount',
+    slug: 'ecommerce-order-fulfilment-dispatch',
+    excerpt:
+      'The e-commerce fulfilment process explained — receive, store, pick, pack, ship — with the slotting, picking and dispatch strategies that lift speed and accuracy, and the outbound bottleneck most miss.',
+    content: `E-commerce lives and dies on fulfilment speed and accuracy. A fast, correct dispatch wins the repeat order; a slow or wrong one loses the customer and triggers a return. The good news: most of the gains come from process, not more people. Here is the fulfilment process and where the real speed is found.
+
+## The five steps of order fulfilment
+
+1. **Receiving** — accept and inspect incoming stock.
+2. **Storage** — organise products for fast retrieval.
+3. **Picking** — select the right items for each order.
+4. **Packing** — securely package for shipment.
+5. **Shipping / dispatch** — label, manifest and hand to the carrier on time.
+
+Speed and accuracy are won or lost across all five — but mostly in how well each is *standardised and verified*.
+
+## Storage and slotting
+
+Slotting places items to minimise picking travel: high-demand items go in the most accessible locations, sized and weighted for fast retrieval, and reviewed regularly as demand shifts. Good slotting alone removes a large share of wasted picking time.
+
+## Picking strategies
+
+- **Zone picking** — workers own a zone, cutting travel.
+- **Batch picking** — pick the same item across many orders in one trip; a powerful way to lift throughput without adding people.
+- **Discrete picking** — one order at a time for accuracy on complex or high-value orders.
+
+## Accuracy: the 99.5% benchmark
+
+The best operations ship **99.5%+ of orders without error**, using barcode scanning, pick validation and packing checks through a WMS to verify the right item is picked and packed. Accuracy is not a personality trait — it is a verified, standardised process.
+
+## Dispatch: the outbound bottleneck
+
+Here is where fulfilment speed is often quietly lost. The dispatch step — aligning packed orders to transport, labelling, manifesting, and **building and securing outbound pallets** for the carrier — is the last gate before the order leaves. When picking and packing run fast but outbound pallet build-up is manual and slow, finished orders queue at the dock and the whole operation's speed is capped by its slowest, last step.
+
+For operations that consolidate orders onto pallets for LTL or store delivery, **securing those outbound pallets** is part of dispatch — and doing it manually (two operators, ~120 seconds a pallet) throttles the dock exactly when volume peaks.
+
+## Speeding up dispatch without more headcount
+
+The theme across every fulfilment guide is the same: lift throughput through process and automation, not more hands. At the dispatch dock that means automating the outbound securing step:
+
+- Cuts pallet securing from ~120 seconds to under 40, and from two operators to one.
+- Clears the outbound queue so carriers load on time.
+- Frees that labour back into picking and packing — the gain realised at the step that was capping output.
+
+Mobile systems such as the [ErgoPack 726X](/products/726x), [GO](/products/go) and [700](/products/700) do this at the dock with no conveyors or rebuilds. The broader case is in [improve warehouse dispatch productivity](/blog/improve-warehouse-dispatch-productivity) and the financials in the [ROI calculator](/roi-calculator).
+
+## Fulfilment speed checklist
+
+- [ ] Slotting reviewed — fast movers most accessible
+- [ ] Picking strategy matched to order profile (zone/batch/discrete)
+- [ ] WMS scanning + pick/pack validation for 99.5%+ accuracy
+- [ ] Each step standardised and verified, not improvised
+- [ ] Outbound pallet securing automated so dispatch never queues
+- [ ] Throughput lifted by process + automation, not headcount
+
+Fix the process, verify every step, and automate the outbound bottleneck — and orders ship faster and more accurately with the team you already have.`,
+    coverImage: blogImagePaths.warehouseOperation,
+    author: 'ErgoPack India Technical Team',
+    category: 'insights',
+    tags: [
+      'e-commerce fulfilment',
+      'order fulfilment',
+      'dispatch speed',
+      'warehouse picking',
+      'fulfilment accuracy',
+      '3PL dispatch',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'E-Commerce Order Fulfilment: Speed Up Dispatch Without Headcount | ErgoPack',
+      description:
+        'The e-commerce fulfilment process — receive, store, pick, pack, ship — with slotting, picking and dispatch strategies for speed and 99.5% accuracy, and the outbound securing bottleneck most miss.',
+      keywords: [
+        'e-commerce order fulfilment',
+        'order fulfilment process',
+        'improve dispatch speed',
+        'warehouse picking strategies',
+        'fulfilment accuracy',
+        'speed up order dispatch',
+      ],
+    },
+    readTime: 7,
+    views: 0,
+    createdAt: new Date(publishedAtBase[20]),
+    updatedAt: new Date(publishedAtBase[20]),
+    publishedAt: new Date(publishedAtBase[20]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
