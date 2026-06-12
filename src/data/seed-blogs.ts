@@ -9,6 +9,9 @@ const publishedAtBase = [
   '2026-06-09T13:00:00+05:30',
   '2026-06-09T15:00:00+05:30',
   '2026-06-09T17:00:00+05:30',
+  '2026-06-10T09:00:00+05:30',
+  '2026-06-10T11:00:00+05:30',
+  '2026-06-10T13:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -1266,6 +1269,316 @@ Applied this way, PET strap on a calibrated machine is the most reliable, lowest
     createdAt: new Date(publishedAtBase[7]),
     updatedAt: new Date(publishedAtBase[7]),
     publishedAt: new Date(publishedAtBase[7]),
+  },
+  {
+    _id: 'seed-container-rain-condensation-prevention',
+    title: 'Container Rain: What Causes Cargo Condensation & How to Prevent It (India Exporters)',
+    slug: 'container-rain-cargo-condensation-prevention',
+    excerpt:
+      'Container rain ruins Indian exports with rust and mould. Learn what causes cargo condensation, how desiccants work, and the full prevention checklist for monsoon-season sea freight.',
+    content: `An Indian exporter loads a clean, dry container, secures everything, and three weeks later the customer opens it to rusted parts and mouldy cartons — with no leak anywhere. The culprit is not a hole in the roof. It is **container rain**, and for exports leaving a humid Indian port it is one of the most common and most preventable causes of cargo damage.
+
+## What is container rain?
+
+Container rain is condensation that forms inside a sealed shipping container. Warm, humid air trapped inside the container meets the colder steel of the ceiling and walls as the container passes through cooler temperatures at sea or at night. The moisture in that air condenses into water droplets on the ceiling, collects, and **drips down onto the cargo like rain** — hence the name.
+
+The longer the voyage and the bigger the temperature swing, the worse it gets. A container loaded in humid Indian monsoon conditions and shipped to a cooler destination is a textbook case.
+
+## Why it matters for Indian exports
+
+Container rain causes:
+
+- **Rust** on metal parts, castings and machinery.
+- **Mould and mildew** on textiles, paper, food and packaging.
+- **Label and carton failure** as cardboard absorbs moisture and collapses.
+- **Rejected shipments and claims** — the damage is often discovered only at the destination.
+
+Loading in the monsoon, or anywhere humid, sharply increases the risk.
+
+## Where the moisture comes from
+
+Three sources fill the container with the water vapour that later condenses:
+
+1. **Humid air** sealed in when the doors close — especially in monsoon.
+2. **Moisture in the cargo itself** — damp goods or recently produced items.
+3. **Moisture in the packaging** — wet pallets, damp dunnage, cartons stored in humid conditions.
+
+## How to prevent container rain
+
+### 1. Load dry — everything
+
+The foundation is a dry start: a clean, dry container, dry cargo, **dry pallets and dry dunnage**. Never seal damp material inside — it becomes the moisture source.
+
+### 2. Use container desiccants (the main defence)
+
+Desiccants adsorb water vapour from the air, lowering the relative humidity below the dew point so condensation cannot form.
+
+- **Calcium chloride desiccants** are the standard for long ocean voyages — they have very high absorption capacity and can hold up to ~300% of their own weight in moisture.
+- Hang them high in the container per the manufacturer's spacing.
+- **In the monsoon or on long routes, increase the number of desiccants** — under-dosing is the common mistake.
+
+### 3. Help airflow and use barriers
+
+Allow some airflow around the cargo block, and use moisture-barrier liners or VCI materials for sensitive metal goods.
+
+### 4. Choose moisture-proof securing materials
+
+This is the step most guides miss. The materials that hold your load together are also exposed to that humidity for weeks:
+
+- **Use PET strap, not steel.** Steel strap rusts in container humidity, stains the cargo, and weakens at the joint. PET is completely moisture-proof and holds tension through the temperature swings of the voyage.
+- **Use treated or plastic pallets and dry dunnage**, never damp wood.
+
+If every pallet is strapped with rust-proof PET at consistent tension — for example with a calibrated machine like the [ErgoPack 726X](/products/726x) running PET up to 2,500N — you remove both the rust risk and the load-shift risk in one step. See [PP vs PET vs steel strapping](/resources/pet-vs-steel-strapping) for the material detail and [how to load a shipping container](/blog/how-to-load-a-shipping-container) for the full loading method.
+
+## Container rain prevention checklist
+
+- [ ] Container clean, dry, no roof pinholes, seals intact
+- [ ] Cargo dry; no recently-wet goods loaded
+- [ ] Dry pallets and dry dunnage only
+- [ ] Calcium chloride desiccants hung high, dosed for the route
+- [ ] Extra desiccant added for monsoon / long voyages
+- [ ] Moisture barriers / VCI for sensitive metal cargo
+- [ ] PET strap (not steel) so securing doesn't rust
+- [ ] Some airflow maintained around the cargo block
+
+Get these right and the container that leaves a humid Indian port opens dry at the other end — no rust, no mould, no claim.`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'container rain',
+      'cargo condensation',
+      'container desiccant',
+      'sea freight moisture',
+      'export packaging India',
+      'prevent rust transit',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Container Rain: Causes & How to Prevent Cargo Condensation | ErgoPack India',
+      description:
+        'Container rain causes rust and mould on Indian exports. Learn what causes cargo condensation, how calcium chloride desiccants work, monsoon dosing, and why PET strap (not steel) protects the load.',
+      keywords: [
+        'container rain',
+        'cargo condensation prevention',
+        'container desiccant',
+        'how to prevent container rain',
+        'sea freight moisture damage',
+        'export container condensation India',
+      ],
+    },
+    readTime: 7,
+    views: 0,
+    createdAt: new Date(publishedAtBase[8]),
+    updatedAt: new Date(publishedAtBase[8]),
+    publishedAt: new Date(publishedAtBase[8]),
+  },
+  {
+    _id: 'seed-ispm-15-wood-packaging-explained',
+    title: 'ISPM-15 Explained: Wood Packaging Rules for Indian Exporters (2026)',
+    slug: 'ispm-15-wood-packaging-explained',
+    excerpt:
+      'ISPM-15 governs wooden pallets, crates and dunnage used for export. Learn what it requires, how the heat-treatment stamp works, what it applies to, and how to stay compliant — or avoid it entirely.',
+    content: `Every year, Indian export shipments are held, fumigated at the exporter's cost, or refused at a foreign port for one avoidable reason: the wooden pallet under the cargo was not ISPM-15 compliant. If you export on wood, this is the standard you cannot ignore.
+
+## What is ISPM-15?
+
+ISPM-15 (International Standard for Phytosanitary Measures No. 15) is an international rule from the IPPC that governs **wood packaging material** used in international trade. Its purpose is to stop pests and pathogens — insects, fungi — from travelling between countries inside untreated wood. To do that, it requires that qualifying wood be **treated and marked** before it crosses a border.
+
+## What ISPM-15 applies to
+
+It applies to solid wood packaging **thicker than 6 mm**, including:
+
+- Wooden pallets
+- Wooden crates and boxes
+- Dunnage (the loose wood used to brace cargo)
+- Skids and wooden spools
+
+It does **not** apply to processed wood products like plywood, OSB or pressed/engineered wood, because the manufacturing process already destroys pests — and it does not apply to plastic or metal pallets at all.
+
+## What ISPM-15 requires
+
+Qualifying wood must be:
+
+1. **Debarked**, then
+2. **Treated** by one of the approved methods, then
+3. **Marked** with the compliance stamp.
+
+### The approved treatments
+
+- **HT — Heat Treatment:** the wood core is heated to a minimum of **56°C for at least 30 minutes**. This is by far the most common method.
+- **MB — Methyl Bromide fumigation:** a chemical fumigation, now restricted or banned in many countries for environmental reasons.
+
+## The ISPM-15 stamp (the "wheat stamp")
+
+Compliant wood carries a stamp — often called the **wheat stamp** — that proves treatment. It must be **framed, clearly legible, and applied on at least two opposing sides** of the item. It contains:
+
+| Element | Meaning |
+| --- | --- |
+| IPPC logo | The international compliance symbol (resembles a wheat ear) |
+| Country code | e.g. IN for India |
+| Facility code | The unique registered treatment facility number |
+| Treatment code | HT (heat treatment) or MB (methyl bromide) |
+
+If the stamp is missing, illegible, or only on one side, the shipment can be treated as non-compliant.
+
+## What happens if you are not compliant
+
+At the destination port, non-compliant wood packaging can lead to the shipment being **held, fumigated at your cost, returned, or destroyed** — plus delays and storage charges. The cost and the missed delivery window almost always exceed the cost of compliant pallets.
+
+## How to stay compliant — or skip it entirely
+
+- **Buy ISPM-15 certified wooden pallets and crates** from a registered treatment facility, and confirm the stamp is present on two sides before loading.
+- **Use heat-treated (HT) wood** rather than methyl bromide, which is increasingly restricted.
+- **Or avoid wood altogether:** plastic pallets are **outside the scope of ISPM-15** — no treatment, no stamp, no risk of a wood-related hold. For high-volume or moisture-sensitive exporters, plastic pallets remove this entire category of problem (see [standard pallet sizes in India](/blog/standard-pallet-sizes-in-india) for the wood-vs-plastic trade-off).
+
+## The securing side of compliance
+
+ISPM-15 covers the wood. It says nothing about how well the load is held together — and a compliant pallet with a poorly secured load still arrives damaged. Pair compliant pallets with **rust-proof PET strapping at consistent tension** so the unit survives the voyage as well as the inspection. A calibrated machine such as the [ErgoPack 726X](/products/726x), [GO](/products/go) or [700](/products/700) applies that tension repeatably on every pallet.
+
+## ISPM-15 quick checklist
+
+- [ ] Wood packaging is >6 mm solid wood (plastic/metal/plywood exempt)
+- [ ] Debarked and heat-treated (HT, 56°C / 30 min) by a registered facility
+- [ ] Wheat stamp present, framed, legible, on two opposing sides
+- [ ] Country code, facility code and HT/MB code all readable
+- [ ] Dunnage is also compliant — it is frequently the thing that fails
+- [ ] Considered plastic pallets to remove the requirement entirely
+
+Get the wood right and your export clears phytosanitary inspection. Get the strapping right and it arrives intact. You need both.`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'ISPM-15',
+      'wood packaging export',
+      'heat treated pallet',
+      'export compliance India',
+      'phytosanitary',
+      'pallet certification',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'ISPM-15 Explained: Wood Packaging Export Rules for India | ErgoPack',
+      description:
+        'ISPM-15 governs wooden pallets, crates and dunnage for export. What it applies to, the HT heat-treatment requirement (56°C/30min), the wheat stamp, penalties for non-compliance, and how plastic pallets avoid it.',
+      keywords: [
+        'ISPM-15',
+        'ISPM 15 wood packaging',
+        'ISPM-15 heat treatment',
+        'heat treated pallet export India',
+        'ISPM 15 stamp',
+        'export pallet compliance',
+      ],
+    },
+    readTime: 7,
+    views: 0,
+    createdAt: new Date(publishedAtBase[9]),
+    updatedAt: new Date(publishedAtBase[9]),
+    publishedAt: new Date(publishedAtBase[9]),
+  },
+  {
+    _id: 'seed-pallet-strapping-tension-guide',
+    title: 'Pallet Strapping Tension Guide: How Much Tension, and Why Consistency Decides Everything',
+    slug: 'pallet-strapping-tension-guide',
+    excerpt:
+      'How much tension should you apply when strapping a pallet? A practical guide to setting strap tension by load and material, the cost of over- and under-tensioning, and why repeatability matters more than the number.',
+    content: `"How tight should the strap be?" is the most common — and most under-answered — question in pallet securing. Too loose and the load shifts and arrives damaged. Too tight and you crush the product or snap the strap. And the answer that almost no manual process gets right is the one that matters most: **the same tension, on every single pallet.**
+
+## Why tension is the whole game
+
+A strap does one job: hold the load to the pallet as a single rigid unit. It can only do that within a window:
+
+- **Too little tension** — the load is not anchored. It vibrates, shifts and slides in transit, and arrives as a damage claim.
+- **Too much tension** — the strap cuts into cartons, crushes corners, deforms the product, or snaps at the joint.
+- **The right tension** — firm, with only slight give, holding the load without damaging it.
+
+The window is real, and it is different for every combination of strap and load.
+
+## What decides the right tension
+
+Three things set the correct tension:
+
+| Factor | Effect on tension |
+| --- | --- |
+| Load weight & rigidity | Heavier, rigid, non-compressible loads need higher tension |
+| Load compressibility | Cartons, foam, textiles need lower tension to avoid crushing |
+| Strap material & size | Stronger straps (PET, wider/thicker) hold more tension; PP holds less |
+
+A dense metal casting and a stack of corrugated boxes need very different tensions — and applying the casting's tension to the boxes will crush them.
+
+## Tension by load type (practical guidance)
+
+- **Heavy, rigid, non-compressible** (machinery, castings, metal parts): high tension — this is where calibrated machines run up to 2,500N.
+- **Medium palletised goods**: moderate tension, enough to lock the load to the pallet base.
+- **Compressible loads** (corrugated, paper, FMCG, textiles): lower tension — firm but never cutting into the product. Edge protectors let you tension safely.
+
+A good rule: **start lower and increase** until the strap has only slight give when pressed, and the load is solid to the pallet.
+
+## The cost of over- and under-tensioning
+
+- Over-tension on compressible loads is a leading cause of **crushed corners and product damage** before the truck even moves.
+- Under-tension is the leading cause of **in-transit load shift and rejected shipments**.
+- A snapped strap at the joint usually means tension and joint quality were mismatched — too much force on a weak (metal-clip) seal.
+
+## The real problem: humans can't repeat a number
+
+Here is what most tension guides skip. Even an operator who knows the right tension cannot apply it identically 400 times. Hand tension drifts with fatigue across a shift — tighter in the morning, looser by the afternoon — so a batch of pallets leaves at a range of tensions, and **the loosest one is the one that fails**. One bad pallet in the container triggers the claim for the whole shipment.
+
+This is why consistency beats the exact number. A load secured at a slightly-conservative tension *on every pallet* is safer than loads secured at the "perfect" tension *on average*.
+
+## How calibrated machines solve it
+
+A machine that sets tension digitally removes the human variation entirely. You dial in the force for the load — and every pallet gets exactly that, from strap #1 to strap #1,400:
+
+- The [ErgoPack 726X](/products/726x) applies electronically controlled tension from **400N to 2,500N**, set on a touchscreen, identical on every pallet — high enough for heavy export loads, low and precise enough for compressible corrugated stacks.
+- The [ErgoPack GO](/products/go) and manual-crank [700](/products/700) automate the strap routing so the operator applies consistent tension with their own sealing tool.
+
+Pair the right tension with a **sealless friction weld** (up to 90% joint efficiency) so the joint never becomes the weak point. See [friction weld vs metal clips](/resources/friction-weld-vs-metal-clips) and, for choosing the strap, [PP vs PET vs steel strapping](/resources/pet-vs-steel-strapping).
+
+## Strapping tension quick checklist
+
+- [ ] Tension matched to load: high for rigid/heavy, low for compressible
+- [ ] Strap has only slight give when pressed — firm, not cutting in
+- [ ] Edge protectors on compressible loads so you can tension safely
+- [ ] Same tension on every pallet — not "right on average"
+- [ ] Joint strength matched to tension (friction weld for high tension)
+- [ ] If repeatability is a problem, calibrate it with a machine
+
+Get the number roughly right and the repeatability exactly right, and the load that leaves your floor is the load that arrives — every time, not on average.`,
+    coverImage: blogImagePaths.xpertTouchscreen,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'strapping tension',
+      'pallet strapping tension',
+      'strap tension settings',
+      'overtightening strapping',
+      'load securing',
+      'strapping guide',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Pallet Strapping Tension Guide: How Much Tension to Apply | ErgoPack',
+      description:
+        'How much tension to apply when strapping a pallet — by load type and strap material, the cost of over- and under-tensioning, and why consistent, repeatable tension on every pallet matters more than the exact number.',
+      keywords: [
+        'pallet strapping tension',
+        'strapping tension guide',
+        'how much tension strapping',
+        'strap tension settings',
+        'overtightening strapping',
+        'load securing tension',
+      ],
+    },
+    readTime: 7,
+    views: 0,
+    createdAt: new Date(publishedAtBase[10]),
+    updatedAt: new Date(publishedAtBase[10]),
+    publishedAt: new Date(publishedAtBase[10]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
