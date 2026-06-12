@@ -12,6 +12,8 @@ const publishedAtBase = [
   '2026-06-10T09:00:00+05:30',
   '2026-06-10T11:00:00+05:30',
   '2026-06-10T13:00:00+05:30',
+  '2026-06-10T15:00:00+05:30',
+  '2026-06-10T17:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -1579,6 +1581,200 @@ Get the number roughly right and the repeatability exactly right, and the load t
     createdAt: new Date(publishedAtBase[10]),
     updatedAt: new Date(publishedAtBase[10]),
     publishedAt: new Date(publishedAtBase[10]),
+  },
+  {
+    _id: 'seed-how-to-stretch-wrap-a-pallet',
+    title: 'How to Stretch Wrap a Pallet Properly: Step-by-Step (and the Mistake Everyone Makes)',
+    slug: 'how-to-stretch-wrap-a-pallet',
+    excerpt:
+      'The correct way to stretch wrap a pallet by hand — anchoring, base layers, 50% overlap, top-down pull — plus the common mistakes, and the one thing wrapping can never do that strapping does.',
+    content: `Stretch wrapping looks like the simplest job on the dispatch floor, which is exactly why it is done wrong so often. A poorly wrapped pallet falls apart in transit; a well-wrapped one still slides off the pallet if you relied on film alone. Here is the correct technique — and the limit you need to know about.
+
+## What stretch wrap actually does (and doesn't)
+
+Stretch film binds the boxes **to each other** and adds a barrier against dust and moisture. That is genuinely useful. But film does **not anchor the load to the pallet** — it wraps the stack, not the connection to the deck. That distinction decides how you should use it, and we come back to it at the end.
+
+## How to stretch wrap a pallet — step by step
+
+### 1. Build a tight, square load first
+
+Wrapping cannot fix a bad stack. Stack boxes tightly with minimal gaps, evenly distributed, square to the pallet edges with no overhang. A wobbly stack stays wobbly under film.
+
+### 2. Anchor the film to a corner
+
+Tie or twist the film tail and secure it to one bottom corner of the pallet so it cannot pull free as you start.
+
+### 3. Wrap the base — and catch the pallet
+
+Apply **at least three full layers around the base**, and make sure the film goes **under the top deck boards / around the pallet corners** so the load is tied to the pallet itself at the bottom. A strong base is the foundation of the whole wrap.
+
+### 4. Work upwards with 50% overlap
+
+Spiral up the load, overlapping each pass over the previous one by **at least 50%**. Stretch the film until you feel clear resistance — but do not overstretch to the point of tearing. Consistent tension matters more than maximum tension.
+
+### 5. Wrap the top and pull down
+
+At the top, angle the film so it pulls **downward** on the load. This downward force is what resists the load shifting and toppling in transit.
+
+### 6. Finish securely
+
+Cut the film, press the tail firmly onto the load, and tuck the end under a corner so it grips and does not unravel.
+
+## Common stretch-wrapping mistakes
+
+- **Too little overlap** — gaps weaken the wrap and let the load loosen.
+- **Inconsistent tension** — some sections crush, others stay loose.
+- **Weak base** — focusing on the top and under-wrapping the bottom.
+- **Not catching the pallet** — film only around the boxes, not tied to the deck, so the whole stack can slide off.
+- **Too tight** — crushes bottom cartons and tears the film.
+- **Too loose** — never secures the load at all.
+
+## The limit of wrapping — and what to pair it with
+
+Even a perfectly wrapped pallet has a ceiling: film binds boxes together but provides little vertical anchoring to the pallet, so under heavy vibration or a sudden jolt the unitised stack can still slide off the deck as one piece. For light loads that is acceptable. For **medium and heavy loads, wrapping alone is not enough.**
+
+The complete method is **strap to secure, then wrap to protect**:
+
+- **Strapping** passes tensioned PP or PET strap under the pallet and over the load, anchoring it to the base so it cannot shift — the securing.
+- **Wrapping** adds the dust and moisture barrier on top — the protection.
+
+And where hand wrapping struggles most — **consistent tension** — a machine removes the variation. The same logic applies to strapping: a calibrated system such as the [ErgoPack 726X](/products/726x), [GO](/products/go) or [700](/products/700) applies repeatable tension on every pallet. For the full cost-and-stability comparison, see [pallet strapping vs stretch wrapping](/resources/pallet-strapping-vs-stretch-wrapping).
+
+## Stretch-wrap checklist
+
+- [ ] Load stacked tight, square, no overhang
+- [ ] Film anchored to a bottom corner
+- [ ] 3+ base layers, film caught under the pallet corners
+- [ ] Spiral up with 50%+ overlap, consistent tension
+- [ ] Top layers angled to pull down on the load
+- [ ] Film cut and tucked so it grips
+- [ ] For medium/heavy loads: strapped first, then wrapped
+
+Wrap to this standard and the film does its job — but remember the film's job is protection, not anchoring. For loads that matter, strap first.`,
+    coverImage: blogImagePaths.warehouseOperation,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'how to stretch wrap a pallet',
+      'stretch wrapping',
+      'pallet wrapping technique',
+      'stretch film',
+      'load securing',
+      'strapping vs wrapping',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'How to Stretch Wrap a Pallet Properly: Step-by-Step Guide | ErgoPack',
+      description:
+        'The correct way to stretch wrap a pallet — anchoring, base layers, 50% overlap, top-down pull — common mistakes, and why wrapping protects but does not anchor the load (strap first for heavy loads).',
+      keywords: [
+        'how to stretch wrap a pallet',
+        'stretch wrap a pallet',
+        'pallet wrapping technique',
+        'how to wrap a pallet',
+        'stretch film overlap',
+        'stretch wrap vs strapping',
+      ],
+    },
+    readTime: 6,
+    views: 0,
+    createdAt: new Date(publishedAtBase[11]),
+    updatedAt: new Date(publishedAtBase[11]),
+    publishedAt: new Date(publishedAtBase[11]),
+  },
+  {
+    _id: 'seed-improve-warehouse-dispatch-productivity',
+    title: 'How to Improve Warehouse Dispatch Productivity: Find and Fix the Real Bottleneck',
+    slug: 'improve-warehouse-dispatch-productivity',
+    excerpt:
+      'A practical guide to lifting warehouse throughput — map the bottleneck, optimise layout and labour, automate the right step — with the end-of-line dispatch dock that quietly caps most Indian floors.',
+    content: `Most warehouse productivity advice tells you to pick faster. But you can pick, pack and palletise at full speed and still ship late — because the bottleneck is somewhere else. Improving throughput is not about working harder everywhere; it is about finding the single slowest step and fixing that one. For a lot of Indian floors, that step is the dispatch dock.
+
+## Start by finding the bottleneck (not guessing)
+
+Throughput is set by your slowest stage — the Theory of Constraints in one line. Speeding up anything that is *not* the constraint just builds inventory in front of it.
+
+- **Map the process flow** end to end and measure time at each stage: receiving, put-away, picking, packing, palletising, strapping/wrapping, loading.
+- **Find where work queues up.** Pallets waiting at the dock, trucks idling, a line of finished loads waiting to be secured — that queue marks the constraint.
+- **Fix the constraint, then re-measure.** The bottleneck moves once you relieve it; chase it again.
+
+## The proven levers, in order of impact
+
+### 1. Relieve the constraint stage
+
+Whatever step has the longest queue gets attention first. Everything else is secondary until that one is fixed.
+
+### 2. Optimise layout and slotting
+
+Place high-velocity items closest to packing and dispatch. Wide, clear aisles stop equipment from blocking each other. Shorter travel = more throughput with the same people.
+
+### 3. Balance labour dynamically
+
+Watch where queues build during the shift and move people to it in real time. Dynamic workload balancing alone can lift throughput meaningfully — operations report **15–30% gains** from repositioning labour where the demand is.
+
+### 4. Automate the most repetitive step
+
+Automation pays back most when aimed at the slowest, most manual, most repeated task — not sprayed across the whole floor.
+
+## The dispatch dock: the bottleneck nobody slots
+
+Here is the step most productivity programs overlook. A facility can optimise picking and packing and still cap out at dispatch, where pallets queue to be secured. Manual strapping takes a two-person team about **120 seconds per pallet**; when production outpaces that, finished pallets stack up, trucks wait, and the whole floor's throughput is throttled by the last step before the door.
+
+Because it is the final stage, every second lost here delays the whole shipment — and it is usually the cheapest constraint to fix.
+
+## Fixing the dispatch constraint
+
+Automating the end-of-line securing step attacks the bottleneck directly:
+
+- Cycle time drops from ~120 seconds to **under 40 seconds**, and from two operators to one — one operator doing the work of three.
+- The dock stops queuing; trucks load on time.
+- Freed labour redeploys to picking and staging — the 15–30% kind of gain, realised at the step that was actually capping output.
+
+Mobile systems such as the [ErgoPack 726X](/products/726x), [GO](/products/go) and manual-crank [700](/products/700) do this without conveyors or floor rebuilds — you bring the machine to the pallet, so you relieve the constraint without a capital construction project. The full math is in our [pallet strapping ROI & cost comparison](/resources/pallet-strapping-roi-cost-comparison) and the broader case in [improving manufacturing floor efficiency](/resources/improve-manufacturing-floor-efficiency-strapping).
+
+## Warehouse throughput checklist
+
+- [ ] Process mapped; time measured at every stage
+- [ ] Bottleneck identified by where work queues
+- [ ] High-velocity items slotted near dispatch
+- [ ] Labour rebalanced to the constraint in real time
+- [ ] Most repetitive manual step automated first
+- [ ] Dispatch/securing step checked — it is often the hidden cap
+- [ ] Re-measured after each fix (the bottleneck moves)
+
+Find the real constraint, fix that one step, and the whole floor speeds up. For many operations, the fastest, cheapest win is sitting at the dispatch dock.`,
+    coverImage: blogImagePaths.warehouseOperation,
+    author: 'ErgoPack India Technical Team',
+    category: 'insights',
+    tags: [
+      'warehouse productivity',
+      'dispatch throughput',
+      'warehouse bottleneck',
+      'warehouse efficiency',
+      'theory of constraints',
+      'end of line automation',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'How to Improve Warehouse Dispatch Productivity & Throughput | ErgoPack',
+      description:
+        'Lift warehouse throughput by fixing the real bottleneck: map the constraint, optimise layout and labour, automate the right step — and the end-of-line dispatch dock that quietly caps most floors.',
+      keywords: [
+        'improve warehouse productivity',
+        'warehouse throughput',
+        'warehouse bottleneck',
+        'dispatch efficiency',
+        'end of line automation',
+        'reduce dispatch bottleneck',
+      ],
+    },
+    readTime: 7,
+    views: 0,
+    createdAt: new Date(publishedAtBase[12]),
+    updatedAt: new Date(publishedAtBase[12]),
+    publishedAt: new Date(publishedAtBase[12]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
