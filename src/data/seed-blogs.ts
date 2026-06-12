@@ -7,6 +7,8 @@ const publishedAtBase = [
   '2026-06-09T09:00:00+05:30',
   '2026-06-09T11:00:00+05:30',
   '2026-06-09T13:00:00+05:30',
+  '2026-06-09T15:00:00+05:30',
+  '2026-06-09T17:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -1076,6 +1078,194 @@ For the full packing method, see [how to pack a pallet for shipping](/blog/how-t
     createdAt: new Date(publishedAtBase[5]),
     updatedAt: new Date(publishedAtBase[5]),
     publishedAt: new Date(publishedAtBase[5]),
+  },
+  {
+    _id: 'seed-how-to-reduce-packaging-costs',
+    title: 'How to Reduce Packaging Costs: 7 Proven Levers for Indian Factories (2026)',
+    slug: 'how-to-reduce-packaging-costs',
+    excerpt:
+      'A practical framework to cut packaging cost on an Indian dispatch floor — labour, material waste, right-sizing, consumables, and the hidden cost most teams miss: transit damage and rejected shipments.',
+    content: `Most packaging "cost-cutting" attacks the wrong number. Teams negotiate a few rupees off a film roll while the real money leaks out of three places that never appear on the purchasing invoice: **labour hours, material waste, and damaged shipments.** Here is the framework that finds the actual savings — and where the biggest ones usually hide.
+
+## The four places packaging cost actually lives
+
+Before cutting anything, see the full cost. Packaging cost is not just what you pay the supplier:
+
+| Cost bucket | What it includes | Usually visible? |
+| --- | --- | --- |
+| Material | Cartons, film, strap, seals | Yes — on the invoice |
+| Labour | Time per pallet, operators per pallet | Partly |
+| Damage | Rejected shipments, re-ships, claims | Rarely tracked |
+| Space & inventory | Storage of bulk consumables | Rarely tracked |
+
+Most teams optimise the first bucket and ignore the other three — which is exactly where the largest, repeatable savings sit.
+
+## Lever 1 — Cut labour per pallet (usually the biggest)
+
+Labour is paid every shift, forever, so small per-pallet savings compound enormously.
+
+- Manual strapping takes a two-person team ~120 seconds per pallet. Automated routing cuts that to under 40 seconds with one operator — a 66% cut, and one operator doing the work of three.
+- That freed labour redeploys to picking, staging and QA without new headcount.
+- See the full math in our [pallet strapping ROI & cost comparison](/resources/pallet-strapping-roi-cost-comparison).
+
+## Lever 2 — Eliminate consumable waste
+
+Consumables bleed money quietly:
+
+- **Stretch film over-use:** hand wrapping cannot hold consistent tension, so operators over-wrap — using up to 50% more film than a calibrated process.
+- **Metal seals:** crimped strapping clips are a recurring purchase by the thousand, and a failure point. Sealless friction welding fuses the strap to itself and removes that line from the budget entirely.
+- **Switching to strapping** for load securing (with film only for dust/moisture) often cuts total consumable spend on medium-to-heavy loads.
+
+## Lever 3 — Right-size and audit the packaging
+
+- **Right-size cartons:** oversized boxes waste board, waste filler, and raise dimensional-weight freight charges. Correct sizing is one of the fastest wins.
+- **Run a packaging audit:** map every SKU's pack spec and find the over-specified ones. Lightening over-built packaging without losing protection is free margin.
+
+## Lever 4 — The hidden giant: reduce transit damage
+
+This is the lever most cost programs never touch, because the cost shows up in a different department. A single rejected container or a batch of crushed cartons costs more than months of film savings — it triggers re-ship freight, replacement product, a claim, and a customer who now double-checks before re-ordering.
+
+The root cause is almost always inconsistent load securing. Machine-calibrated tension up to 2,500N anchors every pallet to its base identically, removing the load shift that causes rejections. See [how to reduce pallet transit damage](/resources/reduce-pallet-transit-damage).
+
+## Lever 5 — Consolidate suppliers and buy to plan
+
+- A strong relationship with fewer suppliers unlocks bulk pricing and better terms.
+- A **just-in-time** consumable model frees warehouse space and cash tied up in bulk stock — receive materials as needed instead of storing months of film and strap.
+
+## Lever 6 — Automate the labour-heavy steps
+
+Manual assembly and manual strapping are where labour cost concentrates. Automating the most repetitive end-of-line step — getting the strap around the pallet — delivers the labour saving in Lever 1 while also fixing the consistency that drives Lever 4. Mobile systems such as the [ErgoPack 726X](/products/726x), [GO](/products/go) and manual-crank [700](/products/700) automate that step without conveyors or floor rebuilds, so the saving does not come with a large capital project attached.
+
+## Lever 7 — Measure cost per pallet, not price per roll
+
+The single most useful change is to stop measuring packaging by the price of a consumable and start measuring **total cost per secured pallet**: (material + labour + damage + space) ÷ pallets shipped. Optimised against that number, the decisions change — and the cheap machine or the cheap film often turns out to be the expensive choice.
+
+## Where to start
+
+1. Calculate your current cost per pallet across all four buckets.
+2. Time your manual strapping cycle — the labour lever is usually the biggest.
+3. Pull your transit-damage / rejection rate — the hidden giant.
+4. Model the change with the [ROI calculator](/roi-calculator).
+
+The factories that win on packaging cost are not the ones that negotiate hardest with the film supplier. They are the ones that cut labour per pallet, kill consumable waste, and stop paying for damage they could have prevented.`,
+    coverImage: blogImagePaths.warehouseOperation,
+    author: 'ErgoPack India Technical Team',
+    category: 'insights',
+    tags: [
+      'reduce packaging cost',
+      'packaging cost reduction',
+      'warehouse efficiency',
+      'total cost of ownership',
+      'labour cost packaging',
+      'transit damage cost',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'How to Reduce Packaging Costs: 7 Levers for Indian Factories | ErgoPack',
+      description:
+        'Cut packaging cost where the money actually leaks: labour per pallet, consumable waste, right-sizing and the hidden giant — transit damage. A practical cost-per-pallet framework for Indian dispatch floors.',
+      keywords: [
+        'how to reduce packaging cost',
+        'reduce packaging costs',
+        'packaging cost reduction strategies',
+        'cut packaging labour cost',
+        'reduce consumable waste packaging',
+        'total cost of ownership packaging',
+      ],
+    },
+    readTime: 8,
+    views: 0,
+    createdAt: new Date(publishedAtBase[6]),
+    updatedAt: new Date(publishedAtBase[6]),
+    publishedAt: new Date(publishedAtBase[6]),
+  },
+  {
+    _id: 'seed-what-is-pet-strapping',
+    title: 'What Is PET Strapping? Specifications, Uses & Why It Replaces Steel (2026)',
+    slug: 'what-is-pet-strapping',
+    excerpt:
+      'PET (polyester) strapping explained — what it is, its specifications, how it compares to PP and steel, why exporters use it instead of steel, and how to apply it correctly.',
+    content: `PET strapping is the strap most Indian exporters should be using and many still are not — because steel is a habit and PP is "what we always order." This is what PET actually is, where it wins, and when it does not.
+
+## What is PET strapping?
+
+PET strapping is a high-tensile plastic strap made from **polyethylene terephthalate**, the same engineering thermoplastic used in strong bottles and films. It is today the leading global alternative to steel strapping for securing medium and heavy loads, because it combines high break strength with something steel does not have: the ability to stretch slightly, absorb shock, and recover its tension.
+
+## PET strapping specifications
+
+- **High tensile / break strength** — far above PP, approaching steel for many palletised loads.
+- **Low elongation with recovery** — its elongation is roughly a sixth of PP's, so it holds tight tension over long transit, yet it still stretches enough to absorb shock instead of snapping.
+- **Temperature stable** — melting point around 260°C; stays dimensionally stable in normal transit and storage temperatures.
+- **UV and moisture resistant** — does not rust, does not corrode, holds up to sun and humidity.
+- **Material efficient** — PET gives roughly four times the linear footage of steel for the same weight, translating into a 30–50% reduction in raw-material spend versus steel.
+
+## PET vs PP vs steel — at a glance
+
+| Property | PP (polypropylene) | PET (polyester) | Steel |
+| --- | --- | --- | --- |
+| Typical load | Light, up to ~200 kg | Heavy, up to ~2,000 kg | Very heavy, 5,000 kg+ |
+| Break strength | Low | High | Highest |
+| Elongation / recovery | High stretch, poor recovery | Stretches & recovers tension | None (rigid) |
+| Shock behaviour | Loosens | Absorbs impact | Snaps |
+| Rust risk | None | None | High |
+| Safety | Safe | Safe | Sharp edges — hazard |
+| Cost | Lowest | Mid | Highest (plus seals) |
+
+For the full breakdown, see [PP vs PET vs steel strapping](/resources/pet-vs-steel-strapping).
+
+## Why exporters switch from steel to PET
+
+Steel has the highest static strength, but transit is dynamic, not static:
+
+- **Shock:** a sudden drop or maritime jolt snaps rigid steel; PET elongates and absorbs it.
+- **Settling:** as corrugated, textile and food loads settle and lose height in transit, steel goes slack while PET recovers tension and stays tight.
+- **Rust:** steel corrodes in ocean humidity and stains cargo; PET is moisture-proof — critical for pharma, FMCG and automotive exports.
+- **Safety & cost:** steel's cut edges injure operators, and steel plus crimp seals costs more per metre than PET.
+
+## When PP is still the right choice
+
+PET is not always the answer. For **light cartons and bundling up to about 200 kg**, PP is cheaper and entirely adequate. Use PP for light unitising; step up to PET when the load is heavy, dense, or going on a long or export journey.
+
+## How to apply PET strapping correctly
+
+PET only delivers its benefits if it is **tensioned consistently and sealed without metal clips**:
+
+- **Tension:** apply a repeatable, calibrated tension on every pallet. Hand tension drifts across a shift; a machine that sets tension digitally does not. Mobile systems such as the [ErgoPack 726X](/products/726x) apply 400–2,500N digitally and run PET (and PP) at 12–16 mm width.
+- **Seal:** use a **sealless friction weld**, which fuses the PET strap to itself at up to 90% joint efficiency — stronger than a crimped metal clip (~60%) and with no consumable seal to buy. The [ErgoPack GO](/products/go) and [700](/products/700) route the strap and let you finish with your own PET friction-weld or battery tool.
+
+Applied this way, PET strap on a calibrated machine is the most reliable, lowest-rust, lowest-recurring-cost way to secure heavy and export loads — which is exactly why it is steadily replacing steel on Indian dispatch floors.`,
+    coverImage: blogImagePaths.goStrapHead,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'what is PET strapping',
+      'PET strap',
+      'polyester strapping',
+      'PET vs PP vs steel',
+      'strapping material',
+      'export strapping',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'What Is PET Strapping? Specs, Uses & Why It Replaces Steel | ErgoPack',
+      description:
+        'PET (polyester) strapping explained: specifications, break strength, PET vs PP vs steel, why exporters switch from steel, and how to apply it at consistent tension with a sealless friction weld.',
+      keywords: [
+        'what is PET strapping',
+        'PET strap',
+        'polyester strapping',
+        'PET vs PP strapping',
+        'PET vs steel strapping',
+        'PET strapping specifications',
+      ],
+    },
+    readTime: 7,
+    views: 0,
+    createdAt: new Date(publishedAtBase[7]),
+    updatedAt: new Date(publishedAtBase[7]),
+    publishedAt: new Date(publishedAtBase[7]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
