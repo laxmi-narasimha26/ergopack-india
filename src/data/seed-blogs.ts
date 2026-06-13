@@ -50,6 +50,8 @@ const publishedAtBase = [
   '2026-06-18T13:00:00+05:30',
   '2026-06-18T15:00:00+05:30',
   '2026-06-18T17:00:00+05:30',
+  '2026-06-19T09:00:00+05:30',
+  '2026-06-19T11:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -4882,6 +4884,173 @@ Package furniture to this standard — flat-packed where possible, corner-protec
     createdAt: new Date(publishedAtBase[48]),
     updatedAt: new Date(publishedAtBase[48]),
     publishedAt: new Date(publishedAtBase[48]),
+  },
+  {
+    _id: 'seed-seafood-marine-export-packaging',
+    title: 'Seafood & Marine Export Packaging: Cold Chain, Cartons and Secure Palletising',
+    slug: 'seafood-marine-export-packaging',
+    excerpt:
+      'How frozen and chilled seafood is packaged for export — the cold chain, master cartons, moisture and ice management, hygiene standards, and securing reefer pallets that must not break the chain.',
+    content: `Seafood is one of India's largest food exports and one of the least forgiving to ship. It is highly perishable, temperature-critical, moisture-heavy and tightly regulated — a single break in the cold chain can spoil a container and fail a food-safety audit. Packaging and securing marine products correctly is what keeps the catch saleable from the processing plant to the overseas buyer. Here is how it is done.
+
+## What makes seafood export demanding
+
+- **Highly perishable and temperature-critical** — frozen seafood must stay frozen; any excursion risks spoilage and rejection.
+- **Moisture and ice** — water, ice glaze and condensation are everywhere, weakening cartons and creating slip and contamination risk.
+- **Strict food-safety regulation** — HACCP, the buyer's standards and destination authorities demand documented hygiene and traceability.
+- **High value** — a container of prawns or fillets is a significant loss if it fails.
+
+## The cold chain comes first
+
+Everything serves the temperature:
+
+- **Blast-freeze and maintain** the product; pack at temperature.
+- **Reefer (refrigerated container)** shipping with correct set-point and pre-cooling; manage airflow and the door-end so cold reaches every pallet.
+- **Insulated and moisture-resistant inner packaging** as required.
+- **Temperature monitoring and documentation** through the chain.
+
+## Cartons and inner packaging
+
+- **Waxed/coated or moisture-resistant master cartons** that survive frozen-store humidity and ice.
+- Inner packs (vacuum packs, glazed blocks, IQF bags) per the product and buyer.
+- Cartons rated for stacking when cold and damp — frozen-store humidity softens plain corrugated.
+
+## Palletise and secure for the reefer
+
+A seafood pallet's configuration must hold so the cold chain and hygiene stay intact:
+
+- **Plastic/hygienic pallets** where possible — washable, moisture-proof, outside ISPM-15 ([standard pallet sizes](/blog/standard-pallet-sizes-in-india)).
+- **Strap the load to the pallet** so the configuration cannot shift, slump or block reefer airflow — a parallel to [frozen & cold-chain food packaging](/blog/frozen-cold-chain-food-packaging).
+- Use **PET strap** (moisture-proof, no rust or contamination, recovers tension as cold cartons settle) with a **sealless friction weld** (no metal clips near food). Apply **gentle, consistent tension** on cold-weakened cartons with edge protectors. A calibrated machine such as the [ErgoPack 726X](/products/726x), [GO](/products/go) or [700](/products/700) applies repeatable tension and supports low-contact, hygienic handling.
+
+## Comply and document
+
+- **HACCP and buyer hygiene standards**; clean, low-contact handling.
+- **Health certificates, traceability and export documentation.**
+- Manage condensation on any non-reefer leg ([container rain](/blog/container-rain-cargo-condensation-prevention)).
+
+## Seafood export checklist
+
+- [ ] Product frozen/chilled and packed at temperature
+- [ ] Reefer set correctly, pre-cooled, airflow managed
+- [ ] Moisture-resistant master cartons; correct inner packs
+- [ ] Plastic/hygienic pallets; stable airflow-friendly config
+- [ ] Load strapped to the pallet; PET + sealless friction weld
+- [ ] Gentle consistent tension; edge protectors; low-contact
+- [ ] HACCP, certificates, traceability, monitoring documented
+
+Package and secure seafood to this standard — cold chain intact, hygienic materials, configuration locked with moisture-proof PET — and the catch reaches the overseas buyer frozen, safe and saleable.`,
+    coverImage: blogImagePaths.warehouseOperation,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'seafood export packaging',
+      'marine export',
+      'frozen seafood cold chain',
+      'reefer packaging',
+      'seafood palletising',
+      'HACCP packaging',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Seafood & Marine Export Packaging: Cold Chain & Secure Palletising | ErgoPack',
+      description:
+        'How frozen and chilled seafood is packaged for export — cold chain, moisture-resistant master cartons, reefer airflow, hygiene/HACCP, and PET securing of reefer pallets.',
+      keywords: [
+        'seafood export packaging',
+        'marine export packaging India',
+        'frozen seafood cold chain',
+        'reefer pallet securing',
+        'seafood palletising',
+        'shrimp export packaging',
+      ],
+    },
+    readTime: 7,
+    views: 0,
+    createdAt: new Date(publishedAtBase[49]),
+    updatedAt: new Date(publishedAtBase[49]),
+    publishedAt: new Date(publishedAtBase[49]),
+  },
+  {
+    _id: 'seed-tea-spices-export-packaging',
+    title: 'Tea & Spices Export Packaging: Protecting Aroma, Moisture and Quality',
+    slug: 'tea-spices-export-packaging',
+    excerpt:
+      'How tea and spices are packaged for export — moisture and aroma barriers, foil and multi-wall packaging, fumigation and food safety, and securing moisture-sensitive bagged and boxed loads.',
+    content: `Tea and spices are among India's most valuable and most delicate exports. Their quality *is* their aroma and moisture content — and both are destroyed by humidity, odour contamination and pests on a long sea voyage. Packaging tea and spices is about preserving an invisible quality, not just preventing physical damage. Here is how it is done.
+
+## What you are actually protecting
+
+- **Aroma and flavour** — volatile compounds that escape, or absorb foreign odours, through poor packaging.
+- **Moisture content** — tea and spices absorb humidity, leading to caking, mould and spoilage.
+- **Freedom from pests** — agricultural products with strict phytosanitary and food-safety rules.
+- **Appearance and grade** — discolouration or contamination downgrades a high-value product.
+
+## Barrier packaging: the core of the job
+
+The packaging has to seal in aroma and seal out moisture:
+
+- **Foil-laminate / multi-layer barrier bags and liners** that block moisture, oxygen and odour — the standard for premium tea and spices.
+- **Multi-wall paper sacks, jute with liners, or lined cartons** for bulk, with an inner moisture barrier.
+- **Vacuum or nitrogen-flush** for the most aroma-sensitive products.
+- Food-grade materials throughout.
+
+## Moisture and pest control
+
+- **Desiccants** inside packaging and containers; **dry product, dry packaging, dry pallets.**
+- **Fumigation and phytosanitary certification** as required by the destination, and **ISPM-15** on all wood including dunnage ([ISPM-15 explained](/blog/ispm-15-wood-packaging-explained)).
+- Manage [container condensation](/blog/container-rain-cargo-condensation-prevention) — the classic killer of a tea or spice container.
+
+## Palletise and secure
+
+- Build **stable, square pallets**; protect the barrier packaging from puncture.
+- **Strap the load to the pallet** so bags and cartons cannot shift, rub and puncture the barrier — a punctured barrier bag is spoiled product.
+- Use **PET strap** (moisture-proof, recovers tension as bagged loads settle) at **gentle, consistent tension** with edge protectors so the strap does not cut the bags. A calibrated machine such as the [ErgoPack 726X](/products/726x), [GO](/products/go) or [700](/products/700) applies repeatable tension and routes the strap automatically — the same settling discipline as [rice & agri export](/blog/rice-agricultural-export-packaging).
+- **Keep tea and spices away from odour sources** in the container — they absorb smells.
+
+## Tea & spices export checklist
+
+- [ ] Foil/multi-layer barrier packaging seals aroma and moisture
+- [ ] Food-grade materials; vacuum/nitrogen for the most sensitive
+- [ ] Desiccants; dry product, packaging and pallets
+- [ ] Fumigation/phytosanitary certificate; ISPM-15 wood
+- [ ] Condensation managed; kept away from odour sources
+- [ ] Load strapped to the pallet so barriers aren't punctured
+- [ ] PET strap, gentle consistent tension, edge protectors
+
+Package tea and spices to this standard — sealed in barrier packaging, moisture- and pest-controlled, secured without puncturing the barrier — and a high-value, aroma-critical product arrives fresh, fragrant and full-grade.`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'tea export packaging',
+      'spices export packaging',
+      'aroma barrier packaging',
+      'moisture barrier export',
+      'spice packaging India',
+      'food export securing',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Tea & Spices Export Packaging: Protect Aroma, Moisture & Quality | ErgoPack',
+      description:
+        'How tea and spices are packaged for export — foil/multi-layer aroma and moisture barriers, fumigation and food safety, condensation control, and securing moisture-sensitive loads.',
+      keywords: [
+        'tea export packaging',
+        'spices export packaging India',
+        'aroma barrier packaging',
+        'spice moisture barrier packaging',
+        'how to pack spices for export',
+        'tea packaging export',
+      ],
+    },
+    readTime: 7,
+    views: 0,
+    createdAt: new Date(publishedAtBase[50]),
+    updatedAt: new Date(publishedAtBase[50]),
+    publishedAt: new Date(publishedAtBase[50]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
