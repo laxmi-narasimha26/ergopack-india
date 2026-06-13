@@ -46,6 +46,8 @@ const publishedAtBase = [
   '2026-06-17T15:00:00+05:30',
   '2026-06-17T17:00:00+05:30',
   '2026-06-18T09:00:00+05:30',
+  '2026-06-18T11:00:00+05:30',
+  '2026-06-18T13:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -4541,6 +4543,174 @@ Package electronics to this standard — ESD-protected, moisture-controlled, cus
     createdAt: new Date(publishedAtBase[44]),
     updatedAt: new Date(publishedAtBase[44]),
     publishedAt: new Date(publishedAtBase[44]),
+  },
+  {
+    _id: 'seed-marble-granite-slab-export-packaging',
+    title: 'Marble & Granite Slab Export Packaging: Crates, A-Frames and Securing Stone',
+    slug: 'marble-granite-slab-export-packaging',
+    excerpt:
+      'How marble, granite and quartz slabs are packed and secured for export — A-frame and wooden bundle crating, interleaving against abrasion, and high-tension banding for extremely heavy stone.',
+    content: `Stone slabs are the heaviest, most dangerous and most valuable load most exporters will ever ship. A single marble or granite slab can weigh hundreds of kilos, a bundle can run into tonnes, and a shifted bundle inside a container is both a destroyed shipment and a serious safety hazard. India is a leading stone exporter — Rajasthan marble, South Indian granite — so getting slab packaging right is a major commercial discipline. Here is how it is done.
+
+## Why stone slabs are uniquely demanding
+
+- **Extreme weight** — slabs and bundles are enormously heavy and dense; handling itself is hazardous (a known cause of serious injury).
+- **Rigid and brittle** — stone cracks and chips, especially at edges and corners.
+- **Surface-critical** — polished faces scratch and abrade; a marked slab is downgraded.
+- **High value, low tolerance** — buyers reject cracked, chipped or stained slabs.
+
+## Slabs travel vertically — on A-frames
+
+Like glass, **stone slabs are shipped on edge, leaning against an A-frame**, never flat. The A-frame racking holds slabs against its back or against each other at a stable angle for the whole journey. This keeps the load's weight on the strong edge and stops the flexing that cracks a flat slab.
+
+## Crating and bundling
+
+- Slabs are packed in **fumigated (ISPM-15) wooden bundles or crates** ([ISPM-15 explained](/blog/ispm-15-wood-packaging-explained)).
+- Within a bundle, slabs are **tightly compressed together** so they cannot move.
+- **Plastic, foam or cardboard sheets between every slab** prevent friction, scratching and abrasion of the polished surface.
+
+## Securing the heavy bundle
+
+This is the high-tension end of strapping:
+
+- **Wooden blocks and braces** fix the bundle and stop it shifting; **C-clamps** secure bundles in the container.
+- **High-tensile banding** (traditionally steel; high-strength PET where its shock absorption and rust-free finish help) holds the slabs and frame together — see [PP vs PET vs steel strapping](/resources/pet-vs-steel-strapping).
+- **Wire-rope lashing** secures stone blocks against movement inside the container.
+- The banding must be **tight and consistent** — a loose band on a multi-tonne stone bundle is a shifting load. Calibrated machines such as the [ErgoPack 726X](/products/726x) apply repeatable high tension; see [best machine for heavy loads](/resources/best-pallet-strapping-machine-heavy-loads).
+
+## Protect, mark and document
+
+- **Edge and corner protection** where bands bear and where chips start.
+- Moisture management for the sea leg ([container rain](/blog/container-rain-cargo-condensation-prevention)).
+- Heavy/handling marks and full documentation; ISPM-15 stamps visible.
+
+## Stone slab export checklist
+
+- [ ] Slabs on edge, on an A-frame — never flat
+- [ ] Interleaving (plastic/foam/cardboard) between every slab
+- [ ] Fumigated ISPM-15 wooden bundle/crate
+- [ ] Bundle tightly compressed; blocks/braces/C-clamps fixed
+- [ ] High-tensile banding at tight, consistent tension
+- [ ] Wire-rope lashing inside the container for heavy blocks
+- [ ] Edge/corner protection; moisture managed; documents + ISPM-15
+
+Pack and secure stone to this standard — on edge, interleaved, crated and banded at high consistent tension — and an extremely heavy, brittle, valuable load travels safely and arrives unmarked.`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'marble export packaging',
+      'granite slab packaging',
+      'stone slab export',
+      'A-frame stone',
+      'slab strapping',
+      'quartz slab packing',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Marble & Granite Slab Export Packaging: Crates, A-Frames & Securing | ErgoPack',
+      description:
+        'How marble, granite and quartz slabs are packed and secured for export — A-frame crating, interleaving against abrasion, fumigated wood, and high-tension banding for extremely heavy stone.',
+      keywords: [
+        'marble export packaging',
+        'granite slab packaging',
+        'how to pack stone slabs for export',
+        'stone slab A-frame',
+        'granite slab strapping',
+        'quartz slab packing export',
+      ],
+    },
+    readTime: 7,
+    views: 0,
+    createdAt: new Date(publishedAtBase[45]),
+    updatedAt: new Date(publishedAtBase[45]),
+    publishedAt: new Date(publishedAtBase[45]),
+  },
+  {
+    _id: 'seed-fibc-jumbo-bag-securing',
+    title: 'FIBC & Jumbo Bag Handling: Safe Working Load, Palletising and Securing',
+    slug: 'fibc-jumbo-bag-securing',
+    excerpt:
+      'How to fill, palletise and secure FIBC bulk bags safely — safe working load and the 6:1 safety factor, UN certification, stacking limits, and securing jumbo bags that bulge and settle.',
+    content: `FIBCs — flexible intermediate bulk containers, or "jumbo bags" — move bulk solids by the tonne: chemicals, cement, grain, minerals, plastics. They are cheap, efficient and, handled wrong, dangerous: a failed lifting loop or an overfilled bag can drop a tonne of material. India is a major FIBC user and manufacturer, so safe handling and securing is essential knowledge. Here is the guide.
+
+## Safe Working Load (SWL) and safety factor
+
+The single most important number on an FIBC is its **Safe Working Load (SWL)** — the maximum weight the bag can safely carry. It is set by the bag's tested breaking strength divided by a **Safety Factor (SF)**:
+
+- **5:1** for standard single-trip bags.
+- **6:1** for UN-certified FIBCs carrying hazardous materials.
+
+**Never fill above the SWL.** Overloading risks fabric or seam failure — the most dangerous FIBC incident there is. FIBCs typically carry **500–2,000 kg** depending on construction.
+
+## UN certification and testing
+
+UN-certified FIBCs (for dangerous goods) pass a defined battery of tests — **top-lift, drop, topple, righting, stacking and tear** — to prove they meet their declared SWL and safety factor. For hazardous bulk goods, use UN-certified bags and respect their markings.
+
+## Filling and handling safely
+
+- **Lift evenly and smoothly** from all loops; an uneven lift tilts and shifts the load.
+- **Never drag or slide** a bag on the ground — it abrades and weakens the woven PP fabric.
+- Fill to a stable shape; an under- or over-filled bag is unstable.
+- Inspect loops and fabric before lifting.
+
+## Palletising and stacking FIBCs
+
+- **Put FIBCs on pallets** to keep them off the ground (moisture, abrasion) and to make them forklift-handleable.
+- **Stack no higher than the manufacturer's limit** — bags bulge and can topple if over-stacked.
+- Square, stable arrangement; nothing overhanging.
+
+## Securing FIBCs that bulge and settle
+
+A bagged bulk load shifts and settles, so the securing has to follow it:
+
+- **Strap the FIBC(s) to the pallet** so the bag cannot slide or topple off the deck in transit.
+- Use **PET strap**, which recovers tension as the bag settles and the contents flow — keeping the load tight where a rigid strap would go slack. (See [PP vs PET vs steel strapping](/resources/pet-vs-steel-strapping).)
+- Apply **consistent, controlled tension** that holds the bag without cutting the fabric; a calibrated machine such as the [ErgoPack 726X](/products/726x), [GO](/products/go) or [700](/products/700) applies the same tension every time. The same settling challenge applies as for [bagged rice and agri loads](/blog/rice-agricultural-export-packaging).
+
+## FIBC handling checklist
+
+- [ ] Bag SWL known; never filled above it
+- [ ] Correct safety factor (5:1 standard, 6:1 UN/hazardous)
+- [ ] UN-certified bag for dangerous goods; markings respected
+- [ ] Lifted evenly from all loops; never dragged
+- [ ] On a pallet; stacked within the manufacturer's limit
+- [ ] Strapped to the pallet with PET at consistent tension
+- [ ] Loops/fabric inspected before lifting
+
+Fill, palletise and secure FIBCs to this standard — within SWL, on a pallet, strapped with PET that holds as the bag settles — and a tonne of bulk material travels safely and stays where it was loaded.`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'FIBC',
+      'jumbo bag',
+      'bulk bag handling',
+      'safe working load',
+      'FIBC palletising',
+      'FIBC securing',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'FIBC & Jumbo Bag Handling: SWL, Palletising & Securing | ErgoPack India',
+      description:
+        'How to fill, palletise and secure FIBC bulk bags safely — safe working load and the 5:1 / 6:1 safety factor, UN certification, stacking limits, and PET securing for bags that bulge and settle.',
+      keywords: [
+        'FIBC handling',
+        'jumbo bag handling',
+        'bulk bag safe working load',
+        'FIBC palletising',
+        'FIBC securing strapping',
+        'jumbo bag SWL safety factor',
+      ],
+    },
+    readTime: 7,
+    views: 0,
+    createdAt: new Date(publishedAtBase[46]),
+    updatedAt: new Date(publishedAtBase[46]),
+    publishedAt: new Date(publishedAtBase[46]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
