@@ -38,6 +38,8 @@ const publishedAtBase = [
   '2026-06-15T15:00:00+05:30',
   '2026-06-15T17:00:00+05:30',
   '2026-06-16T09:00:00+05:30',
+  '2026-06-16T11:00:00+05:30',
+  '2026-06-16T13:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -3884,6 +3886,164 @@ Bundle and strap construction materials to this standard and a heavy, abrasive, 
     createdAt: new Date(publishedAtBase[36]),
     updatedAt: new Date(publishedAtBase[36]),
     publishedAt: new Date(publishedAtBase[36]),
+  },
+  {
+    _id: 'seed-drum-ibc-chemical-securing',
+    title: 'Securing Drums & IBCs for Transport: Palletising and Strapping Chemical Loads',
+    slug: 'drum-ibc-chemical-securing',
+    excerpt:
+      'How to palletise and secure drums and IBCs for safe chemical transport — drum patterns, strapping to the pallet, and the stability that prevents leaks and dangerous-goods incidents.',
+    content: `Drums and IBCs (intermediate bulk containers) carry liquids and chemicals where a shifted, toppled or punctured container is not just a loss — it can be a leak, a contamination event, or a dangerous-goods incident. Securing them is a safety-critical task with specific methods. Here is how it is done.
+
+## Why drums and IBCs need careful securing
+
+- **Heavy and liquid-filled** — the contents shift inside, adding dynamic load and a tendency to tip.
+- **Round (drums)** — they roll if not contained.
+- **High consequence** — a breach can mean a spill, environmental harm, and regulatory exposure under dangerous-goods rules.
+- **Stacking limits** — IBCs and drums have defined safe stacking heights.
+
+## Palletising drums
+
+- Use a **pallet rated for the heavy liquid load** (a single 200-litre drum is ~200+ kg).
+- Arrange drums in a **stable pattern** (commonly four per standard pallet) so they support each other and do not roll.
+- Keep within safe stack heights.
+
+## Palletising IBCs
+
+- IBCs are usually built on an integrated pallet base; place them squarely and within stacking limits.
+- Ensure the cage and base are sound — a damaged IBC is a leak risk.
+
+## Securing to the pallet
+
+Drums and IBCs must be **anchored to the pallet** so they cannot shift or topple:
+
+- **Strap the drums/IBC down to the pallet base** so the load is one stable unit — vertical strapping that ties the containers to the deck.
+- Apply **consistent, controlled tension** — firm enough to immobilise heavy liquid-filled containers, without deforming drum walls. A calibrated machine such as the [ErgoPack 726X](/products/726x) applies a set, repeatable tension and routes the strap under the pallet automatically; the [GO](/products/go) and [700](/products/700) automate the routing.
+- Use **edge/top protection** where straps cross drum rims.
+
+## Dangerous goods and documentation
+
+- Follow **dangerous-goods (IMDG / ADR / national)** packing and securing rules where the contents require it.
+- Label and placard correctly; keep the documentation with the load.
+- For sea export, manage moisture and use compliant wood ([ISPM-15](/blog/ispm-15-wood-packaging-explained)).
+
+## Drum / IBC securing checklist
+
+- [ ] Pallet rated for the heavy liquid load
+- [ ] Drums in a stable, non-rolling pattern; IBC base sound
+- [ ] Within safe stacking heights
+- [ ] Containers strapped down to the pallet at consistent tension
+- [ ] Top/edge protection where straps cross rims
+- [ ] Dangerous-goods rules, labels and placards as required
+- [ ] Documentation with the load; ISPM-15 wood for export
+
+Palletise and strap drums and IBCs to this standard and a heavy, liquid, high-consequence load travels as one stable unit — no rolling, no toppling, no leak.`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'drum securing',
+      'IBC securing',
+      'chemical packaging',
+      'dangerous goods securing',
+      'drum pallet strapping',
+      'liquid load transport',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Securing Drums & IBCs for Transport: Palletise & Strap Chemicals | ErgoPack',
+      description:
+        'How to palletise and secure drums and IBCs for safe chemical transport — drum patterns, strapping containers to the pallet, dangerous-goods rules, and the stability that prevents leaks.',
+      keywords: [
+        'drum securing',
+        'IBC securing',
+        'how to secure drums on a pallet',
+        'chemical drum packaging',
+        'drum pallet strapping',
+        'dangerous goods load securing',
+      ],
+    },
+    readTime: 6,
+    views: 0,
+    createdAt: new Date(publishedAtBase[37]),
+    updatedAt: new Date(publishedAtBase[37]),
+    publishedAt: new Date(publishedAtBase[37]),
+  },
+  {
+    _id: 'seed-pipes-profiles-long-products-bundling',
+    title: 'Bundling Pipes, Profiles & Long Products: How to Strap Extrusions for Transport',
+    slug: 'pipes-profiles-long-products-bundling',
+    excerpt:
+      'How to bundle and strap pipes, tubes, extrusions and other long products — bundle building, strap spacing and material, and protecting surfaces on metal and PVC profiles.',
+    content: `Pipes, tubes, aluminium and PVC extrusions, rods and other long products do not fit the pallet model — they are bundled along their length and held by straps spaced down the bundle. Done badly, the bundle loosens, the long products slide out and get bent, scratched or lost. Here is how long products are bundled and strapped.
+
+## What makes long products different
+
+- **Length, not footprint** — they are secured along the bundle, not anchored to a pallet deck.
+- **They slide** — smooth pipes and profiles slip out of a loose bundle endwise.
+- **Surface-sensitive** — anodised aluminium, coated and PVC profiles scratch easily.
+- **Awkward to handle** — long bundles flex and need support at multiple points.
+
+## Build a tight bundle
+
+- Group like lengths and sections together so the bundle is uniform.
+- Keep the bundle **tight and aligned** — gaps let individual lengths shift.
+- Use **separators or interleaving** for surface-sensitive profiles to prevent rubbing.
+
+## Strap material and spacing
+
+- **Strap material:** PET for most metal and PVC long products — it holds tension and will not rust-mark anodised or coated surfaces; PP for light profiles; steel only for the heaviest, sharpest steel sections. (See [PP vs PET vs steel strapping](/resources/pet-vs-steel-strapping).)
+- **Spacing:** apply **multiple straps spaced evenly down the length** so no section of the bundle is unsupported — a long bundle with straps only at the ends sags and loosens in the middle.
+- **Consistent tension** — firm enough to lock the bundle without denting soft profiles. A calibrated machine such as the [ErgoPack 726X](/products/726x) applies a set, repeatable tension; the [GO](/products/go) and [700](/products/700) route the strap for facilities using their own tools. This is **horizontal strapping** territory ([horizontal vs vertical](/blog/horizontal-vs-vertical-strapping-machine)).
+
+## Protect the surfaces
+
+- **Edge and corner protection** where straps cross sharp profile edges, and where the strap could mark a finish.
+- Interleaving material between layers of coated or anodised product.
+
+## Long-product bundling checklist
+
+- [ ] Like lengths/sections grouped; bundle tight and aligned
+- [ ] Separators/interleaving for surface-sensitive profiles
+- [ ] PET strap for most metal/PVC (PP light, steel only for heavy steel)
+- [ ] Multiple straps spaced evenly down the length
+- [ ] Consistent tension — locks the bundle without denting
+- [ ] Edge protection where strap crosses sharp profile edges
+- [ ] Bundle supported at multiple points for handling
+
+Bundle and strap long products to this standard and a flexible, slide-prone, surface-sensitive load stays tight, straight and unmarked from the extrusion line to the customer.`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'pipe bundling',
+      'profile strapping',
+      'extrusion bundling',
+      'long products strapping',
+      'aluminium profile packaging',
+      'horizontal strapping',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Bundling Pipes, Profiles & Long Products: How to Strap Extrusions | ErgoPack',
+      description:
+        'How to bundle and strap pipes, tubes, extrusions and long products — bundle building, strap spacing and material (PET vs steel), and protecting anodised and coated profile surfaces.',
+      keywords: [
+        'pipe bundling strapping',
+        'profile strapping',
+        'extrusion bundling',
+        'how to strap pipes',
+        'aluminium profile packaging',
+        'long product strapping',
+      ],
+    },
+    readTime: 6,
+    views: 0,
+    createdAt: new Date(publishedAtBase[38]),
+    updatedAt: new Date(publishedAtBase[38]),
+    publishedAt: new Date(publishedAtBase[38]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
