@@ -28,6 +28,8 @@ const publishedAtBase = [
   '2026-06-13T13:00:00+05:30',
   '2026-06-13T15:00:00+05:30',
   '2026-06-13T17:00:00+05:30',
+  '2026-06-14T09:00:00+05:30',
+  '2026-06-14T11:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -3045,6 +3047,174 @@ Load to this standard and the trailer is legal on every axle, stable on the road
     createdAt: new Date(publishedAtBase[26]),
     updatedAt: new Date(publishedAtBase[26]),
     publishedAt: new Date(publishedAtBase[26]),
+  },
+  {
+    _id: 'seed-steel-coil-packaging-securing',
+    title: 'Steel Coil Packaging & Securing: Strapping, Orientation and Export Best Practices',
+    slug: 'steel-coil-packaging-securing',
+    excerpt:
+      'How to package and secure steel coils for transport and export — eye-to-sky vs eye-to-side, circumferential and radial strapping, cradles and dunnage, tie-down ratios and documentation.',
+    content: `A steel coil is one of the most demanding loads in logistics: enormously heavy, prone to unrolling, and capable of rolling off a trailer if it is not secured correctly. Coil packaging is a specialist discipline. Here are the principles that keep coils safe in transit and intact at the destination.
+
+## Orientation: eye to sky vs eye to side
+
+A coil's "eye" is its hollow centre. How it is oriented changes everything downstream:
+
+- **Eye to sky** — the coil stands up, eye facing up. Workable for smaller coils and vans, but a major drawback is handling at the destination: unloading and re-orienting often needs specialised, expensive equipment (a coil upender).
+- **Eye to side (eye fore-aft)** — the coil lies on its side with the eye facing the sides of the vehicle. This is the global standard for road and sea transport because it sits stably in a cradle and is easier to secure and unload.
+
+Always record the orientation on the bill of lading so the carrier can plan securement.
+
+## Packaging the coil
+
+Before securing, the coil itself is protected:
+
+- **Circumferential and radial strapping** — bands around the coil's circumference and through the eye stop it unrolling or telescoping. Steel banding or heavy-duty polyester (PET) is used; PET adds shock absorption and avoids rust marks on the steel surface.
+- **Wrapping / VCI** — moisture barriers and vapour corrosion inhibitors protect the surface finish on the voyage, since a rusted coil is a downgraded coil. See [container rain / condensation](/blog/container-rain-cargo-condensation-prevention).
+- **Edge and eye protection** — guards on the edges and the eye where straps bear.
+
+## Securing the coil for transport
+
+The coil must be stopped from rolling and from sliding:
+
+- **Cradles, bunks or racks** hold the coil and stop it rolling; **wooden or rubber dunnage** adds friction and cushioning; **wedges, blocks and chocks** add stability.
+- **Tie-downs** (chains or straps) pass over the coil to the vehicle bed — in parallel, "X", or "spider" patterns for very heavy coils.
+- Follow the **tie-down ratios**: a common rule is one tie-down per ~10,000 lb of weight, with each rated to a defined share of the cargo weight.
+
+## Where consistent strapping matters
+
+The circumferential banding that keeps a coil from unrolling has to be **tight and consistent** — a loose band lets the coil telescope, which damages the edges and destabilises the load. For coil and other heavy non-compressible metal loads, repeatable high tension is essential, which is the case for a calibrated machine (up to 2,500N on the [ErgoPack 726X](/products/726x)); see [best pallet strapping machine for heavy loads](/resources/best-pallet-strapping-machine-heavy-loads) and [PP vs PET vs steel strapping](/resources/pet-vs-steel-strapping) for the material trade-off on metal exports.
+
+## Steel coil checklist
+
+- [ ] Orientation chosen (eye-to-side standard for road/sea) and recorded on the BoL
+- [ ] Circumferential + radial banding to stop unrolling/telescoping
+- [ ] Consistent, tight tension on the bands
+- [ ] VCI / moisture protection for the surface finish
+- [ ] Cradle/bunk + dunnage + chocks to stop rolling
+- [ ] Tie-downs to the correct ratio and pattern for the weight
+- [ ] Edge and eye protection where straps bear
+
+Package and secure coils to this standard and they arrive round, rust-free and exactly where the cradle held them.`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'steel coil packaging',
+      'coil securing',
+      'eye to sky eye to side',
+      'metal export packaging',
+      'coil strapping',
+      'heavy load securing',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Steel Coil Packaging & Securing: Strapping, Orientation & Export | ErgoPack',
+      description:
+        'How to package and secure steel coils for transport and export — eye-to-sky vs eye-to-side, circumferential/radial strapping, cradles and dunnage, tie-down ratios and documentation.',
+      keywords: [
+        'steel coil packaging',
+        'how to secure steel coil',
+        'coil strapping',
+        'eye to sky eye to side',
+        'metal coil export packaging',
+        'steel coil transport',
+      ],
+    },
+    readTime: 7,
+    views: 0,
+    createdAt: new Date(publishedAtBase[27]),
+    updatedAt: new Date(publishedAtBase[27]),
+    publishedAt: new Date(publishedAtBase[27]),
+  },
+  {
+    _id: 'seed-fmcg-beverage-palletising-guide',
+    title: 'FMCG & Beverage Palletising: How to Build Stable Pallets at High Speed',
+    slug: 'fmcg-beverage-palletising-guide',
+    excerpt:
+      'FMCG and beverage operations move enormous pallet volumes of light, compressible, high-turnover goods. A guide to building stable pallets fast — stacking patterns, securing, and keeping the line moving.',
+    content: `FMCG and beverage manufacturing runs on volume and speed: thousands of cases a shift, tight retail delivery windows, and products that are light, often compressible, and unforgiving of damage because margins are thin. Palletising well here is about stability *and* throughput. Here is how it is done.
+
+## What makes FMCG palletising different
+
+- **Massive volume** — pallets are built continuously, all shift, so any per-pallet delay multiplies hugely.
+- **Light and compressible** — cartons of consumer goods and shrink-wrapped beverage trays crush easily and settle in transit.
+- **High SKU variety** — different pack sizes and configurations on the same line.
+- **Retail standards** — supermarkets and distributors reject damaged or unstable pallets outright.
+
+## Build a stable stack
+
+Stability starts with the stacking pattern:
+
+- **Column stack** where strength matters — boxes corner-to-corner carry the most top-to-bottom load.
+- **Interlock (brick) stack** where you need the layers to bind together for stability — common for lighter FMCG, at some cost to compression strength.
+- Keep the load **square, no overhang**, weight even, heaviest layers low.
+- Beverage trays and cans benefit from **layer pads** between tiers to spread load and stop crushing.
+
+## Secure without crushing
+
+Light, compressible FMCG loads are the classic over-tension trap — too tight and the strap crushes the cartons; too loose and the pallet slumps:
+
+- Set a **lower, exact tension** and apply it identically to every pallet — a calibrated machine like the [ErgoPack 726X](/products/726x) dials down to a gentle, repeatable force.
+- Use **edge protectors** so the strap force spreads, not concentrates ([edge protectors](/blog/edge-protectors-corner-boards-pallet-guide)).
+- Use **PET strap** so the pallet stays tight as the load settles.
+
+This is the same compressible-load discipline covered in [corrugated & compressible load strapping](/resources/corrugated-box-compressible-load-strapping).
+
+## Keep the line moving
+
+In FMCG, the palletising and securing step cannot become the bottleneck behind a fast production line. Manual strapping at ~120 seconds a pallet simply cannot keep up with high-throughput beverage and FMCG output, so finished pallets queue and the line backs up.
+
+Automating the securing step keeps pace:
+
+- One operator secures a pallet in under 40 seconds.
+- The same mobile machine handles the SKU variety without reconfiguration (pallet widths 40–270 cm).
+- It runs at the dock or end-of-line with no conveyors or rebuilds — the [ErgoPack GO](/products/go) and [700](/products/700) for facilities using their own tools, the [726X](/products/726x) for full integration.
+
+The throughput case is in [improve warehouse dispatch productivity](/blog/improve-warehouse-dispatch-productivity) and the financials in the [ROI calculator](/roi-calculator).
+
+## FMCG palletising checklist
+
+- [ ] Stacking pattern chosen for stability (column vs interlock)
+- [ ] Square load, no overhang, heaviest low, layer pads where needed
+- [ ] Lower, exact tension — never crushing the cartons
+- [ ] Same tension on every pallet (calibrated, not by hand)
+- [ ] Edge protectors + PET strap for compressible settling loads
+- [ ] Securing automated so it keeps pace with the production line
+
+Build stable pallets that pass retail standards, secure them without crushing, and keep the securing step fast enough that it never throttles a high-speed FMCG line.`,
+    coverImage: blogImagePaths.warehouseOperation,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'FMCG palletising',
+      'beverage palletising',
+      'pallet stacking patterns',
+      'compressible load',
+      'high speed palletising',
+      'FMCG strapping',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'FMCG & Beverage Palletising: Build Stable Pallets at Speed | ErgoPack',
+      description:
+        'How FMCG and beverage operations build stable pallets at high speed — stacking patterns, layer pads, securing compressible loads without crushing, and keeping the securing step off the critical path.',
+      keywords: [
+        'FMCG palletising',
+        'beverage palletising',
+        'pallet stacking patterns',
+        'how to palletise FMCG',
+        'FMCG pallet strapping',
+        'high speed palletising',
+      ],
+    },
+    readTime: 7,
+    views: 0,
+    createdAt: new Date(publishedAtBase[28]),
+    updatedAt: new Date(publishedAtBase[28]),
+    publishedAt: new Date(publishedAtBase[28]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
