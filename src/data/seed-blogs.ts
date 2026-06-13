@@ -36,6 +36,8 @@ const publishedAtBase = [
   '2026-06-15T11:00:00+05:30',
   '2026-06-15T13:00:00+05:30',
   '2026-06-15T15:00:00+05:30',
+  '2026-06-15T17:00:00+05:30',
+  '2026-06-16T09:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -3726,6 +3728,162 @@ Bag, palletise and strap to this standard — especially with PET that holds ten
     createdAt: new Date(publishedAtBase[34]),
     updatedAt: new Date(publishedAtBase[34]),
     publishedAt: new Date(publishedAtBase[34]),
+  },
+  {
+    _id: 'seed-white-goods-appliance-packaging',
+    title: 'White Goods & Appliance Packaging: How to Protect and Secure for Transport',
+    slug: 'white-goods-appliance-packaging',
+    excerpt:
+      'How to package and secure white goods and appliances — corner protection, cushioning, securing the unit to the pallet, and strapping without crushing the carton.',
+    content: `A refrigerator, washing machine or air conditioner is bulky, surprisingly fragile at the edges and corners, and high-value enough that a single damaged unit wipes out the margin on several. Appliance packaging has to absorb shock, protect corners, and hold the unit firmly to the pallet without crushing the carton. Here is how it is done.
+
+## What makes appliances hard to ship
+
+- **Bulky and top-heavy** — large cartons with a high centre of gravity that tip easily.
+- **Edge and corner damage** — dents and scuffs on panels and corners are the most common claim.
+- **Internal fragility** — compressors, drums, glass shelves and electronics dislike vibration and drops.
+- **High value** — damage is expensive, and customers expect a perfect unbox.
+
+## Protect the unit
+
+- **Moulded foam or EPS end caps** at the corners and top to absorb impact and spread load.
+- **Edge and corner protection** so handling knocks and the strap itself do not dent panels.
+- Internal bracing/transit bolts for moving parts (e.g. washing-machine drums).
+- A carton grade rated for the weight and stacking.
+
+## Secure the unit to the pallet
+
+A bulky, top-heavy appliance must be **anchored to the pallet** so it cannot tip or slide:
+
+- **Strap the unit down to the pallet base** — vertical strapping ties the appliance to the deck so it travels as one unit.
+- Use **edge protectors under the strap** so the tension secures the unit without crushing the carton edge — appliances are a classic over-tension risk ([edge protectors](/blog/edge-protectors-corner-boards-pallet-guide)).
+- Apply **consistent, controlled tension** — firm enough to hold a top-heavy unit, gentle enough not to crush the carton. A calibrated machine like the [ErgoPack 726X](/products/726x) sets an exact, repeatable tension on every unit; the [GO](/products/go) and [700](/products/700) automate the strap routing.
+
+## Handle and label
+
+- **This-way-up and fragile marks** — orientation matters for compressors and drums.
+- Clear handling instructions; stack-rating marks if applicable.
+- Wrap for dust and moisture over the strapping.
+
+## Appliance packaging checklist
+
+- [ ] Foam/EPS end caps and corner protection
+- [ ] Internal bracing/transit bolts for moving parts
+- [ ] Carton rated for weight and stacking
+- [ ] Unit strapped down to the pallet (vertical), top-heavy load anchored
+- [ ] Edge protectors under the strap so the carton isn't crushed
+- [ ] Consistent, controlled tension (firm but not crushing)
+- [ ] This-way-up / fragile marks; wrap over strapping
+
+Package and secure appliances to this standard and a bulky, top-heavy, high-value unit reaches the customer ready for a perfect unbox — not a damage claim.`,
+    coverImage: blogImagePaths.warehouseOperation,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'white goods packaging',
+      'appliance packaging',
+      'refrigerator packaging',
+      'appliance strapping',
+      'corner protection',
+      'secure appliance pallet',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'White Goods & Appliance Packaging: Protect & Secure for Transport | ErgoPack',
+      description:
+        'How to package and secure white goods and appliances — corner and foam protection, internal bracing, strapping the top-heavy unit to the pallet without crushing the carton.',
+      keywords: [
+        'white goods packaging',
+        'appliance packaging',
+        'how to pack appliances for shipping',
+        'refrigerator packaging',
+        'appliance pallet strapping',
+        'white goods transport damage',
+      ],
+    },
+    readTime: 6,
+    views: 0,
+    createdAt: new Date(publishedAtBase[35]),
+    updatedAt: new Date(publishedAtBase[35]),
+    publishedAt: new Date(publishedAtBase[35]),
+  },
+  {
+    _id: 'seed-bricks-blocks-aac-strapping',
+    title: 'Strapping Bricks, Blocks & AAC: How to Bundle Heavy Construction Materials',
+    slug: 'bricks-blocks-aac-strapping',
+    excerpt:
+      'How to bundle and strap bricks, concrete blocks and AAC blocks for safe handling and transport — palletising, strap material and tension for heavy, rigid, abrasive construction loads.',
+    content: `Bricks, concrete blocks and AAC (autoclaved aerated concrete) blocks are among the heaviest, most abrasive loads a strapping machine handles. They are shipped in large bundles that must survive forklift handling, road transport and stacking on site — and a bundle that breaks open is a safety hazard and a loss. Here is how construction materials are bundled and strapped.
+
+## What makes construction materials demanding
+
+- **Very heavy and dense** — high pallet weights, demanding maximum tension and strap strength.
+- **Rigid and non-compressible** — no give, so the strap takes the full force of any shock.
+- **Abrasive edges** — rough brick and block edges cut into strap and slip.
+- **Rough handling** — forklifts, site drops, outdoor stacking.
+
+## Palletise the bundle
+
+- Use a **strong pallet rated for the heavy load** (blocks routinely run well over a tonne per pallet).
+- Stack square and even; bond the courses so the bundle holds together.
+- Keep within the pallet's and the strap's rated capacity.
+
+## Strap material and tension
+
+This is a high-tension job:
+
+- **Strap material:** historically steel for the heaviest brick/block, but **high-strength PET** now handles most construction bundles — it absorbs the shock of handling where rigid steel snaps, and resists rust outdoors. For sharp or extreme loads, steel still has a place. (See [PP vs PET vs steel strapping](/resources/pet-vs-steel-strapping).)
+- **High, consistent tension** — heavy rigid loads need maximum, repeatable tension to stay bundled; a loose strap on a block bundle means a load that spreads and collapses. A calibrated machine such as the [ErgoPack 726X](/products/726x) applies up to 2,500N repeatably; see [best machine for heavy loads](/resources/best-pallet-strapping-machine-heavy-loads).
+- **Multiple straps** across the bundle, perpendicular to it.
+
+## Protect against the abrasive edges
+
+- **Edge protectors** where the strap crosses sharp brick/block edges, so the strap is not cut and does not slip ([edge protectors](/blog/edge-protectors-corner-boards-pallet-guide)).
+- Inspect that straps seat flat against the bundle.
+
+## Construction material strapping checklist
+
+- [ ] Pallet rated for the heavy block/brick load
+- [ ] Bundle stacked square, courses bonded
+- [ ] PET strap for most loads (steel for sharp/extreme); rated for weight
+- [ ] High, consistent, repeatable tension
+- [ ] Multiple straps, perpendicular across the bundle
+- [ ] Edge protectors where strap crosses sharp edges
+- [ ] Within pallet and strap rated capacity
+
+Bundle and strap construction materials to this standard and a heavy, abrasive, rigid load survives the forklift, the road and the building site without spreading or breaking open.`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'brick strapping',
+      'block strapping',
+      'AAC block packaging',
+      'construction materials strapping',
+      'heavy load bundling',
+      'building materials transport',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Strapping Bricks, Blocks & AAC: Bundle Heavy Construction Loads | ErgoPack',
+      description:
+        'How to bundle and strap bricks, concrete blocks and AAC blocks — palletising, PET vs steel strap, high consistent tension, and edge protection for heavy abrasive construction loads.',
+      keywords: [
+        'brick strapping',
+        'block strapping machine',
+        'AAC block packaging',
+        'construction materials strapping',
+        'how to strap bricks',
+        'building material bundling',
+      ],
+    },
+    readTime: 6,
+    views: 0,
+    createdAt: new Date(publishedAtBase[36]),
+    updatedAt: new Date(publishedAtBase[36]),
+    publishedAt: new Date(publishedAtBase[36]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
