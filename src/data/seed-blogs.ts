@@ -34,6 +34,8 @@ const publishedAtBase = [
   '2026-06-14T15:00:00+05:30',
   '2026-06-15T09:00:00+05:30',
   '2026-06-15T11:00:00+05:30',
+  '2026-06-15T13:00:00+05:30',
+  '2026-06-15T15:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -3548,6 +3550,182 @@ For most growing operations, an electric strapper is the right step: automation-
     createdAt: new Date(publishedAtBase[32]),
     updatedAt: new Date(publishedAtBase[32]),
     publishedAt: new Date(publishedAtBase[32]),
+  },
+  {
+    _id: 'seed-ceramic-tiles-export-packaging',
+    title: 'Ceramic Tile Export Packaging: How to Pack and Strap Tiles That Arrive Unbroken',
+    slug: 'ceramic-tiles-export-packaging',
+    excerpt:
+      'How India’s tile exporters pack and strap ceramic tiles for sea freight — box securing, pallet loads, horizontal and vertical strapping, ISPM-15 and moisture protection to stop breakage.',
+    content: `Ceramic tiles are heavy, dense, brittle and shipped by the container-load from clusters like Morbi to buyers worldwide. A tile that arrives chipped or cracked is a rejected tile — and on a full pallet, a shifted load can crack hundreds. Tile export packaging is unforgiving, and strapping is central to it. Here is how it is done.
+
+## Why tiles are hard to ship
+
+- **Heavy and dense** — pallet loads run high, stressing the pallet and the strap.
+- **Brittle** — chips and cracks from movement, rubbing and edge impact.
+- **Long sea voyages** — weeks of vibration and humidity from Indian ports.
+- **Tight tolerance** — buyers reject damaged or off-spec tiles outright.
+
+## Inside the box
+
+Damage prevention starts at the box:
+
+- Tiles packed **tight, with no internal movement** — tiles that rub crack each other.
+- **Foam sheets or corrugated board between layers** to cushion and separate, preventing scratches and edge chipping.
+- Boxes **strapped with industrial-grade strap** so tiles stay immobile inside the box.
+
+## Building the pallet
+
+- **High-quality, heat-treated (ISPM-15) wooden pallets** capable of bearing the load without splintering.
+- **Keep pallet loads to ~800–1,200 kg** — excess weight collapses the pallet and cracks tiles at the bottom.
+- Stack square, even, no overhang.
+- **Moisture barriers** for the humid sea leg (and manage [container condensation](/blog/container-rain-cargo-condensation-prevention)).
+
+## Strapping: horizontal AND vertical
+
+Tile pallets are the textbook case for using both strapping directions ([horizontal vs vertical strapping](/blog/horizontal-vs-vertical-strapping-machine)):
+
+- **Horizontal strapping** holds the load together around its girth, stopping the boxes from spreading.
+- **Vertical strapping** passes under the pallet and over the load, **anchoring the heavy stack to the pallet base** so it cannot shift — essential on a dense, valuable tile load.
+
+Combine both for maximum protection. And because tile loads are heavy and dense, the **tension must be high and consistent** — a loose strap on a 1,000 kg tile pallet means a shifting load and cracked tiles. A calibrated machine such as the [ErgoPack 726X](/products/726x) applies repeatable tension up to 2,500N and routes the strap under the pallet automatically; the [GO](/products/go) and [700](/products/700) automate routing for facilities using their own sealing tools. See [best machine for heavy loads](/resources/best-pallet-strapping-machine-heavy-loads).
+
+## Finish the pallet
+
+- **Shrink or stretch wrap** over the strapping for dust and moisture ([shrink vs stretch](/blog/shrink-wrap-vs-stretch-wrap)).
+- Corner protection where straps bear.
+- Clear handling and fragile marks; documentation and ISPM-15 compliance.
+
+## Tile export packaging checklist
+
+- [ ] Tiles packed tight in boxes; foam/board between layers
+- [ ] Boxes strapped so tiles cannot move inside
+- [ ] ISPM-15 heat-treated pallet, rated for the load
+- [ ] Pallet load kept to ~800–1,200 kg
+- [ ] Horizontal + vertical strapping at high, consistent tension
+- [ ] Corner protection where straps bear
+- [ ] Wrap + moisture barrier; condensation managed for sea freight
+- [ ] Fragile/handling marks and export documents
+
+Pack and strap tiles to this standard and a dense, brittle, valuable load survives weeks at sea and arrives unbroken — and unrejected.`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'ceramic tiles export packaging',
+      'tile packaging',
+      'tile strapping',
+      'Morbi tile export',
+      'tile transport damage',
+      'heavy pallet strapping',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Ceramic Tile Export Packaging: Pack & Strap Tiles to Arrive Unbroken | ErgoPack',
+      description:
+        'How India’s tile exporters pack and strap ceramic tiles for sea freight — box securing, ~800–1,200 kg pallet loads, horizontal + vertical strapping, ISPM-15 and moisture protection.',
+      keywords: [
+        'ceramic tiles export packaging',
+        'tile packaging for export',
+        'how to pack tiles for shipping',
+        'tile pallet strapping',
+        'Morbi tile export packaging',
+        'ceramic tile transport damage',
+      ],
+    },
+    readTime: 7,
+    views: 0,
+    createdAt: new Date(publishedAtBase[33]),
+    updatedAt: new Date(publishedAtBase[33]),
+    publishedAt: new Date(publishedAtBase[33]),
+  },
+  {
+    _id: 'seed-rice-agri-export-packaging',
+    title: 'Rice & Agricultural Export Packaging: Bagging, Palletising and Securing for Shipment',
+    slug: 'rice-agricultural-export-packaging',
+    excerpt:
+      'How Indian rice and agri exporters bag, palletise and secure shipments — bag types, pallet stacking, moisture and pest control, and strapping bagged loads that settle in transit.',
+    content: `India is the world's largest rice exporter, and rice — like most bagged agricultural produce — is a deceptively difficult load to ship. Bags are heavy, they settle and slump, they attract pests and moisture, and a sea voyage punishes all three. Getting the bagging, palletising and securing right is what keeps a container of rice saleable on arrival. Here is the method.
+
+## What makes bagged agri loads difficult
+
+- **They settle and slump** — bags compress and shift, so a pallet tight at dispatch goes loose, and a slumped stack topples.
+- **Moisture-sensitive** — grain absorbs humidity, risking mould and spoilage.
+- **Pest risk** — agricultural cargo is a target for infestation, with strict phytosanitary rules.
+- **Heavy, repetitive volume** — exporters bag and palletise enormous quantities under time pressure.
+
+## Bagging
+
+- Use the right bag (woven PP, jute, or multi-wall paper) for the grain and the market's requirements.
+- Fill to a consistent weight so pallets build evenly.
+- Consider liners or treated bags for moisture and pest protection where required.
+
+## Palletising bagged goods
+
+Bagged loads need a stacking pattern that stays stable as bags settle:
+
+- **Interlocking (cross/brick) stacking** binds the layers so the stack holds together as bags compress — the standard for bagged goods.
+- Keep the load square and even; avoid overhang.
+- Use **ISPM-15 heat-treated pallets** for export wood, or plastic pallets for hygiene and moisture resistance.
+
+## Securing bags that settle — the strapping challenge
+
+This is where bagged loads are won or lost. Because bags **settle and lose height in transit**, a strap that was tight at the dock goes slack — and a slack strap on a heavy bagged pallet means a slumping, toppling load. The fixes:
+
+- **PET strap**, which recovers tension as the load settles, keeping the pallet tight from warehouse to destination — where steel and even hand-tensioned PP go slack. (See [PP vs PET vs steel strapping](/resources/pet-vs-steel-strapping).)
+- **Consistent, calibrated tension** on every pallet so no unit in the batch is the weak one. A machine such as the [ErgoPack 726X](/products/726x) applies repeatable tension and routes the strap under the pallet automatically; the [GO](/products/go) and [700](/products/700) automate routing with your own tools.
+- **Edge protection and corner support** so the strap holds the slumping bags without cutting in.
+
+## Moisture and pest control for the voyage
+
+- **Desiccants** and ventilation to control humidity ([container rain](/blog/container-rain-cargo-condensation-prevention)).
+- **Fumigation / phytosanitary certification** as required by the destination — and **ISPM-15** on all wood, including dunnage ([ISPM-15 explained](/blog/ispm-15-wood-packaging-explained)).
+- Dry pallets, dry dunnage, and moisture barriers loaded in.
+
+## Rice / agri export checklist
+
+- [ ] Correct bag type, consistent fill weight
+- [ ] Interlocking stack that holds as bags settle
+- [ ] ISPM-15 wood or plastic pallets
+- [ ] PET strap (recovers tension as load settles) at consistent tension
+- [ ] Edge protection so the strap doesn't cut into bags
+- [ ] Desiccant + ventilation; condensation managed
+- [ ] Phytosanitary / fumigation certification as required
+- [ ] Dry pallets and dunnage; moisture barriers in
+
+Bag, palletise and strap to this standard — especially with PET that holds tension as the bags settle — and a container of rice leaves a humid Indian port and arrives dry, intact and saleable.`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'rice export packaging',
+      'agricultural export packaging',
+      'bagged goods palletising',
+      'grain export India',
+      'PET strap bags',
+      'phytosanitary export',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Rice & Agricultural Export Packaging: Bag, Palletise & Secure | ErgoPack India',
+      description:
+        'How Indian rice and agri exporters bag, palletise and secure shipments — stacking patterns, moisture and pest control, ISPM-15, and PET strapping that holds tension as bagged loads settle.',
+      keywords: [
+        'rice export packaging',
+        'agricultural export packaging India',
+        'how to palletise bagged goods',
+        'grain export packaging',
+        'rice bag pallet strapping',
+        'agri export securing',
+      ],
+    },
+    readTime: 7,
+    views: 0,
+    createdAt: new Date(publishedAtBase[34]),
+    updatedAt: new Date(publishedAtBase[34]),
+    publishedAt: new Date(publishedAtBase[34]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
