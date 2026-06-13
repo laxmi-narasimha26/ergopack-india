@@ -30,6 +30,8 @@ const publishedAtBase = [
   '2026-06-13T17:00:00+05:30',
   '2026-06-14T09:00:00+05:30',
   '2026-06-14T11:00:00+05:30',
+  '2026-06-14T13:00:00+05:30',
+  '2026-06-14T15:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -3215,6 +3217,173 @@ Build stable pallets that pass retail standards, secure them without crushing, a
     createdAt: new Date(publishedAtBase[28]),
     updatedAt: new Date(publishedAtBase[28]),
     publishedAt: new Date(publishedAtBase[28]),
+  },
+  {
+    _id: 'seed-cargo-lashing-methods-explained',
+    title: 'Cargo Lashing Methods Explained: Blocking, Lashing and Locking',
+    slug: 'cargo-lashing-methods-explained',
+    excerpt:
+      'The three ways cargo is secured for transport — blocking, lashing and locking — with the difference between top-over (friction) and direct lashing, and how unit-level strapping fits underneath it all.',
+    content: `Securing cargo for road, rail or sea is a discipline with defined methods, not improvisation. Understanding the three securing principles — and the lashing types within them — is the difference between a load that stays put and one that shifts. Here is the clear breakdown.
+
+## The three securing methods
+
+All cargo securing reduces to three approaches, usually used in combination:
+
+### 1. Blocking
+
+Blocking uses **wedges, chocks and bracing** to physically stop a unit from moving against other cargo, the vehicle structure, or container walls. When a unit cannot slide because something solid is in its way — and its centre of gravity sits below the top of the blocking — it is prevented from both sliding and tipping. Blocking is the first line of defence: remove the room to move.
+
+### 2. Lashing
+
+Lashing uses **straps, web lashings, chains or ropes** under tension to hold cargo down or in place. There are two main types (below).
+
+### 3. Locking
+
+Locking **mechanically locks** the cargo to the load carrier — the clearest example being the **twist locks** that secure containers to a ship or chassis. The cargo and carrier become one rigid assembly.
+
+## Two kinds of lashing: top-over vs direct
+
+This distinction is where most people get lashing wrong.
+
+- **Top-over lashing (friction lashing):** the lashing passes over the top of the cargo and presses it down onto the load bed. It does **not** restrain the cargo directly — it works by *increasing the friction* between the cargo and the surface. The downward pressure plus the friction stops sliding. Effective only if there is enough friction to begin with.
+- **Direct lashing (loop lashing):** the lashing attaches directly to the cargo and to anchor points, applying straight-pull tension to stop movement in a specific direction (lengthwise, sideways). It restrains the cargo *directly*, not just through friction.
+
+Web (textile) lashing is the most common equipment, frequently used as a top-over lashing.
+
+## Where unit-level securing fits
+
+Blocking, lashing and locking all operate at the **vehicle or container level** — they secure units to the transport. But they assume each unit is *already stable*. A lashing over a pallet whose load was never strapped to its base just presses down on a stack that can still shift within itself.
+
+That is why securing is layered:
+
+1. **Unit level:** each pallet's load strapped to its pallet base at consistent tension — so the unit is solid. Calibrated machines such as the [ErgoPack 726X](/products/726x), [GO](/products/go) and [700](/products/700) make this repeatable.
+2. **Transport level:** the solid units then blocked, lashed and/or locked to the vehicle or container.
+
+Skip the unit level and the transport-level lashing has nothing solid to hold. See [how to load a shipping container](/blog/how-to-load-a-shipping-container) and [how to load a truck trailer](/blog/how-to-load-a-truck-trailer).
+
+## Cargo securing checklist
+
+- [ ] Blocking: voids filled, chocks/wedges stop sliding and tipping
+- [ ] Lashing: correct type — top-over for friction, direct for restraint
+- [ ] Locking: twist locks / mechanical locks where applicable
+- [ ] Lashings rated and tensioned to the load
+- [ ] Each pallet/unit already strapped to its base (the layer underneath)
+- [ ] Securing matched to the journey (road/rail/sea forces)
+
+Secure in layers — solid units first, then blocked, lashed and locked to the transport — and the load arrives exactly where it started.`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'cargo lashing',
+      'cargo securing methods',
+      'blocking and lashing',
+      'top over lashing',
+      'direct lashing',
+      'load restraint',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Cargo Lashing Methods Explained: Blocking, Lashing & Locking | ErgoPack',
+      description:
+        'The three cargo securing methods — blocking, lashing, locking — the difference between top-over (friction) and direct lashing, and how unit-level pallet strapping fits underneath transport securing.',
+      keywords: [
+        'cargo lashing methods',
+        'cargo securing methods',
+        'blocking and lashing',
+        'top over lashing',
+        'direct lashing',
+        'how to lash cargo',
+      ],
+    },
+    readTime: 6,
+    views: 0,
+    createdAt: new Date(publishedAtBase[29]),
+    updatedAt: new Date(publishedAtBase[29]),
+    publishedAt: new Date(publishedAtBase[29]),
+  },
+  {
+    _id: 'seed-warehouse-manual-handling-safety',
+    title: 'Warehouse Manual Handling Safety: How to Reduce Injury Risk on the Dispatch Floor',
+    slug: 'warehouse-manual-handling-safety',
+    excerpt:
+      'Manual handling is the leading source of warehouse injury. A practical guide to reducing the risk — assessment, technique, layout — and how automating the heaviest repetitive tasks removes the hazard at source.',
+    content: `Manual handling — lifting, lowering, pushing, pulling, carrying — is the single largest source of warehouse injury, and the dispatch floor is where much of it concentrates. Reducing that risk is both a duty and a productivity gain: injuries cost shifts, claims and experienced people. Here is the practical approach.
+
+## Why manual handling is the top warehouse risk
+
+Repetitive lifting and awkward postures cause **musculoskeletal injuries** — back, shoulder, knee — that build up over time rather than from one dramatic event. In a dispatch operation the risk concentrates in a few tasks: lifting cartons onto pallets, and bending and walking to strap and wrap loads by hand.
+
+## The hierarchy of controls (do them in this order)
+
+Safety regulation everywhere follows the same priority — and "be careful" is the weakest control, not the first:
+
+1. **Eliminate the manual task** — the most effective control. If a machine can do the lift or the repetitive motion, the risk is removed, not just reduced.
+2. **Engineer it out** — mechanical aids, conveyors, height-adjustable equipment.
+3. **Organise the work** — job rotation, team lifts, pacing.
+4. **Train technique** — correct lifting as a last layer, not the first.
+
+The common mistake is to jump straight to training ("lift with your legs"), which is the *weakest* control. Removing the task beats teaching people to survive it.
+
+## Practical steps on the dispatch floor
+
+- **Assess the high-risk tasks** — which lifts are heaviest, most repetitive, most awkward? Usually palletising and manual strapping.
+- **Cut the lifting** — keep loads at working height, use lift tables and mechanical aids, avoid floor-to-shoulder lifts.
+- **Cut the repetition** — automate the most repeated motions.
+- **Fix the layout** — short travel, clear aisles, nothing stored where it forces an awkward reach.
+
+## How automation removes the hazard at source
+
+The highest-value control — eliminating the task — is exactly what end-of-line automation does for the most repetitive dispatch job. Manual strapping forces operators to **bend to push the strap under the pallet and walk laps around the load** hundreds of times a shift. A mobile ChainLance routes the strap automatically, so the operator secures the pallet from a standing position without the bending and walking:
+
+- The repetitive bend-and-walk motion that drives strapping-related strain is removed, not just trained around.
+- And because it is faster (under 40 seconds vs ~120), it is a safety control that *also* lifts throughput.
+
+This is the rare case where the safety win and the efficiency win are the same change. Mobile systems such as the [ErgoPack 726X](/products/726x), [GO](/products/go) and [700](/products/700) deliver both. The throughput side is in [improve warehouse dispatch productivity](/blog/improve-warehouse-dispatch-productivity).
+
+## Manual handling checklist
+
+- [ ] High-risk manual tasks assessed (usually palletising + strapping)
+- [ ] Eliminate/automate before relying on training
+- [ ] Loads kept at working height; mechanical aids for heavy lifts
+- [ ] Most repetitive motions engineered out
+- [ ] Layout fixed for short travel and no awkward reaches
+- [ ] Repetitive bend-and-walk strapping automated at source
+
+Put the strongest controls first — remove the task, don't just train it — and you cut injury risk and clear the dispatch bottleneck with the same move.`,
+    coverImage: blogImagePaths.warehouseOperation,
+    author: 'ErgoPack India Technical Team',
+    category: 'insights',
+    tags: [
+      'manual handling safety',
+      'warehouse safety',
+      'injury prevention',
+      'hierarchy of controls',
+      'dispatch floor safety',
+      'ergonomics automation',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Warehouse Manual Handling Safety: Reduce Injury Risk | ErgoPack India',
+      description:
+        'Manual handling is the top warehouse injury source. How to reduce it with the hierarchy of controls — and how automating the heaviest repetitive dispatch tasks removes the hazard at source.',
+      keywords: [
+        'warehouse manual handling safety',
+        'manual handling injury prevention',
+        'warehouse safety',
+        'hierarchy of controls manual handling',
+        'reduce lifting injury warehouse',
+        'dispatch floor safety',
+      ],
+    },
+    readTime: 6,
+    views: 0,
+    createdAt: new Date(publishedAtBase[30]),
+    updatedAt: new Date(publishedAtBase[30]),
+    publishedAt: new Date(publishedAtBase[30]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
