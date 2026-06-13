@@ -48,6 +48,8 @@ const publishedAtBase = [
   '2026-06-18T09:00:00+05:30',
   '2026-06-18T11:00:00+05:30',
   '2026-06-18T13:00:00+05:30',
+  '2026-06-18T15:00:00+05:30',
+  '2026-06-18T17:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -4711,6 +4713,175 @@ Fill, palletise and secure FIBCs to this standard — within SWL, on a pallet, s
     createdAt: new Date(publishedAtBase[46]),
     updatedAt: new Date(publishedAtBase[46]),
     publishedAt: new Date(publishedAtBase[46]),
+  },
+  {
+    _id: 'seed-tyre-packaging-bundling-securing',
+    title: 'Tyre Packaging & Bundling: How to Stack, Strap and Ship Tyres Efficiently',
+    slug: 'tyre-packaging-bundling-securing',
+    excerpt:
+      'How tyres are bundled, strapped and palletised for transport — stacking patterns, strapping tyre stacks, space optimisation, and protecting sidewalls on a high-volume export load.',
+    content: `Tyres are awkward to ship: round, bulky relative to their weight, and shipped in enormous volumes where every cubic metre of container space costs money. The art of tyre packaging is fitting the most tyres into a container while keeping them stable and undamaged. India's tyre manufacturing and export sector runs on getting this balance right. Here is how it is done.
+
+## What makes tyres awkward to ship
+
+- **Bulky, low density** — tyres take up a lot of space for their weight, so container *volume*, not weight, is usually the limit.
+- **Round and unstable** — they roll and a loose stack collapses.
+- **Sidewall-sensitive** — pressure marks, scuffs and deformation on a stored tyre are quality issues.
+- **High volume** — manufacturers ship by the thousand, so the packing method must be fast.
+
+## Stacking patterns
+
+Tyres are stacked to balance density and stability:
+
+- **Vertical (standing) rows** — tyres stood on their tread, lined up; common for loading containers densely.
+- **Stacked (laid flat) columns** — tyres laid flat and stacked; simple but can be less space-efficient.
+- **Telescoping / nesting** — smaller tyres nested inside larger ones to use the void, maximising tyres per container.
+
+The right pattern depends on the tyre sizes and whether you are filling by volume.
+
+## Bundling and strapping tyre stacks
+
+Loose tyres shift and roll, so stacks are **strapped into stable bundles**:
+
+- **Strap groups of tyres together** so they travel as one unit rather than loose items — vertical straps around a stack hold it together.
+- Apply **consistent tension** firm enough to hold the stack without deforming the sidewalls — over-tension marks the rubber. A calibrated machine such as the [ErgoPack 726X](/products/726x), [GO](/products/go) or [700](/products/700) applies repeatable tension and routes the strap automatically.
+- For palletised tyres, **strap the stack down to the pallet** so it cannot topple.
+
+## Protect and optimise
+
+- **Protect sidewalls** from the strap and from rubbing — pads or correct strap placement.
+- **Optimise the fill** — nesting and the right pattern can add hundreds of tyres per container, directly improving freight economics (the same density logic as [LTL freight class](/blog/ltl-freight-shipping-pallets-guide)).
+- Wrap or bag where the market or cleanliness requires.
+
+## Tyre packaging checklist
+
+- [ ] Stacking pattern chosen for density and stability (vertical/flat/nested)
+- [ ] Nesting used to fill voids and add tyres per container
+- [ ] Tyre stacks strapped into stable bundles
+- [ ] Consistent tension — holds the stack without marking sidewalls
+- [ ] Palletised stacks strapped down so they cannot topple
+- [ ] Sidewalls protected from strap and rubbing
+- [ ] Fill optimised for container volume
+
+Pack tyres to this standard — the right pattern, nested for density, strapped into stable bundles without marking the rubber — and you ship the most tyres per container with none arriving damaged.`,
+    coverImage: blogImagePaths.warehouseOperation,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'tyre packaging',
+      'tire bundling',
+      'tyre strapping',
+      'tyre export',
+      'tyre stacking',
+      'container loading tyres',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Tyre Packaging & Bundling: Stack, Strap & Ship Tyres Efficiently | ErgoPack',
+      description:
+        'How tyres are bundled, strapped and palletised for transport — stacking patterns, nesting for density, strapping tyre stacks without marking sidewalls, and optimising container fill.',
+      keywords: [
+        'tyre packaging',
+        'tire bundling strapping',
+        'tyre strapping machine',
+        'how to pack tyres for export',
+        'tyre stacking container',
+        'tyre export packaging India',
+      ],
+    },
+    readTime: 6,
+    views: 0,
+    createdAt: new Date(publishedAtBase[47]),
+    updatedAt: new Date(publishedAtBase[47]),
+    publishedAt: new Date(publishedAtBase[47]),
+  },
+  {
+    _id: 'seed-furniture-export-packaging',
+    title: 'Furniture Export Packaging: How to Protect and Secure Furniture for Shipping',
+    slug: 'furniture-export-packaging',
+    excerpt:
+      'How furniture is packaged for export — knock-down vs assembled, corner and edge protection, blanket wrap, crating, and securing bulky, finish-sensitive pieces against transit damage.',
+    content: `Furniture combines every packaging difficulty: large and awkward, often heavy, with delicate finishes, protruding parts and a value that makes damage expensive. India's wooden-furniture and handicraft export sector ships pieces that must survive weeks at sea and arrive ready to place in a room. Here is how furniture is packaged and secured for export.
+
+## What makes furniture hard to ship
+
+- **Bulky and awkward** — odd shapes, protruding legs and arms that catch and break.
+- **Finish-sensitive** — scratches, scuffs and dents on polished or upholstered surfaces are damage.
+- **Mixed materials** — wood, glass, metal, fabric, each with different protection needs.
+- **High value, long voyage** — expensive pieces facing weeks of humidity and handling.
+
+## Knock-down vs assembled
+
+The first decision shapes everything:
+
+- **Knock-down (flat-pack)** — disassembled into flat components, far more space-efficient and less prone to broken joints and protrusions; the default for volume export.
+- **Assembled** — shipped built, needing much more protection and space; for pieces that cannot be dismantled.
+
+Flat-packing where possible cuts both freight cost and damage risk.
+
+## Protect the piece
+
+- **Corner and edge protectors** on every vulnerable edge — the most common damage point.
+- **Blanket wrap / foam / bubble** over surfaces; **interleaving** for stacked components.
+- **Wrap glass and mirror elements separately** and on edge ([glass & mirror packaging](/blog/glass-mirror-export-packaging)).
+- Protect protruding parts; brace anything that can flex.
+- **Cartons or wooden crates** rated for the weight; ISPM-15 for export wood.
+
+## Secure for transport
+
+- **Strap components/cartons to the pallet** so the load is one stable unit and pieces cannot shift and rub.
+- Use **edge protectors under the strap** — furniture cartons and surfaces are an over-tension risk; apply **gentle, consistent tension** that holds without crushing or marking. A calibrated machine such as the [ErgoPack 726X](/products/726x), [GO](/products/go) or [700](/products/700) sets a repeatable, controlled tension every time.
+- Manage **moisture** — wood and upholstery suffer in humidity; desiccants and barriers, and managed [container condensation](/blog/container-rain-cargo-condensation-prevention).
+
+## Mark and document
+
+- **Fragile, this-way-up and handling marks.**
+- Assembly instructions and fittings for knock-down pieces.
+- Export documentation; ISPM-15 stamps visible.
+
+## Furniture export checklist
+
+- [ ] Knock-down/flat-packed where possible
+- [ ] Corner and edge protectors on vulnerable edges
+- [ ] Blanket/foam wrap; glass elements packed on edge separately
+- [ ] Crates/cartons rated for weight; ISPM-15 wood
+- [ ] Components strapped to the pallet at gentle, consistent tension
+- [ ] Edge protectors under straps; finishes protected
+- [ ] Moisture managed; fragile/handling marks; documents
+
+Package furniture to this standard — flat-packed where possible, corner-protected, gently but firmly secured and moisture-managed — and a bulky, delicate, valuable piece arrives ready for the room, not the repair shop.`,
+    coverImage: blogImagePaths.warehouseOperation,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'furniture export packaging',
+      'furniture packaging',
+      'knock-down furniture',
+      'furniture crating',
+      'furniture transport damage',
+      'furniture strapping',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Furniture Export Packaging: Protect & Secure Furniture for Shipping | ErgoPack',
+      description:
+        'How furniture is packaged for export — knock-down vs assembled, corner and edge protection, blanket wrap, crating, ISPM-15, and gentle secure palletising of finish-sensitive pieces.',
+      keywords: [
+        'furniture export packaging',
+        'how to pack furniture for shipping',
+        'furniture packaging export',
+        'knock-down furniture packing',
+        'furniture crating export',
+        'furniture transport damage',
+      ],
+    },
+    readTime: 7,
+    views: 0,
+    createdAt: new Date(publishedAtBase[48]),
+    updatedAt: new Date(publishedAtBase[48]),
+    publishedAt: new Date(publishedAtBase[48]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
