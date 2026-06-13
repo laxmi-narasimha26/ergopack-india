@@ -26,6 +26,8 @@ const publishedAtBase = [
   '2026-06-13T09:00:00+05:30',
   '2026-06-13T11:00:00+05:30',
   '2026-06-13T13:00:00+05:30',
+  '2026-06-13T15:00:00+05:30',
+  '2026-06-13T17:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -2872,6 +2874,177 @@ Cut the causes one by one, fix the securing first, and your damage rate — and 
     createdAt: new Date(publishedAtBase[24]),
     updatedAt: new Date(publishedAtBase[24]),
     publishedAt: new Date(publishedAtBase[24]),
+  },
+  {
+    _id: 'seed-shrink-wrap-vs-stretch-wrap',
+    title: 'Shrink Wrap vs Stretch Wrap: The Difference and When to Use Each',
+    slug: 'shrink-wrap-vs-stretch-wrap',
+    excerpt:
+      'Shrink wrap and stretch wrap are not the same thing. The real difference, what each is for, when to use which on a pallet — and the job neither one actually does.',
+    content: `Shrink wrap and stretch wrap get used interchangeably in conversation, but they are different materials, applied differently, for different jobs. Picking the wrong one wastes money or leaves your load exposed. Here is the clear difference — and an important point both of them miss.
+
+## The core difference: heat vs tension
+
+- **Stretch wrap (pallet wrap)** is an elastic film **wound around the load under tension**. Its own stretch holds the items together. No heat. It is the standard for unitising a pallet.
+- **Shrink wrap** is a film placed loosely around the product and then **heated** (heat gun or tunnel) so it shrinks and conforms tightly to the exact shape of the contents.
+
+One uses elasticity; the other uses heat. That single difference drives everything else.
+
+## What each is for
+
+| | Stretch wrap | Shrink wrap |
+| --- | --- | --- |
+| Applied with | Tension (no heat) | Heat |
+| Main use | Unitising and securing pallet loads | Sealing individual products / retail goods |
+| Strength | Holds items together on a pallet | Conforms tightly; seals out air, dust, moisture |
+| Best for | Bulk pallet shipment & storage | Consumer goods, food, weatherproof covers |
+| Cost to unitise a pallet | Lower | Higher (heat + energy) |
+
+## When to use which
+
+- **Securing a pallet for transport:** use **stretch wrap**. It is designed to hold cased or boxed products in a uniform position on the pallet and is more cost-effective for high-volume shipments.
+- **Protecting individual products for retail or shelving:** use **shrink wrap**. It seals out moisture, dirt and air and conforms to the product.
+- **Weatherproofing a whole pallet (e.g. outdoor storage):** a shrink **pallet cover** can be used, but it is rarely the everyday choice for transport unitising.
+
+In short: **stretch to unitise a pallet, shrink to seal a product.** Most dispatch floors use stretch wrap on pallets and reserve shrink wrap for retail-facing or moisture-critical items.
+
+## The job neither one does
+
+Here is the point both materials share, and it matters: **neither shrink nor stretch wrap anchors the load to the pallet.** Both wrap the *boxes* — to each other (stretch) or individually (shrink) — but the unitised block can still slide off the pallet deck under heavy vibration or a sudden jolt, because film provides little vertical anchoring.
+
+For light loads, wrap alone is fine. For medium and heavy loads, the complete method is **strap to secure, then wrap to protect**:
+
+- **Strapping** passes tensioned strap under the pallet and over the load, anchoring it to the base — the securing.
+- **Wrapping** (stretch, usually) adds the dust/moisture barrier and unitises the boxes — the protection.
+
+A calibrated machine such as the [ErgoPack 726X](/products/726x), [GO](/products/go) or [700](/products/700) handles the anchoring repeatably on every pallet. See [pallet strapping vs stretch wrapping](/resources/pallet-strapping-vs-stretch-wrapping) for the full cost and stability comparison, and [how to stretch wrap a pallet](/blog/how-to-stretch-wrap-a-pallet) for the wrapping technique.
+
+## Quick reference
+
+- [ ] Unitising a pallet for transport → stretch wrap
+- [ ] Sealing an individual product / retail item → shrink wrap
+- [ ] Weatherproof whole-pallet cover → shrink cover (niche)
+- [ ] Remember: both protect and unitise; neither anchors to the pallet
+- [ ] Medium/heavy loads → strap first, then wrap
+
+Use stretch to unitise, shrink to seal — and strap to actually secure the load to the pallet.`,
+    coverImage: blogImagePaths.warehouseOperation,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'shrink wrap vs stretch wrap',
+      'stretch wrap',
+      'shrink wrap',
+      'pallet wrap',
+      'unitising load',
+      'packaging film',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Shrink Wrap vs Stretch Wrap: Difference & When to Use Each | ErgoPack',
+      description:
+        'Shrink wrap vs stretch wrap — the real difference (heat vs tension), what each is for, when to use which on a pallet, and the job neither one does: anchoring the load to the pallet.',
+      keywords: [
+        'shrink wrap vs stretch wrap',
+        'difference shrink stretch wrap',
+        'stretch wrap vs shrink wrap',
+        'pallet wrap types',
+        'when to use shrink wrap',
+        'stretch film vs shrink film',
+      ],
+    },
+    readTime: 6,
+    views: 0,
+    createdAt: new Date(publishedAtBase[25]),
+    updatedAt: new Date(publishedAtBase[25]),
+    publishedAt: new Date(publishedAtBase[25]),
+  },
+  {
+    _id: 'seed-how-to-load-a-truck-trailer',
+    title: 'How to Load a Truck Trailer: Weight Distribution, Axles and Securing',
+    slug: 'how-to-load-a-truck-trailer',
+    excerpt:
+      'How to load a trailer safely — weight distribution front to rear, keeping load over the axles, side-to-side balance, axle limits, and securing pallets so nothing shifts in transit.',
+    content: `A badly loaded trailer is dangerous before it is inefficient — it overloads axles, handles poorly, and shifts its cargo into damage. Loading a trailer well is a discipline of weight distribution and securing. Here is how it is done.
+
+## Start with the weight limits
+
+Before anything is loaded, know the limits: the truck and trailer's **gross weight** and **per-axle** limits. Exceeding an axle limit means fines and a safety risk even if the gross weight is fine. Plan the load to stay legal on every axle, not just in total.
+
+## Weight distribution front to rear
+
+The goal is a balanced trailer that keeps the right weight on each axle group:
+
+- A common target is roughly **60% of the cargo weight toward the front half** and 40% toward the rear, keeping the heaviest cargo **over or slightly forward of the trailer axles**.
+- For irregular weights, place heavier cargo toward the middle, with lighter cargo in the nose and rear.
+- The aim is even axle loading — not all the weight at one end.
+
+## Keep the centre of gravity low and centred
+
+- **Heaviest cargo low**, directly on the deck — a low centre of gravity keeps the trailer stable in corners and braking.
+- **Centred side to side.** An uneven left-right load causes handling problems and can overload tyres on one side. Balance the weight across the width.
+
+## Loading order
+
+1. Heaviest, densest pallets first — on the deck, over/just forward of the axles.
+2. Lighter pallets on top or toward the ends.
+3. Fill gaps so loads cannot slide into the space.
+
+## Secure the cargo — it will shift if you let it
+
+Weight distribution gets the trailer balanced; securing keeps it that way:
+
+- **Tie down** to the trailer's anchor points with straps, ratchet straps or load bars.
+- **Brace** across the width to stop forward/backward movement, especially at the rear doors.
+- Remember that securing the *trailer* only works if each *pallet* is already a stable unit. A pallet whose load was never strapped to its base arrives loose no matter how well the trailer was lashed.
+
+## The pallet-level point
+
+This is where trailer loading connects back to the dock. A trailer full of well-distributed but **loosely-built pallets** still delivers damage, because each pallet shifts within itself. The stable trailer load starts with stable pallets — each one strapped to its deck at consistent tension before it was ever loaded. Calibrated machines such as the [ErgoPack 726X](/products/726x), [GO](/products/go) and [700](/products/700) make that pallet-level securing repeatable. See [how to pack a pallet for shipping](/blog/how-to-pack-a-pallet-for-shipping) and [how to reduce shipping damage](/blog/how-to-reduce-shipping-damage).
+
+## Trailer loading checklist
+
+- [ ] Gross and per-axle weight limits checked
+- [ ] ~60/40 front-to-rear distribution; heaviest over the axles
+- [ ] Centre of gravity low and centred side to side
+- [ ] Heaviest pallets loaded first, on the deck
+- [ ] Cargo tied to anchor points and braced (especially the rear)
+- [ ] Voids filled so loads cannot slide
+- [ ] Every pallet already strapped to its base before loading
+
+Load to this standard and the trailer is legal on every axle, stable on the road, and the cargo arrives where you loaded it.`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'how to load a truck',
+      'trailer weight distribution',
+      'axle weight',
+      'cargo securing',
+      'load a trailer',
+      'truck loading',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'How to Load a Truck Trailer: Weight Distribution & Securing | ErgoPack',
+      description:
+        'How to load a trailer safely — 60/40 front-to-rear weight distribution, keeping load over the axles, side-to-side balance, axle limits, and securing pallets so cargo does not shift in transit.',
+      keywords: [
+        'how to load a truck',
+        'how to load a trailer',
+        'trailer weight distribution',
+        'axle weight distribution',
+        'cargo securing trailer',
+        'truck loading guide',
+      ],
+    },
+    readTime: 7,
+    views: 0,
+    createdAt: new Date(publishedAtBase[26]),
+    updatedAt: new Date(publishedAtBase[26]),
+    publishedAt: new Date(publishedAtBase[26]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
