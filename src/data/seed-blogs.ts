@@ -40,6 +40,8 @@ const publishedAtBase = [
   '2026-06-16T09:00:00+05:30',
   '2026-06-16T11:00:00+05:30',
   '2026-06-16T13:00:00+05:30',
+  '2026-06-17T09:00:00+05:30',
+  '2026-06-17T11:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -4044,6 +4046,163 @@ Bundle and strap long products to this standard and a flexible, slide-prone, sur
     createdAt: new Date(publishedAtBase[38]),
     updatedAt: new Date(publishedAtBase[38]),
     publishedAt: new Date(publishedAtBase[38]),
+  },
+  {
+    _id: 'seed-glass-mirror-export-packaging',
+    title: 'Glass & Mirror Export Packaging: Crates, A-Frames and Securing Without Breakage',
+    slug: 'glass-mirror-export-packaging',
+    excerpt:
+      'How to crate and secure flat glass, mirrors and glazing units for export — vertical orientation, A-frame/L-pallets, interleaving, edge protection, and banding that holds without bending the panels.',
+    content: `Flat glass and mirrors are the most unforgiving load in logistics: rigid, heavy, and catastrophic when they fail — one cracked panel can take out a whole stack. Shipping architectural glass, glazing units and mirrors for export is a specialist discipline built around one rule and a set of methods. Here is how it is done.
+
+## The one rule: glass travels on edge, never flat
+
+Flat glass is strong on its edge and weak across its face. Laid flat, the weight of the panels and any vibration flexes the glass until it cracks. **Glass and mirrors are shipped standing vertically, on edge**, in crates or A-frames designed to hold them that way. Everything else follows from this.
+
+## Crates and A-frames
+
+- **Wooden A-frames and L-pallets** with internal bracing and precise dimensions hold glazing units, tempered and laminated glass, and custom architectural glass stable at every handling point.
+- **Crates** for export are stout, screwed construction (framed timber with plywood/OSB sheathing, exterior battens to prevent puncture) — solid enough to protect a delicate cargo through a sea voyage.
+- For export, all wood must be **ISPM-15 compliant** ([ISPM-15 explained](/blog/ispm-15-wood-packaging-explained)).
+
+## Inside the crate
+
+- **Suspend the glass off the floor** — blocking under the panels so the glass never rests directly on the wood; this acts as suspension and absorbs shock.
+- **Interleaving** (paper or foam) between panels so they cannot rub or scratch each other.
+- **Edge protectors** on the corners and edges — the most vulnerable points.
+- **Anti-slip bases** so the load cannot slide.
+
+## Securing — band the crate, don't bend the glass
+
+- **Band/strap around the entire crate** to lock the contents and limit movement.
+- Straps must **secure the glass vertically without bending the panels** — tension that flexes the glass is worse than no strap at all.
+- Apply **consistent, controlled tension**: firm enough to immobilise a heavy stack, never so much that it loads the glass face. A calibrated machine such as the [ErgoPack 726X](/products/726x) applies an exact, repeatable tension and routes the strap automatically; the [GO](/products/go) and [700](/products/700) automate routing with your own tools. Use edge protectors under every strap ([edge protectors](/blog/edge-protectors-corner-boards-pallet-guide)).
+
+## Mark, document, manage moisture
+
+- **Fragile, this-way-up and handling marks** — clearly and on all sides.
+- Moisture barriers and condensation management for the sea leg ([container rain](/blog/container-rain-cargo-condensation-prevention)).
+- Export documentation and ISPM-15 stamps left visible.
+
+## Glass / mirror export checklist
+
+- [ ] Glass oriented vertically, on edge — never flat
+- [ ] A-frame / L-pallet or stout ISPM-15 crate
+- [ ] Glass suspended off the floor (blocking under panels)
+- [ ] Interleaving between panels; edge protectors on corners
+- [ ] Crate banded; straps hold without bending the glass
+- [ ] Consistent controlled tension; edge protectors under straps
+- [ ] Fragile/this-way-up marks; moisture managed; ISPM-15 visible
+
+Crate and secure glass to this standard — on edge, suspended, interleaved and banded without bending — and a brittle, rigid, high-value load survives the forklift and the ocean intact.`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'glass export packaging',
+      'mirror packaging',
+      'glass crate',
+      'A-frame glass',
+      'flat glass transport',
+      'glazing unit packaging',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Glass & Mirror Export Packaging: Crates, A-Frames & Securing | ErgoPack India',
+      description:
+        'How to crate and secure flat glass, mirrors and glazing units for export — vertical on-edge orientation, A-frames, interleaving, edge protection, and banding that holds without bending panels.',
+      keywords: [
+        'glass export packaging',
+        'how to pack glass for shipping',
+        'mirror packaging export',
+        'glass crate A-frame',
+        'flat glass transport packaging',
+        'glazing unit packaging',
+      ],
+    },
+    readTime: 7,
+    views: 0,
+    createdAt: new Date(publishedAtBase[39]),
+    updatedAt: new Date(publishedAtBase[39]),
+    publishedAt: new Date(publishedAtBase[39]),
+  },
+  {
+    _id: 'seed-paper-reel-roll-securing',
+    title: 'Securing Paper Reels & Rolls for Transport: Eyes Vertical vs Horizontal',
+    slug: 'paper-reel-roll-securing',
+    excerpt:
+      'How to load and secure paper reels and rolls — eyes vertical vs eyes horizontal, banding rolls together, chocks and blocking, and protecting the edges of heavy paper rolls.',
+    content: `Paper reels are heavy, cylindrical and roll if you let them — and a loose reel on a truck is a serious hazard. Securing them is a defined discipline that depends, like steel coils, on how the roll is oriented. Here is how paper reels and rolls are loaded and secured.
+
+## Orientation: eyes vertical vs eyes horizontal
+
+A reel's "eye" is its hollow core. How it sits changes the securing method:
+
+- **Eyes vertical** — the reel stands up, core facing up. The risk is tipping, especially for tall, narrow reels. Whether a roll needs extra restraint depends on its width-to-diameter ratio; reels that can tip are **banded to adjacent rolls, braced, or tied down**.
+- **Eyes horizontal (lengthwise/crosswise)** — the reel lies on its side. The risk is rolling, so the front and rear reels must be **blocked with chocks or wedges held by more than friction** so they cannot work loose in transit.
+
+## Block, chock and band
+
+- **Chocks and wedges** stop horizontal reels rolling — and must be fixed in place, not just relying on friction.
+- **Blocking against the rear doors** secures the rearmost reel.
+- **Banding reels together** turns several rolls into one stable mass; in multi-layer loads, the rearmost upper reel is banded to the rolls below.
+- Mind the spacing rules — large gaps between reel ends and the walls require specific securing.
+
+## Protect the paper
+
+Paper rolls damage easily at the edges and from moisture:
+
+- **Edge/end protection** so straps and handling do not crush or tear the roll edges.
+- **Moisture protection** — protective paper under reels in damp conditions (but not together with anti-slip material), desiccants for sea export, and managed [container condensation](/blog/container-rain-cargo-condensation-prevention).
+- Wrapping over the reel for dust and moisture.
+
+## Where consistent strapping helps
+
+The circumferential and cross banding that holds reels together and stops telescoping needs **tight, consistent tension** — a loose band lets a reel shift or telescope. For mills and converters palletising or bundling rolls, a calibrated machine such as the [ErgoPack 726X](/products/726x), [GO](/products/go) or [700](/products/700) applies repeatable tension and routes the strap automatically. PET strap holds tension and won't rust-mark the paper ([PP vs PET vs steel](/resources/pet-vs-steel-strapping)).
+
+## Paper reel securing checklist
+
+- [ ] Orientation decided (eyes vertical vs horizontal) and its risk addressed
+- [ ] Horizontal reels chocked/wedged (fixed, not friction alone)
+- [ ] Tipping-prone vertical reels banded/braced/tied down
+- [ ] Reels banded together into a stable mass
+- [ ] Edge/end protection on the roll edges
+- [ ] Moisture managed; wrap for dust
+- [ ] Consistent tension on circumferential/cross bands
+
+Load and secure paper reels to this standard — oriented, chocked, banded and edge-protected — and a heavy, roll-prone load stays exactly where it was loaded.`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'paper reel securing',
+      'paper roll transport',
+      'eyes vertical horizontal',
+      'reel banding',
+      'paper mill packaging',
+      'roll securing',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Securing Paper Reels & Rolls: Eyes Vertical vs Horizontal | ErgoPack India',
+      description:
+        'How to load and secure paper reels and rolls — eyes vertical vs horizontal, banding rolls together, chocks and blocking, edge protection and consistent tension on circumferential bands.',
+      keywords: [
+        'paper reel securing',
+        'how to secure paper rolls',
+        'paper roll transport',
+        'reel banding',
+        'eyes vertical horizontal paper',
+        'paper mill roll packaging',
+      ],
+    },
+    readTime: 6,
+    views: 0,
+    createdAt: new Date(publishedAtBase[40]),
+    updatedAt: new Date(publishedAtBase[40]),
+    publishedAt: new Date(publishedAtBase[40]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
