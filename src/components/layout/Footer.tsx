@@ -23,16 +23,6 @@ const footerLinks = {
     { label: 'Reduce Transit Damage', href: '/resources/reduce-pallet-transit-damage' },
     { label: 'All Resources & Guides', href: '/resources' },
   ],
-  locations: [
-    { label: 'Mumbai', href: '/locations/pallet-strapping-machine-mumbai' },
-    { label: 'Delhi NCR', href: '/locations/pallet-strapping-machine-delhi-ncr' },
-    { label: 'Pune', href: '/locations/pallet-strapping-machine-pune' },
-    { label: 'Chennai', href: '/locations/pallet-strapping-machine-chennai' },
-    { label: 'Ahmedabad', href: '/locations/pallet-strapping-machine-ahmedabad' },
-    { label: 'JNPT / Nhava Sheva', href: '/locations/pallet-strapping-machine-jnpt-nhava-sheva' },
-    { label: 'Mundra Port', href: '/locations/pallet-strapping-machine-mundra' },
-    { label: 'All Locations We Serve', href: '/locations' },
-  ],
   company: [
     { label: 'About Us', href: '/about' },
     { label: 'Locations We Serve', href: '/locations' },
@@ -45,11 +35,75 @@ const footerLinks = {
   ],
 };
 
+const locationsByState: Array<{
+  state: string;
+  cities: Array<{ label: string; href: string }>;
+}> = [
+  {
+    state: 'Maharashtra',
+    cities: [
+      { label: 'Mumbai', href: '/locations/pallet-strapping-machine-mumbai' },
+      { label: 'Pune', href: '/locations/pallet-strapping-machine-pune' },
+      { label: 'Nagpur', href: '/locations/pallet-strapping-machine-nagpur' },
+      { label: 'JNPT / Nhava Sheva', href: '/locations/pallet-strapping-machine-jnpt-nhava-sheva' },
+    ],
+  },
+  {
+    state: 'Gujarat',
+    cities: [
+      { label: 'Ahmedabad', href: '/locations/pallet-strapping-machine-ahmedabad' },
+      { label: 'Vadodara', href: '/locations/pallet-strapping-machine-vadodara' },
+      { label: 'Surat', href: '/locations/pallet-strapping-machine-surat' },
+      { label: 'Rajkot', href: '/locations/pallet-strapping-machine-rajkot' },
+      { label: 'Mundra Port', href: '/locations/pallet-strapping-machine-mundra' },
+      { label: 'Kandla Port', href: '/locations/pallet-strapping-machine-kandla' },
+      { label: 'Pipavav Port', href: '/locations/pallet-strapping-machine-pipavav' },
+    ],
+  },
+  {
+    state: 'Tamil Nadu',
+    cities: [
+      { label: 'Chennai', href: '/locations/pallet-strapping-machine-chennai' },
+      { label: 'Coimbatore', href: '/locations/pallet-strapping-machine-coimbatore' },
+      { label: 'Ennore Port', href: '/locations/pallet-strapping-machine-ennore' },
+      { label: 'Tuticorin Port', href: '/locations/pallet-strapping-machine-tuticorin' },
+    ],
+  },
+  {
+    state: 'NCR & North',
+    cities: [
+      { label: 'Delhi NCR', href: '/locations/pallet-strapping-machine-delhi-ncr' },
+      { label: 'Manesar', href: '/locations/pallet-strapping-machine-manesar' },
+      { label: 'Faridabad', href: '/locations/pallet-strapping-machine-faridabad' },
+      { label: 'Ludhiana', href: '/locations/pallet-strapping-machine-ludhiana' },
+    ],
+  },
+  {
+    state: 'South & Central',
+    cities: [
+      { label: 'Bangalore', href: '/locations/pallet-strapping-machine-bangalore' },
+      { label: 'Hyderabad', href: '/locations/pallet-strapping-machine-hyderabad' },
+      { label: 'Mangalore Port', href: '/locations/pallet-strapping-machine-mangalore' },
+      { label: 'Cochin Port', href: '/locations/pallet-strapping-machine-cochin' },
+      { label: 'Indore', href: '/locations/pallet-strapping-machine-indore' },
+    ],
+  },
+  {
+    state: 'East',
+    cities: [
+      { label: 'Kolkata / Haldia', href: '/locations/pallet-strapping-machine-kolkata-haldia' },
+      { label: 'Jamshedpur', href: '/locations/pallet-strapping-machine-jamshedpur' },
+      { label: 'Visakhapatnam', href: '/locations/pallet-strapping-machine-visakhapatnam' },
+      { label: 'Krishnapatnam Port', href: '/locations/pallet-strapping-machine-krishnapatnam' },
+    ],
+  },
+];
+
 export default function Footer() {
   return (
     <footer className="bg-luxury-off-white border-t border-gray-200">
       <div className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-x-8 gap-y-10 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-10 mb-12">
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block mb-6">
@@ -141,25 +195,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Locations */}
-          <div>
-            <h3 className="text-gray-900 font-semibold mb-4 text-sm uppercase tracking-wider">
-              Locations Served
-            </h3>
-            <ul className="space-y-3">
-              {footerLinks.locations.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-gray-600 hover:text-gray-900 transition-colors text-sm"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           {/* Company */}
           <div>
             <h3 className="text-gray-900 font-semibold mb-4 text-sm uppercase tracking-wider">
@@ -177,6 +212,42 @@ export default function Footer() {
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+
+        {/* Locations Served — grouped by state */}
+        <div className="pt-10 border-t border-gray-200 mb-12">
+          <div className="flex items-baseline justify-between mb-6">
+            <h3 className="text-gray-900 font-semibold text-sm uppercase tracking-wider">
+              Locations Served
+            </h3>
+            <Link
+              href="/locations"
+              className="text-[#C8102E] hover:text-red-700 transition-colors text-sm font-semibold"
+            >
+              All locations →
+            </Link>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-8">
+            {locationsByState.map((group) => (
+              <div key={group.state}>
+                <h4 className="text-gray-900 font-medium mb-3 text-xs uppercase tracking-wider">
+                  {group.state}
+                </h4>
+                <ul className="space-y-2.5">
+                  {group.cities.map((city) => (
+                    <li key={city.href}>
+                      <Link
+                        href={city.href}
+                        className="text-gray-600 hover:text-gray-900 transition-colors text-sm"
+                      >
+                        {city.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
 
