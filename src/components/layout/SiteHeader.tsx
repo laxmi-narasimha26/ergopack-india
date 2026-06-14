@@ -43,6 +43,7 @@ const productLines = [
 ];
 
 const navLinks = [
+  { href: '/factory-floor-automation', label: 'Automation' },
   { href: '/industries-served', label: 'Industries' },
   { href: '/roi-calculator', label: 'ROI Calculator' },
   { href: '/testimonials', label: 'Testimonials' },

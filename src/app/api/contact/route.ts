@@ -15,11 +15,12 @@ import { ContactRequestModel } from '@/lib/db/models/ContactRequest';
 // Validation schema matching the frontend
 const contactSchema = z.object({
   name: z.string().min(2).max(100),
-  company: z.string().min(2).max(100),
-  jobTitle: z.string().min(2).max(100),
   email: z.string().email(),
-  industry: z.enum(['pharmaceuticals', 'automotive', 'electronics', 'other']),
-  phone: z.string().optional(),
+  phone: z.string().min(6).max(20),
+  // Company / job title / industry are optional — minimal-friction lead capture
+  company: z.string().max(100).optional(),
+  jobTitle: z.string().max(100).optional(),
+  industry: z.enum(['pharmaceuticals', 'automotive', 'electronics', 'other']).optional(),
   message: z.string().max(1000).optional(),
   // Honeypot fields (should be empty)
   website: z.string().optional(),
@@ -47,7 +48,7 @@ async function sendNotificationEmail(data: z.infer<typeof contactSchema>) {
   const adminMailOptions = {
     from: process.env.SMTP_FROM || 'noreply@ergopack-india.com',
     to: process.env.CONTACT_EMAIL || 'marketing@benz-packaging.com',
-    subject: `New Contact Request from ${data.name} - ${data.company}`,
+    subject: `New Contact Request from ${data.name}${data.company ? ` - ${data.company}` : ''}`,
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <h2 style="color: #C8102E;">New Contact Request</h2>
@@ -58,11 +59,11 @@ async function sendNotificationEmail(data: z.infer<typeof contactSchema>) {
           </tr>
           <tr>
             <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Company:</strong></td>
-            <td style="padding: 10px; border-bottom: 1px solid #eee;">${data.company}</td>
+            <td style="padding: 10px; border-bottom: 1px solid #eee;">${data.company || 'Not provided'}</td>
           </tr>
           <tr>
             <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Job Title:</strong></td>
-            <td style="padding: 10px; border-bottom: 1px solid #eee;">${data.jobTitle}</td>
+            <td style="padding: 10px; border-bottom: 1px solid #eee;">${data.jobTitle || 'Not provided'}</td>
           </tr>
           <tr>
             <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Email:</strong></td>
@@ -74,7 +75,7 @@ async function sendNotificationEmail(data: z.infer<typeof contactSchema>) {
           </tr>
           <tr>
             <td style="padding: 10px; border-bottom: 1px solid #eee;"><strong>Industry:</strong></td>
-            <td style="padding: 10px; border-bottom: 1px solid #eee;">${data.industry}</td>
+            <td style="padding: 10px; border-bottom: 1px solid #eee;">${data.industry || 'Not specified'}</td>
           </tr>
         </table>
         ${
@@ -106,8 +107,8 @@ async function sendNotificationEmail(data: z.infer<typeof contactSchema>) {
         <p>Thank you for contacting ErgoPack India. We have received your inquiry and our team will get back to you within 24-48 business hours.</p>
         <p><strong>Your Request Summary:</strong></p>
         <ul>
-          <li>Company: ${data.company}</li>
-          <li>Industry: ${data.industry}</li>
+          ${data.company ? `<li>Company: ${data.company}</li>` : ''}
+          ${data.industry ? `<li>Industry: ${data.industry}</li>` : ''}
         </ul>
         <p>In the meantime, feel free to explore our products at <a href="https://ergopack-india.com/products">ergopack-india.com/products</a>.</p>
         <hr style="border: none; border-top: 1px solid #eee; margin: 30px 0;">
@@ -206,8 +207,8 @@ export async function POST(request: NextRequest) {
     const sanitizedData = {
       ...validatedData,
       name: sanitizeString(validatedData.name),
-      company: sanitizeString(validatedData.company),
-      jobTitle: sanitizeString(validatedData.jobTitle),
+      company: validatedData.company ? sanitizeString(validatedData.company) : undefined,
+      jobTitle: validatedData.jobTitle ? sanitizeString(validatedData.jobTitle) : undefined,
       message: validatedData.message ? sanitizeString(validatedData.message) : undefined,
     };
 

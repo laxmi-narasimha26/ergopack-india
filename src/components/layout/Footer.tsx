@@ -15,6 +15,14 @@ const footerLinks = {
     { label: 'Ceramics, Stone & Glass', href: '/blog/ceramic-tiles-export-packaging' },
     { label: 'Agri, Food & Textiles', href: '/blog/rice-agricultural-export-packaging' },
   ],
+  automation: [
+    { label: 'Factory-Floor Automation', href: '/factory-floor-automation' },
+    { label: 'Warehouse Automation', href: '/factory-floor-automation/warehouse-automation' },
+    { label: 'Manufacturing Automation', href: '/factory-floor-automation/manufacturing-automation' },
+    { label: 'Increase Efficiency', href: '/factory-floor-automation/increase-factory-efficiency' },
+    { label: 'Reduce Labour Cost', href: '/factory-floor-automation/reduce-labour-cost' },
+    { label: 'Reduce Shipment Rejections', href: '/factory-floor-automation/reduce-shipment-rejections' },
+  ],
   resources: [
     { label: 'Price & Buying Guide', href: '/resources/pallet-strapping-machine-price-india' },
     { label: 'ROI & Cost Comparison', href: '/resources/pallet-strapping-roi-cost-comparison' },
@@ -108,7 +116,7 @@ export default function Footer() {
   return (
     <footer className="bg-luxury-off-white border-t border-gray-200">
       <div className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-10 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-x-8 gap-y-10 mb-12">
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block mb-6">
@@ -169,6 +177,25 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               {footerLinks.industries.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-600 hover:text-gray-900 transition-colors text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Automation */}
+          <div>
+            <h3 className="text-gray-900 font-semibold mb-4 text-sm uppercase tracking-wider">
+              Automation
+            </h3>
+            <ul className="space-y-3">
+              {footerLinks.automation.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}

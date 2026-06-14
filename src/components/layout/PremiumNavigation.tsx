@@ -10,6 +10,7 @@ const showSolutionsTab = false;
 
 const navItems = [
   { href: '/products', label: 'Products' },
+  { href: '/factory-floor-automation', label: 'Automation' },
   { href: '/industries-served', label: 'Industries' },
   { href: '/solutions', label: 'Solutions', hidden: !showSolutionsTab },
   { href: '/roi-calculator', label: 'ROI Calculator' },

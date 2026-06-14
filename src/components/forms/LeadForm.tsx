@@ -66,13 +66,17 @@ export default function LeadForm({
     e.preventDefault();
     if (submitting) return;
 
-    // Minimal client validation to match the API's requirements
-    if (values.name.trim().length < 2 || values.company.trim().length < 2) {
-      toast.error('Please enter your name and company.');
+    // Required: name, email, phone. Company + requirement are optional.
+    if (values.name.trim().length < 2) {
+      toast.error('Please enter your name.');
       return;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
       toast.error('Please enter a valid email address.');
+      return;
+    }
+    if (values.phone.replace(/\D/g, '').length < 6) {
+      toast.error('Please enter your phone number.');
       return;
     }
 
@@ -80,13 +84,11 @@ export default function LeadForm({
     try {
       const payload = {
         name: values.name.trim(),
-        company: values.company.trim(),
-        // The API requires a job title (min 2 chars); default it when the
-        // compact form doesn't ask, so the submission is never rejected.
-        jobTitle: 'Not specified',
         email: values.email.trim(),
+        phone: values.phone.trim(),
+        // Optional — only sent when filled
+        company: values.company.trim() || undefined,
         industry: values.industry,
-        phone: values.phone.trim() || undefined,
         message: [sourceLabel ? `[Source: ${sourceLabel}]` : '', values.message.trim()]
           .filter(Boolean)
           .join(' — ')
@@ -171,62 +173,53 @@ export default function LeadForm({
           </label>
         </div>
 
-        <div className="grid gap-3.5 sm:grid-cols-2">
-          <input
-            name="name"
-            value={values.name}
-            onChange={handleChange}
-            placeholder="Your name *"
-            autoComplete="name"
-            className={inputBase}
-            required
-          />
-          <input
-            name="company"
-            value={values.company}
-            onChange={handleChange}
-            placeholder="Company *"
-            autoComplete="organization"
-            className={inputBase}
-            required
-          />
-        </div>
+        <input
+          name="name"
+          value={values.name}
+          onChange={handleChange}
+          placeholder="Your name *"
+          autoComplete="name"
+          className={inputBase}
+          required
+        />
 
         <div className="grid gap-3.5 sm:grid-cols-2">
-          <input
-            name="email"
-            type="email"
-            value={values.email}
-            onChange={handleChange}
-            placeholder="Work email *"
-            autoComplete="email"
-            className={inputBase}
-            required
-          />
           <input
             name="phone"
             type="tel"
             value={values.phone}
             onChange={handleChange}
-            placeholder="Phone (optional)"
+            placeholder="Phone *"
             autoComplete="tel"
             className={inputBase}
+            required
+          />
+          <input
+            name="email"
+            type="email"
+            value={values.email}
+            onChange={handleChange}
+            placeholder="Email *"
+            autoComplete="email"
+            className={inputBase}
+            required
           />
         </div>
 
-        <select name="industry" value={values.industry} onChange={handleChange} className={inputBase}>
-          {INDUSTRIES.map((i) => (
-            <option key={i.value} value={i.value}>
-              {i.label}
-            </option>
-          ))}
-        </select>
+        <input
+          name="company"
+          value={values.company}
+          onChange={handleChange}
+          placeholder="Company (optional)"
+          autoComplete="organization"
+          className={inputBase}
+        />
 
         <textarea
           name="message"
           value={values.message}
           onChange={handleChange}
-          placeholder="Pallet size, strap material, daily volume… (optional)"
+          placeholder="What do you need? Pallet size, daily volume, biggest pain… (optional)"
           rows={3}
           className={inputBase}
         />

@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import { getPublishedSeedBlogs } from '@/data/seed-blogs';
 import { allLocationSlugs } from '@/data/location-pages';
 import { resourceArticleSlugs } from '@/data/resource-articles';
+import { automationSpokes } from '@/data/automation-pages';
 import { connectDB } from '@/lib/db/mongodb';
 
 export const dynamic = 'force-dynamic';
@@ -32,6 +33,7 @@ const staticRoutes: Array<{
   { path: '/products/compare-machines', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/roi-calculator', changeFrequency: 'monthly', priority: 0.88 },
   { path: '/resources', changeFrequency: 'weekly', priority: 0.85 },
+  { path: '/factory-floor-automation', changeFrequency: 'weekly', priority: 0.9 },
   { path: '/industries-served', changeFrequency: 'weekly', priority: 0.85 },
   { path: '/solutions', changeFrequency: 'weekly', priority: 0.8 },
   { path: '/ergonomics', changeFrequency: 'weekly', priority: 0.8 },
@@ -92,6 +94,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.84,
   }));
 
+  const automationPagesSitemap: MetadataRoute.Sitemap = automationSpokes.map((page) => ({
+    url: `${baseUrl}/factory-floor-automation/${page.slug}`,
+    lastModified: now,
+    changeFrequency: 'weekly',
+    priority: 0.86,
+  }));
+
   const seedBlogPages: MetadataRoute.Sitemap = getPublishedSeedBlogs().map((blog) => ({
     url: `${baseUrl}/blog/${blog.slug}`,
     lastModified: new Date(blog.updatedAt || blog.createdAt),
@@ -113,6 +122,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...staticPages,
     ...locationPages,
     ...resourcePages,
+    ...automationPagesSitemap,
     ...seedBlogPages,
     ...dynamicBlogPages,
   ].forEach((page) => {
