@@ -60,6 +60,8 @@ const publishedAtBase = [
   '2026-06-20T13:00:00+05:30',
   '2026-06-20T15:00:00+05:30',
   '2026-06-20T17:00:00+05:30',
+  '2026-06-21T09:00:00+05:30',
+  '2026-06-21T11:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -5757,6 +5759,197 @@ For most warehouses the answer is a mobile machine that goes to the pallet, hand
     createdAt: new Date(publishedAtBase[58]),
     updatedAt: new Date(publishedAtBase[58]),
     publishedAt: new Date(publishedAtBase[58]),
+  },
+  {
+    _id: 'seed-rising-labour-costs-automation-savings',
+    title: 'Rising Labour Costs in India: How Strapping Automation Saves Crores Over 10 Years',
+    slug: 'rising-labour-costs-strapping-automation-savings',
+    excerpt:
+      'Indian minimum wages rose again in April 2026, and labour is getting scarcer. See how automating end-of-line strapping cuts headcount on the dispatch floor and saves crores over the machine’s life — with the real numbers.',
+    content: `On 1 April 2026, India's central minimum wages rose again — an upward revision of 11.28 CPI points — continuing a steady, structural climb in the cost of labour. At the same time, manufacturers are reporting a real labour *shortage*. For any operation that still straps pallets by hand, this is a slow, compounding financial problem. This is the case for fixing it — with the actual numbers.
+
+## The structural problem: labour is getting more expensive, and scarcer
+
+Two trends are squeezing every dispatch floor in India:
+
+- **Rising statutory wages.** Central minimum wages now run from roughly ₹821/day for unskilled to ₹1,094/day for highly skilled workers in metro areas — and they ratchet up at each revision. Every increase raises the cost of every manual hour, permanently.
+- **Labour shortage.** Manufacturers in 2026 report difficulty finding and keeping workers, so the cost is not just higher wages — it is overtime, attrition and the risk of not being able to staff a shift at all.
+
+Manufacturers respond to this in one of a few ways: cut headcount, automate tasks, or absorb the rising cost. The ones who automate the *right* task win.
+
+## The most labour-heavy task on the dispatch floor
+
+End-of-line strapping is one of the most labour-intensive, most repetitive jobs in the building. Manual double-strapping a pallet takes a **two-person team about 120 seconds.** Across a busy floor, that is a continuous drain of paid hours on a task that produces no value beyond securing the load.
+
+Automating it is unusually high-leverage because:
+
+- It removes a **fixed, repeated** labour cost — paid every shift, every day, forever.
+- One operator with a mobile machine does the work of three — **cutting the strapping crew dramatically.**
+- The freed people move to picking, staging and QA, so you get more output from fewer people.
+
+## The real numbers (from our ROI model)
+
+Take a typical mid-size Indian floor and the default assumptions in our [ROI calculator](/roi-calculator):
+
+- **1 line, 2 shifts/day, 50 pallets per shift** (100 pallets/day).
+- **Manual:** ~4 workers per line per shift for strapping → **8 people** across the day.
+- **With ErgoPack:** 1 operator per line per shift → **2 people.**
+- **Monthly cost per worker (CTC): ₹30,000.**
+
+That removes the cost of roughly **6 people** from the strapping operation:
+
+| Metric | Figure |
+| --- | --- |
+| Workers reduced | ~6 (from 8 to 2) |
+| Monthly labour saving | ~₹1.8 lakh |
+| Annual labour saving | ~₹21–22 lakh |
+| Plus strapping-material saving (~₹12/pallet) | ~₹3.6 lakh/year |
+| Indicative total annual saving | **~₹25 lakh** |
+| Over a 10-year machine life | **~₹2 crore+** |
+
+And that is **before** wages rise further — which they will. Every future minimum-wage hike makes the manual option more expensive and the automation saving *larger*. The crore-scale number is not a marketing figure; it is the compounding of a fixed labour cost removed over a machine's life.
+
+> These figures use the calculator's defaults. Your real saving depends on your volume, shifts and wage — model it precisely with the [ROI calculator](/roi-calculator).
+
+## Why the saving compounds
+
+- **Wages only go up.** Each statutory increase widens the gap between manual and automated cost.
+- **Labour scarcity adds hidden cost.** Overtime, recruitment and the risk of an unstaffed shift are real costs automation removes.
+- **The machine cost is fixed and one-time** (plus modest annual maintenance), while the labour cost it replaces rises every year.
+
+This is why the payback is fast — typically **6 to 18 months** — and the net benefit over the machine's life runs into crores.
+
+## Beyond the wage line
+
+The labour saving is the headline, but automating strapping also:
+
+- **Cuts transit damage** (consistent tension → fewer rejected loads) — see [reduce transit damage](/resources/reduce-pallet-transit-damage).
+- **Lifts throughput** — the dock stops queuing — see [improve floor efficiency](/blog/improve-warehouse-dispatch-productivity).
+- **Removes the hardest manual-handling task** — see [warehouse manual handling safety](/blog/warehouse-manual-handling-safety).
+
+## The bottom line
+
+Labour in India is on a one-way upward path, and it is getting harder to find. Automating end-of-line strapping converts a rising, recurring, hard-to-staff cost into a fixed one-time investment — saving roughly ₹25 lakh a year and **crores over the machine's life** on a typical floor. Model your own numbers in the [ROI calculator](/roi-calculator), then [request a quote and on-site demo](/buy-pallet-strapping-machine-india).`,
+    coverImage: blogImagePaths.warehouseOperation,
+    author: 'ErgoPack India Technical Team',
+    category: 'insights',
+    tags: [
+      'rising labour costs India',
+      'reduce labour cost',
+      'packaging automation savings',
+      'minimum wage India 2026',
+      'strapping automation ROI',
+      'labour shortage manufacturing',
+    ],
+    published: true,
+    featured: true,
+    seo: {
+      title: 'Rising Labour Costs in India: How Strapping Automation Saves Crores | ErgoPack',
+      description:
+        'Indian minimum wages rose again in April 2026 and labour is scarce. See how automating end-of-line strapping cuts headcount and saves ~₹25 lakh/year and crores over 10 years — with real ROI numbers.',
+      keywords: [
+        'rising labour costs India',
+        'reduce labour cost manufacturing',
+        'packaging automation labour savings',
+        'minimum wage increase India 2026',
+        'reduce labour dependency packaging',
+        'automation save labour cost India',
+      ],
+    },
+    readTime: 8,
+    views: 0,
+    createdAt: new Date(publishedAtBase[59]),
+    updatedAt: new Date(publishedAtBase[59]),
+    publishedAt: new Date(publishedAtBase[59]),
+  },
+  {
+    _id: 'seed-increase-factory-throughput-dispatch',
+    title: 'How to Increase Factory Throughput: Remove the Dispatch Bottleneck',
+    slug: 'how-to-increase-factory-throughput',
+    excerpt:
+      'Throughput is set by your slowest step — and for many Indian factories that step is end-of-line dispatch. How to find and remove the bottleneck, and lift output without new headcount or a new line.',
+    content: `Every factory wants more throughput, and most chase it in the wrong place — speeding up production while the real constraint sits, ignored, at the dispatch dock. Throughput is governed by a single rule: **your output is capped by your slowest step.** Find that step and fix it, and the whole factory speeds up. Here is how — and why the answer is often the end of the line, not the start.
+
+## Throughput is set by the bottleneck — nothing else
+
+The Theory of Constraints states it plainly: a system's output is limited by its single slowest stage. Speeding up anything that is *not* the constraint just piles up work-in-progress in front of it. So the first job is not to work harder everywhere — it is to **find the one step that caps the whole floor.**
+
+- Map the flow: production → packing → palletising → strapping → loading.
+- Find where work **queues** — pallets waiting, trucks idling, finished loads stacking up.
+- That queue marks the constraint.
+
+## Why the dispatch dock is so often the hidden constraint
+
+A factory can run a fast production line and still ship late, because the **last step — securing pallets for dispatch — is manual and slow.** Manual strapping takes a two-person team ~120 seconds per pallet. When production outpaces that, finished pallets queue at the dock, trucks wait, and the *entire factory's* throughput is throttled by its final, most overlooked step.
+
+It is the hidden constraint because everyone measures the production line and no one measures the dock.
+
+## Remove the dispatch bottleneck
+
+Automating the end-of-line securing step attacks the constraint directly:
+
+- **Cycle time drops from ~120 seconds to under 40** — a 66% cut — so the dock stops queuing.
+- **One operator replaces a two-person crew**, doing the work of three.
+- The freed labour redeploys to upstream steps, lifting output where it was capped.
+- It needs **no new line, no conveyors, no rebuild** — a mobile machine works at the existing dock.
+
+That is the cheapest throughput you can buy: not a new production line, but unblocking the one you have at the step that was capping it.
+
+## The numbers
+
+On a floor running 100 pallets/day, removing the manual strapping constraint frees thousands of labour hours a year and clears the outbound queue — output the factory was already producing but couldn't ship fast enough. Model it for your floor in the [ROI calculator](/roi-calculator). The broader method is in [improve warehouse dispatch productivity](/blog/improve-warehouse-dispatch-productivity).
+
+## How to lift throughput — in order
+
+1. **Find the constraint** (where work queues), don't guess.
+2. **Relieve that step first** — usually dispatch securing.
+3. **Re-balance labour** to the constraint in real time.
+4. **Re-measure** — the bottleneck moves; chase it again.
+5. **Automate the most repetitive manual step** (strapping) so it stops being the cap.
+
+Mobile systems such as the [ErgoPack 726X](/products/726x), [GO](/products/go) and [700](/products/700) remove the dispatch constraint without a capital construction project — you bring the machine to the pallet.
+
+## Throughput checklist
+
+- [ ] Flow mapped; time measured at every stage
+- [ ] Constraint identified by where work queues
+- [ ] Dispatch/securing step checked — the common hidden cap
+- [ ] Securing automated (120s → under 40s, 2 operators → 1)
+- [ ] Freed labour redeployed upstream
+- [ ] Re-measured after each fix
+
+You don't lift factory throughput by working harder everywhere — you lift it by finding the one slowest step and removing it. For a lot of Indian factories, that step is sitting at the dispatch dock, and it is the cheapest one to fix.`,
+    coverImage: blogImagePaths.warehouseOperation,
+    author: 'ErgoPack India Technical Team',
+    category: 'insights',
+    tags: [
+      'increase factory throughput',
+      'factory floor efficiency',
+      'dispatch bottleneck',
+      'theory of constraints',
+      'increase production output',
+      'manufacturing efficiency India',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'How to Increase Factory Throughput: Remove the Dispatch Bottleneck | ErgoPack',
+      description:
+        'Throughput is set by your slowest step — often end-of-line dispatch. How to find and remove the bottleneck and lift factory output without new headcount or a new line.',
+      keywords: [
+        'how to increase factory throughput',
+        'increase factory floor efficiency',
+        'remove dispatch bottleneck',
+        'increase production output',
+        'manufacturing throughput India',
+        'factory efficiency improvement',
+      ],
+    },
+    readTime: 7,
+    views: 0,
+    createdAt: new Date(publishedAtBase[60]),
+    updatedAt: new Date(publishedAtBase[60]),
+    publishedAt: new Date(publishedAtBase[60]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
