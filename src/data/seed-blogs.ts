@@ -78,6 +78,9 @@ const publishedAtBase = [
   '2026-06-24T11:00:00+05:30',
   '2026-06-24T13:00:00+05:30',
   '2026-06-24T15:00:00+05:30',
+  '2026-06-25T09:00:00+05:30',
+  '2026-06-25T11:00:00+05:30',
+  '2026-06-25T13:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -7372,6 +7375,256 @@ Automatic strapping machine ROI in India is driven by four savings streams, domi
     createdAt: new Date(publishedAtBase[75]),
     updatedAt: new Date(publishedAtBase[75]),
     publishedAt: new Date(publishedAtBase[75]),
+  },
+  {
+    _id: 'seed-reduce-dispatch-time-warehouse',
+    title: 'How to Reduce Dispatch Time at the Warehouse Dock',
+    slug: 'reduce-dispatch-time-warehouse',
+    excerpt:
+      'Dispatch time decides how fast a warehouse turns inventory into shipped orders. A practical guide to finding and fixing the dock bottleneck — usually the manual securing step.',
+    content: `Dispatch time — how long a pallet takes from "ready" to "on the truck" — quietly caps a warehouse's output. When it's slow, trucks wait, orders slip and labour piles up at the dock. Here is how to find and cut dispatch time, starting with the step that's usually the real bottleneck.
+
+## Why dispatch time matters
+
+Dispatch is the last gate before revenue ships. A slow dock means:
+
+- **Trucks waiting** — detention charges and missed slots.
+- **Orders delayed** — service-level penalties, unhappy buyers.
+- **Labour stacking up** — people queuing behind the slow step.
+- **A throughput cap** — you can't ship faster than the dock clears ([increase factory throughput](/blog/how-to-increase-factory-throughput)).
+
+## Find the dock bottleneck
+
+Time each dock step for a typical pallet — picking-to-stage, wrapping, **securing/strapping**, labelling, loading. The bottleneck is the longest, most labour-heavy step. On most docks that is **manual strapping**: two people threading and tensioning strap by hand at ~120 seconds per pallet ([manual vs automatic](/blog/manual-vs-automatic-pallet-strapping-cost)).
+
+## The biggest single cut: automate securing
+
+Moving the securing step from manual to mobile automatic typically cuts it from **~120 seconds to under 40** — and from two operators to one. That's the largest single reduction in dispatch time available on most docks, and it frees people to keep the rest of the dock flowing ([end-of-line automation](/blog/end-of-line-packaging-automation)).
+
+A wheeled machine like the [ErgoPack GO](/products/go) needs no conveyors or rebuild — it's brought to the pallet at any dock, so the cut is immediate and low-disruption.
+
+## Other dispatch-time levers
+
+- **Stage in sequence** — pallets ready in load order, no re-handling.
+- **Right-size the strap pattern** — calibrated tension, no re-doing loose loads.
+- **Cut rejections at source** — a load that fails inspection goes back through the whole dock ([reduce transit damage](/resources/reduce-pallet-transit-damage)).
+- **Parallelise** — don't let one slow step starve the rest.
+
+## How to reduce dispatch time — the method
+
+1. **Time every dock step** for a typical pallet.
+2. **Find the bottleneck** — usually manual securing.
+3. **Automate that step** — mobile, contained, low-disruption.
+4. **Re-sequence staging** to remove re-handling.
+5. **Measure dispatch time again**, then attack the next slowest step.
+6. **Model the labour and throughput gain** — [ROI calculator](/roi-calculator).
+
+## Dispatch-time checklist
+
+- [ ] Every dock step timed
+- [ ] Bottleneck identified (often manual strapping)
+- [ ] Securing step automated (~120s → <40s)
+- [ ] Staging re-sequenced to cut re-handling
+- [ ] Rejections cut at source
+- [ ] Gain modelled in [ROI calculator](/roi-calculator)
+
+Reduce dispatch time by attacking the dock bottleneck — almost always the manual securing step. Automating it cuts the longest step by two-thirds and frees the people who keep the dock flowing. [Model the gain](/roi-calculator) or [request a quote](/buy-pallet-strapping-machine-india).`,
+    coverImage: blogImagePaths.warehouseOperation,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'reduce dispatch time',
+      'warehouse dispatch time',
+      'dock bottleneck',
+      'speed up dispatch',
+      'warehouse throughput',
+      'dispatch efficiency',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'How to Reduce Dispatch Time at the Warehouse Dock | ErgoPack India',
+      description:
+        'Cut dispatch time by finding and fixing the dock bottleneck — usually the manual securing step. A practical guide to faster warehouse dispatch, from ~120s to under 40s per pallet.',
+      keywords: [
+        'reduce dispatch time',
+        'warehouse dispatch time',
+        'dock bottleneck',
+        'speed up warehouse dispatch',
+        'reduce loading dock time',
+        'dispatch throughput',
+      ],
+    },
+    readTime: 6,
+    views: 0,
+    createdAt: new Date(publishedAtBase[76]),
+    updatedAt: new Date(publishedAtBase[76]),
+    publishedAt: new Date(publishedAtBase[76]),
+  },
+  {
+    _id: 'seed-warehouse-dock-bottleneck',
+    title: 'The Warehouse Dock Bottleneck: How to Find and Fix It',
+    slug: 'warehouse-dock-bottleneck',
+    excerpt:
+      'The dock bottleneck caps how much a warehouse can ship. How to identify the real constraint, why it’s usually the securing step, and how to clear it without rebuilding the dock.',
+    content: `Every warehouse has a dock bottleneck — the single step that decides how fast it can ship. Add people or space anywhere else and output barely moves; fix the bottleneck and the whole dock speeds up. Here is how to find it and clear it.
+
+## What a bottleneck actually is
+
+A dock's shipping rate is set by its **slowest step**, not its average. Everything upstream of the bottleneck builds up in front of it; everything downstream sits idle waiting. So adding effort anywhere except the constraint is wasted — a core principle of throughput ([increase factory throughput](/blog/how-to-increase-factory-throughput)).
+
+## How to find your dock bottleneck
+
+1. **Walk the dock** and watch where pallets pile up — work-in-progress accumulates *in front of* the constraint.
+2. **Time each step** for a typical pallet: stage, wrap, secure, label, load.
+3. **The longest, most labour-heavy step is the bottleneck** — and where queues form.
+
+## Why it's usually the securing step
+
+On most docks the constraint is **manual strapping**:
+
+- It's **slow** — ~120 seconds per pallet by hand.
+- It's **labour-heavy** — typically two operators bending and threading.
+- It's **inconsistent** — by-feel tension causes re-work and rejections ([manual vs automatic cost](/blog/manual-vs-automatic-pallet-strapping-cost)).
+
+Wrapping and loading are often faster than securing, so pallets queue behind the strapping station.
+
+## How to clear it — without rebuilding the dock
+
+You don't need conveyors or civil work. Move the securing step to **mobile automation**:
+
+- A wheeled machine ([ErgoPack GO](/products/go) / [726X](/products/726x)) is brought to the pallet at any dock — no infrastructure.
+- It cuts the step to **under 40 seconds with one operator**.
+- Calibrated tension removes the re-work and rejections that clog the dock ([reduce transit damage](/resources/reduce-pallet-transit-damage)).
+
+Clear that constraint and the next-slowest step becomes the new bottleneck — measure again and repeat.
+
+## Dock bottleneck checklist
+
+- [ ] Dock walked; WIP pile-up located
+- [ ] Every step timed for a typical pallet
+- [ ] Bottleneck confirmed (usually securing)
+- [ ] Securing automated (mobile, no rebuild)
+- [ ] Re-work and rejections removed
+- [ ] Next constraint identified and targeted
+- [ ] Gain modelled in [ROI calculator](/roi-calculator)
+
+The dock bottleneck — almost always the manual securing step — caps your shipping rate. Clear it with mobile automation, no rebuild required, and the whole dock speeds up. [Model the gain](/roi-calculator) or [request a quote](/buy-pallet-strapping-machine-india).`,
+    coverImage: blogImagePaths.automationHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'warehouse dock bottleneck',
+      'dock bottleneck',
+      'shipping bottleneck',
+      'warehouse constraint',
+      'dispatch bottleneck',
+      'throughput bottleneck',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'The Warehouse Dock Bottleneck: How to Find and Fix It | ErgoPack India',
+      description:
+        'The dock bottleneck caps how much a warehouse ships. How to find the real constraint, why it’s usually the manual securing step, and how to clear it without rebuilding the dock.',
+      keywords: [
+        'warehouse dock bottleneck',
+        'dock bottleneck',
+        'shipping bottleneck warehouse',
+        'dispatch bottleneck',
+        'warehouse throughput constraint',
+        'fix dock bottleneck',
+      ],
+    },
+    readTime: 6,
+    views: 0,
+    createdAt: new Date(publishedAtBase[77]),
+    updatedAt: new Date(publishedAtBase[77]),
+    publishedAt: new Date(publishedAtBase[77]),
+  },
+  {
+    _id: 'seed-speed-up-container-stuffing',
+    title: 'How to Speed Up Container Stuffing (Without Risking the Load)',
+    slug: 'speed-up-container-stuffing',
+    excerpt:
+      'Container stuffing is a common export bottleneck. How to speed it up safely — palletise and pre-secure to seaworthy standard so the container fills fast and arrives intact.',
+    content: `Container stuffing — getting goods into the box, secured, and the doors closed — is a frequent export bottleneck. Rush it and you get a loose, shifting load that's rejected at the destination; slow it down and the dock backs up. The fix is to do the securing work *before* the container arrives. Here is how to speed up stuffing without risking the load.
+
+## Why stuffing is a bottleneck
+
+- The container is a **fixed slot** — it must leave on time.
+- **Manual securing inside the box** is slow, awkward and inconsistent.
+- A **loose stuff** causes [in-container shifting and rejections](/blog/reduce-export-shipment-rejections) — the expensive failure.
+- Everything queues behind the **slowest stuffing bay**.
+
+## The principle: pre-secure on the dock, stuff fast
+
+The fastest, safest stuffing happens when each pallet is **already strapped to seaworthy standard before it reaches the container**. Then stuffing is just placing secured pallets — quick and consistent — instead of securing loose goods inside a cramped box.
+
+- **Palletise and pre-secure** at the dock, not in the container.
+- Use **calibrated, repeatable tension with PET** so each pallet is seaworthy and rust-free ([seaworthy palletising](/blog/seaworthy-palletising-securing)).
+- The container fills with **uniform, square, pre-secured units** that block-and-brace cleanly.
+
+## Speed the securing step itself
+
+If pre-securing is the answer, the securing step must be fast and consistent — which manual strapping is not (~120 seconds, two people, by-feel tension). Mobile automation:
+
+- Straps a pallet in **under 40 seconds with one operator** ([end-of-line automation](/blog/end-of-line-packaging-automation)).
+- Applies **consistent, seaworthy tension** every time — no loose pallets to redo.
+- Is **wheeled to any dock** ([ErgoPack GO](/products/go) / [726X](/products/726x)) — no conveyors, fits any export floor.
+
+So the dock pre-secures fast and consistently, and stuffing becomes a quick, safe placement step.
+
+## Don't trade safety for speed
+
+The whole point is that faster stuffing must not raise the rejection rate:
+
+- **Seaworthy tension and PET** on every pallet ([seaworthy packaging](/blog/seaworthy-packaging-guide)).
+- **Moisture/corrosion protection** for the voyage ([VCI guide](/blog/vci-corrosion-protection-guide)).
+- **Block-and-brace** the pre-secured units cleanly inside the box.
+
+## Faster-stuffing checklist
+
+- [ ] Pallets pre-secured to seaworthy standard on the dock
+- [ ] Securing step fast and consistent (automated, <40s)
+- [ ] PET + calibrated tension on every pallet
+- [ ] Moisture/corrosion protection applied
+- [ ] Container filled with uniform, pre-secured units
+- [ ] Block-and-brace done cleanly
+- [ ] Throughput gain modelled in [ROI calculator](/roi-calculator)
+
+Speed up container stuffing by moving the securing work to the dock — pre-secure each pallet fast and to seaworthy standard, then stuff uniform units quickly and safely. [Model the gain](/roi-calculator) or [request a quote](/buy-pallet-strapping-machine-india).`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'speed up container stuffing',
+      'container stuffing',
+      'faster container loading',
+      'export stuffing bottleneck',
+      'container loading time',
+      'seaworthy stuffing',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'How to Speed Up Container Stuffing (Without Risking the Load) | ErgoPack India',
+      description:
+        'Container stuffing is a common export bottleneck. How to speed it up safely — palletise and pre-secure to seaworthy standard so the container fills fast and arrives intact.',
+      keywords: [
+        'speed up container stuffing',
+        'faster container loading',
+        'container stuffing bottleneck',
+        'reduce container loading time',
+        'container stuffing efficiency',
+        'seaworthy container stuffing',
+      ],
+    },
+    readTime: 6,
+    views: 0,
+    createdAt: new Date(publishedAtBase[78]),
+    updatedAt: new Date(publishedAtBase[78]),
+    publishedAt: new Date(publishedAtBase[78]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
