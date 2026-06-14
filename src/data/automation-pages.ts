@@ -1367,6 +1367,252 @@ export const automationPages: AutomationPage[] = [
     ],
     serviceType: 'Packaging cost reduction automation',
   },
+
+  // ── SPOKE 15 — Reduce overtime ──────────────────────────────────────────────
+  {
+    slug: 'reduce-overtime-dispatch',
+    kind: 'spoke',
+    navLabel: 'Reduce overtime',
+    eyebrow: 'Automation Hub · Spoke',
+    title: 'How to Reduce Overtime at the Dispatch Dock',
+    heroAnswer:
+      'Dispatch overtime usually comes from a slow securing step that pushes loading past the shift. Automating pallet securing — from ~120 seconds with two operators to under 40 with one — clears the backlog inside the shift, cutting the overtime hours a manual dock racks up to get trucks out on time.',
+    heroImage: '/images/blog/detail-warehouse-operation.png',
+    heroImageAlt: 'Reducing dispatch overtime by automating the slow securing step',
+    stats: [
+      { value: 'In-shift', label: 'Clear the backlog before overtime' },
+      { value: '<40 s', label: 'Per pallet, one operator' },
+      { value: '2 → 1', label: 'Operators on securing' },
+      { value: '6–18 mo', label: 'Payback' },
+    ],
+    seo: {
+      title: 'How to Reduce Overtime at the Dispatch Dock | ErgoPack India',
+      description:
+        'Dispatch overtime comes from a slow securing step. Automating it (~120s → <40s, two operators → one) clears the backlog inside the shift, cutting the overtime a manual dock racks up.',
+      keywords: [
+        'reduce overtime dispatch',
+        'reduce overtime warehouse',
+        'cut overtime cost',
+        'dispatch overtime',
+        'overtime reduction automation',
+        'reduce dock overtime',
+        'warehouse overtime cost',
+      ],
+    },
+    intro: [
+      'Overtime at the dispatch dock is one of the most visible — and most avoidable — costs in dispatch. It usually means the day’s loads could not be secured and shipped inside the shift, so people stay late to clear the backlog and get trucks out. Fix the step causing the backlog and the overtime goes with it.',
+      'This guide explains why the securing step drives dispatch overtime and how automating it clears the work inside the shift.',
+    ],
+    sections: [
+      {
+        heading: 'Overtime is a symptom of the securing bottleneck',
+        paragraphs: [
+          'When dispatch runs late, the cause is usually the slowest step backing up — manual securing, at two operators and ~120 seconds per pallet. As the day’s volume queues behind it, loading slips past the shift end and people stay on overtime to clear it. The overtime is the bottleneck made visible in hours and rupees.',
+          'Automating securing with a mobile ErgoPack machine cuts the step to under 40 seconds with one operator, so the same volume clears inside the shift. The backlog that forced overtime disappears, and the cost stops recurring every busy day.',
+        ],
+        bullets: [
+          'Overtime usually = the securing backlog spilling past the shift.',
+          'Manual securing is the slow step that creates the backlog.',
+          'Automating it: ~120s → <40s, two operators → one.',
+          'Loads clear in-shift; recurring overtime stops.',
+        ],
+      },
+      {
+        heading: 'A one-time cost that stops a recurring one',
+        paragraphs: [
+          'Overtime is a permanent, recurring cost that rises with wages and worsens with volume. A mobile securing machine is a one-time cost that pays back in 6–18 months and then keeps clearing the dock in-shift. Removing the overtime driver is usually far cheaper than paying the overtime indefinitely.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'What causes dispatch overtime?',
+        answer:
+          'Usually a slow securing step. Manual pallet securing — two operators at ~120 seconds per pallet — backs up as the day’s volume queues behind it, so loading slips past the shift and people stay on overtime to get trucks out. The overtime is the securing bottleneck made visible in hours and cost.',
+      },
+      {
+        question: 'How does automation reduce dispatch overtime?',
+        answer:
+          'By clearing the backlog inside the shift. Automating securing cuts the step from ~120 seconds with two operators to under 40 with one, so the same volume is secured and shipped before the shift ends. The backlog that forced overtime disappears, and the recurring overtime cost stops.',
+      },
+      {
+        question: 'Is buying a machine cheaper than paying overtime?',
+        answer:
+          'Almost always. Overtime is a recurring cost that rises with wages and worsens as volume grows. A mobile securing machine is a one-time cost that pays back in 6–18 months and then keeps the dock clearing in-shift — removing the overtime driver rather than paying it indefinitely.',
+      },
+    ],
+    related: [
+      { label: 'Factory-Floor Automation hub', href: '/factory-floor-automation' },
+      { label: 'Reduce labour cost', href: '/factory-floor-automation/reduce-labour-cost' },
+      { label: 'Increase output without a new shift', href: '/factory-floor-automation/increase-output-without-new-shift' },
+      { label: 'Reduce dispatch time', href: '/blog/reduce-dispatch-time-warehouse' },
+    ],
+    serviceType: 'Overtime reduction automation',
+  },
+
+  // ── SPOKE 16 — Lean dispatch ────────────────────────────────────────────────
+  {
+    slug: 'lean-dispatch',
+    kind: 'spoke',
+    navLabel: 'Lean dispatch',
+    eyebrow: 'Automation Hub · Spoke',
+    title: 'Lean Dispatch: Cutting Waste from the Loading Dock',
+    heroAnswer:
+      'Lean dispatch applies lean principles to the loading dock — eliminating waiting, motion, re-work and overproduction at the point goods leave. The biggest single source of all four is manual pallet securing; automating it removes the waiting and re-work that make a dock un-lean.',
+    heroImage: '/images/blog/hero-logistics-machines.png',
+    heroImageAlt: 'Lean dispatch — removing waste from the loading dock with securing automation',
+    stats: [
+      { value: 'Less waiting', label: 'No queue behind securing' },
+      { value: 'Less motion', label: 'No bending, no two-person handling' },
+      { value: 'No re-work', label: 'Calibrated tension every time' },
+      { value: '<40 s', label: 'Per pallet, one operator' },
+    ],
+    seo: {
+      title: 'Lean Dispatch: Cutting Waste from the Loading Dock | ErgoPack India',
+      description:
+        'Lean dispatch applies lean principles to the dock — cutting waiting, motion and re-work. The biggest source of all three is manual securing; automating it makes the dock lean.',
+      keywords: [
+        'lean dispatch',
+        'lean loading dock',
+        'lean warehouse dispatch',
+        'reduce dock waste',
+        'lean packaging',
+        'lean manufacturing dispatch',
+        'eliminate dispatch waste',
+      ],
+    },
+    intro: [
+      'Lean thinking targets the seven wastes — waiting, motion, transport, over-processing, over-production, inventory and defects. Most lean programmes apply this to production and forget the loading dock, where several of those wastes concentrate in one manual step: pallet securing.',
+      'This guide maps the dock wastes to the securing step and shows how automating it makes dispatch lean.',
+    ],
+    sections: [
+      {
+        heading: 'The securing step concentrates dock waste',
+        paragraphs: [
+          'Manual pallet securing is a textbook lean problem: pallets wait in a queue behind it (waiting), operators bend and thread strap and double-handle loads (motion), inconsistent tension causes loose pallets that must be re-done or are rejected (defects/re-work), and the slow step forces work-in-progress to pile up (inventory). One manual step generates several of the seven wastes at once.',
+          'Automating it with a mobile ErgoPack machine removes them together: the queue clears (under 40 seconds, one operator), the motion is eliminated (the machine feeds and tensions), and calibrated tension removes the defects and re-work. The dock becomes lean at its busiest point.',
+        ],
+        bullets: [
+          'Waiting — pallets queue behind manual securing.',
+          'Motion — bending, threading, two-person handling.',
+          'Defects/re-work — inconsistent tension, loose loads, rejections.',
+          'Automation removes all three at once.',
+        ],
+      },
+      {
+        heading: 'Lean dispatch is flow at the dock',
+        paragraphs: [
+          'Lean is ultimately about flow — value moving without interruption. A manual securing step interrupts flow at the last gate before shipping; automating it restores flow, so goods move from staged to secured to loaded without queuing, double-handling or re-work. That is lean dispatch.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'How do I make my loading dock lean?',
+        answer:
+          'Target the step that concentrates the most waste — manual pallet securing. It creates waiting (pallets queue behind it), motion (bending, threading, two-person handling) and defects/re-work (inconsistent tension). Automating it removes all three: one operator at under 40 seconds with calibrated tension restores flow and makes the dock lean.',
+      },
+      {
+        question: 'Which lean wastes does manual securing create?',
+        answer:
+          'Several at once: waiting (the queue behind it), motion (bending and double-handling), defects and re-work (loose, inconsistently tensioned loads), and inventory (work-in-progress piling up). Because one step generates so many wastes, automating it gives an outsized lean improvement at the dock.',
+      },
+      {
+        question: 'Does securing automation support continuous flow?',
+        answer:
+          'Yes. Lean is about uninterrupted flow, and a slow manual securing step interrupts it at the last gate before shipping. Automated securing (under 40 seconds, one operator, calibrated tension) lets goods move from staged to secured to loaded without queuing or re-work — restoring flow, which is the essence of lean dispatch.',
+      },
+    ],
+    related: [
+      { label: 'Factory-Floor Automation hub', href: '/factory-floor-automation' },
+      { label: 'Increase throughput', href: '/factory-floor-automation/increase-throughput' },
+      { label: 'Improve warehouse efficiency', href: '/factory-floor-automation/improve-warehouse-efficiency' },
+      { label: 'Warehouse dock bottleneck', href: '/blog/warehouse-dock-bottleneck' },
+    ],
+    serviceType: 'Lean dispatch automation',
+  },
+
+  // ── SPOKE 17 — Improve worker safety ────────────────────────────────────────
+  {
+    slug: 'improve-worker-safety-dispatch',
+    kind: 'spoke',
+    navLabel: 'Worker safety',
+    eyebrow: 'Automation Hub · Spoke',
+    title: 'Improve Worker Safety at the Dispatch Dock',
+    heroAnswer:
+      'Manual pallet strapping is a leading source of dock injuries — repetitive bending, hand-tensioning strain and the risk of a loose, shifting load. Automating securing removes the bending and manual tensioning and keeps loads tight, cutting the musculoskeletal and load-shift risks that hand-strapping creates.',
+    heroImage: '/images/blog/detail-726x-workfloor.jpg',
+    heroImageAlt: 'Improving dispatch worker safety by automating manual pallet strapping',
+    stats: [
+      { value: 'No bending', label: 'Operator works standing' },
+      { value: 'No hand-tension', label: 'Machine applies tension' },
+      { value: 'Stable loads', label: 'Calibrated tension, no shift' },
+      { value: '1 operator', label: 'Less manual handling' },
+    ],
+    seo: {
+      title: 'Improve Worker Safety at the Dispatch Dock | ErgoPack India',
+      description:
+        'Manual pallet strapping causes dock injuries — bending, hand-tensioning strain, load-shift risk. Automating securing removes the bending and manual tensioning and keeps loads stable.',
+      keywords: [
+        'improve worker safety dispatch',
+        'pallet strapping safety',
+        'reduce dock injuries',
+        'ergonomic pallet strapping',
+        'warehouse safety automation',
+        'manual handling injury strapping',
+        'dock worker safety',
+      ],
+    },
+    intro: [
+      'The dispatch dock is one of the higher-injury areas of a factory or warehouse, and manual pallet strapping is a big reason why. It combines repetitive bending, forceful hand-tensioning and the hazard of handling heavy, sometimes unstable loads. Automating securing addresses all three.',
+      'This guide explains the safety risks of manual strapping and how automation reduces them — a genuine benefit alongside the productivity gains.',
+    ],
+    sections: [
+      {
+        heading: 'The safety risks of manual strapping',
+        paragraphs: [
+          'Hand-strapping a loaded pallet means an operator bends repeatedly to thread strap under the pallet, then applies forceful tension by hand with a tool — a classic recipe for back, shoulder and wrist musculoskeletal injuries over time. And because manual tension is inconsistent, the loose, shifting load it produces is itself a handling hazard.',
+          'A mobile ErgoPack machine removes these risks: its ChainLance feeds the strap under the pallet automatically (no bending), the machine applies calibrated tension (no hand-tensioning strain), and consistent tension keeps the load stable (no shifting hazard). The operator works standing, running the cycle with low physical effort.',
+        ],
+        bullets: [
+          'No repetitive bending — the machine feeds the strap under the pallet.',
+          'No forceful hand-tensioning — the machine applies calibrated tension.',
+          'Stable loads — consistent tension removes the shifting hazard.',
+          'Operator works standing, with low physical effort.',
+        ],
+      },
+      {
+        heading: 'Safety and productivity together',
+        paragraphs: [
+          'Improving safety here is not a trade-off against output — the same automation that removes the injury risks also cuts the cycle to under 40 seconds with one operator. Fewer injuries mean less downtime, lower compliance risk and better retention, alongside the labour and throughput gains. Safety and productivity move together.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Why is manual pallet strapping a safety risk?',
+        answer:
+          'It combines repetitive bending to thread strap under the pallet, forceful hand-tensioning that strains the back, shoulders and wrists over time, and the hazard of a loose, inconsistently tensioned load that can shift during handling. These make manual strapping a leading source of dispatch-dock injuries.',
+      },
+      {
+        question: 'How does automation improve dock worker safety?',
+        answer:
+          'A mobile machine feeds the strap under the pallet automatically (no bending), applies calibrated tension (no hand-tensioning strain) and keeps loads stable through consistent tension (no shifting hazard). The operator works standing with low effort — removing the main musculoskeletal and load-shift risks of manual strapping.',
+      },
+      {
+        question: 'Does improving safety mean sacrificing productivity?',
+        answer:
+          'No — they move together. The same automation that removes the injury risks also cuts the securing cycle to under 40 seconds with one operator. You gain safer work, less injury-related downtime and better retention alongside the labour and throughput gains.',
+      },
+    ],
+    related: [
+      { label: 'Factory-Floor Automation hub', href: '/factory-floor-automation' },
+      { label: 'Single-operator dispatch', href: '/factory-floor-automation/single-operator-dispatch' },
+      { label: 'Reduce labour cost', href: '/factory-floor-automation/reduce-labour-cost' },
+      { label: 'Reduce labour cost in packaging', href: '/blog/reduce-labour-cost-in-packaging' },
+    ],
+    serviceType: 'Dispatch worker safety automation',
+  },
 ];
 
 export const automationPageBySlug = Object.fromEntries(

@@ -18,10 +18,10 @@ const footerLinks = {
   automation: [
     { label: 'Factory-Floor Automation', href: '/factory-floor-automation' },
     { label: 'Warehouse Automation', href: '/factory-floor-automation/warehouse-automation' },
-    { label: 'Packaging Automation', href: '/factory-floor-automation/packaging-automation' },
     { label: 'Automate Pallet Strapping', href: '/factory-floor-automation/automate-pallet-strapping' },
     { label: 'Reduce Labour Cost', href: '/factory-floor-automation/reduce-labour-cost' },
     { label: 'Reduce Shipment Rejections', href: '/factory-floor-automation/reduce-shipment-rejections' },
+    { label: 'Automation for Exporters', href: '/factory-floor-automation/automation-for-exporters' },
   ],
   resources: [
     { label: 'Price & Buying Guide', href: '/resources/pallet-strapping-machine-price-india' },
@@ -67,6 +67,8 @@ const locationsByState: Array<{
       { label: 'Surat', href: '/locations/pallet-strapping-machine-surat' },
       { label: 'Rajkot', href: '/locations/pallet-strapping-machine-rajkot' },
       { label: 'Jamnagar', href: '/locations/pallet-strapping-machine-jamnagar' },
+      { label: 'Sanand', href: '/locations/pallet-strapping-machine-sanand' },
+      { label: 'Vapi & Ankleshwar', href: '/locations/pallet-strapping-machine-vapi-ankleshwar' },
       { label: 'Mundra Port', href: '/locations/pallet-strapping-machine-mundra' },
       { label: 'Kandla Port', href: '/locations/pallet-strapping-machine-kandla' },
       { label: 'Pipavav Port', href: '/locations/pallet-strapping-machine-pipavav' },
@@ -93,6 +95,7 @@ const locationsByState: Array<{
       { label: 'Ludhiana', href: '/locations/pallet-strapping-machine-ludhiana' },
       { label: 'Kanpur', href: '/locations/pallet-strapping-machine-kanpur' },
       { label: 'Jaipur', href: '/locations/pallet-strapping-machine-jaipur' },
+      { label: 'Pantnagar & Rudrapur', href: '/locations/pallet-strapping-machine-pantnagar-rudrapur' },
     ],
   },
   {
@@ -103,6 +106,7 @@ const locationsByState: Array<{
       { label: 'Hyderabad', href: '/locations/pallet-strapping-machine-hyderabad' },
       { label: 'Mangalore Port', href: '/locations/pallet-strapping-machine-mangalore' },
       { label: 'Cochin Port', href: '/locations/pallet-strapping-machine-cochin' },
+      { label: 'Sri City', href: '/locations/pallet-strapping-machine-sri-city' },
       { label: 'Indore', href: '/locations/pallet-strapping-machine-indore' },
     ],
   },

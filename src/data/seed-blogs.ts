@@ -89,6 +89,8 @@ const publishedAtBase = [
   '2026-06-27T13:00:00+05:30',
   '2026-06-28T09:00:00+05:30',
   '2026-06-28T11:00:00+05:30',
+  '2026-06-29T09:00:00+05:30',
+  '2026-06-29T11:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -8303,6 +8305,169 @@ Answer these ten questions and you’ll buy the right pallet strapping machine �
     createdAt: new Date(publishedAtBase[86]),
     updatedAt: new Date(publishedAtBase[86]),
     publishedAt: new Date(publishedAtBase[86]),
+  },
+  {
+    _id: 'seed-strapping-machine-amc-spares-uptime',
+    title: 'Strapping Machine AMC, Spares and Uptime: What to Check Before You Buy',
+    slug: 'strapping-machine-amc-spares-uptime',
+    excerpt:
+      'A strapping machine is only as good as its uptime. What to check on service, spare parts and AMC before you buy — so the machine that saves you ₹25 lakh a year actually keeps running.',
+    content: `A strapping machine that sits idle waiting for a spare part is worse than no machine at all — your dispatch reverts to manual, but now you’ve also paid for the machine. Uptime is what turns a strapping machine’s ROI from a spreadsheet number into real saving. Here’s what to check on service, spares and AMC before you buy.
+
+## Why uptime decides the ROI
+
+The ~₹25 lakh a year a mobile machine saves assumes it is running. Every day it is down, you lose the saving and fall back to slow, two-person manual securing. So the questions that protect your ROI are not just about the machine — they’re about how fast it gets back up when something needs attention.
+
+## What to check before buying
+
+### 1. Local service engineers
+Are there trained engineers who can reach your site quickly? A machine supported nationally but not locally is a risk. Confirm the service footprint covers your region.
+
+### 2. Genuine spare parts availability
+Are genuine spares stocked in-country and dispatched fast? Wear parts (strap track, sealing components, battery) should be readily available — not on a months-long import wait.
+
+### 3. AMC terms
+What does the annual maintenance contract cover — preventive visits, wear parts, response time? A clear AMC (typically around ₹1 lakh/year, already netted into ROI) keeps the machine serviced before it fails, not after.
+
+### 4. Operator training
+Is on-site operator training included? A well-trained operator prevents most avoidable downtime and gets full speed from the machine.
+
+### 5. Battery and consumable logistics
+For battery machines, what’s the charge cycle and battery life, and how are replacements handled? Match the battery format to your shift pattern.
+
+## How ErgoPack supports uptime in India
+
+Through Benz Packaging, ErgoPack India provides on-site installation, operator training, service engineers and genuine spare parts nationwide, with AMC options — so the machine that’s meant to save you ₹25 lakh a year actually keeps running and delivering it.
+
+## Uptime checklist
+
+- [ ] Local service engineers confirmed for your region
+- [ ] Genuine spares stocked in-country, fast dispatch
+- [ ] AMC terms clear (preventive visits, wear parts, response time)
+- [ ] On-site operator training included
+- [ ] Battery/consumable logistics matched to your shifts
+
+A strapping machine’s ROI lives or dies on uptime. Check service, spares and AMC before you buy — the machine should keep running, not become an expensive paperweight. [Model the ROI](/roi-calculator) or [request a quote](/buy-pallet-strapping-machine-india).`,
+    coverImage: blogImagePaths.xpertBattery,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'strapping machine AMC',
+      'strapping machine spares',
+      'strapping machine uptime',
+      'strapping machine service',
+      'strapping machine maintenance',
+      'strapping machine support India',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Strapping Machine AMC, Spares and Uptime: What to Check Before You Buy | ErgoPack',
+      description:
+        'A strapping machine is only as good as its uptime. What to check on service, spare parts and AMC before you buy — so the machine that saves ₹25 lakh/year actually keeps running.',
+      keywords: [
+        'strapping machine AMC',
+        'strapping machine spare parts',
+        'strapping machine uptime',
+        'strapping machine service India',
+        'strapping machine maintenance contract',
+        'pallet strapping machine support',
+      ],
+    },
+    readTime: 5,
+    views: 0,
+    createdAt: new Date(publishedAtBase[87]),
+    updatedAt: new Date(publishedAtBase[87]),
+    publishedAt: new Date(publishedAtBase[87]),
+  },
+  {
+    _id: 'seed-pp-vs-pet-strapping-which-to-use',
+    title: 'PP vs PET Strapping: Which Should You Use, and When?',
+    slug: 'pp-vs-pet-strapping-which-to-use',
+    excerpt:
+      'PP and PET strap suit very different loads. A clear guide to when polypropylene is enough and when polyester is essential — by load weight, settling, and export exposure.',
+    content: `Choosing between PP (polypropylene) and PET (polyester) strap is one of the most practical decisions in pallet securing — and getting it wrong means either over-paying on light loads or under-securing heavy and export ones. Here’s a clear guide to when each strap is right.
+
+## The core difference
+
+- **PP (polypropylene)** — lighter-duty, lower cost, stretches more and recovers less. Good for light, stable loads and bundling.
+- **PET (polyester)** — higher strength and retained tension, recovers as loads settle, resists rust-free and survives humidity. The choice for heavy, settling and export loads.
+
+The key property is **retained tension**: PET holds and recovers tension as a load settles in transit; PP relaxes more and can go slack.
+
+## When PP is enough
+
+- **Light, stable loads** that won’t settle much.
+- **Short, gentle transit** — local, low-shock.
+- **Bundling and unitising** where high tension isn’t critical.
+- **Cost-sensitive, low-risk** dispatch.
+
+For these, PP does the job at lower material cost.
+
+## When PET is essential
+
+- **Heavy, dense loads** that take real force in transit.
+- **Compressible loads** (bales, bagged goods) that settle and relax — PET recovers the tension PP would lose.
+- **Export and long sea transit** — PET resists the conditions and, unlike steel, won’t rust onto the cargo through container humidity ([seaworthy palletising](/blog/seaworthy-palletising-securing)).
+- **Anything with rejection risk** — PET’s retained tension keeps the load tight to the destination ([reduce rejections](/blog/reduce-export-shipment-rejections)).
+
+For these, PP is a false economy — the load loosens, shifts and gets damaged or rejected.
+
+## Quick guide
+
+| Load / situation | Use |
+| --- | --- |
+| Light, stable, local | PP |
+| Bundling, low-risk | PP |
+| Heavy or dense | PET |
+| Bales/bagged (settle) | PET |
+| Export / sea transit | PET |
+| Rejection risk | PET |
+
+## A machine that runs both
+
+The ErgoPack 726X runs PP and PET; the GO runs PP, PET, paper, cord and composite — so you can match strap to load on the same machine, using PP where it’s enough and PET where it’s essential. For the full material comparison including steel, see the [PP vs PET vs steel guide](/resources/pet-vs-steel-strapping).
+
+## Strap-choice checklist
+
+- [ ] Load weight/density assessed
+- [ ] Settling behaviour considered (bales/bagged → PET)
+- [ ] Export/sea-transit exposure checked (→ PET)
+- [ ] Rejection risk considered (→ PET)
+- [ ] Strap matched to load on a multi-material machine
+
+PP for light, stable, local loads; PET for heavy, settling, export and rejection-risk loads. Match the strap to the load — and run both on one machine. [Get a recommendation](/roi-calculator) or [request a quote](/buy-pallet-strapping-machine-india).`,
+    coverImage: blogImagePaths.goStrapHead,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'PP vs PET strapping',
+      'polypropylene vs polyester strap',
+      'which strapping material',
+      'PET strap',
+      'PP strap',
+      'strapping material guide',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'PP vs PET Strapping: Which Should You Use, and When? | ErgoPack India',
+      description:
+        'PP and PET strap suit different loads. A clear guide to when polypropylene is enough and when polyester is essential — by load weight, settling and export exposure.',
+      keywords: [
+        'PP vs PET strapping',
+        'polypropylene vs polyester strap',
+        'which strapping material to use',
+        'PP strap vs PET strap',
+        'when to use PET strap',
+        'strapping material selection',
+      ],
+    },
+    readTime: 5,
+    views: 0,
+    createdAt: new Date(publishedAtBase[88]),
+    updatedAt: new Date(publishedAtBase[88]),
+    publishedAt: new Date(publishedAtBase[88]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
