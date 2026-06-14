@@ -70,6 +70,8 @@ const publishedAtBase = [
   '2026-06-22T13:00:00+05:30',
   '2026-06-22T15:00:00+05:30',
   '2026-06-22T17:00:00+05:30',
+  '2026-06-23T09:00:00+05:30',
+  '2026-06-23T11:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -6722,6 +6724,191 @@ Build export pallets to this standard — sound pallet, stable load, moisture an
     createdAt: new Date(publishedAtBase[68]),
     updatedAt: new Date(publishedAtBase[68]),
     publishedAt: new Date(publishedAtBase[68]),
+  },
+  {
+    _id: 'seed-vci-corrosion-protection-guide',
+    title: 'VCI Corrosion Protection: How It Works and How to Use It for Metal Exports',
+    slug: 'vci-corrosion-protection-guide',
+    excerpt:
+      'VCI (vapour corrosion inhibitor) keeps metal exports rust-free across a long sea voyage. How VCI works, the formats (film, paper, emitters), how to apply it, and how it fits seaworthy packaging.',
+    content: `Rust is the silent destroyer of metal exports — a perfectly machined casting or a precision component can arrive corroded after weeks at sea, and a rusted surface is a rejected or downgraded part. VCI is the technology that prevents it without oils or coatings. Here is how it works and how to use it.
+
+## What is VCI?
+
+VCI stands for **Vapour (or Volatile) Corrosion Inhibitor** — a technology that protects metal in enclosed spaces by releasing corrosion-inhibiting compounds into the air. Unlike oils or greases, VCI is **dry, invisible and needs no clean-off** before the part is used.
+
+## How VCI works
+
+The mechanism is elegant:
+
+1. VCI compounds, infused into a film, paper or emitter, **vaporise** into the enclosed airspace around the metal.
+2. The vapour **migrates and bonds** to all exposed metal surfaces — including recesses, cavities and internal voids the vapour can reach but a coating cannot.
+3. Once bonded, it **stabilises the metal's natural passive oxide layer** — the metal's own first line of defence against corrosion.
+4. The result is an **invisible, dry, non-conductive protective layer** that does not change dimensions, interfere with tolerances or affect performance.
+
+When the package is opened, the part is ready to use — no degreasing, no residue.
+
+## VCI formats
+
+| Format | Best for |
+| --- | --- |
+| VCI film / bags | Wrapping or bagging equipment, machinery, components; lining crates |
+| VCI paper | Wrapping individual metal items; interleaving; lining boxes/crates |
+| VCI emitters / capsules | Protecting enclosed cavities, control panels, internal voids |
+| VCI powders / liquids | Adding to enclosed systems and void spaces |
+
+## How to use VCI for metal exports
+
+- **Enclose the metal** — VCI works in an enclosed space, so wrap the part or line the crate so the vapour concentrates around the metal.
+- **Match the VCI to the metal** — different formulations suit ferrous, non-ferrous or multi-metal assemblies.
+- **Combine with a moisture barrier** — VCI inside an aluminium/foil or HDPE barrier, with a desiccant, forms the standard three-tier corrosion defence (see [seaworthy packaging](/blog/seaworthy-packaging-guide)).
+- **Keep the enclosure intact** — a punctured barrier lets the vapour escape and moisture in.
+
+## VCI as part of seaworthy packaging
+
+VCI is one layer of a complete export-protection system. The full seaworthy stack is: **ISPM-15 timber crate → moisture barrier → VCI → cushioning → desiccant → consistent PET securing → lashing.** VCI handles corrosion; the other layers handle impact, moisture and load shift. See the full [seaworthy packaging guide](/blog/seaworthy-packaging-guide) and [automotive parts export packaging](/blog/automotive-parts-export-packaging).
+
+## Don't forget the securing — and don't reintroduce rust
+
+A subtle point: if you protect a metal load with VCI and then **strap it with steel**, you have reintroduced a corrosion source — steel strap rusts in sea humidity and can stain the very cargo you protected. Use **PET strapping**, which is rust-free, on VCI-protected metal exports ([PP vs PET vs steel strapping](/resources/pet-vs-steel-strapping)). A calibrated machine such as the [ErgoPack 726X](/products/726x), [GO](/products/go) or [700](/products/700) applies consistent PET tension without introducing rust.
+
+## VCI checklist
+
+- [ ] VCI format chosen (film/paper/emitter) for the part and cavities
+- [ ] VCI matched to the metal type
+- [ ] Metal enclosed so the vapour concentrates
+- [ ] Combined with moisture barrier + desiccant (three-tier defence)
+- [ ] Barrier kept intact (no punctures)
+- [ ] PET securing, not steel — don't reintroduce rust
+- [ ] Part ready to use on opening (no clean-off needed)
+
+Use VCI correctly — enclosed, matched to the metal, inside a moisture barrier, with rust-free PET securing — and metal exports arrive dry, bright and ready to use after the longest voyage.`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'VCI corrosion protection',
+      'vapor corrosion inhibitor',
+      'rust prevention export',
+      'VCI film paper',
+      'metal export packaging',
+      'corrosion protection packaging',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'VCI Corrosion Protection: How It Works for Metal Exports | ErgoPack India',
+      description:
+        'VCI (vapour corrosion inhibitor) keeps metal exports rust-free across a long voyage. How VCI works, the formats (film, paper, emitters), how to apply it, and how it fits seaworthy packaging.',
+      keywords: [
+        'VCI corrosion protection',
+        'vapor corrosion inhibitor',
+        'how does VCI work',
+        'VCI packaging metal export',
+        'rust prevention export packaging',
+        'VCI film paper India',
+      ],
+    },
+    readTime: 7,
+    views: 0,
+    createdAt: new Date(publishedAtBase[69]),
+    updatedAt: new Date(publishedAtBase[69]),
+    publishedAt: new Date(publishedAtBase[69]),
+  },
+  {
+    _id: 'seed-reduce-export-shipment-rejections',
+    title: 'How to Reduce Export Shipment Rejections: Stop Losing Containers at the Destination',
+    slug: 'reduce-export-shipment-rejections',
+    excerpt:
+      'Export rejections are expensive and mostly preventable. The real causes — load shift, corrosion, moisture, compliance — and a systematic checklist to cut your rejection rate to near zero.',
+    content: `An export shipment rejected at the destination is one of the worst outcomes in trade: the goods are already across the ocean, the cost is sunk, and now you face reverse logistics, replacement, claims and a buyer who may not re-order. The good news is that **most rejections are preventable** — they trace to a handful of causes, each with a fix. Here is how to drive your rejection rate toward zero.
+
+## Why export shipments get rejected
+
+Rejections cluster around a few root causes:
+
+| Cause | What happens | Prevention |
+| --- | --- | --- |
+| Load shift | Cargo moves in transit, crushes/breaks | Consistent securing to the pallet |
+| Corrosion | Metal arrives rusted | VCI + moisture barrier + PET (not steel) |
+| Moisture / mould | Container rain ruins cargo | Desiccant, dry loading, barriers |
+| Compliance | ISPM-15 / phytosanitary failure | Certified treated wood, documentation |
+| Physical damage | Crushing, dropping | Stout crates, cushioning, edge protection |
+| Spec / documentation | Wrong goods or paperwork | QC and document control |
+
+## 1. Stop load shift — the biggest physical cause
+
+Most physical damage is load shift: cargo that moves on the pallet during weeks of ocean motion. The cause is almost always **inconsistent securing** — a strap tight on one pallet and loose on the next, the loose one being the one that fails. The fix:
+
+- **Secure every load to the pallet** with consistent, machine-calibrated tension so there is no weak unit in the container.
+- **Use PET strap** that absorbs shock and recovers tension as loads settle ([PP vs PET vs steel](/resources/pet-vs-steel-strapping)).
+- A calibrated machine such as the [ErgoPack 726X](/products/726x), [GO](/products/go) or [700](/products/700) applies identical tension to every pallet — see [reduce transit damage](/resources/reduce-pallet-transit-damage).
+
+## 2. Stop corrosion — protect metal from the sea
+
+Rust is a leading rejection cause for metal exports. Defend with the **three-tier system**: VCI on the metal, a moisture barrier around it, and desiccant inside ([VCI corrosion protection](/blog/vci-corrosion-protection-guide)). And don't reintroduce rust by strapping with steel — use PET.
+
+## 3. Stop moisture and mould — manage condensation
+
+Container rain ruins cargo with no external leak. Use desiccant, load dry, use moisture barriers, and manage the temperature swing ([container rain](/blog/container-rain-cargo-condensation-prevention)).
+
+## 4. Pass compliance — clear customs cleanly
+
+- **ISPM-15** heat-treated, stamped wood on all packaging and dunnage, with the stamp left visible ([ISPM-15 explained](/blog/ispm-15-wood-packaging-explained)).
+- **Phytosanitary / fumigation** certification for agricultural goods.
+- Accurate documentation matching the cargo.
+
+## 5. Prevent physical damage — build it stout
+
+Stout ISPM-15 crates, cushioning, edge and corner protection, voids filled with dunnage, and the whole thing built and secured to the [seaworthy packaging](/blog/seaworthy-packaging-guide) standard.
+
+## The systematic rejection-reduction checklist
+
+- [ ] Every load secured to the pallet at consistent, calibrated tension
+- [ ] PET strap (not steel) — no rust, holds as loads settle
+- [ ] VCI + moisture barrier + desiccant for metal cargo
+- [ ] Container condensation managed; dry loading
+- [ ] ISPM-15 compliant wood; stamp visible; phytosanitary cert where needed
+- [ ] Stout crates, cushioning, edge protection, voids filled
+- [ ] Container lashed, blocked, choked
+- [ ] Documentation and QC matched to the cargo
+
+## The commercial case
+
+A single rejected container can exceed a year of "savings" from cheaper packaging or manual securing. Reducing rejections is one of the highest-return improvements an exporter can make — and consistent, machine-calibrated securing plus seaworthy protection is the core of it. [Model the savings](/roi-calculator) or [request a quote](/buy-pallet-strapping-machine-india).
+
+Fix the causes systematically — securing, corrosion, moisture, compliance, physical protection — and export rejections fall toward zero, which protects both the shipment and the customer relationship.`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'insights',
+    tags: [
+      'reduce export rejections',
+      'export shipment rejection',
+      'reduce transit rejections',
+      'export quality control',
+      'prevent container rejection',
+      'export damage reduction',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'How to Reduce Export Shipment Rejections: Stop Losing Containers | ErgoPack',
+      description:
+        'Export rejections are expensive and mostly preventable. The real causes — load shift, corrosion, moisture, compliance — and a systematic checklist to cut your rejection rate toward zero.',
+      keywords: [
+        'reduce export shipment rejections',
+        'reduce transit rejections',
+        'prevent container rejection',
+        'export rejection causes',
+        'reduce export damage',
+        'export quality rejection prevention',
+      ],
+    },
+    readTime: 8,
+    views: 0,
+    createdAt: new Date(publishedAtBase[70]),
+    updatedAt: new Date(publishedAtBase[70]),
+    publishedAt: new Date(publishedAtBase[70]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
