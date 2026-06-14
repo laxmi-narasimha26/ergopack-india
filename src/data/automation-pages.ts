@@ -680,6 +680,355 @@ export const automationPages: AutomationPage[] = [
     ],
     serviceType: 'Throughput improvement automation',
   },
+
+  // ── SPOKE 7 — Packaging automation ──────────────────────────────────────────
+  {
+    slug: 'packaging-automation',
+    kind: 'spoke',
+    navLabel: 'Packaging automation',
+    eyebrow: 'Automation Hub · Spoke',
+    title: 'Packaging Automation in India: Which Step to Automate First',
+    heroAnswer:
+      'Packaging automation in India pays back fastest when it starts with the securing step, not wrapping or filling. Automating manual pallet securing cuts it from ~120 seconds to under 40 with one operator, improves load consistency, and recovers the machine in 6–18 months — the lowest-disruption, highest-ROI packaging automation for most floors.',
+    heroImage: '/images/blog/hero-pallet-strapping-guide.png',
+    heroImageAlt: 'Packaging automation in India — automating the pallet-securing step first',
+    stats: [
+      { value: 'Securing', label: 'Highest-ROI step to automate' },
+      { value: '<40 s', label: 'Per pallet, one operator' },
+      { value: 'No rebuild', label: 'Mobile — fits any line' },
+      { value: '6–18 mo', label: 'Payback' },
+    ],
+    seo: {
+      title: 'Packaging Automation in India: Which Step to Automate First | ErgoPack',
+      description:
+        'Packaging automation that pays — start with the securing step, not wrapping or filling. Automate manual pallet securing (~120s → <40s), improve consistency, recover the machine in 6–18 months.',
+      keywords: [
+        'packaging automation',
+        'packaging automation India',
+        'automated packaging line',
+        'packaging automation machine',
+        'automate packaging process',
+        'end of line packaging automation',
+        'pallet packaging automation',
+      ],
+    },
+    intro: [
+      'Packaging automation spans many steps — filling, sealing, wrapping, palletising, securing. Trying to automate all of them at once is a big-bang project with high cost and long lead time. The smarter, faster-paying approach is to automate the single step that is most manual, most repetitive and most costly first.',
+      'This guide explains why that step is usually pallet securing, and how automating it delivers the fastest packaging-automation ROI with the least disruption.',
+    ],
+    sections: [
+      {
+        heading: 'Securing is the highest-ROI packaging step to automate',
+        paragraphs: [
+          'Of all the end-of-line packaging steps, manual pallet securing is usually the slowest and most labour-heavy — two operators, ~120 seconds per pallet, inconsistent tension. Wrapping and labelling are often faster and easier to mechanise; securing is where the time and labour actually go, which makes it the highest-ROI step to automate first.',
+          'A mobile ErgoPack machine secures a pallet in under 40 seconds with one operator at calibrated tension, needing no conveyors or line rebuild. The packaging line keeps its layout, but its most expensive manual step is removed — immediate gain, low disruption, payback in 6–18 months.',
+        ],
+        bullets: [
+          'Securing is the slowest, most labour-heavy end-of-line step.',
+          'Mobile automation needs no conveyors or line rebuild.',
+          'One operator at under 40 seconds replaces two at ~120 seconds.',
+          'Calibrated tension improves consistency and cuts rejections.',
+        ],
+      },
+      {
+        heading: 'Automate in sequence, not all at once',
+        paragraphs: [
+          'The efficient path is a contained first project (securing), proven and paid back, then expansion to the next step — palletising, wrapping, conveying — each funded by the last. This avoids the cost, risk and disruption of a full packaging-line rebuild while still moving steadily toward a fully automated line.',
+        ],
+      },
+    ],
+    bodyImage: {
+      src: '/images/blog/machine-go-portable.png',
+      alt: 'ErgoPack GO mobile machine automating the pallet-securing packaging step',
+      caption: 'Automate the securing step first — the highest-ROI, lowest-disruption packaging automation.',
+    },
+    faqs: [
+      {
+        question: 'Which packaging step should I automate first?',
+        answer:
+          'The securing (strapping) step. It is usually the slowest and most labour-heavy end-of-line step — two operators at ~120 seconds per pallet. Automating it with a mobile machine needs no conveyors or line rebuild, cuts the step to under 40 seconds with one operator, and pays back in 6–18 months — faster than automating wrapping or filling.',
+      },
+      {
+        question: 'Do I need a full automated packaging line to benefit?',
+        answer:
+          'No. The fastest ROI comes from automating one step — securing — with a contained, mobile machine that fits your existing line. You prove the gain, recover the cost in 6–18 months, then expand to the next step. A full line rebuild is neither necessary nor the cheapest way to start.',
+      },
+      {
+        question: 'How does packaging automation improve quality?',
+        answer:
+          'Manual securing applies inconsistent, by-feel tension that causes loose, shifting loads and transit damage. Automated securing applies calibrated, repeatable tension to every pallet, so packaged loads leave the line consistently secured — fewer defects, fewer shipment rejections and a more predictable dispatch.',
+      },
+    ],
+    related: [
+      { label: 'Factory-Floor Automation hub', href: '/factory-floor-automation' },
+      { label: 'End-of-line automation', href: '/factory-floor-automation/end-of-line-automation' },
+      { label: 'Automate pallet strapping', href: '/factory-floor-automation/automate-pallet-strapping' },
+      { label: 'Is packaging automation worth it', href: '/blog/is-packaging-automation-worth-it' },
+    ],
+    serviceType: 'Packaging automation',
+  },
+
+  // ── SPOKE 8 — End-of-line automation ────────────────────────────────────────
+  {
+    slug: 'end-of-line-automation',
+    kind: 'spoke',
+    navLabel: 'End-of-line automation',
+    eyebrow: 'Automation Hub · Spoke',
+    title: 'End-of-Line Automation: The Fastest-Paying Project on the Floor',
+    heroAnswer:
+      'End-of-line automation — automating the palletising, securing and dispatch steps after production — is the fastest-paying automation project for most Indian factories, because production is already partly automated while the line-end is still manual. Automating the securing step alone cuts it from ~120 seconds to under 40 and pays back in 6–18 months.',
+    heroImage: '/images/blog/hero-automated-pallet-strapping.png',
+    heroImageAlt: 'End-of-line automation in India — automating dispatch securing after production',
+    stats: [
+      { value: 'Line-end', label: 'The usual manual gap' },
+      { value: '<40 s', label: 'Secured per pallet' },
+      { value: 'Low CapEx', label: 'No production rebuild' },
+      { value: '6–18 mo', label: 'Payback' },
+    ],
+    seo: {
+      title: 'End-of-Line Automation: The Fastest-Paying Project on the Floor | ErgoPack',
+      description:
+        'End-of-line automation — palletising, securing, dispatch — is the fastest-paying automation for Indian factories. Automate the securing step (~120s → <40s) with no production rebuild, payback 6–18 months.',
+      keywords: [
+        'end of line automation',
+        'end of line packaging automation',
+        'end of line automation India',
+        'dispatch automation',
+        'line-end automation',
+        'automate end of line',
+        'finished goods dispatch automation',
+      ],
+    },
+    intro: [
+      'End-of-line — the steps between "production finished" and "on the truck" — is where most Indian factories still rely on manual labour, even when the production line itself is automated. That makes it the clearest, fastest-paying place to automate next.',
+      'This guide explains why the line-end is the bottleneck and how automating its securing step captures the gain with minimal disruption.',
+    ],
+    sections: [
+      {
+        heading: 'The line-end is the manual gap',
+        paragraphs: [
+          'Production lines are increasingly automated, but palletising, securing and dispatch at the line-end are often still done by hand. The securing step in particular — two operators, ~120 seconds, inconsistent tension — is repetitive, labour-heavy and a frequent bottleneck that caps how fast finished goods can leave.',
+          'Automating it with a mobile ErgoPack machine cuts it to under 40 seconds with one operator at calibrated tension, with no change to the production line. The line-end stops being the bottleneck, output flows, and the project pays back in 6–18 months.',
+        ],
+        bullets: [
+          'Production is automated; the line-end is the manual gap.',
+          'End-of-line securing is repetitive, labour-heavy and a bottleneck.',
+          'Mobile automation = low CapEx, no production rebuild.',
+          'Calibrated tension improves quality and cuts rejections.',
+        ],
+      },
+      {
+        heading: 'Why end-of-line pays back fastest',
+        paragraphs: [
+          'Because it is contained (one step), low-disruption (no production change) and high-impact (clears a real bottleneck and removes the most expensive manual labour), end-of-line securing automation has the best ROI of any first automation project for most Indian floors — typically ~₹25 lakh a year saved and 6–18 month payback.',
+        ],
+      },
+    ],
+    bodyImage: {
+      src: '/images/blog/detail-726x-workfloor.jpg',
+      alt: 'ErgoPack 726X automating the end-of-line securing step on a factory floor',
+      caption: 'The line-end is where most floors still rely on manual labour — and where automation pays back fastest.',
+    },
+    faqs: [
+      {
+        question: 'What is end-of-line automation?',
+        answer:
+          'It is automating the steps between finished production and dispatch — palletising, securing and loading. For most Indian factories the production line is already partly automated while these line-end steps are still manual, so end-of-line automation (starting with securing) is the fastest-paying, lowest-disruption next project, with payback in 6–18 months.',
+      },
+      {
+        question: 'Why is end-of-line the fastest-paying automation project?',
+        answer:
+          'Because it is contained, low-disruption and high-impact. It automates one step (securing) with no production-line change, clears a real bottleneck, and removes the most expensive manual labour at the dock — saving around ₹25 lakh a year and recovering the machine in 6–18 months.',
+      },
+      {
+        question: 'Does end-of-line automation disrupt my production line?',
+        answer:
+          'No. A mobile securing machine is wheeled to the line-end with no conveyors or civil work, so the production line is untouched. You capture the dispatch gain immediately and can expand to palletising or wrapping later, each funded by the previous step.',
+      },
+    ],
+    related: [
+      { label: 'Factory-Floor Automation hub', href: '/factory-floor-automation' },
+      { label: 'Packaging automation', href: '/factory-floor-automation/packaging-automation' },
+      { label: 'Manufacturing automation', href: '/factory-floor-automation/manufacturing-automation' },
+      { label: 'End-of-line packaging automation', href: '/blog/end-of-line-packaging-automation' },
+    ],
+    serviceType: 'End-of-line automation',
+  },
+
+  // ── SPOKE 9 — Automate pallet strapping ─────────────────────────────────────
+  {
+    slug: 'automate-pallet-strapping',
+    kind: 'spoke',
+    navLabel: 'Automate pallet strapping',
+    eyebrow: 'Automation Hub · Spoke',
+    title: 'How to Automate Pallet Strapping (and What It Saves)',
+    heroAnswer:
+      'To automate pallet strapping, replace manual hand-strapping with a mobile machine that feeds its own strap under and around the loaded pallet, applies calibrated tension and friction-welds the seal. This cuts the step from two operators at ~120 seconds to one at under 40, saves around ₹25 lakh a year, and pays back in 6–18 months.',
+    heroImage: '/images/blog/machine-726x-xpert.png',
+    heroImageAlt: 'How to automate pallet strapping in India — mobile ChainLance machine',
+    stats: [
+      { value: 'ChainLance', label: 'Self-feeds under the pallet' },
+      { value: '2500N', label: 'Calibrated tension' },
+      { value: 'Sealless', label: 'Friction weld, no seals' },
+      { value: '<40 s', label: 'Per pallet, one operator' },
+    ],
+    seo: {
+      title: 'How to Automate Pallet Strapping (and What It Saves) | ErgoPack India',
+      description:
+        'How to automate pallet strapping — replace hand-strapping with a mobile machine that self-feeds the strap, applies calibrated tension and friction-welds the seal. ~120s → <40s, payback 6–18 months.',
+      keywords: [
+        'automate pallet strapping',
+        'automatic pallet strapping',
+        'pallet strapping automation',
+        'automate strapping process',
+        'mobile pallet strapping machine',
+        'automatic strapping machine',
+        'replace manual strapping',
+      ],
+    },
+    intro: [
+      'Pallet strapping is the most automatable step in dispatch — and the one that gives the biggest single saving when you do it. Manual hand-strapping is slow, inconsistent and labour-heavy; a mobile strapping machine removes all three problems at once.',
+      'This guide explains exactly how pallet strapping is automated, what changes on the floor, and what it saves.',
+    ],
+    sections: [
+      {
+        heading: 'How automated pallet strapping works',
+        paragraphs: [
+          'A mobile strapping machine is wheeled to the loaded pallet. Its patented ChainLance routes the strap automatically under and around the pallet — no bending, no manual threading — then applies calibrated, digitally-set tension and seals with a sealless friction weld. One operator runs the full cycle in under 40 seconds, versus two operators and ~120 seconds by hand.',
+          'There is no conveyor, no civil work and no line rebuild — the machine fits any dock. The 726X handles high-tension and export loads (digital tension to 2500N, PET), the GO covers high-volume mixed dispatch and multi-material strap, and the 700 straps without power for off-grid sites.',
+        ],
+        bullets: [
+          'ChainLance self-feeds the strap under the pallet — no manual threading.',
+          'Calibrated, digitally-set tension up to 2500N — consistent every time.',
+          'Sealless friction weld — no clips or seals to slip or buy.',
+          'One operator, under 40 seconds, at any dock — no rebuild.',
+        ],
+      },
+      {
+        heading: 'What automating strapping saves',
+        paragraphs: [
+          'The saving comes in four streams: labour (two operators to one), strap waste (~12% less through calibrated tension), damage and rejections (consistent tension keeps loads tight), and throughput (the dispatch bottleneck clears). On a typical floor that totals around ₹25 lakh a year, recovering the machine in 6–18 months — after which it keeps saving while manual cost rises with wages.',
+        ],
+      },
+    ],
+    comparison: {
+      title: 'Manual vs automated pallet strapping',
+      columns: ['Factor', 'Manual hand-strapping', 'Automated (mobile)'],
+      rows: [
+        ['Operators', '2', '1'],
+        ['Time per pallet', '~120 seconds', 'Under 40 seconds'],
+        ['Tension', 'By feel — varies', 'Calibrated to 2500N'],
+        ['Seal', 'Clips (can slip)', 'Sealless friction weld'],
+        ['Strap waste', 'Higher', '~12% lower'],
+      ],
+    },
+    faqs: [
+      {
+        question: 'How is pallet strapping automated?',
+        answer:
+          'A mobile strapping machine is wheeled to the loaded pallet; its ChainLance routes the strap automatically under and around the pallet, applies calibrated digital tension (up to 2500N) and seals with a sealless friction weld. One operator runs it in under 40 seconds — versus two operators and ~120 seconds by hand — with no conveyors or line rebuild.',
+      },
+      {
+        question: 'What does automating pallet strapping cost and save?',
+        answer:
+          'Mobile machines that strap loaded pallets start around ₹1,75,000, quoted to your volume and loads. They save across four streams — labour, strap waste (~12%), damage/rejections and throughput — totalling around ₹25 lakh a year on a typical floor, recovering the machine in 6–18 months.',
+      },
+      {
+        question: 'Which strapping machine should I automate with?',
+        answer:
+          'The 726X for high-tension, heavy and export loads (digital tension to 2500N, PET); the GO for high-volume mixed dispatch and multi-material strap; the 700 for off-grid sites with no power. The right one depends on your pallet volume, loads and power — request a free on-site demo on your heaviest pallet.',
+      },
+    ],
+    related: [
+      { label: 'Factory-Floor Automation hub', href: '/factory-floor-automation' },
+      { label: 'Packaging automation', href: '/factory-floor-automation/packaging-automation' },
+      { label: 'Manual vs automatic strapping cost', href: '/blog/manual-vs-automatic-pallet-strapping-cost' },
+      { label: 'Buy a machine in India', href: '/buy-pallet-strapping-machine-india' },
+    ],
+    serviceType: 'Pallet strapping automation',
+  },
+
+  // ── SPOKE 10 — Increase output without a new shift ──────────────────────────
+  {
+    slug: 'increase-output-without-new-shift',
+    kind: 'spoke',
+    navLabel: 'More output, no new shift',
+    eyebrow: 'Automation Hub · Spoke',
+    title: 'How to Increase Output Without Adding a Shift',
+    heroAnswer:
+      'You increase output without adding a shift by raising the capacity of your existing shifts at the bottleneck — usually the manual securing step at dispatch. Automating it (from ~120 seconds to under 40 with one operator) lets the current shifts ship far more, deferring or avoiding the cost of a new shift entirely.',
+    heroImage: '/images/blog/detail-warehouse-operation.png',
+    heroImageAlt: 'Increasing output without a new shift by automating the dispatch bottleneck',
+    stats: [
+      { value: 'Same shifts', label: 'More output, no new shift' },
+      { value: '<40 s', label: 'Per pallet, one operator' },
+      { value: '+65%', label: 'On the secured step' },
+      { value: '6–18 mo', label: 'Payback' },
+    ],
+    seo: {
+      title: 'How to Increase Output Without Adding a Shift | ErgoPack India',
+      description:
+        'Increase output without adding a costly new shift — raise your existing shifts’ capacity at the bottleneck. Automating manual securing (~120s → <40s) lets current shifts ship far more.',
+      keywords: [
+        'increase output without new shift',
+        'increase capacity existing shift',
+        'avoid adding a shift',
+        'more output same shift',
+        'increase dispatch capacity',
+        'defer new shift automation',
+        'single shift more output',
+      ],
+    },
+    intro: [
+      'Adding a shift is one of the most expensive ways to increase output — new wages, supervision, power and overheads, every day, forever. Before committing to it, the cheaper question is: can my existing shifts simply do more? Usually they can, if you lift the bottleneck.',
+      'This guide explains how automating the dispatch bottleneck raises the capacity of your current shifts so you can defer or avoid a new shift altogether.',
+    ],
+    sections: [
+      {
+        heading: 'Raise existing-shift capacity at the bottleneck',
+        paragraphs: [
+          'Your shifts’ output is capped by their slowest step. On most Indian dispatch floors that is manual securing — two operators, ~120 seconds per pallet. Because it is the constraint, lifting it lifts the whole shift’s output, with no extra hours.',
+          'Automating securing with a mobile ErgoPack machine cuts the step to under 40 seconds with one operator, so the same shift secures far more pallets in the same time. Often that recovered capacity is enough to absorb growth that would otherwise have forced a costly new shift.',
+        ],
+        bullets: [
+          'Shift output is capped by the slowest step (usually securing).',
+          'Automating it lifts the whole shift’s capacity, no extra hours.',
+          'One operator at under 40 seconds vs two at ~120 seconds.',
+          'Recovered capacity defers or avoids a new shift entirely.',
+        ],
+      },
+      {
+        heading: 'The economics: machine vs a new shift',
+        paragraphs: [
+          'A mobile securing machine is a one-time cost that pays back in 6–18 months and then saves every year. A new shift is a permanent, recurring cost that rises with wages. Lifting existing-shift capacity is almost always the cheaper route to more output — and it improves consistency and cuts rejections at the same time.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'How can I increase output without adding a shift?',
+        answer:
+          'Raise the capacity of your existing shifts at the bottleneck. On most dispatch floors that is manual securing; automating it cuts the step from ~120 seconds to under 40 with one operator, so the same shift ships far more pallets in the same hours — often enough to absorb growth that would otherwise force a costly new shift.',
+      },
+      {
+        question: 'Is automating securing cheaper than adding a shift?',
+        answer:
+          'Almost always. A mobile securing machine is a one-time cost that pays back in 6–18 months and then saves every year, while a new shift is a permanent recurring cost (wages, supervision, overheads) that rises with wages. Lifting existing-shift capacity is the cheaper route to more output.',
+      },
+      {
+        question: 'How much extra output can one machine unlock?',
+        answer:
+          'On the secured step, automation roughly triples speed (~120s to under 40s) and frees an operator, while removing the re-work and rejected loads that quietly eat capacity. The recovered throughput on your current shifts is frequently enough to defer a new shift by a long way — model it against your pallet volume.',
+      },
+    ],
+    related: [
+      { label: 'Factory-Floor Automation hub', href: '/factory-floor-automation' },
+      { label: 'Increase throughput', href: '/factory-floor-automation/increase-throughput' },
+      { label: 'Reduce labour cost', href: '/factory-floor-automation/reduce-labour-cost' },
+      { label: 'ROI calculator', href: '/roi-calculator' },
+    ],
+    serviceType: 'Capacity increase automation',
+  },
 ];
 
 export const automationPageBySlug = Object.fromEntries(
