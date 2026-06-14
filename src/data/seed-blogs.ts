@@ -56,6 +56,8 @@ const publishedAtBase = [
   '2026-06-19T15:00:00+05:30',
   '2026-06-19T17:00:00+05:30',
   '2026-06-20T09:00:00+05:30',
+  '2026-06-20T11:00:00+05:30',
+  '2026-06-20T13:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -5398,6 +5400,185 @@ A pallet jack moves pallets along the floor; a forklift lifts them high. Pick by
     createdAt: new Date(publishedAtBase[54]),
     updatedAt: new Date(publishedAtBase[54]),
     publishedAt: new Date(publishedAtBase[54]),
+  },
+  {
+    _id: 'seed-how-many-boxes-on-a-pallet',
+    title: 'How Many Boxes Fit on a Pallet? How to Calculate Cases Per Pallet',
+    slug: 'how-many-boxes-on-a-pallet',
+    excerpt:
+      'How to calculate how many boxes or cases fit on a pallet — the formula, layers and tie-high, a worked example, and how to keep a full pallet stable once it’s built.',
+    content: `"How many boxes fit on a pallet?" is one of the most-asked questions in shipping — because it drives your freight cost, your storage, and your truck planning. There is no single answer (it depends on your box and pallet), but there is a simple method. Here it is.
+
+## The basic method
+
+You work it out in two steps: how many boxes fit in **one layer**, then how many **layers** you can stack.
+
+**Boxes per layer (the "tie")** = the pallet's deck area ÷ the box footprint, adjusted for how the boxes are arranged so they fit neatly without overhang.
+
+**Layers (the "high")** = maximum stack height ÷ box height.
+
+**Total boxes = boxes per layer × number of layers.**
+
+This layer-and-stack pattern is called the **"tie-high"** (tie = boxes per layer, high = number of layers).
+
+## Worked example
+
+Take a standard **1200 × 1000 mm** pallet and a box measuring **400 × 300 mm**, 250 mm tall, with a maximum stack height of 1,500 mm above the pallet:
+
+- **Per layer:** the 1200×1000 deck = 1,200,000 mm². The box footprint = 120,000 mm². That's a theoretical 10 boxes per layer — and 400×300 boxes arrange neatly on a 1200×1000 deck (e.g. a mix of orientations) to fill it with little waste, so ~**10 per layer**.
+- **Layers:** 1,500 mm ÷ 250 mm = **6 layers**.
+- **Total:** 10 × 6 = **60 boxes** on the pallet.
+
+Adjust for your real box and pallet — and never let boxes overhang the pallet edge, which destroys strength.
+
+## What limits the number
+
+- **Pallet size** — bigger deck, more boxes per layer (but mind truck/container fit).
+- **Box dimensions** — and how neatly they tessellate on the deck.
+- **Max stack height** — your own limit, the carrier's, and the product's crush strength.
+- **Weight limit** — never exceed the pallet's rated capacity, even if there is height left.
+- **Stacking pattern** — column (strongest) vs interlock (more stable but less compression strength).
+
+## Tools and tips
+
+- Online pallet/cube calculators do the tessellation maths for you — useful for awkward box sizes.
+- Optimising the box-to-pallet fit can add a layer or a column and cut your cost per unit shipped (the same density logic as [LTL freight class](/blog/ltl-freight-shipping-pallets-guide)).
+
+## Don't forget: a full pallet has to stay together
+
+Calculating 60 boxes onto a pallet is only useful if those 60 boxes **arrive** as one unit. A tall, full pallet has a high centre of gravity and will shift, lean and topple in transit unless the load is **secured to the pallet**. Strap the load down to the pallet base at consistent tension so the calculated stack travels as one rigid unit — machines such as the [ErgoPack 726X](/products/726x), [GO](/products/go) and [700](/products/700) do this in under 40 seconds. See [how to pack a pallet for shipping](/blog/how-to-pack-a-pallet-for-shipping).
+
+## Quick checklist
+
+- [ ] Boxes per layer = deck area ÷ box footprint (arranged without overhang)
+- [ ] Layers = max stack height ÷ box height
+- [ ] Total = per layer × layers
+- [ ] Within the pallet's weight limit
+- [ ] No overhang; stable stacking pattern
+- [ ] Full pallet strapped to the deck so it travels as one unit
+
+Calculate the tie-high for your box and pallet, optimise the fit to cut cost — and secure the finished stack so every box you loaded is a box that arrives.`,
+    coverImage: blogImagePaths.warehouseOperation,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'how many boxes on a pallet',
+      'cases per pallet',
+      'tie high pattern',
+      'pallet calculation',
+      'boxes per pallet',
+      'pallet stacking',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'How Many Boxes Fit on a Pallet? Calculate Cases Per Pallet | ErgoPack',
+      description:
+        'How to calculate how many boxes or cases fit on a pallet — the tie-high method and formula, a worked example, what limits the count, and how to keep a full pallet stable.',
+      keywords: [
+        'how many boxes on a pallet',
+        'how many cases per pallet',
+        'boxes per pallet calculator',
+        'tie high pallet',
+        'cases per pallet calculation',
+        'pallet stacking pattern',
+      ],
+    },
+    readTime: 6,
+    views: 0,
+    createdAt: new Date(publishedAtBase[55]),
+    updatedAt: new Date(publishedAtBase[55]),
+    publishedAt: new Date(publishedAtBase[55]),
+  },
+  {
+    _id: 'seed-pallet-weight-and-capacity',
+    title: 'Pallet Weight & Load Capacity: How Much Can a Pallet Hold?',
+    slug: 'pallet-weight-and-load-capacity',
+    excerpt:
+      'How much a pallet weighs and how much it can hold — static, dynamic and racking capacity explained, by material, and why the load rating only matters if the load is secured.',
+    content: `"How much can a pallet hold?" sounds like one number, but a pallet actually has three different capacity ratings — and using the wrong one is how pallets fail. Here is what pallet weight and load capacity really mean.
+
+## How much does a pallet weigh?
+
+The empty weight depends on material and size:
+
+- **Wooden pallet (standard):** typically ~15–25 kg (a 48×40 in pallet ≈ 32–44 lb).
+- **Plastic pallet:** varies widely by design, often lighter than wood for the same footprint.
+- **Metal pallet:** heaviest, for the most demanding loads.
+
+You need the empty weight for shipping calculations (it counts toward gross weight) and for manual handling.
+
+## The three load capacities
+
+A pallet does not have one capacity — it has three, and they decrease in this order:
+
+| Rating | Meaning | Typical use |
+| --- | --- | --- |
+| **Static** | Max load when the pallet is stationary, on the floor | Storing one pallet on the ground |
+| **Dynamic** | Max load when the pallet is being moved by forklift/jack | Handling and transport |
+| **Racking** | Max load when the pallet is supported only at its edges in racking | Storage on beam racking |
+
+**Racking capacity is the lowest** because the pallet is only supported at the ends and the deck must carry the load across the gap. Always design to the *racking* rating if the pallet will be racked — using the static rating in a rack is a collapse risk.
+
+## Typical capacities
+
+- A **standard wooden pallet** commonly holds up to ~1,000–1,500 kg dynamic, less in racking.
+- **Heavy-duty plastic and metal pallets** can hold considerably more.
+- Always use the **manufacturer's rated capacity** for your specific pallet — do not guess.
+
+## What affects capacity
+
+- **Material and construction** — block pallets are generally stronger than stringer.
+- **Condition** — a cracked board or stringer slashes the safe capacity.
+- **Load distribution** — an evenly spread load is safer than a concentrated point load.
+- **Support method** — floor (static) vs forklift (dynamic) vs rack (racking).
+
+## Capacity is only safe if the load is secured
+
+A pallet rated for 1,200 kg can still fail in transit if those 1,200 kg are not held in place — a load that shifts concentrates force, overloads one side, and can exceed the safe point load even within the total rating. Staying within the rated capacity **and** securing the load to the pallet is what keeps a heavy pallet safe. Strap the load down at consistent tension so the weight stays distributed and the unit stays stable — machines such as the [ErgoPack 726X](/products/726x), [GO](/products/go) and [700](/products/700) apply repeatable tension up to 2,500N for heavy loads. See [best machine for heavy loads](/resources/best-pallet-strapping-machine-heavy-loads) and [types of pallets explained](/blog/types-of-pallets-explained).
+
+## Pallet capacity checklist
+
+- [ ] Empty pallet weight known (for gross-weight calcs)
+- [ ] Right rating used: static / dynamic / racking
+- [ ] Racking rating used if the pallet will be racked
+- [ ] Within the manufacturer's rated capacity
+- [ ] Pallet condition sound (no cracks)
+- [ ] Load evenly distributed
+- [ ] Load secured to the pallet so weight stays distributed
+
+Know the three ratings, design to the right one, stay within it — and secure the load so the capacity you planned for is the capacity you actually get.`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'pallet weight',
+      'pallet load capacity',
+      'pallet capacity',
+      'static dynamic racking load',
+      'how much can a pallet hold',
+      'pallet weight limit',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Pallet Weight & Load Capacity: How Much Can a Pallet Hold? | ErgoPack',
+      description:
+        'How much a pallet weighs and holds — static, dynamic and racking capacity explained, typical figures by material, what affects it, and why the rating only matters if the load is secured.',
+      keywords: [
+        'pallet weight',
+        'pallet load capacity',
+        'how much can a pallet hold',
+        'pallet weight limit',
+        'static dynamic racking capacity',
+        'pallet capacity kg',
+      ],
+    },
+    readTime: 6,
+    views: 0,
+    createdAt: new Date(publishedAtBase[56]),
+    updatedAt: new Date(publishedAtBase[56]),
+    publishedAt: new Date(publishedAtBase[56]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
