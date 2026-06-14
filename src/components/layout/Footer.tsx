@@ -77,6 +77,7 @@ const locationsByState: Array<{
     cities: [
       { label: 'Chennai', href: '/locations/pallet-strapping-machine-chennai' },
       { label: 'Coimbatore', href: '/locations/pallet-strapping-machine-coimbatore' },
+      { label: 'Tirupur', href: '/locations/pallet-strapping-machine-tirupur' },
       { label: 'Hosur', href: '/locations/pallet-strapping-machine-hosur' },
       { label: 'Salem', href: '/locations/pallet-strapping-machine-salem' },
       { label: 'Ennore Port', href: '/locations/pallet-strapping-machine-ennore' },
@@ -98,6 +99,7 @@ const locationsByState: Array<{
     state: 'South & Central',
     cities: [
       { label: 'Bangalore', href: '/locations/pallet-strapping-machine-bangalore' },
+      { label: 'Peenya (Bengaluru)', href: '/locations/pallet-strapping-machine-peenya-bengaluru' },
       { label: 'Hyderabad', href: '/locations/pallet-strapping-machine-hyderabad' },
       { label: 'Mangalore Port', href: '/locations/pallet-strapping-machine-mangalore' },
       { label: 'Cochin Port', href: '/locations/pallet-strapping-machine-cochin' },
@@ -111,7 +113,9 @@ const locationsByState: Array<{
       { label: 'Jamshedpur', href: '/locations/pallet-strapping-machine-jamshedpur' },
       { label: 'Visakhapatnam', href: '/locations/pallet-strapping-machine-visakhapatnam' },
       { label: 'Krishnapatnam Port', href: '/locations/pallet-strapping-machine-krishnapatnam' },
+      { label: 'Bhubaneswar', href: '/locations/pallet-strapping-machine-bhubaneswar' },
       { label: 'Paradip Port', href: '/locations/pallet-strapping-machine-paradip' },
+      { label: 'Bhilai', href: '/locations/pallet-strapping-machine-bhilai' },
     ],
   },
 ];

@@ -1029,6 +1029,344 @@ export const automationPages: AutomationPage[] = [
     ],
     serviceType: 'Capacity increase automation',
   },
+
+  // ── SPOKE 11 — Warehouse efficiency ─────────────────────────────────────────
+  {
+    slug: 'improve-warehouse-efficiency',
+    kind: 'spoke',
+    navLabel: 'Warehouse efficiency',
+    eyebrow: 'Automation Hub · Spoke',
+    title: 'How to Improve Warehouse Efficiency in India',
+    heroAnswer:
+      'You improve warehouse efficiency by removing the slowest, most labour-heavy step at the dispatch dock rather than reshuffling the racks. On most Indian floors that step is manual pallet securing — automating it cuts the cycle from ~120 seconds to under 40 with one operator, lifting dispatch efficiency where output is actually lost.',
+    heroImage: '/images/blog/hero-logistics-machines.png',
+    heroImageAlt: 'Improving warehouse efficiency in India by automating the dispatch securing step',
+    stats: [
+      { value: 'Dispatch', label: 'Where efficiency is lost' },
+      { value: '<40 s', label: 'Per pallet, one operator' },
+      { value: '~12%', label: 'Less strap waste' },
+      { value: '6–18 mo', label: 'Payback' },
+    ],
+    seo: {
+      title: 'How to Improve Warehouse Efficiency in India | ErgoPack',
+      description:
+        'Improve warehouse efficiency by removing the slowest dispatch step — usually manual pallet securing. Cut it from ~120s to under 40s with one operator, reduce strap waste and rejections, real ROI.',
+      keywords: [
+        'improve warehouse efficiency',
+        'warehouse efficiency',
+        'warehouse efficiency India',
+        'increase warehouse efficiency',
+        'warehouse productivity',
+        'dispatch efficiency warehouse',
+        'efficient warehouse operations',
+      ],
+    },
+    intro: [
+      'Warehouse efficiency is often chased in the racks — slotting, layout, picking paths. Those matter, but the biggest single efficiency loss in many Indian warehouses sits at the dispatch dock, where loaded pallets are still secured by hand: slow, inconsistent and labour-heavy.',
+      'This guide shows how to find and remove that loss so the whole dispatch operation runs leaner.',
+    ],
+    sections: [
+      {
+        heading: 'Fix the dispatch step, not just the racks',
+        paragraphs: [
+          'Time each dock step for a typical pallet. The biggest efficiency drain is usually manual securing — two operators, ~120 seconds, by-feel tension that causes re-work and rejected loads. Because dispatch is the gate every order passes through, a slow securing step quietly caps the whole warehouse.',
+          'Automating it with a mobile ErgoPack machine cuts the step to under 40 seconds with one operator at calibrated tension, removing the re-work and freeing a person to keep the dock flowing. That is a direct efficiency gain at the point output was being lost.',
+        ],
+        bullets: [
+          'Dispatch is the gate every order passes — its slowest step caps output.',
+          'Manual securing is usually that step on Indian floors.',
+          'Automating it: ~120s → <40s, two operators → one.',
+          'Calibrated tension removes re-work and rejections.',
+        ],
+      },
+      {
+        heading: 'Efficiency gains that compound',
+        paragraphs: [
+          'Removing the securing bottleneck speeds everything downstream, frees scarce labour, and cuts the rejected loads that send pallets back through the whole dock. Each effect compounds — the warehouse ships more, with fewer people and less re-work, for a one-time machine cost that pays back in 6–18 months.',
+        ],
+      },
+    ],
+    bodyImage: {
+      src: '/images/blog/detail-warehouse-operation.png',
+      alt: 'Efficient warehouse dispatch with mobile pallet securing',
+      caption: 'Dispatch is where warehouse efficiency is won or lost — automate its slowest step first.',
+    },
+    faqs: [
+      {
+        question: 'What is the biggest single way to improve warehouse efficiency?',
+        answer:
+          'Remove the slowest, most labour-heavy step at the dispatch dock — usually manual pallet securing. Automating it cuts the cycle from ~120 seconds to under 40 with one operator, removes re-work from inconsistent tension, and frees scarce labour. Because dispatch gates every order, this lifts the whole warehouse, paying back in 6–18 months.',
+      },
+      {
+        question: 'Should I improve the racks or the dock first?',
+        answer:
+          'Improve whichever is your real bottleneck — but on most Indian floors the dispatch dock, specifically manual securing, is the bigger and faster-to-fix loss. Rack optimisation helps, but it is slower and cheaper to remove the dock bottleneck with mobile securing automation, which needs no rebuild.',
+      },
+      {
+        question: 'How does securing automation cut warehouse re-work?',
+        answer:
+          'Manual securing applies inconsistent tension, so loose pallets must be re-done and some loads are rejected and sent back through the dock. Automated securing applies calibrated, repeatable tension to every pallet, so there is no re-work and far fewer rejections — a direct, compounding efficiency gain.',
+      },
+    ],
+    related: [
+      { label: 'Factory-Floor Automation hub', href: '/factory-floor-automation' },
+      { label: 'Warehouse automation', href: '/factory-floor-automation/warehouse-automation' },
+      { label: 'Increase throughput', href: '/factory-floor-automation/increase-throughput' },
+      { label: 'Reduce dispatch time', href: '/blog/reduce-dispatch-time-warehouse' },
+    ],
+    serviceType: 'Warehouse efficiency automation',
+  },
+
+  // ── SPOKE 12 — Single-operator dispatch ─────────────────────────────────────
+  {
+    slug: 'single-operator-dispatch',
+    kind: 'spoke',
+    navLabel: 'Single-operator dispatch',
+    eyebrow: 'Automation Hub · Spoke',
+    title: 'Single-Operator Dispatch: Secure Pallets With One Person',
+    heroAnswer:
+      'Single-operator dispatch means securing loaded pallets with one person instead of the usual two, by automating the strapping step. A mobile machine routes the strap, tensions and seals on its own, so one operator secures a pallet in under 40 seconds — halving the labour on the dock’s most people-heavy task.',
+    heroImage: '/images/blog/detail-726x-workfloor.jpg',
+    heroImageAlt: 'Single-operator dispatch — one person securing a loaded pallet with a mobile machine',
+    stats: [
+      { value: '2 → 1', label: 'Operators on securing' },
+      { value: '<40 s', label: 'Per pallet, one person' },
+      { value: 'Self-feeds', label: 'ChainLance routes the strap' },
+      { value: 'Resilient', label: 'One operator covers absence' },
+    ],
+    seo: {
+      title: 'Single-Operator Dispatch: Secure Pallets With One Person | ErgoPack India',
+      description:
+        'Single-operator dispatch secures loaded pallets with one person instead of two. A mobile machine self-feeds, tensions and seals — one operator, under 40 seconds, halving dock labour.',
+      keywords: [
+        'single operator dispatch',
+        'one person pallet strapping',
+        'reduce dock operators',
+        'one operator strapping machine',
+        'single person dispatch',
+        'reduce labour per pallet',
+        'one-man pallet securing',
+      ],
+    },
+    intro: [
+      'Manual pallet securing usually takes two people — one to feed and hold the strap, one to tension and seal. That doubles the labour on the dock’s most people-heavy task and makes the whole dispatch fragile to absences. Single-operator dispatch fixes both by automating the step.',
+      'This guide explains how one person secures a pallet with a mobile machine, and what that halving of dock labour is worth.',
+    ],
+    sections: [
+      {
+        heading: 'How one operator does the work of two',
+        paragraphs: [
+          'A mobile ErgoPack machine is wheeled to the loaded pallet; its patented ChainLance routes the strap automatically under and around the pallet — no second person to feed or hold it — then applies calibrated tension and a sealless friction weld. One operator runs the full cycle in under 40 seconds, versus two people and ~120 seconds by hand.',
+          'Because the machine does the feeding, tensioning and sealing, the second operator is freed for other work, and the dock no longer stalls when someone is absent — one person can cover the securing step entirely.',
+        ],
+        bullets: [
+          'ChainLance self-feeds the strap — no second person to hold it.',
+          'One operator runs the full cycle in under 40 seconds.',
+          'The freed operator moves to other dock work.',
+          'Dispatch becomes resilient to absence and turnover.',
+        ],
+      },
+      {
+        heading: 'What single-operator dispatch saves',
+        paragraphs: [
+          'Halving the labour on securing is the single biggest dispatch-labour saving available — around ₹25 lakh a year on a typical floor across labour, strap and damage, recovering the machine in 6–18 months. And it grows: every wage rise widens the gap, while the machine cost stays fixed.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can one person secure a loaded pallet on their own?',
+        answer:
+          'Yes — with a mobile strapping machine. Its ChainLance routes the strap automatically under and around the pallet, then tensions and friction-welds the seal, so a single operator completes the cycle in under 40 seconds. Manual hand-strapping usually needs two people; automation makes single-operator dispatch possible.',
+      },
+      {
+        question: 'How much labour does single-operator dispatch save?',
+        answer:
+          'It halves the labour on the dock’s most people-heavy step — from two operators to one — and cuts the cycle from ~120 seconds to under 40. On a typical floor that is around ₹25 lakh a year saved across labour, strap and damage, with the machine paying back in 6–18 months.',
+      },
+      {
+        question: 'Does single-operator dispatch make the dock more resilient?',
+        answer:
+          'Yes. Because one operator can run the securing step alone, the dock no longer stalls when a second person is absent. That removes the fragility of two-person manual securing and makes dispatch far more resilient to the absences and turnover common in dock labour.',
+      },
+    ],
+    related: [
+      { label: 'Factory-Floor Automation hub', href: '/factory-floor-automation' },
+      { label: 'Reduce labour cost', href: '/factory-floor-automation/reduce-labour-cost' },
+      { label: 'Automate pallet strapping', href: '/factory-floor-automation/automate-pallet-strapping' },
+      { label: 'Warehouse labour shortage solution', href: '/blog/warehouse-labour-shortage-solution' },
+    ],
+    serviceType: 'Single-operator dispatch automation',
+  },
+
+  // ── SPOKE 13 — Automation for exporters ─────────────────────────────────────
+  {
+    slug: 'automation-for-exporters',
+    kind: 'spoke',
+    navLabel: 'Automation for exporters',
+    eyebrow: 'Automation Hub · Spoke',
+    title: 'Dispatch Automation for Exporters: Cut Rejections and Cost',
+    heroAnswer:
+      'For exporters, dispatch automation pays back twice — once on labour and once on rejections. Automating pallet securing applies calibrated, rust-free, seaworthy tension to every export pallet, cutting the in-transit shifting that causes container rejections while halving the labour on the step.',
+    heroImage: '/images/blog/hero-automated-pallet-strapping.png',
+    heroImageAlt: 'Dispatch automation for exporters — calibrated seaworthy securing on every pallet',
+    stats: [
+      { value: '2500N', label: 'Calibrated, every pallet' },
+      { value: 'Rust-free', label: 'PET for humid sea transit' },
+      { value: 'Fewer', label: 'Container rejections' },
+      { value: '6–18 mo', label: 'Payback' },
+    ],
+    seo: {
+      title: 'Dispatch Automation for Exporters: Cut Rejections and Cost | ErgoPack India',
+      description:
+        'For exporters, dispatch automation pays twice — labour and rejections. Automate pallet securing for calibrated, rust-free, seaworthy tension on every export pallet, cutting container rejections.',
+      keywords: [
+        'automation for exporters',
+        'export dispatch automation',
+        'export packaging automation',
+        'seaworthy securing automation',
+        'reduce export rejections automation',
+        'exporter strapping machine',
+        'export pallet automation',
+      ],
+    },
+    intro: [
+      'Exporters carry a risk domestic shippers do not: a single rejected container can cost more than a year of dispatch savings. That makes the case for dispatch automation stronger for exporters than anyone — because automating securing cuts both the labour and the rejections.',
+      'This guide explains why export dispatch automation pays back twice, and what "seaworthy" automated securing looks like.',
+    ],
+    sections: [
+      {
+        heading: 'Automation pays back twice for exporters',
+        paragraphs: [
+          'The first payback is labour: automating securing replaces two operators at ~120 seconds with one at under 40. The second, larger payback for exporters is rejections: hand-strapping applies inconsistent tension, and the loosest pallet is the one that shifts in the container and gets the consignment rejected. Calibrated, repeatable automated tension removes that variability.',
+          'A mobile ErgoPack machine applies digital tension up to 2500N with a sealless friction weld and runs PET — which resists rust through humid container transit and recovers tension as loads settle. Every export pallet leaves at the correct, seaworthy tension, so the container arrives intact.',
+        ],
+        bullets: [
+          'Labour payback: two operators → one, ~120s → <40s.',
+          'Rejection payback: calibrated tension removes the loose-pallet failure.',
+          'PET resists rust and recovers tension for the sea voyage.',
+          'One rejected container can outweigh a year of savings — automation prevents it.',
+        ],
+      },
+      {
+        heading: 'What seaworthy automated securing looks like',
+        paragraphs: [
+          'Seaworthy securing means the same correct tension on every pallet, a sealless weld that will not slip, and rust-free PET that survives weeks of container condensation. Automation delivers all three by design — consistency replaces the by-feel guesswork that lets one weak pallet sink a whole consignment.',
+        ],
+      },
+    ],
+    bodyImage: {
+      src: '/images/blog/detail-726x-touchscreen.png',
+      alt: 'Digital calibrated tension for seaworthy export securing',
+      caption: 'Calibrated, rust-free tension on every export pallet — the automation case exporters cannot ignore.',
+    },
+    faqs: [
+      {
+        question: 'Why is dispatch automation more valuable for exporters?',
+        answer:
+          'Because it pays back twice. The first payback is labour (two operators to one, ~120s to under 40s); the second, larger one is rejections — a single rejected container can cost more than a year of savings. Automated, calibrated, rust-free securing removes the loose-pallet failure that causes those rejections, so exporters gain on both fronts.',
+      },
+      {
+        question: 'How does automation make securing seaworthy?',
+        answer:
+          'It applies the same calibrated tension (up to 2500N) to every pallet via a sealless friction weld, and runs PET strap that resists rust in container humidity and recovers tension as loads settle. Consistency, no slipping seals and rust-free strap are exactly what seaworthy securing requires — and automation delivers them by design.',
+      },
+      {
+        question: 'Will automated securing help me meet buyer packaging standards?',
+        answer:
+          'Yes. International buyers increasingly require consistent, documented securing. Automated, calibrated tension on every pallet gives repeatable, defensible securing that meets seaworthy standards — helping a small or mid-size exporter win and keep business it might otherwise lose to rejections.',
+      },
+    ],
+    related: [
+      { label: 'Factory-Floor Automation hub', href: '/factory-floor-automation' },
+      { label: 'Reduce shipment rejections', href: '/factory-floor-automation/reduce-shipment-rejections' },
+      { label: 'Reduce export shipment rejections', href: '/blog/reduce-export-shipment-rejections' },
+      { label: 'Seaworthy palletising', href: '/blog/seaworthy-palletising-securing' },
+    ],
+    serviceType: 'Export dispatch automation',
+  },
+
+  // ── SPOKE 14 — Reduce packaging cost ────────────────────────────────────────
+  {
+    slug: 'reduce-packaging-cost',
+    kind: 'spoke',
+    navLabel: 'Reduce packaging cost',
+    eyebrow: 'Automation Hub · Spoke',
+    title: 'How to Reduce Packaging Cost on the Dispatch Floor',
+    heroAnswer:
+      'You reduce packaging cost most by cutting the labour and waste in securing, not by buying cheaper materials. Automating pallet securing replaces two operators with one, cuts strap waste by about 12% through calibrated tension, and removes damage-driven re-packing — lowering total packaging cost per pallet, not just material price.',
+    heroImage: '/images/blog/hero-pallet-strapping-guide.png',
+    heroImageAlt: 'Reducing packaging cost on the dispatch floor through securing automation',
+    stats: [
+      { value: '~12%', label: 'Less strap waste' },
+      { value: '2 → 1', label: 'Operators on securing' },
+      { value: 'No re-pack', label: 'Fewer damaged loads' },
+      { value: '6–18 mo', label: 'Payback' },
+    ],
+    seo: {
+      title: 'How to Reduce Packaging Cost on the Dispatch Floor | ErgoPack India',
+      description:
+        'Reduce packaging cost by cutting securing labour and waste, not buying cheaper material. Automation cuts strap waste ~12%, halves securing labour and removes re-packing — lower cost per pallet.',
+      keywords: [
+        'reduce packaging cost',
+        'reduce packaging cost India',
+        'cut packaging cost',
+        'lower packaging cost',
+        'packaging cost reduction',
+        'reduce strap waste',
+        'packaging cost per pallet',
+      ],
+    },
+    intro: [
+      'The instinct when packaging cost rises is to buy cheaper material — but that often raises the rejection rate and costs more overall. The durable way to reduce packaging cost is to cut the labour and waste in the securing step, which lowers the true cost per safely-shipped pallet.',
+      'This guide shows where packaging cost actually goes and how automating securing reduces it without weakening protection.',
+    ],
+    sections: [
+      {
+        heading: 'Cut cost per pallet, not material price',
+        paragraphs: [
+          'Securing cost has three controllable parts: labour, strap waste and damage-driven re-packing. Manual securing is heavy on all three — two operators, over-fed strap from by-feel tension, and loose loads that get damaged and re-packed. Cheaper strap does not fix any of these; automation fixes all three.',
+          'A mobile ErgoPack machine applies calibrated tension, so it uses about 12% less strap per pallet, runs with one operator instead of two, and secures consistently so loads are not damaged and re-packed. Total packaging cost per pallet falls — while protection improves.',
+        ],
+        bullets: [
+          'Securing cost = labour + strap waste + damage re-packing.',
+          'Calibrated tension cuts strap waste ~12%.',
+          'One operator instead of two on the step.',
+          'Consistent securing removes damage-driven re-packing.',
+        ],
+      },
+      {
+        heading: 'Why cheap material is a false economy',
+        paragraphs: [
+          'Switching to thinner or weaker strap to save on material often raises the rejection and damage rate — and one rejected load costs far more than the material saved. Reducing packaging cost the right way means cutting waste and labour while keeping (or improving) protection, which is exactly what automated, calibrated securing does.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        question: 'What is the best way to reduce packaging cost?',
+        answer:
+          'Cut the labour and waste in the securing step rather than buying cheaper material. Automating pallet securing uses about 12% less strap through calibrated tension, runs with one operator instead of two, and removes damage-driven re-packing — lowering total packaging cost per safely-shipped pallet while improving protection.',
+      },
+      {
+        question: 'Does buying cheaper strap reduce packaging cost?',
+        answer:
+          'Usually not, on a total-cost basis. Thinner or weaker strap often raises the damage and rejection rate, and one rejected load costs far more than the material saved. The durable saving comes from cutting securing labour and waste with automation, not from weakening the material.',
+      },
+      {
+        question: 'How much packaging cost can automation save?',
+        answer:
+          'Across reduced strap waste (~12%), halved securing labour and removed re-packing, automated securing lowers total packaging cost per pallet meaningfully — part of the ~₹25 lakh a year a typical floor saves — while the machine pays back in 6–18 months.',
+      },
+    ],
+    related: [
+      { label: 'Factory-Floor Automation hub', href: '/factory-floor-automation' },
+      { label: 'Reduce labour cost', href: '/factory-floor-automation/reduce-labour-cost' },
+      { label: 'Reduce export packaging cost', href: '/blog/reduce-export-packaging-cost' },
+      { label: 'PP vs PET vs steel strapping', href: '/resources/pet-vs-steel-strapping' },
+    ],
+    serviceType: 'Packaging cost reduction automation',
+  },
 ];
 
 export const automationPageBySlug = Object.fromEntries(

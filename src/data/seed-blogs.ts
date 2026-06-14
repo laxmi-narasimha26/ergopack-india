@@ -87,6 +87,8 @@ const publishedAtBase = [
   '2026-06-27T09:00:00+05:30',
   '2026-06-27T11:00:00+05:30',
   '2026-06-27T13:00:00+05:30',
+  '2026-06-28T09:00:00+05:30',
+  '2026-06-28T11:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -8131,6 +8133,176 @@ A pallet strapping machine is not just for big plants — for a small Indian bus
     createdAt: new Date(publishedAtBase[84]),
     updatedAt: new Date(publishedAtBase[84]),
     publishedAt: new Date(publishedAtBase[84]),
+  },
+  {
+    _id: 'seed-improve-oee-dispatch',
+    title: 'Improving OEE: Why the Dispatch Dock Is the Forgotten Factor',
+    slug: 'improve-oee-dispatch-dock',
+    excerpt:
+      'OEE programmes obsess over the production line and ignore the dispatch dock — yet a manual securing bottleneck there caps the throughput your OEE is meant to protect. Here’s the link.',
+    content: `Most OEE (Overall Equipment Effectiveness) programmes pour effort into the production line — availability, performance, quality — and stop at the moment goods come off it. But if finished output then queues behind a manual dispatch step, the gains your OEE programme worked for never reach the truck. The dispatch dock is the forgotten factor in factory effectiveness.
+
+## OEE protects production — but not dispatch
+
+OEE measures how well your production equipment runs. Lift it and the line produces more. But effectiveness is only realised when that output actually **ships** — and on most Indian floors the dispatch dock is still manual, with pallet securing as the slowest, most labour-heavy step. A line running at high OEE feeding a manual dock just builds up work-in-progress in front of the dispatch bottleneck.
+
+## The hidden link: dispatch caps realised throughput
+
+- **Availability** gains add capacity the dock may not be able to clear.
+- **Performance** gains push more units toward a manual securing step.
+- **Quality** gains can be undone if loose securing causes transit damage and [rejections](/blog/reduce-export-shipment-rejections).
+
+So the dispatch dock quietly limits the throughput your OEE programme is meant to unlock — and inconsistent manual securing even erodes the quality pillar after the goods leave the line.
+
+## Fixing the dispatch factor
+
+Automating the securing step extends OEE thinking to the dock:
+
+- **Speed** — under 40 seconds per pallet with one operator, versus ~120 seconds with two ([automate pallet strapping](/factory-floor-automation/automate-pallet-strapping)).
+- **Consistency** — calibrated tension protects the quality pillar all the way to the destination.
+- **Resilience** — one operator covers, so dispatch availability doesn’t collapse on an absence.
+
+The dock stops capping realised throughput, and the OEE gains on the line finally reach the truck.
+
+## How to extend OEE to the dock
+
+1. **Measure dispatch** alongside production — time the securing step.
+2. **Check whether output queues** at the dock (WIP in front of securing).
+3. **Automate the securing bottleneck** — mobile, no rebuild.
+4. **Track realised throughput** (units shipped), not just produced.
+5. **Model the gain** — [ROI calculator](/roi-calculator).
+
+## Dispatch-OEE checklist
+
+- [ ] Dispatch timed alongside production
+- [ ] WIP pile-up at the dock checked
+- [ ] Securing bottleneck automated
+- [ ] Realised throughput (shipped) tracked
+- [ ] Quality protected to destination with calibrated tension
+- [ ] Gain modelled in [ROI calculator](/roi-calculator)
+
+OEE that stops at the line-end is half a programme. Extend it to the dispatch dock — automate the manual securing bottleneck — and the effectiveness you built on the line finally reaches the truck. [Model the gain](/roi-calculator) or [request a quote](/buy-pallet-strapping-machine-india).`,
+    coverImage: blogImagePaths.automationHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'insights',
+    tags: [
+      'improve OEE',
+      'OEE dispatch',
+      'overall equipment effectiveness',
+      'OEE bottleneck',
+      'realised throughput',
+      'dispatch effectiveness',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Improving OEE: Why the Dispatch Dock Is the Forgotten Factor | ErgoPack',
+      description:
+        'OEE programmes obsess over the line and ignore dispatch — yet a manual securing bottleneck there caps realised throughput and erodes quality. How to extend OEE to the dock.',
+      keywords: [
+        'improve OEE',
+        'OEE dispatch dock',
+        'overall equipment effectiveness India',
+        'OEE bottleneck',
+        'realised throughput',
+        'OEE and dispatch',
+      ],
+    },
+    readTime: 6,
+    views: 0,
+    createdAt: new Date(publishedAtBase[85]),
+    updatedAt: new Date(publishedAtBase[85]),
+    publishedAt: new Date(publishedAtBase[85]),
+  },
+  {
+    _id: 'seed-pallet-strapping-machine-buying-checklist',
+    title: 'Pallet Strapping Machine Buying Checklist: 10 Questions Before You Decide',
+    slug: 'pallet-strapping-machine-buying-checklist',
+    excerpt:
+      'Before you buy a pallet strapping machine, run through these ten questions. They cover loads, volume, power, tension, service and ROI — so you choose the right machine, not just the cheapest.',
+    content: `Buying the wrong strapping machine is an expensive mistake — a table-top that can’t strap pallets, or an inline system that’s overkill for your volume. Run through these ten questions before you decide, and you’ll choose the machine that fits your operation, not just the lowest price tag.
+
+## The 10 questions
+
+### 1. Are you strapping loaded pallets?
+If yes, a semi-automatic table-top machine is out — it only handles small cartons. You need a mobile or inline machine ([semi-auto vs fully-auto](/blog/semi-automatic-vs-fully-automatic-strapping)).
+
+### 2. What’s your daily pallet volume?
+This sets whether a machine pays back and which type fits — often from ~15–30 pallets/day ([how many pallets justify a machine](/blog/how-many-pallets-justify-strapping-machine)).
+
+### 3. How heavy and dense are your loads?
+Heavy, non-compressible loads need high, calibrated tension (to 2500N on the 726X); compressible loads need a strap that recovers tension.
+
+### 4. Do you export?
+Export loads need rust-free PET and seaworthy, consistent tension to avoid [container rejections](/blog/reduce-export-shipment-rejections) — a stronger case for automation.
+
+### 5. Do you have power at the dock, or off-grid sites?
+The 700 straps without power; the GO and 726X are battery-electric. Match the machine to your power reality.
+
+### 6. One dock or many?
+Mobile machines move between docks; inline systems are fixed. Multiple or changing staging points favour mobile.
+
+### 7. What strap material do you use?
+The GO runs PP, PET, paper, cord and composite; the 726X runs PP/PET. Match to your material.
+
+### 8. How many operators are on securing now?
+Two-person manual securing is the biggest saving opportunity — automation cuts it to one ([reduce labour cost](/factory-floor-automation/reduce-labour-cost)).
+
+### 9. What’s the total cost of ownership, not just price?
+The cheapest machine is rarely the lowest cost per pallet once labour, strap waste and damage are counted ([reduce packaging cost](/factory-floor-automation/reduce-packaging-cost)).
+
+### 10. Is service and spares available locally?
+A machine is only as good as its uptime — confirm on-site service, training and genuine spares in your region.
+
+## Run the numbers and prove it
+
+After the ten questions, model the payback in the [ROI calculator](/roi-calculator), then ask for a free on-site demo on your heaviest pallet — the only way to be sure before you buy.
+
+## Buying checklist
+
+- [ ] Loaded pallets? (rules out table-top)
+- [ ] Daily volume counted
+- [ ] Load weight/density assessed
+- [ ] Export/rejection risk considered
+- [ ] Power situation matched
+- [ ] One dock or many
+- [ ] Strap material matched
+- [ ] Current operators on securing counted
+- [ ] Total cost of ownership modelled in [ROI calculator](/roi-calculator)
+- [ ] Local service + spares confirmed; demo booked
+
+Answer these ten questions and you’ll buy the right pallet strapping machine — the one that fits your loads, volume and budget. [Model your fit](/roi-calculator) or [request a quote](/buy-pallet-strapping-machine-india).`,
+    coverImage: blogImagePaths.guideHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'pallet strapping machine buying checklist',
+      'how to buy strapping machine',
+      'strapping machine selection',
+      'choose strapping machine',
+      'strapping machine questions',
+      'strapping machine guide',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Pallet Strapping Machine Buying Checklist: 10 Questions | ErgoPack India',
+      description:
+        'Before buying a pallet strapping machine, run these ten questions — loads, volume, power, tension, export, service and ROI — to choose the right machine, not just the cheapest.',
+      keywords: [
+        'pallet strapping machine buying checklist',
+        'how to buy a pallet strapping machine',
+        'strapping machine selection guide',
+        'choose pallet strapping machine',
+        'strapping machine buying guide India',
+        'what to look for strapping machine',
+      ],
+    },
+    readTime: 6,
+    views: 0,
+    createdAt: new Date(publishedAtBase[86]),
+    updatedAt: new Date(publishedAtBase[86]),
+    publishedAt: new Date(publishedAtBase[86]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
