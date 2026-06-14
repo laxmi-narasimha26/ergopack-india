@@ -68,6 +68,8 @@ const publishedAtBase = [
   '2026-06-22T09:00:00+05:30',
   '2026-06-22T11:00:00+05:30',
   '2026-06-22T13:00:00+05:30',
+  '2026-06-22T15:00:00+05:30',
+  '2026-06-22T17:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -6519,6 +6521,207 @@ End-of-line automation is how factories close the gap between automated producti
     createdAt: new Date(publishedAtBase[66]),
     updatedAt: new Date(publishedAtBase[66]),
     publishedAt: new Date(publishedAtBase[66]),
+  },
+  {
+    _id: 'seed-seaworthy-packaging-guide',
+    title: 'Seaworthy Packaging: The Complete Guide for Indian Exporters',
+    slug: 'seaworthy-packaging-guide',
+    excerpt:
+      'Seaworthy packaging protects export cargo from the three hazards of sea freight — impact, moisture and corrosion. The complete guide: ISPM-15 crates, moisture barriers, VCI, desiccants, lashing and securing.',
+    content: `Seaworthy packaging is the difference between cargo that arrives intact after weeks at sea and cargo that arrives rusted, mouldy, crushed or rejected. For Indian exporters it is not optional — it is what clears customs, survives the voyage, and protects the value of the shipment. This is the complete, technical guide.
+
+## What "seaworthy packaging" actually means
+
+Seaworthy (or export-worthy) packaging is packaging engineered to protect cargo against the **three primary hazards of sea freight**:
+
+1. **Physical impact** — handling shocks, drops, stacking, vibration over weeks of transit.
+2. **Moisture and condensation** — humidity, container rain, monsoon loading.
+3. **Corrosion** — rust on metal goods from salt air and trapped humidity.
+
+A truly seaworthy package defends against all three at once — and a single weak layer (an untreated pallet, a missing desiccant, a loose strap) compromises the whole shipment.
+
+## The layers of seaworthy packaging
+
+| Layer | Purpose | Typical materials |
+| --- | --- | --- |
+| Outer crate / case | Physical protection, structure | ISPM-15 heat-treated timber, plywood |
+| Moisture barrier | Block external humidity | HDPE film, aluminium foil liner |
+| Corrosion protection | Protect metal surfaces | VCI film/paper/emitters |
+| Cushioning | Absorb shock | Foam, bubble, dunnage |
+| Desiccant | Absorb trapped moisture | Silica gel, calcium chloride |
+| Securing | Hold the load as one unit | PET strapping, lashing, blocking |
+
+## 1. ISPM-15 timber construction
+
+The outer crate or case is built from **ISPM-15 heat-treated, stamped timber** (or exempt engineered wood). This is mandatory for export — non-compliant wood means port detention, fumigation at your cost and delay ([ISPM-15 explained](/blog/ispm-15-wood-packaging-explained)). The crate must be stout enough to survive handling and stacking — for machinery, framed timber with foam cushioning and internal bracing.
+
+## 2. Moisture barrier
+
+A **moisture barrier liner** — HDPE film or aluminium foil — wraps the cargo to block external humidity. For sensitive equipment, an **aluminium vacuum barrier film** is heat-sealed into a hermetic, airtight envelope that removes air and keeps moisture out entirely.
+
+## 3. The three-tier corrosion defence (VCI)
+
+For metal goods, corrosion is the silent killer. The standard defence is three layers:
+
+1. **Direct VCI wrapping** — VCI (vapour corrosion inhibitor) film, paper or emitters release vapour-phase inhibitors that settle on all metal surfaces and stop oxidation.
+2. **Hermetic barrier** — an aluminium/foil vacuum film sealed around the product blocks external moisture.
+3. **Desiccant** — silica gel or calcium chloride absorbs any residual trapped moisture inside the barrier.
+
+Together these keep precision machined surfaces, castings and electronics rust-free across a long voyage.
+
+## 4. Cushioning and dunnage
+
+Foam, bubble and moulded cushioning absorb shock; dunnage fills voids so nothing moves ([dunnage types](/blog/dunnage-types-and-uses)). Edge and corner protection guards vulnerable points.
+
+## 5. Securing — the layer that holds it all together
+
+A perfectly built seaworthy package still fails if the load shifts. The cargo must be **secured as one rigid unit and anchored to the pallet or crate base**:
+
+- **PET strapping**, not steel — PET absorbs maritime shock and **does not rust** onto the cargo, where steel snaps and corrodes (a corrosion risk on the very shipment you're protecting). See [PP vs PET vs steel strapping](/resources/pet-vs-steel-strapping).
+- **Consistent, calibrated tension** on every pallet so no unit is the weak one — a calibrated machine such as the [ErgoPack 726X](/products/726x) applies repeatable tension up to 2500N with a sealless friction weld; the [GO](/products/go) and [700](/products/700) automate the strap routing.
+- **Container lashing, blocking and choking** to stop movement during sea transit ([cargo lashing methods](/blog/cargo-lashing-methods-explained), [how to load a shipping container](/blog/how-to-load-a-shipping-container)).
+- **Manage container condensation** for the voyage ([container rain](/blog/container-rain-cargo-condensation-prevention)).
+
+## Why seaworthy packaging matters commercially
+
+A rejected or damaged export container is a catastrophic loss — re-ship freight, replacement product, insurance claims, missed delivery windows and lost buyer trust. Seaworthy packaging is the insurance that prevents it, and ISPM-15 compliance is what clears customs without detention. The cost of doing it right is a fraction of the cost of one failed container.
+
+## Seaworthy packaging checklist
+
+- [ ] ISPM-15 heat-treated, stamped timber crate/case (stout, braced)
+- [ ] Moisture barrier liner (HDPE/foil); vacuum/hermetic for sensitive goods
+- [ ] VCI three-tier corrosion defence for metal cargo
+- [ ] Foam/cushioning; voids filled with dunnage; corners protected
+- [ ] Desiccant sized to cargo and route
+- [ ] Load secured with PET at consistent tension (not steel)
+- [ ] Container lashed, blocked and choked; condensation managed
+- [ ] Marks, documentation and ISPM-15 stamps visible
+
+Build to this standard — timber, barrier, VCI, cushioning, desiccant and consistent PET securing — and your export cargo survives the three hazards of the sea and arrives exactly as it left. For machine securing within a seaworthy system, [request a quote](/buy-pallet-strapping-machine-india).`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'seaworthy packaging',
+      'export packaging India',
+      'VCI corrosion protection',
+      'moisture barrier packaging',
+      'ISPM-15 crate',
+      'export worthy packaging',
+    ],
+    published: true,
+    featured: true,
+    seo: {
+      title: 'Seaworthy Packaging: The Complete Guide for Indian Exporters | ErgoPack',
+      description:
+        'Seaworthy packaging protects export cargo from impact, moisture and corrosion. The complete guide — ISPM-15 crates, moisture barriers, VCI three-tier defence, desiccants, lashing and PET securing.',
+      keywords: [
+        'seaworthy packaging',
+        'seaworthy packaging India',
+        'export worthy packaging',
+        'VCI corrosion protection packaging',
+        'moisture barrier export packaging',
+        'seaworthy crate ISPM-15',
+      ],
+    },
+    readTime: 9,
+    views: 0,
+    createdAt: new Date(publishedAtBase[67]),
+    updatedAt: new Date(publishedAtBase[67]),
+    publishedAt: new Date(publishedAtBase[67]),
+  },
+  {
+    _id: 'seed-seaworthy-palletising-securing',
+    title: 'Seaworthy Palletising & Securing: How to Build Export Pallets That Survive the Sea',
+    slug: 'seaworthy-palletising-securing',
+    excerpt:
+      'How to palletise and secure loads for sea export — pallet choice, stacking, moisture and corrosion control, and the high-tension PET securing and lashing that keep export pallets intact across the voyage.',
+    content: `Seaworthy packaging gets a lot of attention at the crate and barrier level — but most export cargo travels on **pallets**, and a pallet that comes apart at sea undoes every other protection. Seaworthy palletising is the discipline of building and securing an export pallet so it survives weeks of ocean movement as one solid, rust-free unit. Here is how.
+
+## Why export pallets fail at sea
+
+A pallet that is fine for a short domestic truck run can fail on a sea voyage because the sea is relentless:
+
+- **Constant motion** — the ship rolls and pitches for weeks; any loose load shifts and topples.
+- **Settling** — loads compress and slump over a long voyage, loosening hand-applied straps.
+- **Humidity and salt** — moisture rusts steel strap and metal cargo; cartons soften.
+- **Repeated handling** — port-to-port transfers add shock and forklift impact.
+
+Seaworthy palletising defends against all of these at the pallet level.
+
+## 1. The right pallet
+
+- **ISPM-15 heat-treated, stamped wooden pallets** for export, or **plastic pallets** (moisture-proof, hygienic, no treatment needed) — see [standard pallet sizes](/blog/standard-pallet-sizes-in-india).
+- Rated for the load; sound condition (a cracked stringer fails under sea stress).
+
+## 2. Build a stable, square unit load
+
+- Square, even stack, **no overhang**, heaviest at the bottom.
+- The right pattern — column for strength, interlock for binding bagged/settling loads.
+- **Edge and corner protection** so straps secure without crushing.
+- Cushioning and void fill so nothing moves ([dunnage types](/blog/dunnage-types-and-uses)).
+
+## 3. Moisture and corrosion control
+
+- **Moisture barrier** over the load; **desiccant** sized to cargo and route.
+- **VCI** for metal goods on the pallet.
+- Dry pallets, dry dunnage; manage [container condensation](/blog/container-rain-cargo-condensation-prevention).
+
+## 4. Secure with high-tension PET — the heart of seaworthy palletising
+
+This is where seaworthy palletising is won. The load must be **anchored to the pallet base as one rigid unit, with a strap that survives the sea**:
+
+- **PET strap, never steel.** PET elongates to absorb the shock of ocean movement and **recovers tension** as the load settles — staying tight for the whole voyage. Steel snaps under shock, goes slack as the load settles, and rusts onto the cargo. This single choice prevents both load shift and corrosion. See [PP vs PET vs steel strapping](/resources/pet-vs-steel-strapping).
+- **Vertical strapping** under the pallet and over the load anchors the stack to the base — the shift that horizontal stretch film cannot stop.
+- **Consistent, calibrated tension on every pallet** so there is no weak unit in the container. Hand tension drifts; a calibrated machine such as the [ErgoPack 726X](/products/726x) (digital tension to 2500N, sealless friction weld), [GO](/products/go) or [700](/products/700) applies the same tension to every pallet and routes the strap under it automatically.
+
+## 5. Lash and block in the container
+
+Once each pallet is a solid unit, the units are **lashed, blocked and choked** in the container so they cannot move at sea ([cargo lashing methods](/blog/cargo-lashing-methods-explained), [how to load a shipping container](/blog/how-to-load-a-shipping-container)). Securing is layered: solid pallets first, then secured to the container.
+
+## Seaworthy palletising checklist
+
+- [ ] ISPM-15 wood or plastic pallet, rated and sound
+- [ ] Stable square stack, no overhang, right pattern
+- [ ] Edge/corner protection; voids filled
+- [ ] Moisture barrier, desiccant, VCI for metal
+- [ ] Load strapped to the pallet with PET (not steel) at consistent tension
+- [ ] Sealless friction weld — no rust, no metal-clip failure
+- [ ] Pallets lashed, blocked and choked in the container
+- [ ] Condensation managed; documents and ISPM-15 visible
+
+Build export pallets to this standard — sound pallet, stable load, moisture and corrosion controlled, and anchored with consistent PET tension that holds through the voyage — and every pallet in the container arrives as one solid, rust-free, intact unit. For the securing machine, [request a quote and demo](/buy-pallet-strapping-machine-india).`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'seaworthy palletising',
+      'export pallet securing',
+      'seaworthy packaging',
+      'PET strapping export',
+      'export pallet sea freight',
+      'container securing',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'Seaworthy Palletising & Securing: Export Pallets That Survive the Sea | ErgoPack',
+      description:
+        'How to palletise and secure loads for sea export — pallet choice, stacking, moisture and corrosion control, and high-tension PET securing and lashing that keep export pallets intact across the voyage.',
+      keywords: [
+        'seaworthy palletising',
+        'seaworthy pallet',
+        'export pallet securing',
+        'how to secure export pallets',
+        'sea freight pallet strapping',
+        'PET strapping for sea export',
+      ],
+    },
+    readTime: 8,
+    views: 0,
+    createdAt: new Date(publishedAtBase[68]),
+    updatedAt: new Date(publishedAtBase[68]),
+    publishedAt: new Date(publishedAtBase[68]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
