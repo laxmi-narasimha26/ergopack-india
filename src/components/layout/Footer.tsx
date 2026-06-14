@@ -8,9 +8,11 @@ const footerLinks = {
     { label: 'Compare Products', href: '/compare?auto=true' },
   ],
   industries: [
-    { label: 'Pharmaceuticals', href: '/industries#pharmaceuticals' },
-    { label: 'Automotive', href: '/industries#automotive' },
-    { label: 'Electronics', href: '/industries#electronics' },
+    { label: 'All Industries We Serve', href: '/industries-served' },
+    { label: 'Automotive & Heavy', href: '/blog/automotive-parts-export-packaging' },
+    { label: 'Pharma & Cold Chain', href: '/blog/pharmaceutical-pallet-packaging-gdp' },
+    { label: 'Ceramics, Stone & Glass', href: '/blog/ceramic-tiles-export-packaging' },
+    { label: 'Agri, Food & Textiles', href: '/blog/rice-agricultural-export-packaging' },
   ],
   resources: [
     { label: 'Price & Buying Guide', href: '/resources/pallet-strapping-machine-price-india' },
