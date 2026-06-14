@@ -5143,6 +5143,901 @@ export const locationPages: LocationPageData[] = [
       'pallet-strapping-machine-ludhiana',
     ],
   },
+  {
+    slug: 'pallet-strapping-machine-paradip',
+    city: 'Paradip Port',
+    region: 'Paradip, Jagatsinghpur, Cuttack & coastal Odisha belt',
+    state: 'Odisha',
+    seo: {
+      title:
+        'Pallet Strapping Machine for Paradip Port Exporters | Seaworthy Securing | ErgoPack India',
+      description:
+        'Seaworthy pallet strapping for exporters at Paradip Port, coastal Odisha — steel, metals, chemicals, agri and container exports. Rust-free PET tension to 2500N for long sea transit. Supplied and serviced by Benz Packaging.',
+      keywords: [
+        'pallet strapping machine Paradip',
+        'seaworthy pallet strapping Paradip port',
+        'export pallet strapping Odisha',
+        'steel metals export strapping Paradip',
+        'pallet strapping machine Jagatsinghpur',
+        'mobile pallet strapping machine coastal Odisha',
+        'export packaging Paradip',
+        'ErgoPack Paradip Benz Packaging',
+      ],
+    },
+    hero: {
+      eyebrow: 'Bulk & Metals Port Export Hub Page',
+      title: 'Pallet Strapping Machine for Paradip Port Steel & Metals Exports',
+      description:
+        'Paradip is a major east-coast deep-water port serving Odisha’s steel, metals, mining and chemical economy. Its heavy, dense metals and process exports face long sea transit and humidity, demanding maximum, consistent, rust-free securing.',
+      tags: [
+        'Steel & Metals',
+        'Chemicals & Agri',
+        'Coastal Odisha Gateway',
+        'Seaworthy Securing',
+      ],
+      featuredProduct: '726x',
+      stats: [
+        { label: 'Port Profile', value: 'Deep-Water Bulk & Metals' },
+        { label: 'Best Export Fit', value: 'ErgoPack 726X' },
+        { label: 'Best Flex Fit', value: 'ErgoPack GO' },
+      ],
+    },
+    summary: {
+      title: 'Why Paradip exporters search seaworthy pallet strapping solutions',
+      paragraphs: [
+        'Paradip is a major deep-water port on the Odisha coast, anchoring a heavy steel, metals, mining, chemical and agri economy across Jagatsinghpur, Cuttack and the coastal belt.',
+        'Its export profile is heavy and demanding — steel products, metals, ferro-alloys and minerals are dense and non-compressible, chemicals are drummed and bagged, and all of it faces long sea transit, container condensation and handling shock. Loose or rust-prone securing means shifting, self-damaging loads and rejected consignments.',
+        'For Paradip exporters the strongest positioning is maximum, consistent, rust-free tension — the 726X with PET for heavy steel and metals — supported by the GO for mixed chemical, agri and packaged dispatch.',
+      ],
+      bullets: [
+        'Lead with maximum tension for heavy steel, metals and ferro-alloys.',
+        'Stress rust-free PET for long, humid sea transit.',
+        'Cover drummed chemical and bagged agri loads.',
+        'Position the GO for mixed export dispatch.',
+      ],
+    },
+    zonesIntro:
+      'These are the Paradip-area export clusters where securing intent is strongest and where seaworthy detail adds real value.',
+    zones: [
+      {
+        name: 'Paradip Port & CFS',
+        focus: 'Bulk, metals, container, consolidation',
+        detail:
+          'The deep-water port and its freight stations handle mixed export pallets that must reach seaworthy standard before stuffing — a strong calibrated-tension case.',
+      },
+      {
+        name: 'Steel & metals belt',
+        focus: 'Steel, ferro-alloys, metals',
+        detail:
+          'Odisha’s steel and metals base ships extremely heavy, non-compressible loads where maximum, consistent tension and edge protection are essential.',
+      },
+      {
+        name: 'Chemical & process nodes',
+        focus: 'Chemicals, fertiliser, process',
+        detail:
+          'Coastal-Odisha chemical and process units ship drummed and bagged exports needing rust-free PET securing for humid sea transit.',
+      },
+      {
+        name: 'Agri & Cuttack feeders',
+        focus: 'Agri, food, bagged goods',
+        detail:
+          'Agri and food units around Cuttack ship bagged and baled loads that settle in transit, needing PET that recovers tension.',
+      },
+    ],
+    workflowTitle: 'The Paradip challenge is heavy metals and process exports on humid routes',
+    workflowBody: [
+      'Paradip ships some of the heaviest export loads on the east coast — steel products, ferro-alloys, metals and minerals that are dense and non-compressible, with sharp edges that cut weak straps. A loose strap means a shifting, self-damaging load that can injure handlers. Chemicals and agri add drummed, bagged and settling loads. All of it faces long, humid sea transit where steel strap rusts.',
+      'The ErgoPack 726X applies digital tension up to 2500N with a sealless friction weld and runs PET — which absorbs shock, recovers tension as loads settle and resists rust through the voyage, with edge protection for sharp metal loads. The GO flexes across mixed chemical, agri and packaged dispatch on wheels.',
+      'So the Paradip decision centres on maximum, rust-free, seaworthy tension for steel and metals (726X with PET), with the GO for mixed flexibility.',
+    ],
+    industryTitle: 'Export sectors at Paradip that make seaworthy pallet strapping essential',
+    industries: [
+      {
+        title: 'Steel, Metals & Ferro-Alloys',
+        copy: 'Odisha’s steel, metals and ferro-alloy base ships extremely heavy, non-compressible, sharp-edged loads where maximum, consistent tension and edge protection are essential — the clearest 726X-with-PET case at the port.',
+      },
+      {
+        title: 'Chemicals & Fertiliser',
+        copy: 'Drummed and bagged chemical and fertiliser exports need rust-free PET securing that holds as loads settle in the container through long voyages.',
+      },
+      {
+        title: 'Agri & Food',
+        copy: 'Coastal-Odisha agri exports are bagged and baled loads that settle in transit, needing PET that recovers tension — a flexible GO fit.',
+      },
+    ],
+    recommendationsTitle: 'Best ErgoPack fit for Paradip Port exporters',
+    recommendationsIntro:
+      'All three machines should appear on the Paradip page, led by the seaworthy heavy-metals securing case.',
+    recommendations: [
+      {
+        productSlug: '726x',
+        summary:
+          'Lead with the ErgoPack 726X for heavy steel, metals and container-ready export securing — digital tension to 2500N, sealless friction weld, rust-free PET with edge protection.',
+        bestFor: [
+          'Heavy steel, metals and ferro-alloys',
+          'Long sea-transit container loads',
+          'Sharp-edged, non-compressible exports',
+        ],
+      },
+      {
+        productSlug: 'go',
+        summary:
+          'Use the ErgoPack GO for mixed chemical, agri and packaged dispatch — mobile, flexible across drummed, bagged and cartoned loads staged before stuffing.',
+        bestFor: [
+          'Drummed chemical and bagged agri loads',
+          'CFS and consolidation dispatch',
+          'Multiple staging points across the yard',
+        ],
+      },
+      {
+        productSlug: '700',
+        summary:
+          'Keep the ErgoPack 700 visible for lower-volume export cells and sites wanting reliable securing with zero charging dependence.',
+        bestFor: [
+          'Power-independent or low-volume export stations',
+          'Paper, cord or composite strap programs',
+          'Simple, reliable, off-grid strapping',
+        ],
+      },
+    ],
+    faqTitle: 'Paradip Port pallet strapping machine FAQs',
+    faqs: [
+      {
+        question: 'Why does seaworthy strapping matter for cargo shipped through Paradip?',
+        answer:
+          'Cargo leaving Paradip can spend weeks at sea, exposed to container condensation, vibration and handling shock. Loose or inconsistent securing lets heavy loads settle and shift, causing damage and rejected consignments. Seaworthy strapping means calibrated, repeatable tension with rust-free PET that keeps the load tight from the factory to the destination port.',
+      },
+      {
+        question: 'Can ErgoPack secure heavy steel and metals exports from Odisha?',
+        answer:
+          'Yes. Steel, metals and ferro-alloys are extremely heavy and non-compressible with sharp edges, so they need maximum, consistent tension and edge protection. The ErgoPack 726X applies digital tension up to 2500N with a sealless friction weld and runs PET, which absorbs shock and resists rust — keeping heavy metal loads secured through handling and sea transit.',
+      },
+      {
+        question: 'Why PET strap instead of steel for Paradip exports?',
+        answer:
+          'Steel strap rusts in container humidity and can corrode onto the cargo, and it does not recover tension as loads settle. PET resists rust, absorbs shock and recovers tension — keeping the load tight and clean through weeks of sea transit. PET is the seaworthy choice for Paradip exports.',
+      },
+      {
+        question: 'How much does a pallet strapping machine cost for a Paradip exporter?',
+        answer:
+          'Prices range from manual tools (₹25,000–₹35,000) and table-top semi-automatic machines (₹35,000–₹85,000, not for loaded pallets) to mobile and inline systems (₹1,75,000 and up). ErgoPack quotes against your export volume and loads and serves coastal Odisha through Benz Packaging — request a quote for pricing and a demo.',
+      },
+      {
+        question: 'Do you provide installation and service near Paradip?',
+        answer:
+          'Yes. ErgoPack India, through Benz Packaging, provides on-site installation, operator training, service and genuine spare parts across the Paradip, Jagatsinghpur, Cuttack and coastal-Odisha export belt.',
+      },
+    ],
+    sources: [
+      { label: 'Paradip Port Authority', url: 'https://www.paradipport.gov.in/' },
+      { label: 'ISPM-15 (IPPC wood packaging standard)', url: 'https://www.ippc.int/' },
+      { label: 'ErgoPack 726X technical datasheet', url: '/pdfs/726X_Technical_Data.pdf' },
+    ],
+    areaServed: ['Paradip', 'Jagatsinghpur', 'Cuttack', 'Coastal Odisha', 'Bhubaneswar'],
+    schemaDescription:
+      'Seaworthy pallet strapping machine selection, installation and service for exporters at Paradip deep-water port across Jagatsinghpur, Cuttack and the coastal-Odisha steel, metals and chemical export belt.',
+    relatedLocationSlugs: [
+      'pallet-strapping-machine-kolkata-haldia',
+      'pallet-strapping-machine-visakhapatnam',
+      'pallet-strapping-machine-jamshedpur',
+    ],
+  },
+  {
+    slug: 'pallet-strapping-machine-aurangabad',
+    city: 'Chhatrapati Sambhajinagar (Aurangabad)',
+    region: 'Waluj, Shendra, Chikalthana & DMIC auto belt',
+    state: 'Maharashtra',
+    seo: {
+      title:
+        'Pallet Strapping Machine in Aurangabad (Chh. Sambhajinagar) | Auto & Pharma Securing | ErgoPack India',
+      description:
+        'Automated pallet strapping for Aurangabad / Chhatrapati Sambhajinagar’s auto, pharma, engineering and beverage clusters — Waluj, Shendra, Chikalthana, AURIC. Strap pallets in under 40s. Supplied and serviced by Benz Packaging.',
+      keywords: [
+        'pallet strapping machine Aurangabad',
+        'pallet strapping machine Chhatrapati Sambhajinagar',
+        'automated pallet strapping Aurangabad',
+        'auto pharma strapping Waluj Shendra',
+        'pallet strapping machine AURIC',
+        'mobile pallet strapping machine Chikalthana',
+        'engineering strapping DMIC Aurangabad',
+        'ErgoPack Aurangabad Benz Packaging',
+      ],
+    },
+    hero: {
+      eyebrow: 'Auto, Pharma & Engineering Hub Page',
+      title: 'Pallet Strapping Machine in Aurangabad for Auto, Pharma & Engineering Dispatch',
+      description:
+        'Aurangabad (Chhatrapati Sambhajinagar) is a fast-growing auto, pharma and engineering hub on the DMIC corridor — Waluj, Shendra, Chikalthana and the AURIC smart-city node. Its dense auto and compliance-sensitive pharma loads demand consistent, fast strapping.',
+      tags: [
+        'Auto & Components',
+        'Pharma & Process',
+        'Engineering & Beverage',
+        'DMIC Auto Belt',
+      ],
+      featuredProduct: '726x',
+      stats: [
+        { label: 'Primary Cluster', value: 'Auto, Pharma & Engineering' },
+        { label: 'Best Heavy Fit', value: 'ErgoPack 726X' },
+        { label: 'Best Flex Fit', value: 'ErgoPack GO' },
+      ],
+    },
+    summary: {
+      title: 'Why Aurangabad teams search pallet strapping machine solutions',
+      paragraphs: [
+        'Aurangabad (Chhatrapati Sambhajinagar) is one of Maharashtra’s fastest-growing industrial hubs — a deep auto and auto-component base, a major pharma cluster, plus engineering, beverage and packaging, across Waluj, Shendra, Chikalthana and the AURIC DMIC node.',
+        'Its dispatch splits between dense auto and engineered components needing high tension, compliance-sensitive pharma needing consistent, traceable securing, and high-volume packaged and beverage loads. PET and calibrated tension serve all three, and the export share needs rust-free PET via JNPT and the western ports.',
+        'For Aurangabad the strongest positioning is consistent, high tension for auto and pharma — the 726X with PET — supported by the GO for high-volume mixed packaged and beverage dispatch.',
+      ],
+      bullets: [
+        'Lead with consistent, high tension for auto and engineered components.',
+        'Cover compliance-sensitive pharma needing consistent securing.',
+        'Stress rust-free PET for export via JNPT and western ports.',
+        'Position the GO for high-volume packaged and beverage dispatch.',
+      ],
+    },
+    zonesIntro:
+      'These are the Aurangabad-area clusters where search intent is strongest and where local operational detail adds real value.',
+    zones: [
+      {
+        name: 'Waluj MIDC',
+        focus: 'Auto, components, engineering',
+        detail:
+          'Aurangabad’s auto and engineering core ships dense, non-compressible component loads needing high, consistent tension and dock speed.',
+      },
+      {
+        name: 'Shendra & AURIC',
+        focus: 'Auto, electronics, smart-city industry',
+        detail:
+          'The Shendra–AURIC DMIC node ships auto, electronics and engineered loads where consistent tension supports JIT and export dispatch.',
+      },
+      {
+        name: 'Chikalthana MIDC',
+        focus: 'Pharma, beverage, packaged',
+        detail:
+          'Chikalthana ships compliance-sensitive pharma and high-volume beverage and packaged loads needing consistent, fast securing.',
+      },
+      {
+        name: 'Pharma & process cluster',
+        focus: 'Pharma, formulations, process',
+        detail:
+          'Aurangabad’s pharma base ships high-value, compliance-sensitive loads needing consistent, traceable securing for domestic and export dispatch.',
+      },
+    ],
+    workflowTitle: 'Aurangabad’s securing challenge spans dense auto, pharma and high-volume beverage',
+    workflowBody: [
+      'Aurangabad ships three demanding profiles. Dense auto and engineered components are non-compressible and need maximum tension; compliance-sensitive pharma needs consistent, traceable securing to a GDP-grade standard; high-volume beverage and packaged loads need dock speed. And the export share — via JNPT and the western ports — faces humid sea transit where steel strap rusts.',
+      'The ErgoPack 726X applies digital tension up to 2500N with a sealless friction weld and runs rust-free PET, supporting heavy auto, compliant pharma and export loads. The ErgoPack GO straps a pallet in under 40 seconds with one operator across high-volume beverage and packaged dispatch, keeping the dock flowing.',
+      'So the Aurangabad decision splits between consistent, high tension for auto and pharma (726X with PET) and fast, flexible securing for high-volume packaged dispatch (GO).',
+    ],
+    industryTitle: 'Industries in Aurangabad that make location-specific pallet strapping worthwhile',
+    industries: [
+      {
+        title: 'Auto & Components',
+        copy: 'Aurangabad’s deep auto and component base ships dense, non-compressible loads where maximum, consistent tension is essential — a strong 726X-with-PET fit for JIT and export dispatch.',
+      },
+      {
+        title: 'Pharma & Process',
+        copy: 'The Aurangabad pharma cluster ships high-value, compliance-sensitive loads needing consistent, traceable securing — a clear case for calibrated, repeatable tension.',
+      },
+      {
+        title: 'Beverage & Packaged Goods',
+        copy: 'High-volume beverage and packaged loads need fast, consistent strapping to keep the dock moving and prevent the bottleneck — the clearest GO case in the region.',
+      },
+    ],
+    recommendationsTitle: 'Best ErgoPack fit for Aurangabad auto, pharma and engineering teams',
+    recommendationsIntro:
+      'All three machines should appear on the Aurangabad page, led by the auto and pharma securing case.',
+    recommendations: [
+      {
+        productSlug: '726x',
+        summary:
+          'Lead with the ErgoPack 726X for heavy auto, engineered and pharma export loads — digital tension to 2500N, sealless friction weld, rust-free PET.',
+        bestFor: [
+          'Dense auto and engineered components (Waluj, Shendra)',
+          'Compliance-sensitive pharma export',
+          'Export loads heading to JNPT and western ports',
+        ],
+      },
+      {
+        productSlug: 'go',
+        summary:
+          'Use the ErgoPack GO for high-volume beverage and packaged dispatch — mobile, fast, flexible at any dock with PET that recovers tension.',
+        bestFor: [
+          'High-volume beverage and packaged loads (Chikalthana)',
+          'Mixed cartoned and palletised dispatch',
+          'Multiple staging points across estates',
+        ],
+      },
+      {
+        productSlug: '700',
+        summary:
+          'Keep the ErgoPack 700 visible for lower-volume cells and sites wanting reliable strapping with zero charging dependence.',
+        bestFor: [
+          'Power-independent or low-volume stations',
+          'Paper, cord or composite strap programs',
+          'Simple, reliable, off-grid strapping',
+        ],
+      },
+    ],
+    faqTitle: 'Aurangabad (Chh. Sambhajinagar) pallet strapping machine FAQs',
+    faqs: [
+      {
+        question: 'Which ErgoPack machine is best for auto and pharma dispatch in Aurangabad?',
+        answer:
+          'For Aurangabad’s dense auto components and compliance-sensitive pharma the ErgoPack 726X is the lead — digital tension up to 2500N with a sealless friction weld and rust-free PET. That high, consistent and traceable tension is what non-compressible and pharma loads need to stay secured through handling, road and sea export via JNPT.',
+      },
+      {
+        question: 'Which machine suits high-volume beverage and packaged dispatch?',
+        answer:
+          'For Aurangabad’s high-volume beverage and packaged loads the ErgoPack GO is the lead — it straps a pallet in under 40 seconds with one operator and flexes across mixed cartoned and palletised loads with PET. That dock speed keeps distribution moving and prevents the strapping step from becoming the bottleneck.',
+      },
+      {
+        question: 'How much does a pallet strapping machine cost in Aurangabad?',
+        answer:
+          'Prices range from manual tools (₹25,000–₹35,000) and table-top semi-automatic machines (₹35,000–₹85,000, not for loaded pallets) to mobile and inline systems (₹1,75,000 and up). ErgoPack quotes against your volume and loads and serves Aurangabad through Benz Packaging — request a quote for pricing and an on-site demo.',
+      },
+      {
+        question: 'Do you provide installation and service in Aurangabad / Chhatrapati Sambhajinagar?',
+        answer:
+          'Yes. ErgoPack India, through Benz Packaging, provides on-site installation, operator training, service and genuine spare parts across Aurangabad — including Waluj, Shendra, Chikalthana and the AURIC DMIC node.',
+      },
+      {
+        question: 'Why does consistent tension matter for Aurangabad’s mixed dispatch?',
+        answer:
+          'Because Aurangabad ships dense auto components that shift if loose, pharma that needs compliant securing, and high-volume beverage loads that need dock speed — and much of it exports by humid sea routes. Calibrated, repeatable tension with rust-free PET keeps every load tight and clean from the factory to the destination, which is the core of the Aurangabad case.',
+      },
+    ],
+    sources: [
+      { label: 'MIDC Maharashtra', url: 'https://www.midcindia.org/' },
+      { label: 'AURIC (Aurangabad Industrial City)', url: 'https://www.auric.city/' },
+      { label: 'ErgoPack 726X technical datasheet', url: '/pdfs/726X_Technical_Data.pdf' },
+    ],
+    areaServed: ['Waluj', 'Shendra', 'Chikalthana', 'AURIC', 'Chhatrapati Sambhajinagar'],
+    schemaDescription:
+      'Automated pallet strapping machine selection, installation and service for Aurangabad / Chhatrapati Sambhajinagar’s auto, pharma, engineering and beverage clusters across Waluj, Shendra, Chikalthana and the AURIC DMIC node.',
+    relatedLocationSlugs: [
+      'pallet-strapping-machine-pune',
+      'pallet-strapping-machine-mumbai',
+      'pallet-strapping-machine-nagpur',
+    ],
+  },
+  {
+    slug: 'pallet-strapping-machine-kanpur',
+    city: 'Kanpur',
+    region: 'Panki, Dada Nagar, Jajmau & UP industrial belt',
+    state: 'Uttar Pradesh',
+    seo: {
+      title:
+        'Pallet Strapping Machine in Kanpur | Leather, Textile & Engineering Securing | ErgoPack India',
+      description:
+        'Automated pallet strapping for Kanpur’s leather, textile, engineering, defence and FMCG clusters — Panki, Dada Nagar, Jajmau. Strap baled and palletised loads in under 40s. Supplied and serviced by Benz Packaging.',
+      keywords: [
+        'pallet strapping machine Kanpur',
+        'pallet strapping machine price Kanpur',
+        'automated pallet strapping Kanpur',
+        'leather export strapping Jajmau',
+        'engineering strapping Panki Dada Nagar',
+        'mobile pallet strapping machine UP',
+        'textile FMCG strapping Kanpur',
+        'ErgoPack Kanpur Benz Packaging',
+      ],
+    },
+    hero: {
+      eyebrow: 'Leather, Textile & Engineering Hub Page',
+      title: 'Pallet Strapping Machine in Kanpur for Leather, Textile & Engineering Dispatch',
+      description:
+        'Kanpur is north India’s old industrial city — the country’s leather-export capital at Jajmau, plus textile, engineering, defence and FMCG across Panki and Dada Nagar. It ships baled and palletised loads that need consistent, rust-free tension.',
+      tags: [
+        'Leather & Tanning',
+        'Textiles & FMCG',
+        'Engineering & Defence',
+        'Mixed Baled + Engineered',
+      ],
+      featuredProduct: 'go',
+      stats: [
+        { label: 'Primary Cluster', value: 'Leather & Engineering' },
+        { label: 'Best Flex Fit', value: 'ErgoPack GO' },
+        { label: 'Best Heavy Fit', value: 'ErgoPack 726X' },
+      ],
+    },
+    summary: {
+      title: 'Why Kanpur teams search pallet strapping machine solutions',
+      paragraphs: [
+        'Kanpur is one of north India’s oldest industrial centres — India’s leather and tanning capital at Jajmau, a large textile and FMCG base, and engineering and defence units across Panki and Dada Nagar.',
+        'Its dispatch splits between baled and cartoned leather and textile goods that settle in transit, and dense engineered and defence loads that need high tension. Leather exports are moisture-sensitive and travel long sea routes via the eastern and western ports, so rust-free PET that recovers tension matters across the board.',
+        'For Kanpur the strongest positioning is flexible mobile securing for baled leather, textile and FMCG dispatch — the GO — with the 726X for heavy engineered, defence and export loads.',
+      ],
+      bullets: [
+        'Lead with consistent, rust-free tension across baled leather and engineered loads.',
+        'Stress moisture-sensitive leather exports needing rust-free PET.',
+        'Cover heavy engineering and defence loads with the 726X.',
+        'Position the GO for high-volume baled and FMCG dispatch.',
+      ],
+    },
+    zonesIntro:
+      'These are the Kanpur-area clusters where search intent is strongest and where local operational detail adds real value.',
+    zones: [
+      {
+        name: 'Jajmau leather belt',
+        focus: 'Leather, tanning, footwear',
+        detail:
+          'India’s leather-export capital ships moisture-sensitive baled and cartoned goods needing rust-free PET securing and consistent tension for long sea transit.',
+      },
+      {
+        name: 'Panki industrial area',
+        focus: 'Engineering, FMCG, process',
+        detail:
+          'Panki’s engineering and FMCG units ship dense engineered and high-volume packaged loads needing consistent tension and dock speed.',
+      },
+      {
+        name: 'Dada Nagar',
+        focus: 'Engineering, components, defence',
+        detail:
+          'Dada Nagar’s engineering and defence-linked units ship dense, non-compressible loads where maximum, consistent tension is essential.',
+      },
+      {
+        name: 'Textile & FMCG nodes',
+        focus: 'Textiles, FMCG, packaged',
+        detail:
+          'Kanpur’s textile and FMCG base ships baled and cartoned loads that settle in transit, needing PET that recovers tension.',
+      },
+    ],
+    workflowTitle: 'Kanpur’s securing challenge is moisture-sensitive leather plus dense engineering',
+    workflowBody: [
+      'Kanpur ships two profiles through the same docks. Leather and textile goods are baled and cartoned — moisture-sensitive and compressible, settling and relaxing in transit, so a strap that recovers tension and resists rust is essential, especially for long sea exports. The ErgoPack GO applies consistent tension and runs PET, which recovers tension as the load settles and resists the rust that would stain leather.',
+      'The engineered end — Panki and Dada Nagar engineering and defence — is dense and non-compressible, needing maximum tension. The ErgoPack 726X applies digital tension up to 2500N with a sealless friction weld and rust-free PET for these heavy and export loads.',
+      'So the Kanpur decision usually leads with the GO for baled leather, textile and FMCG dispatch, with the 726X for heavy engineered and defence loads.',
+    ],
+    industryTitle: 'Industries in Kanpur that make location-specific pallet strapping worthwhile',
+    industries: [
+      {
+        title: 'Leather & Tanning',
+        copy: 'Kanpur’s Jajmau leather base ships moisture-sensitive baled and cartoned goods needing rust-free PET securing and consistent tension so loads stay tight and unstained through humid sea transit — the clearest GO case in the region.',
+      },
+      {
+        title: 'Engineering & Defence',
+        copy: 'Panki and Dada Nagar ship dense, non-compressible engineered and defence loads where maximum, consistent tension is essential — a strong 726X-with-PET fit.',
+      },
+      {
+        title: 'Textiles & FMCG',
+        copy: 'Kanpur’s textile and FMCG base ships baled and cartoned loads that settle in transit, needing PET that recovers tension and dock speed for high-volume dispatch — a flexible GO fit.',
+      },
+    ],
+    recommendationsTitle: 'Best ErgoPack fit for Kanpur leather, textile and engineering teams',
+    recommendationsIntro:
+      'All three machines should appear on the Kanpur page, led by the mixed baled-and-engineering securing case.',
+    recommendations: [
+      {
+        productSlug: 'go',
+        summary:
+          'Lead with the ErgoPack GO for baled leather, textile and FMCG dispatch — mobile, flexible across baled and cartoned loads with rust-free PET that recovers tension as loads settle.',
+        bestFor: [
+          'Moisture-sensitive baled leather (Jajmau)',
+          'High-volume textile and FMCG dispatch',
+          'Multiple staging points across estates',
+        ],
+      },
+      {
+        productSlug: '726x',
+        summary:
+          'Use the ErgoPack 726X for heavy engineered, defence and export loads — digital tension to 2500N, sealless friction weld, rust-free PET.',
+        bestFor: [
+          'Dense engineering and defence loads (Panki, Dada Nagar)',
+          'Heavy, non-compressible exports',
+          'Loads needing high, rust-free tension',
+        ],
+      },
+      {
+        productSlug: '700',
+        summary:
+          'Keep the ErgoPack 700 visible for lower-volume cells and sites wanting reliable strapping with zero charging dependence or a wider strap-material program.',
+        bestFor: [
+          'Power-independent or low-volume stations',
+          'Paper, cord or composite strap programs',
+          'Simple, reliable, off-grid strapping',
+        ],
+      },
+    ],
+    faqTitle: 'Kanpur pallet strapping machine FAQs',
+    faqs: [
+      {
+        question: 'Can ErgoPack handle moisture-sensitive leather exports from Jajmau?',
+        answer:
+          'Yes. Leather is moisture-sensitive and baled goods settle in transit, so they need a strap that recovers tension and resists rust — steel strap would rust and stain the leather. ErgoPack runs PET, which recovers tension as the load settles and resists rust, and applies consistent tension on every unit. The GO flexes across these baled leather and textile loads at any dock.',
+      },
+      {
+        question: 'Which ErgoPack machine is best for engineering and defence loads in Kanpur?',
+        answer:
+          'For Kanpur’s dense engineering and defence loads at Panki and Dada Nagar the ErgoPack 726X is the lead — digital tension up to 2500N with a sealless friction weld and rust-free PET. That high, consistent tension is what non-compressible and export loads need to stay secured through handling and transit.',
+      },
+      {
+        question: 'How much does a pallet strapping machine cost in Kanpur?',
+        answer:
+          'Prices range from manual tools (₹25,000–₹35,000) and table-top semi-automatic machines (₹35,000–₹85,000, not for loaded pallets) to mobile and inline systems (₹1,75,000 and up). ErgoPack quotes against your volume and loads and serves Kanpur through Benz Packaging — request a quote for pricing and an on-site demo.',
+      },
+      {
+        question: 'Do you provide installation and service in Kanpur?',
+        answer:
+          'Yes. ErgoPack India, through Benz Packaging, provides on-site installation, operator training, service and genuine spare parts across Kanpur and the UP industrial belt — including Jajmau, Panki and Dada Nagar.',
+      },
+      {
+        question: 'Why does PET strap suit Kanpur’s leather dispatch?',
+        answer:
+          'Because leather is moisture-sensitive and baled goods settle in transit. PET strap recovers tension as the load relaxes and resists rust, so the bale stays tight and the leather stays unstained — where steel would rust and a non-recovering strap would go slack. That is why PET on the GO is the core of the Kanpur leather case.',
+      },
+    ],
+    sources: [
+      { label: 'UPSIDA (UP State Industrial Development Authority)', url: 'https://www.onlineupsidc.com/' },
+      { label: 'Council for Leather Exports (CLE)', url: 'https://leatherindia.org/' },
+      { label: 'ErgoPack GO technical datasheet', url: '/pdfs/GO_Technical_Data.pdf' },
+    ],
+    areaServed: ['Panki', 'Dada Nagar', 'Jajmau', 'Kanpur', 'Unnao'],
+    schemaDescription:
+      'Automated pallet strapping machine selection, installation and service for Kanpur’s leather, textile, engineering and defence clusters across Panki, Dada Nagar and Jajmau in Uttar Pradesh.',
+    relatedLocationSlugs: [
+      'pallet-strapping-machine-delhi-ncr',
+      'pallet-strapping-machine-ludhiana',
+      'pallet-strapping-machine-faridabad',
+    ],
+  },
+  {
+    slug: 'pallet-strapping-machine-jaipur',
+    city: 'Jaipur',
+    region: 'VKI Area, Sitapura, Bagru & Rajasthan industrial belt',
+    state: 'Rajasthan',
+    seo: {
+      title:
+        'Pallet Strapping Machine in Jaipur | Stone, Gems, Textile & Engineering Securing | ErgoPack India',
+      description:
+        'Automated pallet strapping for Jaipur’s stone, marble, gems, textile, handicraft and engineering clusters — VKI Area, Sitapura, Bagru. Strap heavy and fragile loads in under 40s. Supplied and serviced by Benz Packaging.',
+      keywords: [
+        'pallet strapping machine Jaipur',
+        'pallet strapping machine price Jaipur',
+        'automated pallet strapping Jaipur',
+        'stone marble export strapping Rajasthan',
+        'gems handicraft strapping Sitapura',
+        'mobile pallet strapping machine VKI Area',
+        'textile engineering strapping Jaipur',
+        'ErgoPack Jaipur Benz Packaging',
+      ],
+    },
+    hero: {
+      eyebrow: 'Stone, Gems & Handicraft Hub Page',
+      title: 'Pallet Strapping Machine in Jaipur for Stone, Gems & Handicraft Dispatch',
+      description:
+        'Jaipur anchors Rajasthan’s stone and marble, gems and jewellery, textile, handicraft and engineering economy — VKI Area, Sitapura and Bagru. It ships heavy stone and fragile high-value loads that demand consistent tension and careful securing.',
+      tags: [
+        'Stone & Marble',
+        'Gems & Handicrafts',
+        'Textiles & Engineering',
+        'Heavy + Fragile Loads',
+      ],
+      featuredProduct: '726x',
+      stats: [
+        { label: 'Primary Cluster', value: 'Stone, Gems & Handicraft' },
+        { label: 'Best Heavy Fit', value: 'ErgoPack 726X' },
+        { label: 'Best Flex Fit', value: 'ErgoPack GO' },
+      ],
+    },
+    summary: {
+      title: 'Why Jaipur teams search pallet strapping machine solutions',
+      paragraphs: [
+        'Jaipur anchors Rajasthan’s diverse export economy — stone and marble, gems and jewellery, textiles and block-printing at Bagru, handicrafts, and engineering across the VKI Area and Sitapura.',
+        'Its load mix spans extremes: extremely heavy, fragile stone and marble that need maximum, controlled tension with edge protection, and high-value gems, handicrafts and textiles in cartoned consignments that need tight, careful securing. Much of it exports through the western ports, so rust-free PET matters.',
+        'For Jaipur the strongest positioning is maximum, controlled tension for heavy stone and marble — the 726X with PET and edge protection — supported by the GO for fragile handicraft, gem and textile dispatch.',
+      ],
+      bullets: [
+        'Lead with controlled, high tension and edge protection for stone and marble.',
+        'Cover high-value gems, handicrafts and textiles needing careful securing.',
+        'Stress rust-free PET for export via western ports.',
+        'Position the GO for fragile, cartoned and mixed dispatch.',
+      ],
+    },
+    zonesIntro:
+      'These are the Jaipur-area clusters where search intent is strongest and where local operational detail adds real value.',
+    zones: [
+      {
+        name: 'VKI Area',
+        focus: 'Engineering, stone, mixed manufacturing',
+        detail:
+          'Jaipur’s largest industrial area ships engineered and stone loads needing consistent, high tension and edge protection on heavy, sharp loads.',
+      },
+      {
+        name: 'Sitapura',
+        focus: 'Gems, jewellery, handicrafts, IT',
+        detail:
+          'The Sitapura belt ships high-value gems, jewellery and handicraft consignments where tight, careful securing protects fragile, cartoned loads.',
+      },
+      {
+        name: 'Bagru & textile belt',
+        focus: 'Textiles, block-printing, garments',
+        detail:
+          'Bagru’s textile and block-print base ships baled and cartoned goods that settle in transit, needing PET that recovers tension.',
+      },
+      {
+        name: 'Stone & marble cluster',
+        focus: 'Stone, marble, sandstone',
+        detail:
+          'Rajasthan’s stone and marble base ships extremely heavy, fragile loads where maximum, controlled tension and edge protection are essential.',
+      },
+    ],
+    workflowTitle: 'Jaipur’s securing challenge is heavy fragile stone plus high-value handicrafts',
+    workflowBody: [
+      'Jaipur ships two demanding extremes. Stone and marble are extremely heavy yet fragile — they need maximum tension to stop shifting, but controlled and with edge protection so the strap secures without cracking the slab or cutting on sharp edges. High-value gems, jewellery, handicrafts and textiles are the opposite: lighter, fragile, cartoned consignments needing tight but careful securing so packaged goods aren’t crushed.',
+      'The ErgoPack 726X applies digital tension up to 2500N with a sealless friction weld and runs PET with edge protection — calibrated, controlled tension for heavy fragile stone. The ErgoPack GO applies consistent, controlled tension across fragile handicraft, gem and textile cartons, with PET that recovers tension as loads settle. Both export-ready with rust-free PET for the western ports.',
+      'So the Jaipur decision leads with controlled, high tension and edge protection for stone and marble (726X), with the GO for fragile, cartoned and mixed dispatch.',
+    ],
+    industryTitle: 'Industries in Jaipur that make location-specific pallet strapping worthwhile',
+    industries: [
+      {
+        title: 'Stone & Marble',
+        copy: 'Rajasthan’s stone and marble base ships extremely heavy yet fragile loads where maximum, controlled tension and edge protection are essential to secure without cracking — the clearest 726X-with-PET case in the region.',
+      },
+      {
+        title: 'Gems, Jewellery & Handicrafts',
+        copy: 'High-value gems, jewellery and handicraft consignments need tight but careful securing so fragile, cartoned loads stay protected through handling and transit — a controlled-tension fit across the GO and 726X.',
+      },
+      {
+        title: 'Textiles & Block-Printing',
+        copy: 'Bagru’s textile and block-print base ships baled and cartoned loads that settle in transit, needing PET that recovers tension — a flexible GO fit.',
+      },
+    ],
+    recommendationsTitle: 'Best ErgoPack fit for Jaipur stone, gems and handicraft teams',
+    recommendationsIntro:
+      'All three machines should appear on the Jaipur page, led by the heavy-fragile stone securing case.',
+    recommendations: [
+      {
+        productSlug: '726x',
+        summary:
+          'Lead with the ErgoPack 726X for heavy stone, marble and export loads — digital, controlled tension to 2500N, sealless friction weld, rust-free PET with edge protection.',
+        bestFor: [
+          'Heavy, fragile stone and marble',
+          'Sharp-edged loads needing edge protection',
+          'Export loads heading to western ports',
+        ],
+      },
+      {
+        productSlug: 'go',
+        summary:
+          'Use the ErgoPack GO for fragile handicraft, gem and textile dispatch — mobile, controlled, flexible across cartoned loads with PET that recovers tension.',
+        bestFor: [
+          'High-value gems, jewellery and handicrafts (Sitapura)',
+          'Baled and cartoned textile loads (Bagru)',
+          'Multiple staging points across estates',
+        ],
+      },
+      {
+        productSlug: '700',
+        summary:
+          'Keep the ErgoPack 700 visible for lower-volume cells and sites wanting reliable strapping with zero charging dependence or a wider strap-material program.',
+        bestFor: [
+          'Power-independent or low-volume stations',
+          'Paper, cord or composite strap programs',
+          'Simple, reliable, off-grid strapping',
+        ],
+      },
+    ],
+    faqTitle: 'Jaipur pallet strapping machine FAQs',
+    faqs: [
+      {
+        question: 'Can ErgoPack secure heavy yet fragile stone and marble in Jaipur?',
+        answer:
+          'Yes. Stone and marble are heavy and need maximum tension to stop shifting, but they are fragile and have sharp edges — so the tension must be controlled and the corners protected. The ErgoPack 726X applies calibrated, digital tension up to 2500N with a sealless friction weld and runs PET with edge protection, securing heavy stone without cracking it or cutting the strap.',
+      },
+      {
+        question: 'Which machine suits high-value gems and handicraft consignments?',
+        answer:
+          'For Jaipur’s fragile, cartoned gems, jewellery and handicraft loads the ErgoPack GO applies consistent, controlled tension with PET that recovers tension as loads settle — tight enough to secure, careful enough not to crush packaged goods. It flexes across these mixed consignments at any dock.',
+      },
+      {
+        question: 'How much does a pallet strapping machine cost in Jaipur?',
+        answer:
+          'Prices range from manual tools (₹25,000–₹35,000) and table-top semi-automatic machines (₹35,000–₹85,000, not for loaded pallets) to mobile and inline systems (₹1,75,000 and up). ErgoPack quotes against your volume and loads and serves Jaipur through Benz Packaging — request a quote for pricing and an on-site demo.',
+      },
+      {
+        question: 'Do you provide installation and service in Jaipur?',
+        answer:
+          'Yes. ErgoPack India, through Benz Packaging, provides on-site installation, operator training, service and genuine spare parts across Jaipur and the Rajasthan industrial belt — including VKI Area, Sitapura and Bagru.',
+      },
+      {
+        question: 'Why does controlled tension matter for Jaipur loads?',
+        answer:
+          'Because Jaipur ships heavy yet fragile stone and marble that crack under uncontrolled tension, and high-value fragile handicrafts and gems that must not be crushed. Calibrated, controlled tension with PET and edge protection secures both without damage, which is the core of the Jaipur case.',
+      },
+    ],
+    sources: [
+      { label: 'RIICO (Rajasthan State Industrial Development & Investment Corp.)', url: 'https://riico.rajasthan.gov.in/' },
+      { label: 'ISPM-15 (IPPC wood packaging standard)', url: 'https://www.ippc.int/' },
+      { label: 'ErgoPack 726X technical datasheet', url: '/pdfs/726X_Technical_Data.pdf' },
+    ],
+    areaServed: ['VKI Area', 'Sitapura', 'Bagru', 'Jaipur', 'Kishangarh'],
+    schemaDescription:
+      'Automated pallet strapping machine selection, installation and service for Jaipur’s stone, marble, gems, handicraft, textile and engineering clusters across VKI Area, Sitapura and Bagru in Rajasthan.',
+    relatedLocationSlugs: [
+      'pallet-strapping-machine-delhi-ncr',
+      'pallet-strapping-machine-ahmedabad',
+      'pallet-strapping-machine-faridabad',
+    ],
+  },
+  {
+    slug: 'pallet-strapping-machine-hosur',
+    city: 'Hosur',
+    region: 'SIPCOT Hosur, Bagalur & Tamil Nadu–Bangalore corridor',
+    state: 'Tamil Nadu',
+    seo: {
+      title:
+        'Pallet Strapping Machine in Hosur | Auto, EV & Electronics Securing | ErgoPack India',
+      description:
+        'Automated pallet strapping for Hosur’s auto, EV, electronics and engineering clusters — SIPCOT Hosur, Bagalur, the TN–Bangalore corridor. Strap pallets in under 40s with up to 2500N tension. Supplied and serviced by Benz Packaging.',
+      keywords: [
+        'pallet strapping machine Hosur',
+        'pallet strapping machine price Hosur',
+        'automated pallet strapping Hosur',
+        'auto EV strapping SIPCOT Hosur',
+        'electronics strapping Bagalur',
+        'mobile pallet strapping machine Hosur',
+        'engineering strapping TN Bangalore corridor',
+        'ErgoPack Hosur Benz Packaging',
+      ],
+    },
+    hero: {
+      eyebrow: 'Auto, EV & Electronics Hub Page',
+      title: 'Pallet Strapping Machine in Hosur for Auto, EV & Electronics Dispatch',
+      description:
+        'Hosur is one of India’s fastest-growing auto, EV and electronics hubs — SIPCOT Hosur and Bagalur on the Tamil Nadu–Bangalore corridor. Its dense components, EV and high-value electronics loads demand consistent, fast, careful strapping.',
+      tags: [
+        'Auto & EV',
+        'Electronics & Precision',
+        'Engineering & Components',
+        'High-Volume JIT Dispatch',
+      ],
+      featuredProduct: '726x',
+      stats: [
+        { label: 'Primary Cluster', value: 'Auto, EV & Electronics' },
+        { label: 'Best Heavy Fit', value: 'ErgoPack 726X' },
+        { label: 'Best Flex Fit', value: 'ErgoPack GO' },
+      ],
+    },
+    summary: {
+      title: 'Why Hosur teams search pallet strapping machine solutions',
+      paragraphs: [
+        'Hosur, on the Tamil Nadu–Bangalore corridor, is one of India’s fastest-growing industrial hubs — a major auto and two-wheeler base, a rising EV and battery cluster, plus electronics, precision engineering and components across SIPCOT Hosur and Bagalur.',
+        'Its dispatch is high-volume and JIT — dense auto and EV components that need high, consistent tension, and high-value electronics and precision loads in cartoned consignments that need tight but careful securing. Dock speed is critical to the JIT flow, and the export share needs rust-free PET.',
+        'For Hosur the strongest positioning is consistent, high tension for auto, EV and engineered loads — the 726X with PET — supported by the GO for high-volume electronics and mixed JIT dispatch.',
+      ],
+      bullets: [
+        'Lead with consistent, high tension for auto, EV and engineered components.',
+        'Cover high-value electronics needing tight, careful securing.',
+        'Stress dock speed for high-volume JIT dispatch.',
+        'Position the GO for mixed electronics and packaged dispatch.',
+      ],
+    },
+    zonesIntro:
+      'These are the Hosur-area clusters where search intent is strongest and where local operational detail adds real value.',
+    zones: [
+      {
+        name: 'SIPCOT Hosur',
+        focus: 'Auto, EV, engineering',
+        detail:
+          'Hosur’s industrial core ships dense auto, EV and engineered components needing high, consistent tension and dock speed for JIT dispatch.',
+      },
+      {
+        name: 'Bagalur & electronics belt',
+        focus: 'Electronics, precision, components',
+        detail:
+          'The Bagalur electronics and precision belt ships high-value cartoned loads needing tight, careful securing that protects without crushing.',
+      },
+      {
+        name: 'EV & battery cluster',
+        focus: 'EV, batteries, components',
+        detail:
+          'Hosur’s rising EV and battery base ships dense, high-value loads needing consistent, controlled tension for safe handling and transit.',
+      },
+      {
+        name: 'TN–Bangalore corridor feeders',
+        focus: 'Auto ancillaries, engineering',
+        detail:
+          'Auto-ancillary and engineering units along the corridor ship dense engineered loads needing high tension and dock speed.',
+      },
+    ],
+    workflowTitle: 'Hosur’s securing challenge is high-volume JIT auto, EV and electronics',
+    workflowBody: [
+      'Hosur runs on high-volume, JIT dispatch — dense auto, EV and engineered components moving fast to assembly lines and for export. The twin priorities are dock speed, because a slow strapping step breaks the JIT flow and becomes the bottleneck, and consistent tension, because dense components shift if loosely secured. High-value electronics add fragile, cartoned loads needing tight but careful securing.',
+      'The ErgoPack 726X applies digital tension up to 2500N with a sealless friction weld and rust-free PET for heavy auto, EV and export loads. The ErgoPack GO straps a pallet in under 40 seconds with one operator across high-volume electronics and mixed JIT dispatch, applying consistent, controlled tension that protects without crushing.',
+      'So the Hosur decision splits between consistent, high tension for auto, EV and engineered loads (726X with PET) and fast, careful securing for high-volume electronics and JIT dispatch (GO).',
+    ],
+    industryTitle: 'Industries in Hosur that make location-specific pallet strapping worthwhile',
+    industries: [
+      {
+        title: 'Auto, EV & Two-Wheeler',
+        copy: 'Hosur’s deep auto, two-wheeler and rising EV base ships dense, non-compressible components where high, consistent tension is essential for JIT and export dispatch — a strong 726X-with-PET fit.',
+      },
+      {
+        title: 'Electronics & Precision',
+        copy: 'The Bagalur electronics and precision belt ships high-value, fragile cartoned loads needing tight but careful securing that protects without crushing — a controlled-tension fit across the GO and 726X.',
+      },
+      {
+        title: 'Engineering & Components',
+        copy: 'Auto-ancillary and engineering units ship dense engineered loads in high volume needing consistent tension and dock speed — a mix of 726X high-tension securing and GO flexibility.',
+      },
+    ],
+    recommendationsTitle: 'Best ErgoPack fit for Hosur auto, EV and electronics teams',
+    recommendationsIntro:
+      'All three machines should appear on the Hosur page, led by the auto, EV and engineered securing case.',
+    recommendations: [
+      {
+        productSlug: '726x',
+        summary:
+          'Lead with the ErgoPack 726X for heavy auto, EV, engineered and export loads — digital tension to 2500N, sealless friction weld, rust-free PET.',
+        bestFor: [
+          'Dense auto, EV and two-wheeler components',
+          'Heavy engineered and export loads',
+          'Loads needing high, rust-free tension',
+        ],
+      },
+      {
+        productSlug: 'go',
+        summary:
+          'Use the ErgoPack GO for high-volume electronics and mixed JIT dispatch — mobile, fast, controlled, flexible at any dock with PET that recovers tension.',
+        bestFor: [
+          'High-value electronics and precision loads (Bagalur)',
+          'High-volume JIT and packaged dispatch',
+          'Multiple staging points across estates',
+        ],
+      },
+      {
+        productSlug: '700',
+        summary:
+          'Keep the ErgoPack 700 visible for lower-volume cells and sites wanting reliable strapping with zero charging dependence.',
+        bestFor: [
+          'Power-independent or low-volume stations',
+          'Paper, cord or composite strap programs',
+          'Simple, reliable, off-grid strapping',
+        ],
+      },
+    ],
+    faqTitle: 'Hosur pallet strapping machine FAQs',
+    faqs: [
+      {
+        question: 'Which ErgoPack machine is best for auto and EV dispatch in Hosur?',
+        answer:
+          'For Hosur’s dense auto, two-wheeler and EV components the ErgoPack 726X is the lead — digital tension up to 2500N with a sealless friction weld and rust-free PET. That high, consistent tension is what non-compressible and export loads need to stay secured through JIT handling, road transit and sea export.',
+      },
+      {
+        question: 'Which machine suits high-value electronics dispatch?',
+        answer:
+          'For Hosur’s fragile, cartoned electronics and precision loads the ErgoPack GO applies consistent, controlled tension with PET that recovers tension as loads settle — tight enough to secure, careful enough not to crush. It straps a pallet in under 40 seconds with one operator, keeping high-volume JIT dispatch flowing.',
+      },
+      {
+        question: 'How much does a pallet strapping machine cost in Hosur?',
+        answer:
+          'Prices range from manual tools (₹25,000–₹35,000) and table-top semi-automatic machines (₹35,000–₹85,000, not for loaded pallets) to mobile and inline systems (₹1,75,000 and up). ErgoPack quotes against your volume and loads and serves Hosur through Benz Packaging — request a quote for pricing and an on-site demo.',
+      },
+      {
+        question: 'Do you provide installation and service in Hosur?',
+        answer:
+          'Yes. ErgoPack India, through Benz Packaging, provides on-site installation, operator training, service and genuine spare parts across Hosur and the TN–Bangalore corridor — including SIPCOT Hosur and Bagalur.',
+      },
+      {
+        question: 'Why does dock speed matter for Hosur dispatch?',
+        answer:
+          'Because Hosur runs on high-volume JIT dispatch to assembly lines — if strapping is slow or inconsistent, it breaks the JIT flow and becomes the bottleneck that caps throughput. The GO straps a pallet in under 40 seconds with one operator, keeping high-volume auto, EV and electronics dispatch moving, which is the core of the Hosur case.',
+      },
+    ],
+    sources: [
+      { label: 'SIPCOT Tamil Nadu', url: 'https://www.sipcot.tn.gov.in/' },
+      { label: 'ISPM-15 (IPPC wood packaging standard)', url: 'https://www.ippc.int/' },
+      { label: 'ErgoPack 726X technical datasheet', url: '/pdfs/726X_Technical_Data.pdf' },
+    ],
+    areaServed: ['SIPCOT Hosur', 'Bagalur', 'Hosur', 'Krishnagiri', 'Bangalore corridor'],
+    schemaDescription:
+      'Automated pallet strapping machine selection, installation and service for Hosur’s auto, EV, electronics and engineering clusters across SIPCOT Hosur and Bagalur on the Tamil Nadu–Bangalore corridor.',
+    relatedLocationSlugs: [
+      'pallet-strapping-machine-bangalore',
+      'pallet-strapping-machine-chennai',
+      'pallet-strapping-machine-coimbatore',
+    ],
+  },
 ];
 
 export const locationPageBySlug = Object.fromEntries(
