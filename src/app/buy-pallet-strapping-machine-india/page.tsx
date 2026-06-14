@@ -7,7 +7,7 @@ import { FAQSchema } from '@/components/JsonLd';
 export const metadata: Metadata = {
   title: 'Buy a Pallet Strapping Machine in India: Price, Models & Supplier | ErgoPack',
   description:
-    'Looking to buy an automatic or mobile pallet strapping machine in India? Compare the ErgoPack 726X, GO and 700, get pricing and ROI, and request a quote — German-engineered, supplied and serviced nationwide by Benz Packaging.',
+    'Buy an automatic or mobile pallet strapping machine in India: compare the ErgoPack 726X, GO and 700, see price tiers, ROI and payback (~₹25 lakh/year, 6–18 months), a machine-selection guide, GST/HSN and export-securing answers — German-engineered, supplied and serviced nationwide by Benz Packaging.',
   keywords: [
     'pallet strapping machine price India',
     'automatic pallet strapping machine India',
@@ -53,6 +53,31 @@ const FAQS = [
     question: 'Can I get a demo or quote before buying?',
     answer:
       'Yes. We offer an on-site capacity audit: our team brings a machine to your floor and runs a live cycle on your heaviest pallet, then provides pricing and an ROI estimate. Request a quote using the form on this page.',
+  },
+  {
+    question: 'What is the ROI and payback period of a pallet strapping machine?',
+    answer:
+      'On a typical Indian floor — one line, four manual operators across two shifts, ~50 pallets per shift — a mobile machine saves around ₹25 lakh a year across labour, strap waste (~12%) and reduced damage, recovering its cost in 6–18 months. After payback it keeps saving every year, and the saving grows as wages rise while the machine cost stays fixed. Use our ROI calculator to model your own numbers.',
+  },
+  {
+    question: 'How many pallets a day justify buying a strapping machine?',
+    answer:
+      'For most operations a mobile machine pays back from around 15–30 pallets a day, and the threshold is lower if you export (a single rejected container can justify it alone). Below ~10 pallets a day with light, non-critical loads, manual securing may still suffice. Count your daily pallets across both shifts and model the payback before deciding.',
+  },
+  {
+    question: 'Why can a cheap semi-automatic table-top machine not strap a loaded pallet?',
+    answer:
+      'Table-top semi-automatic machines (₹35,000–₹85,000) are built for small cartons placed into the machine — they cannot strap a loaded pallet on the floor. For pallet dispatch you need a mobile machine that comes to the pallet, or a fixed inline system. Buying a table-top to "automate pallet strapping" is the most common purchasing mistake; you end up still hand-strapping pallets.',
+  },
+  {
+    question: 'What about GST and the HSN code for a pallet strapping machine?',
+    answer:
+      'Pallet strapping machines are generally classified under HSN 8422 (packing/wrapping machinery), which typically attracts 18% GST. The exact rate and classification should be confirmed with your supplier and tax advisor against your invoice. We provide a proper GST invoice and documentation with every machine.',
+  },
+  {
+    question: 'Are the machines suitable for export and seaworthy packaging standards?',
+    answer:
+      'Yes. The 726X applies calibrated digital tension up to 2500N with a sealless friction weld and runs PET strap, which resists rust through humid container transit and recovers tension as loads settle — the consistent, seaworthy securing that prevents the load-shifting behind most export container rejections. Combined with ISPM-15 heat-treated pallets, this meets the securing expectations of international buyers.',
   },
 ];
 
@@ -181,6 +206,59 @@ export default function BuyPalletStrappingMachineIndiaPage() {
                 ROI calculator
               </Link>
               .
+            </p>
+
+            {/* Decision framework */}
+            <h2 className="mt-12 font-serif text-2xl font-bold text-neutral-950 sm:text-3xl">
+              Which machine for your operation — a quick decision guide
+            </h2>
+            <p className="mt-4 text-[17px] leading-[1.8] text-neutral-700">
+              The cheapest machine is rarely the right one. Match the machine to your loads, daily
+              volume and power — these are the questions that decide the fit:
+            </p>
+            <div className="mt-5 overflow-x-auto">
+              <table className="w-full border-collapse overflow-hidden rounded-xl border border-neutral-200 text-left text-[15px]">
+                <thead>
+                  <tr className="bg-neutral-900 text-white">
+                    <th className="px-4 py-3 font-semibold">If you…</th>
+                    <th className="px-4 py-3 font-semibold">Best fit</th>
+                    <th className="px-4 py-3 font-semibold">Why</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    ['Ship heavy / dense / export loads', 'ErgoPack 726X', 'Digital tension to 2500N, sealless weld, rust-free PET for sea transit'],
+                    ['Run high-volume mixed dispatch', 'ErgoPack GO', 'Fast, flexible, multi-material (PP/PET/paper/cord/composite) at any dock'],
+                    ['Have no power / off-grid sites', 'ErgoPack 700', 'Manual hand-crank — no battery, no power needed'],
+                    ['Strap only small cartons (not pallets)', 'Table-top semi-auto', 'Bench machine — but it cannot strap loaded pallets'],
+                    ['Run a fixed line at very high volume', 'Inline automatic', 'Conveyor-fed and fast, but high CapEx and a fixed location'],
+                  ].map((row, i) => (
+                    <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-neutral-50'}>
+                      {row.map((cell, j) => (
+                        <td
+                          key={j}
+                          className={`border-t border-neutral-200 px-4 py-3 align-top ${
+                            j === 0 ? 'font-medium text-neutral-900' : 'text-neutral-700'
+                          }`}
+                        >
+                          {cell}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-4 text-[15px] leading-relaxed text-neutral-600">
+              Not sure which fits? See{' '}
+              <Link href="/blog/pallet-strapping-machine-buying-checklist" className="font-semibold text-[#C8102E] hover:underline">
+                the 10-question buying checklist
+              </Link>{' '}
+              and{' '}
+              <Link href="/blog/how-many-pallets-justify-strapping-machine" className="font-semibold text-[#C8102E] hover:underline">
+                how many pallets a day justify a machine
+              </Link>
+              , or tell us your setup in the form and we’ll recommend the right one.
             </p>
 
             {/* Why ErgoPack / supplier */}
