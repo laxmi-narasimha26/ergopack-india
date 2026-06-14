@@ -3,9 +3,10 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 
 const footerLinks = {
   products: [
-    { label: 'X-pert Line', href: '/products/x-pert-line' },
-    { label: 'E-conomy Line', href: '/products/economy-line' },
+    { label: 'All Machines (726X, GO, 700)', href: '/products' },
+    { label: 'Buy / Price in India', href: '/buy-pallet-strapping-machine-india' },
     { label: 'Compare Products', href: '/compare?auto=true' },
+    { label: 'ROI Calculator', href: '/roi-calculator' },
   ],
   industries: [
     { label: 'All Industries We Serve', href: '/industries-served' },

@@ -15,6 +15,7 @@ const staticRoutes: Array<{
 }> = [
   { path: '/', changeFrequency: 'weekly', priority: 1 },
   { path: '/products', changeFrequency: 'weekly', priority: 0.95 },
+  { path: '/buy-pallet-strapping-machine-india', changeFrequency: 'weekly', priority: 0.95 },
   { path: '/products/726x', changeFrequency: 'weekly', priority: 0.93 },
   { path: '/products/go', changeFrequency: 'weekly', priority: 0.92 },
   { path: '/products/700', changeFrequency: 'weekly', priority: 0.91 },
