@@ -133,7 +133,27 @@ export const automationPages: AutomationPage[] = [
           'A wheeled machine such as the ErgoPack 726X, GO or 700 needs no conveyors, no civil work and no line rebuild — it is brought to the pallet at any dock, so the gain is immediate and the risk low. On a typical floor this saves around ₹25 lakh a year across labour, strap and damage, and recovers the machine in 6–18 months.',
         ],
       },
+      {
+        heading: 'The "first win" in real rupees — a worked example',
+        paragraphs: [
+          'Most automation guides talk in percentages; here is the actual rupee math for a typical Indian floor, using the ErgoPack ROI calculator defaults: one dispatch line, four manual operators across two shifts at ~₹30,000 monthly CTC, and ~50 pallets per shift secured at ~120 seconds with two people.',
+          'Moving that securing step to one operator at under 40 seconds, with calibrated tension that cuts ~12% of strap waste and removes the loose-load rejections, saves on the order of ₹25 lakh in the first year — labour, strap and damage combined. Against a mobile machine from around ₹1,75,000 and ~₹1 lakh/year AMC, that is a payback of roughly 6–18 months, after which the saving continues and grows as wages rise. Over ten years the cumulative saving approaches ₹2 crore.',
+          'This is the "cheap first win" that abstract robotics and AI roadmaps miss: a contained, mobile, sub-₹2-lakh project that pays back inside a year before you touch storage, conveyors or the production line.',
+        ],
+      },
     ],
+    comparison: {
+      title: 'The dispatch-dock automation case, in numbers',
+      columns: ['Factor', 'Manual securing', 'Mobile automated'],
+      rows: [
+        ['Operators per pallet', '2', '1'],
+        ['Time per pallet', '~120 seconds', 'Under 40 seconds'],
+        ['Strap waste', 'Higher (by-feel)', '~12% lower (calibrated)'],
+        ['Typical annual saving', '—', '~₹25 lakh / floor'],
+        ['Payback', '—', '6–18 months'],
+        ['Cost trend', 'Rises with wages', 'Fixed; saving grows'],
+      ],
+    },
     bodyImage: {
       src: '/images/blog/detail-warehouse-operation.png',
       alt: 'Operator securing a loaded pallet with a mobile ErgoPack machine at an Indian dispatch dock',
@@ -155,6 +175,21 @@ export const automationPages: AutomationPage[] = [
         question: 'How much does dispatch automation cost in India?',
         answer:
           'Mobile pallet-securing machines that handle loaded pallets start around ₹1,75,000 and are quoted against your volume, loads and power. Against a typical saving of ~₹25 lakh a year, that recovers in 6–18 months — and unlike manual labour, the cost is fixed while the saving grows as wages rise.',
+      },
+      {
+        question: 'Can I automate just packing and dispatch without touching the production line?',
+        answer:
+          'Yes — and for most Indian factories that is the smartest place to start. Mobile pallet-securing automation is a self-contained, end-of-line project: a wheeled machine is brought to the dispatch dock with no conveyors, civil work or change to the production line. You capture the labour and throughput gain in isolation, prove the ROI, then expand to other steps later. Dispatch automation does not require a line rebuild.',
+      },
+      {
+        question: 'What is the cheapest first automation step for a small or mid-size Indian factory?',
+        answer:
+          'Automating the manual pallet-securing step at dispatch. A mobile machine from around ₹1,75,000 — far below a robotic cell, conveyor line or AS/RS — removes the most labour-heavy, repetitive task on the dock, pays back in 6–18 months, and needs no infrastructure. It is the lowest-cost, fastest-paying entry point into factory automation for SMEs.',
+      },
+      {
+        question: 'Is automation worth it given India’s lower labour wages?',
+        answer:
+          'Yes, increasingly. Indian floors typically double-staff manual securing (two operators per pallet), so the labour saved is large; statutory wage rises widen the gap every year; and the machine also cuts strap waste and the export rejections that cost far more than wages. The result is a 6–18 month payback even at Indian wage levels, with the saving growing over time while the machine cost stays fixed.',
       },
     ],
     related: [

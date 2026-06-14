@@ -193,6 +193,16 @@ export const resourceArticles: ResourceArticle[] = [
         answer:
           'For a GST-registered business the 18% GST (HSN 84224000) is recoverable as input tax credit, so the effective machine cost in the ROI calculation is the ex-GST price.',
       },
+      {
+        question: 'Why do the strapping ROI figures I find online not apply to my Indian floor?',
+        answer:
+          'Because most pallet-strapping and palletising ROI guides are written for US or UK operations and quote dollar machine prices and Western wages — a typical example shows a $27,000 wrapper saving $27,000 in year-one labour. Those numbers do not map to an Indian floor: machine prices, wages, shift patterns and GST are all different. This framework is built in rupees on Indian wage and consumable costs, so the payback it produces reflects your actual floor — typically 6–18 months, around ₹25 lakh a year on a one-line, two-shift operation.',
+      },
+      {
+        question: 'How many pallets a day do I need before automation pays back?',
+        answer:
+          'For most Indian floors a mobile machine pays back from around 15–30 pallets a day, and lower if you export — a single rejected export container can outweigh a year of savings on its own. Below ~10 pallets a day with light, non-critical loads, manual securing may still be acceptable. Enter your real daily pallet count across both shifts into the ROI calculator to find your own threshold.',
+      },
     ],
     related: [
       { label: 'Price & Buying Guide', href: '/resources/pallet-strapping-machine-price-india' },
