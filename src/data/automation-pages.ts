@@ -542,6 +542,16 @@ export const automationPages: AutomationPage[] = [
         answer:
           'On a typical Indian floor — one line, four manual operators across two shifts — automating securing saves around ₹25 lakh a year across labour, strap and damage, recovering the machine in 6–18 months. After that the saving continues every year and grows as wages rise.',
       },
+      {
+        question: 'How much can automation actually reduce labour cost on the securing step?',
+        answer:
+          'It halves the headcount on the step — from two operators to one — and cuts the time per pallet by about two-thirds (~120 seconds to under 40). Because the operator stands still while the machine travels around the pallet, one person achieves what a two-person team did. On the securing step that is roughly a 50% labour-cost reduction, and because wages rise yearly while the machine cost is fixed, the percentage saving grows over time.',
+      },
+      {
+        question: 'Does reducing labour cost mean firing people?',
+        answer:
+          'No — the durable approach is redeployment, not layoffs. Manual securing is heavy, repetitive, high-turnover work that is hard to staff and harder to retain. Automating it frees that person for skilled, value-adding work (picking, QA, loading) and makes the dock resilient to the absences and turnover that plague it. You reduce labour cost per pallet while making the same team more productive — which is also why automation doubles as a labour-shortage and retention solution.',
+      },
     ],
     related: [
       { label: 'Factory-Floor Automation hub', href: '/factory-floor-automation' },
