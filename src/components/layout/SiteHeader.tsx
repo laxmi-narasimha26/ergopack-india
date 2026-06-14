@@ -43,6 +43,7 @@ const productLines = [
 ];
 
 const navLinks = [
+  { href: '/industries-served', label: 'Industries' },
   { href: '/roi-calculator', label: 'ROI Calculator' },
   { href: '/testimonials', label: 'Testimonials' },
   { href: '/about', label: 'About Us' },

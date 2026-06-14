@@ -173,23 +173,30 @@ function HeroSection() {
           exit={{ opacity: 0 }}
           transition={{ duration: 1.2, ease: 'easeInOut' }}
         >
-          {/* Cinematic banner — right 62%, contained, no crop */}
-          <div className="absolute inset-y-0 right-0 w-[62%]">
+          {/* Cinematic banner — full width lower-half on mobile, right 62% on desktop */}
+          <div className="absolute inset-x-0 bottom-0 top-[42%] md:inset-y-0 md:left-auto md:right-0 md:top-0 md:w-[62%]">
             <Image
               src={slide.heroImage}
               alt={slide.heroSub}
               fill
               priority
               quality={95}
-              className="object-contain object-right-bottom"
-              sizes="62vw"
+              className="object-contain object-bottom md:object-right-bottom"
+              sizes="(max-width: 768px) 100vw, 62vw"
             />
           </div>
-          {/* Black left fill */}
-          <div className="absolute inset-y-0 left-0 w-[45%] bg-black" />
-          {/* Smooth gradient feather */}
+          {/* Black left fill (desktop only) */}
+          <div className="absolute inset-y-0 left-0 w-[45%] bg-black hidden md:block" />
+          {/* Smooth gradient feather — vertical on mobile, horizontal on desktop */}
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 md:hidden"
+            style={{
+              background:
+                'linear-gradient(to bottom, #000000 30%, rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.15) 70%, transparent 100%)',
+            }}
+          />
+          <div
+            className="absolute inset-0 hidden md:block"
             style={{
               background:
                 'linear-gradient(to right, #000000 28%, rgba(0,0,0,0.72) 48%, rgba(0,0,0,0.08) 68%, transparent 80%)',
@@ -207,8 +214,8 @@ function HeroSection() {
         </motion.div>
       </AnimatePresence>
 
-      {/* Text */}
-      <div className="relative z-10 h-full flex flex-col justify-center px-8 md:px-16 lg:px-24 pt-[72px] pb-24">
+      {/* Text — top-anchored on mobile (clear of header + image), centered on desktop */}
+      <div className="relative z-10 h-full flex flex-col justify-start md:justify-center px-6 sm:px-8 md:px-16 lg:px-24 pt-[96px] md:pt-[72px] pb-24">
         <AnimatePresence mode="wait">
           <motion.div
             key={slide.id + '-text'}

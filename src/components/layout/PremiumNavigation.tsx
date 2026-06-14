@@ -1,48 +1,34 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Package, Factory, FileText, Mail, Calculator, Layers } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const showSolutionsTab = false;
 
 const navItems = [
-  { href: '/products', label: 'Products', icon: Package },
-  { href: '/solutions', label: 'Solutions', icon: Layers, hidden: !showSolutionsTab },
-  { href: '/roi-calculator', label: 'ROI Calculator', icon: Calculator },
-  { href: '/testimonials', label: 'Testimonials', icon: FileText },
-  { href: '/about', label: 'About Us', icon: Factory },
-  { href: '/contact', label: 'Contact', icon: Mail },
+  { href: '/products', label: 'Products' },
+  { href: '/industries-served', label: 'Industries' },
+  { href: '/solutions', label: 'Solutions', hidden: !showSolutionsTab },
+  { href: '/roi-calculator', label: 'ROI Calculator' },
+  { href: '/testimonials', label: 'Testimonials' },
+  { href: '/about', label: 'About Us' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 const visibleNavItems = navItems.filter((item) => !item.hidden);
 
-export default function PremiumNavigation({ initialHidden = false }: { initialHidden?: boolean }) {
-  const [isScrolled, setIsScrolled] = useState(false);
+export default function PremiumNavigation({
+  initialHidden: _initialHidden = false,
+}: {
+  initialHidden?: boolean;
+}) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isHomePage = pathname === '/';
 
-  useEffect(() => {
-    const handleScroll = () => {
-      // Threshold for switching from icons to text header
-      const scrolled = window.scrollY > 400; // Matches ScrollHeader transition
-      setIsScrolled(scrolled);
-    };
-
-    handleScroll();
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // On homepage before scroll: Transparent bg, Icons only
-  // On homepage after scroll: Dark bg, Text links
-  // On other pages: Dark bg, Text links (always)
-
-  const showIcons = isHomePage && !isScrolled;
-  const showText = !isHomePage || isScrolled;
+  const showText = true;
 
   const backgroundColor = showText ? 'rgba(249, 249, 247, 0.95)' : 'transparent'; // Premium light shade
   const headerPadding = showText ? 'py-4' : 'py-6';
@@ -56,9 +42,9 @@ export default function PremiumNavigation({ initialHidden = false }: { initialHi
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-[100] border-b ${borderColor} ${headerPadding} ${showText ? 'backdrop-blur-md shadow-sm' : ''}`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-16">
+      <div className="mx-auto flex h-16 max-w-[1440px] items-center gap-6 px-4 lg:gap-10 lg:px-8 xl:gap-14">
         {/* Left: Logo Area */}
-        <div className="w-1/3 flex items-center">
+        <div className="flex w-[320px] shrink-0 items-center pr-6 lg:pr-10 xl:w-[380px] xl:pr-14">
           <AnimatePresence mode="wait">
             {showText && (
               <motion.div
@@ -67,8 +53,8 @@ export default function PremiumNavigation({ initialHidden = false }: { initialHi
                 exit={{ opacity: 0, x: -20 }}
                 transition={{ duration: 0.5 }}
               >
-                <Link href="/" className="group relative z-50">
-                  <div className="text-lg md:text-2xl font-serif font-medium tracking-widest uppercase whitespace-nowrap">
+                <Link href="/" className="group relative z-50 inline-flex items-center">
+                  <div className="pt-1 font-serif text-base font-medium uppercase leading-none tracking-[0.12em] whitespace-nowrap lg:text-[1.4rem] xl:text-[1.72rem] xl:tracking-[0.16em]">
                     <span className={textColor}>ErgoPack India</span>
                   </div>
                 </Link>
@@ -78,62 +64,41 @@ export default function PremiumNavigation({ initialHidden = false }: { initialHi
         </div>
 
         {/* Center: Navigation */}
-        <nav className="flex-1 flex justify-center hidden md:flex">
+        <nav className="hidden min-w-0 flex-1 justify-center px-2 lg:flex xl:px-4">
           <AnimatePresence mode="wait">
-            {showIcons ? (
-              <motion.div
-                key="icons"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                className="flex items-center gap-16"
-              >
-                {visibleNavItems.map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    className="group flex flex-col items-center gap-2"
+            <motion.div
+              key="text"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 10 }}
+              className="flex items-center justify-center gap-5 xl:gap-8"
+            >
+              {visibleNavItems.map((item) => (
+                <Link key={item.label} href={item.href} className="group relative py-2">
+                  <span
+                    className={`text-[10px] font-medium uppercase tracking-[0.1em] xl:text-[11px] xl:tracking-[0.14em] ${textColor} hover:text-ergopack transition-colors duration-300 whitespace-nowrap`}
                   >
-                    <div className="p-3 rounded-full bg-white/10 border border-white/20 group-hover:bg-white/20 transition-all duration-300 backdrop-blur-sm">
-                      <item.icon
-                        className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-300"
-                        strokeWidth={1.5}
-                      />
-                    </div>
-                    <span className="text-[10px] uppercase tracking-widest text-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute -bottom-8 whitespace-nowrap">
-                      {item.label}
-                    </span>
-                  </Link>
-                ))}
-              </motion.div>
-            ) : (
-              <motion.div
-                key="text"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 10 }}
-                className="flex items-center gap-10"
-              >
-                {visibleNavItems.map((item) => (
-                  <Link key={item.label} href={item.href} className="group relative py-2">
-                    <span
-                      className={`text-xs uppercase tracking-[0.2em] font-medium ${textColor} hover:text-ergopack transition-colors duration-300 whitespace-nowrap`}
-                    >
-                      {item.label}
-                    </span>
-                    <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-ergopack group-hover:w-full transition-all duration-300 ease-out" />
-                  </Link>
-                ))}
-              </motion.div>
-            )}
+                    {item.label}
+                  </span>
+                  <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-ergopack group-hover:w-full transition-all duration-300 ease-out" />
+                </Link>
+              ))}
+            </motion.div>
           </AnimatePresence>
         </nav>
 
         {/* Right: Actions */}
-        <div className="w-1/3 flex justify-end items-center gap-6">
+        <div className="ml-auto flex shrink-0 items-center justify-end gap-3 lg:w-[320px] lg:gap-4 xl:w-[340px]">
+          <Link href="/products/build-your-own" className="hidden lg:block">
+            <button
+              className={`px-3 py-2 text-[10px] xl:text-xs font-medium uppercase tracking-[0.1em] xl:tracking-widest border transition-all duration-300 rounded-sm ${showText ? 'text-ergopack border-ergopack hover:bg-ergopack hover:text-white' : 'text-white border-white/30 hover:bg-ergopack hover:border-ergopack'}`}
+            >
+              Build Your Own
+            </button>
+          </Link>
           <Link href="/contact" className="hidden md:block">
             <button
-              className={`px-6 py-2 text-xs font-medium uppercase tracking-widest border transition-all duration-300 rounded-sm ${showText ? 'text-gray-900 border-gray-900/30 hover:bg-ergopack hover:text-white hover:border-ergopack' : 'text-white border-white/30 hover:bg-ergopack hover:border-ergopack'} ${showIcons ? 'bg-white/10 backdrop-blur-sm' : ''}`}
+              className={`px-6 py-2 text-xs font-medium uppercase tracking-widest border transition-all duration-300 rounded-sm ${showText ? 'text-white bg-ergopack border-ergopack hover:bg-red-700 hover:border-red-700' : 'text-white border-white/30 hover:bg-ergopack hover:border-ergopack'}`}
             >
               Request Demo
             </button>
@@ -159,22 +124,29 @@ export default function PremiumNavigation({ initialHidden = false }: { initialHi
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-gray-900 border-t border-white/10 overflow-hidden"
+            className="overflow-hidden border-t border-stone-200 bg-[#f9f9f7] md:hidden"
           >
             <div className="px-6 py-8 space-y-6">
               {visibleNavItems.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="block text-sm uppercase tracking-[0.2em] font-medium text-white hover:text-ergopack transition-colors"
+                  className="block text-sm font-medium uppercase tracking-[0.2em] text-stone-900 transition-colors hover:text-ergopack"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {item.label}
                 </Link>
               ))}
               <Link
+                href="/products/build-your-own"
+                className="block border-t border-stone-200 pt-4 text-sm font-medium uppercase tracking-[0.2em] text-stone-900 transition-colors hover:text-ergopack"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Build Your Own
+              </Link>
+              <Link
                 href="/contact"
-                className="block text-sm uppercase tracking-[0.2em] font-medium text-white pt-4 border-t border-white/10"
+                className="block pt-4 text-sm font-medium uppercase tracking-[0.2em] text-ergopack"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Request Demo

@@ -23,9 +23,19 @@ const footerLinks = {
     { label: 'Reduce Transit Damage', href: '/resources/reduce-pallet-transit-damage' },
     { label: 'All Resources & Guides', href: '/resources' },
   ],
+  locations: [
+    { label: 'Mumbai', href: '/locations/pallet-strapping-machine-mumbai' },
+    { label: 'Delhi NCR', href: '/locations/pallet-strapping-machine-delhi-ncr' },
+    { label: 'Pune', href: '/locations/pallet-strapping-machine-pune' },
+    { label: 'Chennai', href: '/locations/pallet-strapping-machine-chennai' },
+    { label: 'Ahmedabad', href: '/locations/pallet-strapping-machine-ahmedabad' },
+    { label: 'JNPT / Nhava Sheva', href: '/locations/pallet-strapping-machine-jnpt-nhava-sheva' },
+    { label: 'Mundra Port', href: '/locations/pallet-strapping-machine-mundra' },
+    { label: 'All Locations We Serve', href: '/locations' },
+  ],
   company: [
     { label: 'About Us', href: '/about' },
-    { label: 'Manufacturing Hubs', href: '/locations' },
+    { label: 'Locations We Serve', href: '/locations' },
     { label: 'Blog & Insights', href: '/blog' },
     { label: 'Contact', href: '/contact' },
   ],
@@ -39,7 +49,7 @@ export default function Footer() {
   return (
     <footer className="bg-luxury-off-white border-t border-gray-200">
       <div className="container mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-12 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-x-8 gap-y-10 mb-12">
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block mb-6">
@@ -119,6 +129,25 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               {footerLinks.resources.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-600 hover:text-gray-900 transition-colors text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Locations */}
+          <div>
+            <h3 className="text-gray-900 font-semibold mb-4 text-sm uppercase tracking-wider">
+              Locations Served
+            </h3>
+            <ul className="space-y-3">
+              {footerLinks.locations.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
