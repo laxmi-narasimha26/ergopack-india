@@ -617,6 +617,19 @@ export const automationPages: AutomationPage[] = [
           'Because rejections are driven by the worst-secured pallet, removing the variability — not just raising average tension — is what cuts them. Automated securing does exactly that: every pallet leaves at the correct, repeatable tension, so the shipment arrives intact and the rejection that costs more than a year of savings is avoided.',
         ],
       },
+      {
+        heading: 'The full rejection-prevention checklist (not just securing)',
+        paragraphs: [
+          'Consistent securing tension is the single biggest controllable factor, but a container rejection can come from any weak link, so the complete checklist matters. For Indian exporters the essentials are: ISPM-15 heat-treated, stamped pallets (non-compliant wood is quarantined or rejected at many borders); sound pallets inspected for cracked boards, missing stringers and protruding nails before loading; calibrated, consistent strap tension with rust-free PET on every pallet; and proper blocking-and-bracing inside the container so there is no empty space for loads to shift.',
+          'Get the securing right and you remove the most common cause; complete the rest of the checklist and you close the remaining gaps. Automation makes the securing line of that checklist repeatable and documented — which is also what international buyers increasingly ask exporters to demonstrate.',
+        ],
+        bullets: [
+          'ISPM-15 heat-treated, stamped pallets — or the container is rejected at the border.',
+          'Inspect every pallet — no cracked boards, missing stringers or protruding nails.',
+          'Calibrated, consistent tension with rust-free PET on every pallet.',
+          'Block-and-brace inside the container — no empty space for loads to shift.',
+        ],
+      },
     ],
     faqs: [
       {
@@ -633,6 +646,16 @@ export const automationPages: AutomationPage[] = [
         question: 'Why is PET strap better for reducing export rejections?',
         answer:
           'Steel strap rusts in container humidity and can stain or corrode the cargo, and it does not recover tension as loads settle — so the load loosens and shifts at sea. PET resists rust, absorbs shock and recovers tension, keeping export pallets tight and clean for the full voyage, which is why it is the seaworthy choice for reducing export rejections.',
+      },
+      {
+        question: 'Besides strapping, what else prevents export container rejections?',
+        answer:
+          'Four things together. First, ISPM-15 heat-treated and stamped pallets — non-compliant wood is quarantined or rejected at many borders. Second, inspect every pallet for cracked boards, missing stringers and protruding nails before loading. Third, calibrated, consistent strap tension with rust-free PET on every pallet (the biggest controllable factor). Fourth, block-and-brace inside the container so there is no empty space for loads to shift. Consistent securing removes the most common cause; the full checklist closes the rest.',
+      },
+      {
+        question: 'Why do US/global transit-damage guides not fully fit Indian exporters?',
+        answer:
+          'Most transit-damage guides emphasise stretch wrapping and Western freight practices, and underplay the role of consistent strap tension as the root cause of load shift. For Indian exporters shipping by sea through Mundra, JNPT, Chennai and other ports, the decisive factors are calibrated, repeatable securing tension and rust-free PET that survives humid container transit — combined with ISPM-15 pallets and proper bracing. Strapping tension consistency, not more wrap, is what removes the loose-load failure that causes most rejections.',
       },
     ],
     related: [
@@ -715,6 +738,16 @@ export const automationPages: AutomationPage[] = [
         question: 'How much throughput does securing automation add?',
         answer:
           'On the secured step it roughly triples speed (~120s to under 40s) and frees an operator, and because it also removes re-work and rejected loads, the dispatch line gains both speed and consistency. The result is a markedly higher, more reliable shipping rate without new headcount — typically alongside a ~₹25 lakh/year saving.',
+      },
+      {
+        question: 'I’ve already optimised picking and slotting — why is throughput still capped?',
+        answer:
+          'Because picking and slotting are upstream of dispatch. Optimising them — golden-zone slotting, batch picking, a WMS — speeds how fast goods reach the dock, but if the dock then secures pallets manually at ~120 seconds with two people, that final step caps how fast anything actually ships. Faster picking just makes pallets queue sooner behind manual securing. Once the upstream is optimised, the securing step is usually the binding constraint, and automating it is what converts your picking gains into real shipped throughput.',
+      },
+      {
+        question: 'Do I need conveyors to increase dispatch throughput?',
+        answer:
+          'Not to clear the most common bottleneck. Conveyors help move goods between zones, but the binding constraint at dispatch is usually the manual securing step — and that is cleared with a mobile machine wheeled to the pallet, no conveyors or rebuild required. Start there: it lifts throughput at the constraint for a fraction of the cost and disruption of a conveyor project.',
       },
     ],
     related: [
