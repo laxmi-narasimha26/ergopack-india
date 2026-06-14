@@ -52,6 +52,8 @@ const publishedAtBase = [
   '2026-06-18T17:00:00+05:30',
   '2026-06-19T09:00:00+05:30',
   '2026-06-19T11:00:00+05:30',
+  '2026-06-19T13:00:00+05:30',
+  '2026-06-19T15:00:00+05:30',
 ];
 
 const blogImagePaths = {
@@ -5051,6 +5053,181 @@ Package tea and spices to this standard — sealed in barrier packaging, moistur
     createdAt: new Date(publishedAtBase[50]),
     updatedAt: new Date(publishedAtBase[50]),
     publishedAt: new Date(publishedAtBase[50]),
+  },
+  {
+    _id: 'seed-what-is-a-pallet',
+    title: 'What Is a Pallet? Definition, Types, Sizes and Uses Explained',
+    slug: 'what-is-a-pallet',
+    excerpt:
+      'A pallet is the flat platform that moves the world’s goods. What a pallet is, the types and materials, standard sizes, load capacity, and how loads are secured to it.',
+    content: `Almost everything you buy spent part of its journey on a pallet. It is the most basic, most overlooked unit in the supply chain — and getting it right (and securing the load on it) is what keeps goods moving and intact. Here is the complete, plain answer.
+
+## What is a pallet?
+
+A **pallet** is a flat, rigid platform used as a base to handle, store and transport goods as a single unit. Its key feature is the **gap underneath** that lets a forklift or pallet jack lift and move it. By stacking goods on a pallet, an entire load can be moved, stored and shipped in one action instead of box by box — the foundation of modern logistics.
+
+## Pallet vs skid
+
+- A **pallet** has a **top deck and a bottom deck** (boards top and bottom).
+- A **skid** has only a **top deck** — no bottom boards. Skids are simpler but less stable for stacking.
+
+## Types of pallets
+
+By structure:
+
+- **Stringer pallets** — boards (stringers) between the decks; usually 2-way forklift entry.
+- **Block pallets** — solid corner/centre blocks; full 4-way entry, stronger.
+
+By material:
+
+| Material | Strengths | Notes |
+| --- | --- | --- |
+| Wood | Strong, cheap, repairable | ~3–5 yr life; ISPM-15 for export |
+| Plastic | Hygienic, moisture-proof, long life | Higher cost; no ISPM-15 needed |
+| Metal | Highest capacity, very durable | Heavy, expensive |
+| Cardboard / pressed | Light, nestable, export-friendly | Lower load rating |
+
+(For the full breakdown, see [types of pallets explained](/blog/types-of-pallets-explained).)
+
+## Standard pallet sizes
+
+Pallets vary by region:
+
+- **Euro pallet:** 1200 × 800 mm
+- **ISO / standard:** 1200 × 1000 mm
+- **North American (GMA):** 48 × 40 in (≈1219 × 1016 mm)
+- **Asia-Pacific:** 1100 × 1100 mm
+
+India commonly uses the Euro (1200×800), standard (1200×1000), export (1100×1100) and big (1200×1200) sizes — see [standard pallet sizes in India](/blog/standard-pallet-sizes-in-india).
+
+## Load capacity
+
+A standard wooden pallet typically carries up to ~1,000–1,500 kg depending on type and condition; heavy-duty plastic and metal pallets carry more. Always match the pallet's rated capacity to your heaviest load and never exceed it.
+
+## What pallets are used for
+
+- **Handling** — one forklift move instead of many manual lifts.
+- **Storage** — compatible with warehouse racking; better space use.
+- **Transport** — a stable unit load for trucks and containers.
+- **Protection** — keeps goods off the floor and, when secured, intact in transit.
+
+## The other half: securing the load to the pallet
+
+A pallet only does its job if the goods on it stay put. A loaded pallet whose stack is not anchored to the deck will shift, lean and topple in transit — which is why loads are **strapped down to the pallet base** and wrapped. Vertical strapping passes under the pallet and over the load, locking the two together as one unit. Mobile machines such as the [ErgoPack 726X](/products/726x), [GO](/products/go) and [700](/products/700) route the strap under the pallet automatically and apply consistent tension. See [how to pack a pallet for shipping](/blog/how-to-pack-a-pallet-for-shipping).
+
+## In short
+
+A pallet is the flat platform that turns loose goods into a single, forklift-handleable, stackable unit load. Choose the right type, size and material for your goods — and secure the load to it — and you have the basic building block of an efficient, damage-free supply chain.`,
+    coverImage: blogImagePaths.logisticsHero,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'what is a pallet',
+      'pallet definition',
+      'pallet types',
+      'pallet sizes',
+      'pallet uses',
+      'pallet vs skid',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'What Is a Pallet? Definition, Types, Sizes & Uses Explained | ErgoPack',
+      description:
+        'What is a pallet? The flat platform that moves the world’s goods — its definition, types (stringer vs block), materials, standard sizes, load capacity, and how loads are secured to it.',
+      keywords: [
+        'what is a pallet',
+        'pallet definition',
+        'pallet meaning',
+        'pallet types and sizes',
+        'pallet vs skid',
+        'what are pallets used for',
+      ],
+    },
+    readTime: 6,
+    views: 0,
+    createdAt: new Date(publishedAtBase[51]),
+    updatedAt: new Date(publishedAtBase[51]),
+    publishedAt: new Date(publishedAtBase[51]),
+  },
+  {
+    _id: 'seed-what-is-strapping',
+    title: 'What Is Strapping? Types, Materials and How It Secures a Load',
+    slug: 'what-is-strapping',
+    excerpt:
+      'Strapping (banding) is how loads are bound and secured for transport. What strapping is, the materials (PP, PET, steel), how it’s applied and sealed, and what it’s used for.',
+    content: `Strapping is one of the oldest and most important jobs in packaging, and one of the least understood. If you have ever seen a band around a box, a bundle or a pallet, that is strapping doing its job. Here is the complete, plain answer to what strapping is and how it works.
+
+## What is strapping?
+
+**Strapping** (also called **banding** or **bundling**) is the process of applying a tensioned band around a product, bundle or pallet to **hold it together and secure it for handling, storage and transport.** The band is tensioned tight, then joined into a loop — by a seal, a weld or a clip — so it holds the load firmly. It is the simplest, strongest way to unitise and anchor a load.
+
+## What strapping is used for
+
+- **Bundling** — holding loose items together (pipes, boards, cartons).
+- **Unitising** — binding a stack of boxes into one unit.
+- **Securing to a pallet** — anchoring a load down to the pallet base so it cannot shift in transit.
+- **Reinforcing** — closing and reinforcing heavy boxes and crates.
+- **Compression** — containing compressed loads like bales.
+
+## Strapping materials
+
+The three main materials suit different loads:
+
+| Material | Best for | Key trait |
+| --- | --- | --- |
+| Polypropylene (PP) | Light bundling, light loads (to ~200 kg) | Cheapest; high stretch, low retained tension |
+| Polyester (PET) | Heavy and export loads (to ~2,000 kg) | Absorbs shock, recovers tension, no rust |
+| Steel | Very heavy/sharp loads (5,000 kg+) | Highest strength; rigid, rusts, sharp |
+
+For most modern palletised and export loads, **PET is the material of choice** — see [PP vs PET vs steel strapping](/resources/pet-vs-steel-strapping) and [what is PET strapping](/blog/what-is-pet-strapping).
+
+## How strapping is applied and sealed
+
+1. **Tension** — the strap is tightened around the load. Too little and the load shifts; too much and it crushes. Consistent, correct tension is everything (see the [strapping tension guide](/blog/pallet-strapping-tension-guide)).
+2. **Seal the joint** — the loop is closed by:
+   - **Friction weld (sealless)** — the strap is fused to itself, holding up to ~90% of its strength with no extra hardware (the modern standard).
+   - **Metal clip** — a crimped seal, ~60% efficiency, a recurring cost and a failure point.
+
+## Manual, tool, or machine?
+
+- **By hand tool** — manual, battery or pneumatic tools tension and seal, but the operator still routes the strap (see [strapping tools comparison](/blog/manual-battery-pneumatic-strapping-tools)).
+- **By machine** — semi-automatic, automatic inline, or **mobile ChainLance** machines that route the strap under the pallet automatically. The ErgoPack [726X](/products/726x), [GO](/products/go) and [700](/products/700) are mobile machines that strap a pallet in under 40 seconds (see [types of pallet strapping machines](/resources/types-of-pallet-strapping-machines)).
+
+## In short
+
+Strapping is the tensioned band that binds and secures a load — bundling loose items, unitising stacks, and anchoring loads to pallets. Choose the right material (usually PET), apply consistent tension, and seal it without metal clips, and strapping is the most reliable, lowest-cost way to make sure a load arrives the way it left.`,
+    coverImage: blogImagePaths.goStrapHead,
+    author: 'ErgoPack India Technical Team',
+    category: 'guides',
+    tags: [
+      'what is strapping',
+      'strapping definition',
+      'banding',
+      'strapping materials',
+      'strapping types',
+      'how strapping works',
+    ],
+    published: true,
+    featured: false,
+    seo: {
+      title: 'What Is Strapping? Types, Materials & How It Secures a Load | ErgoPack',
+      description:
+        'What is strapping (banding)? The tensioned band that bundles, unitises and secures loads — its uses, materials (PP, PET, steel), how it’s tensioned and sealed, and manual vs machine application.',
+      keywords: [
+        'what is strapping',
+        'strapping definition',
+        'what is banding packaging',
+        'strapping materials',
+        'types of strapping',
+        'how does strapping work',
+      ],
+    },
+    readTime: 6,
+    views: 0,
+    createdAt: new Date(publishedAtBase[52]),
+    updatedAt: new Date(publishedAtBase[52]),
+    publishedAt: new Date(publishedAtBase[52]),
   },
 ].sort((left, right) => {
   const leftTime = new Date(left.publishedAt || left.createdAt).getTime();
