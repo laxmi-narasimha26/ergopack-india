@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="color-scheme" content="light only">
+    <meta name="supported-color-schemes" content="light only">
+    <title>What We Learned in Mumbai About Load Stability | Benz Packaging Field Notes</title>
+    <!--[if mso]><style>body,table,td{font-family:Georgia,serif!important}</style><![endif]-->
+    <style>
+        :root {
+            color-scheme: light only
+        }
+
+        body,
+        table,
+        td,
+        a {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%
+        }
+
+        table,
+        td {
+            mso-table-lspace: 0;
+            mso-table-rspace: 0
+        }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+            border: 0;
+            height: auto;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none
+        }
+
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+            background: #f2f2f2
+        }
+
+        @media screen and (max-width:620px) {
+            .wrap {
+                width: 100% !important
+            }
+
+            .pad {
+                padding: 32px 22px !important
+            }
+
+            .h1 {
+                font-size: 28px !important;
+                line-height: 34px !important
+            }
+
+            .hero-img {
+                width: 260px !important
+            }
+
+            .stat-cell {
+                display: block !important;
+                width: 100% !important;
+                border-right: none !important;
+                border-bottom: 1px solid #333 !important;
+                padding: 20px 0 !important
+            }
+        }
+    </style>
+</head>
+
+<body style="margin:0;padding:0;background:#f2f2f2">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#f2f2f2">
+        <tr>
+            <td align="center" style="padding:20px 10px">
+                <table role="presentation" class="wrap" width="600" cellpadding="0" cellspacing="0" border="0"
+                    style="max-width:600px;width:100%;background:#fff">
+
+                    <tr>
+                        <td style="height:4px;background:#000;font-size:1px;line-height:1px">&nbsp;</td>
+                    </tr>
+
+                    <!-- Logo Bar -->
+                    <tr>
+                        <td style="padding:24px 40px;background:#fff" class="pad">
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                                <tr>
+                                    <td align="left" valign="middle"><img
+                                            src="https://ergopack-india.com/images/logos/ergopack-logo.png"
+                                            alt="ErgoPack" width="120" style="display:block;width:120px;height:auto">
+                                    </td>
+                                    <td align="right" valign="middle"><img
+                                            src="https://ergopack-india.com/images/logos/benz-logo.png"
+                                            alt="Benz Packaging" width="90"
+                                            style="display:block;width:90px;height:auto"></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Hero -->
+                    <tr>
+                        <td style="background:#000;padding:44px 44px 32px" class="pad">
+                            <p
+                                style="margin:0 0 12px;font-family:'Courier New',monospace;font-size:10px;letter-spacing:3px;color:#888;text-transform:uppercase">
+                                Mumbai Expo Field Notes</p>
+                            <h1 class="h1"
+                                style="margin:0 0 14px;font-family:Georgia,serif;font-size:36px;line-height:42px;font-weight:700;color:#fff;letter-spacing:-0.5px">
+                                Top 5 questions<br>from the floor.</h1>
+                            <p style="margin:0;font-family:Georgia,serif;font-size:16px;line-height:26px;color:#999">
+                                Three days. Hundreds of conversations. The same questions kept coming up.</p>
+                        </td>
+                    </tr>
+
+                    <!-- Product Image -->
+                    <tr>
+                        <td align="center" style="background:#f7f7f7;padding:36px 20px">
+                            <img class="hero-img" src="https://ergopack-india.com/images/products/726x.png"
+                                alt="ErgoPack 726X Li at LogiMAT Mumbai" width="320"
+                                style="display:block;width:320px;height:auto">
+                        </td>
+                    </tr>
+
+                    <!-- Q1 -->
+                    <tr>
+                        <td style="padding:28px 44px 20px" class="pad">
+                            <p
+                                style="margin:0 0 4px;font-family:'Courier New',monospace;font-size:10px;letter-spacing:2px;color:#999;text-transform:uppercase">
+                                01</p>
+                            <p
+                                style="margin:0 0 8px;font-family:Georgia,serif;font-size:17px;font-weight:700;color:#111">
+                                "How do you guarantee consistent strap tension?"</p>
+                            <p style="margin:0;font-family:Georgia,serif;font-size:14px;color:#666;line-height:22px">The
+                                machine sets the tension. Same force, same placement, every pallet, every shift.
+                                Operator variance drops to zero.</p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding:0 44px">
+                            <table role="presentation" width="100%">
+                                <tr>
+                                    <td style="height:1px;background:#eee">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Q2 -->
+                    <tr>
+                        <td style="padding:20px 44px" class="pad">
+                            <p
+                                style="margin:0 0 4px;font-family:'Courier New',monospace;font-size:10px;letter-spacing:2px;color:#999;text-transform:uppercase">
+                                02</p>
+                            <p
+                                style="margin:0 0 8px;font-family:Georgia,serif;font-size:17px;font-weight:700;color:#111">
+                                "We lose 3-5% of loads to transit damage. Normal?"</p>
+                            <p style="margin:0;font-family:Georgia,serif;font-size:14px;color:#666;line-height:22px">At
+                                500 pallets/month, that is INR 5+ lakh in preventable losses. The benchmark is 99.99%
+                                system reliability.</p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding:0 44px">
+                            <table role="presentation" width="100%">
+                                <tr>
+                                    <td style="height:1px;background:#eee">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Q3 -->
+                    <tr>
+                        <td style="padding:20px 44px" class="pad">
+                            <p
+                                style="margin:0 0 4px;font-family:'Courier New',monospace;font-size:10px;letter-spacing:2px;color:#999;text-transform:uppercase">
+                                03</p>
+                            <p
+                                style="margin:0 0 8px;font-family:Georgia,serif;font-size:17px;font-weight:700;color:#111">
+                                "Our operators complain about back pain."</p>
+                            <p style="margin:0;font-family:Georgia,serif;font-size:14px;color:#666;line-height:22px">AGR
+                                Certified ergonomic design. The operator works fully upright. Zero bending, zero
+                                kneeling.</p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding:0 44px">
+                            <table role="presentation" width="100%">
+                                <tr>
+                                    <td style="height:1px;background:#eee">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Q4 -->
+                    <tr>
+                        <td style="padding:20px 44px" class="pad">
+                            <p
+                                style="margin:0 0 4px;font-family:'Courier New',monospace;font-size:10px;letter-spacing:2px;color:#999;text-transform:uppercase">
+                                04</p>
+                            <p
+                                style="margin:0 0 8px;font-family:Georgia,serif;font-size:17px;font-weight:700;color:#111">
+                                "How do I justify the cost to management?"</p>
+                            <p style="margin:0;font-family:Georgia,serif;font-size:14px;color:#666;line-height:22px">
+                                Present the payback period, not the price tag. Our ROI calculator does this in 60
+                                seconds with your numbers.</p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td style="padding:0 44px">
+                            <table role="presentation" width="100%">
+                                <tr>
+                                    <td style="height:1px;background:#eee">&nbsp;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Q5 -->
+                    <tr>
+                        <td style="padding:20px 44px 28px" class="pad">
+                            <p
+                                style="margin:0 0 4px;font-family:'Courier New',monospace;font-size:10px;letter-spacing:2px;color:#999;text-transform:uppercase">
+                                05</p>
+                            <p
+                                style="margin:0 0 8px;font-family:Georgia,serif;font-size:17px;font-weight:700;color:#111">
+                                "What about service? You are a German company."</p>
+                            <p style="margin:0;font-family:Georgia,serif;font-size:14px;color:#666;line-height:22px">
+                                Benz Packaging holds local inventory, employs trained Indian engineers, and provides
+                                direct support. German engineering, Indian service.</p>
+                        </td>
+                    </tr>
+
+                    <!-- Three Models Strip -->
+                    <tr>
+                        <td style="background:#111;padding:24px 44px" class="pad">
+                            <p
+                                style="margin:0 0 12px;font-family:'Courier New',monospace;font-size:9px;letter-spacing:3px;color:#888;text-transform:uppercase;text-align:center">
+                                Three Models. One Answer to Every Question.</p>
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                                <tr>
+                                    <td class="stat-cell" width="33.33%" align="center"
+                                        style="padding:12px 6px;border-right:1px solid #333">
+                                        <img src="https://ergopack-india.com/images/products/726x.png" alt="726X Li"
+                                            width="80" style="display:block;margin:0 auto 8px;width:80px;height:auto">
+                                        <p
+                                            style="margin:0;font-family:Georgia,serif;font-size:13px;font-weight:700;color:#fff">
+                                            726X Li</p>
+                                        <p
+                                            style="margin:2px 0 0;font-family:'Courier New',monospace;font-size:9px;color:#666">
+                                            High-volume</p>
+                                    </td>
+                                    <td class="stat-cell" width="33.33%" align="center"
+                                        style="padding:12px 6px;border-right:1px solid #333">
+                                        <img src="https://ergopack-india.com/images/products/GO.png" alt="GO" width="80"
+                                            style="display:block;margin:0 auto 8px;width:80px;height:auto">
+                                        <p
+                                            style="margin:0;font-family:Georgia,serif;font-size:13px;font-weight:700;color:#fff">
+                                            GO</p>
+                                        <p
+                                            style="margin:2px 0 0;font-family:'Courier New',monospace;font-size:9px;color:#666">
+                                            Multi-location</p>
+                                    </td>
+                                    <td class="stat-cell" width="33.34%" align="center" style="padding:12px 6px">
+                                        <img src="https://ergopack-india.com/images/products/700.png" alt="700"
+                                            width="80" style="display:block;margin:0 auto 8px;width:80px;height:auto">
+                                        <p
+                                            style="margin:0;font-family:Georgia,serif;font-size:13px;font-weight:700;color:#fff">
+                                            700</p>
+                                        <p
+                                            style="margin:2px 0 0;font-family:'Courier New',monospace;font-size:9px;color:#666">
+                                            Zero electricity</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- CTA -->
+                    <tr>
+                        <td style="padding:28px 44px;text-align:center" class="pad">
+                            <p style="margin:0 0 16px;font-family:Georgia,serif;font-size:14px;color:#888">Reply with
+                                your pallets per day. We will recommend the right model.</p>
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center">
+                                <tr>
+                                    <td style="border:2px solid #000;padding:12px 28px">
+                                        <a href="https://ergopack-india.com/roi-calculator"
+                                            style="font-family:Georgia,serif;font-size:12px;font-weight:700;color:#000;text-decoration:none;letter-spacing:1.5px;text-transform:uppercase">See
+                                            the ROI Calculator</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background:#111;padding:32px 44px" class="pad">
+                            <p
+                                style="margin:0 0 6px;font-family:Georgia,serif;font-size:15px;font-weight:700;color:#fff">
+                                Benz Packaging Solutions</p>
+                            <p style="margin:0 0 3px;font-family:'Courier New',monospace;font-size:11px;color:#888">
+                                Exclusive ErgoPack partner for India</p>
+                            <p style="margin:0 0 16px;font-family:'Courier New',monospace;font-size:11px;color:#888">
+                                marketing@benz-packaging.com</p>
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                                <tr>
+                                    <td style="padding-right:14px"><a href="https://ergopack-india.com"
+                                            style="font-family:'Courier New',monospace;font-size:11px;color:#ccc;text-decoration:underline">Website</a>
+                                    </td>
+                                    <td style="padding-right:14px"><a href="https://ergopack-india.com/products"
+                                            style="font-family:'Courier New',monospace;font-size:11px;color:#ccc;text-decoration:underline">Products</a>
+                                    </td>
+                                    <td><a href="https://ergopack-india.com/roi-calculator"
+                                            style="font-family:'Courier New',monospace;font-size:11px;color:#ccc;text-decoration:underline">ROI
+                                            Calculator</a></td>
+                                </tr>
+                            </table>
+                            <p style="margin:18px 0 0;font-family:'Courier New',monospace;font-size:9px;color:#555">Benz
+                                Packaging Bulletin.</p>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
