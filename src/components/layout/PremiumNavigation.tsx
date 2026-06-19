@@ -64,8 +64,8 @@ export default function PremiumNavigation({
           </AnimatePresence>
         </div>
 
-        {/* Center: Navigation */}
-        <nav className="hidden min-w-0 flex-1 justify-center px-2 lg:flex xl:px-4">
+        {/* Center: Navigation — only at xl where all items fit */}
+        <nav className="hidden min-w-0 flex-1 justify-center px-2 xl:flex xl:px-4">
           <AnimatePresence mode="wait">
             <motion.div
               key="text"
@@ -89,24 +89,25 @@ export default function PremiumNavigation({
         </nav>
 
         {/* Right: Actions */}
-        <div className="ml-auto flex shrink-0 items-center justify-end gap-3 lg:w-[320px] lg:gap-4 xl:w-[340px]">
-          <Link href="/products/build-your-own" className="hidden lg:block">
+        <div className="ml-auto flex shrink-0 items-center justify-end gap-3 xl:gap-4">
+          <Link href="/products/build-your-own" className="hidden xl:block">
             <button
-              className={`px-3 py-2 text-[10px] xl:text-xs font-medium uppercase tracking-[0.1em] xl:tracking-widest border transition-all duration-300 rounded-sm ${showText ? 'text-ergopack border-ergopack hover:bg-ergopack hover:text-white' : 'text-white border-white/30 hover:bg-ergopack hover:border-ergopack'}`}
+              className={`px-3 py-2 text-[10px] xl:text-xs font-medium uppercase tracking-[0.1em] xl:tracking-widest whitespace-nowrap border transition-all duration-300 rounded-sm ${showText ? 'text-ergopack border-ergopack hover:bg-ergopack hover:text-white' : 'text-white border-white/30 hover:bg-ergopack hover:border-ergopack'}`}
             >
               Build Your Own
             </button>
           </Link>
           <Link href="/contact" className="hidden md:block">
             <button
-              className={`px-6 py-2 text-xs font-medium uppercase tracking-widest border transition-all duration-300 rounded-sm ${showText ? 'text-white bg-ergopack border-ergopack hover:bg-red-700 hover:border-red-700' : 'text-white border-white/30 hover:bg-ergopack hover:border-ergopack'}`}
+              className={`px-5 py-2 text-xs font-medium uppercase tracking-widest whitespace-nowrap border transition-all duration-300 rounded-sm ${showText ? 'text-white bg-ergopack border-ergopack hover:bg-red-700 hover:border-red-700' : 'text-white border-white/30 hover:bg-ergopack hover:border-ergopack'}`}
             >
               Request Demo
             </button>
           </Link>
 
           <button
-            className={`md:hidden p-2 ${showText ? 'text-gray-900' : 'text-white'}`}
+            aria-label="Toggle menu"
+            className={`xl:hidden p-2 ${showText ? 'text-gray-900' : 'text-white'}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
@@ -125,7 +126,7 @@ export default function PremiumNavigation({
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden border-t border-stone-200 bg-[#f9f9f7] md:hidden"
+            className="overflow-hidden border-t border-stone-200 bg-[#f9f9f7] xl:hidden"
           >
             <div className="px-6 py-8 space-y-6">
               {visibleNavItems.map((item) => (

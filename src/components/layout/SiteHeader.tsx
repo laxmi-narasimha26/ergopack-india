@@ -85,17 +85,17 @@ export default function SiteHeader() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-xl shadow-sm border-b border-gray-200/80 transition-all duration-500">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
-        <div className="flex items-center h-[72px] gap-8">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
+        <div className="flex items-center h-[72px] gap-4 xl:gap-6">
           {/* Logo */}
           <Link href="/" className="shrink-0">
-            <div className={`font-serif tracking-[0.12em] uppercase text-xl font-semibold transition-colors duration-300 ${logoText}`}>
+            <div className={`font-serif tracking-[0.1em] uppercase text-lg sm:text-xl font-semibold whitespace-nowrap transition-colors duration-300 ${logoText}`}>
               ErgoPack<span className="text-[#C8102E]"> India</span>
             </div>
           </Link>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center flex-1 gap-1">
+          {/* Desktop Nav — only at xl where it actually fits */}
+          <nav className="hidden xl:flex items-center flex-1 justify-center gap-0.5">
             {/* Products Mega Menu Trigger */}
             <div
               className="relative"
@@ -103,7 +103,7 @@ export default function SiteHeader() {
               onMouseLeave={handleMouseLeave}
             >
               <button
-                className={`flex items-center gap-1.5 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.12em] transition-colors duration-200 rounded-sm ${navTextBase}`}
+                className={`flex items-center gap-1 px-3 py-2 text-[11px] font-medium uppercase tracking-[0.1em] whitespace-nowrap transition-colors duration-200 rounded-sm ${navTextBase}`}
               >
                 Products
                 <ChevronDown
@@ -115,7 +115,7 @@ export default function SiteHeader() {
             {navLinks.map((item) => (
               <Link key={item.href} href={item.href}>
                 <span
-                  className={`px-4 py-2 text-[11px] font-medium uppercase tracking-[0.12em] transition-colors duration-200 rounded-sm ${
+                  className={`px-3 py-2 text-[11px] font-medium uppercase tracking-[0.1em] whitespace-nowrap transition-colors duration-200 rounded-sm ${
                     pathname === item.href ? navTextActive : navTextBase
                   }`}
                 >
@@ -126,10 +126,10 @@ export default function SiteHeader() {
           </nav>
 
           {/* Right CTAs */}
-          <div className="hidden lg:flex items-center gap-3 ml-auto">
+          <div className="hidden xl:flex items-center gap-3 ml-auto shrink-0">
             <Link href="/contact">
               <button
-                className={`px-5 py-2 text-[10px] uppercase tracking-widest font-semibold border transition-all duration-300 rounded-sm ${
+                className={`px-4 py-2 text-[10px] uppercase tracking-widest font-semibold whitespace-nowrap border transition-all duration-300 rounded-sm ${
                   isLight
                     ? 'border-gray-300 text-gray-700 hover:border-gray-900 hover:text-gray-900'
                     : 'border-white/30 text-white hover:border-white hover:bg-white/10'
@@ -139,15 +139,25 @@ export default function SiteHeader() {
               </button>
             </Link>
             <Link href="/contact">
-              <button className="px-5 py-2 text-[10px] uppercase tracking-widest font-semibold bg-[#C8102E] text-white hover:bg-red-700 transition-all duration-300 rounded-sm">
+              <button className="px-4 py-2 text-[10px] uppercase tracking-widest font-semibold whitespace-nowrap bg-[#C8102E] text-white hover:bg-red-700 transition-all duration-300 rounded-sm">
                 Request Quote
               </button>
             </Link>
           </div>
 
-          {/* Mobile Burger */}
+          {/* Tablet (md–lg): single primary CTA + burger, no cramped full nav */}
+          <div className="hidden md:flex xl:hidden items-center gap-3 ml-auto shrink-0">
+            <Link href="/contact">
+              <button className="px-4 py-2 text-[10px] uppercase tracking-widest font-semibold whitespace-nowrap bg-[#C8102E] text-white hover:bg-red-700 transition-all duration-300 rounded-sm">
+                Request Quote
+              </button>
+            </Link>
+          </div>
+
+          {/* Burger — everything below xl */}
           <button
-            className={`lg:hidden ml-auto p-2 ${burgerColor}`}
+            aria-label="Toggle menu"
+            className={`xl:hidden ml-auto md:ml-0 p-2 ${burgerColor}`}
             onClick={() => setIsMobileOpen(!isMobileOpen)}
           >
             {isMobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -256,7 +266,7 @@ export default function SiteHeader() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden bg-white border-t border-gray-200 lg:hidden"
+            className="overflow-hidden bg-white border-t border-gray-200 xl:hidden"
           >
             <div className="px-6 py-6 space-y-2">
               {/* Products accordion */}
