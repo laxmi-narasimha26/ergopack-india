@@ -12,10 +12,15 @@ const productLines = [
     label: 'X-Pert Line',
     tagline: 'Li-ion · Digital · 66 m/min',
     color: '#C8102E',
-    description: 'Siemens touchscreen + Line Laser. Li-ion: 1,200 cycles per 3.5-hour charge. ChainLance at 66 m/min.',
+    description:
+      'Siemens touchscreen + Line Laser. Li-ion: 1,200 cycles per 3.5-hour charge. ChainLance at 66 m/min.',
     href: '/products/x-pert-line',
     models: [
-      { name: '726X', desc: 'The machine we sell. 13–16 mm PP/PET. Up to 2,500N. Touchscreen + Laser.', href: '/products/x-pert-line/726x' },
+      {
+        name: '726X',
+        desc: 'The machine we sell. 13–16 mm PP/PET. Up to 2,500N. Touchscreen + Laser.',
+        href: '/products/x-pert-line/726x',
+      },
     ],
   },
   {
@@ -23,10 +28,15 @@ const productLines = [
     label: 'GO Line',
     tagline: 'Economy Portable',
     color: '#D97706',
-    description: 'Electric strapping powered by 24V lead-fleece battery. 350 cycles per charge. Joystick control.',
+    description:
+      'Electric strapping powered by 24V lead-fleece battery. 350 cycles per charge. Joystick control.',
     href: '/products/go',
     models: [
-      { name: 'ErgoPack GO', desc: 'Battery-powered. Pallets 80–190 cm tall. Joystick. PP/PET/Paper/Cord/Composite.', href: '/products/go' },
+      {
+        name: 'ErgoPack GO',
+        desc: 'Battery-powered. Pallets 80–190 cm tall. Joystick. PP/PET/Paper/Cord/Composite.',
+        href: '/products/go',
+      },
     ],
   },
   {
@@ -34,10 +44,15 @@ const productLines = [
     label: 'E-conomy Line',
     tagline: 'Hand-Crank · No Battery · Any Material',
     color: '#4A7C59',
-    description: 'Pure hand-crank operation. No battery, no motor, no power needed. 64.4 kg. Widest material range.',
+    description:
+      'Pure hand-crank operation. No battery, no motor, no power needed. 64.4 kg. Widest material range.',
     href: '/products/economy-line',
     models: [
-      { name: '700', desc: 'The machine we sell. Manual hand-crank. PP, PET, Paper, Cord, Composite. 64.4 kg.', href: '/products/economy-line/700' },
+      {
+        name: '700',
+        desc: 'The machine we sell. Manual hand-crank. PP, PET, Paper, Cord, Composite. 64.4 kg.',
+        href: '/products/economy-line/700',
+      },
     ],
   },
 ];
@@ -51,7 +66,12 @@ const navLinks = [
   { href: '/contact', label: 'Contact' },
 ];
 
-export default function SiteHeader() {
+interface SiteHeaderProps {
+  /** Pixels to push the fixed header down by (e.g. for an announcement bar above it). */
+  offset?: number;
+}
+
+export default function SiteHeader({ offset = 0 }: SiteHeaderProps) {
   const [scrolled, setScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
@@ -84,12 +104,17 @@ export default function SiteHeader() {
   const burgerColor = 'text-gray-900';
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[100] bg-white/95 backdrop-blur-xl shadow-sm border-b border-gray-200/80 transition-all duration-500">
+    <header
+      className="fixed left-0 right-0 z-[100] bg-white/95 backdrop-blur-xl shadow-sm border-b border-gray-200/80 transition-[top] duration-200"
+      style={{ top: offset }}
+    >
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10">
         <div className="flex items-center h-[72px] gap-4 xl:gap-6">
           {/* Logo */}
           <Link href="/" className="shrink-0">
-            <div className={`font-serif tracking-[0.1em] uppercase text-lg sm:text-xl font-semibold whitespace-nowrap transition-colors duration-300 ${logoText}`}>
+            <div
+              className={`font-serif tracking-[0.1em] uppercase text-lg sm:text-xl font-semibold whitespace-nowrap transition-colors duration-300 ${logoText}`}
+            >
               ErgoPack<span className="text-[#C8102E]"> India</span>
             </div>
           </Link>
@@ -180,10 +205,7 @@ export default function SiteHeader() {
             <div className="max-w-[1440px] mx-auto px-10 py-10">
               <div className="grid grid-cols-3 gap-0 divide-x divide-gray-100">
                 {productLines.map((line) => (
-                  <div
-                    key={line.id}
-                    className="px-10 first:pl-0 last:pr-0 group"
-                  >
+                  <div key={line.id} className="px-10 first:pl-0 last:pr-0 group">
                     {/* Line header */}
                     <div className="mb-5">
                       <div
@@ -199,7 +221,9 @@ export default function SiteHeader() {
                       >
                         {line.label}
                       </Link>
-                      <p className="text-sm text-gray-500 mt-1 leading-relaxed">{line.description}</p>
+                      <p className="text-sm text-gray-500 mt-1 leading-relaxed">
+                        {line.description}
+                      </p>
                     </div>
 
                     {/* Divider */}
@@ -244,12 +268,22 @@ export default function SiteHeader() {
 
               {/* Bottom bar */}
               <div className="mt-8 pt-6 border-t border-gray-100 flex items-center justify-between">
-                <span className="text-xs text-gray-400 uppercase tracking-widest">German Engineered · Trusted in 55+ Countries</span>
+                <span className="text-xs text-gray-400 uppercase tracking-widest">
+                  German Engineered · Trusted in 55+ Countries
+                </span>
                 <div className="flex items-center gap-6">
-                  <Link href="/compare?auto=true" className="text-xs text-gray-600 hover:text-gray-900 uppercase tracking-wider transition-colors" onClick={() => setActiveMenu(null)}>
+                  <Link
+                    href="/compare?auto=true"
+                    className="text-xs text-gray-600 hover:text-gray-900 uppercase tracking-wider transition-colors"
+                    onClick={() => setActiveMenu(null)}
+                  >
                     Compare All Models →
                   </Link>
-                  <Link href="/products" className="text-xs text-[#C8102E] hover:text-red-700 uppercase tracking-wider font-semibold transition-colors" onClick={() => setActiveMenu(null)}>
+                  <Link
+                    href="/products"
+                    className="text-xs text-[#C8102E] hover:text-red-700 uppercase tracking-wider font-semibold transition-colors"
+                    onClick={() => setActiveMenu(null)}
+                  >
                     View All Products →
                   </Link>
                 </div>
@@ -275,7 +309,9 @@ export default function SiteHeader() {
                 onClick={() => setMobileProduct(mobileProduct === 'products' ? null : 'products')}
               >
                 Products
-                <ChevronDown className={`w-4 h-4 transition-transform ${mobileProduct === 'products' ? 'rotate-180' : ''}`} />
+                <ChevronDown
+                  className={`w-4 h-4 transition-transform ${mobileProduct === 'products' ? 'rotate-180' : ''}`}
+                />
               </button>
               <AnimatePresence>
                 {mobileProduct === 'products' && (
@@ -288,12 +324,26 @@ export default function SiteHeader() {
                     <div className="pl-4 space-y-4 pb-2">
                       {productLines.map((line) => (
                         <div key={line.id}>
-                          <div className="text-[10px] uppercase tracking-widest mb-1" style={{ color: line.color }}>{line.tagline}</div>
-                          <Link href={line.href} className="block text-base font-serif font-semibold text-gray-900 mb-2" onClick={() => setIsMobileOpen(false)}>
+                          <div
+                            className="text-[10px] uppercase tracking-widest mb-1"
+                            style={{ color: line.color }}
+                          >
+                            {line.tagline}
+                          </div>
+                          <Link
+                            href={line.href}
+                            className="block text-base font-serif font-semibold text-gray-900 mb-2"
+                            onClick={() => setIsMobileOpen(false)}
+                          >
                             {line.label}
                           </Link>
                           {line.models.map((m) => (
-                            <Link key={m.name} href={m.href} className="block text-sm text-gray-600 py-1 pl-3 border-l-2 border-gray-200 mb-1" onClick={() => setIsMobileOpen(false)}>
+                            <Link
+                              key={m.name}
+                              href={m.href}
+                              className="block text-sm text-gray-600 py-1 pl-3 border-l-2 border-gray-200 mb-1"
+                              onClick={() => setIsMobileOpen(false)}
+                            >
                               ErgoPack {m.name}
                             </Link>
                           ))}

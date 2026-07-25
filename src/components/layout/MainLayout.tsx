@@ -1,9 +1,10 @@
 'use client';
 
-import { ReactNode, useEffect } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import PremiumNavigation from './PremiumNavigation';
 import SiteHeader from './SiteHeader';
 import Footer from './Footer';
+import AnnouncementBar, { ANNOUNCEMENT_DISMISS_KEY } from './AnnouncementBar';
 
 import { ScrollProgress } from '@/components/ui/ScrollProgress';
 
@@ -55,15 +56,34 @@ export default function MainLayout({
   // useLegacyNav, but the default across the site is now the homepage header.
   const showSiteHeader = !useLegacyNav;
 
+  const [showAnnouncement, setShowAnnouncement] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem(ANNOUNCEMENT_DISMISS_KEY) !== '1') {
+      setShowAnnouncement(true);
+    }
+  }, []);
+
+  const dismissAnnouncement = () => {
+    localStorage.setItem(ANNOUNCEMENT_DISMISS_KEY, '1');
+    setShowAnnouncement(false);
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-luxury-white">
       <ScrollProgress />
+      {showAnnouncement && <AnnouncementBar onDismiss={dismissAnnouncement} />}
       {showSiteHeader ? (
-        <SiteHeader />
+        <SiteHeader offset={showAnnouncement ? 36 : 0} />
       ) : (
         <PremiumNavigation initialHidden={hideLogoInitially} />
       )}
-      <main className={`flex-grow ${noPadding ? '' : 'pt-20'}`}>{children}</main>
+      <main
+        className={`flex-grow ${noPadding ? '' : 'pt-20'} transition-[padding] duration-200`}
+        style={!noPadding && showAnnouncement ? { paddingTop: 'calc(5rem + 36px)' } : undefined}
+      >
+        {children}
+      </main>
       <Footer />
     </div>
   );
