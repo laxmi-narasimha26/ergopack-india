@@ -32,6 +32,7 @@ const staticRoutes: Array<{
   { path: '/products/build-your-own', changeFrequency: 'monthly', priority: 0.85 },
   { path: '/products/compare-machines', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/roi-calculator', changeFrequency: 'monthly', priority: 0.88 },
+  { path: '/roi-scenarios', changeFrequency: 'monthly', priority: 0.9 },
   { path: '/resources', changeFrequency: 'weekly', priority: 0.85 },
   { path: '/factory-floor-automation', changeFrequency: 'weekly', priority: 0.9 },
   { path: '/industries-served', changeFrequency: 'weekly', priority: 0.85 },

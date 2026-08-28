@@ -7,6 +7,7 @@ const footerLinks = {
     { label: 'Buy / Price in India', href: '/buy-pallet-strapping-machine-india' },
     { label: 'Compare Products', href: '/compare?auto=true' },
     { label: 'ROI Calculator', href: '/roi-calculator' },
+    { label: 'Payback Scenarios', href: '/roi-scenarios' },
   ],
   industries: [
     { label: 'All Industries We Serve', href: '/industries-served' },
@@ -18,10 +19,19 @@ const footerLinks = {
   automation: [
     { label: 'Factory-Floor Automation', href: '/factory-floor-automation' },
     { label: 'Warehouse Automation', href: '/factory-floor-automation/warehouse-automation' },
-    { label: 'Automate Pallet Strapping', href: '/factory-floor-automation/automate-pallet-strapping' },
+    {
+      label: 'Automate Pallet Strapping',
+      href: '/factory-floor-automation/automate-pallet-strapping',
+    },
     { label: 'Reduce Labour Cost', href: '/factory-floor-automation/reduce-labour-cost' },
-    { label: 'Reduce Shipment Rejections', href: '/factory-floor-automation/reduce-shipment-rejections' },
-    { label: 'Automation for Exporters', href: '/factory-floor-automation/automation-for-exporters' },
+    {
+      label: 'Reduce Shipment Rejections',
+      href: '/factory-floor-automation/reduce-shipment-rejections',
+    },
+    {
+      label: 'Automation for Exporters',
+      href: '/factory-floor-automation/automation-for-exporters',
+    },
   ],
   resources: [
     { label: 'Price & Buying Guide', href: '/resources/pallet-strapping-machine-price-india' },
@@ -95,7 +105,10 @@ const locationsByState: Array<{
       { label: 'Ludhiana', href: '/locations/pallet-strapping-machine-ludhiana' },
       { label: 'Kanpur', href: '/locations/pallet-strapping-machine-kanpur' },
       { label: 'Jaipur', href: '/locations/pallet-strapping-machine-jaipur' },
-      { label: 'Pantnagar & Rudrapur', href: '/locations/pallet-strapping-machine-pantnagar-rudrapur' },
+      {
+        label: 'Pantnagar & Rudrapur',
+        href: '/locations/pallet-strapping-machine-pantnagar-rudrapur',
+      },
     ],
   },
   {

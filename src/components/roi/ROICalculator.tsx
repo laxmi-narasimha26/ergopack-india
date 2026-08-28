@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useEffect, useRef, useCallback } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import InfoTooltip from '@/components/ui/InfoTooltip';
 import {
   AreaChart,
@@ -12,10 +12,8 @@ import {
   ResponsiveContainer,
   Legend,
 } from 'recharts';
-import { motion } from 'framer-motion';
 import {
   Calculator,
-  Clock,
   TrendingUp,
   Zap,
   Users,
@@ -23,21 +21,20 @@ import {
   Table as TableIcon,
   BarChart3,
   IndianRupee,
-  Hourglass,
-  UserMinus,
 } from 'lucide-react';
 
-// Machine Data
 const MACHINES = [
-  { id: '726x', name: 'ErgoPack 726X Li', price: 2950000 },
-  { id: 'go', name: 'ErgoPack Go', price: 1257000 },
-  { id: '700', name: 'ErgoPack 700', price: 755000 },
+  { id: '726x', name: 'ErgoPack 726X Li', price: 3500000 },
+  { id: 'go', name: 'ErgoPack Go', price: 1500000 },
+  { id: '700', name: 'ErgoPack 700', price: 1000000 },
 ];
 
 const AMC_COST = 100000;
-const STRAPPING_WASTE_PER_PALLET = 12; // ₹12 saved per pallet with ErgoPack
+const STRAPPING_WASTE_PER_PALLET = 12;
+const WORKING_HOURS_PER_DAY = 8;
+const WORKING_DAYS_PER_MONTH = 25;
+const RUPEE_SYMBOL = '\u20B9';
 
-// Tooltips
 const TOOLTIPS = {
   lines: 'Number of production lines requiring strapping',
   workersPerLine: 'Workers assigned per line per shift for manual strapping',
@@ -53,10 +50,253 @@ const TOOLTIPS = {
   tenYear: 'Net profit over 10-year machine life (includes AMC)',
   staffFreed: 'Workers freed for other tasks',
   hoursSaved: 'Man-hours freed daily',
-  strappingWaste: 'ErgoPack reduces strapping waste by ₹12 per pallet compared to manual strapping',
+  strappingWaste: `ErgoPack reduces strapping waste by ${RUPEE_SYMBOL}12 per pallet compared to manual strapping`,
 };
 
-// Smooth animated number
+type ViewMode = 'numbers' | 'visuals' | 'sheet';
+type MachineDefinition = (typeof MACHINES)[number];
+type MachineInputField = 'price' | 'operatorsPerLine' | 'minsPerPallet';
+type SharedInputField =
+  | 'numLines'
+  | 'manualPeoplePerLine'
+  | 'shiftsPerDay'
+  | 'monthlyCTC'
+  | 'palletsPerShiftLine'
+  | 'manualMinsPerPallet';
+type SheetFormat = 'number' | 'decimal' | 'currency' | 'compact' | 'text';
+
+type SharedInputs = {
+  numLines: number;
+  manualPeoplePerLine: number;
+  shiftsPerDay: number;
+  monthlyCTC: number;
+  palletsPerShiftLine: number;
+  manualMinsPerPallet: number;
+};
+
+type MachineInputs = {
+  price: number;
+  operatorsPerLine: number;
+  minsPerPallet: number;
+};
+
+type MachineMetrics = {
+  machinePrice: number;
+  totalManualManpower: number;
+  totalAutoManpower: number;
+  manpowerReduction: number;
+  manpowerReductionPercent: number;
+  dailyPallets: number;
+  manualStrappingHoursPerDay: number;
+  autoStrappingHoursPerDay: number;
+  hoursSavedPerDay: number;
+  timeSavedPercent: number;
+  manualMonthlyCost: number;
+  autoMonthlyCost: number;
+  monthlyLabourSavings: number;
+  annualLabourSavings: number;
+  dailyStrappingWasteSavings: number;
+  monthlyStrappingWasteSavings: number;
+  annualStrappingWasteSavings: number;
+  monthlyTotalSavings: number;
+  annualTotalSavings: number;
+  netAnnualSavingsAfterAMC: number;
+  paybackPeriodMonths: number;
+  fiveYearNetBenefit: number;
+  tenYearNetBenefit: number;
+  yearlyData: {
+    year: string;
+    yearNum: number;
+    manual: number;
+    ergopack: number;
+    savings: number;
+  }[];
+};
+
+type ComparisonMachine = {
+  machine: MachineDefinition;
+  inputs: MachineInputs;
+  metrics: MachineMetrics;
+};
+
+type SpreadsheetViewProps = {
+  comparisonMachines: ComparisonMachine[];
+  selectedMachineId: string;
+  onSelectMachine: (machineId: string) => void;
+  sharedInputs: SharedInputs;
+  onSharedInputChange: Record<
+    SharedInputField,
+    (event: React.ChangeEvent<HTMLInputElement>) => void
+  >;
+  onMachineInputChange: (
+    machineId: string,
+    field: MachineInputField
+  ) => (event: React.ChangeEvent<HTMLInputElement>) => void;
+};
+
+type SheetDisplayCellProps = {
+  value: number | string;
+  format?: SheetFormat;
+  note?: string;
+  highlight?: boolean;
+  selected?: boolean;
+  muted?: boolean;
+};
+
+type SheetInputCellProps = {
+  value: number;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  step?: number;
+  note?: string;
+  selected?: boolean;
+  onFocus?: () => void;
+};
+
+function createInitialMachineInputs(): Record<string, MachineInputs> {
+  return MACHINES.reduce<Record<string, MachineInputs>>((accumulator, machine) => {
+    accumulator[machine.id] = {
+      price: machine.price,
+      operatorsPerLine: 1,
+      minsPerPallet: 1.5,
+    };
+    return accumulator;
+  }, {});
+}
+
+function parseNumericValue(value: string) {
+  const parsedValue = Number.parseFloat(value);
+  if (!Number.isFinite(parsedValue) || parsedValue < 0) {
+    return 0;
+  }
+  return parsedValue;
+}
+
+function formatCurrency(value: number) {
+  return `${RUPEE_SYMBOL}${Math.round(value).toLocaleString('en-IN')}`;
+}
+
+function formatCompactCurrency(value: number) {
+  if (value >= 10000000) return `${RUPEE_SYMBOL}${(value / 10000000).toFixed(2)} Cr`;
+  if (value >= 100000) return `${RUPEE_SYMBOL}${(value / 100000).toFixed(2)} L`;
+  if (value >= 1000) return `${RUPEE_SYMBOL}${(value / 1000).toFixed(1)}K`;
+  return `${RUPEE_SYMBOL}${value.toLocaleString('en-IN')}`;
+}
+
+function formatDecimalValue(value: number) {
+  return value.toLocaleString('en-IN', {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+  });
+}
+
+function formatNumberValue(value: number) {
+  return Math.round(value).toLocaleString('en-IN');
+}
+
+function formatSheetValue(value: number | string, format: SheetFormat = 'number') {
+  if (typeof value === 'string') {
+    return value;
+  }
+
+  if (format === 'currency') return formatCurrency(value);
+  if (format === 'compact') return formatCompactCurrency(value);
+  if (format === 'decimal') return formatDecimalValue(value);
+  return formatNumberValue(value);
+}
+
+function calculateMachineMetrics(
+  sharedInputs: SharedInputs,
+  machineInputs: MachineInputs
+): MachineMetrics {
+  const {
+    numLines,
+    manualPeoplePerLine,
+    shiftsPerDay,
+    monthlyCTC,
+    palletsPerShiftLine,
+    manualMinsPerPallet,
+  } = sharedInputs;
+  const { price: machinePrice, operatorsPerLine, minsPerPallet } = machineInputs;
+
+  const totalManualManpower = numLines * manualPeoplePerLine * shiftsPerDay;
+  const totalAutoManpower = numLines * operatorsPerLine * shiftsPerDay;
+  const manpowerReduction = totalManualManpower - totalAutoManpower;
+  const manpowerReductionPercent =
+    totalManualManpower > 0 ? (manpowerReduction / totalManualManpower) * 100 : 0;
+
+  const dailyPallets = palletsPerShiftLine * shiftsPerDay * numLines;
+  const manualStrappingHoursPerDay = (dailyPallets * manualMinsPerPallet) / 60;
+  const autoStrappingHoursPerDay = (dailyPallets * minsPerPallet) / 60;
+  const hoursSavedPerDay = manualStrappingHoursPerDay - autoStrappingHoursPerDay;
+  const timeSavedPercent =
+    manualStrappingHoursPerDay > 0 ? (hoursSavedPerDay / manualStrappingHoursPerDay) * 100 : 0;
+
+  const manualMonthlyCost = totalManualManpower * monthlyCTC;
+  const autoFractionPerWorker =
+    totalAutoManpower > 0
+      ? Math.min(1, autoStrappingHoursPerDay / (totalAutoManpower * WORKING_HOURS_PER_DAY))
+      : 0;
+  const autoMonthlyCost = totalAutoManpower * monthlyCTC * autoFractionPerWorker;
+
+  const monthlyLabourSavings = manualMonthlyCost - autoMonthlyCost;
+  const annualLabourSavings = monthlyLabourSavings * 12;
+
+  const dailyStrappingWasteSavings = dailyPallets * STRAPPING_WASTE_PER_PALLET;
+  const monthlyStrappingWasteSavings = dailyStrappingWasteSavings * WORKING_DAYS_PER_MONTH;
+  const annualStrappingWasteSavings = monthlyStrappingWasteSavings * 12;
+
+  const monthlyTotalSavings = monthlyLabourSavings + monthlyStrappingWasteSavings;
+  const annualTotalSavings = annualLabourSavings + annualStrappingWasteSavings;
+  const netAnnualSavingsAfterAMC = annualTotalSavings - AMC_COST;
+  const paybackPeriodMonths = monthlyTotalSavings > 0 ? machinePrice / monthlyTotalSavings : 0;
+  const fiveYearNetBenefit = annualTotalSavings + 4 * netAnnualSavingsAfterAMC - machinePrice;
+  const tenYearNetBenefit = annualTotalSavings + 9 * netAnnualSavingsAfterAMC - machinePrice;
+
+  let cumulativeManual = 0;
+  let cumulativeErgo = machinePrice;
+
+  const yearlyData = Array.from({ length: 10 }, (_, index) => {
+    const yearNum = index + 1;
+    cumulativeManual += manualMonthlyCost * 12;
+    cumulativeErgo += autoMonthlyCost * 12 + (yearNum > 1 ? AMC_COST : 0);
+
+    return {
+      year: `Yr ${yearNum}`,
+      yearNum,
+      manual: cumulativeManual,
+      ergopack: cumulativeErgo,
+      savings: cumulativeManual - cumulativeErgo,
+    };
+  });
+
+  return {
+    machinePrice,
+    totalManualManpower,
+    totalAutoManpower,
+    manpowerReduction,
+    manpowerReductionPercent,
+    dailyPallets,
+    manualStrappingHoursPerDay,
+    autoStrappingHoursPerDay,
+    hoursSavedPerDay,
+    timeSavedPercent,
+    manualMonthlyCost,
+    autoMonthlyCost,
+    monthlyLabourSavings,
+    annualLabourSavings,
+    dailyStrappingWasteSavings,
+    monthlyStrappingWasteSavings,
+    annualStrappingWasteSavings,
+    monthlyTotalSavings,
+    annualTotalSavings,
+    netAnnualSavingsAfterAMC,
+    paybackPeriodMonths,
+    fiveYearNetBenefit,
+    tenYearNetBenefit,
+    yearlyData,
+  };
+}
+
 function AnimatedValue({
   value,
   format = 'currency',
@@ -90,18 +330,17 @@ function AnimatedValue({
     return () => {
       if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
-  }, [value]);
+  }, [displayValue, value]);
 
-  const formatValue = (val: number) => {
-    if (format === 'decimal') return val.toFixed(1);
-    if (format === 'number') return Math.round(val).toLocaleString('en-IN');
-    return '₹' + Math.round(val).toLocaleString('en-IN');
+  const formatValue = (nextValue: number) => {
+    if (format === 'decimal') return nextValue.toFixed(1);
+    if (format === 'number') return Math.round(nextValue).toLocaleString('en-IN');
+    return formatCurrency(nextValue);
   };
 
   return <span>{formatValue(displayValue)}</span>;
 }
 
-// Chart Tooltip Component - shows Manual, ErgoPack costs and Savings
 function ChartTooltip({
   active,
   payload,
@@ -117,145 +356,153 @@ function ChartTooltip({
     }
   }, [active, payload, setHoveredYear]);
 
-  if (active && payload && payload.length > 0) {
-    const data = payload[0].payload;
-    const manual = data.manual;
-    const ergo = data.ergopack;
-    const savings = manual - ergo;
+  if (!active || !payload || payload.length === 0) {
+    return null;
+  }
 
-    const formatVal = (v: number) => {
-      if (v >= 10000000) return '₹' + (v / 10000000).toFixed(2) + ' Cr';
-      if (v >= 100000) return '₹' + (v / 100000).toFixed(2) + 'L';
-      if (v >= 1000) return '₹' + (v / 1000).toFixed(1) + 'K';
-      return '₹' + v.toLocaleString('en-IN');
-    };
+  const data = payload[0].payload;
+  const manual = data.manual;
+  const ergo = data.ergopack;
+  const savings = manual - ergo;
 
-    return (
-      <div className="bg-white rounded-xl border border-neutral-200 shadow-lg p-3 min-w-[160px]">
-        <div className="text-sm font-bold text-neutral-800 mb-2">{data.year}</div>
-        <div className="space-y-1.5">
-          <div className="flex justify-between text-xs">
-            <span className="text-neutral-500">Manual:</span>
-            <span className="font-semibold text-neutral-700">{formatVal(manual)}</span>
-          </div>
-          <div className="flex justify-between text-xs">
-            <span className="text-emerald-600">ErgoPack:</span>
-            <span className="font-semibold text-emerald-600">{formatVal(ergo)}</span>
-          </div>
-          <div className="border-t border-neutral-100 pt-1.5 flex justify-between text-xs">
-            <span className="text-emerald-700 font-medium">Savings:</span>
-            <span className="font-bold text-emerald-600">{formatVal(savings)}</span>
-          </div>
+  return (
+    <div className="min-w-[170px] rounded-xl border border-neutral-200 bg-white p-3 shadow-lg">
+      <div className="mb-2 text-sm font-bold text-neutral-800">{data.year}</div>
+      <div className="space-y-1.5">
+        <div className="flex justify-between text-xs">
+          <span className="text-neutral-500">Manual:</span>
+          <span className="font-semibold text-neutral-700">{formatCompactCurrency(manual)}</span>
+        </div>
+        <div className="flex justify-between text-xs">
+          <span className="text-emerald-600">ErgoPack:</span>
+          <span className="font-semibold text-emerald-600">{formatCompactCurrency(ergo)}</span>
+        </div>
+        <div className="flex justify-between border-t border-neutral-100 pt-1.5 text-xs">
+          <span className="font-medium text-emerald-700">Savings:</span>
+          <span className="font-bold text-emerald-600">{formatCompactCurrency(savings)}</span>
         </div>
       </div>
-    );
-  }
-  return null;
+    </div>
+  );
 }
-
 export default function ROICalculator() {
-  const [viewMode, setViewMode] = useState<'numbers' | 'visuals'>('numbers');
+  const [viewMode, setViewMode] = useState<ViewMode>('numbers');
   const [calcMode, setCalcMode] = useState<'basic' | 'advanced'>('basic');
   const [selectedMachineId, setSelectedMachineId] = useState(MACHINES[0].id);
   const [hoveredYear, setHoveredYear] = useState<number | null>(null);
 
-  // Inputs
   const [numLines, setNumLines] = useState(1);
   const [manualPeoplePerLine, setManualPeoplePerLine] = useState(4);
   const [shiftsPerDay, setShiftsPerDay] = useState(2);
   const [monthlyCTC, setMonthlyCTC] = useState(30000);
   const [palletsPerShiftLine, setPalletsPerShiftLine] = useState(50);
   const [manualMinsPerPallet, setManualMinsPerPallet] = useState(4.5);
-  const [autoPeoplePerLine, setAutoPeoplePerLine] = useState(1);
-  const [autoMinsPerPallet, setAutoMinsPerPallet] = useState(1.5);
+  const [machineInputs, setMachineInputs] = useState<Record<string, MachineInputs>>(
+    createInitialMachineInputs
+  );
 
-  // Calculations
-  const selectedMachine = MACHINES.find((m) => m.id === selectedMachineId) || MACHINES[1];
-  const machinePrice = selectedMachine.price;
+  const sharedInputs = useMemo(
+    () => ({
+      numLines,
+      manualPeoplePerLine,
+      shiftsPerDay,
+      monthlyCTC,
+      palletsPerShiftLine,
+      manualMinsPerPallet,
+    }),
+    [
+      manualMinsPerPallet,
+      manualPeoplePerLine,
+      monthlyCTC,
+      numLines,
+      palletsPerShiftLine,
+      shiftsPerDay,
+    ]
+  );
 
-  const totalManualManpower = numLines * manualPeoplePerLine * shiftsPerDay;
-  const totalAutoManpower = numLines * autoPeoplePerLine * shiftsPerDay;
-  const manpowerReduction = totalManualManpower - totalAutoManpower;
-  const manpowerReductionPercent =
-    totalManualManpower > 0 ? (manpowerReduction / totalManualManpower) * 100 : 0;
+  const comparisonMachines = useMemo<ComparisonMachine[]>(
+    () =>
+      MACHINES.map((machine) => {
+        const currentInputs = machineInputs[machine.id] ?? {
+          price: machine.price,
+          operatorsPerLine: 1,
+          minsPerPallet: 1.5,
+        };
 
-  const manualMonthlyCost = totalManualManpower * monthlyCTC;
-  const autoMonthlyCost = totalAutoManpower * monthlyCTC;
-  const monthlyLabourSavings = manualMonthlyCost - autoMonthlyCost;
-  const annualLabourSavings = monthlyLabourSavings * 12;
+        return {
+          machine,
+          inputs: currentInputs,
+          metrics: calculateMachineMetrics(sharedInputs, currentInputs),
+        };
+      }),
+    [machineInputs, sharedInputs]
+  );
 
-  // Strapping waste savings
-  const dailyPallets = palletsPerShiftLine * shiftsPerDay * numLines;
-  const dailyStrappingWasteSavings = dailyPallets * STRAPPING_WASTE_PER_PALLET;
-  const monthlyStrappingWasteSavings = dailyStrappingWasteSavings * 30;
-  const annualStrappingWasteSavings = monthlyStrappingWasteSavings * 12;
+  const selectedMachineData =
+    comparisonMachines.find((machine) => machine.machine.id === selectedMachineId) ??
+    comparisonMachines[0];
+  const selectedMachine = selectedMachineData.machine;
+  const selectedMachineInputs = selectedMachineData.inputs;
+  const selectedMetrics = selectedMachineData.metrics;
 
-  // Total savings (labour + strapping waste)
-  const monthlyTotalSavings = monthlyLabourSavings + monthlyStrappingWasteSavings;
-  const annualTotalSavings = annualLabourSavings + annualStrappingWasteSavings;
-  const netAnnualSavingsAfterAMC = annualTotalSavings - AMC_COST;
+  const {
+    machinePrice,
+    totalManualManpower,
+    totalAutoManpower,
+    manpowerReduction,
+    manpowerReductionPercent,
+    manualStrappingHoursPerDay,
+    autoStrappingHoursPerDay,
+    hoursSavedPerDay,
+    timeSavedPercent,
+    manualMonthlyCost,
+    autoMonthlyCost,
+    monthlyLabourSavings,
+    annualLabourSavings,
+    dailyStrappingWasteSavings,
+    monthlyStrappingWasteSavings,
+    annualStrappingWasteSavings,
+    monthlyTotalSavings,
+    annualTotalSavings,
+    netAnnualSavingsAfterAMC,
+    paybackPeriodMonths,
+    fiveYearNetBenefit,
+    tenYearNetBenefit,
+    yearlyData,
+  } = selectedMetrics;
 
-  const manualPalletsPerDay = numLines * shiftsPerDay * palletsPerShiftLine;
-  const manualStrappingHoursPerDay = (manualPalletsPerDay * manualMinsPerPallet) / 60;
-  const autoStrappingHoursPerDay = (manualPalletsPerDay * autoMinsPerPallet) / 60;
-  const hoursSavedPerDay = manualStrappingHoursPerDay - autoStrappingHoursPerDay;
-  const timeSavedPercent =
-    manualStrappingHoursPerDay > 0 ? (hoursSavedPerDay / manualStrappingHoursPerDay) * 100 : 0;
+  const formatNum = (value: number) => value.toLocaleString('en-IN', { maximumFractionDigits: 1 });
 
-  const paybackPeriodMonths = monthlyTotalSavings > 0 ? machinePrice / monthlyTotalSavings : 0;
-  const fiveYearNetBenefit = annualTotalSavings + 4 * netAnnualSavingsAfterAMC - machinePrice;
-  const tenYearNetBenefit = annualTotalSavings + 9 * netAnnualSavingsAfterAMC - machinePrice;
-
-  // Chart Data
-  const yearlyData = useMemo(() => {
-    const data = [];
-    let cumulativeManual = 0;
-    let cumulativeErgo = machinePrice;
-
-    for (let year = 1; year <= 10; year++) {
-      cumulativeManual += manualMonthlyCost * 12;
-      const amc = year > 1 ? AMC_COST : 0;
-      cumulativeErgo += autoMonthlyCost * 12 + amc;
-      const savings = cumulativeManual - cumulativeErgo;
-
-      data.push({
-        year: `Yr ${year}`,
-        yearNum: year,
-        manual: cumulativeManual,
-        ergopack: cumulativeErgo,
-        savings: savings,
-      });
-    }
-    return data;
-  }, [manualMonthlyCost, machinePrice, autoMonthlyCost]);
-
-  // Get savings for hovered year
   const hoveredSavings = useMemo(() => {
     if (hoveredYear === null) return null;
-    const data = yearlyData.find((d) => d.yearNum === hoveredYear);
+    const data = yearlyData.find((year) => year.yearNum === hoveredYear);
     return data ? data.savings : null;
   }, [hoveredYear, yearlyData]);
 
-  const formatCurrency = (val: number) => '₹' + Math.round(val).toLocaleString('en-IN');
-  const formatCompact = (val: number) => {
-    if (val >= 10000000) return '₹' + (val / 10000000).toFixed(2) + ' Cr';
-    if (val >= 100000) return '₹' + (val / 100000).toFixed(2) + ' L';
-    if (val >= 1000) return '₹' + (val / 1000).toFixed(1) + 'K';
-    return '₹' + val.toLocaleString('en-IN');
-  };
-  const formatNum = (val: number) => val.toLocaleString('en-IN', { maximumFractionDigits: 1 });
-
-  const handleInput =
-    (setter: (val: number) => void) => (e: React.ChangeEvent<HTMLInputElement>) => {
-      const val = parseFloat(e.target.value);
-      if (!isNaN(val) && val >= 0) setter(val);
-      else if (e.target.value === '') setter(0);
+  const handleSharedInput =
+    (setter: (value: number) => void) => (event: React.ChangeEvent<HTMLInputElement>) => {
+      setter(event.target.value === '' ? 0 : parseNumericValue(event.target.value));
     };
 
-  // Stable chart callbacks
-  const handleChartMouseMove = useCallback((e: any) => {
-    if (e && e.activePayload && e.activePayload[0]) {
-      setHoveredYear(e.activePayload[0].payload.yearNum);
+  const handleMachineInputChange = useCallback(
+    (machineId: string, field: MachineInputField) =>
+      (event: React.ChangeEvent<HTMLInputElement>) => {
+        const nextValue = event.target.value === '' ? 0 : parseNumericValue(event.target.value);
+
+        setMachineInputs((currentInputs) => ({
+          ...currentInputs,
+          [machineId]: {
+            ...(currentInputs[machineId] ?? createInitialMachineInputs()[machineId]),
+            [field]: nextValue,
+          },
+        }));
+      },
+    []
+  );
+
+  const handleChartMouseMove = useCallback((event: any) => {
+    if (event?.activePayload?.[0]) {
+      setHoveredYear(event.activePayload[0].payload.yearNum);
     }
   }, []);
 
@@ -263,205 +510,269 @@ export default function ROICalculator() {
     setHoveredYear(null);
   }, []);
 
-  // Funnel data for the ribbon visualization
   const funnelStages = useMemo(
     () => [
       {
         name: '10-Year Benefit',
         value: Math.max(0, tenYearNetBenefit),
-        pct: '+' + formatNum((tenYearNetBenefit / machinePrice) * 100) + '% ROI',
+        pct: `+${formatNum((tenYearNetBenefit / Math.max(machinePrice, 1)) * 100)}% ROI`,
       },
       {
         name: 'Annual Savings',
         value: annualTotalSavings,
-        pct: formatCompact(monthlyTotalSavings) + '/mo',
+        pct: `${formatCompactCurrency(monthlyTotalSavings)}/mo`,
       },
       {
         name: 'Payback',
         value: paybackPeriodMonths * 1000000,
-        pct: paybackPeriodMonths.toFixed(1) + ' months',
-        displayValue: paybackPeriodMonths.toFixed(1) + ' mo',
+        pct: `${paybackPeriodMonths.toFixed(1)} months`,
+        displayValue: `${paybackPeriodMonths.toFixed(1)} mo`,
       },
       {
         name: 'Hours Saved/Day',
         value: hoursSavedPerDay * 1000000,
-        pct: manualStrappingHoursPerDay.toFixed(1) + ' → ' + autoStrappingHoursPerDay.toFixed(1),
-        pct2: formatNum(timeSavedPercent) + '% faster',
-        displayValue: hoursSavedPerDay.toFixed(1) + ' hrs',
+        pct: `${manualStrappingHoursPerDay.toFixed(1)} -> ${autoStrappingHoursPerDay.toFixed(1)}`,
+        pct2: `${formatNum(timeSavedPercent)}% faster`,
+        displayValue: `${hoursSavedPerDay.toFixed(1)} hrs`,
       },
       {
         name: 'Auto Manpower',
         value: totalAutoManpower * 500000,
-        pct: totalAutoManpower + ' people',
-        pct2: '-' + formatNum(manpowerReductionPercent) + '%',
+        pct: `${formatNumberValue(totalAutoManpower)} people`,
+        pct2: `-${formatNum(manpowerReductionPercent)}%`,
         displayValue: totalAutoManpower,
       },
     ],
     [
-      tenYearNetBenefit,
-      annualLabourSavings,
-      paybackPeriodMonths,
-      hoursSavedPerDay,
-      totalAutoManpower,
-      machinePrice,
-      monthlyLabourSavings,
-      manpowerReductionPercent,
-      timeSavedPercent,
-      manualStrappingHoursPerDay,
+      annualTotalSavings,
       autoStrappingHoursPerDay,
+      hoursSavedPerDay,
+      machinePrice,
+      manualStrappingHoursPerDay,
+      manpowerReductionPercent,
+      monthlyTotalSavings,
+      paybackPeriodMonths,
+      tenYearNetBenefit,
+      timeSavedPercent,
+      totalAutoManpower,
     ]
   );
 
+  const sharedInputHandlers: Record<
+    SharedInputField,
+    (event: React.ChangeEvent<HTMLInputElement>) => void
+  > = {
+    numLines: handleSharedInput(setNumLines),
+    manualPeoplePerLine: handleSharedInput(setManualPeoplePerLine),
+    shiftsPerDay: handleSharedInput(setShiftsPerDay),
+    monthlyCTC: handleSharedInput(setMonthlyCTC),
+    palletsPerShiftLine: handleSharedInput(setPalletsPerShiftLine),
+    manualMinsPerPallet: handleSharedInput(setManualMinsPerPallet),
+  };
+  const isSheetView = viewMode === 'sheet';
+
   return (
-    <div className="w-full min-h-screen bg-white text-neutral-900">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 lg:px-12 py-6">
-        {/* Header */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-6">
+    <div className="min-h-screen w-full bg-white text-neutral-900">
+      <div className="mx-auto max-w-[1480px] px-4 py-6 sm:px-8 lg:px-12">
+        <div className="mb-6 flex flex-col items-start justify-between gap-4 lg:flex-row lg:items-center">
           <div className="flex items-center gap-3">
-            <div className="bg-neutral-900 p-3 rounded-xl">
-              <Calculator className="w-6 h-6 text-white" />
+            <div className="rounded-xl bg-neutral-900 p-3">
+              <Calculator className="h-6 w-6 text-white" />
             </div>
             <div>
               <h1 className="text-2xl font-bold tracking-tight">ROI Calculator</h1>
-              <p className="text-neutral-400 text-sm">Calculate your savings instantly</p>
+              <p className="text-sm text-neutral-400">
+                Live numbers, charts, and sheet comparison for all three machines
+              </p>
+              <a
+                href="/roi-scenarios"
+                className="mt-1 inline-block text-xs font-semibold text-[#C8102E] hover:underline"
+              >
+                In a hurry? See ready-made payback scenarios →
+              </a>
             </div>
           </div>
 
-          <div className="flex items-center gap-3 flex-wrap">
-            <div className="flex items-center gap-1 bg-neutral-100 p-1 rounded-lg">
-              {MACHINES.map((m) => (
+          <div className="flex flex-wrap items-center gap-3">
+            <div className="flex items-center gap-1 rounded-lg bg-neutral-100 p-1">
+              {MACHINES.map((machine) => (
                 <button
-                  key={m.id}
-                  onClick={() => setSelectedMachineId(m.id)}
-                  className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-all ${selectedMachineId === m.id ? 'bg-neutral-900 text-white' : 'text-neutral-600 hover:bg-neutral-200'}`}
+                  key={machine.id}
+                  onClick={() => setSelectedMachineId(machine.id)}
+                  className={`rounded-md px-3 py-1.5 text-xs font-semibold transition-all ${
+                    selectedMachineId === machine.id
+                      ? 'bg-neutral-900 text-white'
+                      : 'text-neutral-600 hover:bg-neutral-200'
+                  }`}
                 >
-                  {m.name}
+                  {machine.name}
                 </button>
               ))}
             </div>
-            <div className="flex items-center gap-1 bg-neutral-100 p-1 rounded-lg">
+            <div className="flex items-center gap-1 rounded-lg bg-neutral-100 p-1">
               <button
                 onClick={() => setViewMode('numbers')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold transition-all ${viewMode === 'numbers' ? 'bg-neutral-900 text-white' : 'text-neutral-600 hover:bg-neutral-200'}`}
+                className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-semibold transition-all ${
+                  viewMode === 'numbers'
+                    ? 'bg-neutral-900 text-white'
+                    : 'text-neutral-600 hover:bg-neutral-200'
+                }`}
               >
-                <TableIcon className="w-3.5 h-3.5" />
+                <IndianRupee className="h-3.5 w-3.5" />
                 Numbers
               </button>
               <button
                 onClick={() => setViewMode('visuals')}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold transition-all ${viewMode === 'visuals' ? 'bg-neutral-900 text-white' : 'text-neutral-600 hover:bg-neutral-200'}`}
+                className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-semibold transition-all ${
+                  viewMode === 'visuals'
+                    ? 'bg-neutral-900 text-white'
+                    : 'text-neutral-600 hover:bg-neutral-200'
+                }`}
               >
-                <BarChart3 className="w-3.5 h-3.5" />
+                <BarChart3 className="h-3.5 w-3.5" />
                 Charts
+              </button>
+              <button
+                onClick={() => setViewMode('sheet')}
+                className={`flex items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-semibold transition-all ${
+                  viewMode === 'sheet'
+                    ? 'bg-neutral-900 text-white'
+                    : 'text-neutral-600 hover:bg-neutral-200'
+                }`}
+              >
+                <TableIcon className="h-3.5 w-3.5" />
+                Sheet
               </button>
             </div>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* Left Column: Inputs ONLY */}
-          <div className="lg:col-span-3 space-y-4">
-            <div className="bg-neutral-50 rounded-2xl p-5">
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-wider flex items-center gap-2">
-                  <Zap className="w-3.5 h-3.5" />
-                  Your Current Setup
-                </h3>
-                {/* Mode Toggle */}
-                <div className="bg-neutral-200 p-0.5 rounded-lg flex items-center">
-                  <button
-                    onClick={() => setCalcMode('basic')}
-                    className={`px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider transition-all ${
-                      calcMode === 'basic'
-                        ? 'bg-white text-neutral-900 shadow-sm'
-                        : 'text-neutral-500 hover:text-neutral-700'
-                    }`}
-                  >
-                    Basic
-                  </button>
-                  <button
-                    onClick={() => setCalcMode('advanced')}
-                    className={`px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider transition-all ${
-                      calcMode === 'advanced'
-                        ? 'bg-neutral-900 text-white shadow-sm'
-                        : 'text-neutral-500 hover:text-neutral-700'
-                    }`}
-                  >
-                    Adv
-                  </button>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <InputRow
-                  label="Production Lines"
-                  value={numLines}
-                  onChange={handleInput(setNumLines)}
-                  tooltip={TOOLTIPS.lines}
-                />
-                <InputRow
-                  label="Workers/Line/Shift"
-                  value={manualPeoplePerLine}
-                  onChange={handleInput(setManualPeoplePerLine)}
-                  tooltip={TOOLTIPS.workersPerLine}
-                />
-                <InputRow
-                  label="Shifts/Day"
-                  value={shiftsPerDay}
-                  onChange={handleInput(setShiftsPerDay)}
-                  tooltip={TOOLTIPS.shifts}
-                />
-                <InputRow
-                  label="Monthly CTC (₹)"
-                  value={monthlyCTC}
-                  onChange={handleInput(setMonthlyCTC)}
-                  tooltip={TOOLTIPS.ctc}
-                />
-                <InputRow
-                  label="Pallets/Shift/Line"
-                  value={palletsPerShiftLine}
-                  onChange={handleInput(setPalletsPerShiftLine)}
-                  tooltip={TOOLTIPS.palletsPerShift}
-                />
-                <InputRow
-                  label="Mins/Pallet (Manual)"
-                  value={manualMinsPerPallet}
-                  onChange={handleInput(setManualMinsPerPallet)}
-                  tooltip={TOOLTIPS.minsManual}
-                  step={0.5}
-                />
-              </div>
-              {calcMode === 'advanced' && (
-                <div className="border-t border-neutral-200 my-4 pt-4">
-                  <h3 className="text-xs font-bold text-emerald-700 uppercase tracking-wider mb-3">
-                    With ErgoPack
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
+          {!isSheetView && (
+            <div className="space-y-4 lg:col-span-3">
+              <div className="rounded-2xl bg-neutral-50 p-5">
+                <div className="mb-4 flex items-center justify-between">
+                  <h3 className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-neutral-500">
+                    <Zap className="h-3.5 w-3.5" />
+                    Your Current Setup
                   </h3>
-                  <div className="space-y-3">
-                    <InputRow
-                      label="Operators/Line/Shift"
-                      value={autoPeoplePerLine}
-                      onChange={handleInput(setAutoPeoplePerLine)}
-                      tooltip={TOOLTIPS.operatorsAuto}
-                    />
-                    <InputRow
-                      label="Mins/Pallet (Target)"
-                      value={autoMinsPerPallet}
-                      onChange={handleInput(setAutoMinsPerPallet)}
-                      tooltip={TOOLTIPS.minsAuto}
-                      step={0.1}
-                    />
+                  <div className="flex items-center rounded-lg bg-neutral-200 p-0.5">
+                    <button
+                      onClick={() => setCalcMode('basic')}
+                      className={`rounded-md px-2 py-1 text-[10px] font-bold uppercase tracking-wider transition-all ${
+                        calcMode === 'basic'
+                          ? 'bg-white text-neutral-900 shadow-sm'
+                          : 'text-neutral-500 hover:text-neutral-700'
+                      }`}
+                    >
+                      Basic
+                    </button>
+                    <button
+                      onClick={() => setCalcMode('advanced')}
+                      className={`rounded-md px-2 py-1 text-[10px] font-bold uppercase tracking-wider transition-all ${
+                        calcMode === 'advanced'
+                          ? 'bg-neutral-900 text-white shadow-sm'
+                          : 'text-neutral-500 hover:text-neutral-700'
+                      }`}
+                    >
+                      Adv
+                    </button>
                   </div>
                 </div>
-              )}
-            </div>
-          </div>
 
-          {/* Right Column: Main Content */}
-          <div className="lg:col-span-9">
-            {viewMode === 'numbers' ? (
+                <div className="space-y-3">
+                  <InputRow
+                    label="Production Lines"
+                    value={numLines}
+                    onChange={sharedInputHandlers.numLines}
+                    tooltip={TOOLTIPS.lines}
+                  />
+                  <InputRow
+                    label="Workers/Line/Shift"
+                    value={manualPeoplePerLine}
+                    onChange={sharedInputHandlers.manualPeoplePerLine}
+                    tooltip={TOOLTIPS.workersPerLine}
+                  />
+                  <InputRow
+                    label="Shifts/Day"
+                    value={shiftsPerDay}
+                    onChange={sharedInputHandlers.shiftsPerDay}
+                    tooltip={TOOLTIPS.shifts}
+                  />
+                  <InputRow
+                    label={`Monthly CTC (${RUPEE_SYMBOL})`}
+                    value={monthlyCTC}
+                    onChange={sharedInputHandlers.monthlyCTC}
+                    tooltip={TOOLTIPS.ctc}
+                  />
+                  <InputRow
+                    label="Pallets/Shift/Line"
+                    value={palletsPerShiftLine}
+                    onChange={sharedInputHandlers.palletsPerShiftLine}
+                    tooltip={TOOLTIPS.palletsPerShift}
+                  />
+                  <InputRow
+                    label="Mins/Pallet (Manual)"
+                    value={manualMinsPerPallet}
+                    onChange={sharedInputHandlers.manualMinsPerPallet}
+                    tooltip={TOOLTIPS.minsManual}
+                    step={0.5}
+                  />
+                </div>
+
+                {calcMode === 'advanced' && (
+                  <div className="my-4 border-t border-neutral-200 pt-4">
+                    <div className="mb-3 flex items-center justify-between gap-3">
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-emerald-700">
+                        With {selectedMachine.name}
+                      </h3>
+                      <span className="rounded-full bg-white px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-neutral-500">
+                        Selected machine
+                      </span>
+                    </div>
+                    <div className="space-y-3">
+                      <InputRow
+                        label="Machine Price"
+                        value={selectedMachineInputs.price}
+                        onChange={handleMachineInputChange(selectedMachine.id, 'price')}
+                        tooltip="Editable machine price for live payback comparison"
+                        step={1000}
+                      />
+                      <InputRow
+                        label="Operators/Line/Shift"
+                        value={selectedMachineInputs.operatorsPerLine}
+                        onChange={handleMachineInputChange(selectedMachine.id, 'operatorsPerLine')}
+                        tooltip={TOOLTIPS.operatorsAuto}
+                      />
+                      <InputRow
+                        label="Mins/Pallet (Target)"
+                        value={selectedMachineInputs.minsPerPallet}
+                        onChange={handleMachineInputChange(selectedMachine.id, 'minsPerPallet')}
+                        tooltip={TOOLTIPS.minsAuto}
+                        step={0.1}
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+          <div className={isSheetView ? 'lg:col-span-12' : 'lg:col-span-9'}>
+            {viewMode === 'numbers' && (
               <div className="space-y-5">
-                {/* Dark Header Banner - 4 Key Metrics */}
-                <div className="bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 rounded-2xl p-6">
-                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="rounded-2xl bg-gradient-to-r from-neutral-900 via-neutral-800 to-neutral-900 p-6">
+                  <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+                    <div>
+                      <div className="text-[10px] font-bold uppercase tracking-[0.22em] text-neutral-400">
+                        Active machine
+                      </div>
+                      <div className="text-sm font-semibold text-white">{selectedMachine.name}</div>
+                    </div>
+                    <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-medium text-neutral-300">
+                      Price: {formatCompactCurrency(machinePrice)}
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
                     <HeaderMetric
                       label="Payback"
                       value={paybackPeriodMonths}
@@ -487,17 +798,15 @@ export default function ROICalculator() {
                       value={Math.max(0, tenYearNetBenefit)}
                       format="currency"
                       tooltip={TOOLTIPS.tenYear}
-                      sub="Includes ₹1L/yr AMC"
+                      sub={`Includes ${RUPEE_SYMBOL}1L/yr AMC`}
                     />
                   </div>
                 </div>
 
-                {/* Two Column Detail Sections */}
-                <div className="grid grid-cols-2 gap-5">
-                  {/* Manpower Section */}
+                <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
                   <ComparisonCard
                     title="Manpower"
-                    icon={<Users className="w-4 h-4 text-neutral-500" />}
+                    icon={<Users className="h-4 w-4 text-neutral-500" />}
                     currentLabel="Current Staff"
                     currentValue={totalManualManpower}
                     ergoLabel="With ErgoPack"
@@ -507,15 +816,13 @@ export default function ROICalculator() {
                     highlightSuffix=" people"
                     format="number"
                   />
-
-                  {/* Time Efficiency Section */}
                   <ComparisonCard
                     title="Time Efficiency"
-                    icon={<Timer className="w-4 h-4 text-neutral-500" />}
+                    icon={<Timer className="h-4 w-4 text-neutral-500" />}
                     currentLabel="Current Time"
                     currentValue={manualMinsPerPallet}
                     ergoLabel="ErgoPack Time"
-                    ergoValue={autoMinsPerPallet}
+                    ergoValue={selectedMachineInputs.minsPerPallet}
                     highlightLabel="Hours Saved"
                     highlightValue={hoursSavedPerDay}
                     highlightSuffix=" hrs/day"
@@ -523,12 +830,10 @@ export default function ROICalculator() {
                   />
                 </div>
 
-                {/* Second Row - Labor Cost & Investment */}
-                <div className="grid grid-cols-2 gap-5">
-                  {/* Monthly Labor Cost */}
+                <div className="grid grid-cols-1 gap-5 xl:grid-cols-2">
                   <DetailSection
                     title="Monthly Labor Cost"
-                    icon={<TrendingUp className="w-4 h-4" />}
+                    icon={<TrendingUp className="h-4 w-4" />}
                   >
                     <DetailRow label="Current Cost" value={manualMonthlyCost} format="compact" />
                     <DetailRow label="ErgoPack Cost" value={autoMonthlyCost} format="compact" />
@@ -546,10 +851,9 @@ export default function ROICalculator() {
                     />
                   </DetailSection>
 
-                  {/* Payback Analysis */}
                   <DetailSection
                     title="Payback Analysis"
-                    icon={<IndianRupee className="w-4 h-4" />}
+                    icon={<IndianRupee className="h-4 w-4" />}
                   >
                     <DetailRow
                       label="Payback Period"
@@ -568,58 +872,58 @@ export default function ROICalculator() {
                   </DetailSection>
                 </div>
 
-                {/* Third Row - Strapping Waste Savings */}
-                <div className="bg-gradient-to-br from-emerald-50 to-teal-50 border-2 border-emerald-200 rounded-xl p-5">
-                  <div className="flex items-center gap-2 mb-4">
-                    <Zap className="w-4 h-4 text-emerald-600" />
-                    <h3 className="text-xs font-bold text-emerald-700 uppercase tracking-wider">
+                <div className="rounded-xl border-2 border-emerald-200 bg-gradient-to-br from-emerald-50 to-teal-50 p-5">
+                  <div className="mb-4 flex items-center gap-2">
+                    <Zap className="h-4 w-4 text-emerald-600" />
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-emerald-700">
                       Strapping Waste Savings
                     </h3>
                     <InfoTooltip content={TOOLTIPS.strappingWaste} />
                   </div>
-                  <div className="grid grid-cols-3 gap-4">
-                    <div className="bg-white/60 rounded-lg p-3">
-                      <div className="text-xs text-emerald-600 font-medium mb-1">Daily</div>
+                  <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+                    <div className="rounded-lg bg-white/60 p-3">
+                      <div className="mb-1 text-xs font-medium text-emerald-600">Daily</div>
                       <div className="text-lg font-bold text-emerald-700">
-                        {formatCompact(dailyStrappingWasteSavings)}
+                        {formatCompactCurrency(dailyStrappingWasteSavings)}
                       </div>
                     </div>
-                    <div className="bg-white/60 rounded-lg p-3">
-                      <div className="text-xs text-emerald-600 font-medium mb-1">Monthly</div>
+                    <div className="rounded-lg bg-white/60 p-3">
+                      <div className="mb-1 text-xs font-medium text-emerald-600">Monthly</div>
                       <div className="text-lg font-bold text-emerald-700">
-                        {formatCompact(monthlyStrappingWasteSavings)}
+                        {formatCompactCurrency(monthlyStrappingWasteSavings)}
                       </div>
                     </div>
-                    <div className="bg-white/60 rounded-lg p-3">
-                      <div className="text-xs text-emerald-600 font-medium mb-1">Annual</div>
+                    <div className="rounded-lg bg-white/60 p-3">
+                      <div className="mb-1 text-xs font-medium text-emerald-600">Annual</div>
                       <div className="text-lg font-bold text-emerald-700">
-                        {formatCompact(annualStrappingWasteSavings)}
+                        {formatCompactCurrency(annualStrappingWasteSavings)}
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            ) : (
+            )}
+
+            {viewMode === 'visuals' && (
               <div className="space-y-5">
-                {/* Main Chart */}
-                <div className="bg-white border border-neutral-200 rounded-2xl p-6">
-                  <div className="flex flex-col sm:flex-row justify-between items-start gap-4 mb-4">
+                <div className="rounded-2xl border border-neutral-200 bg-white p-6">
+                  <div className="mb-4 flex flex-col items-start justify-between gap-4 sm:flex-row">
                     <div>
                       <h3 className="text-lg font-bold text-neutral-800">
                         10-Year Cost Projection
                       </h3>
                       <div className="text-xs text-neutral-500">
-                        Cumulative expenditure comparison
+                        Cumulative expenditure comparison for {selectedMachine.name}
                       </div>
                     </div>
-                    <div className="text-right bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-xl px-5 py-3 min-w-[200px] border border-emerald-200">
-                      <div className="text-xs text-emerald-700 uppercase tracking-wider font-semibold">
+                    <div className="min-w-[200px] rounded-xl border border-emerald-200 bg-gradient-to-br from-emerald-50 to-emerald-100 px-5 py-3 text-right">
+                      <div className="text-xs font-semibold uppercase tracking-wider text-emerald-700">
                         {hoveredYear !== null ? `Year ${hoveredYear} Savings` : 'Hover for savings'}
                       </div>
-                      <div className="text-2xl sm:text-3xl font-black text-emerald-600 mt-1">
+                      <div className="mt-1 text-2xl font-black text-emerald-600 sm:text-3xl">
                         {hoveredSavings !== null
                           ? formatCurrency(Math.max(0, hoveredSavings))
-                          : '—'}
+                          : '--'}
                       </div>
                     </div>
                   </div>
@@ -655,7 +959,9 @@ export default function ROICalculator() {
                           tick={{ fill: '#6b7280', fontSize: 11 }}
                           axisLine={false}
                           tickLine={false}
-                          tickFormatter={(v) => `₹${(v / 100000).toFixed(0)}L`}
+                          tickFormatter={(value) =>
+                            `${RUPEE_SYMBOL}${(value / 100000).toFixed(0)}L`
+                          }
                           width={60}
                         />
                         <RechartsTooltip
@@ -693,36 +999,44 @@ export default function ROICalculator() {
                   </div>
                 </div>
 
-                {/* Tapered Ribbon Funnel */}
                 <TaperedRibbonFunnel stages={funnelStages} />
 
-                {/* Cost Comparison Bar */}
                 <CostComparisonBar
                   manualCost={manualMonthlyCost}
                   ergoCost={autoMonthlyCost}
-                  formatCompact={formatCompact}
+                  formatCompact={formatCompactCurrency}
                 />
 
-                {/* Summary Stats */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
                   <StatCard
                     label="Monthly Savings"
-                    value={formatCompact(monthlyLabourSavings)}
+                    value={formatCompactCurrency(monthlyLabourSavings)}
                     highlight
                   />
-                  <StatCard label="AMC/Year" value="₹1.00 L" sub="From Year 2" />
+                  <StatCard label="AMC/Year" value={`${RUPEE_SYMBOL}1.00 L`} sub="From Year 2" />
                   <StatCard
                     label="5-Year Benefit"
-                    value={formatCompact(Math.max(0, fiveYearNetBenefit))}
+                    value={formatCompactCurrency(Math.max(0, fiveYearNetBenefit))}
                     highlight
                   />
                   <StatCard
                     label="10-Year Benefit"
-                    value={formatCompact(Math.max(0, tenYearNetBenefit))}
+                    value={formatCompactCurrency(Math.max(0, tenYearNetBenefit))}
                     highlight
                   />
                 </div>
               </div>
+            )}
+
+            {viewMode === 'sheet' && (
+              <SpreadsheetView
+                comparisonMachines={comparisonMachines}
+                selectedMachineId={selectedMachineId}
+                onSelectMachine={setSelectedMachineId}
+                sharedInputs={sharedInputs}
+                onSharedInputChange={sharedInputHandlers}
+                onMachineInputChange={handleMachineInputChange}
+              />
             )}
           </div>
         </div>
@@ -730,8 +1044,452 @@ export default function ROICalculator() {
     </div>
   );
 }
+function SpreadsheetView({
+  comparisonMachines,
+  selectedMachineId,
+  onSelectMachine,
+  sharedInputs,
+  onSharedInputChange,
+  onMachineInputChange,
+}: SpreadsheetViewProps) {
+  const currentMetrics = comparisonMachines[0]?.metrics;
 
-// Tapered Ribbon Funnel Component - SVG based, mobile-responsive
+  if (!currentMetrics) {
+    return null;
+  }
+
+  const sharedRows: {
+    key: SharedInputField;
+    label: string;
+    hint: string;
+    step?: number;
+    value: number;
+  }[] = [
+    {
+      key: 'numLines',
+      label: 'Production Lines',
+      hint: 'Applies to every machine column',
+      value: sharedInputs.numLines,
+    },
+    {
+      key: 'manualPeoplePerLine',
+      label: 'Workers / Line / Shift',
+      hint: 'Manual staffing baseline',
+      value: sharedInputs.manualPeoplePerLine,
+    },
+    {
+      key: 'shiftsPerDay',
+      label: 'Shifts / Day',
+      hint: 'Shared operating schedule',
+      value: sharedInputs.shiftsPerDay,
+    },
+    {
+      key: 'monthlyCTC',
+      label: `Monthly CTC (${RUPEE_SYMBOL})`,
+      hint: 'Loaded monthly manpower cost',
+      value: sharedInputs.monthlyCTC,
+    },
+    {
+      key: 'palletsPerShiftLine',
+      label: 'Pallets / Shift / Line',
+      hint: 'Daily throughput driver',
+      value: sharedInputs.palletsPerShiftLine,
+    },
+    {
+      key: 'manualMinsPerPallet',
+      label: 'Manual Mins / Pallet',
+      hint: 'Current process time',
+      step: 0.5,
+      value: sharedInputs.manualMinsPerPallet,
+    },
+  ];
+
+  const machineRows: {
+    key: MachineInputField;
+    label: string;
+    hint: string;
+    step?: number;
+    getValue: (entry: ComparisonMachine) => number;
+  }[] = [
+    {
+      key: 'price',
+      label: 'Machine Price',
+      hint: 'Editable for proposal alignment',
+      step: 1000,
+      getValue: (entry) => entry.inputs.price,
+    },
+    {
+      key: 'operatorsPerLine',
+      label: 'Operators / Line / Shift',
+      hint: 'Machine-side manpower assumption',
+      getValue: (entry) => entry.inputs.operatorsPerLine,
+    },
+    {
+      key: 'minsPerPallet',
+      label: 'Target Mins / Pallet',
+      hint: 'Machine-side cycle time',
+      step: 0.1,
+      getValue: (entry) => entry.inputs.minsPerPallet,
+    },
+  ];
+
+  const outputRows: {
+    label: string;
+    hint: string;
+    currentValue: number | string;
+    currentFormat?: SheetFormat;
+    machineValue: (entry: ComparisonMachine) => number | string;
+    machineFormat?: SheetFormat;
+    highlight?: boolean;
+  }[] = [
+    {
+      label: 'Total Manpower',
+      hint: 'People scheduled across lines and shifts',
+      currentValue: currentMetrics.totalManualManpower,
+      currentFormat: 'number',
+      machineValue: (entry) => entry.metrics.totalAutoManpower,
+      machineFormat: 'number',
+    },
+    {
+      label: 'Time Per Pallet',
+      hint: 'Manual vs machine cycle time',
+      currentValue: sharedInputs.manualMinsPerPallet,
+      currentFormat: 'decimal',
+      machineValue: (entry) => entry.inputs.minsPerPallet,
+      machineFormat: 'decimal',
+    },
+    {
+      label: 'Daily Strapping Hours',
+      hint: 'Current process vs machine process',
+      currentValue: currentMetrics.manualStrappingHoursPerDay,
+      currentFormat: 'decimal',
+      machineValue: (entry) => entry.metrics.autoStrappingHoursPerDay,
+      machineFormat: 'decimal',
+    },
+    {
+      label: 'Staff Freed',
+      hint: 'Redeployable manpower',
+      currentValue: '--',
+      currentFormat: 'text',
+      machineValue: (entry) => entry.metrics.manpowerReduction,
+      machineFormat: 'number',
+      highlight: true,
+    },
+    {
+      label: 'Hours Saved / Day',
+      hint: 'Daily time released',
+      currentValue: '--',
+      currentFormat: 'text',
+      machineValue: (entry) => entry.metrics.hoursSavedPerDay,
+      machineFormat: 'decimal',
+      highlight: true,
+    },
+    {
+      label: 'Monthly Labour Cost',
+      hint: 'Manual baseline vs machine-side spend',
+      currentValue: currentMetrics.manualMonthlyCost,
+      currentFormat: 'compact',
+      machineValue: (entry) => entry.metrics.autoMonthlyCost,
+      machineFormat: 'compact',
+    },
+    {
+      label: 'Monthly Labour Savings',
+      hint: 'Direct manpower savings',
+      currentValue: '--',
+      currentFormat: 'text',
+      machineValue: (entry) => entry.metrics.monthlyLabourSavings,
+      machineFormat: 'compact',
+      highlight: true,
+    },
+    {
+      label: 'Monthly Waste Savings',
+      hint: 'Strapping waste avoided',
+      currentValue: '--',
+      currentFormat: 'text',
+      machineValue: (entry) => entry.metrics.monthlyStrappingWasteSavings,
+      machineFormat: 'compact',
+      highlight: true,
+    },
+    {
+      label: 'Monthly Total Savings',
+      hint: 'Labour plus waste savings',
+      currentValue: '--',
+      currentFormat: 'text',
+      machineValue: (entry) => entry.metrics.monthlyTotalSavings,
+      machineFormat: 'compact',
+      highlight: true,
+    },
+    {
+      label: 'Payback Period',
+      hint: 'Months to recover machine investment',
+      currentValue: '--',
+      currentFormat: 'text',
+      machineValue: (entry) => entry.metrics.paybackPeriodMonths,
+      machineFormat: 'decimal',
+      highlight: true,
+    },
+    {
+      label: 'Annual Savings',
+      hint: 'Gross annual saving before AMC',
+      currentValue: '--',
+      currentFormat: 'text',
+      machineValue: (entry) => entry.metrics.annualTotalSavings,
+      machineFormat: 'compact',
+      highlight: true,
+    },
+    {
+      label: 'Net Annual After AMC',
+      hint: 'Annual saving after year-2 AMC',
+      currentValue: '--',
+      currentFormat: 'text',
+      machineValue: (entry) => entry.metrics.netAnnualSavingsAfterAMC,
+      machineFormat: 'compact',
+      highlight: true,
+    },
+    {
+      label: '5-Year Benefit',
+      hint: 'Net value over five years',
+      currentValue: '--',
+      currentFormat: 'text',
+      machineValue: (entry) => entry.metrics.fiveYearNetBenefit,
+      machineFormat: 'compact',
+      highlight: true,
+    },
+    {
+      label: '10-Year Benefit',
+      hint: 'Net value over ten years',
+      currentValue: '--',
+      currentFormat: 'text',
+      machineValue: (entry) => entry.metrics.tenYearNetBenefit,
+      machineFormat: 'compact',
+      highlight: true,
+    },
+  ];
+
+  return (
+    <div className="space-y-4">
+      <div className="rounded-2xl border border-neutral-200 bg-white shadow-sm">
+        <div className="flex flex-col gap-3 border-b border-neutral-200 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <h3 className="text-lg font-bold text-neutral-900">Live Comparison Sheet</h3>
+            <p className="text-sm text-neutral-500">
+              Edit any shared input or machine column. Numbers and charts update instantly.
+            </p>
+          </div>
+          <div className="rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-xs font-semibold text-emerald-700">
+            Click a machine column to make it the active Numbers / Charts view
+          </div>
+        </div>
+
+        <div className="overflow-x-auto">
+          <table className="min-w-[1120px] w-full border-separate border-spacing-0">
+            <thead className="sticky top-0 z-30">
+              <tr>
+                <th className="sticky left-0 z-30 min-w-[260px] border-b border-r border-neutral-200 bg-neutral-950 px-4 py-4 text-left text-xs font-bold uppercase tracking-[0.22em] text-white">
+                  Metric
+                </th>
+                <th className="min-w-[210px] border-b border-r border-neutral-200 bg-neutral-950 px-4 py-4 text-left">
+                  <div className="text-xs font-bold uppercase tracking-[0.22em] text-neutral-400">
+                    Current Process
+                  </div>
+                  <div className="mt-1 text-sm font-semibold text-white">Manual baseline</div>
+                </th>
+                {comparisonMachines.map((entry) => {
+                  const selected = entry.machine.id === selectedMachineId;
+
+                  return (
+                    <th
+                      key={entry.machine.id}
+                      className={`min-w-[220px] border-b border-r border-neutral-200 px-4 py-4 text-left ${
+                        selected ? 'bg-emerald-950/95' : 'bg-neutral-950'
+                      }`}
+                    >
+                      <button
+                        type="button"
+                        onClick={() => onSelectMachine(entry.machine.id)}
+                        className="w-full text-left"
+                      >
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="text-xs font-bold uppercase tracking-[0.22em] text-neutral-400">
+                            Machine
+                          </div>
+                          {selected && (
+                            <span className="rounded-full bg-emerald-400/20 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-emerald-200">
+                              Selected
+                            </span>
+                          )}
+                        </div>
+                        <div className="mt-1 text-sm font-semibold text-white">
+                          {entry.machine.name}
+                        </div>
+                        <div className="mt-2 text-xs text-neutral-300">
+                          Price: {formatCompactCurrency(entry.inputs.price)}
+                        </div>
+                      </button>
+                    </th>
+                  );
+                })}
+              </tr>
+            </thead>
+
+            <tbody>
+              <SheetSectionRow title="Shared Inputs" />
+              {sharedRows.map((row) => (
+                <tr key={row.key}>
+                  <SheetMetricCell label={row.label} hint={row.hint} />
+                  <SheetInputCell
+                    value={row.value}
+                    onChange={onSharedInputChange[row.key]}
+                    step={row.step}
+                    note="Editable baseline"
+                  />
+                  {comparisonMachines.map((entry) => (
+                    <SheetDisplayCell
+                      key={`${row.key}-${entry.machine.id}`}
+                      value={row.value}
+                      format={row.key === 'manualMinsPerPallet' ? 'decimal' : 'number'}
+                      note="Shared"
+                      muted
+                      selected={entry.machine.id === selectedMachineId}
+                    />
+                  ))}
+                </tr>
+              ))}
+
+              <SheetSectionRow title="Machine Inputs" />
+              {machineRows.map((row) => (
+                <tr key={row.key}>
+                  <SheetMetricCell label={row.label} hint={row.hint} />
+                  <SheetDisplayCell value="--" format="text" note="Set per machine" muted />
+                  {comparisonMachines.map((entry) => (
+                    <SheetInputCell
+                      key={`${row.key}-${entry.machine.id}`}
+                      value={row.getValue(entry)}
+                      onChange={onMachineInputChange(entry.machine.id, row.key)}
+                      step={row.step}
+                      note="Editable"
+                      selected={entry.machine.id === selectedMachineId}
+                      onFocus={() => onSelectMachine(entry.machine.id)}
+                    />
+                  ))}
+                </tr>
+              ))}
+
+              <SheetSectionRow title="Live Outputs" />
+              {outputRows.map((row) => (
+                <tr key={row.label}>
+                  <SheetMetricCell label={row.label} hint={row.hint} />
+                  <SheetDisplayCell
+                    value={row.currentValue}
+                    format={row.currentFormat}
+                    muted={row.currentValue === '--'}
+                  />
+                  {comparisonMachines.map((entry) => (
+                    <SheetDisplayCell
+                      key={`${row.label}-${entry.machine.id}`}
+                      value={row.machineValue(entry)}
+                      format={row.machineFormat}
+                      highlight={row.highlight}
+                      selected={entry.machine.id === selectedMachineId}
+                    />
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SheetSectionRow({ title }: { title: string }) {
+  return (
+    <tr>
+      <td
+        colSpan={MACHINES.length + 2}
+        className="border-b border-t border-neutral-200 bg-neutral-100 px-4 py-2 text-left text-[11px] font-bold uppercase tracking-[0.22em] text-neutral-600"
+      >
+        {title}
+      </td>
+    </tr>
+  );
+}
+
+function SheetMetricCell({ label, hint }: { label: string; hint: string }) {
+  return (
+    <td className="sticky left-0 z-10 min-w-[260px] border-b border-r border-neutral-200 bg-white px-4 py-3 align-top">
+      <div className="text-sm font-semibold text-neutral-900">{label}</div>
+      <div className="mt-1 text-xs text-neutral-500">{hint}</div>
+    </td>
+  );
+}
+
+function SheetDisplayCell({
+  value,
+  format = 'number',
+  note,
+  highlight = false,
+  selected = false,
+  muted = false,
+}: SheetDisplayCellProps) {
+  return (
+    <td
+      className={`border-b border-r border-neutral-200 px-4 py-3 align-top ${
+        selected ? 'bg-emerald-50/60' : 'bg-white'
+      }`}
+    >
+      <div
+        className={`text-sm font-semibold ${
+          muted ? 'text-neutral-400' : highlight ? 'text-emerald-700' : 'text-neutral-900'
+        }`}
+      >
+        {formatSheetValue(value, format)}
+      </div>
+      {note && <div className="mt-1 text-[11px] text-neutral-400">{note}</div>}
+    </td>
+  );
+}
+
+function SheetInputCell({
+  value,
+  onChange,
+  step = 1,
+  note,
+  selected = false,
+  onFocus,
+}: SheetInputCellProps) {
+  const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
+    onFocus?.();
+    setTimeout(() => {
+      event.target.select();
+    }, 0);
+  };
+
+  return (
+    <td
+      className={`border-b border-r border-neutral-200 px-4 py-3 align-top ${
+        selected ? 'bg-emerald-50/60' : 'bg-white'
+      }`}
+    >
+      <input
+        type="number"
+        value={value}
+        onChange={onChange}
+        onFocus={handleFocus}
+        min={0}
+        step={step}
+        inputMode="decimal"
+        className={`w-full rounded-lg border px-3 py-2 text-right text-sm font-semibold text-neutral-900 outline-none transition-all ${
+          selected
+            ? 'border-emerald-300 bg-white focus:ring-2 focus:ring-emerald-200'
+            : 'border-neutral-200 bg-neutral-50 focus:ring-2 focus:ring-neutral-200'
+        }`}
+      />
+      {note && <div className="mt-1 text-[11px] text-neutral-400">{note}</div>}
+    </td>
+  );
+}
 function TaperedRibbonFunnel({
   stages,
 }: {
@@ -743,72 +1501,60 @@ function TaperedRibbonFunnel({
     displayValue?: string | number;
   }[];
 }) {
-  // Calculate ribbon paths - DRAMATIC taper from left (big) to right (small)
   const paths = useMemo(() => {
     const width = 1000;
     const height = 400;
     const cols = stages.length;
     const step = width / cols;
-    const x = Array.from({ length: cols + 1 }, (_, i) => i * step);
-
-    // Create a dramatic taper: starts very thick (350), ends thin (60)
+    const x = Array.from({ length: cols + 1 }, (_, index) => index * step);
     const startThickness = 350;
     const endThickness = 60;
 
-    // Linear interpolation for each boundary
-    const tB = x.map((_, i) => {
-      const ratio = i / (x.length - 1);
+    const thicknessBoundaries = x.map((_, index) => {
+      const ratio = index / (x.length - 1);
       return startThickness - (startThickness - endThickness) * ratio;
     });
 
-    // Generate ribbon path with bezier curves
-    const ribbonPath = (tBoundary: number[], yCenter: number, scale: number) => {
-      const n = x.length;
-      const scaledT = tBoundary.map((t) => t * scale);
-      const top = scaledT.map((th) => yCenter - th / 2);
-      const bot = scaledT.map((th) => yCenter + th / 2);
-      const midX = (i: number) => (x[i] + x[i + 1]) / 2;
+    const ribbonPath = (boundaries: number[], centerY: number, scale: number) => {
+      const scaledThickness = boundaries.map((value) => value * scale);
+      const top = scaledThickness.map((value) => centerY - value / 2);
+      const bottom = scaledThickness.map((value) => centerY + value / 2);
+      const midX = (index: number) => (x[index] + x[index + 1]) / 2;
 
-      let d = `M ${x[0]} ${top[0]}`;
-      for (let i = 0; i < n - 1; i++) {
-        const mx = midX(i);
-        d += ` C ${mx} ${top[i]} ${mx} ${top[i + 1]} ${x[i + 1]} ${top[i + 1]}`;
+      let path = `M ${x[0]} ${top[0]}`;
+      for (let index = 0; index < x.length - 1; index += 1) {
+        const mid = midX(index);
+        path += ` C ${mid} ${top[index]} ${mid} ${top[index + 1]} ${x[index + 1]} ${top[index + 1]}`;
       }
-      d += ` L ${x[n - 1]} ${bot[n - 1]}`;
-      for (let i = n - 2; i >= 0; i--) {
-        const mx = midX(i);
-        d += ` C ${mx} ${bot[i + 1]} ${mx} ${bot[i]} ${x[i]} ${bot[i]}`;
+      path += ` L ${x[x.length - 1]} ${bottom[bottom.length - 1]}`;
+      for (let index = x.length - 2; index >= 0; index -= 1) {
+        const mid = midX(index);
+        path += ` C ${mid} ${bottom[index + 1]} ${mid} ${bottom[index]} ${x[index]} ${bottom[index]}`;
       }
-      d += ' Z';
-      return d;
+      path += ' Z';
+      return path;
     };
 
     const baseY = height / 2;
     return {
-      back: ribbonPath(tB, baseY - 10, 1.0),
-      mid: ribbonPath(tB, baseY + 5, 0.75),
-      front: ribbonPath(tB, baseY + 18, 0.5),
-      x,
-      step,
-      height,
+      back: ribbonPath(thicknessBoundaries, baseY - 10, 1),
+      mid: ribbonPath(thicknessBoundaries, baseY + 5, 0.75),
+      front: ribbonPath(thicknessBoundaries, baseY + 18, 0.5),
     };
   }, [stages]);
 
   return (
     <div
-      className="relative bg-white border border-neutral-200 rounded-2xl overflow-x-auto"
+      className="relative overflow-x-auto rounded-2xl border border-neutral-200 bg-white"
       style={{ minHeight: '280px' }}
     >
-      {/* Mobile hint */}
-      <div className="sm:hidden absolute top-2 right-2 text-[9px] text-neutral-400 z-20">
-        ← Scroll →
+      <div className="absolute right-2 top-2 z-20 text-[9px] text-neutral-400 sm:hidden">
+        {'<- Scroll ->'}
       </div>
 
-      {/* Container with minimum width for mobile scroll */}
       <div className="relative" style={{ minWidth: '700px' }}>
-        {/* SVG Ribbon - absolute positioned behind content */}
         <svg
-          className="absolute left-0 right-0 pointer-events-none"
+          className="pointer-events-none absolute left-0 right-0"
           style={{ top: '40px', height: '200px', width: '100%' }}
           viewBox="0 0 1000 400"
           preserveAspectRatio="none"
@@ -835,45 +1581,41 @@ function TaperedRibbonFunnel({
           <path d={paths.front} fill="url(#ribbonG3)" />
         </svg>
 
-        {/* Column Grid Overlay */}
         <div
           className="relative z-10 grid"
           style={{ gridTemplateColumns: `repeat(${stages.length}, 1fr)` }}
         >
-          {stages.map((stage, i) => (
+          {stages.map((stage, index) => (
             <div
-              key={i}
-              className="py-4 px-3 relative"
+              key={stage.name}
+              className="relative px-3 py-4"
               style={{
-                borderRight: i < stages.length - 1 ? '1px solid rgba(15,23,42,0.08)' : 'none',
+                borderRight: index < stages.length - 1 ? '1px solid rgba(15,23,42,0.08)' : 'none',
               }}
             >
-              {/* Top Label */}
-              <div className="flex items-center justify-center gap-1.5 mb-4">
-                <div className="w-6 h-6 rounded-lg bg-blue-500 flex items-center justify-center text-white font-bold text-xs shadow-sm">
-                  {i + 1}
+              <div className="mb-4 flex items-center justify-center gap-1.5">
+                <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-blue-500 text-xs font-bold text-white shadow-sm">
+                  {index + 1}
                 </div>
                 <span className="text-xs font-semibold text-neutral-700">{stage.name}</span>
               </div>
 
-              {/* Middle Space - where ribbon passes through */}
-              <div className="h-[150px] flex flex-col items-center justify-center gap-2">
-                <div className="px-3 py-1.5 rounded-full bg-white/95 shadow-md border border-blue-200 text-blue-700 text-xs font-bold">
+              <div className="flex h-[150px] flex-col items-center justify-center gap-2">
+                <div className="rounded-full border border-blue-200 bg-white/95 px-3 py-1.5 text-xs font-bold text-blue-700 shadow-md">
                   {stage.pct}
                 </div>
                 {stage.pct2 && (
-                  <div className="px-2 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-semibold">
+                  <div className="rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 text-[10px] font-semibold text-emerald-700">
                     {stage.pct2}
                   </div>
                 )}
               </div>
 
-              {/* Bottom Value */}
-              <div className="flex flex-col items-center justify-center mt-3">
-                <span className="text-lg sm:text-xl font-bold text-neutral-900">
+              <div className="mt-3 flex flex-col items-center justify-center">
+                <span className="text-lg font-bold text-neutral-900 sm:text-xl">
                   {stage.displayValue !== undefined
                     ? stage.displayValue
-                    : '₹' + Math.round(stage.value).toLocaleString('en-IN')}
+                    : formatCurrency(stage.value)}
                 </span>
               </div>
             </div>
@@ -884,7 +1626,6 @@ function TaperedRibbonFunnel({
   );
 }
 
-// Cost Comparison - Horizontal Bar Chart
 function CostComparisonBar({
   manualCost,
   ergoCost,
@@ -892,41 +1633,40 @@ function CostComparisonBar({
 }: {
   manualCost: number;
   ergoCost: number;
-  formatCompact: (val: number) => string;
+  formatCompact: (value: number) => string;
 }) {
-  const maxCost = Math.max(manualCost, ergoCost);
-  const manualWidth = (manualCost / maxCost) * 100;
-  const ergoWidth = (ergoCost / maxCost) * 100;
-  const savingsPct = ((manualCost - ergoCost) / manualCost) * 100;
+  const maxCost = Math.max(manualCost, ergoCost, 1);
+  const manualWidth = manualCost > 0 ? (manualCost / maxCost) * 100 : 0;
+  const ergoWidth = ergoCost > 0 ? (ergoCost / maxCost) * 100 : 0;
+  const savingsPct = manualCost > 0 ? ((manualCost - ergoCost) / manualCost) * 100 : 0;
 
   return (
-    <div className="bg-neutral-50 rounded-xl p-4">
-      <div className="flex items-center justify-between mb-3">
-        <h4 className="text-xs font-bold text-neutral-600 uppercase tracking-wider">
+    <div className="rounded-xl bg-neutral-50 p-4">
+      <div className="mb-3 flex items-center justify-between">
+        <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-600">
           Monthly Cost Comparison
         </h4>
-        <div className="px-2 py-1 bg-emerald-100 border border-emerald-300 rounded-full text-xs font-bold text-emerald-600">
+        <div className="rounded-full border border-emerald-300 bg-emerald-100 px-2 py-1 text-xs font-bold text-emerald-600">
           {savingsPct.toFixed(0)}% Saved
         </div>
       </div>
       <div className="space-y-3">
-        {/* Manual */}
         <div className="flex items-center gap-3">
-          <div className="w-20 text-xs text-neutral-600 text-right">Manual</div>
-          <div className="flex-1 h-7 bg-neutral-200 rounded-lg overflow-hidden">
+          <div className="w-20 text-right text-xs text-neutral-600">Manual</div>
+          <div className="h-7 flex-1 overflow-hidden rounded-lg bg-neutral-200">
             <div
-              className="h-full bg-gradient-to-r from-neutral-500 to-neutral-400 rounded-lg transition-all duration-500"
+              className="h-full rounded-lg bg-gradient-to-r from-neutral-500 to-neutral-400 transition-all duration-500"
               style={{ width: `${manualWidth}%` }}
             />
           </div>
           <div className="w-16 text-sm font-bold text-neutral-700">{formatCompact(manualCost)}</div>
         </div>
-        {/* ErgoPack */}
+
         <div className="flex items-center gap-3">
-          <div className="w-20 text-xs text-emerald-700 text-right font-medium">ErgoPack</div>
-          <div className="flex-1 h-7 bg-neutral-200 rounded-lg overflow-hidden">
+          <div className="w-20 text-right text-xs font-medium text-emerald-700">ErgoPack</div>
+          <div className="h-7 flex-1 overflow-hidden rounded-lg bg-neutral-200">
             <div
-              className="h-full bg-gradient-to-r from-emerald-500 to-emerald-400 rounded-lg transition-all duration-500"
+              className="h-full rounded-lg bg-gradient-to-r from-emerald-500 to-emerald-400 transition-all duration-500"
               style={{ width: `${ergoWidth}%` }}
             />
           </div>
@@ -937,23 +1677,34 @@ function CostComparisonBar({
   );
 }
 
-// Header Metric for dark banner
-function HeaderMetric({ label, value, format, suffix = '', tooltip, sub }: any) {
+function HeaderMetric({
+  label,
+  value,
+  format,
+  suffix = '',
+  tooltip,
+  sub,
+}: {
+  label: string;
+  value: number;
+  format: 'currency' | 'number' | 'decimal';
+  suffix?: string;
+  tooltip: string;
+  sub?: string;
+}) {
   return (
     <div className="text-center">
-      <div className="text-[10px] text-neutral-400 uppercase tracking-wider mb-1 flex items-center justify-center gap-1">
+      <div className="mb-1 flex items-center justify-center gap-1 text-[10px] uppercase tracking-wider text-neutral-400">
         {label} <InfoTooltip content={tooltip} />
       </div>
-      <div className="text-lg sm:text-2xl lg:text-3xl font-black text-emerald-400 tracking-tight text-nowrap truncate max-w-full">
+      <div className="max-w-full truncate text-lg font-black tracking-tight text-emerald-400 text-nowrap sm:text-2xl lg:text-3xl">
         <AnimatedValue value={value} format={format} />
         {suffix}
       </div>
-      {sub && <div className="text-[9px] text-neutral-500 mt-0.5">{sub}</div>}
+      {sub && <div className="mt-0.5 text-[9px] text-neutral-500">{sub}</div>}
     </div>
   );
 }
-
-// Detail Section
 function DetailSection({
   title,
   icon,
@@ -964,8 +1715,8 @@ function DetailSection({
   children: React.ReactNode;
 }) {
   return (
-    <div className="bg-neutral-50 rounded-xl p-5">
-      <h3 className="text-xs font-bold text-neutral-600 uppercase tracking-wider mb-4 flex items-center gap-2">
+    <div className="rounded-xl bg-neutral-50 p-5">
+      <h3 className="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-neutral-600">
         {icon}
         {title}
       </h3>
@@ -974,45 +1725,62 @@ function DetailSection({
   );
 }
 
-// Detail Row
-function DetailRow({ label, value, suffix = '', format = 'number', highlight = false }: any) {
-  const formatValue = (val: number) => {
-    if (format === 'compact') {
-      if (val >= 10000000) return '₹' + (val / 10000000).toFixed(2) + ' Cr';
-      if (val >= 100000) return '₹' + (val / 100000).toFixed(2) + ' L';
-      if (val >= 1000) return '₹' + (val / 1000).toFixed(1) + 'K';
-      return '₹' + val.toLocaleString('en-IN');
-    }
-    if (format === 'decimal') return val.toFixed(1);
-    return Math.round(val).toLocaleString('en-IN');
-  };
+function DetailRow({
+  label,
+  value,
+  suffix = '',
+  format = 'number',
+  highlight = false,
+}: {
+  label: string;
+  value: number;
+  suffix?: string;
+  format?: 'number' | 'decimal' | 'compact';
+  highlight?: boolean;
+}) {
+  const formattedValue =
+    format === 'compact'
+      ? formatCompactCurrency(value)
+      : format === 'decimal'
+        ? value.toFixed(1)
+        : formatNumberValue(value);
 
   return (
-    <div className="flex justify-between items-center">
+    <div className="flex items-center justify-between">
       <span className="text-sm text-neutral-500">{label}</span>
       <span
         className={`text-sm font-semibold ${highlight ? 'text-emerald-600' : 'text-neutral-900'}`}
       >
-        {formatValue(value)}
+        {formattedValue}
         {suffix}
       </span>
     </div>
   );
 }
 
-function InputRow({ label, value, onChange, tooltip, step = 1 }: any) {
-  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
-    // Select all content on focus for easy editing
-    // Note: selectionStart/End don't work on type="number", so we use select()
+function InputRow({
+  label,
+  value,
+  onChange,
+  tooltip,
+  step = 1,
+}: {
+  label: string;
+  value: number;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  tooltip: string;
+  step?: number;
+}) {
+  const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
     setTimeout(() => {
-      e.target.select();
+      event.target.select();
     }, 0);
   };
 
   return (
     <div className="flex items-center justify-between gap-2">
-      <div className="flex items-center gap-1 flex-1 min-w-0">
-        <span className="text-sm text-neutral-600 truncate">{label}</span>
+      <div className="flex min-w-0 flex-1 items-center gap-1">
+        <span className="truncate text-sm text-neutral-600">{label}</span>
         <InfoTooltip content={tooltip} />
       </div>
       <input
@@ -1023,18 +1791,30 @@ function InputRow({ label, value, onChange, tooltip, step = 1 }: any) {
         min={0}
         step={step}
         inputMode="decimal"
-        className="w-20 sm:w-24 bg-white border border-neutral-200 rounded-lg px-3 py-2 text-neutral-900 text-sm font-semibold text-right focus:outline-none focus:ring-2 focus:ring-neutral-300 transition-all"
+        className="w-20 rounded-lg border border-neutral-200 bg-white px-3 py-2 text-right text-sm font-semibold text-neutral-900 transition-all focus:outline-none focus:ring-2 focus:ring-neutral-300 sm:w-24"
       />
     </div>
   );
 }
 
-function StatCard({ label, value, highlight, sub }: any) {
+function StatCard({
+  label,
+  value,
+  highlight,
+  sub,
+}: {
+  label: string;
+  value: string;
+  highlight?: boolean;
+  sub?: string;
+}) {
   return (
-    <div className="bg-neutral-50 rounded-lg p-3 text-center">
-      <div className="text-[10px] text-neutral-500 mb-1">{label}</div>
+    <div className="rounded-lg bg-neutral-50 p-3 text-center">
+      <div className="mb-1 text-[10px] text-neutral-500">{label}</div>
       <div
-        className={`text-sm sm:text-base font-bold truncate ${highlight ? 'text-emerald-600' : 'text-neutral-900'}`}
+        className={`truncate text-sm font-bold sm:text-base ${
+          highlight ? 'text-emerald-600' : 'text-neutral-900'
+        }`}
       >
         {value}
       </div>
@@ -1043,7 +1823,6 @@ function StatCard({ label, value, highlight, sub }: any) {
   );
 }
 
-// Comparison Card for Mobile Results
 function ComparisonCard({
   title,
   icon,
@@ -1055,43 +1834,48 @@ function ComparisonCard({
   highlightValue,
   highlightSuffix,
   format = 'number',
-}: any) {
-  const formatValue = (val: number) => {
-    if (format === 'decimal') return val.toFixed(1);
-    if (format === 'compact') {
-      if (val >= 100000) return (val / 100000).toFixed(2) + 'L';
-      return (val / 1000).toFixed(1) + 'K';
-    }
-    return val;
+}: {
+  title: string;
+  icon: React.ReactNode;
+  currentLabel: string;
+  currentValue: number;
+  ergoLabel: string;
+  ergoValue: number;
+  highlightLabel: string;
+  highlightValue: number | string;
+  highlightSuffix?: string;
+  format?: 'number' | 'decimal' | 'compact';
+}) {
+  const formatValue = (value: number) => {
+    if (format === 'decimal') return value.toFixed(1);
+    if (format === 'compact') return formatCompactCurrency(value);
+    return formatNumberValue(value);
   };
 
   return (
-    <div className="bg-neutral-50 rounded-xl overflow-hidden border border-neutral-100">
-      <div className="bg-neutral-100/50 px-4 py-3 flex items-center gap-2 border-b border-neutral-100">
+    <div className="overflow-hidden rounded-xl border border-neutral-100 bg-neutral-50">
+      <div className="flex items-center gap-2 border-b border-neutral-100 bg-neutral-100/50 px-4 py-3">
         {icon}
-        <h3 className="text-xs font-bold text-neutral-600 uppercase tracking-wider">{title}</h3>
+        <h3 className="text-xs font-bold uppercase tracking-wider text-neutral-600">{title}</h3>
       </div>
 
       <div className="grid grid-cols-2 divide-x divide-neutral-100">
-        {/* Current State */}
-        <div className="p-4 flex flex-col items-center text-center bg-white">
-          <span className="text-[10px] text-neutral-400 uppercase tracking-wide mb-1">
+        <div className="flex flex-col items-center bg-white p-4 text-center">
+          <span className="mb-1 text-[10px] uppercase tracking-wide text-neutral-400">
             {currentLabel}
           </span>
           <span className="text-lg font-bold text-neutral-700">{formatValue(currentValue)}</span>
         </div>
 
-        {/* ErgoPack State */}
-        <div className="p-4 flex flex-col items-center text-center bg-emerald-50/30">
-          <span className="text-[10px] text-emerald-600/80 uppercase tracking-wide mb-1">
+        <div className="flex flex-col items-center bg-emerald-50/30 p-4 text-center">
+          <span className="mb-1 text-[10px] uppercase tracking-wide text-emerald-600/80">
             {ergoLabel}
           </span>
           <span className="text-lg font-bold text-emerald-600">{formatValue(ergoValue)}</span>
         </div>
       </div>
 
-      {/* Improvement Highlight */}
-      <div className="bg-emerald-100/50 px-4 py-3 flex items-center justify-between">
+      <div className="flex items-center justify-between bg-emerald-100/50 px-4 py-3">
         <span className="text-xs font-semibold text-emerald-800">{highlightLabel}</span>
         <div className="flex items-center gap-1.5">
           <span className="text-sm font-bold text-emerald-700">
@@ -1099,7 +1883,7 @@ function ComparisonCard({
             {highlightSuffix}
           </span>
           {format === 'decimal' && (
-            <span className="text-[10px] bg-emerald-200 text-emerald-800 px-1.5 py-0.5 rounded-full font-bold">
+            <span className="rounded-full bg-emerald-200 px-1.5 py-0.5 text-[10px] font-bold text-emerald-800">
               SAVED
             </span>
           )}
