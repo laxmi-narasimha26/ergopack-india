@@ -71,6 +71,10 @@ const TIPS = {
   tenYear: 'Total saving over ten years, after subtracting the machine price and AMC from year 2.',
   machineCount:
     'How many machines this volume needs. One machine strapping at the rate shown can only cover so many pallets in a shift.',
+  hourlyDerivation:
+    'Every rupee figure below is built from this. Monthly salary divided by working days gives the day rate; divided by shift hours gives the hourly rate.',
+  labourGap:
+    'The difference between paying a full manual crew and paying one operator for the hours they actually run the machine. This is money leaving your account every month that ErgoPack would keep in it.',
 };
 
 function formatCompact(value: number) {
@@ -627,44 +631,105 @@ export default function ScenarioProposals() {
                   <IndianRupee className="h-3.5 w-3.5" />
                   Where the money goes every month
                 </h3>
+
+                {/* One worker's cost, spelled out — everything below builds on this */}
+                <div className="mb-4 rounded-lg bg-neutral-50 px-4 py-3">
+                  <div className="flex items-center text-[10px] font-bold uppercase tracking-widest text-neutral-500">
+                    What one worker costs you
+                    <InfoTooltip content={TIPS.hourlyDerivation} />
+                  </div>
+                  <div className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
+                    <span className="font-bold text-neutral-900">
+                      {formatFull(edited.monthlyCTC)}
+                    </span>
+                    <span className="text-neutral-400">a month ÷</span>
+                    <span className="font-bold text-neutral-900">
+                      {edited.workingDaysPerMonth} days
+                    </span>
+                    <span className="text-neutral-400">=</span>
+                    <span className="font-bold text-neutral-900">
+                      {RUPEE}
+                      {(results.hourlyRate * edited.shiftHours).toFixed(0)}
+                    </span>
+                    <span className="text-neutral-400">a day ÷</span>
+                    <span className="font-bold text-neutral-900">{edited.shiftHours} hrs</span>
+                    <span className="text-neutral-400">=</span>
+                    <span className="rounded bg-neutral-900 px-2 py-0.5 font-bold text-white">
+                      {RUPEE}
+                      {results.hourlyRate.toFixed(2)}/hour
+                    </span>
+                  </div>
+                </div>
+
                 <div className="space-y-3">
                   <CostRow
                     label="What you pay today"
-                    detail={`${results.manualPeople} people × ${formatFull(edited.monthlyCTC)} full salary`}
+                    detail={`${results.manualPeoplePerShift} people × ${edited.shifts} shifts = ${results.manualPeople} people, each on a full ${formatFull(edited.monthlyCTC)} salary`}
+                    workings={`${results.manualPeople} × ${formatFull(edited.monthlyCTC)}`}
                     amount={results.manualMonthly}
                     tip={TIPS.manualCost}
                     tone="bad"
                   />
                   <CostRow
                     label="What you'd pay with ErgoPack"
-                    detail={`${results.ergoPeople} operators × ${results.ergoHoursPerShift.toFixed(1)} hrs actually worked × ${edited.workingDaysPerMonth} days`}
+                    detail={`${results.ergoPeople} operators, each running the machine only ${results.ergoHoursPerShift.toFixed(2)} hrs a shift — you pay for those hours, not a full salary`}
+                    workings={`${results.ergoPeople} × ${results.ergoHoursPerShift.toFixed(2)} hrs × ${RUPEE}${results.hourlyRate.toFixed(2)} × ${edited.workingDaysPerMonth} days`}
                     amount={results.ergoMonthly}
                     tip={TIPS.ergoCost}
                     tone="good"
                   />
                   <CostRow
                     label="Strapping material saved"
-                    detail={`${RUPEE}${edited.wastePerPallet}/pallet less waste with calibrated tension`}
+                    detail={`${RUPEE}${edited.wastePerPallet} of strap saved on every pallet, thanks to calibrated repeatable tension`}
+                    workings={`${edited.palletsPerDay} pallets × ${RUPEE}${edited.wastePerPallet} × ${edited.workingDaysPerMonth} days`}
                     amount={results.wasteSavings}
                     tip={TIPS.wasteSaving}
                     tone="good"
                   />
 
+                  {/* The gap — stated as extra spend, which is how a buyer feels it */}
+                  <div className="rounded-lg border border-amber-300 bg-amber-50 px-4 py-3">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <div className="min-w-0">
+                        <div className="flex items-center text-sm font-semibold text-amber-900">
+                          Extra you spend on labour without ErgoPack
+                          <InfoTooltip content={TIPS.labourGap} />
+                        </div>
+                        <div className="mt-0.5 font-mono text-xs text-amber-800">
+                          {formatFull(results.manualMonthly)} − {formatFull(results.ergoMonthly)}
+                        </div>
+                      </div>
+                      <div className="text-lg font-bold tabular-nums text-amber-900">
+                        {formatFull(results.labourSavings)}
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="mt-4 rounded-xl border-2 border-emerald-500 bg-emerald-50 p-5">
                     <div className="flex flex-wrap items-end justify-between gap-3">
-                      <div>
+                      <div className="min-w-0">
                         <div className="flex items-center text-xs font-bold uppercase tracking-wider text-emerald-700">
                           Total monthly saving
                           <InfoTooltip content={TIPS.totalSaving} />
                         </div>
-                        <div className="mt-1 text-xs text-emerald-700/80">
-                          Labour {formatCompact(results.labourSavings)} + material{' '}
-                          {formatCompact(results.wasteSavings)}
+                        <div className="mt-1 font-mono text-xs text-emerald-800">
+                          {formatFull(results.labourSavings)} labour +{' '}
+                          {formatFull(results.wasteSavings)} material
                         </div>
                       </div>
                       <div className="text-3xl font-black tabular-nums text-emerald-700">
                         {formatFull(results.totalMonthlySavings)}
                       </div>
+                    </div>
+                    <div className="mt-3 border-t border-emerald-200 pt-3 font-mono text-xs text-emerald-800">
+                      Payback: {formatFull(results.capex)} ÷{' '}
+                      {formatFull(results.totalMonthlySavings)} a month ={' '}
+                      <span className="font-bold">
+                        {Number.isFinite(results.paybackMonths)
+                          ? results.paybackMonths.toFixed(1)
+                          : '—'}{' '}
+                        months
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -680,20 +745,23 @@ export default function ScenarioProposals() {
                   <TimeCard
                     label="Strapping work today"
                     value={`${results.manualManhoursPerShift.toFixed(1)} hrs`}
-                    sub={`man-hours per shift across ${results.manualPeoplePerShift} people`}
+                    sub={`man-hours a shift, shared across ${results.manualPeoplePerShift} people`}
+                    workings={`${Math.round(results.palletsPerShift)} pallets × ${edited.manualMinsPerPallet} min ÷ 60`}
                     tip={TIPS.manualHours}
                   />
                   <TimeCard
                     label="With ErgoPack"
                     value={`${results.ergoHoursPerShift.toFixed(1)} hrs`}
                     sub="one operator, same output"
+                    workings={`${Math.round(results.palletsPerShift)} pallets × ${edited.ergoMinsPerPallet} min ÷ 60`}
                     tip={TIPS.ergoHours}
                     good
                   />
                   <TimeCard
                     label="Operator freed for"
                     value={`${results.bufferHoursPerShift.toFixed(1)} hrs`}
-                    sub={`per shift · ${Math.round(results.bufferHoursPerMonth)} hrs a month`}
+                    sub={`every shift · ${Math.round(results.bufferHoursPerMonth)} hrs a month`}
+                    workings={`${edited.shiftHours} hr shift − ${results.ergoHoursPerShift.toFixed(1)} hrs worked`}
                     tip={TIPS.buffer}
                     accent
                   />
@@ -909,24 +977,32 @@ function Stat2({
 function CostRow({
   label,
   detail,
+  workings,
   amount,
   tone,
   tip,
 }: {
   label: string;
   detail: string;
+  /** The literal sum behind the amount, shown in monospace so it reads as arithmetic. */
+  workings?: string;
   amount: number;
   tone: 'good' | 'bad';
   tip?: string;
 }) {
   return (
     <div className="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-neutral-200 px-4 py-3">
-      <div className="min-w-0">
+      <div className="min-w-0 flex-1">
         <div className="flex items-center text-sm font-semibold text-neutral-900">
           {label}
           {tip && <InfoTooltip content={tip} />}
         </div>
         <div className="mt-0.5 text-xs text-neutral-500">{detail}</div>
+        {workings && (
+          <div className="mt-1.5 inline-block rounded bg-neutral-100 px-2 py-1 font-mono text-[11px] text-neutral-700">
+            {workings} = {formatFull(amount)}
+          </div>
+        )}
       </div>
       <div
         className={`text-lg font-bold tabular-nums ${
@@ -943,6 +1019,7 @@ function TimeCard({
   label,
   value,
   sub,
+  workings,
   good,
   accent,
   tip,
@@ -950,6 +1027,8 @@ function TimeCard({
   label: string;
   value: string;
   sub: string;
+  /** The literal sum behind the figure, so the customer can check it. */
+  workings?: string;
   good?: boolean;
   accent?: boolean;
   tip?: string;
@@ -976,6 +1055,11 @@ function TimeCard({
         {value}
       </div>
       <div className="mt-1 text-[11px] text-neutral-500">{sub}</div>
+      {workings && (
+        <div className="mt-2 rounded bg-white/70 px-2 py-1 font-mono text-[10px] text-neutral-600">
+          {workings}
+        </div>
+      )}
     </div>
   );
 }
