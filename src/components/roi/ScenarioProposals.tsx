@@ -178,11 +178,27 @@ function compute(input: Editable) {
 }
 
 export default function ScenarioProposals() {
-  const [tier, setTier] = useState<ScenarioTier>('fast');
-  const [activeId, setActiveId] = useState<string>('700-fast');
+  const [tier, setTier] = useState<ScenarioTier>('three');
+  const [activeId, setActiveId] = useState<string>('700-three');
   const [edited, setEdited] = useState<Editable>(() => toEditable(ROI_SCENARIOS[0]));
   const [dirty, setDirty] = useState(false);
   const [showAdvanced, setShowAdvanced] = useState(false);
+  const [finderInput, setFinderInput] = useState('');
+
+  /**
+   * Given a daily pallet count, pick the scenario whose volume is closest.
+   * Ties break toward the faster payback, which is the stronger pitch.
+   */
+  const finderMatch = useMemo(() => {
+    const wanted = Number.parseFloat(finderInput);
+    if (!Number.isFinite(wanted) || wanted <= 0) return null;
+    return [...ROI_SCENARIOS].sort((a, b) => {
+      const da = Math.abs(a.palletsPerDay - wanted);
+      const db = Math.abs(b.palletsPerDay - wanted);
+      if (da !== db) return da - db;
+      return a.paybackMonths - b.paybackMonths;
+    })[0];
+  }, [finderInput]);
 
   const active = useMemo(
     () => ROI_SCENARIOS.find((s) => s.id === activeId) ?? ROI_SCENARIOS[0],
@@ -230,11 +246,12 @@ export default function ScenarioProposals() {
             Ready-Made Proposals
           </div>
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            Find your payback in 10 seconds
+            Pick your payback. See the machine.
           </h1>
           <div className="mt-3 max-w-2xl text-neutral-600">
-            Pick the volume closest to yours for an instant answer — then change any number to match
-            your floor exactly. Everything updates as you type. Hover any{' '}
+            Choose how fast you want the machine to pay for itself, and we&apos;ll show the pallet
+            volume that gets you there on each model — with the full cost breakdown. Change any
+            number to match your floor exactly. Hover any{' '}
             <span className="inline-flex translate-y-0.5 items-center">
               <InfoTooltip content="Like this — every field on this page explains itself." />
             </span>{' '}
@@ -242,65 +259,172 @@ export default function ScenarioProposals() {
           </div>
         </div>
 
-        {/* Tier toggle */}
-        <div className="mb-6 flex flex-wrap items-center gap-3">
-          <div className="inline-flex rounded-lg bg-neutral-100 p-1">
-            {(['fast', 'standard'] as ScenarioTier[]).map((t) => (
+        {/* Quick finder — type a pallet count, get the best-fitting proposal */}
+        <div className="mb-8 rounded-2xl border-2 border-neutral-900 bg-neutral-900 p-5 text-white">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end">
+            <div className="flex-1">
+              <label
+                htmlFor="quick-finder"
+                className="mb-1.5 block text-xs font-bold uppercase tracking-wider text-neutral-400"
+              >
+                Customer straps how many pallets a day?
+              </label>
+              <input
+                id="quick-finder"
+                type="number"
+                min={1}
+                placeholder="e.g. 300"
+                value={finderInput}
+                onFocus={(e) => e.currentTarget.select()}
+                onChange={(e) => setFinderInput(e.target.value)}
+                className="w-full rounded-lg border-2 border-neutral-700 bg-neutral-800 px-4 py-3 text-2xl font-black text-white outline-none transition-colors placeholder:text-neutral-600 focus:border-[#C8102E]"
+              />
+            </div>
+            <div className="sm:w-[58%]">
+              {finderMatch ? (
+                <button
+                  onClick={() => {
+                    setTier(finderMatch.tier);
+                    setActiveId(finderMatch.id);
+                  }}
+                  className="w-full rounded-lg bg-[#C8102E] px-4 py-3 text-left transition-colors hover:bg-red-700"
+                >
+                  <div className="text-[10px] font-bold uppercase tracking-widest text-white/70">
+                    Best fit — click to open this proposal
+                  </div>
+                  <div className="mt-0.5 text-lg font-black">
+                    {finderMatch.machineName} · pays back in {finderMatch.paybackMonths} months
+                  </div>
+                  <div className="text-xs text-white/80">
+                    Saves {formatCompact(finderMatch.totalMonthlySavings)} a month at{' '}
+                    {finderMatch.palletsPerDay} pallets/day
+                  </div>
+                </button>
+              ) : (
+                <div className="rounded-lg border border-dashed border-neutral-700 px-4 py-3 text-sm text-neutral-400">
+                  Type a daily pallet count and we&apos;ll pick the machine and payback that fit
+                  best.
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* STEP 1 — payback target */}
+        <div className="mb-6">
+          <div className="mb-3 flex items-center gap-2">
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-neutral-900 text-[11px] font-bold text-white">
+              1
+            </span>
+            <span className="text-sm font-bold text-neutral-900">
+              How fast should it pay for itself?
+            </span>
+          </div>
+          <div className="grid grid-cols-2 gap-3 sm:max-w-md">
+            {(['three', 'six'] as ScenarioTier[]).map((t) => (
               <button
                 key={t}
                 onClick={() => switchTier(t)}
-                className={`rounded-md px-4 py-2 text-xs font-bold uppercase tracking-wider transition-all ${
+                className={`rounded-xl border-2 px-4 py-3 text-left transition-all ${
                   tier === t
-                    ? 'bg-neutral-900 text-white shadow-sm'
-                    : 'text-neutral-600 hover:text-neutral-900'
+                    ? 'border-[#C8102E] bg-[#C8102E] text-white shadow-md'
+                    : 'border-neutral-200 bg-white text-neutral-700 hover:border-neutral-400'
                 }`}
               >
-                {t === 'fast' ? 'High Volume' : 'Standard Volume'}
+                <div className="text-xl font-black">{t === 'three' ? '3 months' : '6 months'}</div>
+                <div
+                  className={`mt-0.5 text-[11px] ${
+                    tier === t ? 'text-white/80' : 'text-neutral-500'
+                  }`}
+                >
+                  {t === 'three' ? 'Fastest return' : 'Lower volume needed'}
+                </div>
               </button>
             ))}
           </div>
-          <span className="text-xs text-neutral-500">
-            {tier === 'fast'
-              ? 'Fastest payback — for busy dispatch floors'
-              : 'Typical mid-size operation'}
-          </span>
         </div>
 
-        {/* Machine cards */}
-        <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-3">
-          {visible.map((scenario) => {
-            const selected = scenario.id === active.id;
-            return (
-              <button
-                key={scenario.id}
-                onClick={() => setActiveId(scenario.id)}
-                className={`rounded-2xl border-2 p-5 text-left transition-all ${
-                  selected
-                    ? 'border-[#C8102E] bg-red-50/40 shadow-md'
-                    : 'border-neutral-200 bg-white hover:border-neutral-300'
-                }`}
-              >
-                <div className="mb-1 text-sm font-bold">{scenario.machineName}</div>
-                <div className="mb-4 text-xs text-neutral-500">
-                  {formatCompact(scenario.price)} · {scenario.palletsPerDay} pallets/day
-                </div>
-                <div className="text-3xl font-black tabular-nums text-[#C8102E]">
-                  {scenario.paybackMonths}
-                  <span className="ml-1 text-base font-bold">mo</span>
-                </div>
-                <div className="mt-1 text-[11px] font-semibold uppercase tracking-wider text-neutral-500">
-                  Payback period
-                </div>
-                <div className="mt-4 border-t border-neutral-200 pt-3 text-xs text-neutral-600">
-                  Saves{' '}
-                  <span className="font-bold text-emerald-700">
-                    {formatCompact(scenario.totalMonthlySavings)}
-                  </span>{' '}
-                  every month
-                </div>
-              </button>
-            );
-          })}
+        {/* STEP 2 — machine */}
+        <div className="mb-8">
+          <div className="mb-3 flex items-center gap-2">
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-neutral-900 text-[11px] font-bold text-white">
+              2
+            </span>
+            <span className="text-sm font-bold text-neutral-900">
+              Which machine? Each needs a different volume to hit that payback.
+            </span>
+          </div>
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+            {visible.map((scenario) => {
+              const selected = scenario.id === active.id;
+              return (
+                <button
+                  key={scenario.id}
+                  onClick={() => setActiveId(scenario.id)}
+                  className={`rounded-2xl border-2 p-5 text-left transition-all ${
+                    selected
+                      ? 'border-[#C8102E] bg-red-50/40 shadow-md'
+                      : 'border-neutral-200 bg-white hover:border-neutral-300'
+                  }`}
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <div>
+                      <div className="text-sm font-bold">{scenario.machineName}</div>
+                      <div className="text-xs text-neutral-500">
+                        {formatCompact(scenario.price)}
+                      </div>
+                    </div>
+                    {selected && (
+                      <span className="shrink-0 rounded-full bg-[#C8102E] px-2 py-0.5 text-[9px] font-bold uppercase tracking-wider text-white">
+                        Selected
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="mt-4 rounded-lg bg-neutral-900 px-3 py-2.5 text-center">
+                    <div className="text-[9px] font-bold uppercase tracking-widest text-neutral-400">
+                      Works if you strap
+                    </div>
+                    <div className="text-2xl font-black tabular-nums text-white">
+                      {scenario.palletsPerDay}
+                    </div>
+                    <div className="text-[10px] text-neutral-400">pallets a day</div>
+                  </div>
+
+                  <div className="mt-3 space-y-1 text-xs">
+                    <div className="flex justify-between">
+                      <span className="text-neutral-500">Pays back in</span>
+                      <span className="font-bold text-[#C8102E]">
+                        {scenario.paybackMonths} months
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-neutral-500">You save</span>
+                      <span className="font-bold text-emerald-700">
+                        {formatCompact(scenario.totalMonthlySavings)}/mo
+                      </span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-neutral-500">Staff freed</span>
+                      <span className="font-bold text-neutral-800">
+                        {scenario.manualPeople - scenario.ergoPeople} people
+                      </span>
+                    </div>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* STEP 3 */}
+        <div className="mb-3 flex items-center gap-2">
+          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-neutral-900 text-[11px] font-bold text-white">
+            3
+          </span>
+          <span className="text-sm font-bold text-neutral-900">
+            Your proposal — edit anything on the left to match the customer&apos;s floor
+          </span>
         </div>
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">

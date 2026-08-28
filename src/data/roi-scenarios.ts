@@ -1,9 +1,8 @@
 /**
  * Pre-built ROI scenarios — ready-made proposals for sales.
  *
- * Instead of making a prospect sit through the full calculator, these are six
- * worked cases (three machines x two volume tiers) that can be quoted directly
- * off the pallet count a customer gives on a call.
+ * Two payback targets (3-month and 6-month) for each of the three machines,
+ * so a pallet count on a call maps straight to a quotable proposal.
  *
  * Model assumptions (single source of truth — keep in sync with the numbers below):
  *   - Manual strapping: 4.5 min/pallet. With ErgoPack: 1.5 min/pallet.
@@ -18,6 +17,9 @@
  *   - Strapping waste saved: ₹12/pallet. AMC ₹1,00,000/year from year 2.
  *   - Buffer hours are reported as freed capacity, NOT added to the savings
  *     total — that time is already reflected in the labour-cost gap.
+ *
+ * Note: crew size only moves in 2-person steps, so payback lands near — not
+ * exactly on — 3.0 and 6.0 months. Figures below are the closest honest fit.
  */
 
 export const SCENARIO_ASSUMPTIONS = {
@@ -33,18 +35,16 @@ export const SCENARIO_ASSUMPTIONS = {
   amcPerYear: 100000,
 } as const;
 
-export type ScenarioTier = 'fast' | 'standard';
+/** Which payback target a scenario is built around. */
+export type ScenarioTier = 'three' | 'six';
 
 export interface RoiScenario {
   id: string;
   machineId: '700' | 'go' | '726x';
   machineName: string;
   machineHref: string;
-  /** One-line reason this machine suits this volume. */
   positioning: string;
   tier: ScenarioTier;
-  /** Headline used on the card, e.g. "Pays back in ~2.1 months". */
-  paybackLabel: string;
 
   price: number;
   palletsPerDay: number;
@@ -77,48 +77,29 @@ export interface RoiScenario {
   tenYear: number;
 }
 
+const POSITIONING = {
+  '700':
+    'Hand-crank, no battery, no power needed — the lowest-cost entry into automated strapping.',
+  go: 'Battery-powered and joystick-driven — faster cycles and less operator effort.',
+  '726x':
+    'Li-ion ChainLance with Siemens touchscreen and line laser — built for continuous high-volume dispatch.',
+} as const;
+
+const HREF = {
+  '700': '/products/700',
+  go: '/products/go',
+  '726x': '/products/726x',
+} as const;
+
 export const ROI_SCENARIOS: RoiScenario[] = [
+  /* ---------------------------- 3-MONTH PAYBACK ---------------------------- */
   {
-    id: '700-fast',
+    id: '700-three',
     machineId: '700',
     machineName: 'ErgoPack 700',
-    machineHref: '/products/700',
-    positioning:
-      'Hand-crank, no battery, no power needed — the lowest-cost entry into automated strapping.',
-    tier: 'fast',
-    paybackLabel: 'Pays back in ~2 months',
-    price: 1000000,
-    palletsPerDay: 450,
-    palletsPerShift: 150,
-    shifts: 3,
-    manualPeople: 18,
-    manualPeoplePerShift: 6,
-    ergoPeople: 3,
-    ergoPeoplePerShift: 1,
-    manualManhoursPerShift: 11.25,
-    ergoHoursPerShift: 3.8,
-    bufferHoursPerShift: 4.2,
-    bufferHoursPerMonth: 332,
-    manualMonthly: 360000,
-    ergoMonthly: 28125,
-    labourSavings: 331875,
-    wasteSavings: 140400,
-    totalMonthlySavings: 472275,
-    paybackMonths: 2.1,
-    annualSavings: 5667300,
-    netAnnualAfterAmc: 5567300,
-    fiveYear: 26936500,
-    tenYear: 54773000,
-  },
-  {
-    id: '700-standard',
-    machineId: '700',
-    machineName: 'ErgoPack 700',
-    machineHref: '/products/700',
-    positioning:
-      'Hand-crank, no battery, no power needed — the lowest-cost entry into automated strapping.',
-    tier: 'standard',
-    paybackLabel: 'Pays back in ~3 months',
+    machineHref: HREF['700'],
+    positioning: POSITIONING['700'],
+    tier: 'three',
     price: 1000000,
     palletsPerDay: 300,
     palletsPerShift: 100,
@@ -143,46 +124,12 @@ export const ROI_SCENARIOS: RoiScenario[] = [
     tenYear: 35882000,
   },
   {
-    id: 'go-fast',
+    id: 'go-three',
     machineId: 'go',
     machineName: 'ErgoPack GO',
-    machineHref: '/products/go',
-    positioning:
-      'Battery-powered and joystick-driven — faster cycles and less operator effort at mid volumes.',
-    tier: 'fast',
-    paybackLabel: 'Pays back in ~2.5 months',
-    price: 1500000,
-    palletsPerDay: 600,
-    palletsPerShift: 200,
-    shifts: 3,
-    manualPeople: 24,
-    manualPeoplePerShift: 8,
-    ergoPeople: 3,
-    ergoPeoplePerShift: 1,
-    manualManhoursPerShift: 15.0,
-    ergoHoursPerShift: 5.0,
-    bufferHoursPerShift: 3.0,
-    bufferHoursPerMonth: 234,
-    manualMonthly: 480000,
-    ergoMonthly: 37500,
-    labourSavings: 442500,
-    wasteSavings: 187200,
-    totalMonthlySavings: 629700,
-    paybackMonths: 2.4,
-    annualSavings: 7556400,
-    netAnnualAfterAmc: 7456400,
-    fiveYear: 35882000,
-    tenYear: 73164000,
-  },
-  {
-    id: 'go-standard',
-    machineId: 'go',
-    machineName: 'ErgoPack GO',
-    machineHref: '/products/go',
-    positioning:
-      'Battery-powered and joystick-driven — faster cycles and less operator effort at mid volumes.',
-    tier: 'standard',
-    paybackLabel: 'Pays back in ~3 months',
+    machineHref: HREF.go,
+    positioning: POSITIONING.go,
+    tier: 'three',
     price: 1500000,
     palletsPerDay: 450,
     palletsPerShift: 150,
@@ -192,8 +139,8 @@ export const ROI_SCENARIOS: RoiScenario[] = [
     ergoPeople: 3,
     ergoPeoplePerShift: 1,
     manualManhoursPerShift: 11.25,
-    ergoHoursPerShift: 3.8,
-    bufferHoursPerShift: 4.2,
+    ergoHoursPerShift: 3.75,
+    bufferHoursPerShift: 4.25,
     bufferHoursPerMonth: 332,
     manualMonthly: 360000,
     ergoMonthly: 28125,
@@ -207,14 +154,12 @@ export const ROI_SCENARIOS: RoiScenario[] = [
     tenYear: 54273000,
   },
   {
-    id: '726x-fast',
+    id: '726x-three',
     machineId: '726x',
     machineName: 'ErgoPack 726X Li',
-    machineHref: '/products/726x',
-    positioning:
-      'Li-ion ChainLance with Siemens touchscreen and line laser — built for continuous high-volume dispatch.',
-    tier: 'fast',
-    paybackLabel: 'Pays back in under 4 months',
+    machineHref: HREF['726x'],
+    positioning: POSITIONING['726x'],
+    tier: 'three',
     price: 3500000,
     palletsPerDay: 900,
     palletsPerShift: 300,
@@ -238,45 +183,96 @@ export const ROI_SCENARIOS: RoiScenario[] = [
     fiveYear: 52773000,
     tenYear: 108946000,
   },
+
+  /* ---------------------------- 6-MONTH PAYBACK ---------------------------- */
   {
-    id: '726x-standard',
+    id: '700-six',
+    machineId: '700',
+    machineName: 'ErgoPack 700',
+    machineHref: HREF['700'],
+    positioning: POSITIONING['700'],
+    tier: 'six',
+    price: 1000000,
+    palletsPerDay: 150,
+    palletsPerShift: 50,
+    shifts: 3,
+    manualPeople: 6,
+    manualPeoplePerShift: 2,
+    ergoPeople: 3,
+    ergoPeoplePerShift: 1,
+    manualManhoursPerShift: 3.75,
+    ergoHoursPerShift: 1.25,
+    bufferHoursPerShift: 6.75,
+    bufferHoursPerMonth: 527,
+    manualMonthly: 120000,
+    ergoMonthly: 9375,
+    labourSavings: 110625,
+    wasteSavings: 46800,
+    totalMonthlySavings: 157425,
+    paybackMonths: 6.4,
+    annualSavings: 1889100,
+    netAnnualAfterAmc: 1789100,
+    fiveYear: 8045500,
+    tenYear: 16991000,
+  },
+  {
+    id: 'go-six',
+    machineId: 'go',
+    machineName: 'ErgoPack GO',
+    machineHref: HREF.go,
+    positioning: POSITIONING.go,
+    tier: 'six',
+    price: 1500000,
+    palletsPerDay: 180,
+    palletsPerShift: 60,
+    shifts: 3,
+    manualPeople: 12,
+    manualPeoplePerShift: 4,
+    ergoPeople: 3,
+    ergoPeoplePerShift: 1,
+    manualManhoursPerShift: 4.5,
+    ergoHoursPerShift: 1.5,
+    bufferHoursPerShift: 6.5,
+    bufferHoursPerMonth: 507,
+    manualMonthly: 240000,
+    ergoMonthly: 11250,
+    labourSavings: 228750,
+    wasteSavings: 56160,
+    totalMonthlySavings: 284910,
+    paybackMonths: 5.3,
+    annualSavings: 3418920,
+    netAnnualAfterAmc: 3318920,
+    fiveYear: 15194600,
+    tenYear: 31789200,
+  },
+  {
+    id: '726x-six',
     machineId: '726x',
     machineName: 'ErgoPack 726X Li',
-    machineHref: '/products/726x',
-    positioning:
-      'Li-ion ChainLance with Siemens touchscreen and line laser — built for continuous high-volume dispatch.',
-    tier: 'standard',
-    paybackLabel: 'Pays back in under 6 months',
+    machineHref: HREF['726x'],
+    positioning: POSITIONING['726x'],
+    tier: 'six',
     price: 3500000,
-    palletsPerDay: 600,
-    palletsPerShift: 200,
+    palletsPerDay: 480,
+    palletsPerShift: 160,
     shifts: 3,
     manualPeople: 24,
     manualPeoplePerShift: 8,
     ergoPeople: 3,
     ergoPeoplePerShift: 1,
-    manualManhoursPerShift: 15.0,
-    ergoHoursPerShift: 5.0,
-    bufferHoursPerShift: 3.0,
-    bufferHoursPerMonth: 234,
+    manualManhoursPerShift: 12.0,
+    ergoHoursPerShift: 4.0,
+    bufferHoursPerShift: 4.0,
+    bufferHoursPerMonth: 312,
     manualMonthly: 480000,
-    ergoMonthly: 37500,
-    labourSavings: 442500,
-    wasteSavings: 187200,
-    totalMonthlySavings: 629700,
-    paybackMonths: 5.6,
-    annualSavings: 7556400,
-    netAnnualAfterAmc: 7456400,
-    fiveYear: 33882000,
-    tenYear: 71164000,
+    ergoMonthly: 30000,
+    labourSavings: 450000,
+    wasteSavings: 149760,
+    totalMonthlySavings: 599760,
+    paybackMonths: 5.8,
+    annualSavings: 7197120,
+    netAnnualAfterAmc: 7097120,
+    fiveYear: 32085600,
+    tenYear: 67571200,
   },
 ];
-
-/** Pick the recommended machine for a given daily pallet volume. */
-export function recommendMachine(palletsPerDay: number): RoiScenario {
-  const ordered = [...ROI_SCENARIOS].sort((a, b) => a.palletsPerDay - b.palletsPerDay);
-  return (
-    ordered.find((scenario) => palletsPerDay <= scenario.palletsPerDay) ??
-    ordered[ordered.length - 1]
-  );
-}
